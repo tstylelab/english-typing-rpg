@@ -100,12 +100,14 @@ type ReviewQueueEntry = {
 };
 
 type AutoPlaySource = 'all' | 'weak' | 'selected';
+type AutoPlaySequenceMode = 'normal' | 'exampleFirst' | 'exampleTextExample';
 
 type AutoPlaySettings = {
   source: AutoPlaySource;
   playText: boolean;
   playTranslation: boolean;
   playExample: boolean;
+  sequenceMode: AutoPlaySequenceMode;
   repeat: boolean;
   shuffle: boolean;
   playbackRatePercent: number;
@@ -1422,6 +1424,7 @@ const getDefaultAutoPlaySettings = (): AutoPlaySettings => ({
   playText: true,
   playTranslation: true,
   playExample: true,
+  sequenceMode: 'normal',
   repeat: false,
   shuffle: false,
   playbackRatePercent: 100,
@@ -1526,12 +1529,16 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
   const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'selected'
     ? typedValue.source
     : defaults.source;
+  const normalizedSequenceMode: AutoPlaySequenceMode = typedValue.sequenceMode === 'normal' || typedValue.sequenceMode === 'exampleFirst' || typedValue.sequenceMode === 'exampleTextExample'
+    ? typedValue.sequenceMode
+    : defaults.sequenceMode;
 
   return {
     source: normalizedSource,
     playText: typeof typedValue.playText === 'boolean' ? typedValue.playText : defaults.playText,
     playTranslation: typeof typedValue.playTranslation === 'boolean' ? typedValue.playTranslation : defaults.playTranslation,
     playExample: typeof typedValue.playExample === 'boolean' ? typedValue.playExample : defaults.playExample,
+    sequenceMode: normalizedSequenceMode,
     repeat: typeof typedValue.repeat === 'boolean' ? typedValue.repeat : defaults.repeat,
     shuffle: typeof typedValue.shuffle === 'boolean' ? typedValue.shuffle : defaults.shuffle,
     playbackRatePercent: Number.isFinite(typedValue.playbackRatePercent) ? Math.min(250, Math.max(50, Number(typedValue.playbackRatePercent))) : defaults.playbackRatePercent,
@@ -4573,6 +4580,40 @@ export default function App() {
           });
         };
 
+        if (autoPlaySettings.sequenceMode === 'exampleFirst' && autoPlaySettings.playExample && example) {
+          const speechConfig = getEnglishAutoPlaySpeechConfig();
+          pushEntry({
+            label: `例文: ${question.text}`,
+            text: example,
+            lang: speechConfig.lang,
+            voice: speechConfig.voice,
+            nowPlaying: {
+              questionText: question.text,
+              translation: question.translation,
+              basicMeaning: question.basicMeaning,
+              example,
+              activePart: 'example',
+            },
+          });
+        }
+
+        if (autoPlaySettings.sequenceMode === 'exampleTextExample' && autoPlaySettings.playExample && example) {
+          const speechConfig = getEnglishAutoPlaySpeechConfig();
+          pushEntry({
+            label: `例文: ${question.text}`,
+            text: example,
+            lang: speechConfig.lang,
+            voice: speechConfig.voice,
+            nowPlaying: {
+              questionText: question.text,
+              translation: question.translation,
+              basicMeaning: question.basicMeaning,
+              example,
+              activePart: 'example',
+            },
+          });
+        }
+
         if (autoPlaySettings.playText) {
           const speechConfig = getEnglishAutoPlaySpeechConfig();
           pushEntry({
@@ -4606,7 +4647,7 @@ export default function App() {
           });
         }
 
-        if (autoPlaySettings.playExample && example) {
+        if (autoPlaySettings.playExample && example && autoPlaySettings.sequenceMode !== 'exampleFirst') {
           const speechConfig = getEnglishAutoPlaySpeechConfig();
           pushEntry({
             label: `例文: ${question.text}`,
@@ -4874,6 +4915,23 @@ export default function App() {
                         />
                         <span>{item.label}</span>
                       </label>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-sm font-bold text-cyan-200">再生順</p>
+                  <div className="mt-3 grid gap-2 sm:grid-cols-3">
+                    {[
+                      { key: 'normal', label: '通常順', note: '用語→和訳→例文' },
+                      { key: 'exampleFirst', label: '例文を先に', note: '例文→用語→和訳' },
+                      { key: 'exampleTextExample', label: '例文で挟む', note: '例文→用語→例文' },
+                    ].map(option => (
+                      <button
+                        key={option.key}
+                        onClick={() => updateAutoPlaySetting('sequenceMode', option.key as AutoPlaySequenceMode)}
+                        className={`rounded-lg border px-3 py-2 text-left transition-colors ${autoPlaySettings.sequenceMode === option.key ? 'border-violet-300 bg-violet-500/20 text-violet-50' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
+                      >
+                        <span className="block text-sm font-bold">{option.label}</span>
+                        <span className="mt-1 block text-[11px] text-slate-400">{option.note}</span>
+                      </button>
                     ))}
                   </div>
                   <p className="mt-4 text-sm font-bold text-cyan-200">3. 間隔</p>
