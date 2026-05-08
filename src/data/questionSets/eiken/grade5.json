@@ -2,7 +2,7 @@
   "category": "eiken",
   "series": "grade5",
   "difficultyKey": "Eiken5",
-  "displayName": "??5?",
+  "displayName": "英検5級",
   "levels": {
     "1": [
       {
@@ -2013,563 +2013,693 @@
     "2": [
       {
         "text": "get up",
-        "translation": "起きる"
-      },
-      {
-        "text": "go to school",
-        "translation": "学校へ行く"
-      },
-      {
-        "text": "come home",
-        "translation": "家に帰ってくる"
-      },
-      {
-        "text": "look at",
-        "translation": "〜を見る (視線を向ける)"
-      },
-      {
-        "text": "listen to",
-        "translation": "〜を聞く (耳を傾ける)"
-      },
-      {
-        "text": "sit down",
-        "translation": "座る"
-      },
-      {
-        "text": "stand up",
-        "translation": "立つ"
-      },
-      {
-        "text": "write down",
-        "translation": "書き留める"
-      },
-      {
-        "text": "clean up",
-        "translation": "掃除する"
+        "translation": "起きる",
+        "exampleEn": "I get up at seven."
       },
       {
         "text": "wake up",
-        "translation": "目を覚ます"
+        "translation": "目を覚ます",
+        "exampleEn": "I wake up early on Sunday."
       },
       {
         "text": "go to bed",
-        "translation": "寝る"
+        "translation": "寝る",
+        "exampleEn": "I go to bed at nine."
       },
       {
         "text": "take a bath",
-        "translation": "お風呂に入る"
+        "translation": "お風呂に入る",
+        "exampleEn": "I take a bath after dinner."
       },
       {
-        "text": "have breakfast",
-        "translation": "朝食を食べる"
-      },
-      {
-        "text": "have lunch",
-        "translation": "昼食を食べる"
-      },
-      {
-        "text": "have dinner",
-        "translation": "夕食を食べる"
-      },
-      {
-        "text": "a cup of",
-        "translation": "一杯の"
-      },
-      {
-        "text": "a piece of",
-        "translation": "一枚の"
-      },
-      {
-        "text": "a lot of",
-        "translation": "たくさんの"
-      },
-      {
-        "text": "kind of",
-        "translation": "種類"
-      },
-      {
-        "text": "in front of",
-        "translation": "〜の前に"
-      },
-      {
-        "text": "next to",
-        "translation": "〜の隣に"
-      },
-      {
-        "text": "police officer",
-        "translation": "警察官"
-      },
-      {
-        "text": "flight attendant",
-        "translation": "客室乗務員"
-      },
-      {
-        "text": "ice cream",
-        "translation": "アイスクリーム"
-      },
-      {
-        "text": "living room",
-        "translation": "居間"
-      },
-      {
-        "text": "post office",
-        "translation": "郵便局"
-      },
-      {
-        "text": "police station",
-        "translation": "警察署"
-      },
-      {
-        "text": "department store",
-        "translation": "デパート"
-      },
-      {
-        "text": "United Kingdom",
-        "translation": "イギリス"
-      },
-      {
-        "text": "comic book",
-        "translation": "漫画本"
-      },
-      {
-        "text": "junior high school",
-        "translation": "中学校"
-      },
-      {
-        "text": "high school",
-        "translation": "高校"
-      },
-      {
-        "text": "elementary school",
-        "translation": "小学校"
-      },
-      {
-        "text": "station master",
-        "translation": "駅長"
-      },
-      {
-        "text": "bus stop",
-        "translation": "バス停"
-      },
-      {
-        "text": "train station",
-        "translation": "鉄道の駅"
-      },
-      {
-        "text": "traffic light",
-        "translation": "信号"
-      },
-      {
-        "text": "convenience store",
-        "translation": "コンビニ"
-      },
-      {
-        "text": "drug store",
-        "translation": "薬局"
-      },
-      {
-        "text": "book shop",
-        "translation": "本屋（shop）"
-      },
-      {
-        "text": "flower shop",
-        "translation": "花屋"
-      },
-      {
-        "text": "shoe shop",
-        "translation": "靴屋"
-      },
-      {
-        "text": "pet shop",
-        "translation": "ペットショップ"
-      },
-      {
-        "text": "toy shop",
-        "translation": "おもちゃ屋"
-      },
-      {
-        "text": "cake shop",
-        "translation": "ケーキ屋"
-      },
-      {
-        "text": "hot dog",
-        "translation": "ホットドッグ"
-      },
-      {
-        "text": "french fries",
-        "translation": "フライドポテト"
-      },
-      {
-        "text": "apple pie",
-        "translation": "アップルパイ"
-      },
-      {
-        "text": "orange juice",
-        "translation": "オレンジジュース"
-      },
-      {
-        "text": "school lunch",
-        "translation": "給食"
-      },
-      {
-        "text": "lunch box",
-        "translation": "弁当箱"
-      },
-      {
-        "text": "supper time",
-        "translation": "夕食の時間"
-      },
-      {
-        "text": "dining room",
-        "translation": "食堂"
-      },
-      {
-        "text": "bath room",
-        "translation": "浴室、風呂場"
-      },
-      {
-        "text": "music room",
-        "translation": "音楽室"
-      },
-      {
-        "text": "science room",
-        "translation": "理科室"
-      },
-      {
-        "text": "computer room",
-        "translation": "コンピュータ室"
-      },
-      {
-        "text": "staff room",
-        "translation": "職員室"
-      },
-      {
-        "text": "nurse's office",
-        "translation": "保健室"
-      },
-      {
-        "text": "video game",
-        "translation": "テレビゲーム"
-      },
-      {
-        "text": "card game",
-        "translation": "カードゲーム"
-      },
-      {
-        "text": "board game",
-        "translation": "ボードゲーム"
-      },
-      {
-        "text": "pop music",
-        "translation": "ポップ音楽"
-      },
-      {
-        "text": "rock music",
-        "translation": "ロック音楽"
-      },
-      {
-        "text": "classical music",
-        "translation": "クラシック音楽"
-      },
-      {
-        "text": "jazz music",
-        "translation": "ジャズ音楽"
-      },
-      {
-        "text": "folk song",
-        "translation": "フォークソング"
-      },
-      {
-        "text": "over there",
-        "translation": "あそこに"
-      },
-      {
-        "text": "right here",
-        "translation": "ちょうどここに"
-      },
-      {
-        "text": "all day",
-        "translation": "一日中"
-      },
-      {
-        "text": "all night",
-        "translation": "一晩中"
-      },
-      {
-        "text": "all the time",
-        "translation": "ずっと"
-      },
-      {
-        "text": "for a long time",
-        "translation": "長い間"
-      },
-      {
-        "text": "once a week",
-        "translation": "週に一度"
-      },
-      {
-        "text": "twice a month",
-        "translation": "月に二度"
-      },
-      {
-        "text": "three times a year",
-        "translation": "年に三度"
-      },
-      {
-        "text": "every morning",
-        "translation": "毎朝"
-      },
-      {
-        "text": "last night",
-        "translation": "昨夜"
-      },
-      {
-        "text": "this morning",
-        "translation": "今朝"
-      },
-      {
-        "text": "tomorrow morning",
-        "translation": "明日の朝"
-      },
-      {
-        "text": "day after tomorrow",
-        "translation": "明後日"
-      },
-      {
-        "text": "day before yesterday",
-        "translation": "一昨日"
-      },
-      {
-        "text": "next week",
-        "translation": "来週"
-      },
-      {
-        "text": "last month",
-        "translation": "先月"
-      },
-      {
-        "text": "next year",
-        "translation": "来年"
-      },
-      {
-        "text": "T-shirt",
-        "translation": "Tシャツ"
-      },
-      {
-        "text": "take a picture",
-        "translation": "写真を撮る"
-      },
-      {
-        "text": "go home",
-        "translation": "家へ帰る"
-      },
-      {
-        "text": "go to the park",
-        "translation": "公園に行く"
-      },
-      {
-        "text": "play the piano",
-        "translation": "ピアノを弾く"
-      },
-      {
-        "text": "play the guitar",
-        "translation": "ギターを弾く"
-      },
-      {
-        "text": "play soccer",
-        "translation": "サッカーをする"
-      },
-      {
-        "text": "play baseball",
-        "translation": "野球をする"
-      },
-      {
-        "text": "play tennis",
-        "translation": "テニスをする"
-      },
-      {
-        "text": "listen to music",
-        "translation": "音楽を聴く"
-      },
-      {
-        "text": "watch TV",
-        "translation": "テレビを見る"
-      },
-      {
-        "text": "read a book",
-        "translation": "本を読む"
-      },
-      {
-        "text": "write a letter",
-        "translation": "手紙を書く"
-      },
-      {
-        "text": "study English",
-        "translation": "英語を勉強する"
-      },
-      {
-        "text": "cook dinner",
-        "translation": "夕食を作る"
-      },
-      {
-        "text": "help my mother",
-        "translation": "母を手伝う"
-      },
-      {
-        "text": "do my homework",
-        "translation": "宿題をする"
+        "text": "brush my teeth",
+        "translation": "歯をみがく",
+        "exampleEn": "I brush my teeth every morning."
       },
       {
         "text": "wash my hands",
-        "translation": "手を洗う"
+        "translation": "手を洗う",
+        "exampleEn": "I wash my hands before lunch."
+      },
+      {
+        "text": "have breakfast",
+        "translation": "朝食を食べる",
+        "exampleEn": "I have breakfast at home."
+      },
+      {
+        "text": "have lunch",
+        "translation": "昼食を食べる",
+        "exampleEn": "We have lunch at school."
+      },
+      {
+        "text": "have dinner",
+        "translation": "夕食を食べる",
+        "exampleEn": "I have dinner with my family."
+      },
+      {
+        "text": "drink water",
+        "translation": "水を飲む",
+        "exampleEn": "I drink water after soccer practice."
+      },
+      {
+        "text": "cook dinner",
+        "translation": "夕食を作る",
+        "exampleEn": "My father cooks dinner on Friday."
+      },
+      {
+        "text": "make breakfast",
+        "translation": "朝食を作る",
+        "exampleEn": "I make breakfast on Sunday."
       },
       {
         "text": "clean my room",
-        "translation": "部屋を掃除する"
+        "translation": "部屋を掃除する",
+        "exampleEn": "I clean my room on Saturday."
+      },
+      {
+        "text": "clean up",
+        "translation": "片づける",
+        "exampleEn": "Let us clean up the classroom."
+      },
+      {
+        "text": "help my mother",
+        "translation": "母を手伝う",
+        "exampleEn": "I help my mother after school."
+      },
+      {
+        "text": "help my father",
+        "translation": "父を手伝う",
+        "exampleEn": "I help my father in the garden."
+      },
+      {
+        "text": "do my homework",
+        "translation": "宿題をする",
+        "exampleEn": "I do my homework after dinner."
+      },
+      {
+        "text": "study English",
+        "translation": "英語を勉強する",
+        "exampleEn": "I study English every day."
+      },
+      {
+        "text": "read a book",
+        "translation": "本を読む",
+        "exampleEn": "I read a book at night."
+      },
+      {
+        "text": "write a letter",
+        "translation": "手紙を書く",
+        "exampleEn": "I write a letter to my friend."
       },
       {
         "text": "use a computer",
-        "translation": "コンピュータを使う"
+        "translation": "コンピューターを使う",
+        "exampleEn": "I use a computer at school."
       },
       {
-        "text": "make a cake",
-        "translation": "ケーキを作る"
+        "text": "take a picture",
+        "translation": "写真を撮る",
+        "exampleEn": "I take a picture of my dog."
       },
       {
-        "text": "speak English",
-        "translation": "英語を話す"
+        "text": "watch TV",
+        "translation": "テレビを見る",
+        "exampleEn": "I watch TV after dinner."
       },
       {
-        "text": "swim in the sea",
-        "translation": "海で泳ぐ"
+        "text": "listen to music",
+        "translation": "音楽を聞く",
+        "exampleEn": "I listen to music in my room."
       },
       {
-        "text": "run fast",
-        "translation": "速く走る"
+        "text": "play soccer",
+        "translation": "サッカーをする",
+        "exampleEn": "We play soccer after school."
+      },
+      {
+        "text": "play the piano",
+        "translation": "ピアノを弾く",
+        "exampleEn": "My sister plays the piano."
+      },
+      {
+        "text": "go to school",
+        "translation": "学校へ行く",
+        "exampleEn": "I go to school by bus."
+      },
+      {
+        "text": "come home",
+        "translation": "家に帰ってくる",
+        "exampleEn": "I come home at four."
+      },
+      {
+        "text": "go home",
+        "translation": "家に帰る",
+        "exampleEn": "Let us go home now."
       },
       {
         "text": "walk to school",
-        "translation": "歩いて学校へ行く"
+        "translation": "歩いて学校へ行く",
+        "exampleEn": "I walk to school with my friend."
       },
       {
-        "text": "come from",
-        "translation": "〜出身である"
-      },
-      {
-        "text": "live in",
-        "translation": "〜に住んでいる"
-      },
-      {
-        "text": "like to",
-        "translation": "〜するのが好き"
-      },
-      {
-        "text": "want to",
-        "translation": "〜したい"
-      },
-      {
-        "text": "thank you",
-        "translation": "ありがとう"
-      },
-      {
-        "text": "you are welcome",
-        "translation": "どういたしまして"
-      },
-      {
-        "text": "excuse me",
-        "translation": "すみません"
-      },
-      {
-        "text": "I am sorry",
-        "translation": "ごめんなさい"
-      },
-      {
-        "text": "see you",
-        "translation": "またね"
-      },
-      {
-        "text": "good morning",
-        "translation": "おはよう"
-      },
-      {
-        "text": "good afternoon",
-        "translation": "こんにちは"
-      },
-      {
-        "text": "good evening",
-        "translation": "こんばんは"
-      },
-      {
-        "text": "good night",
-        "translation": "おやすみ"
-      },
-      {
-        "text": "how are you",
-        "translation": "元気ですか"
-      },
-      {
-        "text": "nice to meet you",
-        "translation": "はじめまして"
-      },
-      {
-        "text": "of course",
-        "translation": "もちろんそうです"
-      },
-      {
-        "text": "all right",
-        "translation": "だいじょうぶです"
-      },
-      {
-        "text": "that is right",
-        "translation": "その通りです"
-      },
-      {
-        "text": "at home",
-        "translation": "家で"
-      },
-      {
-        "text": "at school",
-        "translation": "学校で"
-      },
-      {
-        "text": "in the morning",
-        "translation": "朝に"
-      },
-      {
-        "text": "in the afternoon",
-        "translation": "午後に"
-      },
-      {
-        "text": "in the evening",
-        "translation": "夕方に"
-      },
-      {
-        "text": "at night",
-        "translation": "夜に"
-      },
-      {
-        "text": "on Sunday",
-        "translation": "日曜日に"
-      },
-      {
-        "text": "after school",
-        "translation": "放課後"
+        "text": "go to the park",
+        "translation": "公園へ行く",
+        "exampleEn": "We go to the park on Sunday."
       },
       {
         "text": "go shopping",
-        "translation": "買い物に行く"
+        "translation": "買い物に行く",
+        "exampleEn": "I go shopping with my mother."
+      },
+      {
+        "text": "go swimming",
+        "translation": "泳ぎに行く",
+        "exampleEn": "We go swimming in summer."
+      },
+      {
+        "text": "go fishing",
+        "translation": "釣りに行く",
+        "exampleEn": "My father and I go fishing."
+      },
+      {
+        "text": "come from",
+        "translation": "〜出身である",
+        "exampleEn": "I come from Japan."
+      },
+      {
+        "text": "live in",
+        "translation": "〜に住んでいる",
+        "exampleEn": "I live in Tokyo."
+      },
+      {
+        "text": "sit down",
+        "translation": "座る",
+        "exampleEn": "Please sit down here."
+      },
+      {
+        "text": "stand up",
+        "translation": "立つ",
+        "exampleEn": "Please stand up."
+      },
+      {
+        "text": "run fast",
+        "translation": "速く走る",
+        "exampleEn": "Ken can run fast."
+      },
+      {
+        "text": "speak English",
+        "translation": "英語を話す",
+        "exampleEn": "I want to speak English."
+      },
+      {
+        "text": "look at",
+        "translation": "〜を見る",
+        "exampleEn": "Look at this picture."
       },
       {
         "text": "look for",
-        "translation": "〜を探す"
+        "translation": "〜を探す",
+        "exampleEn": "I am looking for my bag."
+      },
+      {
+        "text": "listen to",
+        "translation": "〜を聞く",
+        "exampleEn": "Please listen to the teacher."
       },
       {
         "text": "talk with",
-        "translation": "〜と話す"
+        "translation": "〜と話す",
+        "exampleEn": "I talk with my friends."
+      },
+      {
+        "text": "talk to",
+        "translation": "〜に話しかける",
+        "exampleEn": "Please talk to your teacher."
       },
       {
         "text": "wait for",
-        "translation": "〜を待つ"
+        "translation": "〜を待つ",
+        "exampleEn": "Please wait for me."
+      },
+      {
+        "text": "like to",
+        "translation": "〜するのが好き",
+        "exampleEn": "I like to read books."
+      },
+      {
+        "text": "want to",
+        "translation": "〜したい",
+        "exampleEn": "I want to play soccer."
+      },
+      {
+        "text": "have a good time",
+        "translation": "楽しい時間を過ごす",
+        "exampleEn": "We have a good time at the party."
+      },
+      {
+        "text": "take care",
+        "translation": "気をつける",
+        "exampleEn": "Take care on your way home."
+      },
+      {
+        "text": "get on",
+        "translation": "乗る",
+        "exampleEn": "We get on the bus here."
+      },
+      {
+        "text": "get off",
+        "translation": "降りる",
+        "exampleEn": "I get off the bus at school."
+      },
+      {
+        "text": "put on",
+        "translation": "身につける",
+        "exampleEn": "I put on my cap."
+      },
+      {
+        "text": "take off",
+        "translation": "脱ぐ",
+        "exampleEn": "Please take off your shoes."
+      },
+      {
+        "text": "turn on",
+        "translation": "つける",
+        "exampleEn": "Please turn on the light."
+      },
+      {
+        "text": "turn off",
+        "translation": "消す",
+        "exampleEn": "Please turn off the TV."
+      },
+      {
+        "text": "pick up",
+        "translation": "拾う",
+        "exampleEn": "Please pick up the pencil."
+      },
+      {
+        "text": "give up",
+        "translation": "あきらめる",
+        "exampleEn": "Do not give up."
+      },
+      {
+        "text": "hurry up",
+        "translation": "急ぐ",
+        "exampleEn": "Hurry up, or we will be late."
+      },
+      {
+        "text": "try on",
+        "translation": "試着する",
+        "exampleEn": "Can I try on this shirt?"
+      },
+      {
+        "text": "come in",
+        "translation": "入ってくる",
+        "exampleEn": "Please come in."
+      },
+      {
+        "text": "go out",
+        "translation": "外出する",
+        "exampleEn": "I go out with my family."
+      },
+      {
+        "text": "come back",
+        "translation": "戻ってくる",
+        "exampleEn": "Please come back soon."
+      },
+      {
+        "text": "go back",
+        "translation": "戻る",
+        "exampleEn": "Let us go back to school."
+      },
+      {
+        "text": "at home",
+        "translation": "家で",
+        "exampleEn": "I study English at home."
+      },
+      {
+        "text": "at school",
+        "translation": "学校で",
+        "exampleEn": "We eat lunch at school."
+      },
+      {
+        "text": "at night",
+        "translation": "夜に",
+        "exampleEn": "I brush my teeth at night."
+      },
+      {
+        "text": "on Sunday",
+        "translation": "日曜日に",
+        "exampleEn": "I play soccer on Sunday."
+      },
+      {
+        "text": "after school",
+        "translation": "放課後",
+        "exampleEn": "I play with my friends after school."
+      },
+      {
+        "text": "before dinner",
+        "translation": "夕食の前に",
+        "exampleEn": "I do my homework before dinner."
+      },
+      {
+        "text": "in the morning",
+        "translation": "朝に",
+        "exampleEn": "I study in the morning."
+      },
+      {
+        "text": "in the afternoon",
+        "translation": "午後に",
+        "exampleEn": "We play in the afternoon."
+      },
+      {
+        "text": "in the evening",
+        "translation": "夕方に",
+        "exampleEn": "I read in the evening."
+      },
+      {
+        "text": "in front of",
+        "translation": "〜の前に",
+        "exampleEn": "The bus stop is in front of the school."
+      },
+      {
+        "text": "next to",
+        "translation": "〜のとなりに",
+        "exampleEn": "My desk is next to the window."
+      },
+      {
+        "text": "near the station",
+        "translation": "駅の近くに",
+        "exampleEn": "My house is near the station."
+      },
+      {
+        "text": "under the desk",
+        "translation": "机の下に",
+        "exampleEn": "My bag is under the desk."
+      },
+      {
+        "text": "on the table",
+        "translation": "テーブルの上に",
+        "exampleEn": "The book is on the table."
+      },
+      {
+        "text": "in the box",
+        "translation": "箱の中に",
+        "exampleEn": "The ball is in the box."
+      },
+      {
+        "text": "behind the door",
+        "translation": "ドアの後ろに",
+        "exampleEn": "My bag is behind the door."
+      },
+      {
+        "text": "between the books",
+        "translation": "本の間に",
+        "exampleEn": "The pen is between the books."
+      },
+      {
+        "text": "by the window",
+        "translation": "窓のそばに",
+        "exampleEn": "My desk is by the window."
+      },
+      {
+        "text": "over there",
+        "translation": "あそこに",
+        "exampleEn": "My teacher is over there."
+      },
+      {
+        "text": "right here",
+        "translation": "ちょうどここに",
+        "exampleEn": "Please sit right here."
+      },
+      {
+        "text": "be from",
+        "translation": "〜出身です",
+        "exampleEn": "I am from Japan."
+      },
+      {
+        "text": "on the left",
+        "translation": "左に",
+        "exampleEn": "The bank is on the left."
+      },
+      {
+        "text": "with my friend",
+        "translation": "友だちと一緒に",
+        "exampleEn": "I play with my friend."
+      },
+      {
+        "text": "for my mother",
+        "translation": "母のために",
+        "exampleEn": "This flower is for my mother."
+      },
+      {
+        "text": "on the right",
+        "translation": "右に",
+        "exampleEn": "The park is on the right."
+      },
+      {
+        "text": "every morning",
+        "translation": "毎朝",
+        "exampleEn": "I read English every morning."
+      },
+      {
+        "text": "last night",
+        "translation": "昨夜",
+        "exampleEn": "I watched TV last night."
+      },
+      {
+        "text": "this morning",
+        "translation": "今朝",
+        "exampleEn": "I got up early this morning."
+      },
+      {
+        "text": "tomorrow morning",
+        "translation": "明日の朝",
+        "exampleEn": "We will meet tomorrow morning."
+      },
+      {
+        "text": "next week",
+        "translation": "来週",
+        "exampleEn": "We have a test next week."
+      },
+      {
+        "text": "for a long time",
+        "translation": "長い間",
+        "exampleEn": "I waited for a long time."
+      },
+      {
+        "text": "a cup of",
+        "translation": "一杯の",
+        "exampleEn": "I want a cup of tea."
+      },
+      {
+        "text": "a glass of",
+        "translation": "コップ一杯の",
+        "exampleEn": "I drink a glass of milk."
+      },
+      {
+        "text": "a piece of",
+        "translation": "一切れの",
+        "exampleEn": "I eat a piece of cake."
+      },
+      {
+        "text": "a lot of",
+        "translation": "たくさんの",
+        "exampleEn": "We have a lot of homework."
+      },
+      {
+        "text": "many books",
+        "translation": "たくさんの本",
+        "exampleEn": "There are many books in the library."
+      },
+      {
+        "text": "some water",
+        "translation": "いくらかの水",
+        "exampleEn": "I want some water."
+      },
+      {
+        "text": "once a week",
+        "translation": "週に一度",
+        "exampleEn": "I swim once a week."
+      },
+      {
+        "text": "kind of",
+        "translation": "〜の種類",
+        "exampleEn": "What kind of music do you like?"
+      },
+      {
+        "text": "twice a month",
+        "translation": "月に二度",
+        "exampleEn": "We visit my grandmother twice a month."
+      },
+      {
+        "text": "next year",
+        "translation": "来年",
+        "exampleEn": "I will be in junior high school next year."
+      },
+      {
+        "text": "one more",
+        "translation": "もう一つ",
+        "exampleEn": "Can I have one more?"
+      },
+      {
+        "text": "too much",
+        "translation": "多すぎる",
+        "exampleEn": "I ate too much."
+      },
+      {
+        "text": "a little",
+        "translation": "少し",
+        "exampleEn": "I can speak a little English."
+      },
+      {
+        "text": "be good at",
+        "translation": "〜が得意である",
+        "exampleEn": "I am good at soccer."
+      },
+      {
+        "text": "be late for",
+        "translation": "〜に遅れる",
+        "exampleEn": "Do not be late for school."
+      },
+      {
+        "text": "wait a minute",
+        "translation": "ちょっと待つ",
+        "exampleEn": "Please wait a minute."
+      },
+      {
+        "text": "all day",
+        "translation": "一日中",
+        "exampleEn": "It rained all day."
+      },
+      {
+        "text": "all night",
+        "translation": "一晩中",
+        "exampleEn": "The baby slept all night."
+      },
+      {
+        "text": "thank you",
+        "translation": "ありがとう",
+        "exampleEn": "Thank you for your help."
+      },
+      {
+        "text": "you're welcome",
+        "translation": "どういたしまして",
+        "exampleEn": "You're welcome, Mike."
+      },
+      {
+        "text": "excuse me",
+        "translation": "すみません",
+        "exampleEn": "Excuse me, where is the station?"
+      },
+      {
+        "text": "I'm sorry",
+        "translation": "ごめんなさい",
+        "exampleEn": "I'm sorry I am late."
+      },
+      {
+        "text": "see you",
+        "translation": "またね",
+        "exampleEn": "See you tomorrow."
+      },
+      {
+        "text": "good morning",
+        "translation": "おはよう",
+        "exampleEn": "Good morning, everyone."
+      },
+      {
+        "text": "good afternoon",
+        "translation": "こんにちは",
+        "exampleEn": "Good afternoon, Ms. Brown."
+      },
+      {
+        "text": "good evening",
+        "translation": "こんばんは",
+        "exampleEn": "Good evening, Dad."
+      },
+      {
+        "text": "good night",
+        "translation": "おやすみ",
+        "exampleEn": "Good night, Mom."
+      },
+      {
+        "text": "how are you",
+        "translation": "元気ですか",
+        "exampleEn": "How are you today?"
+      },
+      {
+        "text": "nice to meet you",
+        "translation": "はじめまして",
+        "exampleEn": "Nice to meet you, Ken."
+      },
+      {
+        "text": "of course",
+        "translation": "もちろん",
+        "exampleEn": "Of course, I can help you."
+      },
+      {
+        "text": "all right",
+        "translation": "だいじょうぶ",
+        "exampleEn": "It is all right now."
+      },
+      {
+        "text": "that's right",
+        "translation": "その通りです",
+        "exampleEn": "That's right, Mr. Sato."
+      },
+      {
+        "text": "no problem",
+        "translation": "問題ありません",
+        "exampleEn": "No problem, I can help you."
+      },
+      {
+        "text": "here you are",
+        "translation": "はい、どうぞ",
+        "exampleEn": "Here you are."
+      },
+      {
+        "text": "yes please",
+        "translation": "はい、お願いします",
+        "exampleEn": "Yes please, I want some tea."
+      },
+      {
+        "text": "no thank you",
+        "translation": "いいえ、けっこうです",
+        "exampleEn": "No thank you, I am fine."
+      },
+      {
+        "text": "I see",
+        "translation": "わかりました",
+        "exampleEn": "I see. Thank you."
+      },
+      {
+        "text": "me too",
+        "translation": "私もです",
+        "exampleEn": "Me too. I like soccer."
+      },
+      {
+        "text": "let's go",
+        "translation": "行きましょう",
+        "exampleEn": "Let's go to the park."
+      },
+      {
+        "text": "let's play",
+        "translation": "遊びましょう",
+        "exampleEn": "Let's play tennis."
+      },
+      {
+        "text": "please help me",
+        "translation": "助けてください",
+        "exampleEn": "Please help me with this box."
+      },
+      {
+        "text": "may I help you",
+        "translation": "お手伝いしましょうか",
+        "exampleEn": "May I help you?"
+      },
+      {
+        "text": "happy birthday",
+        "translation": "誕生日おめでとう",
+        "exampleEn": "Happy birthday, Yuki."
       }
     ],
     "3": [
