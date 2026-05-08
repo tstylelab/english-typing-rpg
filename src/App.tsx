@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square } from 'lucide-react';
+import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionSynonyms } from './data/questionSynonyms';
@@ -99,7 +99,7 @@ type ReviewQueueEntry = {
   missCount: number;
 };
 
-type AutoPlaySource = 'all' | 'weak' | 'selected';
+type AutoPlaySource = 'all' | 'weak' | 'marked' | 'selected';
 type AutoPlaySequenceMode = 'normal' | 'exampleFirst' | 'exampleTextExample';
 
 type AutoPlaySettings = {
@@ -151,6 +151,7 @@ type PlayerProfileData = {
   speechRatePercent?: number;
   autoPlaySettings?: AutoPlaySettings;
   selectedQuestionKeysByScope?: Record<string, string[]>;
+  markedQuestionKeysByScope?: Record<string, string[]>;
   savedSelectionLists?: SavedSelectionList[];
 };
 
@@ -1380,6 +1381,7 @@ const STORAGE_KEYS = {
   speechRatePercent: 'etyping_speech_rate_percent',
   autoPlaySettings: 'etyping_auto_play_settings',
   selectedQuestionKeysByScope: 'etyping_selected_question_keys_by_scope',
+  markedQuestionKeysByScope: 'etyping_marked_question_keys_by_scope',
   savedSelectionLists: 'etyping_saved_selection_lists',
   playerProfiles: 'etyping_player_profiles',
   activePlayerId: 'etyping_active_player_id',
@@ -1532,7 +1534,7 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
   const defaults = getDefaultAutoPlaySettings();
   if (!value || typeof value !== 'object') return defaults;
   const typedValue = value as Partial<AutoPlaySettings> & Record<string, unknown>;
-  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'selected'
+  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'marked' || typedValue.source === 'selected'
     ? typedValue.source
     : defaults.source;
   const normalizedSequenceMode: AutoPlaySequenceMode = typedValue.sequenceMode === 'normal' || typedValue.sequenceMode === 'exampleFirst' || typedValue.sequenceMode === 'exampleTextExample'
@@ -1665,6 +1667,7 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
     speechRatePercent: normalizeSpeechRatePercent(typedValue.speechRatePercent),
     autoPlaySettings: normalizeAutoPlaySettings(typedValue.autoPlaySettings ?? getDefaultAutoPlaySettings()),
     selectedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.selectedQuestionKeysByScope ?? {}),
+    markedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.markedQuestionKeysByScope ?? {}),
     savedSelectionLists: normalizeSavedSelectionLists(typedValue.savedSelectionLists ?? []),
   };
 };
@@ -2156,10 +2159,12 @@ type QuestionListRowProps = {
   stats?: WeakQuestionStat;
   manualStatus: ManualQuestionStatus;
   isSelectedForAutoPlay: boolean;
+  isMarkedForReview: boolean;
   example?: string | null;
   synonyms: string[];
   onSpeak: (text: string) => void;
   onToggleSelected: (question: Question) => void;
+  onToggleMarked: (question: Question) => void;
   onUpdateManualLevel: (question: Question, level: LearningLevel) => void;
   onToggleExcluded: (question: Question) => void;
 };
@@ -2173,10 +2178,12 @@ const QuestionListRow = React.memo(function QuestionListRow({
   stats,
   manualStatus,
   isSelectedForAutoPlay,
+  isMarkedForReview,
   example,
   synonyms,
   onSpeak,
   onToggleSelected,
+  onToggleMarked,
   onUpdateManualLevel,
   onToggleExcluded,
 }: QuestionListRowProps) {
@@ -2209,6 +2216,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
               {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
               {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動優先</span>}
               {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
+              {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
               {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
               {isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
               {!isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
@@ -2243,6 +2251,13 @@ const QuestionListRow = React.memo(function QuestionListRow({
             {level === 1 ? '学習中' : level === 2 ? 'もう少し' : '覚えた'}
           </button>
         ))}
+        <button
+          onClick={() => onToggleMarked(question)}
+          className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${isMarkedForReview ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.2)]' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-yellow-400/60 hover:text-yellow-100'}`}
+        >
+          <Bookmark size={12} fill={isMarkedForReview ? 'currentColor' : 'none'} />
+          {isMarkedForReview ? '復習から外す' : 'あとで復習'}
+        </button>
         <button
           onClick={() => onToggleExcluded(question)}
           className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.excluded ? 'border-slate-300 bg-slate-200 text-slate-900' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
@@ -2313,6 +2328,7 @@ export default function App() {
   const [speechRatePercent, setSpeechRatePercent] = useState<number>(100);
   const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(getDefaultAutoPlaySettings());
   const [selectedQuestionKeysByScope, setSelectedQuestionKeysByScope] = useState<Record<string, string[]>>({});
+  const [markedQuestionKeysByScope, setMarkedQuestionKeysByScope] = useState<Record<string, string[]>>({});
   const [savedSelectionLists, setSavedSelectionLists] = useState<SavedSelectionList[]>([]);
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
@@ -2330,7 +2346,7 @@ export default function App() {
   const [flash, setFlash] = useState(false);
   const [monsterShake, setMonsterShake] = useState(false); 
   const [scoreViewDiff, setScoreViewDiff] = useState<Difficulty>('Eiken5');
-  const [questionListFilter, setQuestionListFilter] = useState<'all' | 'weak'>('all');
+  const [questionListFilter, setQuestionListFilter] = useState<'all' | 'weak' | 'marked'>('all');
   const [weakListSort, setWeakListSort] = useState<'recent' | 'frequent'>('recent');
   const [questionListRenderLimit, setQuestionListRenderLimit] = useState(DEFAULT_QUESTION_LIST_RENDER_LIMIT);
   const [wordListToolsOpen, setWordListToolsOpen] = useState(false);
@@ -2395,6 +2411,7 @@ export default function App() {
     const savedDailyProgress = normalizeDailyProgress(safeLoadJson<DailyProgress>(STORAGE_KEYS.dailyProgress, createDailyProgress()));
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
+    const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
     const savedSelectionLists = normalizeSavedSelectionLists(safeLoadJson<SavedSelectionList[]>(STORAGE_KEYS.savedSelectionLists, []));
 
     const savedMaxKRaw = localStorage.getItem(STORAGE_KEYS.maxKeystrokes);
@@ -2416,6 +2433,7 @@ export default function App() {
       speechRatePercent: savedSpeechRatePercentRaw ? parseInt(savedSpeechRatePercentRaw, 10) : 100,
       autoPlaySettings: savedAutoPlaySettings,
       selectedQuestionKeysByScope: savedSelectedQuestionKeysByScope,
+      markedQuestionKeysByScope: savedMarkedQuestionKeysByScope,
       savedSelectionLists,
     });
   }, []);
@@ -2435,6 +2453,7 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.speechRatePercent, String(normalizedData.speechRatePercent ?? 100));
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings()));
     localStorage.setItem(STORAGE_KEYS.selectedQuestionKeysByScope, JSON.stringify(normalizedData.selectedQuestionKeysByScope ?? {}));
+    localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(normalizedData.markedQuestionKeysByScope ?? {}));
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(normalizedData.savedSelectionLists ?? []));
   }, []);
 
@@ -2464,6 +2483,7 @@ export default function App() {
     setSpeechRatePercent(normalizedData.speechRatePercent ?? 100);
     setAutoPlaySettings(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     setSelectedQuestionKeysByScope(normalizedData.selectedQuestionKeysByScope ?? {});
+    setMarkedQuestionKeysByScope(normalizedData.markedQuestionKeysByScope ?? {});
     setSavedSelectionLists(normalizedData.savedSelectionLists ?? []);
   }, []);
 
@@ -2485,6 +2505,7 @@ export default function App() {
     speechRatePercent,
     autoPlaySettings,
     selectedQuestionKeysByScope,
+    markedQuestionKeysByScope,
     savedSelectionLists,
   }), [
     gameState.defeatedMonsterIds,
@@ -2499,6 +2520,7 @@ export default function App() {
     speechRatePercent,
     autoPlaySettings,
     selectedQuestionKeysByScope,
+    markedQuestionKeysByScope,
     savedSelectionLists,
   ]);
 
@@ -2560,6 +2582,7 @@ export default function App() {
     const savedDailyProgress = normalizeDailyProgress(safeLoadJson<DailyProgress>(STORAGE_KEYS.dailyProgress, createDailyProgress()));
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
+    const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
     const savedSelectionLists = normalizeSavedSelectionLists(safeLoadJson<SavedSelectionList[]>(STORAGE_KEYS.savedSelectionLists, []));
     const todayKey = getTodayKey();
     const isNewDay = savedDailyProgress.date !== todayKey;
@@ -2590,6 +2613,7 @@ export default function App() {
     setManualQuestionStatuses(savedManualStatuses);
     setAutoPlaySettings(savedAutoPlaySettings);
     setSelectedQuestionKeysByScope(savedSelectedQuestionKeysByScope);
+    setMarkedQuestionKeysByScope(savedMarkedQuestionKeysByScope);
     setSavedSelectionLists(savedSelectionLists);
     reviewQueueRef.current = normalizedReviewQueue;
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedReviewQueue));
@@ -2684,6 +2708,18 @@ export default function App() {
       && !isQuestionExcluded(difficulty, level, question)
     ))
   );
+
+  const getMarkedQuestionKeysForScope = (difficulty: Difficulty, level: Level, source = markedQuestionKeysByScope) => (
+    source[getReviewScopeKey(difficulty, level)] ?? []
+  );
+
+  const getScopedMarkedQuestions = (difficulty: Difficulty, level: Level) => {
+    const markedKeySet = new Set(getMarkedQuestionKeysForScope(difficulty, level));
+    return (QUESTIONS[difficulty]?.[level] ?? []).filter(question => (
+      markedKeySet.has(getQuestionStatusKey(difficulty, level, question))
+      && !isQuestionExcluded(difficulty, level, question)
+    ));
+  };
 
   const getScopedLearningSummary = (difficulty: Difficulty, level: Level) => {
     const questions = QUESTIONS[difficulty]?.[level] ?? [];
@@ -2848,6 +2884,10 @@ export default function App() {
   }, [selectedQuestionKeysByScope]);
 
   useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(markedQuestionKeysByScope));
+  }, [markedQuestionKeysByScope]);
+
+  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(savedSelectionLists));
   }, [savedSelectionLists]);
 
@@ -2867,6 +2907,7 @@ export default function App() {
     speechRatePercent,
     autoPlaySettings,
     selectedQuestionKeysByScope,
+    markedQuestionKeysByScope,
     savedSelectionLists,
   ]);
 
@@ -3071,6 +3112,26 @@ export default function App() {
     const scopeKey = getReviewScopeKey(difficulty, level);
     const questionKey = getQuestionStatusKey(difficulty, level, question);
     setSelectedQuestionKeysByScope(prev => {
+      const currentKeys = prev[scopeKey] ?? [];
+      const nextKeys = currentKeys.includes(questionKey)
+        ? currentKeys.filter(key => key !== questionKey)
+        : [...currentKeys, questionKey];
+
+      return {
+        ...prev,
+        [scopeKey]: nextKeys,
+      };
+    });
+  };
+
+  const toggleMarkedQuestion = (
+    difficulty: Difficulty,
+    level: Level,
+    question: Question,
+  ) => {
+    const scopeKey = getReviewScopeKey(difficulty, level);
+    const questionKey = getQuestionStatusKey(difficulty, level, question);
+    setMarkedQuestionKeysByScope(prev => {
       const currentKeys = prev[scopeKey] ?? [];
       const nextKeys = currentKeys.includes(questionKey)
         ? currentKeys.filter(key => key !== questionKey)
@@ -3311,6 +3372,7 @@ export default function App() {
     const importedSpeechRatePercent = normalizeSpeechRatePercent(importedData.speechRatePercent);
     const importedAutoPlaySettings = normalizeAutoPlaySettings(importedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     const importedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.selectedQuestionKeysByScope ?? {});
+    const importedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.markedQuestionKeysByScope ?? {});
     const importedSavedSelectionLists = normalizeSavedSelectionLists(importedData.savedSelectionLists ?? []);
 
     stopAutoPlay('学習データの読み込みに合わせて停止しました');
@@ -3356,6 +3418,9 @@ export default function App() {
 
     setSelectedQuestionKeysByScope(importedSelectedQuestionKeysByScope);
     localStorage.setItem(STORAGE_KEYS.selectedQuestionKeysByScope, JSON.stringify(importedSelectedQuestionKeysByScope));
+
+    setMarkedQuestionKeysByScope(importedMarkedQuestionKeysByScope);
+    localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(importedMarkedQuestionKeysByScope));
 
     setSavedSelectionLists(importedSavedSelectionLists);
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(importedSavedSelectionLists));
@@ -3588,6 +3653,7 @@ export default function App() {
       STORAGE_KEYS.speechRatePercent,
       STORAGE_KEYS.autoPlaySettings,
       STORAGE_KEYS.selectedQuestionKeysByScope,
+      STORAGE_KEYS.markedQuestionKeysByScope,
       STORAGE_KEYS.savedSelectionLists,
     ].forEach(key => localStorage.removeItem(key));
     setBestScores({});
@@ -3595,6 +3661,7 @@ export default function App() {
     setWeakQuestions([]);
     setWeakQuestionStats({});
     setManualQuestionStatuses({});
+    setMarkedQuestionKeysByScope({});
     setDailyProgress(createDailyProgress());
     reviewQueueRef.current = [];
     activeReviewEntryRef.current = null;
@@ -4212,6 +4279,10 @@ export default function App() {
     toggleSelectedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, question);
   }, [gameState.selectedDifficulty, gameState.selectedLevel]);
 
+  const handleToggleMarkedQuestion = useCallback((question: Question) => {
+    toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, question);
+  }, [gameState.selectedDifficulty, gameState.selectedLevel]);
+
   const handleUpdateManualLevel = useCallback((question: Question, level: LearningLevel) => {
     updateManualQuestionStatus(
       gameState.selectedDifficulty,
@@ -4459,6 +4530,9 @@ export default function App() {
     const playableQuestions = questions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const excludedQuestions = questions.filter(q => isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const weakQuestionsInView = questions.filter(q => weakQuestionTexts.has(q.text) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
+    const markedQuestionKeys = markedQuestionKeysByScope[selectionScopeKey] ?? [];
+    const markedQuestionKeySet = new Set(markedQuestionKeys);
+    const markedQuestionsInView = questions.filter(q => markedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const selectedQuestionKeys = selectedQuestionKeysByScope[selectionScopeKey] ?? [];
     const selectedQuestionKeySet = new Set(selectedQuestionKeys);
     const selectedQuestionsInView = wordListToolsOpen
@@ -4481,7 +4555,11 @@ export default function App() {
       }
       return (bStats.lastMissedAt - aStats.lastMissedAt) || (bStats.missCount - aStats.missCount) || a.text.localeCompare(b.text);
     });
-    const visibleQuestions = questionListFilter === 'weak' ? sortedWeakQuestions : questions;
+    const visibleQuestions = questionListFilter === 'weak'
+      ? sortedWeakQuestions
+      : questionListFilter === 'marked'
+        ? markedQuestionsInView
+        : questions;
     const visiblePlayableQuestions = visibleQuestions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const recentWeakSamples = [...weakQuestionsInView]
       .sort((a, b) => (weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0))
@@ -4493,13 +4571,19 @@ export default function App() {
     const topMissedQuestions = [...weakQuestionsInView]
       .sort((a, b) => ((weakQuestionStats[b.text]?.missCount ?? 0) - (weakQuestionStats[a.text]?.missCount ?? 0)) || ((weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0)))
       .slice(0, 10);
-    const reviewTargetQuestions = questionListFilter === 'weak' ? visibleQuestions : weakQuestionsInView;
+    const reviewTargetQuestions = questionListFilter === 'weak'
+      ? visibleQuestions
+      : questionListFilter === 'marked'
+        ? markedQuestionsInView
+        : weakQuestionsInView;
     const autoPlayTargetQuestions = wordListToolsOpen
       ? autoPlaySettings.source === 'all'
         ? visiblePlayableQuestions
         : autoPlaySettings.source === 'weak'
           ? weakQuestionsInView
-          : selectedQuestionsInView
+          : autoPlaySettings.source === 'marked'
+            ? markedQuestionsInView
+            : selectedQuestionsInView
       : [];
     const autoPlayJapaneseVoice = wordListToolsOpen ? getJapaneseSpeechVoice() : null;
     const autoPlayPlayableQuestionCount = wordListToolsOpen
@@ -4530,6 +4614,14 @@ export default function App() {
       },
     ] : [];
     const manualReviewSamples = wordListToolsOpen ? manualReviewQuestions.slice(0, 5).map(q => q.text).join(' / ') : '';
+    const emptyListTitle = questionListFilter === 'marked'
+      ? 'あとで復習に追加した用語はまだありません'
+      : questionListFilter === 'weak'
+        ? 'この一覧に苦手語はまだありません'
+        : '表示できる用語がありません';
+    const emptyListDescription = questionListFilter === 'marked'
+      ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
+      : '通常の一覧に戻して、出題できる問題を確認できます。';
 
     const startReviewFromList = (mode: Mode, inputMode: InputMode) => {
       if (reviewTargetQuestions.length === 0) return;
@@ -4707,10 +4799,12 @@ export default function App() {
           stats={weakQuestionStats[q.text]}
           manualStatus={getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q)}
           isSelectedForAutoPlay={selectedQuestionKeySet.has(questionKey)}
+          isMarkedForReview={markedQuestionKeySet.has(questionKey)}
           example={currentQuestionExamples.get(questionKey)}
           synonyms={synonyms}
           onSpeak={speakWithSettings}
           onToggleSelected={handleToggleSelectedQuestion}
+          onToggleMarked={handleToggleMarkedQuestion}
           onUpdateManualLevel={handleUpdateManualLevel}
           onToggleExcluded={handleToggleExcludedQuestion}
         />
@@ -4795,6 +4889,7 @@ export default function App() {
                 <div className="flex bg-slate-800 p-1 rounded-lg self-start">
                 <button onClick={() => setQuestionListFilter('all')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'all' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>すべて</button>
                 <button onClick={() => setQuestionListFilter('weak')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'weak' ? 'bg-orange-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>苦手だけ</button>
+                <button onClick={() => setQuestionListFilter('marked')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
                 </div>
                 {questionListFilter === 'weak' && (
                   <div className="flex bg-slate-800 p-1 rounded-lg self-start">
@@ -4894,6 +4989,12 @@ export default function App() {
                       className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'weak' ? 'border-orange-300 bg-orange-500/20 text-orange-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
                     >
                       苦手語だけ ({weakQuestionsInView.length})
+                    </button>
+                    <button
+                      onClick={() => updateAutoPlaySetting('source', 'marked')}
+                      className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'marked' ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
+                    >
+                      あとで復習 ({markedQuestionsInView.length})
                     </button>
                     <button
                       onClick={() => updateAutoPlaySetting('source', 'selected')}
@@ -5075,6 +5176,14 @@ export default function App() {
                       苦手語を全部選択
                     </GameButton>
                     <GameButton
+                      onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty, gameState.selectedLevel, markedQuestionsInView.map(q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))}
+                      size="sm"
+                      variant="outline"
+                      className="border-yellow-500/40 text-yellow-100 hover:bg-yellow-900/20"
+                    >
+                      あとで復習を全部選択
+                    </GameButton>
+                    <GameButton
                       onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty, gameState.selectedLevel, visiblePlayableQuestions.map(q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))}
                       size="sm"
                       variant="outline"
@@ -5236,8 +5345,8 @@ export default function App() {
                    <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
                      <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
                        <AlertCircle size={28} className="mb-3 text-slate-500" />
-                       <p className="text-lg font-bold text-slate-200">この一覧に苦手語はまだありません</p>
-                       <p className="mt-2 text-sm text-slate-400">通常の一覧に戻して、全問題を確認できます。</p>
+                       <p className="text-lg font-bold text-slate-200">{emptyListTitle}</p>
+                       <p className="mt-2 text-sm text-slate-400">{emptyListDescription}</p>
                        <GameButton onClick={() => setQuestionListFilter('all')} variant="outline" size="sm" className="mt-4">すべて表示に戻す</GameButton>
                      </div>
                    ) : <>
@@ -5587,6 +5696,7 @@ export default function App() {
       selectedWeakTexts.has(question.text)
       && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, question)
     )).length;
+    const markedCount = getScopedMarkedQuestions(gameState.selectedDifficulty, gameState.selectedLevel).length;
     const todayQuestionCount = dailyProgress.date === getTodayKey() ? dailyProgress.questionCount : 0;
     const reviewQueueCount = reviewQueueRef.current.length;
 
@@ -5633,6 +5743,7 @@ export default function App() {
                      <div className="flex items-center gap-2 bg-gradient-to-r from-red-900 to-slate-900 border border-yellow-500/50 px-6 py-3 rounded-full text-yellow-300 shadow-[0_0_20px_rgba(234,179,8,0.3)] backdrop-blur-sm"><Trophy size={20} className="text-yellow-400" /><span className="font-bold text-lg tracking-wide">撃破数: <span className="text-white text-xl mx-1">{totalDefeated}</span> / {totalMonsters}</span></div>
                      <div className="flex items-center gap-2 bg-slate-800/80 px-6 py-3 rounded-full text-emerald-300 shadow-md border border-emerald-500/40"><Target size={20} className="text-emerald-400" /><span className="font-bold text-sm">今日の問題数 <span className="text-white font-mono text-xl mx-1">{todayQuestionCount}</span> 問</span></div>
                      <div className="flex items-center gap-2 bg-slate-800/80 px-5 py-3 rounded-full text-amber-300 shadow-md border border-amber-500/40"><RotateCcw size={18} className="text-amber-400" /><span className="font-bold text-sm">復習待ち <span className="text-white font-mono text-lg mx-1">{reviewQueueCount}</span> 件</span></div>
+                     <div className="flex items-center gap-2 bg-slate-800/80 px-5 py-3 rounded-full text-yellow-200 shadow-md border border-yellow-500/40"><Bookmark size={18} className="text-yellow-300" /><span className="font-bold text-sm">あとで復習 <span className="text-white font-mono text-lg mx-1">{markedCount}</span> 件</span></div>
                      <div className="flex items-center gap-2 bg-slate-800/80 px-6 py-3 rounded-full text-blue-300 shadow-md border border-slate-600"><Keyboard size={20} className="text-blue-400" /><span className="font-bold text-sm">最高入力: <span className="text-white font-mono text-xl mx-1">{maxKeystrokes}</span></span></div>
                 </div>
                 <div className="w-full space-y-4 max-w-4xl">
@@ -5949,6 +6060,9 @@ export default function App() {
     const monsterEmotion = gameState.monsterHp <= 0 ? 'win' : flash ? 'damage' : 'normal';
     const comboLabel = getComboLabel(gameState.combo);
     const questionPresentation = getBattleQuestionPresentation(gameState.currentQuestion.text);
+    const currentQuestionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
+    const currentScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
+    const isCurrentQuestionMarked = (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(currentQuestionKey);
     const monsterDialogue = getBattleBubbleDialogue(currentMonster, {
       isDefeated: gameState.monsterHp <= 0,
       isDamaged: flash,
@@ -6032,6 +6146,19 @@ export default function App() {
                        <span>ボタン / Right Ctrl</span>
                      </div>
                    </div>
+                   <button
+                     type="button"
+                     onClick={() => {
+                       toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
+                       inputRef.current?.focus();
+                     }}
+                     title={isCurrentQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
+                     aria-pressed={isCurrentQuestionMarked}
+                     className={`inline-flex items-center justify-center gap-2 self-end rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 md:self-auto ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
+                   >
+                     <Bookmark size={18} fill={isCurrentQuestionMarked ? 'currentColor' : 'none'} />
+                     <span>{isCurrentQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
+                   </button>
                    <button
                      type="button"
                      onClick={handleSkip}
