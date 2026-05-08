@@ -876,7 +876,7 @@ const EIKEN4_CATEGORY_HINT_GROUPS: Array<{ hint: string; items: string[] }> = [
   { hint: 'weather', items: ['sunny', 'cloudy', 'snowy', 'weather'] },
   { hint: 'bath item', items: ['shower', 'bath', 'bathroom', 'towel'] },
   { hint: 'daily item', items: ['newspaper', 'knife', 'wallet', 'calendar', 'ruler', 'toy', 'passport', 'suitcase', 'key', 'tie', 'glasses'] },
-  { hint: 'time', items: ['noon', 'tonight', 'o\'clock', 'a.m.', 'p.m.', 'now', 'o’clock'] },
+  { hint: 'time', items: ['noon', 'tonight', 'o\'clock', 'a.m.', 'p.m.', 'now'] },
   { hint: 'vehicle', items: ['plane', 'airplane', 'taxi', 'bike', 'flight'] },
   { hint: 'trip word', items: ['travel', 'trip', 'ticket'] },
   { hint: 'environment', items: ['environment', 'garbage', 'recycle', 'energy', 'save', 'peace'] },

@@ -254,6 +254,12 @@ const getBattleDamageMultiplier = (mode: Mode, inputMode: InputMode) => {
   return 1;
 };
 
+const normalizeTypingText = (text: string) => (
+  text
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+);
+
 const DEFAULT_BATTLE_QUESTION_LIMIT = 10;
 const FINAL_BOSS_QUESTION_LIMIT = 20;
 const FINAL_BOSS_HP_MULTIPLIER = 1.6;
@@ -4149,21 +4155,23 @@ export default function App() {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     const targetText = gameState.currentQuestion.text;
+    const normalizedVal = normalizeTypingText(val);
+    const normalizedTargetText = normalizeTypingText(targetText);
     if (val.length > gameState.userInput.length) soundEngine.playType();
     if (!gameState.startTime && val.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
     
     if (gameState.mode === 'guide' && gameState.selectedLevel === 1) {
-        if (targetText.startsWith(val)) {
+        if (normalizedTargetText.startsWith(normalizedVal)) {
             setGameState(prev => ({ ...prev, userInput: val, hintLength: 0 }));
-            if (val === targetText) handleCorrectAnswer(val);
+            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(val);
         } else {
             soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
             setGameState(prev => ({ ...prev, userInput: "", combo: 0, missCount: prev.missCount + 1, hintLength: 0 })); 
         }
     } else {
-        if (targetText.startsWith(val)) {
+        if (normalizedTargetText.startsWith(normalizedVal)) {
             setGameState(prev => ({ ...prev, userInput: val, hintLength: 0 }));
-            if (val === targetText) handleCorrectAnswer(val);
+            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(val);
         } else {
             soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
             const shouldShowHint = gameState.mode === 'challenge';

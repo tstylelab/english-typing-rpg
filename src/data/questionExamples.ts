@@ -528,7 +528,7 @@ const getEiken4Level1FallbackExample = (text: string) => {
   if (EIKEN4_LEVEL1_SCHOOL_ITEMS.has(text)) return pickExample(text, [
     `Please put your ${text} on the desk.`,
     `I left my ${text} in the classroom.`,
-    `We need a ${text} for today’s class.`,
+    `We need a ${text} for today's class.`,
   ]);
   if (EIKEN4_LEVEL1_SCHOOL_WORDS.has(text)) return pickExample(text, [
     `We learned about ${text} in class.`,
