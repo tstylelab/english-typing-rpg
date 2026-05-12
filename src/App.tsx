@@ -272,9 +272,9 @@ const HIDDEN_BOSS_QUESTION_LIMITS: Record<Exclude<BossStage, 0 | 1>, number> = {
   4: 50,
 };
 const HIDDEN_BOSS_HP_MULTIPLIERS: Record<Exclude<BossStage, 0 | 1>, number> = {
-  2: 3,
-  3: 4,
-  4: 5,
+  2: 2.625,
+  3: 3.5,
+  4: 4.375,
 };
 
 const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
