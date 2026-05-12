@@ -263,7 +263,8 @@ const normalizeTypingText = (text: string) => (
 
 const DEFAULT_BATTLE_QUESTION_LIMIT = 10;
 const FINAL_BOSS_QUESTION_LIMIT = 20;
-const FINAL_BOSS_HP_MULTIPLIER = 1.6;
+const FINAL_BOSS_HP_MULTIPLIER = 1.75;
+const PRE_FINAL_BOSS_HP_MULTIPLIER = 0.94;
 const HIDDEN_BOSS_COUNT = 3;
 const HIDDEN_BOSS_QUESTION_LIMITS: Record<Exclude<BossStage, 0 | 1>, number> = {
   2: 30,
@@ -301,6 +302,16 @@ const getBossStage = (
   return stepIndex >= Math.max(totalMonsters - 1, 0) ? 1 : 0;
 };
 
+const isPreFinalBossStep = (
+  mode: Mode,
+  inputMode: InputMode,
+  stepIndex: number,
+  totalMonsters: number
+) => (
+  getBossStage(mode, inputMode, stepIndex, totalMonsters) === 0
+  && getBossStage(mode, inputMode, stepIndex + 1, totalMonsters) === 1
+);
+
 const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
   if (bossStage === 1) return FINAL_BOSS_QUESTION_LIMIT;
@@ -313,15 +324,17 @@ const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
 const getBattleHp = (
   difficulty: Difficulty,
   baseHp: number,
-  bossStage: BossStage
+  bossStage: BossStage,
+  isPreFinalBoss: boolean = false
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
+  const preFinalBossHpMultiplier = isPreFinalBoss ? PRE_FINAL_BOSS_HP_MULTIPLIER : 1;
   const bossHpMultiplier = bossStage === 1
     ? FINAL_BOSS_HP_MULTIPLIER
     : (bossStage === 2 || bossStage === 3 || bossStage === 4)
       ? HIDDEN_BOSS_HP_MULTIPLIERS[bossStage]
       : 1;
-  return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier);
+  return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier * preFinalBossHpMultiplier);
 };
 
 const getBattleTuning = (
@@ -329,9 +342,10 @@ const getBattleTuning = (
   mode: Mode,
   inputMode: InputMode,
   baseHp: number,
-  bossStage: BossStage
+  bossStage: BossStage,
+  isPreFinalBoss: boolean = false
 ) => {
-  const monsterHp = getBattleHp(difficulty, baseHp, bossStage);
+  const monsterHp = getBattleHp(difficulty, baseHp, bossStage, isPreFinalBoss);
 
   return {
     monsterHp,
@@ -375,21 +389,6 @@ const getBossIntroLabel = (bossStage: BossStage) => {
       return '裏ボス第二形態！';
     case 4:
       return '裏ボス最終形態！';
-    default:
-      return '';
-  }
-};
-
-const getNextBattleAlertLabel = (bossStage: BossStage) => {
-  switch (bossStage) {
-    case 1:
-      return 'NEXT IS THE FINAL BATTLE';
-    case 2:
-      return 'NEXT: HIDDEN BOSS';
-    case 3:
-      return 'NEXT: HIDDEN BOSS II';
-    case 4:
-      return 'NEXT: HIDDEN BOSS III';
     default:
       return '';
   }
@@ -3816,7 +3815,8 @@ export default function App() {
     const actualMonsterIndex = safeIndices[safeStepIndex] ?? 0;
     const startingMonster = monsterList[actualMonsterIndex] ?? monsterList[0];
     const bossStage = getBossStage(mode, inputMode, safeStepIndex, totalMonsters);
-    const battleTuning = getBattleTuning(diff, mode, inputMode, startingMonster.baseHp, bossStage);
+    const isPreFinalBoss = isPreFinalBossStep(mode, inputMode, safeStepIndex, totalMonsters);
+    const battleTuning = getBattleTuning(diff, mode, inputMode, startingMonster.baseHp, bossStage, isPreFinalBoss);
     const startingMonsterHp = battleTuning.monsterHp;
     const maxQuestions = battleTuning.maxQuestions;
     const useBossBattleMusic = startingMonster?.type === 'boss' || bossStage > 0;
@@ -4480,7 +4480,8 @@ export default function App() {
       inputMode: InputMode
     ) => {
       const bossStage = getBossStage(mode, inputMode, monsterIndex, monsters.length);
-      return getBattleHp(bookDifficulty, monster.baseHp, bossStage);
+      const isPreFinalBoss = isPreFinalBossStep(mode, inputMode, monsterIndex, monsters.length);
+      return getBattleHp(bookDifficulty, monster.baseHp, bossStage, isPreFinalBoss);
     };
     const totalDefeated = guideDefeatedCount + challengeDefeatedCount;
     return (
@@ -6052,17 +6053,19 @@ export default function App() {
     const showGuide = gameState.mode === 'guide'; 
     const questionsLeft = gameState.maxQuestions - gameState.questionCount + 1;
     const remainingWeakCount = getScopedWeakQuestions(gameState.selectedDifficulty, gameState.selectedLevel).length;
-    const isFinalMonster = gameState.currentMonsterIndex === gameState.totalMonstersInStage - 1;
-    const nextBossStage = getBossStage(gameState.mode, gameState.inputMode, gameState.currentMonsterIndex + 1, gameState.totalMonstersInStage);
-    const nextBattleAlertLabel = getNextBattleAlertLabel(nextBossStage);
     const bossIntroLabel = getBossIntroLabel(gameState.bossStage);
-    const shouldShowNextBattleAlert = nextBossStage > gameState.bossStage && !isFinalMonster;
     const monsterEmotion = gameState.monsterHp <= 0 ? 'win' : flash ? 'damage' : 'normal';
     const comboLabel = getComboLabel(gameState.combo);
     const questionPresentation = getBattleQuestionPresentation(gameState.currentQuestion.text);
     const currentQuestionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
     const currentScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
     const isCurrentQuestionMarked = (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(currentQuestionKey);
+    const previousQuestionKey = lastSolvedQuestion
+      ? getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
+      : null;
+    const isPreviousQuestionMarked = previousQuestionKey
+      ? (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(previousQuestionKey)
+      : false;
     const monsterDialogue = getBattleBubbleDialogue(currentMonster, {
       isDefeated: gameState.monsterHp <= 0,
       isDamaged: flash,
@@ -6108,12 +6111,6 @@ export default function App() {
         </div>
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start mt-4 px-4 pb-20">
             <div className="relative w-full flex flex-col items-center z-10 mb-4">
-                {shouldShowNextBattleAlert && nextBattleAlertLabel && (
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-red-400/50 bg-gradient-to-r from-red-500/20 to-orange-500/20 px-4 py-1.5 text-sm font-black tracking-[0.18em] text-red-100 shadow-[0_0_20px_rgba(248,113,113,0.22)]">
-                    <Skull size={16} className="text-red-300" />
-                    {nextBattleAlertLabel}
-                  </div>
-                )}
                 {gameState.combo >= 3 && (
                   <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm font-black uppercase tracking-[0.2em] text-yellow-200 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
                     <Flame size={16} className="text-yellow-300" />
@@ -6212,6 +6209,19 @@ export default function App() {
                            <span className="text-xs font-medium text-slate-400 md:text-sm">Basic: {lastSolvedQuestion.basicMeaning}</span>
                          )}
                        </div>
+                       <button
+                         type="button"
+                         onClick={() => {
+                           toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion);
+                           inputRef.current?.focus();
+                         }}
+                         title={isPreviousQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
+                         aria-pressed={isPreviousQuestionMarked}
+                         className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 ${isPreviousQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
+                       >
+                         <Bookmark size={13} fill={isPreviousQuestionMarked ? 'currentColor' : 'none'} />
+                         <span>{isPreviousQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
+                       </button>
                        {previousQuestionSynonyms.length > 0 && (
                          <>
                            <span className="hidden text-slate-500 md:inline">|</span>
