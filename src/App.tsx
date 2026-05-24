@@ -149,6 +149,7 @@ type PlayerProfileData = {
   bgmVolumeLevel?: number;
   speechVoiceMode?: SpeechVoiceMode;
   speechRatePercent?: number;
+  translationBattleCorrectSpeechEnabled?: boolean;
   autoPlaySettings?: AutoPlaySettings;
   selectedQuestionKeysByScope?: Record<string, string[]>;
   markedQuestionKeysByScope?: Record<string, string[]>;
@@ -1364,6 +1365,7 @@ const STORAGE_KEYS = {
   bgmVolumeLevel: 'etyping_bgm_volume_level',
   speechVoiceMode: 'etyping_speech_voice_mode',
   speechRatePercent: 'etyping_speech_rate_percent',
+  translationBattleCorrectSpeechEnabled: 'etyping_translation_battle_correct_speech_enabled',
   autoPlaySettings: 'etyping_auto_play_settings',
   selectedQuestionKeysByScope: 'etyping_selected_question_keys_by_scope',
   markedQuestionKeysByScope: 'etyping_marked_question_keys_by_scope',
@@ -1650,6 +1652,7 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
     bgmVolumeLevel: normalizeBgmVolumeLevel(typedValue.bgmVolumeLevel),
     speechVoiceMode: normalizeSpeechVoiceMode(typedValue.speechVoiceMode),
     speechRatePercent: normalizeSpeechRatePercent(typedValue.speechRatePercent),
+    translationBattleCorrectSpeechEnabled: typeof typedValue.translationBattleCorrectSpeechEnabled === 'boolean' ? typedValue.translationBattleCorrectSpeechEnabled : true,
     autoPlaySettings: normalizeAutoPlaySettings(typedValue.autoPlaySettings ?? getDefaultAutoPlaySettings()),
     selectedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.selectedQuestionKeysByScope ?? {}),
     markedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.markedQuestionKeysByScope ?? {}),
@@ -2403,6 +2406,7 @@ export default function App() {
   const [speechVoices, setSpeechVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [speechVoiceMode, setSpeechVoiceMode] = useState<SpeechVoiceMode>('us_female');
   const [speechRatePercent, setSpeechRatePercent] = useState<number>(100);
+  const [translationBattleCorrectSpeechEnabled, setTranslationBattleCorrectSpeechEnabled] = useState(true);
   const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(getDefaultAutoPlaySettings());
   const [selectedQuestionKeysByScope, setSelectedQuestionKeysByScope] = useState<Record<string, string[]>>({});
   const [markedQuestionKeysByScope, setMarkedQuestionKeysByScope] = useState<Record<string, string[]>>({});
@@ -2495,6 +2499,7 @@ export default function App() {
     const savedBgmVolumeLevelRaw = localStorage.getItem(STORAGE_KEYS.bgmVolumeLevel);
     const savedSpeechVoiceModeRaw = localStorage.getItem(STORAGE_KEYS.speechVoiceMode);
     const savedSpeechRatePercentRaw = localStorage.getItem(STORAGE_KEYS.speechRatePercent);
+    const savedTranslationBattleCorrectSpeechRaw = localStorage.getItem(STORAGE_KEYS.translationBattleCorrectSpeechEnabled);
 
     return normalizePlayerProfileData({
       defeatedMonsterIds: safeLoadJson<string[]>(STORAGE_KEYS.defeatedMonsters, []),
@@ -2508,6 +2513,7 @@ export default function App() {
       bgmVolumeLevel: savedBgmVolumeLevelRaw ? parseInt(savedBgmVolumeLevelRaw, 10) : 3,
       speechVoiceMode: savedSpeechVoiceModeRaw ?? 'us_female',
       speechRatePercent: savedSpeechRatePercentRaw ? parseInt(savedSpeechRatePercentRaw, 10) : 100,
+      translationBattleCorrectSpeechEnabled: savedTranslationBattleCorrectSpeechRaw === null ? true : savedTranslationBattleCorrectSpeechRaw === 'true',
       autoPlaySettings: savedAutoPlaySettings,
       selectedQuestionKeysByScope: savedSelectedQuestionKeysByScope,
       markedQuestionKeysByScope: savedMarkedQuestionKeysByScope,
@@ -2528,6 +2534,7 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.bgmVolumeLevel, String(normalizedData.bgmVolumeLevel ?? 3));
     localStorage.setItem(STORAGE_KEYS.speechVoiceMode, normalizedData.speechVoiceMode ?? 'us_female');
     localStorage.setItem(STORAGE_KEYS.speechRatePercent, String(normalizedData.speechRatePercent ?? 100));
+    localStorage.setItem(STORAGE_KEYS.translationBattleCorrectSpeechEnabled, String(normalizedData.translationBattleCorrectSpeechEnabled ?? true));
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings()));
     localStorage.setItem(STORAGE_KEYS.selectedQuestionKeysByScope, JSON.stringify(normalizedData.selectedQuestionKeysByScope ?? {}));
     localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(normalizedData.markedQuestionKeysByScope ?? {}));
@@ -2558,6 +2565,7 @@ export default function App() {
     setBgmVolumeLevel(normalizedData.bgmVolumeLevel ?? 3);
     setSpeechVoiceMode(normalizedData.speechVoiceMode ?? 'us_female');
     setSpeechRatePercent(normalizedData.speechRatePercent ?? 100);
+    setTranslationBattleCorrectSpeechEnabled(normalizedData.translationBattleCorrectSpeechEnabled ?? true);
     setAutoPlaySettings(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     setSelectedQuestionKeysByScope(normalizedData.selectedQuestionKeysByScope ?? {});
     setMarkedQuestionKeysByScope(normalizedData.markedQuestionKeysByScope ?? {});
@@ -2580,6 +2588,7 @@ export default function App() {
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
+    translationBattleCorrectSpeechEnabled,
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
@@ -2595,6 +2604,7 @@ export default function App() {
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
+    translationBattleCorrectSpeechEnabled,
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
@@ -2720,6 +2730,11 @@ export default function App() {
       } else {
         localStorage.removeItem(STORAGE_KEYS.speechRatePercent);
       }
+    }
+
+    const savedTranslationBattleCorrectSpeech = localStorage.getItem(STORAGE_KEYS.translationBattleCorrectSpeechEnabled);
+    if (savedTranslationBattleCorrectSpeech !== null) {
+      setTranslationBattleCorrectSpeechEnabled(savedTranslationBattleCorrectSpeech === 'true');
     }
   }, []);
 
@@ -2953,6 +2968,10 @@ export default function App() {
   }, [speechRatePercent]);
 
   useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.translationBattleCorrectSpeechEnabled, String(translationBattleCorrectSpeechEnabled));
+  }, [translationBattleCorrectSpeechEnabled]);
+
+  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(autoPlaySettings));
   }, [autoPlaySettings]);
 
@@ -2982,6 +3001,7 @@ export default function App() {
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
+    translationBattleCorrectSpeechEnabled,
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
@@ -3447,6 +3467,9 @@ export default function App() {
     const importedBgmVolumeLevel = normalizeBgmVolumeLevel(importedData.bgmVolumeLevel);
     const importedSpeechVoiceMode = normalizeSpeechVoiceMode(importedData.speechVoiceMode);
     const importedSpeechRatePercent = normalizeSpeechRatePercent(importedData.speechRatePercent);
+    const importedTranslationBattleCorrectSpeechEnabled = typeof importedData.translationBattleCorrectSpeechEnabled === 'boolean'
+      ? importedData.translationBattleCorrectSpeechEnabled
+      : true;
     const importedAutoPlaySettings = normalizeAutoPlaySettings(importedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     const importedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.selectedQuestionKeysByScope ?? {});
     const importedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.markedQuestionKeysByScope ?? {});
@@ -3489,6 +3512,9 @@ export default function App() {
 
     setSpeechRatePercent(importedSpeechRatePercent);
     localStorage.setItem(STORAGE_KEYS.speechRatePercent, String(importedSpeechRatePercent));
+
+    setTranslationBattleCorrectSpeechEnabled(importedTranslationBattleCorrectSpeechEnabled);
+    localStorage.setItem(STORAGE_KEYS.translationBattleCorrectSpeechEnabled, String(importedTranslationBattleCorrectSpeechEnabled));
 
     setAutoPlaySettings(importedAutoPlaySettings);
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(importedAutoPlaySettings));
@@ -4293,6 +4319,9 @@ export default function App() {
     setMonsterShake(true);
     setTimeout(() => setMonsterShake(false), 400); 
     setLastSolvedQuestion(gameState.currentQuestion);
+    if (translationBattleCorrectSpeechEnabled && gameState.inputMode === 'text-only') {
+      speakWithSettings(gameState.currentQuestion.text);
+    }
     advanceGame(finalDamage, charsPerSec, false, charCount);
   };
 
@@ -5630,6 +5659,22 @@ export default function App() {
               <div className="rounded-xl border border-slate-700 bg-slate-900/50 p-4 text-sm text-slate-300">
                 現在の設定: <span className="font-black text-white">{speechRatePercent}%</span>
               </div>
+            </div>
+          </Box>
+          <Box title="Translation Battle" className="w-full mt-6">
+            <div className="space-y-4">
+              <label className="flex items-center justify-between gap-4 rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-sm text-slate-200">
+                <span>
+                  <span className="block font-bold text-cyan-100">和訳バトル正解後に英語音声を再生</span>
+                  <span className="mt-1 block text-xs text-slate-400">日本語訳だけを見て入力するバトルで、正解直後に用語の発音を確認します。</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={translationBattleCorrectSpeechEnabled}
+                  onChange={(e) => setTranslationBattleCorrectSpeechEnabled(e.target.checked)}
+                  className="h-4 w-4 flex-shrink-0 rounded border-slate-500 bg-slate-900 text-cyan-400"
+                />
+              </label>
             </div>
           </Box>
           <div ref={playerProfilesSectionRef}>
