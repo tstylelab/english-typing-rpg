@@ -263,7 +263,7 @@ const normalizeTypingText = (text: string) => (
 
 const DEFAULT_BATTLE_QUESTION_LIMIT = 10;
 const FINAL_BOSS_QUESTION_LIMIT = 20;
-const FINAL_BOSS_HP_MULTIPLIER = 1.75;
+const FINAL_BOSS_HP_MULTIPLIER = 2;
 const HIDDEN_BOSS_COUNT = 3;
 const HIDDEN_BOSS_QUESTION_LIMITS: Record<Exclude<BossStage, 0 | 1>, number> = {
   2: 30,
@@ -271,9 +271,9 @@ const HIDDEN_BOSS_QUESTION_LIMITS: Record<Exclude<BossStage, 0 | 1>, number> = {
   4: 50,
 };
 const HIDDEN_BOSS_HP_MULTIPLIERS: Record<Exclude<BossStage, 0 | 1>, number> = {
-  2: 2.625,
-  3: 3.5,
-  4: 4.375,
+  2: 3,
+  3: 4,
+  4: 5,
 };
 
 const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
@@ -2000,7 +2000,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm1_7', name: 'そうじサボりダストマスク', type: 'ghost', color: '#94A3B8', baseHp: 300, dialogueStart: "ほこりの雲で見えなくしてやる！", dialogueDefeat: "すみっこまで集められました...", theme: "DustMask" },
       { id: 'm1_8', name: '給食おかわりキング', type: 'beast', color: '#F59E0B', baseHp: 350, dialogueStart: "カレーの大鍋はぜんぶ王さまのものだ！", dialogueDefeat: "みんなで分けるほうがおいしい...", theme: "LunchKing" },
       { id: 'm1_9', name: 'としょかん禁書ミミック', type: 'object', color: '#7C3AED', baseHp: 400, dialogueStart: "しおりを閉じ込めて、物語を止めてやる！", dialogueDefeat: "静かにページを開きます...", theme: "ForbiddenBook" },
-      { id: 'm1_10', name: 'ゲーム沼ドラゴン', type: 'boss', color: '#EF4444', baseHp: 500, dialogueStart: "宿題よりラスボス周回だ！ 今日は寝かせないぞ！", dialogueDefeat: "時間を決めて遊びます...", theme: "GameAbyss" },
+      { id: 'm1_10', name: 'ゲーム沼ドラゴン', type: 'boss', color: '#EF4444', baseHp: 400, dialogueStart: "宿題よりラスボス周回だ！ 今日は寝かせないぞ！", dialogueDefeat: "時間を決めて遊びます...", theme: "GameAbyss" },
     ],
     challenge: [
       { id: 'c1_1', name: '影ぬいインクコア', type: 'slime', color: '#4C1D95', baseHp: 420, dialogueStart: "黒いインクで答えを塗りつぶしてやる...", dialogueDefeat: "文字が...はっきり見える...", theme: "DarkInk" },
@@ -2012,10 +2012,10 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c1_8', name: '紅牙ブラッドファング', type: 'beast', color: '#991B1B', baseHp: 1260, dialogueStart: "一文字の迷いも逃さない...", dialogueDefeat: "牙が...届かなかった...", theme: "CrimsonFang" },
       { id: 'c1_9', name: '奈落ランタンレイス', type: 'ghost', color: '#6D28D9', baseHp: 1310, dialogueStart: "底なしの灯りで目を惑わせよう...", dialogueDefeat: "灯りが...静かに消える...", theme: "AbyssLantern" },
       { id: 'c1_10', name: '獄炎バリスタ・アイ', type: 'object', color: '#B91C1C', baseHp: 1340, dialogueStart: "照準固定。焼き払う準備はできた。", dialogueDefeat: "砲身が...冷えていく...", theme: "InfernoEye" },
-      { id: 'c1_7', name: '魔王ドラゴニス', type: 'boss', color: '#2F4F4F', baseHp: 1380, dialogueStart: "我に挑む愚か者よ", dialogueDefeat: "貴様こそ勇者だ...", theme: "Boss" },
-      { id: 'c1_11', name: '裏魔竜ヴォイド', type: 'boss', color: '#4C1D95', baseHp: 1380, dialogueStart: "まだ終わりではない。ここからが真の試練だ。", dialogueDefeat: "やるな...だが次で終わると思うな。", theme: "HiddenVoid" },
-      { id: 'c1_12', name: '深淵王ネメシス', type: 'boss', color: '#1D4ED8', baseHp: 1400, dialogueStart: "その集中力、どこまで続くか見せてみろ。", dialogueDefeat: "くっ...さらに上を用意していたのだが。", theme: "HiddenAbyss" },
-      { id: 'c1_13', name: '真冥皇アポカリス', type: 'boss', color: '#7F1D1D', baseHp: 1420, dialogueStart: "全問を貫いてみせろ。最後の壁は私だ。", dialogueDefeat: "見事だ...お前こそ真の覇者。", theme: "HiddenEnd" },
+      { id: 'c1_7', name: '魔王ドラゴニス', type: 'boss', color: '#2F4F4F', baseHp: 1340, dialogueStart: "我に挑む愚か者よ", dialogueDefeat: "貴様こそ勇者だ...", theme: "Boss" },
+      { id: 'c1_11', name: '裏魔竜ヴォイド', type: 'boss', color: '#4C1D95', baseHp: 1340, dialogueStart: "まだ終わりではない。ここからが真の試練だ。", dialogueDefeat: "やるな...だが次で終わると思うな。", theme: "HiddenVoid" },
+      { id: 'c1_12', name: '深淵王ネメシス', type: 'boss', color: '#1D4ED8', baseHp: 1340, dialogueStart: "その集中力、どこまで続くか見せてみろ。", dialogueDefeat: "くっ...さらに上を用意していたのだが。", theme: "HiddenAbyss" },
+      { id: 'c1_13', name: '真冥皇アポカリス', type: 'boss', color: '#7F1D1D', baseHp: 1340, dialogueStart: "全問を貫いてみせろ。最後の壁は私だ。", dialogueDefeat: "見事だ...お前こそ真の覇者。", theme: "HiddenEnd" },
     ]
   },
   2: {
@@ -2029,7 +2029,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm2_7', name: 'ドッジボールゴーレム', type: 'robot', color: '#A9A9A9', baseHp: 600, dialogueStart: "当ててやるぞ！", dialogueDefeat: "ナイスキャッチ！", theme: "Sport" },
       { id: 'm2_8', name: 'うわばき隠し', type: 'ghost', color: '#E0FFFF', baseHp: 650, dialogueStart: "靴がないぞ〜", dialogueDefeat: "揃えて置きます...", theme: "Shoes" },
       { id: 'm2_9', name: '騒音トロール', type: 'beast', color: '#CD5C5C', baseHp: 700, dialogueStart: "大声で歌うぞー！", dialogueDefeat: "静かにします...", theme: "Noisy" },
-      { id: 'm2_10', name: 'テストの悪魔', type: 'boss', color: '#800000', baseHp: 900, dialogueStart: "0点とれ〜！", dialogueDefeat: "100点だと！？", theme: "Anxiety" },
+      { id: 'm2_10', name: 'テストの悪魔', type: 'boss', color: '#800000', baseHp: 700, dialogueStart: "0点とれ〜！", dialogueDefeat: "100点だと！？", theme: "Anxiety" },
     ],
     challenge: [
       { id: 'c2_1', name: 'ポイズンスライム', type: 'slime', color: '#8B008B', baseHp: 1500, dialogueStart: "毒を浴びろ！", dialogueDefeat: "解毒された...", theme: "Poison" },
@@ -2041,10 +2041,10 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c2_8', name: 'ブリザードミラー', type: 'object', color: '#AFEEEE', baseHp: 2860, dialogueStart: "凍てつく自分を見ろ", dialogueDefeat: "ひび割れて...映らない...", theme: "Mirror" },
       { id: 'c2_9', name: 'ナイトメアクロウ', type: 'wing', color: '#4B0082', baseHp: 2920, dialogueStart: "悪夢を運んでやる", dialogueDefeat: "羽ばたきが...止まる...", theme: "Nightmare" },
       { id: 'c2_10', name: '深海のジャッジ', type: 'ghost', color: '#1E3A5F', baseHp: 2960, dialogueStart: "沈黙の底へ沈め", dialogueDefeat: "判決は...覆ったか...", theme: "Depth" },
-      { id: 'c2_7', name: '冥王ハーデス', type: 'boss', color: '#000000', baseHp: 3000, dialogueStart: "絶望を味わえ", dialogueDefeat: "光が戻るのか...", theme: "Death" },
-      { id: 'c2_11', name: '裏冥王レヴナント', type: 'boss', color: '#312E81', baseHp: 3000, dialogueStart: "正確さだけでなく、持久力も試してやろう。", dialogueDefeat: "まだ届くか...ならば次を受けてみろ。", theme: "HiddenRevenant" },
-      { id: 'c2_12', name: '終刻神クロノス', type: 'boss', color: '#0F766E', baseHp: 3000, dialogueStart: "焦るな。崩れるのはお前のほうだ。", dialogueDefeat: "時間さえ押し返すとはな...", theme: "HiddenChronos" },
-      { id: 'c2_13', name: '真絶望アザゼル', type: 'boss', color: '#7C2D12', baseHp: 3000, dialogueStart: "最後まで一つも落とさず来られるか。", dialogueDefeat: "その執念...認めよう。", theme: "HiddenDespair" },
+      { id: 'c2_7', name: '冥王ハーデス', type: 'boss', color: '#000000', baseHp: 2960, dialogueStart: "絶望を味わえ", dialogueDefeat: "光が戻るのか...", theme: "Death" },
+      { id: 'c2_11', name: '裏冥王レヴナント', type: 'boss', color: '#312E81', baseHp: 2960, dialogueStart: "正確さだけでなく、持久力も試してやろう。", dialogueDefeat: "まだ届くか...ならば次を受けてみろ。", theme: "HiddenRevenant" },
+      { id: 'c2_12', name: '終刻神クロノス', type: 'boss', color: '#0F766E', baseHp: 2960, dialogueStart: "焦るな。崩れるのはお前のほうだ。", dialogueDefeat: "時間さえ押し返すとはな...", theme: "HiddenChronos" },
+      { id: 'c2_13', name: '真絶望アザゼル', type: 'boss', color: '#7C2D12', baseHp: 2960, dialogueStart: "最後まで一つも落とさず来られるか。", dialogueDefeat: "その執念...認めよう。", theme: "HiddenDespair" },
     ]
   },
   3: {
@@ -2058,7 +2058,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm3_7', name: '迷路マンション', type: 'object', color: '#778899', baseHp: 1100, dialogueStart: "迷子になれ〜", dialogueDefeat: "出口こっち？", theme: "Maze" },
       { id: 'm3_8', name: '雷おやじ', type: 'ghost', color: '#FFFF00', baseHp: 1200, dialogueStart: "コラ〜！！", dialogueDefeat: "許してやろう...", theme: "Scary" },
       { id: 'm3_9', name: '宿題ブラックホール', type: 'boss', color: '#000000', baseHp: 1300, dialogueStart: "全部吸い込むぞ", dialogueDefeat: "提出します...", theme: "Blackhole" },
-      { id: 'm3_10', name: '夏休みの宿題王', type: 'boss', color: '#4B0082', baseHp: 1600, dialogueStart: "今日は8月31日だ！", dialogueDefeat: "7月中に終わってた！", theme: "Procrastination" },
+      { id: 'm3_10', name: '夏休みの宿題王', type: 'boss', color: '#4B0082', baseHp: 1300, dialogueStart: "今日は8月31日だ！", dialogueDefeat: "7月中に終わってた！", theme: "Procrastination" },
     ],
     challenge: [
       { id: 'c3_1', name: 'カオススライム', type: 'slime', color: '#FF4500', baseHp: 2500, dialogueStart: "混沌を...", dialogueDefeat: "秩序が...", theme: "Chaos" },
@@ -2070,10 +2070,10 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c3_8', name: '断罪のセラフ', type: 'wing', color: '#F5F5DC', baseHp: 4650, dialogueStart: "裁きを始めよう", dialogueDefeat: "天秤が...傾いた...", theme: "Judgement" },
       { id: 'c3_9', name: '虚無のコロッサス', type: 'object', color: '#696969', baseHp: 4800, dialogueStart: "存在ごと踏み潰す", dialogueDefeat: "巨体が...崩落する...", theme: "Void" },
       { id: 'c3_10', name: '深紅のキマイラ', type: 'beast', color: '#8B1E3F', baseHp: 4900, dialogueStart: "最後の恐怖を見せてやる", dialogueDefeat: "まだ...届かなかったか...", theme: "Crimson" },
-      { id: 'c3_7', name: '終焉のドラゴン', type: 'boss', color: '#8B0000', baseHp: 5000, dialogueStart: "全てを無に還す", dialogueDefeat: "未来を託そう...", theme: "End" },
-      { id: 'c3_11', name: '裏終焉ネビュラス', type: 'boss', color: '#581C87', baseHp: 5000, dialogueStart: "ここから先は、本当に折れない者だけが進める。", dialogueDefeat: "その意志...まだ尽きないのか。", theme: "HiddenNebula" },
-      { id: 'c3_12', name: '深黒皇ディザスター', type: 'boss', color: '#0F172A', baseHp: 5000, dialogueStart: "迷いは一文字で命取りになるぞ。", dialogueDefeat: "完璧さで押し切るとは...。", theme: "HiddenDisaster" },
-      { id: 'c3_13', name: '真終王アポカリプス', type: 'boss', color: '#7F1D1D', baseHp: 5000, dialogueStart: "最後の五十問、すべて通してみせろ。", dialogueDefeat: "これほどとは...完全敗北だ。", theme: "HiddenApocalypse" },
+      { id: 'c3_7', name: '終焉のドラゴン', type: 'boss', color: '#8B0000', baseHp: 4900, dialogueStart: "全てを無に還す", dialogueDefeat: "未来を託そう...", theme: "End" },
+      { id: 'c3_11', name: '裏終焉ネビュラス', type: 'boss', color: '#581C87', baseHp: 4900, dialogueStart: "ここから先は、本当に折れない者だけが進める。", dialogueDefeat: "その意志...まだ尽きないのか。", theme: "HiddenNebula" },
+      { id: 'c3_12', name: '深黒皇ディザスター', type: 'boss', color: '#0F172A', baseHp: 4900, dialogueStart: "迷いは一文字で命取りになるぞ。", dialogueDefeat: "完璧さで押し切るとは...。", theme: "HiddenDisaster" },
+      { id: 'c3_13', name: '真終王アポカリプス', type: 'boss', color: '#7F1D1D', baseHp: 4900, dialogueStart: "最後の五十問、すべて通してみせろ。", dialogueDefeat: "これほどとは...完全敗北だ。", theme: "HiddenApocalypse" },
     ]
   }
 };
