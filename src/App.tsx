@@ -221,10 +221,10 @@ type MonsterDialogueState = 'start' | 'combo' | 'desperate' | 'damaged' | 'taunt
 // --- Rank System ---
 interface RankData { threshold: number; title: string; color: string; }
 
-const GUIDE_TARGET_COUNT = 10;
-const LISTENING_TRAINING_TARGET_COUNT = 10;
-const NORMAL_TARGET_COUNT = 10;
-const HARD_TARGET_COUNT = 10;
+const GUIDE_TARGET_COUNT = 20;
+const LISTENING_TRAINING_TARGET_COUNT = 20;
+const NORMAL_TARGET_COUNT = 20;
+const HARD_TARGET_COUNT = 20;
 const REVIEW_REAPPEAR_DELAY = 5;
 const REVIEW_RATE_WINDOW_SIZE = 5;
 const REVIEW_RATE_MAX_IN_WINDOW = 3;
@@ -1988,7 +1988,7 @@ const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyl
   );
 };
 
-const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
+const BASE_MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
   1: {
     guide: [
       { id: 'm1_1', name: '朝ねぼうベルクロック', type: 'object', color: '#60A5FA', baseHp: 150, dialogueStart: "リンリン！ あと5分だけ止めておくよ！", dialogueDefeat: "起きる時間をちゃんと鳴らします...", theme: "Timekeeper" },
@@ -2076,6 +2076,98 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c3_13', name: '真終王アポカリプス', type: 'boss', color: '#7F1D1D', baseHp: 4900, dialogueStart: "最後の五十問、すべて通してみせろ。", dialogueDefeat: "これほどとは...完全敗北だ。", theme: "HiddenApocalypse" },
     ]
   }
+};
+
+type MonsterLane = 'guide' | 'challenge';
+
+const TWENTY_STAGE_HP_CURVES: Record<Level, Record<MonsterLane, number[]>> = {
+  1: {
+    guide: [150, 180, 200, 220, 250, 280, 300, 310, 320, 330, 340, 350, 360, 368, 376, 384, 390, 396, 400],
+    challenge: [420, 580, 740, 900, 1040, 1200, 1260, 1267, 1273, 1280, 1287, 1293, 1300, 1307, 1313, 1320, 1327, 1333, 1340],
+  },
+  2: {
+    guide: [300, 350, 400, 450, 500, 550, 600, 608, 616, 624, 632, 640, 648, 656, 664, 672, 680, 690, 700],
+    challenge: [1500, 1800, 2000, 2200, 2500, 2800, 2860, 2868, 2876, 2884, 2892, 2900, 2908, 2916, 2924, 2932, 2940, 2950, 2960],
+  },
+  3: {
+    guide: [500, 600, 700, 800, 900, 1000, 1100, 1115, 1130, 1145, 1160, 1175, 1190, 1205, 1220, 1240, 1260, 1280, 1300],
+    challenge: [2500, 2800, 3000, 3500, 4000, 4500, 4650, 4670, 4690, 4710, 4730, 4750, 4770, 4790, 4810, 4830, 4850, 4875, 4900],
+  },
+};
+
+const EXTRA_MONSTER_TYPES: MonsterType[] = ['slime', 'wing', 'object', 'beast', 'ghost', 'robot', 'slime', 'wing', 'object', 'beast'];
+const EXTRA_MONSTER_COLORS = ['#38BDF8', '#A78BFA', '#FBBF24', '#34D399', '#F472B6', '#94A3B8', '#22C55E', '#F97316', '#818CF8', '#F43F5E'];
+
+const EXTRA_MONSTER_NAMES: Record<Level, Record<MonsterLane, string[]>> = {
+  1: {
+    guide: ['朝チャイムスライム', 'プリントつむじバード', 'えんぴつ番人ゴーレム', '給食列ならびオーク', '音読こだまゴースト', '時間割ロボ', 'ノート整理スライム', '小テストフクロウ', 'しおり守りミミック', '集中ほのおビースト'],
+    challenge: ['黒インクスライム改', '火花の番犬', '風読みウィング', '仮面の影法師', '鉄壁ガード改', '石文ルーン像', '紅牙の追跡者', '奈落の灯火', '獄炎の照準手', '魔門の門番'],
+  },
+  2: {
+    guide: ['朝礼コウモリ', '忘れ物チェックウルフ', '仲直りフォックス', '目覚ましベア', '黒板みがき精', '音階へび', 'キャッチ練習ロボ', '上ばき番人', '静けさトロール', 'テスト前スピリット'],
+    challenge: ['毒霧スライム', '氷牙ウルフ', '雷羽バード', '幻影ナイト', '古代ギア兵', '砂毒スコーピオン', '氷鏡の番人', '悪夢の羽音', '深海の審判官', '冥府の門衛'],
+  },
+  3: {
+    guide: ['正直ゴースト', '集中ロボ改', '早寝フクロウ', '廊下ストッパー', '運動ゴーレム', '野菜スライム', '出口案内ミミック', '雷雲ゴースト', '宿題衛星コア', '提出日ガーディアン'],
+    challenge: ['混沌スライム改', '金角キメラ', '夜空ウィング', '白影ロード', '機神ガード', '深淵ウォーカー改', '裁きの羽', '虚無巨像の影', '深紅キマイラ改', '終焉門の番人'],
+  },
+};
+
+const makeExtraMonster = (
+  level: Level,
+  lane: MonsterLane,
+  extraIndex: number,
+  baseHp: number
+): Monster => ({
+  id: `${lane === 'guide' ? 'm' : 'c'}${level}_extra_${extraIndex + 1}`,
+  name: EXTRA_MONSTER_NAMES[level][lane][extraIndex],
+  type: EXTRA_MONSTER_TYPES[extraIndex],
+  color: EXTRA_MONSTER_COLORS[extraIndex],
+  baseHp,
+  dialogueStart: '少しだけ強くなったぞ。ここを越えてみろ！',
+  dialogueDefeat: 'いい集中力だ...次へ進もう。',
+  theme: `${lane === 'guide' ? 'TrainingRamp' : 'DangerRamp'}${level}_${extraIndex + 1}`,
+});
+
+const buildTwentyStageList = (
+  level: Level,
+  lane: MonsterLane,
+  monsters: Monster[]
+): Monster[] => {
+  const hpCurve = TWENTY_STAGE_HP_CURVES[level][lane];
+  const firstSeven = monsters.slice(0, 7).map((monster, index) => ({ ...monster, baseHp: hpCurve[index] }));
+  const oldEighth = { ...monsters[7], baseHp: hpCurve[11] };
+  const oldNinth = { ...monsters[8], baseHp: hpCurve[18] };
+  const extraMonsters = EXTRA_MONSTER_NAMES[level][lane].map((_, index) => makeExtraMonster(level, lane, index, hpCurve[index < 4 ? index + 7 : index + 8]));
+  const finalBoss = { ...monsters[9], baseHp: hpCurve[18] };
+  const baseTwenty = [
+    ...firstSeven,
+    ...extraMonsters.slice(0, 4),
+    oldEighth,
+    ...extraMonsters.slice(4),
+    oldNinth,
+    finalBoss,
+  ];
+
+  if (lane === 'guide') return baseTwenty;
+
+  const hiddenBosses = monsters.slice(10, 13).map(monster => ({ ...monster, baseHp: hpCurve[18] }));
+  return [...baseTwenty, ...hiddenBosses];
+};
+
+const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
+  1: {
+    guide: buildTwentyStageList(1, 'guide', BASE_MONSTERS[1].guide),
+    challenge: buildTwentyStageList(1, 'challenge', BASE_MONSTERS[1].challenge),
+  },
+  2: {
+    guide: buildTwentyStageList(2, 'guide', BASE_MONSTERS[2].guide),
+    challenge: buildTwentyStageList(2, 'challenge', BASE_MONSTERS[2].challenge),
+  },
+  3: {
+    guide: buildTwentyStageList(3, 'guide', BASE_MONSTERS[3].guide),
+    challenge: buildTwentyStageList(3, 'challenge', BASE_MONSTERS[3].challenge),
+  },
 };
 
 // --- Components ---
