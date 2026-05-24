@@ -264,7 +264,6 @@ const normalizeTypingText = (text: string) => (
 const DEFAULT_BATTLE_QUESTION_LIMIT = 10;
 const FINAL_BOSS_QUESTION_LIMIT = 20;
 const FINAL_BOSS_HP_MULTIPLIER = 1.75;
-const PRE_FINAL_BOSS_HP_MULTIPLIER = 0.94;
 const HIDDEN_BOSS_COUNT = 3;
 const HIDDEN_BOSS_QUESTION_LIMITS: Record<Exclude<BossStage, 0 | 1>, number> = {
   2: 30,
@@ -302,16 +301,6 @@ const getBossStage = (
   return stepIndex >= Math.max(totalMonsters - 1, 0) ? 1 : 0;
 };
 
-const isPreFinalBossStep = (
-  mode: Mode,
-  inputMode: InputMode,
-  stepIndex: number,
-  totalMonsters: number
-) => (
-  getBossStage(mode, inputMode, stepIndex, totalMonsters) === 0
-  && getBossStage(mode, inputMode, stepIndex + 1, totalMonsters) === 1
-);
-
 const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
   if (bossStage === 1) return FINAL_BOSS_QUESTION_LIMIT;
@@ -324,17 +313,15 @@ const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
 const getBattleHp = (
   difficulty: Difficulty,
   baseHp: number,
-  bossStage: BossStage,
-  isPreFinalBoss: boolean = false
+  bossStage: BossStage
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
-  const preFinalBossHpMultiplier = isPreFinalBoss ? PRE_FINAL_BOSS_HP_MULTIPLIER : 1;
   const bossHpMultiplier = bossStage === 1
     ? FINAL_BOSS_HP_MULTIPLIER
     : (bossStage === 2 || bossStage === 3 || bossStage === 4)
       ? HIDDEN_BOSS_HP_MULTIPLIERS[bossStage]
       : 1;
-  return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier * preFinalBossHpMultiplier);
+  return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier);
 };
 
 const getBattleTuning = (
@@ -342,10 +329,9 @@ const getBattleTuning = (
   mode: Mode,
   inputMode: InputMode,
   baseHp: number,
-  bossStage: BossStage,
-  isPreFinalBoss: boolean = false
+  bossStage: BossStage
 ) => {
-  const monsterHp = getBattleHp(difficulty, baseHp, bossStage, isPreFinalBoss);
+  const monsterHp = getBattleHp(difficulty, baseHp, bossStage);
 
   return {
     monsterHp,
@@ -2013,7 +1999,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm1_6', name: 'まいごの消しゴムナイト', type: 'object', color: '#DBEAFE', baseHp: 280, dialogueStart: "筆箱の国へ帰る道を忘れた！", dialogueDefeat: "机の右上で待機します...", theme: "LostKnight" },
       { id: 'm1_7', name: 'そうじサボりダストマスク', type: 'ghost', color: '#94A3B8', baseHp: 300, dialogueStart: "ほこりの雲で見えなくしてやる！", dialogueDefeat: "すみっこまで集められました...", theme: "DustMask" },
       { id: 'm1_8', name: '給食おかわりキング', type: 'beast', color: '#F59E0B', baseHp: 350, dialogueStart: "カレーの大鍋はぜんぶ王さまのものだ！", dialogueDefeat: "みんなで分けるほうがおいしい...", theme: "LunchKing" },
-      { id: 'm1_9', name: 'としょかん禁書ミミック', type: 'object', color: '#7C3AED', baseHp: 400, dialogueStart: "しおりを閉じ込めて、物語を止めてやる！", dialogueDefeat: "静かにページを開きます...", theme: "ForbiddenBook" },
+      { id: 'm1_9', name: 'としょかん禁書ミミック', type: 'object', color: '#7C3AED', baseHp: 376, dialogueStart: "しおりを閉じ込めて、物語を止めてやる！", dialogueDefeat: "静かにページを開きます...", theme: "ForbiddenBook" },
       { id: 'm1_10', name: 'ゲーム沼ドラゴン', type: 'boss', color: '#EF4444', baseHp: 500, dialogueStart: "宿題よりラスボス周回だ！ 今日は寝かせないぞ！", dialogueDefeat: "時間を決めて遊びます...", theme: "GameAbyss" },
     ],
     challenge: [
@@ -2025,7 +2011,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c1_6', name: '地鳴りルーンゴーレム', type: 'object', color: '#A16207', baseHp: 1200, dialogueStart: "古い石文字で道をふさいでやる...", dialogueDefeat: "刻まれたルーンがほどける...", theme: "EarthRune" },
       { id: 'c1_8', name: '紅牙ブラッドファング', type: 'beast', color: '#991B1B', baseHp: 1260, dialogueStart: "一文字の迷いも逃さない...", dialogueDefeat: "牙が...届かなかった...", theme: "CrimsonFang" },
       { id: 'c1_9', name: '奈落ランタンレイス', type: 'ghost', color: '#6D28D9', baseHp: 1310, dialogueStart: "底なしの灯りで目を惑わせよう...", dialogueDefeat: "灯りが...静かに消える...", theme: "AbyssLantern" },
-      { id: 'c1_10', name: '獄炎バリスタ・アイ', type: 'object', color: '#B91C1C', baseHp: 1340, dialogueStart: "照準固定。焼き払う準備はできた。", dialogueDefeat: "砲身が...冷えていく...", theme: "InfernoEye" },
+      { id: 'c1_10', name: '獄炎バリスタ・アイ', type: 'object', color: '#B91C1C', baseHp: 1260, dialogueStart: "照準固定。焼き払う準備はできた。", dialogueDefeat: "砲身が...冷えていく...", theme: "InfernoEye" },
       { id: 'c1_7', name: '魔王ドラゴニス', type: 'boss', color: '#2F4F4F', baseHp: 1380, dialogueStart: "我に挑む愚か者よ", dialogueDefeat: "貴様こそ勇者だ...", theme: "Boss" },
       { id: 'c1_11', name: '裏魔竜ヴォイド', type: 'boss', color: '#4C1D95', baseHp: 1380, dialogueStart: "まだ終わりではない。ここからが真の試練だ。", dialogueDefeat: "やるな...だが次で終わると思うな。", theme: "HiddenVoid" },
       { id: 'c1_12', name: '深淵王ネメシス', type: 'boss', color: '#1D4ED8', baseHp: 1400, dialogueStart: "その集中力、どこまで続くか見せてみろ。", dialogueDefeat: "くっ...さらに上を用意していたのだが。", theme: "HiddenAbyss" },
@@ -2042,7 +2028,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm2_6', name: 'リコーダーへび', type: 'slime', color: '#98FB98', baseHp: 550, dialogueStart: "変な音だしてやる！", dialogueDefeat: "綺麗な音色...", theme: "Music" },
       { id: 'm2_7', name: 'ドッジボールゴーレム', type: 'robot', color: '#A9A9A9', baseHp: 600, dialogueStart: "当ててやるぞ！", dialogueDefeat: "ナイスキャッチ！", theme: "Sport" },
       { id: 'm2_8', name: 'うわばき隠し', type: 'ghost', color: '#E0FFFF', baseHp: 650, dialogueStart: "靴がないぞ〜", dialogueDefeat: "揃えて置きます...", theme: "Shoes" },
-      { id: 'm2_9', name: '騒音トロール', type: 'beast', color: '#CD5C5C', baseHp: 700, dialogueStart: "大声で歌うぞー！", dialogueDefeat: "静かにします...", theme: "Noisy" },
+      { id: 'm2_9', name: '騒音トロール', type: 'beast', color: '#CD5C5C', baseHp: 658, dialogueStart: "大声で歌うぞー！", dialogueDefeat: "静かにします...", theme: "Noisy" },
       { id: 'm2_10', name: 'テストの悪魔', type: 'boss', color: '#800000', baseHp: 900, dialogueStart: "0点とれ〜！", dialogueDefeat: "100点だと！？", theme: "Anxiety" },
     ],
     challenge: [
@@ -2054,7 +2040,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c2_6', name: 'デス・スコーピオン', type: 'beast', color: '#800000', baseHp: 2800, dialogueStart: "毒針の恐怖...", dialogueDefeat: "解毒完了...", theme: "Venom" },
       { id: 'c2_8', name: 'ブリザードミラー', type: 'object', color: '#AFEEEE', baseHp: 2860, dialogueStart: "凍てつく自分を見ろ", dialogueDefeat: "ひび割れて...映らない...", theme: "Mirror" },
       { id: 'c2_9', name: 'ナイトメアクロウ', type: 'wing', color: '#4B0082', baseHp: 2920, dialogueStart: "悪夢を運んでやる", dialogueDefeat: "羽ばたきが...止まる...", theme: "Nightmare" },
-      { id: 'c2_10', name: '深海のジャッジ', type: 'ghost', color: '#1E3A5F', baseHp: 2960, dialogueStart: "沈黙の底へ沈め", dialogueDefeat: "判決は...覆ったか...", theme: "Depth" },
+      { id: 'c2_10', name: '深海のジャッジ', type: 'ghost', color: '#1E3A5F', baseHp: 2782, dialogueStart: "沈黙の底へ沈め", dialogueDefeat: "判決は...覆ったか...", theme: "Depth" },
       { id: 'c2_7', name: '冥王ハーデス', type: 'boss', color: '#000000', baseHp: 3000, dialogueStart: "絶望を味わえ", dialogueDefeat: "光が戻るのか...", theme: "Death" },
       { id: 'c2_11', name: '裏冥王レヴナント', type: 'boss', color: '#312E81', baseHp: 3000, dialogueStart: "正確さだけでなく、持久力も試してやろう。", dialogueDefeat: "まだ届くか...ならば次を受けてみろ。", theme: "HiddenRevenant" },
       { id: 'c2_12', name: '終刻神クロノス', type: 'boss', color: '#0F766E', baseHp: 3000, dialogueStart: "焦るな。崩れるのはお前のほうだ。", dialogueDefeat: "時間さえ押し返すとはな...", theme: "HiddenChronos" },
@@ -2071,7 +2057,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'm3_6', name: '偏食モンスター', type: 'slime', color: '#228B22', baseHp: 1000, dialogueStart: "野菜は食べない！", dialogueDefeat: "美味しい...", theme: "Food" },
       { id: 'm3_7', name: '迷路マンション', type: 'object', color: '#778899', baseHp: 1100, dialogueStart: "迷子になれ〜", dialogueDefeat: "出口こっち？", theme: "Maze" },
       { id: 'm3_8', name: '雷おやじ', type: 'ghost', color: '#FFFF00', baseHp: 1200, dialogueStart: "コラ〜！！", dialogueDefeat: "許してやろう...", theme: "Scary" },
-      { id: 'm3_9', name: '宿題ブラックホール', type: 'boss', color: '#000000', baseHp: 1300, dialogueStart: "全部吸い込むぞ", dialogueDefeat: "提出します...", theme: "Blackhole" },
+      { id: 'm3_9', name: '宿題ブラックホール', type: 'boss', color: '#000000', baseHp: 1222, dialogueStart: "全部吸い込むぞ", dialogueDefeat: "提出します...", theme: "Blackhole" },
       { id: 'm3_10', name: '夏休みの宿題王', type: 'boss', color: '#4B0082', baseHp: 1600, dialogueStart: "今日は8月31日だ！", dialogueDefeat: "7月中に終わってた！", theme: "Procrastination" },
     ],
     challenge: [
@@ -2083,7 +2069,7 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
       { id: 'c3_6', name: 'アビス・ウォーカー', type: 'ghost', color: '#483D8B', baseHp: 4500, dialogueStart: "深淵を覗くか...", dialogueDefeat: "見事だ...", theme: "Abyss" },
       { id: 'c3_8', name: '断罪のセラフ', type: 'wing', color: '#F5F5DC', baseHp: 4650, dialogueStart: "裁きを始めよう", dialogueDefeat: "天秤が...傾いた...", theme: "Judgement" },
       { id: 'c3_9', name: '虚無のコロッサス', type: 'object', color: '#696969', baseHp: 4800, dialogueStart: "存在ごと踏み潰す", dialogueDefeat: "巨体が...崩落する...", theme: "Void" },
-      { id: 'c3_10', name: '深紅のキマイラ', type: 'beast', color: '#8B1E3F', baseHp: 4900, dialogueStart: "最後の恐怖を見せてやる", dialogueDefeat: "まだ...届かなかったか...", theme: "Crimson" },
+      { id: 'c3_10', name: '深紅のキマイラ', type: 'beast', color: '#8B1E3F', baseHp: 4606, dialogueStart: "最後の恐怖を見せてやる", dialogueDefeat: "まだ...届かなかったか...", theme: "Crimson" },
       { id: 'c3_7', name: '終焉のドラゴン', type: 'boss', color: '#8B0000', baseHp: 5000, dialogueStart: "全てを無に還す", dialogueDefeat: "未来を託そう...", theme: "End" },
       { id: 'c3_11', name: '裏終焉ネビュラス', type: 'boss', color: '#581C87', baseHp: 5000, dialogueStart: "ここから先は、本当に折れない者だけが進める。", dialogueDefeat: "その意志...まだ尽きないのか。", theme: "HiddenNebula" },
       { id: 'c3_12', name: '深黒皇ディザスター', type: 'boss', color: '#0F172A', baseHp: 5000, dialogueStart: "迷いは一文字で命取りになるぞ。", dialogueDefeat: "完璧さで押し切るとは...。", theme: "HiddenDisaster" },
@@ -3815,8 +3801,7 @@ export default function App() {
     const actualMonsterIndex = safeIndices[safeStepIndex] ?? 0;
     const startingMonster = monsterList[actualMonsterIndex] ?? monsterList[0];
     const bossStage = getBossStage(mode, inputMode, safeStepIndex, totalMonsters);
-    const isPreFinalBoss = isPreFinalBossStep(mode, inputMode, safeStepIndex, totalMonsters);
-    const battleTuning = getBattleTuning(diff, mode, inputMode, startingMonster.baseHp, bossStage, isPreFinalBoss);
+    const battleTuning = getBattleTuning(diff, mode, inputMode, startingMonster.baseHp, bossStage);
     const startingMonsterHp = battleTuning.monsterHp;
     const maxQuestions = battleTuning.maxQuestions;
     const useBossBattleMusic = startingMonster?.type === 'boss' || bossStage > 0;
@@ -4480,8 +4465,7 @@ export default function App() {
       inputMode: InputMode
     ) => {
       const bossStage = getBossStage(mode, inputMode, monsterIndex, monsters.length);
-      const isPreFinalBoss = isPreFinalBossStep(mode, inputMode, monsterIndex, monsters.length);
-      return getBattleHp(bookDifficulty, monster.baseHp, bossStage, isPreFinalBoss);
+      return getBattleHp(bookDifficulty, monster.baseHp, bossStage);
     };
     const totalDefeated = guideDefeatedCount + challengeDefeatedCount;
     return (
