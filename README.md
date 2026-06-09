@@ -1,73 +1,163 @@
-# React + TypeScript + Vite
+# english-typing-rpg
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+英語タイピング練習とRPG風バトルを組み合わせたWebアプリです。
 
-Currently, two official plugins are available:
+英検レベル別の単語・熟語・文章を、モンスターとのバトル形式で練習できます。音声読み上げ、苦手問題の復習、スコア記録、モンスター図鑑などを備えています。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 公開URL
 
-## React Compiler
+https://en-typing.tsg-gt.com/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## GitHubリポジトリ
 
-## Expanding the ESLint configuration
+https://github.com/tstylelab/english-typing-rpg
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 使用技術
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- lucide-react
+- GitHub Actions
+- GitHub Pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 主な機能
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 英検5級、英検4級、英検準1級の問題に対応
+- 単語、熟語、文章レベルの練習
+- RPG風のモンスターバトル
+- タイピング練習
+- 英語音声の読み上げ
+- 苦手問題の自動記録
+- 苦手問題の復習
+- あとで復習したい問題の保存
+- スコア・記録表示
+- モンスター図鑑
+- ヘルプ画面
+- 学習進捗の保存・引き継ぎ
+
+## フォルダ構成
+
+```text
+english-typing-rpg/
+  src/
+    App.tsx
+    HelpScreen.tsx
+    data/
+      questions.ts
+      questionExamples.ts
+      questionSynonyms.ts
+      questionSets/
+        eiken/
+          grade5.json
+          grade4.json
+          gradepre1.json
+
+  data-source/
+    eiken/
+      grade4/
+      gradepre1/
+
+  scripts/
+
+  public/
+
+  .github/
+    workflows/
+      deploy.yml
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 主なファイルの役割
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### `src/App.tsx`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+アプリ本体の中心です。画面切り替え、バトル処理、タイピング処理、スコア、復習、設定など、多くの処理がここにまとまっています。
+
+### `src/HelpScreen.tsx`
+
+ヘルプ画面のコンポーネントです。
+
+### `src/data/questions.ts`
+
+英検5級、4級、準1級の問題JSONを読み込み、アプリで使える形にまとめています。
+
+### `src/data/questionSets/eiken/*.json`
+
+ゲーム内で実際に使う問題データです。
+
+### `src/data/questionExamples.ts`
+
+問題に対応する例文を扱うファイルです。
+
+### `src/data/questionSynonyms.ts`
+
+類義語や関連語の表示に関するファイルです。
+
+### `data-source/`
+
+問題データを作るための元データや作業用データを置く場所です。CSV、候補リスト、バッチJSONなどがあります。
+
+### `scripts/`
+
+問題データを変換・検証するためのスクリプトがあります。
+
+### `public/`
+
+画像、BGM、効果音など、公開時に使う素材があります。
+
+### `.github/workflows/deploy.yml`
+
+GitHub Pagesへ自動公開するための設定です。`main` ブランチに反映されると、GitHub Actionsでビルドと公開が行われます。
+
+## 起動方法
+
+依存関係が入っている状態で、次のコマンドを実行します。
+
+```bash
+npm install
+npm run dev
 ```
+
+ローカル確認用のURLが表示されるので、ブラウザで開きます。
+
+## ビルド方法
+
+公開前と同じ形式でビルドできるか確認する場合は、次を実行します。
+
+```bash
+npm run build
+```
+
+成功すると `dist/` フォルダに公開用ファイルが作られます。
+
+## 公開方法
+
+このアプリはGitHub Actions経由でGitHub Pagesに公開されています。
+
+確認済みの設定:
+
+- 公開URL: https://en-typing.tsg-gt.com/
+- GitHub Pages: GitHub Actionsでデプロイ
+- カスタムドメイン: `en-typing.tsg-gt.com`
+- HTTPS: 有効
+
+通常は、`main` ブランチに反映された内容がGitHub Actionsでビルドされ、公開サイトへ反映されます。
+
+## 問題データを変更するときの注意
+
+問題データには、アプリで直接使うJSONと、元データ・作業用データがあります。
+
+直接使うデータ:
+
+```text
+src/data/questionSets/eiken/
+```
+
+元データ・作業用データ:
+
+```text
+data-source/
+```
+
+問題数を増やす、翻訳を修正する、例文を追加する場合は、どのデータを正本として扱うかを確認してから作業します。
