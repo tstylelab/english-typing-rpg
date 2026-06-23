@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 CODEX_NOTES.local.md
+docs/work-log/*.md
+!docs/work-log/README.md
 dist-ssr
 *.local
 
