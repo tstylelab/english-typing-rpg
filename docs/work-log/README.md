@@ -1,66 +1,68 @@
-# Work Log Policy
+# 作業ログ運用方針
 
-This project keeps a Markdown work log so that decisions, changes, and context can be reviewed later.
+このプロジェクトでは、後から作業内容・判断理由・現在の状態を見返せるように、Markdown 形式で作業ログを残す。
 
-## Location
+## 保存場所
 
-Daily logs are saved under:
+日別ログは次の場所に保存する。
 
 ```text
 docs/work-log/YYYY-MM-DD.md
 ```
 
-Example:
+例:
 
 ```text
 docs/work-log/2026-06-23.md
 ```
 
-## What To Record
+## 記録する内容
 
-Each work log should include, as appropriate:
+必要に応じて、次の内容を記録する。
 
-- Purpose of the work
-- What was changed or investigated
-- Main files touched
-- Important implementation or design points
-- Verification results
-- Remaining tasks or next steps
+- 作業の目的
+- 実施した内容や調査した内容
+- 変更した主なファイル
+- 実装・設計・調整に関する重要な判断ポイント
+- ビルド、テスト、手動確認などの確認結果
+- 残っている課題や次回やること
 
-## Suggested Daily Template
+## 日別ログのテンプレート
 
 ```md
-# Work Log: YYYY-MM-DD
+# 作業ログ: YYYY-MM-DD
 
-## Purpose
+## 目的
 
-Describe what this session was trying to accomplish.
+この作業で何を達成したかったのかを書く。
 
-## Work Done
+## 実施内容
 
-- Summarize concrete changes, checks, or investigation steps.
+- 具体的に変更・確認・調査したことを書く。
 
-## Key Points
+## 重要なポイント
 
-- Record decisions, reasons, caveats, or context worth remembering.
+- 判断理由、注意点、後から思い出したい背景を書く。
 
-## Main Files
+## 主なファイル
 
 - `path/to/file`
 
-## Verification
+## 確認結果
 
-- Record commands run, build/test results, or manual checks.
+- 実行したコマンド、ビルドやテストの結果、手動確認の内容を書く。
 
-## Next Steps
+## 次回やること
 
-- Note follow-up items or unresolved questions.
+- 残っている作業や確認したいことを書く。
 ```
 
-## Operation
+## 運用
 
-At the start of a new work session, review this policy when work logging is relevant.
+新しい作業セッションを始めるとき、作業ログが関係する場合はこの方針を確認する。
 
-At the end of a session, or whenever the user asks to save progress, append a concise but useful summary to that day's log file.
+作業の終わり、またはユーザーから「保存して」「ログに残して」と指示があったタイミングで、その日のログファイルに追記する。
 
-Logs should be practical rather than exhaustive: enough detail to recover the purpose, important choices, and current state without replaying the whole conversation.
+ログは日本語を基本にする。ファイル名、コマンド、コード上の識別子などは、そのまま英語表記やパス表記で残す。
+
+ログは長すぎる必要はない。会話全体を再現するのではなく、目的・重要な判断・変更内容・確認結果が後から分かる程度にまとめる。
