@@ -2085,7 +2085,7 @@ type MonsterLane = 'guide' | 'challenge';
 
 const TWENTY_STAGE_HP_CURVES: Record<Level, Record<MonsterLane, number[]>> = {
   1: {
-    guide: [150, 180, 200, 220, 250, 280, 300, 310, 320, 330, 340, 350, 360, 368, 376, 384, 390, 396, 400],
+    guide: [150, 170, 185, 200, 210, 220, 230, 240, 250, 260, 270, 285, 300, 315, 330, 345, 360, 370, 380, 400],
     challenge: [420, 580, 740, 900, 1040, 1200, 1260, 1267, 1273, 1280, 1287, 1293, 1300, 1307, 1313, 1320, 1327, 1333, 1340],
   },
   2: {
@@ -2138,11 +2138,12 @@ const buildTwentyStageList = (
   monsters: Monster[]
 ): Monster[] => {
   const hpCurve = TWENTY_STAGE_HP_CURVES[level][lane];
+  const finalBossBaseHp = hpCurve[19] ?? hpCurve[18];
   const firstSeven = monsters.slice(0, 7).map((monster, index) => ({ ...monster, baseHp: hpCurve[index] }));
   const oldEighth = { ...monsters[7], baseHp: hpCurve[11] };
   const oldNinth = { ...monsters[8], baseHp: hpCurve[18] };
   const extraMonsters = EXTRA_MONSTER_NAMES[level][lane].map((_, index) => makeExtraMonster(level, lane, index, hpCurve[index < 4 ? index + 7 : index + 8]));
-  const finalBoss = { ...monsters[9], baseHp: hpCurve[18] };
+  const finalBoss = { ...monsters[9], baseHp: finalBossBaseHp };
   const baseTwenty = [
     ...firstSeven,
     ...extraMonsters.slice(0, 4),
@@ -2154,7 +2155,7 @@ const buildTwentyStageList = (
 
   if (lane === 'guide') return baseTwenty;
 
-  const hiddenBosses = monsters.slice(10, 13).map(monster => ({ ...monster, baseHp: hpCurve[18] }));
+  const hiddenBosses = monsters.slice(10, 13).map(monster => ({ ...monster, baseHp: finalBossBaseHp }));
   return [...baseTwenty, ...hiddenBosses];
 };
 
