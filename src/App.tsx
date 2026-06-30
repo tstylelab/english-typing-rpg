@@ -709,25 +709,10 @@ const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken4: '英検4級',
   EikenPre1: '英検準1級',
 };
-const DIFFICULTY_GRADE_LABELS: Record<Difficulty, string> = {
-  Eiken5: '英検 5級 (Grade 5)',
-  Eiken4: '英検 4級 (Grade 4)',
-  EikenPre1: '英検 準1級 (Grade Pre-1)',
-};
-const DIFFICULTY_GRADE_SUBLABELS: Record<Difficulty, string> = {
-  Eiken5: 'Grade 5',
-  Eiken4: 'Grade 4',
-  EikenPre1: 'Grade Pre-1',
-};
 const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
   Eiken5: 'bg-blue-600 border-blue-400 text-white',
   Eiken4: 'bg-purple-600 border-purple-400 text-white',
   EikenPre1: 'bg-emerald-600 border-emerald-400 text-white',
-};
-const DIFFICULTY_BUTTON_VARIANTS: Record<Difficulty, 'primary' | 'secondary' | 'warning'> = {
-  Eiken5: 'primary',
-  Eiken4: 'secondary',
-  EikenPre1: 'warning',
 };
 const getAvailableLevels = (difficulty: Difficulty): Level[] => {
   void difficulty;
@@ -777,6 +762,7 @@ const EFFECT_SOUND_VOLUME = 0.45;
 
 const SETTINGS_BGM_PREVIEW_TRACK = NORMAL_BATTLE_TRACKS[0];
 const MAIN_CHARACTER_BACKGROUND_IMAGE = `${DESIGN_ASSET_BASE_PATH}Main-Character01-bg.webp`;
+const COURSE_SELECT_ILLUSTRATION_IMAGE = `${DESIGN_ASSET_BASE_PATH}course-select-pop.png`;
 const SETTINGS_SPEECH_PREVIEW_TEXT = 'The brave hero learns English every day.';
 const SPEECH_VOICE_COPY: Record<SpeechVoiceMode, { label: string; description: string }> = {
   random: {
@@ -1991,6 +1977,38 @@ const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyl
   );
 };
 
+const GameTitleLogo = () => (
+  <div className="mb-5 w-full max-w-3xl text-center md:text-left">
+    <div className="mb-3 inline-flex rounded-full border border-amber-300/50 bg-amber-300/10 px-4 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-100 shadow-[0_0_22px_rgba(251,191,36,0.16)]">
+      Typing RPG
+    </div>
+    <div
+      className="relative inline-block"
+      aria-label="English Typing Fantasy"
+    >
+      <h1
+        className="text-5xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-sky-100 to-cyan-300 drop-shadow-[0_12px_24px_rgba(8,47,73,0.7)] md:text-7xl"
+        style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
+      >
+        English Typing
+      </h1>
+      <div className="mt-1 flex items-center justify-center gap-3 md:justify-start">
+        <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-300/80"></div>
+        <h2
+          className="text-4xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-amber-300 to-orange-400 drop-shadow-[0_8px_18px_rgba(120,53,15,0.6)] md:text-5xl"
+          style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
+        >
+          Fantasy
+        </h2>
+        <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-300/80"></div>
+      </div>
+    </div>
+    <p className="mt-3 max-w-xl text-sm font-bold leading-relaxed text-slate-100/95 md:text-base">
+      タイピングで英語を覚えて、モンスターに挑戦しよう。
+    </p>
+  </div>
+);
+
 const BASE_MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
   1: {
     guide: [
@@ -2465,11 +2483,6 @@ export default function App() {
     }));
   };
 
-  const openProgressTransferSettings = () => {
-    setSettingsFocusSection('progress-transfer');
-    setGameState(prev => ({ ...prev, screen: 'settings' }));
-  };
-
   const openPlayerProfileSettings = () => {
     setSettingsFocusSection('player-profiles');
     setGameState(prev => ({ ...prev, screen: 'settings' }));
@@ -2801,18 +2814,6 @@ export default function App() {
       && !isQuestionExcluded(difficulty, level, question)
     ))
   );
-
-  const getMarkedQuestionKeysForScope = (difficulty: Difficulty, level: Level, source = markedQuestionKeysByScope) => (
-    source[getReviewScopeKey(difficulty, level)] ?? []
-  );
-
-  const getScopedMarkedQuestions = (difficulty: Difficulty, level: Level) => {
-    const markedKeySet = new Set(getMarkedQuestionKeysForScope(difficulty, level));
-    return (QUESTIONS[difficulty]?.[level] ?? []).filter(question => (
-      markedKeySet.has(getQuestionStatusKey(difficulty, level, question))
-      && !isQuestionExcluded(difficulty, level, question)
-    ));
-  };
 
   const getScopedLearningSummary = (difficulty: Difficulty, level: Level) => {
     const questions = QUESTIONS[difficulty]?.[level] ?? [];
@@ -5780,6 +5781,13 @@ export default function App() {
                   <BookOpen size={18} /> 学習データを読み込む
                 </GameButton>
               </div>
+              <div className="rounded-xl border border-red-500/30 bg-red-950/15 p-4">
+                <p className="text-sm font-bold text-red-200">現在のプレイヤーの学習データをリセット</p>
+                <p className="mt-1 text-xs text-slate-400">撃破数、スコア、苦手語、日次進捗などを消去します。必要なら先に書き出してください。</p>
+                <GameButton onClick={handleResetHistory} variant="outline" size="sm" className="mt-3 border-red-600/60 text-red-200 hover:border-red-400 hover:bg-red-950/40">
+                  <RotateCcw size={16} /> 履歴をリセット
+                </GameButton>
+              </div>
               <input
                 ref={progressImportInputRef}
                 type="file"
@@ -5797,6 +5805,22 @@ export default function App() {
             </div>
           </Box>
           </div>
+          {showResetConfirm && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
+              <div className="relative w-full max-w-xl rounded-xl border-2 border-red-700/60 bg-slate-900 p-6 shadow-2xl">
+                <h3 className="mb-4 text-2xl font-black text-red-300">履歴をリセット</h3>
+                <div className="space-y-2 text-slate-200">
+                  <p>本当に現在のプレイヤーの学習データを消去して良いですか？</p>
+                  <p>Are you sure you want to delete this player's learning data?</p>
+                </div>
+                <div className="mt-6 flex justify-end gap-3">
+                  <GameButton onClick={() => setShowResetConfirm(false)} variant="outline" size="sm" autoFocus>No</GameButton>
+                  <GameButton onClick={confirmResetHistory} size="sm" className="bg-red-600 border-red-400 text-white hover:bg-red-500">Yes</GameButton>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </ScreenContainer>
     );
@@ -5813,140 +5837,117 @@ export default function App() {
     const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
     const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
     const totalMonsters = allMonsterIds.length;
-    const selectedQuestions = QUESTIONS[gameState.selectedDifficulty]?.[gameState.selectedLevel] ?? [];
-    const selectedWeakTexts = new Set(weakQuestions.map(q => q.text));
-    const weakCount = selectedQuestions.filter(question => (
-      selectedWeakTexts.has(question.text)
-      && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, question)
-    )).length;
-    const markedCount = getScopedMarkedQuestions(gameState.selectedDifficulty, gameState.selectedLevel).length;
     const todayQuestionCount = dailyProgress.date === getTodayKey() ? dailyProgress.questionCount : 0;
-    const reviewQueueCount = reviewQueueRef.current.length;
 
     return (
       <ScreenContainer>
         <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=2544&auto=format&fit=crop')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-slate-900/68 backdrop-blur-[1px]"></div>
+            <div className="absolute inset-0 bg-slate-950/66 backdrop-blur-[1px]"></div>
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute inset-y-0 left-1/2 hidden w-[64vw] min-w-[520px] max-w-[1080px] -translate-x-1/2 items-center justify-center md:flex">
                 <img
                   src={MAIN_CHARACTER_BACKGROUND_IMAGE}
                   alt=""
                   aria-hidden="true"
-                  className="h-auto max-h-[110vh] w-full scale-[1.08] object-contain object-center opacity-50 saturate-[1.08] contrast-[1.04] blur-[0.3px] drop-shadow-[0_22px_60px_rgba(96,165,250,0.34)] [mask-image:radial-gradient(circle_at_center,black_56%,transparent_92%)]"
+                  className="h-auto max-h-[110vh] w-full scale-[1.08] object-contain object-center opacity-52 saturate-[1.08] contrast-[1.04] blur-[0.25px] drop-shadow-[0_24px_66px_rgba(56,189,248,0.28)] [mask-image:radial-gradient(circle_at_center,black_56%,transparent_92%)]"
                 />
               </div>
-              <div className="absolute inset-y-0 left-0 hidden w-[56%] bg-gradient-to-r from-slate-900/86 via-slate-900/54 to-transparent md:block"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_28%,rgba(96,165,250,0.16),transparent_34%),radial-gradient(circle_at_82%_24%,rgba(251,191,36,0.10),transparent_22%)]"></div>
+              <div className="absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-slate-950/88 via-slate-950/58 to-transparent md:block"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_28%,rgba(14,165,233,0.18),transparent_34%),radial-gradient(circle_at_78%_25%,rgba(251,191,36,0.14),transparent_26%),radial-gradient(circle_at_45%_82%,rgba(168,85,247,0.10),transparent_34%)]"></div>
             </div>
-            <div className="relative z-10 flex flex-col items-center md:max-w-5xl w-full">
-                <div className="mb-5 flex w-full max-w-4xl flex-col items-center gap-4 md:items-start">
-                    <div className="px-1 py-2 text-center md:max-w-[62%] md:text-left">
-                      <div className="mb-2 inline-flex rounded-full border border-yellow-400/30 bg-yellow-500/10 px-4 py-1 text-xs font-black uppercase tracking-[0.28em] text-yellow-200">
-                        HERO
-                      </div>
-                      <h1
-                        className="mb-1 text-5xl font-black tracking-[0.05em] text-transparent bg-clip-text bg-gradient-to-b from-white via-sky-200 to-cyan-300 [text-shadow:0_2px_0_rgba(255,255,255,0.18),0_0_18px_rgba(125,211,252,0.34),0_10px_26px_rgba(15,23,42,0.78)] md:text-8xl"
-                        style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
-                      >
-                        English Typing
-                      </h1>
-                      <h2
-                        className="text-4xl font-black tracking-[0.22em] text-yellow-200 [text-shadow:0_2px_0_rgba(255,251,235,0.18),0_0_16px_rgba(253,224,71,0.28),0_8px_24px_rgba(0,0,0,0.88)] md:text-6xl"
-                        style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
-                      >
-                        FANTASY
-                      </h2>
-                      <p className="mt-3 text-sm md:text-base font-semibold text-slate-200/90">
-                        タイピングで英語を覚えて、主人公といっしょにモンスターを倒そう。
-                      </p>
+            <div
+              className="relative z-10 flex w-full max-w-5xl flex-col items-center px-2 py-6 md:items-start"
+              style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
+            >
+                <GameTitleLogo />
+
+                <div className="mb-5 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
+                  <div className="rounded-lg border border-emerald-300/35 bg-emerald-950/22 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
+                    <div className="flex items-center gap-2 text-emerald-200">
+                      <Target size={18} />
+                      <span className="text-xs font-black">今日の問題数</span>
                     </div>
+                    <p className="mt-1 text-3xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-base text-emerald-100">問</span></p>
+                  </div>
+                  <div className="rounded-lg border border-amber-300/42 bg-amber-950/24 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
+                    <div className="flex items-center gap-2 text-amber-200">
+                      <Trophy size={18} />
+                      <span className="text-xs font-black">撃破数</span>
+                    </div>
+                    <p className="mt-1 text-3xl font-black text-white">{totalDefeated}<span className="mx-1 text-base text-amber-100">/</span><span className="text-xl text-amber-100">{totalMonsters}</span></p>
+                  </div>
                 </div>
-                <div className="mb-8 flex flex-col md:flex-row gap-4 w-full justify-center">
-                     <div className="flex items-center gap-2 bg-gradient-to-r from-red-900 to-slate-900 border border-yellow-500/50 px-6 py-3 rounded-full text-yellow-300 shadow-[0_0_20px_rgba(234,179,8,0.3)] backdrop-blur-sm"><Trophy size={20} className="text-yellow-400" /><span className="font-bold text-lg tracking-wide">撃破数: <span className="text-white text-xl mx-1">{totalDefeated}</span> / {totalMonsters}</span></div>
-                     <div className="flex items-center gap-2 bg-slate-800/80 px-6 py-3 rounded-full text-emerald-300 shadow-md border border-emerald-500/40"><Target size={20} className="text-emerald-400" /><span className="font-bold text-sm">今日の問題数 <span className="text-white font-mono text-xl mx-1">{todayQuestionCount}</span> 問</span></div>
-                     <div className="flex items-center gap-2 bg-slate-800/80 px-5 py-3 rounded-full text-amber-300 shadow-md border border-amber-500/40"><RotateCcw size={18} className="text-amber-400" /><span className="font-bold text-sm">復習待ち <span className="text-white font-mono text-lg mx-1">{reviewQueueCount}</span> 件</span></div>
-                     <div className="flex items-center gap-2 bg-slate-800/80 px-5 py-3 rounded-full text-yellow-200 shadow-md border border-yellow-500/40"><Bookmark size={18} className="text-yellow-300" /><span className="font-bold text-sm">あとで復習 <span className="text-white font-mono text-lg mx-1">{markedCount}</span> 件</span></div>
-                     <div className="flex items-center gap-2 bg-slate-800/80 px-6 py-3 rounded-full text-blue-300 shadow-md border border-slate-600"><Keyboard size={20} className="text-blue-400" /><span className="font-bold text-sm">最高入力: <span className="text-white font-mono text-xl mx-1">{maxKeystrokes}</span></span></div>
-                </div>
-                <div className="w-full space-y-4 max-w-4xl">
-                    <div className="rounded-2xl border border-violet-400/25 bg-slate-950/65 px-4 py-3 shadow-[0_10px_24px_rgba(76,29,149,0.18)] backdrop-blur-sm">
-                      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                        <div className="min-w-0">
-                          <div className="text-[11px] font-black uppercase tracking-[0.22em] text-violet-200">Current Player</div>
-                          <div className="truncate text-lg font-black text-white md:text-xl">{getCurrentActivePlayer()?.name ?? 'Player'}</div>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          {playerProfiles.map((profile) => {
-                            const isActive = profile.id === activePlayerId;
-                            return (
-                              <GameButton
-                                key={profile.id}
-                                onClick={() => activatePlayerProfile(profile.id)}
-                                size="sm"
-                                variant="outline"
-                                className={isActive
-                                  ? 'border-violet-300 bg-violet-500/20 text-white'
-                                  : 'border-slate-600 text-slate-200 hover:border-violet-300 hover:bg-violet-900/15'}
-                                disabled={isActive}
-                              >
-                                {profile.name}
-                              </GameButton>
-                            );
-                          })}
-                          <GameButton
-                            onClick={openPlayerProfileSettings}
-                            size="sm"
-                            variant="outline"
-                            className="border-violet-400/50 text-violet-100 hover:border-violet-300 hover:bg-violet-900/20"
-                          >
-                            <Volume2 size={16} /> 管理
-                          </GameButton>
-                        </div>
+
+                <div className="w-full max-w-3xl overflow-hidden rounded-lg border border-sky-300/28 bg-slate-950/76 shadow-[0_24px_70px_rgba(0,0,0,0.48)] backdrop-blur-md">
+                  <div className="border-b border-sky-300/18 bg-slate-900/70 px-5 py-4">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                      <div className="min-w-0">
+                        <p className="text-[11px] font-black uppercase tracking-[0.22em] text-cyan-300">Current Course</p>
+                        <p className="mt-1 truncate text-2xl font-black text-white">
+                          {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        {playerProfiles.map((profile) => {
+                          const isActive = profile.id === activePlayerId;
+                          return (
+                            <button
+                              key={profile.id}
+                              onClick={() => activatePlayerProfile(profile.id)}
+                              disabled={isActive}
+                              className={`rounded-lg border px-3 py-1.5 text-sm font-black transition-colors ${isActive ? 'border-violet-300 bg-violet-500/20 text-white' : 'border-slate-600 bg-slate-900/60 text-slate-200 hover:border-violet-300 hover:bg-violet-900/15'}`}
+                            >
+                              {profile.name}
+                            </button>
+                          );
+                        })}
+                        <button
+                          onClick={openPlayerProfileSettings}
+                          className="rounded-lg border border-violet-400/45 bg-violet-950/25 px-3 py-1.5 text-sm font-black text-violet-100 transition-colors hover:border-violet-300 hover:bg-violet-900/25"
+                        >
+                          管理
+                        </button>
                       </div>
                     </div>
-                     <GameButton onClick={openWeakReviewHub} className={`w-full ${weakCount > 0 ? 'bg-gradient-to-r from-orange-600 to-red-600 border-orange-400 text-white animate-pulse' : 'bg-slate-700 border-slate-500 text-slate-400'}`} size="lg" disabled={weakCount === 0}><div className="flex items-center justify-center gap-2"><Flame size={24} className={weakCount > 0 ? "text-yellow-300" : "text-slate-500"} /><span className="font-bold">{weakCount > 0 ? `苦手復習を開く (Weakness: ${weakCount})` : "苦手な単語はありません"}</span></div></GameButton>
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        {DIFFICULTIES.map(diff => (
-                          <GameButton
-                            key={diff}
-                            onClick={() => updateSelectedDifficulty(diff, 'level-select')}
-                            title={DIFFICULTY_GRADE_LABELS[diff]}
-                            className="w-full min-h-[86px] px-4"
-                            size="lg"
-                            variant={DIFFICULTY_BUTTON_VARIANTS[diff]}
-                          >
-                            <span className="flex min-w-0 flex-col items-center justify-center leading-tight">
-                              <span className="text-base font-black tracking-[0.04em] md:text-lg">{DIFFICULTY_LABELS[diff]}</span>
-                              <span className="mt-1 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
-                                {DIFFICULTY_GRADE_SUBLABELS[diff]}
-                              </span>
-                            </span>
-                          </GameButton>
-                        ))}
-                    </div>
+                  </div>
+
+                  <div className="space-y-4 p-5">
                     <GameButton
-                      onClick={openProgressTransferSettings}
-                      variant="outline"
-                      className="hidden"
+                      onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
+                      className="w-full min-h-[92px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-2xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500"
+                      size="lg"
                     >
-                      <ClipboardList size={18} /> 学習データ保存／読み込み
+                      <ArrowRight size={26} /> 前回の続きから
                     </GameButton>
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
-                         <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} variant="outline" className="px-2"><BookOpen size={20} /> 図鑑</GameButton>
-                        <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'score-view' }))} variant="outline" className="px-2 border-slate-600 text-slate-300">Records</GameButton>
-                        <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="px-2 border-slate-600 text-slate-300">Word List</GameButton>
-                        <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'settings' }))} variant="outline" className="px-2 border-slate-600 text-slate-300"><Volume2 size={16} /> ゲーム設定</GameButton>
-                        <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'help' }))} variant="outline" className="px-2 border-slate-600 text-slate-300"><AlertCircle size={16} /> ヘルプ</GameButton>
+                    <GameButton
+                      onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
+                      variant="outline"
+                      className="w-full min-h-[68px] border-amber-300/55 bg-amber-950/25 text-xl text-amber-100 hover:border-amber-200 hover:bg-amber-900/35"
+                      size="lg"
+                    >
+                      <LayoutGrid size={24} /> 教材を選ぶ
+                    </GameButton>
+
+                    <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-emerald-300 hover:bg-emerald-950/25">
+                        <BookOpen size={18} /> 図鑑
+                      </GameButton>
+                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-amber-300 hover:bg-amber-950/25">
+                        <ClipboardList size={18} /> 単語リスト
+                      </GameButton>
+                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'settings' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25">
+                        <Volume2 size={18} /> 設定
+                      </GameButton>
+                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'help' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-violet-300 hover:bg-violet-950/25">
+                        <AlertCircle size={18} /> ヘルプ
+                      </GameButton>
                     </div>
-                    <div className="mt-4 flex flex-wrap justify-center gap-3">
-                        <GameButton onClick={openProgressTransferSettings} variant="outline" className="border-cyan-500/50 text-cyan-100 hover:border-cyan-300 hover:bg-cyan-900/20">
-                          <ClipboardList size={16} /> 学習データ保存／読み込み
-                        </GameButton>
-                        <GameButton onClick={handleResetHistory} variant="outline" className="border-red-700/60 text-red-300 hover:border-red-500 hover:bg-red-950/40">
-                          <RotateCcw size={16} /> 履歴をリセット
-                        </GameButton>
-                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex w-full max-w-3xl items-center justify-center text-center text-xs font-bold text-slate-400 md:justify-start">
+                  Word List・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
+                </div>
                     {showResetConfirm && (
                       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                         <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
@@ -5980,7 +5981,6 @@ export default function App() {
                         </div>
                       </div>
                     )}
-                </div>
             </div>
         </div>
       </ScreenContainer>
@@ -5989,12 +5989,181 @@ export default function App() {
 
   if (gameState.screen === 'level-select') {
     const availableLevels = getAvailableLevels(gameState.selectedDifficulty);
+    const selectedQuestionCount = QUESTIONS[gameState.selectedDifficulty]?.[gameState.selectedLevel]?.length ?? 0;
+    const selectedLearningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
+    const levelDescriptions: Record<Level, string> = {
+      1: 'Short Words / 単語',
+      2: 'Phrases / 熟語',
+      3: 'Sentences / 文章',
+    };
+    const levelIcons: Record<Level, React.ReactNode> = {
+      1: <Sword size={26} />,
+      2: <Shield size={26} />,
+      3: <BookOpen size={26} />,
+    };
+
     return (
-      <ScreenContainer className="bg-slate-900">
-        <div className="max-w-5xl w-full p-4 mt-10">
-          <GameButton size="sm" variant="ghost" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))} className="mb-6 text-slate-400 hover:text-white">&larr; 戻る</GameButton>
-          <h2 className="text-3xl font-bold mb-8 text-center text-blue-300 tracking-widest border-b border-slate-700 pb-4">レベルをえらぶ</h2>
-          <div className={`grid grid-cols-1 gap-8 ${availableLevels.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>{availableLevels.map((lvl) => (<div key={lvl} className="group bg-slate-800 border-2 border-slate-600 hover:border-blue-400 rounded-xl overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:-translate-y-1"><div className={`h-32 flex items-center justify-center text-6xl bg-gradient-to-br ${lvl===1 ? 'from-blue-900 to-slate-900' : lvl===2 ? 'from-green-900 to-slate-900' : 'from-red-900 to-slate-900'}`}>{lvl === 1 ? '⚔️' : lvl === 2 ? '🛡️' : '📜'}</div><div className="p-6"><h3 className="text-2xl font-bold mb-2 text-white">LEVEL {lvl}</h3><p className="text-slate-400 mb-6 text-sm">{lvl === 1 ? "Short Words (単語)" : lvl === 2 ? "Phrases (熟語)" : "Sentences (文章)"}</p><GameButton className="w-full" variant="outline" onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl as Level, screen: 'mode-select' }))}>決定</GameButton></div></div>))}</div>
+      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950">
+        <img
+          src={COURSE_SELECT_ILLUSTRATION_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70 saturate-[1.08]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.7)_38%,rgba(2,6,23,0.56)_100%),radial-gradient(circle_at_18%_22%,rgba(251,191,36,0.22),transparent_32%),radial-gradient(circle_at_86%_78%,rgba(56,189,248,0.24),transparent_36%)]"></div>
+        <div
+          className="relative z-10 w-full max-w-6xl p-4"
+          style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
+        >
+          <div className="mb-4 flex items-center justify-between">
+            <GameButton
+              size="sm"
+              variant="ghost"
+              onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}
+              className="text-slate-300 hover:bg-slate-800 hover:text-white"
+            >
+              <Home size={16} /> ホームへ
+            </GameButton>
+            <div className="rounded-full border border-cyan-300/30 bg-cyan-950/35 px-4 py-2 text-sm font-black text-cyan-100">
+              現在: {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-lg border border-slate-500/45 bg-slate-950/74 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md">
+            <div className="relative overflow-hidden border-b border-slate-600/50 bg-[linear-gradient(135deg,rgba(15,23,42,0.9),rgba(8,47,73,0.74),rgba(120,53,15,0.28))] px-5 py-5">
+              <div className="pointer-events-none absolute -right-4 bottom-[-70px] hidden h-56 w-56 rounded-full border border-cyan-200/20 bg-cyan-300/10 blur-2xl md:block"></div>
+              <div className="relative max-w-2xl">
+                <p className="text-[11px] font-black uppercase tracking-[0.24em] text-amber-200">Course Select</p>
+                <h2 className="mt-1 text-3xl font-black text-white md:text-4xl">教材を選ぶ</h2>
+                <p className="mt-2 text-sm font-bold leading-relaxed text-slate-300">
+                  ふだん使う教材・級・Levelをここで選びます。決定すると、4つのモードを選ぶ画面に進みます。
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-5 p-5 lg:grid-cols-[0.85fr_1.15fr]">
+              <section className="space-y-4">
+                <div>
+                  <p className="mb-2 text-sm font-black text-cyan-200">1. 教材</p>
+                  <div className="grid gap-3">
+                    <button
+                      type="button"
+                      className="relative overflow-hidden rounded-lg border-2 border-cyan-300 bg-cyan-500/16 p-4 text-left shadow-[0_0_24px_rgba(34,211,238,0.14)]"
+                    >
+                      <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-amber-300/18"></div>
+                      <div className="pointer-events-none absolute bottom-2 right-3 text-4xl opacity-90">ABC</div>
+                      <div className="flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-xl font-black text-white">英検</p>
+                          <p className="mt-1 text-sm font-bold text-cyan-100">級ごとに単語・熟語・文章を練習</p>
+                        </div>
+                        <CheckCircle2 className="text-cyan-200" size={24} />
+                      </div>
+                    </button>
+                    <div className="grid grid-cols-2 gap-3">
+                      {['TOEIC', '英会話'].map(label => (
+                        <div key={label} className="rounded-lg border border-slate-700 bg-slate-900/60 p-4 opacity-60">
+                          <p className="text-base font-black text-slate-200">{label}</p>
+                          <p className="mt-1 text-xs font-bold text-slate-500">準備中</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-slate-900/62 p-4">
+                  <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-400/12"></div>
+                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Selected Course</p>
+                  <p className="mt-2 text-2xl font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
+                  <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+                    <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-3">
+                      <p className="text-[10px] font-black text-sky-200">単語数</p>
+                      <p className="mt-1 text-xl font-black text-white">{selectedQuestionCount}</p>
+                    </div>
+                    <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-3">
+                      <p className="text-[10px] font-black text-violet-200">覚えた</p>
+                      <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.masteredCount}</p>
+                    </div>
+                    <div className="rounded-lg border border-amber-400/25 bg-amber-500/10 px-2 py-3">
+                      <p className="text-[10px] font-black text-amber-200">学習中</p>
+                      <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.learningCount}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section className="space-y-5">
+                <div>
+                  <p className="mb-2 text-sm font-black text-cyan-200">2. 級</p>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    {DIFFICULTIES.map(diff => {
+                      const isSelected = gameState.selectedDifficulty === diff;
+                      const levelCount = getAvailableLevels(diff).length;
+                      return (
+                        <button
+                          key={diff}
+                          type="button"
+                          onClick={() => updateSelectedDifficulty(diff)}
+                          className={`min-h-[112px] rounded-lg border-2 p-4 text-left transition-all ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
+                        >
+                          <div className="flex items-start justify-between gap-2">
+                            <div>
+                              <p className="text-xl font-black">{DIFFICULTY_LABELS[diff]}</p>
+                              <p className="mt-2 text-xs font-bold text-slate-400">Level {levelCount}段階</p>
+                            </div>
+                            {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-2 text-sm font-black text-cyan-200">3. Level</p>
+                  <div className={`grid grid-cols-1 gap-3 ${availableLevels.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+                    {availableLevels.map(lvl => {
+                      const isSelected = gameState.selectedLevel === lvl;
+                      return (
+                        <button
+                          key={lvl}
+                          type="button"
+                          onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl }))}
+                          className={`rounded-lg border-2 p-4 text-left transition-all ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`flex h-12 w-12 items-center justify-center rounded-lg border ${isSelected ? 'border-cyan-200 bg-cyan-400/20 text-cyan-100' : 'border-slate-700 bg-slate-950/60 text-slate-400'}`}>
+                              {levelIcons[lvl]}
+                            </div>
+                            <div>
+                              <p className="text-xl font-black">Level {lvl}</p>
+                              <p className="mt-1 text-xs font-bold text-slate-400">{levelDescriptions[lvl]}</p>
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3 rounded-lg border border-slate-700 bg-slate-900/62 p-4 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <p className="text-sm font-black text-white">この教材で始めます</p>
+                    <p className="mt-1 text-xs font-bold text-slate-400">
+                      次の画面で、基礎練習・リスニング練習・音声バトル・和訳バトルを選べます。
+                    </p>
+                  </div>
+                  <GameButton
+                    onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
+                    className="min-h-[54px] whitespace-nowrap border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 text-lg hover:from-cyan-500 hover:to-blue-500"
+                    size="md"
+                  >
+                    決定 <ArrowRight size={20} />
+                  </GameButton>
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </ScreenContainer>
     );
@@ -6035,112 +6204,167 @@ export default function App() {
     const easyStatus = getModeProgress(monstersObj.guide, 'challenge', 'voice-text', listeningTargetCount);
     const normalStatus = getModeProgress(monstersObj.challenge, 'challenge', 'voice-only', NORMAL_TARGET_COUNT);
     const hardStatus = getModeProgress(monstersObj.challenge, 'challenge', 'text-only', HARD_TARGET_COUNT);
+    const trainingMascot = monstersObj.guide[0];
+    const battleMascot = monstersObj.challenge[0];
 
     return (
-      <ScreenContainer className="bg-slate-900 flex items-center justify-center">
-        <Box className="max-w-5xl w-full" title="モードをえらぶ">
-          <div className="mb-6 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.98),rgba(12,18,32,0.92))] p-4 shadow-[0_0_30px_rgba(34,211,238,0.1)]">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Learning Progress</p>
-                <h3 className="mt-1 text-xl font-black text-white">{'\u3044\u307e\u306e\u5b66\u7fd2\u72b6\u6cc1'}</h3>
-              </div>
-              <div className="rounded-full border border-cyan-400/25 bg-cyan-950/40 px-4 py-2 text-sm font-bold text-cyan-100">
-                {learningSummary.playableCount}{'\u5358\u8a9e\u4e2d'} {learningSummary.masteredCount}{'\u5358\u8a9e\u304c\u899a\u3048\u305f'}
+      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_82%,rgba(245,158,11,0.24),transparent_34%),radial-gradient(circle_at_78%_12%,rgba(56,189,248,0.26),transparent_38%)]"></div>
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[42%] bg-[linear-gradient(90deg,transparent,rgba(14,165,233,0.12),rgba(251,191,36,0.08))] lg:block"></div>
+        <div
+          className="relative z-10 w-full max-w-6xl p-4"
+          style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
+        >
+          <div className="overflow-hidden rounded-lg border border-slate-500/45 bg-slate-950/70 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md">
+            <div className="border-b border-slate-600/50 bg-slate-800/70 px-5 py-3">
+              <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Current Course</p>
+                  <h2 className="mt-1 text-2xl font-black text-white md:text-3xl">
+                    {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
+                  </h2>
+                </div>
+                <p className="rounded-full border border-cyan-300/25 bg-cyan-950/40 px-4 py-2 text-sm font-black text-cyan-50">
+                  {learningSummary.playableCount}単語中 {learningSummary.masteredCount}単語が覚えた
+                </p>
               </div>
             </div>
-            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-sky-400/30 bg-sky-500/12 p-4 shadow-[0_0_24px_rgba(56,189,248,0.12)]">
-                <div className="flex items-center gap-2 text-sky-200">
-                  <BookOpen size={18} className="text-sky-300" />
-                  <p className="text-[12px] font-black tracking-[0.16em]">{'\u5b66\u7fd2\u4e2d'}</p>
-                </div>
-                <p className="mt-3 text-4xl font-black leading-none text-white">{learningSummary.learningCount}</p>
+
+            <div className="relative p-5 md:p-7">
+              <div className="pointer-events-none absolute right-5 top-4 hidden rounded-full border border-amber-200/45 bg-slate-950/82 px-4 py-2 text-sm font-black text-amber-100 shadow-[0_10px_28px_rgba(0,0,0,0.28)] xl:block">
+                今日の冒険を選ぼう!
               </div>
-              <div className="rounded-2xl border border-emerald-400/30 bg-emerald-500/12 p-4 shadow-[0_0_24px_rgba(52,211,153,0.12)]">
-                <div className="flex items-center gap-2 text-emerald-200">
-                  <CheckCircle2 size={18} className="text-emerald-300" />
-                  <p className="text-[12px] font-black tracking-[0.16em]">{'\u3082\u3046\u5c11\u3057'}</p>
+              <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
+                  <h1 className="mt-1 text-3xl font-black text-white md:text-4xl">モードをえらぶ</h1>
+                  <p className="mt-2 text-sm font-bold text-slate-300">今日の気分に合わせて、練習かチャレンジを選ぼう。</p>
                 </div>
-                <p className="mt-3 text-4xl font-black leading-none text-white">{learningSummary.cautionCount}</p>
+                <div className="grid grid-cols-3 gap-2 text-left sm:min-w-[420px]">
+                  <div className="rounded-lg border border-sky-400/30 bg-sky-500/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    <div className="flex items-center gap-2 text-sky-200"><BookOpen size={16} /><span className="text-[11px] font-black">学習中</span></div>
+                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.learningCount}</p>
+                  </div>
+                  <div className="rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    <div className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={16} /><span className="text-[11px] font-black">もう少し</span></div>
+                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.cautionCount}</p>
+                  </div>
+                  <div className="rounded-lg border border-amber-300/35 bg-amber-400/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    <div className="flex items-center gap-2 text-amber-200"><Crown size={16} /><span className="text-[11px] font-black">覚えた</span></div>
+                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.masteredCount}</p>
+                  </div>
+                </div>
               </div>
-              <div className="rounded-2xl border border-violet-400/30 bg-violet-500/12 p-4 shadow-[0_0_28px_rgba(167,139,250,0.16)]">
-                <div className="flex items-center gap-2 text-violet-200">
-                  <Crown size={18} className="text-violet-300" />
-                  <p className="text-[12px] font-black tracking-[0.16em]">{'\u899a\u3048\u305f'}</p>
-                </div>
-                <p className="mt-3 bg-gradient-to-r from-violet-100 via-white to-violet-200 bg-clip-text text-4xl font-black leading-none text-transparent">{learningSummary.masteredCount}</p>
+
+              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                <section className="relative overflow-hidden rounded-lg border border-emerald-400/25 bg-[linear-gradient(145deg,rgba(9,56,55,0.72),rgba(15,23,42,0.78))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.26)]">
+                  {trainingMascot && (
+                    <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
+                      <MonsterAvatar type={trainingMascot.type} color={trainingMascot.color} size={128} visualStyle={getMonsterVisualStyle(trainingMascot)} />
+                    </div>
+                  )}
+                  <div className="mb-4 flex items-center gap-3 border-b border-emerald-300/20 pb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-emerald-300/30 bg-emerald-400/15 text-emerald-200"><Brain size={24} /></div>
+                    <div>
+                      <h3 className="text-xl font-black text-emerald-50">TRAINING ZONE</h3>
+                      <p className="text-xs font-bold text-emerald-200/75">まずはここで練習しよう！({guideTargetCount}体)</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'guide', 'voice-text')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(16,185,129,0.16)] ${guideStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-emerald-300/25 bg-slate-900/52 hover:border-emerald-300/60 hover:bg-emerald-950/35'}`}>
+                      {guideStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-emerald-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-emerald-100">FINAL: {guideFinalMonsterName}</div>}
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-200"><Shield size={21} /></div>
+                        <div className="min-w-0">
+                          <p className={`text-base font-black md:text-lg ${guideStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Basic Training / 基礎練習</p>
+                          <p className={`mt-1 text-xs font-bold ${guideStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>スペルを見て入力。指の運動に最適！</p>
+                        </div>
+                      </div>
+                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${guideStatus.isComplete ? 'text-amber-200' : 'text-emerald-200'}`}>
+                        {guideStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
+                        <span>{guideStatus.isComplete ? '免許皆伝！次のレベルへ！' : `NEXT: ${guideStatus.nextTargetName}`}</span>
+                      </div>
+                    </button>
+
+                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-text')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(34,211,238,0.14)] ${easyStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-cyan-300/25 bg-slate-900/52 hover:border-cyan-300/60 hover:bg-cyan-950/30'}`}>
+                      {easyStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-cyan-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-cyan-100">FINAL: {listeningFinalMonsterName}</div>}
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200"><Volume2 size={21} /></div>
+                        <div className="min-w-0">
+                          <p className={`text-base font-black md:text-lg ${easyStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Listening Training / リスニング練習</p>
+                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>音声と日本語を見て練習。スペルは隠れます。</p>
+                        </div>
+                      </div>
+                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${easyStatus.isComplete ? 'text-amber-200' : 'text-cyan-200'}`}>
+                        {easyStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
+                        <span>{easyStatus.isComplete ? '免許皆伝！次のレベルへ！' : `NEXT: ${easyStatus.nextTargetName}`}</span>
+                      </div>
+                    </button>
+                  </div>
+                </section>
+
+                <section className="relative overflow-hidden rounded-lg border border-amber-400/25 bg-[linear-gradient(145deg,rgba(83,34,18,0.68),rgba(24,18,35,0.82))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.28)]">
+                  {battleMascot && (
+                    <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
+                      <MonsterAvatar type={battleMascot.type} color={battleMascot.color} size={128} visualStyle={getMonsterVisualStyle(battleMascot)} />
+                    </div>
+                  )}
+                  <div className="absolute right-0 top-0 rounded-bl-lg bg-red-500 px-3 py-1 text-[10px] font-black text-white shadow-lg">本番</div>
+                  <div className="mb-4 flex items-center gap-3 border-b border-amber-300/20 pb-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-amber-300/30 bg-amber-400/15 text-amber-200"><Sword size={24} /></div>
+                    <div>
+                      <h3 className="text-xl font-black text-amber-50">BATTLE ZONE</h3>
+                      <p className="text-xs font-bold text-amber-200/75">実力を試そう！ゲームオーバーあり</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-only')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(251,146,60,0.16)] ${normalStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-orange-300/28 bg-slate-900/52 hover:border-orange-300/70 hover:bg-orange-950/30'}`}>
+                      {normalStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-orange-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-orange-100">FINAL: {normalFinalMonsterName}</div>}
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-orange-400/15 text-orange-200"><Volume2 size={21} /></div>
+                        <div className="min-w-0">
+                          <p className={`text-base font-black md:text-lg ${normalStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Listening Battle / 音声バトル</p>
+                          <p className={`mt-1 text-xs font-bold ${normalStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>音声だけを聞いて入力。耳を頼りに戦います。</p>
+                        </div>
+                      </div>
+                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${normalStatus.isComplete ? 'text-amber-200' : 'text-orange-200'}`}>
+                        {normalStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
+                        <span>{normalStatus.isComplete ? '見事！次はTranslation Battle！' : `NEXT: ${normalStatus.nextTargetName}`}</span>
+                      </div>
+                    </button>
+
+                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'text-only')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(248,113,113,0.16)] ${hardStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-red-300/35 bg-slate-900/52 hover:border-red-300/70 hover:bg-red-950/30'}`}>
+                      {hardStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-red-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-red-100">FINAL: {hardFinalMonsterName}</div>}
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-400/15 text-red-200"><Keyboard size={21} /></div>
+                        <div className="min-w-0">
+                          <p className={`text-base font-black md:text-lg ${hardStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Translation Battle / 和訳バトル</p>
+                          <p className={`mt-1 text-xs font-bold ${hardStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>和訳だけを見て入力。できればかなり実力派です。</p>
+                        </div>
+                      </div>
+                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${hardStatus.isComplete ? 'text-amber-200' : 'text-red-200'}`}>
+                        {hardStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
+                        <span>{hardStatus.isComplete ? '伝説の英雄！おめでとう！' : `NEXT: ${hardStatus.nextTargetName}`}</span>
+                      </div>
+                    </button>
+                  </div>
+                </section>
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))} variant="outline" className="border-slate-600 bg-slate-900/70 text-slate-200 hover:border-slate-400 hover:bg-slate-800">
+                  <Home size={18} /> ホームへ
+                </GameButton>
+                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))} variant="outline" className="border-cyan-500/45 bg-cyan-950/25 text-cyan-100 hover:border-cyan-300 hover:bg-cyan-900/30">
+                  <LayoutGrid size={18} /> 教材を変える
+                </GameButton>
+                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-amber-400/45 bg-amber-950/25 text-amber-100 hover:border-amber-300 hover:bg-amber-900/30">
+                  <ClipboardList size={18} /> 単語リスト
+                </GameButton>
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-1 bg-slate-800/50 rounded-xl p-4 border-2 border-blue-900/50 flex flex-col">
-                <div className="flex items-center gap-3 mb-6 border-b border-blue-800/50 pb-4"><div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center"><Brain className="text-blue-300" /></div><div><h3 className="text-xl font-bold text-blue-200">TRAINING ZONE</h3><p className="text-xs text-blue-400">まずはここで練習しよう！({guideTargetCount}体)</p></div></div>
-                <div className="space-y-4 flex-1">
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'guide', 'voice-text')} className={`w-full text-left p-4 rounded-lg transition-all group relative overflow-hidden ${guideStatus.isComplete ? 'bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border-2 border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.3)]' : 'bg-blue-900/20 border border-blue-700/30 hover:bg-blue-800/40 hover:border-blue-500'}`}>
-                        {guideStatus.isComplete && <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2 py-0.5 rounded-bl">MASTERED</div>}
-                        {!guideStatus.isComplete && <div className="absolute top-0 right-0 bg-slate-950/80 text-blue-200 text-[10px] font-black px-2 py-0.5 rounded-bl border-l border-b border-blue-400/30">FINAL: {guideFinalMonsterName}</div>}
-                        <div className="flex justify-between items-center mb-1">
-                            <span className={`font-bold ${guideStatus.isComplete ? 'text-yellow-200' : 'text-blue-100 group-hover:text-white'}`}>🛡️ Basic Training / 基礎練習</span>
-                            {!guideStatus.isComplete && <span className="text-[10px] bg-blue-900 text-blue-300 px-2 py-0.5 rounded">基礎練習</span>}
-                        </div>
-                        <p className={`text-xs mb-2 ${guideStatus.isComplete ? 'text-yellow-100' : 'text-slate-400'}`}>スペルを見て入力。指の運動に最適！</p>
-                        {guideStatus.isComplete ? 
-                            <div className="flex items-center gap-2 mt-2 font-bold text-yellow-300"><Crown size={16}/> <span className="text-sm">免許皆伝！次のレベルへ！</span></div> 
-                            : <span className="text-xs text-blue-300 flex items-center gap-1"><Target size={12}/> NEXT: {guideStatus.nextTargetName}</span>}
-                    </button>
-
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-text')} className={`w-full text-left p-4 rounded-lg transition-all group relative overflow-hidden ${easyStatus.isComplete ? 'bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border-2 border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.3)]' : 'bg-indigo-900/20 border border-indigo-700/30 hover:bg-indigo-800/40 hover:border-indigo-500'}`}>
-                        {easyStatus.isComplete && <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2 py-0.5 rounded-bl">MASTERED</div>}
-                        {!easyStatus.isComplete && <div className="absolute top-0 right-0 bg-slate-950/80 text-indigo-200 text-[10px] font-black px-2 py-0.5 rounded-bl border-l border-b border-indigo-400/30">FINAL: {listeningFinalMonsterName}</div>}
-                        <div className="flex justify-between items-center mb-1">
-                            <span className={`font-bold ${easyStatus.isComplete ? 'text-yellow-200' : 'text-indigo-100 group-hover:text-white'}`}>🔊 Listening Training / リスニング練習</span>
-                            {!easyStatus.isComplete && <span className="text-[10px] bg-indigo-900 text-indigo-300 px-2 py-0.5 rounded">リスニング</span>}
-                        </div>
-                        <p className={`text-xs mb-2 ${easyStatus.isComplete ? 'text-yellow-100' : 'text-slate-400'}`}>音声と日本語を見て練習。スペルは隠れます。</p>
-                        {easyStatus.isComplete ? 
-                            <div className="flex items-center gap-2 mt-2 font-bold text-yellow-300"><Crown size={16}/> <span className="text-sm">免許皆伝！次のレベルへ！</span></div> 
-                            : <span className="text-xs text-indigo-300 flex items-center gap-1"><Target size={12}/> NEXT: {easyStatus.nextTargetName}</span>}
-                    </button>
-                </div>
-            </div>
-            <div className="flex-1 bg-red-950/30 rounded-xl p-4 border-2 border-red-900/50 flex flex-col relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl shadow-lg z-10">本番</div>
-                <div className="flex items-center gap-3 mb-6 border-b border-red-900/50 pb-4"><div className="w-12 h-12 rounded-full bg-red-900 flex items-center justify-center"><Sword className="text-red-300" /></div><div><h3 className="text-xl font-bold text-red-200">BATTLE ZONE</h3><p className="text-xs text-red-400">実力を試そう！ゲームオーバーあり</p></div></div>
-                <div className="space-y-4 flex-1">
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-only')} className={`w-full text-left p-4 rounded-lg transition-all group relative overflow-hidden ${normalStatus.isComplete ? 'bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border-2 border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.3)]' : 'bg-orange-900/20 border border-orange-700/30 hover:bg-orange-800/40 hover:border-orange-500'}`}>
-                        {normalStatus.isComplete && <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2 py-0.5 rounded-bl">MASTERED</div>}
-                        {!normalStatus.isComplete && <div className="absolute top-0 right-0 bg-slate-950/80 text-orange-200 text-[10px] font-black px-2 py-0.5 rounded-bl border-l border-b border-orange-400/30">FINAL: {normalFinalMonsterName}</div>}
-                        <div className="flex justify-between items-center mb-1">
-                            <span className={`font-bold ${normalStatus.isComplete ? 'text-yellow-200' : 'text-orange-100 group-hover:text-white'}`}>👂 Listening Battle / 音声バトル</span>
-                            {!normalStatus.isComplete && <span className="text-[10px] bg-orange-900 text-orange-300 px-2 py-0.5 rounded">音声</span>}
-                        </div>
-                        <p className={`text-xs mb-2 ${normalStatus.isComplete ? 'text-yellow-100' : 'text-slate-400'}`}>音声だけを聞いて入力。耳を頼りに戦います。</p>
-                        {normalStatus.isComplete ? 
-                            <div className="flex items-center gap-2 mt-2 font-bold text-yellow-300"><Crown size={16}/> <span className="text-sm">見事！次はTranslation Battle！</span></div> 
-                            : <span className="text-xs text-orange-300 flex items-center gap-1"><Target size={12}/> NEXT: {normalStatus.nextTargetName}</span>}
-                    </button>
-
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'text-only')} className={`w-full text-left p-4 rounded-lg transition-all group relative overflow-hidden ${hardStatus.isComplete ? 'bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border-2 border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.3)]' : 'bg-gradient-to-r from-red-900/40 to-slate-900/40 border border-red-500/50 hover:border-red-400 hover:shadow-[0_0_15px_rgba(220,38,38,0.3)]'}`}>
-                        {hardStatus.isComplete ? 
-                            <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-black px-2 py-0.5 rounded-bl">MASTERED</div>
-                            : <div className="absolute -top-2 -right-2 text-2xl animate-bounce">👑</div>
-                         }
-                        {!hardStatus.isComplete && <div className="absolute top-0 right-8 bg-slate-950/80 text-red-200 text-[10px] font-black px-2 py-0.5 rounded-bl border-l border-b border-red-400/30">FINAL: {hardFinalMonsterName}</div>}
-                        <div className="flex justify-between items-center mb-1">
-                            <span className={`font-bold text-lg ${hardStatus.isComplete ? 'text-yellow-200' : 'text-red-100 group-hover:text-white'}`}>🦸 Translation Battle / 和訳バトル</span>
-                            {!hardStatus.isComplete && <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-bold">和訳</span>}
-                        </div>
-                        <p className={`text-xs mb-2 ${hardStatus.isComplete ? 'text-yellow-100' : 'text-red-200'}`}>和訳だけを見て入力。できればかなり実力派です。</p>
-                        {hardStatus.isComplete ? 
-                            <div className="flex items-center gap-2 mt-2 font-bold text-yellow-300"><Crown size={16}/> <span className="text-sm">伝説の英雄！おめでとう！</span></div> 
-                            : <span className="text-xs text-red-300 flex items-center gap-1"><Target size={12}/> NEXT: {hardStatus.nextTargetName}</span>}
-                    </button>
-                </div>
-            </div>
-          </div>
-          <div className="mt-8 text-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))} className="text-slate-500 hover:text-slate-300 text-sm font-bold">キャンセル</GameButton></div>
-        </Box>
+        </div>
       </ScreenContainer>
     );
   }
