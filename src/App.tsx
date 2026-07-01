@@ -761,7 +761,7 @@ const LOSE_EFFECT_TRACKS = [
 const EFFECT_SOUND_VOLUME = 0.45;
 
 const SETTINGS_BGM_PREVIEW_TRACK = NORMAL_BATTLE_TRACKS[0];
-const MAIN_CHARACTER_BACKGROUND_IMAGE = `${DESIGN_ASSET_BASE_PATH}Main-Character01-bg.webp`;
+const TITLE_LOGO_IMAGE = `${DESIGN_ASSET_BASE_PATH}title-logo-wide.png`;
 const COURSE_SELECT_ILLUSTRATION_IMAGE = `${DESIGN_ASSET_BASE_PATH}course-select-pop.png`;
 const SETTINGS_SPEECH_PREVIEW_TEXT = 'The brave hero learns English every day.';
 const SPEECH_VOICE_COPY: Record<SpeechVoiceMode, { label: string; description: string }> = {
@@ -1978,34 +1978,12 @@ const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyl
 };
 
 const GameTitleLogo = () => (
-  <div className="mb-5 w-full max-w-3xl text-center md:text-left">
-    <div className="mb-3 inline-flex rounded-full border border-amber-300/50 bg-amber-300/10 px-4 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-amber-100 shadow-[0_0_22px_rgba(251,191,36,0.16)]">
-      Typing RPG
-    </div>
-    <div
-      className="relative inline-block"
-      aria-label="English Typing Fantasy"
-    >
-      <h1
-        className="text-5xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-sky-100 to-cyan-300 drop-shadow-[0_12px_24px_rgba(8,47,73,0.7)] md:text-7xl"
-        style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
-      >
-        English Typing
-      </h1>
-      <div className="mt-1 flex items-center justify-center gap-3 md:justify-start">
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-300/80"></div>
-        <h2
-          className="text-4xl font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-amber-300 to-orange-400 drop-shadow-[0_8px_18px_rgba(120,53,15,0.6)] md:text-5xl"
-          style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif" }}
-        >
-          Fantasy
-        </h2>
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-300/80"></div>
-      </div>
-    </div>
-    <p className="mt-3 max-w-xl text-sm font-bold leading-relaxed text-slate-100/95 md:text-base">
-      タイピングで英語を覚えて、モンスターに挑戦しよう。
-    </p>
+  <div className="w-full max-w-4xl text-center">
+    <img
+      src={TITLE_LOGO_IMAGE}
+      alt="English Typing Fantasy"
+      className="mx-auto h-[clamp(72px,8vw,112px)] w-[min(760px,72vw)] max-w-full object-contain drop-shadow-[0_14px_30px_rgba(0,0,0,0.34)]"
+    />
   </div>
 );
 
@@ -5838,29 +5816,49 @@ export default function App() {
     const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
     const totalMonsters = allMonsterIds.length;
     const todayQuestionCount = dailyProgress.date === getTodayKey() ? dailyProgress.questionCount : 0;
+    const nextBattleMode: Mode = 'challenge';
+    const nextBattleInputMode: InputMode = 'voice-text';
+    const nextBattleList = MONSTERS[gameState.selectedLevel].guide;
+    const nextBattleTargetCount = getListeningTargetCount(gameState.selectedDifficulty, gameState.selectedLevel);
+    const nextBattleIndices = getBattleStageIndices(nextBattleList, nextBattleTargetCount, nextBattleMode, nextBattleInputMode);
+    const nextBattleStep = nextBattleIndices.findIndex(monsterIndex => (
+      !matchesDefeatedMonster(
+        gameState.defeatedMonsterIds,
+        gameState.selectedDifficulty,
+        gameState.selectedLevel,
+        nextBattleMode,
+        nextBattleInputMode,
+        nextBattleList[monsterIndex].id
+      )
+    ));
+    const nextBattleDisplayStep = nextBattleStep >= 0 ? nextBattleStep : 0;
+    const nextBattleMonsterIndex = nextBattleIndices[nextBattleDisplayStep] ?? 0;
+    const nextBattleMonster = nextBattleList[nextBattleMonsterIndex] ?? nextBattleList[0];
+    const nextBattleBossStage = getBossStage(nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleIndices.length);
+    const nextBattleHp = nextBattleMonster
+      ? getBattleHp(gameState.selectedDifficulty, nextBattleMonster.baseHp, nextBattleBossStage)
+      : 0;
+    const nextBattleProgress = nextBattleStep >= 0 ? nextBattleStep : nextBattleIndices.length;
+    const nextBattleIsComplete = nextBattleStep < 0;
 
     return (
       <ScreenContainer>
-        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=2544&auto=format&fit=crop')] bg-cover bg-center">
-            <div className="absolute inset-0 bg-slate-950/66 backdrop-blur-[1px]"></div>
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute inset-y-0 left-1/2 hidden w-[64vw] min-w-[520px] max-w-[1080px] -translate-x-1/2 items-center justify-center md:flex">
-                <img
-                  src={MAIN_CHARACTER_BACKGROUND_IMAGE}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-auto max-h-[110vh] w-full scale-[1.08] object-contain object-center opacity-52 saturate-[1.08] contrast-[1.04] blur-[0.25px] drop-shadow-[0_24px_66px_rgba(56,189,248,0.28)] [mask-image:radial-gradient(circle_at_center,black_56%,transparent_92%)]"
-                />
-              </div>
-              <div className="absolute inset-y-0 left-0 hidden w-[58%] bg-gradient-to-r from-slate-950/88 via-slate-950/58 to-transparent md:block"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_28%,rgba(14,165,233,0.18),transparent_34%),radial-gradient(circle_at_78%_25%,rgba(251,191,36,0.14),transparent_26%),radial-gradient(circle_at_45%_82%,rgba(168,85,247,0.10),transparent_34%)]"></div>
-            </div>
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#081426] p-4">
+            <img
+              src={COURSE_SELECT_ILLUSTRATION_IMAGE}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full scale-125 -translate-x-[18%] object-cover object-center opacity-[0.72] saturate-[1.22] brightness-[1.16]"
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.12),transparent_30%),radial-gradient(circle_at_78%_24%,rgba(251,191,36,0.2),transparent_32%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.68)_0%,rgba(2,6,23,0.34)_38%,rgba(2,6,23,0.06)_68%,rgba(2,6,23,0.12)_100%),linear-gradient(180deg,rgba(2,6,23,0.02)_0%,rgba(2,6,23,0.24)_100%)]"></div>
             <div
-              className="relative z-10 flex w-full max-w-5xl flex-col items-center px-2 py-6 md:items-start"
+              className="relative z-10 flex w-full max-w-7xl flex-col items-center gap-2 px-2 py-3"
               style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
             >
-                <GameTitleLogo />
-
+              <GameTitleLogo />
+              <div className="grid w-full items-stretch gap-8 lg:grid-cols-[minmax(0,680px)_minmax(360px,1fr)]">
+              <div className="flex h-full w-full max-w-3xl flex-col items-center justify-self-center lg:items-start lg:justify-self-start">
                 <div className="mb-5 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="rounded-lg border border-emerald-300/35 bg-emerald-950/22 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
                     <div className="flex items-center gap-2 text-emerald-200">
@@ -5948,6 +5946,70 @@ export default function App() {
                 <div className="mt-4 flex w-full max-w-3xl items-center justify-center text-center text-xs font-bold text-slate-400 md:justify-start">
                   Word List・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
                 </div>
+              </div>
+
+              <aside className="relative hidden min-h-[560px] overflow-hidden rounded-lg border border-cyan-100/45 bg-sky-950/10 shadow-[0_28px_80px_rgba(0,0,0,0.24)] lg:block">
+                <img
+                  src={COURSE_SELECT_ILLUSTRATION_IMAGE}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-full w-full object-cover object-[62%_50%] saturate-[1.22] contrast-[1.04] brightness-[1.08]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,38,0.04)_0%,rgba(8,20,38,0)_44%,rgba(8,20,38,0.04)_100%),linear-gradient(180deg,rgba(2,6,23,0)_0%,rgba(2,6,23,0.08)_100%)]"></div>
+                <div className="absolute left-5 top-5 rounded-lg border border-amber-100/55 bg-amber-900/24 px-4 py-3 shadow-[0_16px_40px_rgba(0,0,0,0.22)] backdrop-blur-md">
+                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-amber-100">Next Adventure</p>
+                  <p className="mt-1 text-lg font-black text-white">教材を選んで出発</p>
+                </div>
+                <div className="absolute bottom-5 right-5 rounded-lg border border-cyan-100/45 bg-cyan-900/22 px-4 py-3 text-right shadow-[0_16px_40px_rgba(0,0,0,0.22)] backdrop-blur-md">
+                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-100">Today</p>
+                  <p className="mt-1 text-2xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-sm text-cyan-100">問</span></p>
+                </div>
+                {nextBattleMonster && (
+                  <div className="absolute left-7 right-7 top-28 overflow-hidden rounded-lg border border-sky-100/50 bg-slate-950/46 p-5 shadow-[0_22px_54px_rgba(0,0,0,0.28)] backdrop-blur-md">
+                    <div className="flex items-center gap-5">
+                      <div className="relative shrink-0">
+                        <div className="absolute inset-3 rounded-full bg-cyan-300/20 blur-2xl"></div>
+                        <MonsterAvatar
+                          type={nextBattleMonster.type}
+                          color={nextBattleMonster.color}
+                          size={150}
+                          visualStyle={getMonsterVisualStyle(nextBattleMonster)}
+                        />
+                        {nextBattleBossStage > 0 && (
+                          <div className="absolute right-2 top-2 rounded bg-red-600 px-2 py-0.5 text-[10px] font-black text-white">BOSS</div>
+                        )}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">
+                          {nextBattleIsComplete ? 'Cleared' : 'Next Enemy'}
+                        </p>
+                        <h3 className="mt-1 truncate text-2xl font-black text-white">{nextBattleMonster.name}</h3>
+                        <p className="mt-1 text-xs font-bold text-slate-300">
+                          Progress {nextBattleProgress} / {nextBattleIndices.length}
+                        </p>
+                        <div className="mt-3 grid grid-cols-2 gap-2">
+                          <div className="rounded-lg border border-slate-600/70 bg-slate-900/72 px-3 py-2">
+                            <p className="text-[10px] font-black text-slate-400">HP</p>
+                            <p className="text-lg font-black text-amber-100">{nextBattleHp}</p>
+                          </div>
+                          <div className="rounded-lg border border-slate-600/70 bg-slate-900/72 px-3 py-2">
+                            <p className="text-[10px] font-black text-slate-400">Stage</p>
+                            <p className="text-lg font-black text-cyan-100">{Math.min(nextBattleDisplayStep + 1, nextBattleIndices.length)}</p>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)}
+                          className="mt-4 w-full rounded-lg border border-cyan-200 bg-cyan-500/20 px-4 py-3 text-sm font-black text-cyan-50 shadow-[0_0_24px_rgba(34,211,238,0.16)] transition-colors hover:bg-cyan-400/25"
+                        >
+                          この敵に挑む
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </aside>
+              </div>
                     {showResetConfirm && (
                       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                         <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
