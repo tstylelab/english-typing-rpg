@@ -5848,7 +5848,7 @@ export default function App() {
               src={COURSE_SELECT_ILLUSTRATION_IMAGE}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full scale-125 -translate-x-[18%] object-cover object-center opacity-[0.72] saturate-[1.22] brightness-[1.16]"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.72] saturate-[1.22] brightness-[1.16]"
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.12),transparent_30%),radial-gradient(circle_at_78%_24%,rgba(251,191,36,0.2),transparent_32%)]"></div>
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.68)_0%,rgba(2,6,23,0.34)_38%,rgba(2,6,23,0.06)_68%,rgba(2,6,23,0.12)_100%),linear-gradient(180deg,rgba(2,6,23,0.02)_0%,rgba(2,6,23,0.24)_100%)]"></div>
