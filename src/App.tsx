@@ -196,7 +196,7 @@ type ResolvedSpeechConfig = {
 };
 
 interface GameState {
-  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results';
+  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results' | 'typing-practice';
   selectedDifficulty: Difficulty;
   selectedLevel: Level;
   mode: Mode;
@@ -242,6 +242,7 @@ const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_QUESTION_COUNT = 20;
 const NORMAL_TARGET_COUNT = 20;
+const TYPING_PRACTICE_STEPS = ['f', 'j', 'a', 's', 'd', 'k', 'l', 'q', 'w', 'e', 'z', 'x', 'c', 'cat', 'dog', 'sun'];
 const HARD_TARGET_COUNT = 20;
 const REVIEW_REAPPEAR_DELAY = 5;
 const REVIEW_RATE_WINDOW_SIZE = 5;
@@ -3300,6 +3301,9 @@ export default function App() {
   });
 
   const [bestScores, setBestScores] = useState<Record<string, number>>({});
+  const [typingPracticeIndex, setTypingPracticeIndex] = useState(0);
+  const [typingPracticeInput, setTypingPracticeInput] = useState('');
+  const [typingPracticeMisses, setTypingPracticeMisses] = useState(0);
   const [versusBestScores, setVersusBestScores] = useState<Record<string, number>>(() => safeLoadJson<Record<string, number>>(STORAGE_KEYS.versusBestScores, {}));
   const [maxKeystrokes, setMaxKeystrokes] = useState<number>(0);
   const [weakQuestions, setWeakQuestions] = useState<Question[]>([]); 
@@ -3360,6 +3364,7 @@ export default function App() {
   const [versusIsNewBest, setVersusIsNewBest] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const versusInputRef = useRef<HTMLInputElement>(null);
+  const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const newPlayerNameInputRef = useRef<HTMLInputElement>(null);
   const progressImportInputRef = useRef<HTMLInputElement>(null);
   const playerProfilesSectionRef = useRef<HTMLDivElement>(null);
@@ -5473,6 +5478,21 @@ export default function App() {
     if (gameState.screen === 'battle' && gameState.inputMode !== 'text-only' && gameState.monsterHp > 0) speakWithSettings(gameState.currentQuestion.text);
   }, [gameState.currentQuestion, gameState.screen, gameState.inputMode, gameState.monsterHp, speakWithSettings]);
 
+  const handleTypingPracticeInput = (value: string) => {
+    const target = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
+    if (!target.startsWith(value)) {
+      setTypingPracticeMisses(count => count + 1);
+      window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
+      return;
+    }
+    setTypingPracticeInput(value);
+    if (value === target) {
+      setTypingPracticeIndex(index => Math.min(index + 1, TYPING_PRACTICE_STEPS.length));
+      setTypingPracticeInput('');
+    }
+    window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
+  };
+
   // --- Screens ---
   const selectedSpeechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
   const supportedSpeechModes = getSupportedSpeechModes(speechVoices);
@@ -7087,6 +7107,26 @@ export default function App() {
     );
   }
 
+  if (gameState.screen === 'typing-practice') {
+    const target = TYPING_PRACTICE_STEPS[typingPracticeIndex];
+    const nextLetter = target?.[typingPracticeInput.length] ?? '';
+    const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
+    const isComplete = typingPracticeIndex >= TYPING_PRACTICE_STEPS.length;
+    const practicePhase = typingPracticeIndex < 2 ? 'まんなかを見つけよう' : typingPracticeIndex < 13 ? '文字の場所を覚えよう' : '短い単語を打とう';
+    return (
+      <ScreenContainer className="items-center justify-center px-3 py-6">
+        <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
+          <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。急がなくて大丈夫です。</p>
+          {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><GameButton className="mt-6" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton></div> : <>
+            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<p className="mt-3 text-sm text-slate-300">光っている文字を押そう</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" aria-label="typing practice input" /></div>
+            <div className="mt-5 space-y-2 rounded-xl border border-slate-600 bg-slate-900/70 p-3">{keyboardRows.map(row => <div key={row} className="flex justify-center gap-1">{[...row].map(letter => <button key={letter} onClick={() => handleTypingPracticeInput(typingPracticeInput + letter)} className={`min-h-11 min-w-8 rounded border font-black uppercase sm:min-w-11 ${letter === nextLetter ? 'border-amber-200 bg-amber-400 text-slate-950' : 'border-slate-500 bg-slate-800 text-white'}`}>{letter}</button>)}</div>)}</div>
+            <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>やめる</GameButton></div>
+          </>}
+        </Box>
+      </ScreenContainer>
+    );
+  }
+
   if (gameState.screen === 'title') {
     const allMonsterIds = Object.values(MONSTERS).flatMap(lvl => [...lvl.guide, ...lvl.challenge]).map(m => m.id);
     const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
@@ -7216,6 +7256,15 @@ export default function App() {
                       size="lg"
                     >
                       <Trophy size={24} /> 20問チャレンジ（1〜5人）
+                    </GameButton>
+
+                    <GameButton
+                      onClick={() => { setTypingPracticeIndex(0); setTypingPracticeInput(''); setTypingPracticeMisses(0); setGameState(prev => ({ ...prev, screen: 'typing-practice' })); }}
+                      variant="outline"
+                      className="w-full min-h-[68px] border-emerald-300/55 bg-emerald-950/25 text-xl text-emerald-100 hover:border-emerald-200 hover:bg-emerald-900/35"
+                      size="lg"
+                    >
+                      <Keyboard size={24} /> はじめてのタイピング練習
                     </GameButton>
 
                     <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
