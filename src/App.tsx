@@ -16,6 +16,15 @@ type SpeechVoiceMode = 'random' | 'us_female' | 'us_male' | 'uk_female' | 'uk_ma
 type BossStage = 0 | 1 | 2 | 3 | 4;
 type BattleHistoryItem = { damage: number; speed: number };
 
+type VersusPlayer = {
+  id: string;
+  name: string;
+  score: number;
+  perfectCount: number;
+  missCount: number;
+  totalTimeMs: number;
+};
+
 // Monster Types for Visuals
 type MonsterType = 'slime' | 'beast' | 'wing' | 'ghost' | 'robot' | 'boss' | 'object';
 
@@ -180,7 +189,7 @@ type ResolvedSpeechConfig = {
 };
 
 interface GameState {
-  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result';
+  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results';
   selectedDifficulty: Difficulty;
   selectedLevel: Level;
   mode: Mode;
@@ -224,6 +233,7 @@ interface RankData { threshold: number; title: string; color: string; }
 
 const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
+const VERSUS_QUESTION_COUNT = 20;
 const NORMAL_TARGET_COUNT = 20;
 const HARD_TARGET_COUNT = 20;
 const REVIEW_REAPPEAR_DELAY = 5;
@@ -2947,7 +2957,7 @@ type MonsterLane = 'guide' | 'challenge';
 
 const TWENTY_STAGE_HP_CURVES: Record<Level, Record<MonsterLane, number[]>> = {
   1: {
-    guide: [150, 170, 185, 200, 210, 220, 230, 240, 250, 260, 270, 285, 300, 315, 330, 345, 360, 370, 380, 400],
+    guide: [150, 170, 185, 200, 210, 220, 230, 240, 250, 260, 270, 285, 300, 315, 330, 345, 360, 370, 380, 370],
     challenge: [420, 580, 740, 900, 1040, 1200, 1260, 1267, 1273, 1280, 1287, 1293, 1300, 1307, 1313, 1320, 1327, 1333, 1340],
   },
   2: {
@@ -3300,7 +3310,20 @@ export default function App() {
   const [lastSolvedQuestion, setLastSolvedQuestion] = useState<Question | null>(null);
   const [showBossIntro, setShowBossIntro] = useState(false);
   const [progressTransferStatus, setProgressTransferStatus] = useState('');
+  const [versusNameDrafts, setVersusNameDrafts] = useState(['プレイヤー1', 'プレイヤー2']);
+  const [versusDifficulty, setVersusDifficulty] = useState<Difficulty>('Eiken5');
+  const [versusLevel, setVersusLevel] = useState<Level>(1);
+  const [versusPlayers, setVersusPlayers] = useState<VersusPlayer[]>([]);
+  const [versusQuestionOrders, setVersusQuestionOrders] = useState<Question[][]>([]);
+  const [versusPlayerIndex, setVersusPlayerIndex] = useState(0);
+  const [versusQuestionIndex, setVersusQuestionIndex] = useState(0);
+  const [versusInput, setVersusInput] = useState('');
+  const [versusQuestionMisses, setVersusQuestionMisses] = useState(0);
+  const [versusQuestionStartedAt, setVersusQuestionStartedAt] = useState<number | null>(null);
+  const [versusShowHandoff, setVersusShowHandoff] = useState(true);
+  const [versusSetupError, setVersusSetupError] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const versusInputRef = useRef<HTMLInputElement>(null);
   const newPlayerNameInputRef = useRef<HTMLInputElement>(null);
   const progressImportInputRef = useRef<HTMLInputElement>(null);
   const playerProfilesSectionRef = useRef<HTMLDivElement>(null);
@@ -3632,6 +3655,113 @@ export default function App() {
   const getScopedPlayableQuestions = (difficulty: Difficulty, level: Level) => (
     (QUESTIONS[difficulty]?.[level] ?? []).filter(question => !isQuestionExcluded(difficulty, level, question))
   );
+
+  const getVersusSpeedBonus = (charsPerSecond: number) => {
+    if (charsPerSecond >= 4) return 50;
+    if (charsPerSecond >= 3.2) return 40;
+    if (charsPerSecond >= 2.4) return 30;
+    if (charsPerSecond >= 1.6) return 20;
+    if (charsPerSecond >= 0.8) return 10;
+    return 0;
+  };
+
+  const startVersusMatch = () => {
+    const names = versusNameDrafts.map(name => name.trim()).filter(Boolean);
+    const playableQuestions = getScopedPlayableQuestions(versusDifficulty, versusLevel);
+    if (names.length < 2) {
+      setVersusSetupError('2人以上の名前を入力してください。');
+      return;
+    }
+    if (playableQuestions.length < VERSUS_QUESTION_COUNT) {
+      setVersusSetupError('この範囲には対戦に必要な20問がありません。');
+      return;
+    }
+
+    const sharedQuestions = shuffleQuestions(playableQuestions).slice(0, VERSUS_QUESTION_COUNT);
+    setVersusPlayers(names.map((name, index) => ({
+      id: `versus-${Date.now()}-${index}`,
+      name,
+      score: 0,
+      perfectCount: 0,
+      missCount: 0,
+      totalTimeMs: 0,
+    })));
+    setVersusQuestionOrders(names.map(() => shuffleQuestions(sharedQuestions)));
+    setVersusPlayerIndex(0);
+    setVersusQuestionIndex(0);
+    setVersusInput('');
+    setVersusQuestionMisses(0);
+    setVersusQuestionStartedAt(null);
+    setVersusShowHandoff(true);
+    setVersusSetupError('');
+    setGameState(prev => ({ ...prev, screen: 'versus-play' }));
+  };
+
+  const beginVersusTurn = () => {
+    setVersusShowHandoff(false);
+    setVersusInput('');
+    setVersusQuestionMisses(0);
+    setVersusQuestionStartedAt(Date.now());
+  };
+
+  const finishVersusQuestion = (answer: string) => {
+    const startedAt = versusQuestionStartedAt ?? Date.now();
+    const durationMs = Math.max(Date.now() - startedAt, 100);
+    const charsPerSecond = answer.length / (durationMs / 1000);
+    const isPerfect = versusQuestionMisses === 0;
+    const gainedScore = 100 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond);
+    const isLastQuestion = versusQuestionIndex >= VERSUS_QUESTION_COUNT - 1;
+    const isLastPlayer = versusPlayerIndex >= versusPlayers.length - 1;
+
+    setVersusPlayers(prev => prev.map((player, index) => (
+      index === versusPlayerIndex
+        ? {
+            ...player,
+            score: player.score + gainedScore,
+            perfectCount: player.perfectCount + (isPerfect ? 1 : 0),
+            missCount: player.missCount + versusQuestionMisses,
+            totalTimeMs: player.totalTimeMs + durationMs,
+          }
+        : player
+    )));
+
+    if (isLastQuestion && isLastPlayer) {
+      setGameState(prev => ({ ...prev, screen: 'versus-results' }));
+      return;
+    }
+
+    if (isLastQuestion) {
+      setVersusPlayerIndex(index => index + 1);
+      setVersusQuestionIndex(0);
+      setVersusShowHandoff(true);
+    } else {
+      setVersusQuestionIndex(index => index + 1);
+    }
+    setVersusInput('');
+    setVersusQuestionMisses(0);
+    setVersusQuestionStartedAt(Date.now());
+  };
+
+  const handleVersusInput = (value: string) => {
+    const currentQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+    if (!currentQuestion) return;
+    const normalizedValue = normalizeTypingText(value);
+    const normalizedAnswer = normalizeTypingText(currentQuestion.text);
+    if (!normalizedAnswer.startsWith(normalizedValue)) {
+      soundEngine.playMiss();
+      setVersusQuestionMisses(count => count + 1);
+      setVersusInput('');
+      return;
+    }
+    setVersusInput(value);
+    if (normalizedValue === normalizedAnswer) finishVersusQuestion(value);
+  };
+
+  useEffect(() => {
+    if (gameState.screen !== 'versus-play' || versusShowHandoff) return;
+    const timeoutId = window.setTimeout(() => versusInputRef.current?.focus(), 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
 
   const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'practice' | 'battle' | null => {
     if (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text')) {
@@ -6676,6 +6806,126 @@ export default function App() {
     );
   }
 
+  if (gameState.screen === 'versus-setup') {
+    const availableVersusLevels = getAvailableLevels(versusDifficulty);
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box title="みんなで20問対決" className="w-full max-w-3xl">
+          <div className="space-y-6">
+            <div className="text-center">
+              <Trophy size={48} className="mx-auto text-yellow-300" />
+              <h1 className="mt-2 text-3xl font-black text-white">みんなで20問対決</h1>
+              <p className="mt-2 text-sm font-bold text-slate-300">同じ20問で、正確さと速さを競います。普段の学習記録には残りません。</p>
+            </div>
+
+            <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-4">
+              <p className="text-sm font-black text-cyan-200">1. 出題範囲を選ぶ</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {DIFFICULTIES.map(difficulty => (
+                  <button key={difficulty} onClick={() => { setVersusDifficulty(difficulty); setVersusLevel(getSafeLevelForDifficulty(difficulty, versusLevel)); }} className={`rounded-lg border px-4 py-2 font-black ${versusDifficulty === difficulty ? 'border-cyan-300 bg-cyan-600 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
+                    {DIFFICULTY_LABELS[difficulty]}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {availableVersusLevels.map(level => (
+                  <button key={level} onClick={() => setVersusLevel(level)} className={`rounded-lg border px-4 py-2 font-black ${versusLevel === level ? 'border-emerald-300 bg-emerald-600 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
+                    Level {level}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-black text-violet-200">2. 名前を入力（2〜5人）</p>
+                {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`])}>＋ 参加者を追加</GameButton>}
+              </div>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {versusNameDrafts.map((name, index) => (
+                  <div key={`${index}-${name}`} className="flex items-center gap-2">
+                    <input value={name} maxLength={20} onChange={event => setVersusNameDrafts(names => names.map((currentName, currentIndex) => currentIndex === index ? event.target.value : currentName))} className="min-w-0 flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 font-bold text-white outline-none focus:border-violet-300" aria-label={`参加者${index + 1}の名前`} />
+                    {versusNameDrafts.length > 2 && <button onClick={() => setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index))} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-4 text-sm text-amber-100">
+              <p className="font-black">採点ルール</p>
+              <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大50点追加です。</p>
+            </div>
+            {versusSetupError && <p className="text-center font-bold text-red-300">{versusSetupError}</p>}
+            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
+              <GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
+              <GameButton onClick={startVersusMatch} size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500">対戦をはじめる <ArrowRight size={22} /></GameButton>
+            </div>
+          </div>
+        </Box>
+      </ScreenContainer>
+    );
+  }
+
+  if (gameState.screen === 'versus-play') {
+    const currentPlayer = versusPlayers[versusPlayerIndex];
+    const currentQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+    if (!currentPlayer || !currentQuestion) {
+      return <ScreenContainer className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
+    }
+    if (versusShowHandoff) {
+      return (
+        <ScreenContainer className="items-center justify-center p-4">
+          <Box className="w-full max-w-xl text-center">
+            <Trophy size={58} className="mx-auto text-yellow-300" />
+            <p className="mt-5 text-sm font-black uppercase tracking-[0.25em] text-violet-300">Next Player</p>
+            <h1 className="mt-2 text-4xl font-black text-white">{currentPlayer.name} の番！</h1>
+            <p className="mt-4 text-slate-300">20問を続けて入力します。ほかの人は答えを見ないでね。</p>
+            <GameButton onClick={beginVersusTurn} size="lg" className="mt-7 w-full bg-violet-600 border-violet-300 hover:bg-violet-500">スタート</GameButton>
+          </Box>
+        </ScreenContainer>
+      );
+    }
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box className="w-full max-w-3xl">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-600 pb-4">
+            <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {VERSUS_QUESTION_COUNT} 問</p></div>
+            <div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在のスコア</p><p className="text-2xl font-black text-white">{currentPlayer.score}</p></div>
+          </div>
+          <div className="py-10 text-center">
+            <p className="text-sm font-bold text-cyan-200">日本語の意味</p>
+            <p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p>
+            <p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p>
+            <p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p>
+            <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
+            <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
+          </div>
+        </Box>
+      </ScreenContainer>
+    );
+  }
+
+  if (gameState.screen === 'versus-results') {
+    const ranking = [...versusPlayers].sort((a, b) => b.score - a.score || b.perfectCount - a.perfectCount || a.missCount - b.missCount || a.totalTimeMs - b.totalTimeMs);
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box title="みんなで20問対決・結果" className="w-full max-w-3xl">
+          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">結果発表！</h1></div>
+          <div className="mt-6 space-y-3">
+            {ranking.map((player, index) => (
+              <div key={player.id} className={`grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border p-4 ${index === 0 ? 'border-yellow-300 bg-yellow-950/30' : 'border-slate-600 bg-slate-900/65'}`}>
+                <span className={`text-3xl font-black ${index === 0 ? 'text-yellow-300' : 'text-slate-400'}`}>{index + 1}</span>
+                <div><p className="text-xl font-black text-white">{player.name}</p><p className="mt-1 text-xs font-bold text-slate-300">ミスなし {player.perfectCount}問 ・ ミス {player.missCount}回 ・ 時間 {(player.totalTimeMs / 1000).toFixed(1)}秒</p></div>
+                <p className="text-3xl font-black text-cyan-200">{player.score}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>もう一度対戦する</GameButton></div>
+        </Box>
+      </ScreenContainer>
+    );
+  }
+
   if (gameState.screen === 'title') {
     const allMonsterIds = Object.values(MONSTERS).flatMap(lvl => [...lvl.guide, ...lvl.challenge]).map(m => m.id);
     const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
@@ -6796,6 +7046,15 @@ export default function App() {
                       size="lg"
                     >
                       <LayoutGrid size={24} /> 教材を選ぶ
+                    </GameButton>
+
+                    <GameButton
+                      onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}
+                      variant="outline"
+                      className="w-full min-h-[68px] border-violet-300/55 bg-violet-950/25 text-xl text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
+                      size="lg"
+                    >
+                      <Trophy size={24} /> みんなで20問対決（2〜5人）
                     </GameButton>
 
                     <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
