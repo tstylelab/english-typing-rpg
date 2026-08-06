@@ -3762,6 +3762,17 @@ export default function App() {
     setVersusQuestionStartedAt(Date.now());
   };
 
+  const quitVersusMatch = () => {
+    if (!window.confirm('20問バトルを途中でやめますか？\n途中のスコアは保存されません。')) return;
+    soundEngine.stopBattleMusic();
+    soundEngine.stopBattleAmbience();
+    setVersusInput('');
+    setVersusQuestionMisses(0);
+    setVersusQuestionStartedAt(null);
+    setVersusShowHandoff(true);
+    setGameState(prev => ({ ...prev, screen: 'title' }));
+  };
+
   const finishVersusQuestion = (answer: string) => {
     const startedAt = versusQuestionStartedAt ?? Date.now();
     const durationMs = Math.max(Date.now() - startedAt, 100);
@@ -6969,7 +6980,7 @@ export default function App() {
   if (gameState.screen === 'versus-setup') {
     const availableVersusLevels = getAvailableLevels(versusDifficulty);
     const isSoloSetup = versusNameDrafts.length === 1;
-    const setupTitle = isSoloSetup ? 'ひとりで20問チャレンジ' : 'みんなで20問対決';
+    const setupTitle = isSoloSetup ? 'ひとりで20問バトル！' : 'みんなで20問バトル！';
     return (
       <ScreenContainer className="items-center justify-center p-4">
         <Box title={setupTitle} className="w-full max-w-3xl">
@@ -7037,7 +7048,7 @@ export default function App() {
             {versusSetupError && <p className="text-center font-bold text-red-300">{versusSetupError}</p>}
             <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
               <GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
-              <GameButton onClick={startVersusMatch} size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500">対戦をはじめる <ArrowRight size={22} /></GameButton>
+              <GameButton onClick={startVersusMatch} size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500">バトルをはじめる <ArrowRight size={22} /></GameButton>
             </div>
           </div>
         </Box>
@@ -7061,6 +7072,7 @@ export default function App() {
             <h1 className="mt-2 text-4xl font-black text-white">{currentPlayer.name} の番！</h1>
             <p className="mt-4 text-slate-300">20問を続けて入力します。ほかの人は答えを見ないでね。</p>
             <GameButton onClick={beginVersusTurn} size="lg" className="mt-7 w-full bg-violet-600 border-violet-300 hover:bg-violet-500">スタート</GameButton>
+            <button onClick={quitVersusMatch} className="mt-4 text-sm font-bold text-slate-400 underline underline-offset-4 hover:text-white">タイトルへ戻る</button>
           </Box>
         </ScreenContainer>
       );
@@ -7070,7 +7082,7 @@ export default function App() {
         <Box className="w-full max-w-3xl">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-600 pb-4">
             <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {VERSUS_QUESTION_COUNT} 問</p></div>
-            <div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在のスコア</p><p className="text-2xl font-black text-white">{currentPlayer.score}</p></div>
+            <div className="flex items-center gap-2"><div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在のスコア</p><p className="text-2xl font-black text-white">{currentPlayer.score}</p></div><GameButton size="sm" variant="outline" onClick={quitVersusMatch}>やめる</GameButton></div>
           </div>
           <div className="py-10 text-center">
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
@@ -7090,8 +7102,8 @@ export default function App() {
     const soloScore = versusPlayers[0]?.score ?? 0;
     return (
       <ScreenContainer className="items-center justify-center p-4">
-        <Box title={isSoloChallenge ? 'ひとりで20問チャレンジ・結果' : 'みんなで20問対決・結果'} className="w-full max-w-3xl">
-          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">{isSoloChallenge ? 'チャレンジ結果！' : '結果発表！'}</h1>{isSoloChallenge && <p className={`mt-3 text-lg font-black ${versusIsNewBest ? 'text-yellow-300' : 'text-cyan-200'}`}>{versusIsNewBest ? '自己ベスト更新！' : `自己ベスト: ${Math.max(soloScore, versusPreviousBestScore)} 点`}</p>}</div>
+        <Box title={isSoloChallenge ? 'ひとりで20問バトル！・結果' : 'みんなで20問バトル！・結果'} className="w-full max-w-3xl">
+          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">{isSoloChallenge ? 'バトル結果！' : '結果発表！'}</h1>{isSoloChallenge && <p className={`mt-3 text-lg font-black ${versusIsNewBest ? 'text-yellow-300' : 'text-cyan-200'}`}>{versusIsNewBest ? '自己ベスト更新！' : `自己ベスト: ${Math.max(soloScore, versusPreviousBestScore)} 点`}</p>}</div>
           <div className="mt-6 space-y-3">
             {ranking.map((player, index) => (
               <div key={player.id} className={`grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border p-4 ${index === 0 ? 'border-yellow-300 bg-yellow-950/30' : 'border-slate-600 bg-slate-900/65'}`}>
@@ -7101,7 +7113,7 @@ export default function App() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>もう一度対戦する</GameButton></div>
+          <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>もう一度バトルする</GameButton></div>
         </Box>
       </ScreenContainer>
     );
@@ -7255,7 +7267,7 @@ export default function App() {
                       className="w-full min-h-[68px] border-violet-300/55 bg-violet-950/25 text-xl text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
                       size="lg"
                     >
-                      <Trophy size={24} /> 20問チャレンジ（1〜5人）
+                      <Trophy size={24} /> 20問バトル！（1〜5人）
                     </GameButton>
 
                     <GameButton
