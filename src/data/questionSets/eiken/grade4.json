@@ -2410,7 +2410,48 @@
       {
         "text": "have to study",
         "translation": "勉強しなければならない"
-      }
+      },
+      { "text": "be afraid of dogs", "translation": "犬を怖がる" },
+      { "text": "be good for you", "translation": "あなたのためになる" },
+      { "text": "be ready for class", "translation": "授業の準備ができている" },
+      { "text": "be proud of him", "translation": "彼を誇りに思う" },
+      { "text": "be surprised at the news", "translation": "その知らせに驚く" },
+      { "text": "belong to my brother", "translation": "私の兄（弟）のものだ" },
+      { "text": "care for animals", "translation": "動物の世話をする" },
+      { "text": "decide to stay home", "translation": "家にいることに決める" },
+      { "text": "enjoy cooking dinner", "translation": "夕食を作るのを楽しむ" },
+      { "text": "feel like dancing", "translation": "踊りたい気がする" },
+      { "text": "find out the answer", "translation": "答えを見つけ出す" },
+      { "text": "get along with her", "translation": "彼女と仲良くする" },
+      { "text": "get ready for school", "translation": "学校の準備をする" },
+      { "text": "go abroad next year", "translation": "来年海外へ行く" },
+      { "text": "grow up in Tokyo", "translation": "東京で育つ" },
+      { "text": "have a bad cold", "translation": "ひどい風邪をひいている" },
+      { "text": "have a fever today", "translation": "今日は熱がある" },
+      { "text": "have a look at this", "translation": "これを見てみる" },
+      { "text": "hear from my friend", "translation": "友だちから連絡をもらう" },
+      { "text": "keep on studying", "translation": "勉強を続ける" },
+      { "text": "know about Japan", "translation": "日本について知っている" },
+      { "text": "look forward to summer", "translation": "夏を楽しみにする" },
+      { "text": "make friends with her", "translation": "彼女と友だちになる" },
+      { "text": "pay for the ticket", "translation": "チケット代を払う" },
+      { "text": "plan to visit Kyoto", "translation": "京都を訪ねる予定を立てる" },
+      { "text": "practice playing piano", "translation": "ピアノを弾く練習をする" },
+      { "text": "remember to call Mom", "translation": "お母さんに電話するのを覚えておく" },
+      { "text": "run away from home", "translation": "家から逃げ出す" },
+      { "text": "spend time with family", "translation": "家族と時間を過ごす" },
+      { "text": "take care of my dog", "translation": "犬の世話をする" },
+      { "text": "take part in the game", "translation": "その試合に参加する" },
+      { "text": "talk about the movie", "translation": "その映画について話す" },
+      { "text": "thank you for coming", "translation": "来てくれてありがとう" },
+      { "text": "think of a good idea", "translation": "よい考えを思いつく" },
+      { "text": "try to speak English", "translation": "英語を話そうとする" },
+      { "text": "turn into a bird", "translation": "鳥に変わる" },
+      { "text": "use this for homework", "translation": "これを宿題に使う" },
+      { "text": "wake up early tomorrow", "translation": "明日は早く起きる" },
+      { "text": "work hard at school", "translation": "学校で一生懸命取り組む" },
+      { "text": "worry about the test", "translation": "テストを心配する" },
+      { "text": "be different from mine", "translation": "私のものとは違う" }
     ],
     "3": [
       {
@@ -2696,7 +2737,86 @@
       {
         "text": "Please write back soon.",
         "translation": "どうかすぐに返事を書いてください。"
-      }
+      },
+      { "text": "I have lived here for two years.", "translation": "私はここに2年間住んでいます。" },
+      { "text": "She has already finished her homework.", "translation": "彼女はもう宿題を終えています。" },
+      { "text": "Have you ever visited Kyoto?", "translation": "あなたは京都を訪れたことがありますか？" },
+      { "text": "I have never seen that movie.", "translation": "私はその映画を一度も見たことがありません。" },
+      { "text": "My father has just come home.", "translation": "私の父はちょうど帰宅したところです。" },
+      { "text": "We have known each other for years.", "translation": "私たちは何年も前から知り合いです。" },
+      { "text": "I was tired after the game.", "translation": "私は試合の後で疲れていました。" },
+      { "text": "She was cooking dinner then.", "translation": "彼女はそのとき夕食を作っていました。" },
+      { "text": "Were you busy yesterday?", "translation": "あなたは昨日忙しかったですか？" },
+      { "text": "What were you doing at seven?", "translation": "あなたは7時に何をしていましたか？" },
+      { "text": "It was raining all day yesterday.", "translation": "昨日は一日中雨が降っていました。" },
+      { "text": "I met him at the station.", "translation": "私は駅で彼に会いました。" },
+      { "text": "My sister bought a new dress.", "translation": "私の姉（妹）は新しいドレスを買いました。" },
+      { "text": "We enjoyed the school festival.", "translation": "私たちは学園祭を楽しみました。" },
+      { "text": "Did you call your mother?", "translation": "あなたはお母さんに電話しましたか？" },
+      { "text": "I will help you tomorrow.", "translation": "私は明日あなたを手伝います。" },
+      { "text": "It will be sunny this weekend.", "translation": "今週末は晴れるでしょう。" },
+      { "text": "Will you come to my party?", "translation": "あなたは私のパーティーに来ますか？" },
+      { "text": "We are going to visit Grandma.", "translation": "私たちは祖母を訪ねる予定です。" },
+      { "text": "I am going to clean my room.", "translation": "私は部屋を掃除する予定です。" },
+      { "text": "Are you going to play tennis?", "translation": "あなたはテニスをする予定ですか？" },
+      { "text": "You should see a doctor.", "translation": "あなたは医者に診てもらうべきです。" },
+      { "text": "You must finish this today.", "translation": "あなたは今日これを終えなければなりません。" },
+      { "text": "You do not have to hurry.", "translation": "あなたは急ぐ必要はありません。" },
+      { "text": "May I use your dictionary?", "translation": "あなたの辞書を使ってもよいですか？" },
+      { "text": "Could you open the door?", "translation": "ドアを開けてくれますか？" },
+      { "text": "Would you like to join us?", "translation": "私たちと一緒に来ませんか？" },
+      { "text": "Please show me the way.", "translation": "道を教えてください。" },
+      { "text": "Let me carry your bag.", "translation": "あなたのかばんを持たせてください。" },
+      { "text": "My bag is heavier than yours.", "translation": "私のかばんはあなたのより重いです。" },
+      { "text": "This book is more interesting.", "translation": "この本の方がもっと面白いです。" },
+      { "text": "Tokyo is bigger than Osaka.", "translation": "東京は大阪より大きいです。" },
+      { "text": "He is the fastest runner.", "translation": "彼は最も速い走者です。" },
+      { "text": "This is the most popular song.", "translation": "これは最も人気のある歌です。" },
+      { "text": "Which subject do you like best?", "translation": "あなたはどの教科が一番好きですか？" },
+      { "text": "I want something cold to drink.", "translation": "私は何か冷たい飲み物が欲しいです。" },
+      { "text": "There is nobody in the room.", "translation": "部屋には誰もいません。" },
+      { "text": "Something is wrong with my bike.", "translation": "私の自転車はどこか調子が悪いです。" },
+      { "text": "Everyone in my class likes music.", "translation": "私のクラスのみんなは音楽が好きです。" },
+      { "text": "Do you know anyone in London?", "translation": "あなたはロンドンに知り合いがいますか？" },
+      { "text": "The boy who is running is Ken.", "translation": "走っている男の子はケンです。" },
+      { "text": "I know the girl in that picture.", "translation": "私はあの写真の女の子を知っています。" },
+      { "text": "This is the book I wanted.", "translation": "これは私が欲しかった本です。" },
+      { "text": "Tell me what happened yesterday.", "translation": "昨日何が起きたか私に話してください。" },
+      { "text": "I do not know where he lives.", "translation": "私は彼がどこに住んでいるか知りません。" },
+      { "text": "Please tell me how to get there.", "translation": "そこへの行き方を教えてください。" },
+      { "text": "When did you start studying English?", "translation": "あなたはいつ英語の勉強を始めましたか？" },
+      { "text": "How often do you go swimming?", "translation": "あなたはどのくらいよく泳ぎに行きますか？" },
+      { "text": "How long does it take by bus?", "translation": "バスでどのくらいかかりますか？" },
+      { "text": "Why were you late for school?", "translation": "なぜあなたは学校に遅れたのですか？" }
+      ,{ "text": "My mother told me to be careful.", "translation": "母は私に気をつけるよう言いました。" }
+      ,{ "text": "My teacher asked us to be quiet.", "translation": "先生は私たちに静かにするよう言いました。" }
+      ,{ "text": "It is important to eat breakfast.", "translation": "朝食を食べることは大切です。" }
+      ,{ "text": "It is easy for me to read.", "translation": "私にとって読むことは簡単です。" }
+      ,{ "text": "I am glad to hear that.", "translation": "それを聞いてうれしいです。" }
+      ,{ "text": "He was happy to see her.", "translation": "彼は彼女に会えてうれしかったです。" }
+      ,{ "text": "We need to leave right now.", "translation": "私たちは今すぐ出発する必要があります。" }
+      ,{ "text": "Do not forget your umbrella.", "translation": "傘を忘れないでください。" }
+      ,{ "text": "Please be kind to animals.", "translation": "動物に親切にしてください。" }
+      ,{ "text": "You can borrow my pen.", "translation": "私のペンを借りてよいですよ。" }
+      ,{ "text": "Can you lend me some money?", "translation": "私に少しお金を貸してくれますか？" }
+      ,{ "text": "I left my phone at home.", "translation": "私は携帯電話を家に置いてきました。" }
+      ,{ "text": "She forgot her lunch at school.", "translation": "彼女は昼食を学校に忘れました。" }
+      ,{ "text": "The train arrived on time.", "translation": "電車は時間どおりに到着しました。" }
+      ,{ "text": "Our bus was very crowded.", "translation": "私たちのバスはとても混んでいました。" }
+      ,{ "text": "I lost my wallet yesterday.", "translation": "私は昨日財布をなくしました。" }
+      ,{ "text": "We found a small dog outside.", "translation": "私たちは外で小さな犬を見つけました。" }
+      ,{ "text": "The store was closed on Monday.", "translation": "その店は月曜日は閉まっていました。" }
+      ,{ "text": "I will call you after dinner.", "translation": "私は夕食の後であなたに電話します。" }
+      ,{ "text": "They will arrive before noon.", "translation": "彼らは正午前に到着します。" }
+      ,{ "text": "I am looking for my glasses.", "translation": "私は自分のめがねを探しています。" }
+      ,{ "text": "She is waiting for the bus.", "translation": "彼女はバスを待っています。" }
+      ,{ "text": "We are having dinner now.", "translation": "私たちは今夕食を食べています。" }
+      ,{ "text": "Are they playing in the park?", "translation": "彼らは公園で遊んでいますか？" }
+      ,{ "text": "I think this answer is right.", "translation": "私はこの答えが正しいと思います。" }
+      ,{ "text": "My dream is to be a pilot.", "translation": "私の夢はパイロットになることです。" }
+      ,{ "text": "Reading books is fun for me.", "translation": "本を読むことは私にとって楽しいです。" }
+      ,{ "text": "Thank you for inviting me today.", "translation": "今日私を招いてくれてありがとう。" }
+      ,{ "text": "I hope you have a nice trip.", "translation": "あなたがよい旅行をすることを願っています。" }
     ]
   }
 }

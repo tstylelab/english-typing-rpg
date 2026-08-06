@@ -378,9 +378,15 @@ const getBattleStageIndices = (
   return [...baseIndices, ...hiddenBossIndices];
 };
 
-const getPerfectClearDamageFloor = (bossStage: BossStage, maxMonsterHp: number, maxQuestions: number) => {
+const getPerfectClearDamageFloor = (
+  bossStage: BossStage,
+  maxMonsterHp: number,
+  maxQuestions: number,
+  allowOneSmallMiss = false,
+) => {
   if (bossStage === 0 || maxQuestions <= 0) return 0;
-  return Math.ceil(maxMonsterHp / maxQuestions);
+  const guaranteedClearQuestionCount = Math.max(1, maxQuestions - (allowOneSmallMiss ? 1 : 0));
+  return Math.ceil(maxMonsterHp / guaranteedClearQuestionCount);
 };
 
 const getBossIntroLabel = (bossStage: BossStage) => {
@@ -528,6 +534,23 @@ const getSpeedMultiplier = (charsPerSec: number): number => {
   if (charsPerSec < 4.0) return 2.6;
   if (charsPerSec < 4.4) return 2.8;
   return 3.0;
+};
+
+// 英検5級の長いフレーズ・文では、速さは小さなボーナスにとどめる。
+// 1文字のケアレスミスより、英文を最後まで理解して入力できたことを重視するため。
+const getEikenLongTextGuideSpeedMultiplier = (charsPerSec: number): number => {
+  if (charsPerSec < 0.8) return 1.0;
+  if (charsPerSec < 1.6) return 1.05;
+  if (charsPerSec < 2.4) return 1.1;
+  if (charsPerSec < 3.2) return 1.15;
+  return 1.2;
+};
+
+// 英検4級は5級より文が長いため、同じHPに対して必要な基礎ダメージを個別に設定する。
+// これは入力の速さではなく、最後まで英文を入力できたことを評価するための調整。
+const getEikenLongTextGuideDamageMultiplier = (difficulty: Difficulty, level: Level): number => {
+  if (difficulty === 'Eiken4') return level === 2 ? 0.5 : 0.58;
+  return level === 2 ? 0.7 : 0.74;
 };
 
 const getMonsterBattleDialogue = (
@@ -2239,6 +2262,7 @@ const STORAGE_KEYS = {
   selectedQuestionKeysByScope: 'etyping_selected_question_keys_by_scope',
   markedQuestionKeysByScope: 'etyping_marked_question_keys_by_scope',
   savedSelectionLists: 'etyping_saved_selection_lists',
+  versusBestScores: 'etyping_versus_best_scores',
   playerProfiles: 'etyping_player_profiles',
   activePlayerId: 'etyping_active_player_id',
 } as const;
@@ -3276,6 +3300,7 @@ export default function App() {
   });
 
   const [bestScores, setBestScores] = useState<Record<string, number>>({});
+  const [versusBestScores, setVersusBestScores] = useState<Record<string, number>>(() => safeLoadJson<Record<string, number>>(STORAGE_KEYS.versusBestScores, {}));
   const [maxKeystrokes, setMaxKeystrokes] = useState<number>(0);
   const [weakQuestions, setWeakQuestions] = useState<Question[]>([]); 
   const [weakQuestionStats, setWeakQuestionStats] = useState<Record<string, WeakQuestionStat>>({});
@@ -3330,6 +3355,9 @@ export default function App() {
   const [versusQuestionStartedAt, setVersusQuestionStartedAt] = useState<number | null>(null);
   const [versusShowHandoff, setVersusShowHandoff] = useState(true);
   const [versusSetupError, setVersusSetupError] = useState('');
+  const [versusBestScoreKey, setVersusBestScoreKey] = useState('');
+  const [versusPreviousBestScore, setVersusPreviousBestScore] = useState(0);
+  const [versusIsNewBest, setVersusIsNewBest] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const versusInputRef = useRef<HTMLInputElement>(null);
   const newPlayerNameInputRef = useRef<HTMLInputElement>(null);
@@ -3673,11 +3701,15 @@ export default function App() {
     return 0;
   };
 
+  const getVersusBestScoreKey = () => (
+    `${activePlayerId || 'default'}:${versusDifficulty}:${versusLevel}:${versusPromptSelection}`
+  );
+
   const startVersusMatch = () => {
     const names = versusNameDrafts.map(name => name.trim()).filter(Boolean);
     const playableQuestions = getScopedPlayableQuestions(versusDifficulty, versusLevel);
-    if (names.length < 2) {
-      setVersusSetupError('2人以上の名前を入力してください。');
+    if (names.length < 1) {
+      setVersusSetupError('1人以上の名前を入力してください。');
       return;
     }
     if (playableQuestions.length < VERSUS_QUESTION_COUNT) {
@@ -3709,6 +3741,10 @@ export default function App() {
     setVersusQuestionStartedAt(null);
     setVersusShowHandoff(true);
     setVersusSetupError('');
+    const bestScoreKey = getVersusBestScoreKey();
+    setVersusBestScoreKey(bestScoreKey);
+    setVersusPreviousBestScore(versusBestScores[bestScoreKey] ?? 0);
+    setVersusIsNewBest(false);
     setGameState(prev => ({ ...prev, screen: 'versus-play' }));
   };
 
@@ -3729,6 +3765,8 @@ export default function App() {
     const gainedScore = 100 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond);
     const isLastQuestion = versusQuestionIndex >= VERSUS_QUESTION_COUNT - 1;
     const isLastPlayer = versusPlayerIndex >= versusPlayers.length - 1;
+    const isSoloChallenge = versusPlayers.length === 1;
+    const finalSoloScore = (versusPlayers[versusPlayerIndex]?.score ?? 0) + gainedScore;
 
     setVersusPlayers(prev => prev.map((player, index) => (
       index === versusPlayerIndex
@@ -3743,6 +3781,14 @@ export default function App() {
     )));
 
     if (isLastQuestion && isLastPlayer) {
+      if (isSoloChallenge && finalSoloScore > versusPreviousBestScore && versusBestScoreKey) {
+        setVersusIsNewBest(true);
+        setVersusBestScores(previousScores => {
+          const nextScores = { ...previousScores, [versusBestScoreKey]: finalSoloScore };
+          localStorage.setItem(STORAGE_KEYS.versusBestScores, JSON.stringify(nextScores));
+          return nextScores;
+        });
+      }
       soundEngine.stopBattleAmbience();
       soundEngine.stopBattleMusic();
       soundEngine.playStageClear();
@@ -4949,7 +4995,7 @@ export default function App() {
         else { question = { text: "No Weakness", translation: "苦手なし" }; }
         activeReviewEntryRef.current = null;
     } else {
-        question = getNextBattleQuestion(diff, level, null);
+        question = getNextBattleQuestion(diff, level, null, safeStepIndex, mode);
     }
 
     setGameState(prev => ({
@@ -5061,8 +5107,29 @@ export default function App() {
     return getNextQuestionFromPool(diff, level);
   };
 
-  const getPlayableRandomQuestion = (diff: Difficulty, level: Level, currentQ: Question | null): Question => {
-    const list = getScopedPlayableQuestions(diff, level);
+  const getPlayableRandomQuestion = (
+    diff: Difficulty,
+    level: Level,
+    currentQ: Question | null,
+    stageIndex: number,
+    mode: Mode,
+  ): Question => {
+    const playableList = getScopedPlayableQuestions(diff, level);
+    const curriculumLimit = (
+      diff === 'Eiken5' && mode === 'guide' && level === 2
+        ? (stageIndex < 7 ? 40 : stageIndex < 14 ? 100 : Infinity)
+        : diff === 'Eiken5' && mode === 'guide' && level === 3
+          ? (stageIndex < 7 ? 16 : stageIndex < 14 ? 66 : Infinity)
+          : diff === 'Eiken4' && mode === 'guide' && level === 2
+            ? (stageIndex < 7 ? 45 : stageIndex < 14 ? 110 : Infinity)
+            : diff === 'Eiken4' && mode === 'guide' && level === 3
+              ? (stageIndex < 7 ? 20 : stageIndex < 14 ? 75 : Infinity)
+              : Infinity
+    );
+    const courseList = curriculumLimit === Infinity
+      ? playableList
+      : playableList.filter(question => (QUESTIONS[diff]?.[level] ?? []).indexOf(question) < curriculumLimit);
+    const list = courseList.length > 0 ? courseList : playableList;
     if (list.length === 0) return { text: "No Data", translation: "出題できる問題がありません" };
     const poolFallback = getRandomQuestion(diff, level, currentQ);
     const candidates = list.filter(question => (
@@ -5160,17 +5227,23 @@ export default function App() {
     ];
   };
 
-  const getNextBattleQuestion = (diff: Difficulty, level: Level, currentQ: Question | null): Question => {
+  const getNextBattleQuestion = (
+    diff: Difficulty,
+    level: Level,
+    currentQ: Question | null,
+    stageIndex: number,
+    mode: Mode,
+  ): Question => {
     if (!canServeReviewQuestion()) {
       activeReviewEntryRef.current = null;
-      return getPlayableRandomQuestion(diff, level, currentQ);
+      return getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode);
     }
 
     const reviewEntry = getDueReviewQuestion(diff, level, currentQ);
     activeReviewEntryRef.current = reviewEntry;
     if (reviewEntry) return reviewEntry.question;
     activeReviewEntryRef.current = null;
-    return getPlayableRandomQuestion(diff, level, currentQ);
+    return getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode);
   };
 
   const handleSkip = () => {
@@ -5290,7 +5363,13 @@ export default function App() {
     if (activeRemainingQuestions.length > 0) {
       nextQ = activeRemainingQuestions[Math.floor(Math.random() * activeRemainingQuestions.length)];
     } else {
-      nextQ = getNextBattleQuestion(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
+      nextQ = getNextBattleQuestion(
+        gameState.selectedDifficulty,
+        gameState.selectedLevel,
+        gameState.currentQuestion,
+        gameState.currentMonsterIndex,
+        gameState.mode,
+      );
     }
     
     setGameState(prev => ({
@@ -5307,16 +5386,45 @@ export default function App() {
     const charCount = finalInput.length;
     const charsPerSec = charCount / durationSec;
     const baseDamage = charCount * 10;
-    const speedMultiplier = getSpeedMultiplier(charsPerSec);
-    const damageMultiplier = getBattleDamageMultiplier(gameState.mode, gameState.inputMode);
+    const isEikenLongTextGuide = (
+      (gameState.selectedDifficulty === 'Eiken5' || gameState.selectedDifficulty === 'Eiken4')
+      && gameState.mode === 'guide'
+      && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
+    );
+    const speedMultiplier = isEikenLongTextGuide
+      ? getEikenLongTextGuideSpeedMultiplier(charsPerSec)
+      : getSpeedMultiplier(charsPerSec);
+    const damageMultiplier = isEikenLongTextGuide
+      ? getEikenLongTextGuideDamageMultiplier(gameState.selectedDifficulty, gameState.selectedLevel)
+      : getBattleDamageMultiplier(gameState.mode, gameState.inputMode);
     const perfectClearDamageFloor = getPerfectClearDamageFloor(
       gameState.bossStage,
       gameState.maxMonsterHp,
-      gameState.maxQuestions
+      gameState.maxQuestions,
+      isEikenLongTextGuide,
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
-    if (gameState.missCount > 0) {
-      finalDamage = Math.max(1, Math.floor(finalDamage * 0.5));
+    const missDamageMultiplier = !isEikenLongTextGuide
+      ? 0.5
+      : gameState.missCount === 0
+        ? 1
+        : gameState.missCount === 1
+          ? 0.95
+          : gameState.missCount === 2
+            ? 0.9
+            : gameState.missCount === 3
+              ? 0.8
+              : 0.7;
+    if (isEikenLongTextGuide) {
+      // 通常モンスターは、10問中5問程度の小さなケアレスミスで詰まらない余白を持たせる。
+      // ラスボスは20問中、各文で1回程度の修正なら倒せるが、繰り返しのミスでは届かない。
+      const requiredProgressQuestions = gameState.bossStage === 0
+        ? Math.max(1, gameState.maxQuestions - 0.3)
+        : Math.max(1, gameState.maxQuestions - 1);
+      const progressDamageFloor = Math.ceil(gameState.maxMonsterHp / requiredProgressQuestions);
+      finalDamage = Math.max(finalDamage, Math.floor(progressDamageFloor * missDamageMultiplier));
+    } else if (gameState.missCount > 0) {
+      finalDamage = Math.max(1, Math.floor(finalDamage * missDamageMultiplier));
     } else if (perfectClearDamageFloor > 0) {
       finalDamage = Math.max(finalDamage, perfectClearDamageFloor);
     }
@@ -6840,14 +6948,16 @@ export default function App() {
 
   if (gameState.screen === 'versus-setup') {
     const availableVersusLevels = getAvailableLevels(versusDifficulty);
+    const isSoloSetup = versusNameDrafts.length === 1;
+    const setupTitle = isSoloSetup ? 'ひとりで20問チャレンジ' : 'みんなで20問対決';
     return (
       <ScreenContainer className="items-center justify-center p-4">
-        <Box title="みんなで20問対決" className="w-full max-w-3xl">
+        <Box title={setupTitle} className="w-full max-w-3xl">
           <div className="space-y-6">
             <div className="text-center">
               <Trophy size={48} className="mx-auto text-yellow-300" />
-              <h1 className="mt-2 text-3xl font-black text-white">みんなで20問対決</h1>
-              <p className="mt-2 text-sm font-bold text-slate-300">同じ20問で、正確さと速さを競います。普段の学習記録には残りません。</p>
+              <h1 className="mt-2 text-3xl font-black text-white">{setupTitle}</h1>
+              <p className="mt-2 text-sm font-bold text-slate-300">{isSoloSetup ? '20問を連続で解いて、自分の最高記録に挑戦します。' : '同じ20問で、正確さと速さを競います。普段の学習記録には残りません。'}</p>
             </div>
 
             <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-4">
@@ -6887,14 +6997,14 @@ export default function App() {
 
             <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-4">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-violet-200">3. 名前を入力（2〜5人）</p>
+                <p className="text-sm font-black text-violet-200">3. 名前を入力（1〜5人）</p>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`])}>＋ 参加者を追加</GameButton>}
               </div>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {versusNameDrafts.map((name, index) => (
                   <div key={`${index}-${name}`} className="flex items-center gap-2">
                     <input value={name} maxLength={20} onChange={event => setVersusNameDrafts(names => names.map((currentName, currentIndex) => currentIndex === index ? event.target.value : currentName))} className="min-w-0 flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 font-bold text-white outline-none focus:border-violet-300" aria-label={`参加者${index + 1}の名前`} />
-                    {versusNameDrafts.length > 2 && <button onClick={() => setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index))} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
+                    {versusNameDrafts.length > 1 && <button onClick={() => setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index))} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
                   </div>
                 ))}
               </div>
@@ -6956,10 +7066,12 @@ export default function App() {
 
   if (gameState.screen === 'versus-results') {
     const ranking = [...versusPlayers].sort((a, b) => b.score - a.score || b.perfectCount - a.perfectCount || a.missCount - b.missCount || a.totalTimeMs - b.totalTimeMs);
+    const isSoloChallenge = versusPlayers.length === 1;
+    const soloScore = versusPlayers[0]?.score ?? 0;
     return (
       <ScreenContainer className="items-center justify-center p-4">
-        <Box title="みんなで20問対決・結果" className="w-full max-w-3xl">
-          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">結果発表！</h1></div>
+        <Box title={isSoloChallenge ? 'ひとりで20問チャレンジ・結果' : 'みんなで20問対決・結果'} className="w-full max-w-3xl">
+          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">{isSoloChallenge ? 'チャレンジ結果！' : '結果発表！'}</h1>{isSoloChallenge && <p className={`mt-3 text-lg font-black ${versusIsNewBest ? 'text-yellow-300' : 'text-cyan-200'}`}>{versusIsNewBest ? '自己ベスト更新！' : `自己ベスト: ${Math.max(soloScore, versusPreviousBestScore)} 点`}</p>}</div>
           <div className="mt-6 space-y-3">
             {ranking.map((player, index) => (
               <div key={player.id} className={`grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border p-4 ${index === 0 ? 'border-yellow-300 bg-yellow-950/30' : 'border-slate-600 bg-slate-900/65'}`}>
@@ -7103,7 +7215,7 @@ export default function App() {
                       className="w-full min-h-[68px] border-violet-300/55 bg-violet-950/25 text-xl text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
                       size="lg"
                     >
-                      <Trophy size={24} /> みんなで20問対決（2〜5人）
+                      <Trophy size={24} /> 20問チャレンジ（1〜5人）
                     </GameButton>
 
                     <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
