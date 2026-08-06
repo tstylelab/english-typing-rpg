@@ -15,6 +15,13 @@ type BattleResult = 'win' | 'lose' | 'draw' | null;
 type SpeechVoiceMode = 'random' | 'us_female' | 'us_male' | 'uk_female' | 'uk_male';
 type BossStage = 0 | 1 | 2 | 3 | 4;
 type BattleHistoryItem = { damage: number; speed: number };
+type VersusPromptMode = 'spelling' | 'listening' | 'translation';
+type VersusPromptSelection = VersusPromptMode | 'mixed';
+
+type VersusQuestion = {
+  question: Question;
+  promptMode: VersusPromptMode;
+};
 
 type VersusPlayer = {
   id: string;
@@ -2306,8 +2313,8 @@ const DEFAULT_MANUAL_QUESTION_STATUS: ManualQuestionStatus = {
 
 const getDefaultManualQuestionStatus = (): ManualQuestionStatus => DEFAULT_MANUAL_QUESTION_STATUS;
 
-const shuffleQuestions = (questions: Question[]) => {
-  const shuffled = [...questions];
+const shuffleQuestions = <T,>(items: T[]) => {
+  const shuffled = [...items];
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
     [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
@@ -3313,8 +3320,9 @@ export default function App() {
   const [versusNameDrafts, setVersusNameDrafts] = useState(['プレイヤー1', 'プレイヤー2']);
   const [versusDifficulty, setVersusDifficulty] = useState<Difficulty>('Eiken5');
   const [versusLevel, setVersusLevel] = useState<Level>(1);
+  const [versusPromptSelection, setVersusPromptSelection] = useState<VersusPromptSelection>('spelling');
   const [versusPlayers, setVersusPlayers] = useState<VersusPlayer[]>([]);
-  const [versusQuestionOrders, setVersusQuestionOrders] = useState<Question[][]>([]);
+  const [versusQuestionOrders, setVersusQuestionOrders] = useState<VersusQuestion[][]>([]);
   const [versusPlayerIndex, setVersusPlayerIndex] = useState(0);
   const [versusQuestionIndex, setVersusQuestionIndex] = useState(0);
   const [versusInput, setVersusInput] = useState('');
@@ -3678,6 +3686,13 @@ export default function App() {
     }
 
     const sharedQuestions = shuffleQuestions(playableQuestions).slice(0, VERSUS_QUESTION_COUNT);
+    const mixedPromptModes = shuffleQuestions<VersusPromptMode>(
+      Array.from({ length: VERSUS_QUESTION_COUNT }, (_, index) => ['spelling', 'listening', 'translation'][index % 3] as VersusPromptMode)
+    );
+    const sharedVersusQuestions = sharedQuestions.map((question, index) => ({
+      question,
+      promptMode: versusPromptSelection === 'mixed' ? mixedPromptModes[index] : versusPromptSelection,
+    }));
     setVersusPlayers(names.map((name, index) => ({
       id: `versus-${Date.now()}-${index}`,
       name,
@@ -3686,7 +3701,7 @@ export default function App() {
       missCount: 0,
       totalTimeMs: 0,
     })));
-    setVersusQuestionOrders(names.map(() => shuffleQuestions(sharedQuestions)));
+    setVersusQuestionOrders(names.map(() => shuffleQuestions(sharedVersusQuestions)));
     setVersusPlayerIndex(0);
     setVersusQuestionIndex(0);
     setVersusInput('');
@@ -3698,6 +3713,8 @@ export default function App() {
   };
 
   const beginVersusTurn = () => {
+    soundEngine.startBattleMusic(getBattleMusicPath('challenge', 'voice-text', false), BGM_VOLUME_LEVELS[bgmVolumeLevel]);
+    soundEngine.startBattleAmbience();
     setVersusShowHandoff(false);
     setVersusInput('');
     setVersusQuestionMisses(0);
@@ -3726,11 +3743,15 @@ export default function App() {
     )));
 
     if (isLastQuestion && isLastPlayer) {
+      soundEngine.stopBattleAmbience();
+      soundEngine.stopBattleMusic();
+      soundEngine.playStageClear();
       setGameState(prev => ({ ...prev, screen: 'versus-results' }));
       return;
     }
 
     if (isLastQuestion) {
+      soundEngine.playClear();
       setVersusPlayerIndex(index => index + 1);
       setVersusQuestionIndex(0);
       setVersusShowHandoff(true);
@@ -3743,10 +3764,12 @@ export default function App() {
   };
 
   const handleVersusInput = (value: string) => {
-    const currentQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
-    if (!currentQuestion) return;
+    const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+    if (!currentVersusQuestion) return;
+    const currentQuestion = currentVersusQuestion.question;
     const normalizedValue = normalizeTypingText(value);
     const normalizedAnswer = normalizeTypingText(currentQuestion.text);
+    if (value.length > versusInput.length) soundEngine.playType();
     if (!normalizedAnswer.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setVersusQuestionMisses(count => count + 1);
@@ -3754,7 +3777,10 @@ export default function App() {
       return;
     }
     setVersusInput(value);
-    if (normalizedValue === normalizedAnswer) finishVersusQuestion(value);
+    if (normalizedValue === normalizedAnswer) {
+      soundEngine.playAttack();
+      finishVersusQuestion(value);
+    }
   };
 
   useEffect(() => {
@@ -3895,6 +3921,12 @@ export default function App() {
           rate: speechRatePercent / 100,
       });
   }, [speechRatePercent, speechVoiceMode, speechVoices]);
+
+  useEffect(() => {
+    const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+    if (gameState.screen !== 'versus-play' || versusShowHandoff || currentVersusQuestion?.promptMode !== 'listening') return;
+    speakWithSettings(currentVersusQuestion.question.text);
+  }, [gameState.screen, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
 
   const clearAutoPlayTimeout = useCallback(() => {
     if (autoPlayTimeoutRef.current !== null) {
@@ -4095,7 +4127,7 @@ export default function App() {
   }, [gameState.screen, gameState.currentQuestion]);
 
   useEffect(() => {
-    if (gameState.screen !== 'battle') {
+    if (gameState.screen !== 'battle' && gameState.screen !== 'versus-play') {
       setShowBossIntro(false);
       return;
     }
@@ -6836,9 +6868,26 @@ export default function App() {
               </div>
             </div>
 
+            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-4">
+              <p className="text-sm font-black text-sky-200">2. 出題方法を選ぶ</p>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                {([
+                  ['spelling', 'スペル表示', '英単語を見て入力'],
+                  ['listening', 'リスニング', '音声だけを聞いて入力'],
+                  ['translation', '和訳', '日本語の意味だけを見て入力'],
+                  ['mixed', 'おまかせ', '3種類を問題ごとにランダム出題'],
+                ] as const).map(([mode, label, description]) => (
+                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-3 text-left ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
+                    <p className="font-black">{label}</p>
+                    <p className="mt-1 text-xs font-bold opacity-80">{description}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-4">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-violet-200">2. 名前を入力（2〜5人）</p>
+                <p className="text-sm font-black text-violet-200">3. 名前を入力（2〜5人）</p>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`])}>＋ 参加者を追加</GameButton>}
               </div>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -6868,8 +6917,9 @@ export default function App() {
 
   if (gameState.screen === 'versus-play') {
     const currentPlayer = versusPlayers[versusPlayerIndex];
-    const currentQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
-    if (!currentPlayer || !currentQuestion) {
+    const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+    const currentQuestion = currentVersusQuestion?.question;
+    if (!currentPlayer || !currentQuestion || !currentVersusQuestion) {
       return <ScreenContainer className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
     }
     if (versusShowHandoff) {
@@ -6893,10 +6943,9 @@ export default function App() {
             <div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在のスコア</p><p className="text-2xl font-black text-white">{currentPlayer.score}</p></div>
           </div>
           <div className="py-10 text-center">
-            <p className="text-sm font-bold text-cyan-200">日本語の意味</p>
-            <p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p>
-            <p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p>
-            <p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p>
+            {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => speakWithSettings(currentQuestion.text)} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton></>}
+            {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
             <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
