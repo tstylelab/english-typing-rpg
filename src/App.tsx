@@ -243,6 +243,25 @@ const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_QUESTION_COUNT = 20;
 const NORMAL_TARGET_COUNT = 20;
 const TYPING_PRACTICE_STEPS = ['f', 'j', 'a', 's', 'd', 'k', 'l', 'q', 'w', 'e', 'z', 'x', 'c', 'cat', 'dog', 'sun'];
+const TYPING_FINGER_GUIDES: Record<string, { finger: string; homeKey: string }> = {
+  a: { finger: '左手の小指', homeKey: 'A' }, q: { finger: '左手の小指', homeKey: 'A' }, z: { finger: '左手の小指', homeKey: 'A' },
+  s: { finger: '左手の薬指', homeKey: 'S' }, w: { finger: '左手の薬指', homeKey: 'S' }, x: { finger: '左手の薬指', homeKey: 'S' },
+  d: { finger: '左手の中指', homeKey: 'D' }, e: { finger: '左手の中指', homeKey: 'D' }, c: { finger: '左手の中指', homeKey: 'D' },
+  f: { finger: '左手の人さし指', homeKey: 'F' }, r: { finger: '左手の人さし指', homeKey: 'F' }, t: { finger: '左手の人さし指', homeKey: 'F' }, g: { finger: '左手の人さし指', homeKey: 'F' }, v: { finger: '左手の人さし指', homeKey: 'F' }, b: { finger: '左手の人さし指', homeKey: 'F' },
+  j: { finger: '右手の人さし指', homeKey: 'J' }, y: { finger: '右手の人さし指', homeKey: 'J' }, u: { finger: '右手の人さし指', homeKey: 'J' }, h: { finger: '右手の人さし指', homeKey: 'J' }, n: { finger: '右手の人さし指', homeKey: 'J' }, m: { finger: '右手の人さし指', homeKey: 'J' },
+  k: { finger: '右手の中指', homeKey: 'K' }, i: { finger: '右手の中指', homeKey: 'K' },
+  l: { finger: '右手の薬指', homeKey: 'L' }, o: { finger: '右手の薬指', homeKey: 'L' },
+  p: { finger: '右手の小指', homeKey: '；' },
+};
+const TYPING_FINGER_KEY_CLASSES: Record<string, string> = {
+  q: 'border-rose-300/70 bg-rose-400/15', a: 'border-rose-300/70 bg-rose-400/15', z: 'border-rose-300/70 bg-rose-400/15',
+  w: 'border-orange-300/70 bg-orange-400/15', s: 'border-orange-300/70 bg-orange-400/15', x: 'border-orange-300/70 bg-orange-400/15',
+  e: 'border-yellow-300/70 bg-yellow-400/15', d: 'border-yellow-300/70 bg-yellow-400/15', c: 'border-yellow-300/70 bg-yellow-400/15',
+  r: 'border-sky-300/70 bg-sky-400/15', f: 'border-sky-300/70 bg-sky-400/15', v: 'border-sky-300/70 bg-sky-400/15', t: 'border-sky-300/70 bg-sky-400/15', g: 'border-sky-300/70 bg-sky-400/15', b: 'border-sky-300/70 bg-sky-400/15',
+  y: 'border-violet-300/70 bg-violet-400/15', h: 'border-violet-300/70 bg-violet-400/15', n: 'border-violet-300/70 bg-violet-400/15', u: 'border-violet-300/70 bg-violet-400/15', j: 'border-violet-300/70 bg-violet-400/15', m: 'border-violet-300/70 bg-violet-400/15',
+  i: 'border-cyan-300/70 bg-cyan-400/15', k: 'border-cyan-300/70 bg-cyan-400/15',
+  o: 'border-emerald-300/70 bg-emerald-400/15', l: 'border-emerald-300/70 bg-emerald-400/15', p: 'border-fuchsia-300/70 bg-fuchsia-400/15',
+};
 const HARD_TARGET_COUNT = 20;
 const REVIEW_REAPPEAR_DELAY = 5;
 const REVIEW_RATE_WINDOW_SIZE = 5;
@@ -5492,10 +5511,12 @@ export default function App() {
   const handleTypingPracticeInput = (value: string) => {
     const target = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
     if (!target.startsWith(value)) {
+      soundEngine.playMiss();
       setTypingPracticeMisses(count => count + 1);
       window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
       return;
     }
+    if (value.length > typingPracticeInput.length) soundEngine.playType();
     setTypingPracticeInput(value);
     if (value === target) {
       setTypingPracticeIndex(index => Math.min(index + 1, TYPING_PRACTICE_STEPS.length));
@@ -7122,6 +7143,7 @@ export default function App() {
   if (gameState.screen === 'typing-practice') {
     const target = TYPING_PRACTICE_STEPS[typingPracticeIndex];
     const nextLetter = target?.[typingPracticeInput.length] ?? '';
+    const fingerGuide = TYPING_FINGER_GUIDES[nextLetter];
     const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
     const isComplete = typingPracticeIndex >= TYPING_PRACTICE_STEPS.length;
     const practicePhase = typingPracticeIndex < 2 ? 'まんなかを見つけよう' : typingPracticeIndex < 13 ? '文字の場所を覚えよう' : '短い単語を打とう';
@@ -7130,8 +7152,8 @@ export default function App() {
         <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
           <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。急がなくて大丈夫です。</p>
           {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><GameButton className="mt-6" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton></div> : <>
-            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<p className="mt-3 text-sm text-slate-300">光っている文字を押そう</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" aria-label="typing practice input" /></div>
-            <div className="mt-5 space-y-2 rounded-xl border border-slate-600 bg-slate-900/70 p-3">{keyboardRows.map(row => <div key={row} className="flex justify-center gap-1">{[...row].map(letter => <button key={letter} onClick={() => handleTypingPracticeInput(typingPracticeInput + letter)} className={`min-h-11 min-w-8 rounded border font-black uppercase sm:min-w-11 ${letter === nextLetter ? 'border-amber-200 bg-amber-400 text-slate-950' : 'border-slate-500 bg-slate-800 text-white'}`}>{letter}</button>)}</div>)}</div>
+            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" aria-label="typing practice input" /></div>
+            <div className="mt-5 space-y-2 rounded-xl border border-slate-600 bg-slate-900/70 p-3">{keyboardRows.map(row => <div key={row} className="flex justify-center gap-1">{[...row].map(letter => <button key={letter} onClick={() => handleTypingPracticeInput(typingPracticeInput + letter)} className={`min-h-11 min-w-8 rounded border font-black uppercase text-white sm:min-w-11 ${letter === nextLetter ? 'border-amber-200 bg-amber-400 text-slate-950 shadow-[0_0_16px_rgba(251,191,36,0.55)]' : TYPING_FINGER_KEY_CLASSES[letter] ?? 'border-slate-500 bg-slate-800'}`}>{letter}</button>)}</div>)}</div>
             <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>やめる</GameButton></div>
           </>}
         </Box>
