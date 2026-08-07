@@ -7297,19 +7297,19 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="space-y-4 p-5">
+                  <div className="grid gap-3 p-4 sm:grid-cols-2">
                     <GameButton
                       onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
-                      className="w-full min-h-[92px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-2xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500"
-                      size="lg"
+                      className="w-full min-h-[72px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500 sm:col-span-2"
+                      size="md"
                     >
                       <ArrowRight size={26} /> 前回の続きから
                     </GameButton>
                     <GameButton
                       onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
                       variant="outline"
-                      className="w-full min-h-[68px] border-amber-300/55 bg-amber-950/25 text-xl text-amber-100 hover:border-amber-200 hover:bg-amber-900/35"
-                      size="lg"
+                      className="w-full min-h-[64px] border-amber-300/55 bg-amber-950/25 text-base text-amber-100 hover:border-amber-200 hover:bg-amber-900/35"
+                      size="md"
                     >
                       <LayoutGrid size={24} /> 教材を選ぶ
                     </GameButton>
@@ -7317,8 +7317,8 @@ export default function App() {
                     <GameButton
                       onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}
                       variant="outline"
-                      className="w-full min-h-[68px] border-violet-300/55 bg-violet-950/25 text-xl text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
-                      size="lg"
+                      className="w-full min-h-[64px] border-violet-300/55 bg-violet-950/25 text-base text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
+                      size="md"
                     >
                       <Trophy size={24} /> 20問バトル！（1〜5人）
                     </GameButton>
@@ -7326,13 +7326,13 @@ export default function App() {
                     <GameButton
                       onClick={() => { setTypingPracticeIndex(0); setTypingPracticeInput(''); setTypingPracticeMisses(0); setGameState(prev => ({ ...prev, screen: 'typing-practice' })); }}
                       variant="outline"
-                      className="w-full min-h-[68px] border-emerald-300/55 bg-emerald-950/25 text-xl text-emerald-100 hover:border-emerald-200 hover:bg-emerald-900/35"
-                      size="lg"
+                      className="w-full min-h-[64px] border-emerald-300/55 bg-emerald-950/25 text-base text-emerald-100 hover:border-emerald-200 hover:bg-emerald-900/35"
+                      size="md"
                     >
                       <Keyboard size={24} /> はじめてのタイピング練習
                     </GameButton>
 
-                    <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-3 sm:col-span-2 md:grid-cols-4">
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-emerald-300 hover:bg-emerald-950/25">
                         <BookOpen size={18} /> 図鑑
                       </GameButton>
