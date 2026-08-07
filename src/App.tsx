@@ -2285,6 +2285,7 @@ const STORAGE_KEYS = {
   versusBestScores: 'etyping_versus_best_scores',
   playerProfiles: 'etyping_player_profiles',
   activePlayerId: 'etyping_active_player_id',
+  lastSelectedCourse: 'etyping_last_selected_course',
 } as const;
 
 const safeLoadJson = <T,>(key: string, fallback: T): T => {
@@ -2295,6 +2296,26 @@ const safeLoadJson = <T,>(key: string, fallback: T): T => {
     localStorage.removeItem(key);
     return fallback;
   }
+};
+
+type StoredCourseSelection = {
+  difficulty: Difficulty;
+  level: Level;
+};
+
+const getStoredCourseSelection = (): StoredCourseSelection => {
+  const saved = safeLoadJson<Partial<StoredCourseSelection>>(STORAGE_KEYS.lastSelectedCourse, {});
+  const difficulty = DIFFICULTIES.includes(saved.difficulty as Difficulty)
+    ? saved.difficulty as Difficulty
+    : 'Eiken5';
+  const requestedLevel: Level = saved.level === 1 || saved.level === 2 || saved.level === 3
+    ? saved.level
+    : 1;
+
+  return {
+    difficulty,
+    level: getSafeLevelForDifficulty(difficulty, requestedLevel),
+  };
 };
 
 const getTodayKey = () => new Intl.DateTimeFormat('sv-SE', {
@@ -3286,10 +3307,12 @@ const QuestionListRow = React.memo(function QuestionListRow({
 
 // --- Main App ---
 export default function App() {
-  const [gameState, setGameState] = useState<GameState>({
+  const [gameState, setGameState] = useState<GameState>(() => {
+    const savedCourse = getStoredCourseSelection();
+    return {
     screen: 'title',
-    selectedDifficulty: 'Eiken5',
-    selectedLevel: 1,
+    selectedDifficulty: savedCourse.difficulty,
+    selectedLevel: savedCourse.level,
     mode: 'guide',
     inputMode: 'voice-text',
     currentMonsterIndex: 0,
@@ -3317,6 +3340,7 @@ export default function App() {
     battleStartScore: 0,
     battleStartKeystrokes: 0,
     bossStage: 0,
+    };
   });
 
   const [bestScores, setBestScores] = useState<Record<string, number>>({});
@@ -3591,6 +3615,13 @@ export default function App() {
     if (safeLevel !== gameState.selectedLevel) {
       setGameState(prev => ({ ...prev, selectedLevel: safeLevel }));
     }
+  }, [gameState.selectedDifficulty, gameState.selectedLevel]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.lastSelectedCourse, JSON.stringify({
+      difficulty: gameState.selectedDifficulty,
+      level: gameState.selectedLevel,
+    }));
   }, [gameState.selectedDifficulty, gameState.selectedLevel]);
 
   useEffect(() => {
@@ -7004,15 +7035,15 @@ export default function App() {
     const setupTitle = isSoloSetup ? 'ひとりで20問バトル！' : 'みんなで20問バトル！';
     return (
       <ScreenContainer className="items-center justify-center p-4">
-        <Box title={setupTitle} className="w-full max-w-3xl">
-          <div className="space-y-6">
-            <div className="text-center">
-              <Trophy size={48} className="mx-auto text-yellow-300" />
-              <h1 className="mt-2 text-3xl font-black text-white">{setupTitle}</h1>
+        <Box title={setupTitle} className="w-full max-w-5xl">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="text-center md:col-span-2">
+              <Trophy size={40} className="mx-auto text-yellow-300" />
+              <h1 className="mt-1 text-2xl font-black text-white md:text-3xl">{setupTitle}</h1>
               <p className="mt-2 text-sm font-bold text-slate-300">{isSoloSetup ? '20問を連続で解いて、自分の最高記録に挑戦します。' : '同じ20問で、正確さと速さを競います。普段の学習記録には残りません。'}</p>
             </div>
 
-            <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-4">
+            <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-3">
               <p className="text-sm font-black text-cyan-200">1. 出題範囲を選ぶ</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {DIFFICULTIES.map(difficulty => (
@@ -7030,7 +7061,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-4">
+            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-3">
               <p className="text-sm font-black text-sky-200">2. 出題方法を選ぶ</p>
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {([
@@ -7047,7 +7078,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-4">
+            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3">
               <div className="flex items-center justify-between gap-3">
                 <p className="text-sm font-black text-violet-200">3. 名前を入力（1〜5人）</p>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`])}>＋ 参加者を追加</GameButton>}
@@ -7062,12 +7093,12 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-4 text-sm text-amber-100">
+            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-sm text-amber-100">
               <p className="font-black">採点ルール</p>
               <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大50点追加です。</p>
             </div>
-            {versusSetupError && <p className="text-center font-bold text-red-300">{versusSetupError}</p>}
-            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
+            {versusSetupError && <p className="text-center font-bold text-red-300 md:col-span-2">{versusSetupError}</p>}
+            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between md:col-span-2">
               <GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
               <GameButton onClick={startVersusMatch} size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500">バトルをはじめる <ArrowRight size={22} /></GameButton>
             </div>
@@ -8076,6 +8107,165 @@ export default function App() {
     const handleStartWeaknessFromResult = () => openWeakReviewHub();
     const handleStartBattleReview = () => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'weakness', 'text-only', gameState.currentBattleMissedQuestions);
 
+    // Desktop result layout: every result and every action remains visible in two columns.
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5">
+          <div className="grid gap-4 lg:grid-cols-[minmax(340px,0.85fr)_minmax(0,1.35fr)]">
+            <main className="min-w-0 lg:order-2">
+              <header className="flex items-center gap-4 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4">
+                {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
+                {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+                <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p className="mt-1 text-xs font-bold text-slate-400">今回の問題と例文を確認しよう</p></div>
+              </header>
+
+              <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
+                <div className="flex items-center justify-between border-b border-slate-600 bg-slate-900/70 px-4 py-3"><h3 className="font-black text-white">今回の問題と結果</h3><span className="text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></div>
+                <div className="divide-y divide-slate-700">
+                  {gameState.battleLog.map((log, idx) => {
+                    const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                    const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                    return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
+                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}</div></div>
+                      <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                    </div>;
+                  })}
+                </div>
+              </section>
+            </main>
+
+            <aside className="space-y-3 lg:order-1">
+              <section className="grid grid-cols-2 gap-2 rounded-xl border border-slate-600 bg-slate-950/35 p-3">
+                <div className="rounded-lg bg-emerald-950/25 p-2"><p className="text-[10px] font-bold text-emerald-300">PERFECT</p><p className="text-2xl font-black text-white">{perfectCount}</p></div>
+                <div className="rounded-lg bg-yellow-950/25 p-2"><p className="text-[10px] font-bold text-yellow-300">RECOVERED</p><p className="text-2xl font-black text-white">{recoveredCount}</p></div>
+                <div className="rounded-lg bg-slate-900 p-2"><p className="text-[10px] font-bold text-slate-400">SKIP</p><p className="text-2xl font-black text-white">{skippedCount}</p></div>
+                <div className="rounded-lg bg-cyan-950/25 p-2"><p className="text-[10px] font-bold text-cyan-300">ACCURACY</p><p className="text-2xl font-black text-white">{perfectRate}%</p></div>
+              </section>
+
+              <section className="rounded-xl border border-cyan-500/25 bg-slate-950/35 p-3"><p className="text-xs font-black text-cyan-200">学習状況</p><div className="mt-2 grid grid-cols-3 gap-2 text-center"><div><p className="text-[10px] text-sky-300">学習中</p><p className="text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="border-x border-slate-700"><p className="text-[10px] text-emerald-300">もう少し</p><p className="text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div><p className="text-[10px] text-violet-300">覚えた</p><p className="text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+
+              {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+
+              <section className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-3"><p className="mb-2 text-sm font-black text-orange-200">今回の苦手登録: {missedCount}語</p><div className="grid gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleStartBattleReview} size="sm" variant="outline" className="border-emerald-500/40 text-emerald-200">今回のミスだけ復習</GameButton><GameButton onClick={handleStartWeaknessFromResult} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500">苦手復習へ</GameButton></div></section>
+
+              <div className="grid grid-cols-2 gap-2"><GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton><GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="ghost"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton></div>
+            </aside>
+          </div>
+        </Box>
+      </ScreenContainer>
+    );
+
+    // Compact result sheet: the battle result and learning material are readable without scanning cards.
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box className="w-full max-w-3xl border border-yellow-500/45 bg-slate-800 p-4 text-left md:p-5">
+          <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-slate-600 pb-3">
+            {isWin ? <Trophy size={38} className="text-yellow-400" /> : <Zap size={38} className="text-slate-500" />}
+            {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={58} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+            <div className="min-w-[150px] flex-1"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="text-sm font-bold text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p></div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold"><span className="text-emerald-300">正確 {perfectCount}</span><span className="text-yellow-300">修正 {recoveredCount}</span><span className="text-slate-300">スキップ {skippedCount}</span><span className="text-cyan-200">正確さ {perfectRate}%</span></div>
+          </header>
+
+          <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
+            {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="min-h-[54px] text-base" variant="success" autoFocus>つぎのモンスターへ <ArrowRight className="ml-2" size={20}/></GameButton> : <GameButton onClick={handleBackToMode} className="min-h-[54px] text-base" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="min-h-[54px] text-base" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={20}/></GameButton>}
+            {missedCount > 0 && <GameButton onClick={handleStartBattleReview} className="border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="md"><RotateCcw size={17}/> ミス {missedCount}語を復習</GameButton>}
+          </div>
+
+          <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
+            <div className="flex items-center justify-between border-b border-slate-600 bg-slate-900/70 px-3 py-2"><h3 className="font-black text-white">今回の問題と結果</h3><span className="text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></div>
+            <div className="divide-y divide-slate-700">
+              {gameState.battleLog.map((log, idx) => {
+                const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                return <div key={idx} className="grid gap-x-3 gap-y-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]">
+                  <div className="min-w-0"><span className="font-mono font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-xs text-slate-400"><span className="mr-1 font-bold text-emerald-300">例文</span>{example}</p>}</div>
+                  <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                </div>;
+              })}
+            </div>
+            {gameState.battleLog.length > 6 && <p className="border-t border-slate-700 px-3 py-2 text-xs font-bold text-slate-400">最初の6問を表示しています。残りは単語リストから確認できます。</p>}
+          </section>
+
+          <footer className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-600 pt-3 text-sm font-bold"><span className="text-slate-300">学習中 {learningSummary.learningCount}　・　もう少し {learningSummary.cautionCount}　・　覚えた {learningSummary.masteredCount}</span><div className="flex gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleBackToMode} size="sm" variant="ghost">コースをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ</GameButton></div></footer>
+        </Box>
+      </ScreenContainer>
+    );
+
+    // Result screen: show the immediate result, learning state, and next action at a glance.
+    return (
+      <ScreenContainer className="items-center justify-center p-4">
+        <Box className="w-full max-w-4xl border-2 border-yellow-600/50 bg-slate-800 p-4 text-center md:p-5">
+          <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="flex items-center gap-4 rounded-2xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 text-left">
+              {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400 drop-shadow-[0_0_12px_rgba(250,204,21,0.55)]" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
+              {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+              <div className="min-w-0">
+                <p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p>
+                {isWin && defeatedMonster ? <><p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-yellow-300">Defeated</p><p className="truncate text-lg font-black text-white">{defeatedMonster.name}</p></> : <><p className="mt-1 text-sm text-slate-300">あと {remainingHpToWin} HP でクリア</p><p className="text-xs text-slate-400">もう一度挑戦してみよう</p></>}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2">
+              <div className="rounded-xl border border-emerald-400/30 bg-emerald-950/20 p-3"><p className="text-[10px] font-bold text-emerald-300">PERFECT</p><p className="mt-1 text-2xl font-black text-white">{perfectCount}</p></div>
+              <div className="rounded-xl border border-yellow-400/30 bg-yellow-950/20 p-3"><p className="text-[10px] font-bold text-yellow-300">RECOVERED</p><p className="mt-1 text-2xl font-black text-white">{recoveredCount}</p></div>
+              <div className="rounded-xl border border-slate-500/30 bg-slate-900/40 p-3"><p className="text-[10px] font-bold text-slate-400">SKIP</p><p className="mt-1 text-2xl font-black text-white">{skippedCount}</p></div>
+              <div className="rounded-xl border border-cyan-400/30 bg-cyan-950/20 p-3"><p className="text-[10px] font-bold text-cyan-300">ACCURACY</p><p className="mt-1 text-2xl font-black text-white">{perfectRate}%</p></div>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-[1.35fr_0.65fr]">
+            {isWin ? (
+              isNextAvailable ? <GameButton onClick={handleNextMonster} className="min-h-[64px] text-lg" variant="success" autoFocus>{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></GameButton>
+                : <GameButton onClick={handleBackToMode} className="min-h-[64px] text-lg" variant="primary" autoFocus>コース選択へ戻る <LayoutGrid className="ml-2" size={22}/></GameButton>
+            ) : <GameButton onClick={handleRetry} className="min-h-[64px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+            {missedCount > 0 ? <GameButton onClick={handleStartBattleReview} className="min-h-[64px] border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="lg"><RotateCcw size={20} /> ミスした {missedCount}語を復習</GameButton>
+              : <div className="flex min-h-[64px] items-center justify-center rounded-xl border border-emerald-400/25 bg-emerald-950/20 px-4 font-bold text-emerald-200">ミスなし！ この調子</div>}
+          </div>
+
+          <section className="mt-4 rounded-2xl border border-slate-600 bg-slate-950/45 p-3 text-left">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <h3 className="text-sm font-black text-white">今回の問題と結果</h3>
+              <span className="text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span>
+            </div>
+            <div className="grid gap-2 lg:grid-cols-3">
+              {gameState.battleLog.map((log, idx) => {
+                const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                return <div key={idx} className="rounded-xl border border-slate-700 bg-slate-800/90 p-3">
+                  <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="break-words font-mono text-sm font-black text-cyan-100">{log.question.text}</p><p className="mt-0.5 text-xs font-bold text-slate-300">{log.question.translation}</p></div><span className={`flex-shrink-0 text-xs font-black ${resultClass}`}>{resultLabel}</span></div>
+                  {example && <p className="mt-2 border-t border-slate-700 pt-2 text-xs leading-relaxed text-slate-300"><span className="mr-1 font-black text-emerald-300">例文:</span>{example}</p>}
+                </div>;
+              })}
+            </div>
+            {gameState.battleLog.length > 6 && <details className="mt-2 rounded-lg border border-slate-700 bg-slate-900/60"><summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-slate-300 marker:content-none"><span className="mr-2 text-slate-500">＋</span>残り {gameState.battleLog.length - 6}問を見る</summary><div className="border-t border-slate-700 px-3 py-2 text-xs text-slate-300">残りの問題は、単語リストからも確認できます。</div></details>}
+          </section>
+
+          <div className="mt-4 grid grid-cols-3 gap-2 rounded-2xl border border-cyan-500/20 bg-slate-950/45 p-3">
+            <div><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-1 text-xl font-black text-white">{learningSummary.learningCount}</p></div>
+            <div className="border-x border-slate-700"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-1 text-xl font-black text-white">{learningSummary.cautionCount}</p></div>
+            <div><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-1 text-xl font-black text-white">{learningSummary.masteredCount}</p></div>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton>
+            <GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton>
+            <GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton>
+            <GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ <LogOut className="ml-1" size={14}/></GameButton>
+          </div>
+
+          <div className="hidden">
+            <summary className="cursor-pointer list-none p-3 text-sm font-bold text-slate-300 marker:content-none"><span className="mr-2 text-slate-500">＋</span>今回の問題と結果を見る（{gameState.battleLog.length}問）</summary>
+            <div className="space-y-1 border-t border-slate-700 p-2">
+              {gameState.battleLog.map((log, idx) => <div key={idx} className="flex items-center justify-between gap-3 rounded-lg bg-slate-800 px-3 py-2 text-sm"><span className="min-w-0 truncate font-mono text-cyan-100">{log.question.text}<span className="ml-2 font-sans text-slate-300">{log.question.translation}</span></span><span className={log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300'}>{log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`}</span></div>)}
+            </div>
+          </div>
+        </Box>
+      </ScreenContainer>
+    );
+
     return (
       <ScreenContainer className="items-center justify-center p-4">
         {/* Main Result Box - Scrollable if content is long, but constrained to viewport */}
@@ -8139,7 +8329,27 @@ export default function App() {
           </div>
           </div>
 
-          <div className="mb-4 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.98),rgba(12,18,32,0.92))] p-4 shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+          <div className="mb-4 rounded-2xl border border-emerald-400/35 bg-emerald-950/20 p-4 shadow-[0_0_30px_rgba(34,197,94,0.08)]">
+            {isWin ? (
+              isNextAvailable ? (
+                <GameButton onClick={handleNextMonster} className="w-full text-lg py-4" variant="success" autoFocus>{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></GameButton>
+              ) : (
+                <GameButton onClick={handleBackToMode} className="w-full text-lg py-4" variant="primary" autoFocus>コース選択へ戻る <LayoutGrid className="ml-2" size={22}/></GameButton>
+              )
+            ) : (
+              <GameButton onClick={handleRetry} className="w-full text-lg py-4" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>
+            )}
+            {missedCount > 0 && (
+              <p className="mt-3 text-sm font-bold text-orange-200">今回ミスした {missedCount}語は、この下の「復習に進む」から確認できます。</p>
+            )}
+          </div>
+
+          <details className="mb-4 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.98),rgba(12,18,32,0.92))] shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-4 text-left font-black text-cyan-100 marker:content-none">
+              <span><span className="mr-2 text-cyan-300">＋</span>学習全体の状況を見る</span>
+              <span className="text-sm font-bold text-cyan-200">{learningSummary.masteredCount}語 覚えた</span>
+            </summary>
+            <div className="border-t border-cyan-500/20 p-4">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="text-left">
                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Learning Progress</p>
@@ -8172,9 +8382,11 @@ export default function App() {
                 <p className="mt-3 bg-gradient-to-r from-violet-100 via-white to-violet-200 bg-clip-text text-4xl font-black leading-none text-transparent">{learningSummary.masteredCount}</p>
               </div>
             </div>
-          </div>
+            </div>
+          </details>
 
-          <div className="space-y-3 mt-auto flex-shrink-0">
+          <details className="mb-4 rounded-xl border border-slate-600 bg-slate-900/55 p-2 text-left">
+              <summary className="cursor-pointer list-none p-2 text-sm font-bold text-slate-200 marker:content-none"><span className="mr-2 text-slate-500">＋</span>復習・コース選択など、ほかの操作</summary>
               {missedCount > 0 && (
                 <div className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-3 text-left">
                   <p className="mb-3 text-sm font-bold text-orange-200">復習に進む</p>
@@ -8208,10 +8420,10 @@ export default function App() {
                  <GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ <LogOut className="ml-1" size={14}/></GameButton>
                  <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="ghost"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton>
               </div>
-          </div>
+          </details>
 
-          <div className="mb-4 bg-slate-900/50 rounded-lg p-2 border border-slate-700/50 text-left">
-             <h3 className="text-slate-400 text-xs font-bold uppercase mb-2 sticky top-0 bg-slate-900/90 p-1 border-b border-slate-700">Battle Review</h3>
+          <details className="mb-4 rounded-lg border border-slate-700/50 bg-slate-900/50 p-2 text-left">
+             <summary className="cursor-pointer list-none p-2 text-sm font-bold text-slate-200 marker:content-none"><span className="mr-2 text-slate-500">＋</span>今回の問題と結果を見る（{gameState.battleLog.length}問）</summary>
              <div className="space-y-1">
                  {gameState.battleLog.map((log, idx) => {
                      const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
@@ -8254,7 +8466,7 @@ export default function App() {
                      );
                  })}
              </div>
-          </div>
+          </details>
         </Box>
       </ScreenContainer>
     );
