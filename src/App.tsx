@@ -5191,14 +5191,23 @@ export default function App() {
   // Keyboard support for replaying question audio
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-        if (gameState.screen === 'battle') {
-            const isRightCtrlKey =
-                e.code === 'ControlRight' ||
-                (e.key === 'Control' && e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT);
+        const isRightCtrlKey =
+            e.code === 'ControlRight' ||
+            (e.key === 'Control' && e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT);
 
+        if (gameState.screen === 'battle') {
             if (isRightCtrlKey && !e.repeat) {
                 e.preventDefault();
                 speakCurrentQuestion();
+            }
+            return;
+        }
+
+        if (gameState.screen === 'versus-play' && !versusShowHandoff) {
+            const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+            if (isRightCtrlKey && !e.repeat && currentVersusQuestion?.promptMode === 'listening') {
+                e.preventDefault();
+                speakWithSettings(currentVersusQuestion.question.text);
             }
             return;
         }
@@ -5227,7 +5236,7 @@ export default function App() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState, speakCurrentQuestion]);
+  }, [gameState, speakCurrentQuestion, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
 
   const shuffleIndices = (length: number) => {
     const indices = Array.from({ length }, (_, index) => index);
@@ -7277,7 +7286,7 @@ export default function App() {
           </div>
           <div className="py-10 text-center">
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
-            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => speakWithSettings(currentQuestion.text)} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => speakWithSettings(currentQuestion.text)} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
             <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
