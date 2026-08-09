@@ -2301,6 +2301,8 @@ const safeLoadJson = <T,>(key: string, fallback: T): T => {
 type StoredCourseSelection = {
   difficulty: Difficulty;
   level: Level;
+  resumeMode: Extract<Mode, 'guide' | 'challenge'>;
+  resumeInputMode: InputMode;
 };
 
 const getStoredCourseSelection = (): StoredCourseSelection => {
@@ -2311,10 +2313,20 @@ const getStoredCourseSelection = (): StoredCourseSelection => {
   const requestedLevel: Level = saved.level === 1 || saved.level === 2 || saved.level === 3
     ? saved.level
     : 1;
+  const resumeMode: Extract<Mode, 'guide' | 'challenge'> = saved.resumeMode === 'guide'
+    ? 'guide'
+    : 'challenge';
+  const resumeInputMode: InputMode = resumeMode === 'guide'
+    ? 'voice-text'
+    : saved.resumeInputMode === 'voice-only' || saved.resumeInputMode === 'text-only'
+      ? saved.resumeInputMode
+      : 'voice-text';
 
   return {
     difficulty,
     level: getSafeLevelForDifficulty(difficulty, requestedLevel),
+    resumeMode,
+    resumeInputMode,
   };
 };
 
@@ -3313,8 +3325,8 @@ export default function App() {
     screen: 'title',
     selectedDifficulty: savedCourse.difficulty,
     selectedLevel: savedCourse.level,
-    mode: 'guide',
-    inputMode: 'voice-text',
+    mode: savedCourse.resumeMode,
+    inputMode: savedCourse.resumeInputMode,
     currentMonsterIndex: 0,
     currentMonsterList: [],
     challengeModeIndices: [],
@@ -3342,6 +3354,8 @@ export default function App() {
     bossStage: 0,
     };
   });
+  const [resumeMode, setResumeMode] = useState<Extract<Mode, 'guide' | 'challenge'>>(() => getStoredCourseSelection().resumeMode);
+  const [resumeInputMode, setResumeInputMode] = useState<InputMode>(() => getStoredCourseSelection().resumeInputMode);
 
   const [bestScores, setBestScores] = useState<Record<string, number>>({});
   const [typingPracticeIndex, setTypingPracticeIndex] = useState(0);
@@ -3621,8 +3635,10 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.lastSelectedCourse, JSON.stringify({
       difficulty: gameState.selectedDifficulty,
       level: gameState.selectedLevel,
+      resumeMode,
+      resumeInputMode,
     }));
-  }, [gameState.selectedDifficulty, gameState.selectedLevel]);
+  }, [gameState.selectedDifficulty, gameState.selectedLevel, resumeMode, resumeInputMode]);
 
   useEffect(() => {
     const safeBookLevel = getSafeLevelForDifficulty(bookDifficulty, bookLevel);
@@ -4969,6 +4985,11 @@ export default function App() {
     if (playableQuestions.length === 0) {
       alert("この範囲で出題できる問題がありません。除外を見直してください。");
       return;
+    }
+
+    if (mode === 'guide' || mode === 'challenge') {
+      setResumeMode(mode);
+      setResumeInputMode(mode === 'guide' ? 'voice-text' : inputMode);
     }
 
     sessionWeakQuestionsRef.current = reviewQuestions && reviewQuestions.length > 0
@@ -7198,10 +7219,25 @@ export default function App() {
     const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
     const totalMonsters = allMonsterIds.length;
     const todayQuestionCount = dailyProgress.date === getTodayKey() ? dailyProgress.questionCount : 0;
-    const nextBattleMode: Mode = 'challenge';
-    const nextBattleInputMode: InputMode = 'voice-text';
-    const nextBattleList = MONSTERS[gameState.selectedLevel].guide;
-    const nextBattleTargetCount = getListeningTargetCount(gameState.selectedDifficulty, gameState.selectedLevel);
+    const nextBattleMode: Extract<Mode, 'guide' | 'challenge'> = resumeMode;
+    const nextBattleInputMode = resumeInputMode;
+    const nextBattleList = nextBattleMode === 'guide' || nextBattleInputMode === 'voice-text'
+      ? MONSTERS[gameState.selectedLevel].guide
+      : MONSTERS[gameState.selectedLevel].challenge;
+    const nextBattleTargetCount = nextBattleMode === 'guide'
+      ? getGuideTargetCount(gameState.selectedDifficulty, gameState.selectedLevel)
+      : nextBattleInputMode === 'voice-text'
+        ? getListeningTargetCount(gameState.selectedDifficulty, gameState.selectedLevel)
+        : nextBattleInputMode === 'voice-only'
+          ? NORMAL_TARGET_COUNT
+          : HARD_TARGET_COUNT;
+    const nextBattleModeLabel = nextBattleMode === 'guide'
+      ? '基礎練習'
+      : nextBattleInputMode === 'voice-text'
+        ? 'リスニング練習'
+        : nextBattleInputMode === 'voice-only'
+          ? '音声バトル'
+          : '和訳バトル';
     const nextBattleIndices = getBattleStageIndices(nextBattleList, nextBattleTargetCount, nextBattleMode, nextBattleInputMode);
     const nextBattleStep = nextBattleIndices.findIndex(monsterIndex => (
       !matchesDefeatedMonster(
@@ -7299,7 +7335,7 @@ export default function App() {
 
                   <div className="grid gap-3 p-4 sm:grid-cols-2">
                     <GameButton
-                      onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
+                      onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)}
                       className="w-full min-h-[72px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500 sm:col-span-2"
                       size="md"
                     >
@@ -7387,7 +7423,7 @@ export default function App() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">
-                          {nextBattleIsComplete ? 'Cleared' : 'Next Enemy'}
+                          {nextBattleIsComplete ? `${nextBattleModeLabel} Cleared` : `${nextBattleModeLabel} Next Enemy`}
                         </p>
                         <h3 className="mt-1 truncate text-2xl font-black text-white">{nextBattleMonster.name}</h3>
                         <p className="mt-1 text-xs font-bold text-slate-300">
