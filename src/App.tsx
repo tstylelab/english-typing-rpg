@@ -7126,7 +7126,7 @@ export default function App() {
               </div>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 {versusNameDrafts.map((name, index) => (
-                  <div key={`${index}-${name}`} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
+                  <div key={index} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
                     <div className="flex items-center gap-2">
                       <input value={name} maxLength={20} onChange={event => setVersusNameDrafts(names => names.map((currentName, currentIndex) => currentIndex === index ? event.target.value : currentName))} className="min-w-0 flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 font-bold text-white outline-none focus:border-violet-300" aria-label={`参加者${index + 1}の名前`} />
                       {versusNameDrafts.length > 1 && <button onClick={() => { setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index)); setVersusScoreMultipliers(multipliers => multipliers.filter((_, currentIndex) => currentIndex !== index)); }} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
