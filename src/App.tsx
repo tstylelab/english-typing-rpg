@@ -252,9 +252,9 @@ const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_QUESTION_COUNT = 20;
 const VERSUS_RANKING_LIMIT = 10;
-const VERSUS_SCORE_MULTIPLIER_OPTIONS = Array.from({ length: 11 }, (_, index) => {
-  const value = Number((0.5 + index * 0.1).toFixed(1));
-  return { value, label: value === 1 ? '標準 1.0倍' : `${value.toFixed(1)}倍` };
+const VERSUS_SCORE_MULTIPLIER_OPTIONS = Array.from({ length: 15 }, (_, index) => {
+  const value = Number((0.7 + index * 0.05).toFixed(2));
+  return { value, label: value === 1 ? '標準 1.00倍' : `${value.toFixed(2)}倍` };
 });
 const NORMAL_TARGET_COUNT = 20;
 const TYPING_PRACTICE_STEPS = ['f', 'j', 'a', 's', 'd', 'k', 'l', 'q', 'w', 'e', 'z', 'x', 'c', 'cat', 'dog', 'sun'];
@@ -7324,10 +7324,20 @@ export default function App() {
     const ranking = [...versusPlayers].sort((a, b) => getAdjustedVersusScore(b) - getAdjustedVersusScore(a) || b.perfectCount - a.perfectCount || a.missCount - b.missCount || a.totalTimeMs - b.totalTimeMs);
     const isSoloChallenge = versusPlayers.length === 1;
     const soloScore = versusPlayers[0]?.score ?? 0;
+    const winner = ranking[0];
+    const confettiColors = ['bg-yellow-300', 'bg-fuchsia-400', 'bg-cyan-300', 'bg-emerald-300', 'bg-orange-300'];
     return (
       <ScreenContainer className="items-center justify-center p-4">
         <Box title={isSoloChallenge ? 'ひとりで20問バトル！・結果' : 'みんなで20問バトル！・結果'} className="w-full max-w-3xl">
-          <div className="text-center"><Trophy size={58} className="mx-auto text-yellow-300" /><h1 className="mt-2 text-3xl font-black text-white">{isSoloChallenge ? 'バトル結果！' : '結果発表！'}</h1>{isSoloChallenge && <p className={`mt-3 text-lg font-black ${versusIsNewBest ? 'text-yellow-300' : 'text-cyan-200'}`}>{versusIsNewBest ? '自己ベスト更新！' : `自己ベスト: ${Math.max(soloScore, versusPreviousBestScore)} 点`}</p>}</div>
+          {!isSoloChallenge && winner && <div className="relative isolate overflow-hidden rounded-2xl border-2 border-yellow-300/75 bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.32),rgba(76,29,149,0.52)_48%,rgba(15,23,42,0.92)_100%)] px-5 py-7 text-center shadow-[0_0_38px_rgba(250,204,21,0.28)]">
+            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">{Array.from({ length: 20 }, (_, index) => <span key={index} className={`absolute h-2 w-2 rotate-45 ${confettiColors[index % confettiColors.length]} animate-bounce`} style={{ left: `${5 + (index * 37) % 90}%`, top: `${8 + (index * 23) % 72}%`, animationDelay: `${(index % 6) * 110}ms`, animationDuration: `${700 + (index % 4) * 120}ms` }} />)}</div>
+            <p className="relative text-xs font-black tracking-[0.38em] text-yellow-100">WINNER!</p>
+            <Crown size={54} className="relative mx-auto mt-2 animate-bounce text-yellow-300 drop-shadow-[0_0_14px_rgba(253,224,71,0.9)]" />
+            <h1 className="relative mt-2 break-words text-4xl font-black text-white drop-shadow md:text-5xl">{winner.name}</h1>
+            <p className="relative mt-2 text-sm font-black text-yellow-100">優勝おめでとう！</p>
+            <p className="relative mt-3 text-2xl font-black text-cyan-100">{getAdjustedVersusScore(winner)}<span className="ml-1 text-xs tracking-wide">点（ハンデ込み）</span></p>
+          </div>}
+          <div className={`text-center ${isSoloChallenge ? '' : 'mt-6'}`}><Trophy size={isSoloChallenge ? 58 : 38} className="mx-auto text-yellow-300" /><h1 className={`${isSoloChallenge ? 'mt-2 text-3xl' : 'mt-1 text-xl'} font-black text-white`}>{isSoloChallenge ? 'バトル結果！' : '結果発表！'}</h1>{isSoloChallenge && <p className={`mt-3 text-lg font-black ${versusIsNewBest ? 'text-yellow-300' : 'text-cyan-200'}`}>{versusIsNewBest ? '自己ベスト更新！' : `自己ベスト: ${Math.max(soloScore, versusPreviousBestScore)} 点`}</p>}</div>
           <div className="mt-6 space-y-3">
             {ranking.map((player, index) => (
               <div key={player.id} className={`grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-xl border p-4 ${index === 0 ? 'border-yellow-300 bg-yellow-950/30' : 'border-slate-600 bg-slate-900/65'}`}>
