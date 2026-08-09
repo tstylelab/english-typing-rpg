@@ -8095,7 +8095,7 @@ export default function App() {
     return (
       <ScreenContainer className={`battle-screen ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
         <div className="mobile-landscape-notice pointer-events-none fixed inset-x-3 bottom-3 z-30 hidden items-center justify-center gap-2 rounded-xl border border-cyan-300/45 bg-slate-950/92 px-4 py-3 text-center text-sm font-black text-cyan-100 shadow-xl">
-          <RotateCcw size={18} className="text-cyan-300" /> スマホでは横向きにして遊ぼう
+          <RotateCcw size={18} className="text-cyan-300" /> スマホでは縦向きにして遊ぼう
         </div>
         {showBossIntro && bossIntroLabel && (
           <div className="pointer-events-none fixed inset-0 z-40 overflow-hidden">
@@ -8264,24 +8264,7 @@ export default function App() {
               <div className="battle-footer-label mt-2 text-center"><span className="text-slate-500 text-[10px] uppercase tracking-widest border border-slate-700 px-2 py-0.5 rounded bg-slate-900">Type the spell to attack</span></div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
-                @media (max-width: 767px) and (orientation: portrait) { .battle-screen .mobile-landscape-notice { display: flex; } }
-                @media (max-width: 960px) and (orientation: landscape) and (max-height: 600px) {
-                  .battle-screen { min-height: 100dvh; height: 100dvh; overflow: hidden; }
-                  .battle-screen .battle-topbar { flex: 0 0 auto; padding: 0.25rem 0.5rem; }
-                  .battle-screen .battle-main { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 0.45rem; align-items: stretch; height: calc(100dvh - 44px); margin-top: 0; padding: 0.3rem 0.45rem 0.45rem; overflow: hidden; }
-                  .battle-screen .battle-monster-area { grid-column: 1; grid-row: 1; justify-content: center; margin: 0; min-width: 0; overflow: hidden; }
-                  .battle-screen .battle-combo, .battle-screen .battle-dialogue, .battle-screen .battle-shortcut, .battle-screen .battle-bookmark, .battle-screen .battle-previous-study, .battle-screen .battle-footer-label { display: none; }
-                  .battle-screen .battle-avatar { transform: scale(0.58); transform-origin: center; height: 82px; margin: -24px 0 -18px; }
-                  .battle-screen .battle-hp { width: 100%; margin-top: 0; padding: 0.35rem; }
-                  .battle-screen .battle-hp .h-3 { height: 0.45rem; }
-                  .battle-screen .battle-card { grid-column: 2; grid-row: 1; display: flex; min-height: 0; margin: 0; padding: 0.45rem; overflow: hidden; }
-                  .battle-screen .battle-controls { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; gap: 0.25rem; }
-                  .battle-screen .battle-replay, .battle-screen .battle-skip { padding: 0.35rem 0.55rem; font-size: 0.72rem; }
-                  .battle-screen .battle-translation { min-height: 0; margin-bottom: 0.25rem; }
-                  .battle-screen .battle-translation p { font-size: 0.85rem; line-height: 1.2; }
-                  .battle-screen .battle-question-panel { flex: 1 1 auto; min-height: 0; padding: 0.35rem 0.55rem; }
-                  .battle-screen .battle-question-text { min-height: 2.2em !important; padding: 0 !important; font-size: clamp(1.05rem, 4vw, 1.7rem) !important; line-height: 1.2; }
-                }`}</style>
+                @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }`}</style>
       </ScreenContainer>
     );
   }
