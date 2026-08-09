@@ -33,6 +33,15 @@ type VersusPlayer = {
   totalTimeMs: number;
 };
 
+type VersusRankingEntry = {
+  name: string;
+  score: number;
+  perfectCount: number;
+  missCount: number;
+  totalTimeMs: number;
+  recordedAt: number;
+};
+
 // Monster Types for Visuals
 type MonsterType = 'slime' | 'beast' | 'wing' | 'ghost' | 'robot' | 'boss' | 'object';
 
@@ -242,13 +251,11 @@ interface RankData { threshold: number; title: string; color: string; }
 const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_QUESTION_COUNT = 20;
-const VERSUS_SCORE_MULTIPLIER_OPTIONS = [
-  { value: 0.5, label: 'かなり上級者 0.5倍' },
-  { value: 0.75, label: '少し上級者 0.75倍' },
-  { value: 1, label: '標準 1.0倍' },
-  { value: 1.25, label: '少し初心者 1.25倍' },
-  { value: 1.5, label: '初心者 1.5倍' },
-] as const;
+const VERSUS_RANKING_LIMIT = 10;
+const VERSUS_SCORE_MULTIPLIER_OPTIONS = Array.from({ length: 11 }, (_, index) => {
+  const value = Number((0.5 + index * 0.1).toFixed(1));
+  return { value, label: value === 1 ? '標準 1.0倍' : `${value.toFixed(1)}倍` };
+});
 const NORMAL_TARGET_COUNT = 20;
 const TYPING_PRACTICE_STEPS = ['f', 'j', 'a', 's', 'd', 'k', 'l', 'q', 'w', 'e', 'z', 'x', 'c', 'cat', 'dog', 'sun'];
 const TYPING_FINGER_GUIDES: Record<string, { finger: string; homeKey: string }> = {
@@ -2291,6 +2298,7 @@ const STORAGE_KEYS = {
   markedQuestionKeysByScope: 'etyping_marked_question_keys_by_scope',
   savedSelectionLists: 'etyping_saved_selection_lists',
   versusBestScores: 'etyping_versus_best_scores',
+  versusRankings: 'etyping_versus_rankings',
   playerProfiles: 'etyping_player_profiles',
   activePlayerId: 'etyping_active_player_id',
   lastSelectedCourse: 'etyping_last_selected_course',
@@ -2304,6 +2312,29 @@ const safeLoadJson = <T,>(key: string, fallback: T): T => {
     localStorage.removeItem(key);
     return fallback;
   }
+};
+
+const normalizeVersusRankings = (value: unknown): Record<string, VersusRankingEntry[]> => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.entries(value as Record<string, unknown>).reduce<Record<string, VersusRankingEntry[]>>((rankings, [key, entries]) => {
+    if (!Array.isArray(entries)) return rankings;
+    const validEntries = entries.flatMap((entry): VersusRankingEntry[] => {
+      if (!entry || typeof entry !== 'object') return [];
+      const candidate = entry as Partial<VersusRankingEntry>;
+      const { name, score, perfectCount, missCount, totalTimeMs, recordedAt } = candidate;
+      if (typeof name !== 'string' || typeof score !== 'number' || typeof perfectCount !== 'number' || typeof missCount !== 'number' || typeof totalTimeMs !== 'number' || typeof recordedAt !== 'number' || !Number.isFinite(score) || !Number.isFinite(perfectCount) || !Number.isFinite(missCount) || !Number.isFinite(totalTimeMs) || !Number.isFinite(recordedAt)) return [];
+      return [{
+        name: name.slice(0, 20),
+        score: Math.max(0, Math.round(score)),
+        perfectCount: Math.max(0, Math.round(perfectCount)),
+        missCount: Math.max(0, Math.round(missCount)),
+        totalTimeMs: Math.max(0, Math.round(totalTimeMs)),
+        recordedAt: Math.max(0, Math.round(recordedAt)),
+      }];
+    });
+    if (validEntries.length > 0) rankings[key] = validEntries;
+    return rankings;
+  }, {});
 };
 
 type StoredCourseSelection = {
@@ -3370,6 +3401,7 @@ export default function App() {
   const [typingPracticeInput, setTypingPracticeInput] = useState('');
   const [typingPracticeMisses, setTypingPracticeMisses] = useState(0);
   const [versusBestScores, setVersusBestScores] = useState<Record<string, number>>(() => safeLoadJson<Record<string, number>>(STORAGE_KEYS.versusBestScores, {}));
+  const [versusRankings, setVersusRankings] = useState<Record<string, VersusRankingEntry[]>>(() => normalizeVersusRankings(safeLoadJson<unknown>(STORAGE_KEYS.versusRankings, {})));
   const [maxKeystrokes, setMaxKeystrokes] = useState<number>(0);
   const [weakQuestions, setWeakQuestions] = useState<Question[]>([]); 
   const [weakQuestionStats, setWeakQuestionStats] = useState<Record<string, WeakQuestionStat>>({});
@@ -3789,6 +3821,39 @@ export default function App() {
     `${activePlayerId || 'default'}:${versusDifficulty}:${versusLevel}:${versusPromptSelection}`
   );
 
+  const getVersusRankingKey = () => (
+    `${versusDifficulty}:${versusLevel}:${versusPromptSelection}`
+  );
+
+  const compareVersusRankingEntries = (a: VersusRankingEntry, b: VersusRankingEntry) => (
+    b.score - a.score || b.perfectCount - a.perfectCount || a.missCount - b.missCount || a.totalTimeMs - b.totalTimeMs || a.recordedAt - b.recordedAt
+  );
+
+  const saveVersusRanking = (completedPlayers: VersusPlayer[]) => {
+    const rankingKey = getVersusRankingKey();
+    const recordedAt = Date.now();
+    setVersusRankings(previousRankings => {
+      const bestByName = new Map<string, VersusRankingEntry>();
+      [...(previousRankings[rankingKey] ?? []), ...completedPlayers.map(player => ({
+        name: player.name,
+        score: player.score,
+        perfectCount: player.perfectCount,
+        missCount: player.missCount,
+        totalTimeMs: player.totalTimeMs,
+        recordedAt,
+      }))].forEach(entry => {
+        const currentBest = bestByName.get(entry.name);
+        if (!currentBest || compareVersusRankingEntries(entry, currentBest) < 0) bestByName.set(entry.name, entry);
+      });
+      const nextRankings = {
+        ...previousRankings,
+        [rankingKey]: [...bestByName.values()].sort(compareVersusRankingEntries).slice(0, VERSUS_RANKING_LIMIT),
+      };
+      localStorage.setItem(STORAGE_KEYS.versusRankings, JSON.stringify(nextRankings));
+      return nextRankings;
+    });
+  };
+
   const startVersusMatch = () => {
     const playerDrafts = versusNameDrafts.flatMap((name, index) => {
       const trimmedName = name.trim();
@@ -3870,7 +3935,7 @@ export default function App() {
     const isSoloChallenge = versusPlayers.length === 1;
     const finalSoloScore = (versusPlayers[versusPlayerIndex]?.score ?? 0) + gainedScore;
 
-    setVersusPlayers(prev => prev.map((player, index) => (
+    const completedPlayers = versusPlayers.map((player, index) => (
       index === versusPlayerIndex
         ? {
             ...player,
@@ -3880,9 +3945,11 @@ export default function App() {
             totalTimeMs: player.totalTimeMs + durationMs,
           }
         : player
-    )));
+    ));
+    setVersusPlayers(completedPlayers);
 
     if (isLastQuestion && isLastPlayer) {
+      saveVersusRanking(completedPlayers);
       if (isSoloChallenge && finalSoloScore > versusPreviousBestScore && versusBestScoreKey) {
         setVersusIsNewBest(true);
         setVersusBestScores(previousScores => {
@@ -7074,6 +7141,8 @@ export default function App() {
     const availableVersusLevels = getAvailableLevels(versusDifficulty);
     const isSoloSetup = versusNameDrafts.length === 1;
     const setupTitle = isSoloSetup ? 'ひとりで20問バトル！' : 'みんなで20問バトル！';
+    const currentVersusRanking = versusRankings[getVersusRankingKey()] ?? [];
+    const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
       <ScreenContainer className="items-center justify-center p-4">
         <Box title={setupTitle} className="w-full max-w-5xl">
@@ -7145,6 +7214,26 @@ export default function App() {
             <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-sm text-amber-100">
               <p className="font-black">採点ルール</p>
               <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大50点追加です。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
+            </div>
+            <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-4 md:col-span-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="flex items-center gap-2 text-base font-black text-yellow-200"><Trophy size={18} /> この設定のランキング</p>
+                <p className="text-xs font-bold text-slate-300">{DIFFICULTY_LABELS[versusDifficulty]} Level {versusLevel} ・ {promptSelectionLabel}</p>
+              </div>
+              {currentVersusRanking.length > 0 ? (
+                <ol className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {currentVersusRanking.map((entry, index) => (
+                    <li key={`${entry.name}-${entry.recordedAt}`} className="flex items-center gap-3 rounded-lg border border-slate-700 bg-slate-950/55 px-3 py-2">
+                      <span className={`w-6 text-center text-lg font-black ${index < 3 ? 'text-yellow-300' : 'text-slate-400'}`}>{index + 1}</span>
+                      <div className="min-w-0 flex-1"><p className="truncate font-black text-white">{entry.name}</p><p className="text-[11px] font-bold text-slate-400">ミスなし {entry.perfectCount}問 ・ ミス {entry.missCount}回</p></div>
+                      <p className="text-right text-xl font-black text-cyan-200">{entry.score}<span className="ml-1 text-[10px] text-cyan-100">点</span></p>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="mt-3 rounded-lg border border-dashed border-slate-600 px-4 py-5 text-center text-sm font-bold text-slate-400">まだ記録がありません。最初の1戦でランキング入り！</p>
+              )}
+              <p className="mt-3 text-xs text-slate-400">同じ名前は最高記録だけを残します。ハンデは対戦中のみで、ランキングは基本点で公平に記録します。</p>
             </div>
             {versusSetupError && <p className="text-center font-bold text-red-300 md:col-span-2">{versusSetupError}</p>}
             <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between md:col-span-2">
