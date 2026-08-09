@@ -3996,7 +3996,7 @@ export default function App() {
       if (currentVersusQuestion.promptMode === 'listening' || currentVersusQuestion.promptMode === 'translation') {
         setVersusHintLength(length => Math.min(length + 1, currentQuestion.text.length));
       }
-      setVersusInput('');
+      setVersusInput(versusInput);
       return;
     }
     setVersusInput(value);
