@@ -3454,6 +3454,7 @@ export default function App() {
   const [versusQuestionIndex, setVersusQuestionIndex] = useState(0);
   const [versusInput, setVersusInput] = useState('');
   const [versusQuestionMisses, setVersusQuestionMisses] = useState(0);
+  const [versusHintLength, setVersusHintLength] = useState(0);
   const [versusQuestionStartedAt, setVersusQuestionStartedAt] = useState<number | null>(null);
   const [versusShowHandoff, setVersusShowHandoff] = useState(true);
   const [versusSetupError, setVersusSetupError] = useState('');
@@ -3894,6 +3895,7 @@ export default function App() {
     setVersusQuestionIndex(0);
     setVersusInput('');
     setVersusQuestionMisses(0);
+    setVersusHintLength(0);
     setVersusQuestionStartedAt(null);
     setVersusShowHandoff(true);
     setVersusSetupError('');
@@ -3910,6 +3912,7 @@ export default function App() {
     setVersusShowHandoff(false);
     setVersusInput('');
     setVersusQuestionMisses(0);
+    setVersusHintLength(0);
     setVersusQuestionStartedAt(Date.now());
   };
 
@@ -3919,6 +3922,7 @@ export default function App() {
     soundEngine.stopBattleAmbience();
     setVersusInput('');
     setVersusQuestionMisses(0);
+    setVersusHintLength(0);
     setVersusQuestionStartedAt(null);
     setVersusShowHandoff(true);
     setGameState(prev => ({ ...prev, screen: 'title' }));
@@ -3975,6 +3979,7 @@ export default function App() {
     }
     setVersusInput('');
     setVersusQuestionMisses(0);
+    setVersusHintLength(0);
     setVersusQuestionStartedAt(Date.now());
   };
 
@@ -3988,6 +3993,9 @@ export default function App() {
     if (!normalizedAnswer.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setVersusQuestionMisses(count => count + 1);
+      if (currentVersusQuestion.promptMode === 'listening' || currentVersusQuestion.promptMode === 'translation') {
+        setVersusHintLength(length => Math.min(length + 1, currentQuestion.text.length));
+      }
       setVersusInput('');
       return;
     }
@@ -7273,6 +7281,7 @@ export default function App() {
     const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
     const currentQuestion = currentVersusQuestion?.question;
     const currentAdjustedScore = currentPlayer ? getAdjustedVersusScore(currentPlayer) : 0;
+    const versusHint = currentQuestion?.text.slice(0, versusHintLength) ?? '';
     if (!currentPlayer || !currentQuestion || !currentVersusQuestion) {
       return <ScreenContainer className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
     }
@@ -7302,6 +7311,7 @@ export default function App() {
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
             {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
+            {versusHint && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl tracking-[0.14em] text-white">{versusHint}</span><span className="ml-2 text-xs text-slate-400">ミスごとに1文字ずつ表示</span></p>}
             <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
