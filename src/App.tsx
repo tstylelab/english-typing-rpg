@@ -8093,7 +8093,10 @@ export default function App() {
     });
 
     return (
-      <ScreenContainer className={isBoss ? "bg-red-950" : "bg-slate-900"}>
+      <ScreenContainer className={`battle-screen ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
+        <div className="mobile-landscape-notice pointer-events-none fixed inset-x-3 bottom-3 z-30 hidden items-center justify-center gap-2 rounded-xl border border-cyan-300/45 bg-slate-950/92 px-4 py-3 text-center text-sm font-black text-cyan-100 shadow-xl">
+          <RotateCcw size={18} className="text-cyan-300" /> スマホでは横向きにして遊ぼう
+        </div>
         {showBossIntro && bossIntroLabel && (
           <div className="pointer-events-none fixed inset-0 z-40 overflow-hidden">
             <div className="absolute inset-0 animate-[finalBossFlash_520ms_ease-out_forwards] bg-white" />
@@ -8105,7 +8108,7 @@ export default function App() {
             </div>
           </div>
         )}
-        <div className="w-full bg-slate-900/80 border-b border-slate-700 p-2 z-20 flex justify-between items-center shadow-md">
+        <div className="battle-topbar w-full bg-slate-900/80 border-b border-slate-700 p-2 z-20 flex justify-between items-center shadow-md">
              <GameButton
                size="sm"
                variant="ghost"
@@ -8127,21 +8130,21 @@ export default function App() {
                )}
              </div>
         </div>
-        <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start mt-4 px-4 pb-20">
-            <div className="relative w-full flex flex-col items-center z-10 mb-4">
+        <div className="battle-main w-full max-w-4xl mx-auto flex flex-col items-center justify-start mt-4 px-4 pb-20">
+             <div className="battle-monster-area relative w-full flex flex-col items-center z-10 mb-4">
                 {gameState.combo >= 3 && (
-                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm font-black uppercase tracking-[0.2em] text-yellow-200 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
+                   <div className="battle-combo mb-2 inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm font-black uppercase tracking-[0.2em] text-yellow-200 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
                     <Flame size={16} className="text-yellow-300" />
                     {comboLabel} x{gameState.combo}
                   </div>
                 )}
-                <div className={`transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
-                <div className={`transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
-                <div className="w-64 mt-2 bg-slate-800/80 p-2 rounded-lg border border-slate-600"><div className="flex justify-between text-slate-300 text-[10px] font-bold mb-1 px-1"><span className="flex items-center gap-2">{currentMonster.name} <span className="bg-slate-700 px-1 rounded text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span><span>{gameState.monsterHp} / {gameState.maxMonsterHp}</span></div><div className="h-3 bg-slate-900 rounded-full overflow-hidden relative shadow-inner"><div className={`h-full transition-all duration-300 relative overflow-hidden ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div></div>
+                <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
+                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                <div className="battle-hp w-64 mt-2 bg-slate-800/80 p-2 rounded-lg border border-slate-600"><div className="flex justify-between text-slate-300 text-[10px] font-bold mb-1 px-1"><span className="flex items-center gap-2">{currentMonster.name} <span className="bg-slate-700 px-1 rounded text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span><span>{gameState.monsterHp} / {gameState.maxMonsterHp}</span></div><div className="h-3 bg-slate-900 rounded-full overflow-hidden relative shadow-inner"><div className={`h-full transition-all duration-300 relative overflow-hidden ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div></div>
             </div>
-            <div className="w-full bg-slate-800/95 backdrop-blur border-4 border-slate-600 rounded-2xl shadow-xl p-4 md:p-5 mt-4 relative">
+             <div className="battle-card w-full bg-slate-800/95 backdrop-blur border-4 border-slate-600 rounded-2xl shadow-xl p-4 md:p-5 mt-4 relative">
                  <div className="absolute top-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div>
-                 <div className="mb-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                 <div className="battle-controls mb-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                    <div className="flex flex-wrap items-center gap-2">
                      <button
                        type="button"
@@ -8151,12 +8154,12 @@ export default function App() {
                        }}
                        title="音声をもう一度再生 (Right Ctrl)"
                        aria-label="音声をもう一度再生"
-                       className="inline-flex items-center gap-2 rounded-xl border border-blue-400/40 bg-blue-500/10 px-4 py-2.5 text-sm font-black text-blue-100 shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all hover:border-blue-300 hover:bg-blue-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+                        className="battle-replay inline-flex items-center gap-2 rounded-xl border border-blue-400/40 bg-blue-500/10 px-4 py-2.5 text-sm font-black text-blue-100 shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all hover:border-blue-300 hover:bg-blue-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                      >
                        <Volume2 size={20} />
                        <span>もう一回聞く</span>
                      </button>
-                     <div className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-[11px] font-bold text-slate-200">
+                      <div className="battle-shortcut inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-[11px] font-bold text-slate-200">
                        <span className="text-slate-400">音声:</span>
                        <span>ボタン / Right Ctrl</span>
                      </div>
@@ -8169,7 +8172,7 @@ export default function App() {
                      }}
                      title={isCurrentQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
                      aria-pressed={isCurrentQuestionMarked}
-                     className={`inline-flex items-center justify-center gap-2 self-end rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 md:self-auto ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
+                      className={`battle-bookmark inline-flex items-center justify-center gap-2 self-end rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 md:self-auto ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
                    >
                      <Bookmark size={18} fill={isCurrentQuestionMarked ? 'currentColor' : 'none'} />
                      <span>{isCurrentQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
@@ -8179,13 +8182,13 @@ export default function App() {
                      onClick={handleSkip}
                      title="この問題をスキップ"
                      aria-label="この問題をスキップ"
-                     className="inline-flex items-center justify-center gap-2 self-end rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-sm font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)] transition-all hover:scale-[1.02] hover:from-amber-400 hover:to-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 md:self-auto"
+                      className="battle-skip inline-flex items-center justify-center gap-2 self-end rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-sm font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)] transition-all hover:scale-[1.02] hover:from-amber-400 hover:to-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 md:self-auto"
                    >
                      <SkipForward size={18} />
                      <span>Skip</span>
                    </button>
                  </div>
-                 <div className="text-center mb-2 min-h-[24px]">
+                  <div className="battle-translation text-center mb-2 min-h-[24px]">
                    {showJapanese && (
                      <div>
                        <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{gameState.currentQuestion.translation}</p>
@@ -8198,10 +8201,10 @@ export default function App() {
                    )}
                  </div>
                  <div
-                  className={`relative bg-black/40 rounded-xl border border-slate-700 shadow-inner ${questionPresentation.panelClass}`}
+                   className={`battle-question-panel relative bg-black/40 rounded-xl border border-slate-700 shadow-inner ${questionPresentation.panelClass}`}
                    onClick={() => inputRef.current?.focus()}
                  >
-                   <div className={`${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
+                    <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
                         {gameState.currentQuestion.text.split('').map((char, index) => {
                             const isTyped = index < gameState.userInput.length;
                             const isCurrent = index === gameState.userInput.length;
@@ -8212,10 +8215,10 @@ export default function App() {
                             return <span key={index} className={className}>{(!isTyped && !isHint && !isAlwaysVisible && isCurrent) ? '_' : (char === ' ' ? '\u00A0' : char)}</span>;
                         })}
                     </div>
-                    <input ref={inputRef} type="text" value={gameState.userInput} onChange={handleInput} className="w-full h-full opacity-0 absolute inset-0 cursor-default z-10" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus />
+                    <input ref={inputRef} type="text" value={gameState.userInput} onChange={handleInput} className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus />
                  </div>
                  {showPreviousStudyCard && lastSolvedQuestion && (
-                   <div className="mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
+                    <div className="battle-previous-study mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
                      <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-left leading-snug">
                        <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
                          Previous
@@ -8258,9 +8261,27 @@ export default function App() {
                    </div>
                  )}
             </div>
-             <div className="mt-2 text-center"><span className="text-slate-500 text-[10px] uppercase tracking-widest border border-slate-700 px-2 py-0.5 rounded bg-slate-900">Type the spell to attack</span></div>
+              <div className="battle-footer-label mt-2 text-center"><span className="text-slate-500 text-[10px] uppercase tracking-widest border border-slate-700 px-2 py-0.5 rounded bg-slate-900">Type the spell to attack</span></div>
         </div>
-        <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }`}</style>
+              <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
+                @media (max-width: 767px) and (orientation: portrait) { .battle-screen .mobile-landscape-notice { display: flex; } }
+                @media (max-width: 960px) and (orientation: landscape) and (max-height: 600px) {
+                  .battle-screen { min-height: 100dvh; height: 100dvh; overflow: hidden; }
+                  .battle-screen .battle-topbar { flex: 0 0 auto; padding: 0.25rem 0.5rem; }
+                  .battle-screen .battle-main { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 0.45rem; align-items: stretch; height: calc(100dvh - 44px); margin-top: 0; padding: 0.3rem 0.45rem 0.45rem; overflow: hidden; }
+                  .battle-screen .battle-monster-area { grid-column: 1; grid-row: 1; justify-content: center; margin: 0; min-width: 0; overflow: hidden; }
+                  .battle-screen .battle-combo, .battle-screen .battle-dialogue, .battle-screen .battle-shortcut, .battle-screen .battle-bookmark, .battle-screen .battle-previous-study, .battle-screen .battle-footer-label { display: none; }
+                  .battle-screen .battle-avatar { transform: scale(0.58); transform-origin: center; height: 82px; margin: -24px 0 -18px; }
+                  .battle-screen .battle-hp { width: 100%; margin-top: 0; padding: 0.35rem; }
+                  .battle-screen .battle-hp .h-3 { height: 0.45rem; }
+                  .battle-screen .battle-card { grid-column: 2; grid-row: 1; display: flex; min-height: 0; margin: 0; padding: 0.45rem; overflow: hidden; }
+                  .battle-screen .battle-controls { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; gap: 0.25rem; }
+                  .battle-screen .battle-replay, .battle-screen .battle-skip { padding: 0.35rem 0.55rem; font-size: 0.72rem; }
+                  .battle-screen .battle-translation { min-height: 0; margin-bottom: 0.25rem; }
+                  .battle-screen .battle-translation p { font-size: 0.85rem; line-height: 1.2; }
+                  .battle-screen .battle-question-panel { flex: 1 1 auto; min-height: 0; padding: 0.35rem 0.55rem; }
+                  .battle-screen .battle-question-text { min-height: 2.2em !important; padding: 0 !important; font-size: clamp(1.05rem, 4vw, 1.7rem) !important; line-height: 1.2; }
+                }`}</style>
       </ScreenContainer>
     );
   }
