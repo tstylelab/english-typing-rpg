@@ -5203,12 +5203,25 @@ export default function App() {
             return;
         }
 
-        if (gameState.screen === 'versus-play' && !versusShowHandoff) {
-            const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
-            if (isRightCtrlKey && !e.repeat && currentVersusQuestion?.promptMode === 'listening') {
+        if (gameState.screen === 'versus-play') {
+            if (versusShowHandoff && e.key === 'Enter' && !e.repeat) {
                 e.preventDefault();
-                speakWithSettings(currentVersusQuestion.question.text);
+                beginVersusTurn();
+                return;
             }
+            if (!versusShowHandoff) {
+                const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
+                if (isRightCtrlKey && !e.repeat && currentVersusQuestion?.promptMode === 'listening') {
+                    e.preventDefault();
+                    speakWithSettings(currentVersusQuestion.question.text);
+                }
+            }
+            return;
+        }
+
+        if (gameState.screen === 'versus-results' && e.key === 'Enter' && !e.repeat) {
+            e.preventDefault();
+            setGameState(prev => ({ ...prev, screen: 'versus-setup' }));
             return;
         }
 
@@ -5236,7 +5249,7 @@ export default function App() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState, speakCurrentQuestion, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
+  }, [beginVersusTurn, gameState, speakCurrentQuestion, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
 
   const shuffleIndices = (length: number) => {
     const indices = Array.from({ length }, (_, index) => index);
@@ -7271,7 +7284,8 @@ export default function App() {
             <p className="mt-5 text-sm font-black uppercase tracking-[0.25em] text-violet-300">Next Player</p>
             <h1 className="mt-2 text-4xl font-black text-white">{currentPlayer.name} の番！</h1>
             <p className="mt-4 text-slate-300">20問を続けて入力します。ほかの人は答えを見ないでね。</p>
-            <GameButton onClick={beginVersusTurn} size="lg" className="mt-7 w-full bg-violet-600 border-violet-300 hover:bg-violet-500">スタート</GameButton>
+            <GameButton onClick={beginVersusTurn} size="lg" className="mt-7 w-full bg-violet-600 border-violet-300 hover:bg-violet-500" autoFocus>スタート</GameButton>
+            <p className="mt-2 text-xs font-bold text-slate-400"><kbd className="rounded border border-slate-500 bg-slate-900 px-1.5 py-0.5">Enter</kbd> でも始められます</p>
             <button onClick={quitVersusMatch} className="mt-4 text-sm font-bold text-slate-400 underline underline-offset-4 hover:text-white">タイトルへ戻る</button>
           </Box>
         </ScreenContainer>
@@ -7286,7 +7300,7 @@ export default function App() {
           </div>
           <div className="py-10 text-center">
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
-            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => speakWithSettings(currentQuestion.text)} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
             <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
@@ -7313,7 +7327,8 @@ export default function App() {
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>もう一度バトルする</GameButton></div>
+          <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))} autoFocus>もう一度バトルする</GameButton></div>
+          <p className="mt-3 text-center text-xs font-bold text-slate-400"><kbd className="rounded border border-slate-500 bg-slate-900 px-1.5 py-0.5">Enter</kbd> でも次のバトル設定へ進めます</p>
         </Box>
       </ScreenContainer>
     );
