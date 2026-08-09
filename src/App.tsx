@@ -8164,6 +8164,7 @@ export default function App() {
                        <span>ボタン / Right Ctrl</span>
                      </div>
                    </div>
+                   <div className="battle-action-buttons flex w-full gap-2 sm:w-auto sm:justify-end">
                    <button
                      type="button"
                      onClick={() => {
@@ -8172,7 +8173,7 @@ export default function App() {
                      }}
                      title={isCurrentQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
                      aria-pressed={isCurrentQuestionMarked}
-                      className={`battle-bookmark inline-flex items-center justify-center gap-2 self-end rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 md:self-auto ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
+                      className={`battle-bookmark inline-flex flex-1 items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 sm:flex-none ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
                    >
                      <Bookmark size={18} fill={isCurrentQuestionMarked ? 'currentColor' : 'none'} />
                      <span>{isCurrentQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
@@ -8182,11 +8183,12 @@ export default function App() {
                      onClick={handleSkip}
                      title="この問題をスキップ"
                      aria-label="この問題をスキップ"
-                      className="battle-skip inline-flex items-center justify-center gap-2 self-end rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-sm font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)] transition-all hover:scale-[1.02] hover:from-amber-400 hover:to-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 md:self-auto"
+                      className="battle-skip inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-sm font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)] transition-all hover:scale-[1.02] hover:from-amber-400 hover:to-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 sm:flex-none"
                    >
                      <SkipForward size={18} />
                      <span>Skip</span>
                    </button>
+                   </div>
                  </div>
                   <div className="battle-translation text-center mb-2 min-h-[24px]">
                    {showJapanese && (
