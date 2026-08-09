@@ -3805,11 +3805,11 @@ export default function App() {
   );
 
   const getVersusSpeedBonus = (charsPerSecond: number) => {
-    if (charsPerSecond >= 4) return 50;
-    if (charsPerSecond >= 3.2) return 40;
-    if (charsPerSecond >= 2.4) return 30;
-    if (charsPerSecond >= 1.6) return 20;
-    if (charsPerSecond >= 0.8) return 10;
+    if (charsPerSecond >= 4) return 100;
+    if (charsPerSecond >= 3.2) return 80;
+    if (charsPerSecond >= 2.4) return 60;
+    if (charsPerSecond >= 1.6) return 40;
+    if (charsPerSecond >= 0.8) return 20;
     return 0;
   };
 
@@ -3929,7 +3929,7 @@ export default function App() {
     const durationMs = Math.max(Date.now() - startedAt, 100);
     const charsPerSecond = answer.length / (durationMs / 1000);
     const isPerfect = versusQuestionMisses === 0;
-    const gainedScore = 100 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond);
+    const gainedScore = Math.max(0, 100 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond) - versusQuestionMisses * 15);
     const isLastQuestion = versusQuestionIndex >= VERSUS_QUESTION_COUNT - 1;
     const isLastPlayer = versusPlayerIndex >= versusPlayers.length - 1;
     const isSoloChallenge = versusPlayers.length === 1;
@@ -7213,7 +7213,7 @@ export default function App() {
 
             <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-sm text-amber-100">
               <p className="font-black">採点ルール</p>
-              <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大50点追加です。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
+              <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大100点追加です。ミスは1回につき15点減点（その問題の最低点は0点）。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
             </div>
             <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-4 md:col-span-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
