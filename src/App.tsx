@@ -8266,7 +8266,26 @@ export default function App() {
               <div className="battle-footer-label mt-2 text-center"><span className="text-slate-500 text-[10px] uppercase tracking-widest border border-slate-700 px-2 py-0.5 rounded bg-slate-900">Type the spell to attack</span></div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
-                @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }`}</style>
+                @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }
+                @media (min-width: 961px) and (max-width: 1366px) and (orientation: landscape) {
+                  .battle-screen .battle-main { margin-top: 0.35rem; padding: 0 0.75rem 1rem; }
+                  .battle-screen .battle-monster-area { margin-bottom: 0.35rem; }
+                  .battle-screen .battle-combo { display: none; }
+                  .battle-screen .battle-dialogue { display: block; position: absolute; top: 0.25rem; left: calc(50% + 3.5rem); z-index: 20; max-width: min(17rem, calc(50vw - 4.5rem)); margin: 0; }
+                  .battle-screen .battle-dialogue > div { padding: 0.4rem 0.6rem; font-size: 10px; line-height: 1.35; }
+                  .battle-screen .battle-dialogue > div > div { left: 1.25rem; transform: rotate(45deg); }
+                  .battle-screen .battle-avatar { transform: scale(0.72); transform-origin: center; height: 104px; margin: -18px 0 -14px; }
+                  .battle-screen .battle-hp { width: 220px; margin-top: 0; padding: 0.4rem; }
+                  .battle-screen .battle-hp .h-3 { height: 0.5rem; }
+                  .battle-screen .battle-card { margin-top: 0.4rem; padding: 0.75rem; }
+                  .battle-screen .battle-controls { margin-bottom: 0.45rem; gap: 0.45rem; }
+                  .battle-screen .battle-replay, .battle-screen .battle-bookmark, .battle-screen .battle-skip { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+                  .battle-screen .battle-translation { min-height: 0; margin-bottom: 0.25rem; }
+                  .battle-screen .battle-question-panel { padding: 0.5rem 0.75rem; }
+                  .battle-screen .battle-question-text { min-height: 2.3em !important; }
+                  .battle-screen .battle-previous-study { margin-top: 0.5rem; padding: 0.4rem 0.65rem; }
+                  .battle-screen .battle-footer-label { display: none; }
+                }`}</style>
       </ScreenContainer>
     );
   }
