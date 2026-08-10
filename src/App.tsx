@@ -328,6 +328,8 @@ const HIDDEN_BOSS_HP_MULTIPLIERS: Record<Exclude<BossStage, 0 | 1>, number> = {
   3: 4,
   4: 5,
 };
+const EIKEN5_LEVEL2_GUIDE_HP_CURVE = [260, 290, 320, 350, 380, 400, 415, 430, 440, 450, 460, 470, 480, 490, 500, 505, 510, 515, 520, 520];
+const EIKEN5_LEVEL2_BATTLE_HP_CURVE = [1050, 1220, 1380, 1530, 1650, 1680, 1700, 1710, 1720, 1730, 1740, 1750, 1760, 1770, 1780, 1790, 1800, 1810, 1820];
 
 const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
   mode === 'challenge' && (inputMode === 'voice-only' || inputMode === 'text-only')
@@ -354,8 +356,15 @@ const getBossStage = (
   return stepIndex >= Math.max(totalMonsters - 1, 0) ? 1 : 0;
 };
 
-const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
+const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
+  if (difficulty === 'Eiken5' && level === 2) {
+    if (bossStage === 1) return 12;
+    if (bossStage === 2) return 16;
+    if (bossStage === 3) return 18;
+    if (bossStage === 4) return 20;
+    return 8;
+  }
   if (bossStage === 1) return FINAL_BOSS_QUESTION_LIMIT;
   if (bossStage === 2 || bossStage === 3 || bossStage === 4) {
     return HIDDEN_BOSS_QUESTION_LIMITS[bossStage];
@@ -365,31 +374,56 @@ const getBattleQuestionLimit = (mode: Mode, bossStage: BossStage) => {
 
 const getBattleHp = (
   difficulty: Difficulty,
+  level: Level,
   baseHp: number,
   bossStage: BossStage
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
+  const isEiken5Level2 = difficulty === 'Eiken5' && level === 2;
   const bossHpMultiplier = bossStage === 1
-    ? FINAL_BOSS_HP_MULTIPLIER
-    : (bossStage === 2 || bossStage === 3 || bossStage === 4)
-      ? HIDDEN_BOSS_HP_MULTIPLIERS[bossStage]
-      : 1;
+    ? (isEiken5Level2 ? 1.5 : FINAL_BOSS_HP_MULTIPLIER)
+    : bossStage === 2
+      ? (isEiken5Level2 ? 2 : HIDDEN_BOSS_HP_MULTIPLIERS[2])
+      : bossStage === 3
+        ? (isEiken5Level2 ? 2.25 : HIDDEN_BOSS_HP_MULTIPLIERS[3])
+        : bossStage === 4
+          ? (isEiken5Level2 ? 2.5 : HIDDEN_BOSS_HP_MULTIPLIERS[4])
+          : 1;
   return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier);
+};
+
+const getCourseBaseHp = (
+  difficulty: Difficulty,
+  level: Level,
+  mode: Mode,
+  inputMode: InputMode,
+  stepIndex: number,
+  defaultBaseHp: number
+) => {
+  if (difficulty !== 'Eiken5' || level !== 2) return defaultBaseHp;
+
+  const curve = mode === 'guide' || inputMode === 'voice-text'
+    ? EIKEN5_LEVEL2_GUIDE_HP_CURVE
+    : EIKEN5_LEVEL2_BATTLE_HP_CURVE;
+  return curve[Math.min(Math.max(stepIndex, 0), curve.length - 1)] ?? defaultBaseHp;
 };
 
 const getBattleTuning = (
   difficulty: Difficulty,
+  level: Level,
   mode: Mode,
   inputMode: InputMode,
+  stepIndex: number,
   baseHp: number,
   bossStage: BossStage
 ) => {
-  const monsterHp = getBattleHp(difficulty, baseHp, bossStage);
+  const courseBaseHp = getCourseBaseHp(difficulty, level, mode, inputMode, stepIndex, baseHp);
+  const monsterHp = getBattleHp(difficulty, level, courseBaseHp, bossStage);
 
   return {
     monsterHp,
     damageMultiplier: getBattleDamageMultiplier(mode, inputMode),
-    maxQuestions: getBattleQuestionLimit(mode, bossStage),
+    maxQuestions: getBattleQuestionLimit(difficulty, level, mode, bossStage),
   };
 };
 
@@ -5155,7 +5189,7 @@ export default function App() {
     const actualMonsterIndex = safeIndices[safeStepIndex] ?? 0;
     const startingMonster = monsterList[actualMonsterIndex] ?? monsterList[0];
     const bossStage = getBossStage(mode, inputMode, safeStepIndex, totalMonsters);
-    const battleTuning = getBattleTuning(diff, mode, inputMode, startingMonster.baseHp, bossStage);
+    const battleTuning = getBattleTuning(diff, level, mode, inputMode, safeStepIndex, startingMonster.baseHp, bossStage);
     const startingMonsterHp = battleTuning.monsterHp;
     const maxQuestions = battleTuning.maxQuestions;
     const useBossBattleMusic = startingMonster?.type === 'boss' || bossStage > 0;
@@ -5608,17 +5642,20 @@ export default function App() {
       isEikenLongTextGuide,
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
-    const missDamageMultiplier = !isEikenLongTextGuide
-      ? 0.5
-      : gameState.missCount === 0
-        ? 1
-        : gameState.missCount === 1
-          ? 0.95
-          : gameState.missCount === 2
-            ? 0.9
-            : gameState.missCount === 3
-              ? 0.8
-              : 0.7;
+    const isEiken5Level2 = gameState.selectedDifficulty === 'Eiken5' && gameState.selectedLevel === 2;
+    const missDamageMultiplier = isEiken5Level2
+      ? Math.max(0.85, 1 - (gameState.missCount / Math.max(charCount, 1)))
+      : !isEikenLongTextGuide
+        ? 0.5
+        : gameState.missCount === 0
+          ? 1
+          : gameState.missCount === 1
+            ? 0.95
+            : gameState.missCount === 2
+              ? 0.9
+              : gameState.missCount === 3
+                ? 0.8
+                : 0.7;
     if (isEikenLongTextGuide) {
       // 通常モンスターは、10問中5問程度の小さなケアレスミスで詰まらない余白を持たせる。
       // ラスボスは20問中、各文で1回程度の修正なら倒せるが、繰り返しのミスでは届かない。
@@ -5923,7 +5960,8 @@ export default function App() {
       inputMode: InputMode
     ) => {
       const bossStage = getBossStage(mode, inputMode, monsterIndex, monsters.length);
-      return getBattleHp(bookDifficulty, monster.baseHp, bossStage);
+      const courseBaseHp = getCourseBaseHp(bookDifficulty, bookLevel, mode, inputMode, monsterIndex, monster.baseHp);
+      return getBattleHp(bookDifficulty, bookLevel, courseBaseHp, bossStage);
     };
     const totalDefeated = guideDefeatedCount + challengeDefeatedCount;
     return (
@@ -7416,7 +7454,12 @@ export default function App() {
     const nextBattleMonster = nextBattleList[nextBattleMonsterIndex] ?? nextBattleList[0];
     const nextBattleBossStage = getBossStage(nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleIndices.length);
     const nextBattleHp = nextBattleMonster
-      ? getBattleHp(gameState.selectedDifficulty, nextBattleMonster.baseHp, nextBattleBossStage)
+      ? getBattleHp(
+          gameState.selectedDifficulty,
+          gameState.selectedLevel,
+          getCourseBaseHp(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleMonster.baseHp),
+          nextBattleBossStage
+        )
       : 0;
     const nextBattleProgress = nextBattleStep >= 0 ? nextBattleStep : nextBattleIndices.length;
     const nextBattleIsComplete = nextBattleStep < 0;
