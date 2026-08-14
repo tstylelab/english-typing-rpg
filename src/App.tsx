@@ -7256,9 +7256,9 @@ export default function App() {
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {([
                   ['spelling', 'スペル表示', '英単語を見て入力'],
-                  ['listening', 'リスニング', '音声だけを聞いて入力'],
-                  ['translation', '和訳', '日本語の意味だけを見て入力'],
                   ['listening-translation', 'リスニング＋和訳', '音を聞き、日本語の意味を見て入力'],
+                  ['translation', '和訳', '日本語の意味だけを見て入力'],
+                  ['listening', 'リスニング', '音声だけを聞いて入力'],
                   ['mixed', 'おまかせ', '4種類を問題ごとにランダム出題'],
                 ] as const).map(([mode, label, description]) => (
                   <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-3 text-left ${mode === 'mixed' ? 'sm:col-span-2' : ''} ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
