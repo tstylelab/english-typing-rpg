@@ -15,7 +15,7 @@ type BattleResult = 'win' | 'lose' | 'draw' | null;
 type SpeechVoiceMode = 'random' | 'us_female' | 'us_male' | 'uk_female' | 'uk_male';
 type BossStage = 0 | 1 | 2 | 3 | 4;
 type BattleHistoryItem = { damage: number; speed: number };
-type VersusPromptMode = 'spelling' | 'listening' | 'translation';
+type VersusPromptMode = 'spelling' | 'listening' | 'translation' | 'listening-translation';
 type VersusPromptSelection = VersusPromptMode | 'mixed';
 
 type VersusQuestion = {
@@ -330,6 +330,8 @@ const HIDDEN_BOSS_HP_MULTIPLIERS: Record<Exclude<BossStage, 0 | 1>, number> = {
 };
 const EIKEN5_LEVEL2_GUIDE_HP_CURVE = [260, 290, 320, 350, 380, 400, 415, 430, 440, 450, 460, 470, 480, 490, 500, 505, 510, 515, 520, 520];
 const EIKEN5_LEVEL2_BATTLE_HP_CURVE = [1050, 1220, 1380, 1530, 1650, 1680, 1700, 1710, 1720, 1730, 1740, 1750, 1760, 1770, 1780, 1790, 1800, 1810, 1820];
+const EIKEN5_LEVEL3_GUIDE_HP_CURVE = [340, 380, 420, 460, 500, 530, 550, 570, 580, 590, 610, 620, 630, 650, 660, 670, 670, 680, 680, 680];
+const EIKEN5_LEVEL3_BATTLE_HP_CURVE = [1380, 1610, 1820, 2010, 2170, 2210, 2240, 2250, 2270, 2280, 2290, 2300, 2320, 2330, 2340, 2360, 2370, 2380, 2400];
 
 const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
   mode === 'challenge' && (inputMode === 'voice-only' || inputMode === 'text-only')
@@ -365,6 +367,13 @@ const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode
     if (bossStage === 4) return 20;
     return 8;
   }
+  if (difficulty === 'Eiken5' && level === 3) {
+    if (bossStage === 1) return 10;
+    if (bossStage === 2) return 12;
+    if (bossStage === 3) return 14;
+    if (bossStage === 4) return 16;
+    return 6;
+  }
   if (bossStage === 1) return FINAL_BOSS_QUESTION_LIMIT;
   if (bossStage === 2 || bossStage === 3 || bossStage === 4) {
     return HIDDEN_BOSS_QUESTION_LIMITS[bossStage];
@@ -380,14 +389,15 @@ const getBattleHp = (
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
   const isEiken5Level2 = difficulty === 'Eiken5' && level === 2;
+  const isEiken5Level3 = difficulty === 'Eiken5' && level === 3;
   const bossHpMultiplier = bossStage === 1
-    ? (isEiken5Level2 ? 1.5 : FINAL_BOSS_HP_MULTIPLIER)
+    ? (isEiken5Level2 ? 1.5 : isEiken5Level3 ? 1.25 : FINAL_BOSS_HP_MULTIPLIER)
     : bossStage === 2
-      ? (isEiken5Level2 ? 2 : HIDDEN_BOSS_HP_MULTIPLIERS[2])
+      ? (isEiken5Level2 ? 2 : isEiken5Level3 ? 1.5 : HIDDEN_BOSS_HP_MULTIPLIERS[2])
       : bossStage === 3
-        ? (isEiken5Level2 ? 2.25 : HIDDEN_BOSS_HP_MULTIPLIERS[3])
+        ? (isEiken5Level2 ? 2.25 : isEiken5Level3 ? 1.75 : HIDDEN_BOSS_HP_MULTIPLIERS[3])
         : bossStage === 4
-          ? (isEiken5Level2 ? 2.5 : HIDDEN_BOSS_HP_MULTIPLIERS[4])
+          ? (isEiken5Level2 ? 2.5 : isEiken5Level3 ? 2 : HIDDEN_BOSS_HP_MULTIPLIERS[4])
           : 1;
   return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier);
 };
@@ -400,11 +410,11 @@ const getCourseBaseHp = (
   stepIndex: number,
   defaultBaseHp: number
 ) => {
-  if (difficulty !== 'Eiken5' || level !== 2) return defaultBaseHp;
+  if (difficulty !== 'Eiken5' || (level !== 2 && level !== 3)) return defaultBaseHp;
 
-  const curve = mode === 'guide' || inputMode === 'voice-text'
-    ? EIKEN5_LEVEL2_GUIDE_HP_CURVE
-    : EIKEN5_LEVEL2_BATTLE_HP_CURVE;
+  const curve = level === 2
+    ? (mode === 'guide' || inputMode === 'voice-text' ? EIKEN5_LEVEL2_GUIDE_HP_CURVE : EIKEN5_LEVEL2_BATTLE_HP_CURVE)
+    : (mode === 'guide' || inputMode === 'voice-text' ? EIKEN5_LEVEL3_GUIDE_HP_CURVE : EIKEN5_LEVEL3_BATTLE_HP_CURVE);
   return curve[Math.min(Math.max(stepIndex, 0), curve.length - 1)] ?? defaultBaseHp;
 };
 
@@ -3909,7 +3919,9 @@ export default function App() {
 
     const sharedQuestions = shuffleQuestions(playableQuestions).slice(0, VERSUS_QUESTION_COUNT);
     const mixedPromptModes = shuffleQuestions<VersusPromptMode>(
-      Array.from({ length: VERSUS_QUESTION_COUNT }, (_, index) => ['spelling', 'listening', 'translation'][index % 3] as VersusPromptMode)
+      Array.from({ length: VERSUS_QUESTION_COUNT }, (_, index) => (
+        ['spelling', 'listening', 'translation', 'listening-translation'][index % 4] as VersusPromptMode
+      ))
     );
     const sharedVersusQuestions = sharedQuestions.map((question, index) => ({
       question,
@@ -4027,7 +4039,7 @@ export default function App() {
     if (!normalizedAnswer.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setVersusQuestionMisses(count => count + 1);
-      if (currentVersusQuestion.promptMode === 'listening' || currentVersusQuestion.promptMode === 'translation') {
+      if (currentVersusQuestion.promptMode === 'listening' || currentVersusQuestion.promptMode === 'translation' || currentVersusQuestion.promptMode === 'listening-translation') {
         setVersusHintLength(length => Math.min(length + 1, currentQuestion.text.length));
       }
       setVersusInput(versusInput);
@@ -4181,7 +4193,7 @@ export default function App() {
 
   useEffect(() => {
     const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
-    if (gameState.screen !== 'versus-play' || versusShowHandoff || currentVersusQuestion?.promptMode !== 'listening') return;
+    if (gameState.screen !== 'versus-play' || versusShowHandoff || (currentVersusQuestion?.promptMode !== 'listening' && currentVersusQuestion?.promptMode !== 'listening-translation')) return;
     speakWithSettings(currentVersusQuestion.question.text);
   }, [gameState.screen, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
 
@@ -5253,7 +5265,7 @@ export default function App() {
             }
             if (!versusShowHandoff) {
                 const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
-                if (isRightCtrlKey && !e.repeat && currentVersusQuestion?.promptMode === 'listening') {
+                if (isRightCtrlKey && !e.repeat && (currentVersusQuestion?.promptMode === 'listening' || currentVersusQuestion?.promptMode === 'listening-translation')) {
                     e.preventDefault();
                     speakWithSettings(currentVersusQuestion.question.text);
                 }
@@ -5642,9 +5654,9 @@ export default function App() {
       isEikenLongTextGuide,
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
-    const isEiken5Level2 = gameState.selectedDifficulty === 'Eiken5' && gameState.selectedLevel === 2;
-    const missDamageMultiplier = isEiken5Level2
-      ? Math.max(0.85, 1 - (gameState.missCount / Math.max(charCount, 1)))
+    const isEiken5LongTextLevel = gameState.selectedDifficulty === 'Eiken5' && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3);
+    const missDamageMultiplier = isEiken5LongTextLevel
+      ? Math.max(gameState.selectedLevel === 3 ? 0.8 : 0.75, 1 - (gameState.missCount / Math.max(charCount, 1)))
       : !isEikenLongTextGuide
         ? 0.5
         : gameState.missCount === 0
@@ -7210,7 +7222,7 @@ export default function App() {
     const isSoloSetup = versusNameDrafts.length === 1;
     const setupTitle = isSoloSetup ? 'ひとりで20問バトル！' : 'みんなで20問バトル！';
     const currentVersusRanking = versusRankings[getVersusRankingKey()] ?? [];
-    const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
+    const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', 'listening-translation': 'リスニング＋和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
       <ScreenContainer className="items-center justify-center p-4">
         <Box title={setupTitle} className="w-full max-w-5xl">
@@ -7246,9 +7258,10 @@ export default function App() {
                   ['spelling', 'スペル表示', '英単語を見て入力'],
                   ['listening', 'リスニング', '音声だけを聞いて入力'],
                   ['translation', '和訳', '日本語の意味だけを見て入力'],
-                  ['mixed', 'おまかせ', '3種類を問題ごとにランダム出題'],
+                  ['listening-translation', 'リスニング＋和訳', '音を聞き、日本語の意味を見て入力'],
+                  ['mixed', 'おまかせ', '4種類を問題ごとにランダム出題'],
                 ] as const).map(([mode, label, description]) => (
-                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-3 text-left ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
+                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-3 text-left ${mode === 'mixed' ? 'sm:col-span-2' : ''} ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
                     <p className="font-black">{label}</p>
                     <p className="mt-1 text-xs font-bold opacity-80">{description}</p>
                   </button>
@@ -7349,6 +7362,7 @@ export default function App() {
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
             {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
+            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {versusHint && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl tracking-[0.14em] text-white">{versusHint}</span><span className="ml-2 text-xs text-slate-400">ミスごとに1文字ずつ表示</span></p>}
             <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
