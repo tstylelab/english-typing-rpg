@@ -17,6 +17,7 @@ type BossStage = 0 | 1 | 2 | 3 | 4;
 type BattleHistoryItem = { damage: number; speed: number };
 type VersusPromptMode = 'spelling' | 'listening' | 'translation' | 'listening-translation';
 type VersusPromptSelection = VersusPromptMode | 'mixed';
+type VersusCourseSelection = { difficulty: Difficulty; level: Level };
 
 type VersusQuestion = {
   question: Question;
@@ -26,6 +27,8 @@ type VersusQuestion = {
 type VersusPlayer = {
   id: string;
   name: string;
+  difficulty: Difficulty;
+  level: Level;
   score: number;
   scoreMultiplier: number;
   perfectCount: number;
@@ -252,6 +255,7 @@ const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_QUESTION_COUNT = 20;
 const VERSUS_RANKING_LIMIT = 10;
+const DEFAULT_VERSUS_COURSE_SELECTION: VersusCourseSelection = { difficulty: 'Eiken5', level: 1 };
 const VERSUS_SCORE_MULTIPLIER_OPTIONS = Array.from({ length: 15 }, (_, index) => {
   const value = Number((0.7 + index * 0.05).toFixed(2));
   return { value, label: value === 1 ? '標準 1.00倍' : `${value.toFixed(2)}倍` };
@@ -3489,8 +3493,10 @@ export default function App() {
   const [progressTransferStatus, setProgressTransferStatus] = useState('');
   const [versusNameDrafts, setVersusNameDrafts] = useState(['プレイヤー1', 'プレイヤー2']);
   const [versusScoreMultipliers, setVersusScoreMultipliers] = useState<number[]>([1, 1]);
-  const [versusDifficulty, setVersusDifficulty] = useState<Difficulty>('Eiken5');
-  const [versusLevel, setVersusLevel] = useState<Level>(1);
+  const [versusCourseSelections, setVersusCourseSelections] = useState<VersusCourseSelection[]>([
+    DEFAULT_VERSUS_COURSE_SELECTION,
+    DEFAULT_VERSUS_COURSE_SELECTION,
+  ]);
   const [versusPromptSelection, setVersusPromptSelection] = useState<VersusPromptSelection>('spelling');
   const [versusPlayers, setVersusPlayers] = useState<VersusPlayer[]>([]);
   const [versusQuestionOrders, setVersusQuestionOrders] = useState<VersusQuestion[][]>([]);
@@ -3850,11 +3856,11 @@ export default function App() {
   );
 
   const getVersusSpeedBonus = (charsPerSecond: number) => {
-    if (charsPerSecond >= 4) return 100;
-    if (charsPerSecond >= 3.2) return 80;
-    if (charsPerSecond >= 2.4) return 60;
-    if (charsPerSecond >= 1.6) return 40;
-    if (charsPerSecond >= 0.8) return 20;
+    if (charsPerSecond >= 4) return 50;
+    if (charsPerSecond >= 3.2) return 40;
+    if (charsPerSecond >= 2.4) return 30;
+    if (charsPerSecond >= 1.6) return 20;
+    if (charsPerSecond >= 0.8) return 10;
     return 0;
   };
 
@@ -3862,12 +3868,20 @@ export default function App() {
     Math.round(player.score * player.scoreMultiplier)
   );
 
-  const getVersusBestScoreKey = () => (
-    `${activePlayerId || 'default'}:${versusDifficulty}:${versusLevel}:${versusPromptSelection}`
+  const getActiveVersusCourseSelections = () => (
+    versusNameDrafts.flatMap((name, index) => (
+      name.trim() ? [versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION] : []
+    ))
   );
 
-  const getVersusRankingKey = () => (
-    `${versusDifficulty}:${versusLevel}:${versusPromptSelection}`
+  const getVersusBestScoreKey = (course: VersusCourseSelection = getActiveVersusCourseSelections()[0] ?? DEFAULT_VERSUS_COURSE_SELECTION) => (
+    `${activePlayerId || 'default'}:${course.difficulty}:${course.level}:${versusPromptSelection}`
+  );
+
+  const getVersusRankingKey = (courses: VersusCourseSelection[] = getActiveVersusCourseSelections()) => (
+    courses.length > 0 && courses.every(course => course.difficulty === courses[0].difficulty && course.level === courses[0].level)
+      ? `${courses[0].difficulty}:${courses[0].level}:${versusPromptSelection}`
+      : `players:${courses.map(course => `${course.difficulty}:${course.level}`).join('|')}:${versusPromptSelection}`
   );
 
   const compareVersusRankingEntries = (a: VersusRankingEntry, b: VersusRankingEntry) => (
@@ -3875,7 +3889,7 @@ export default function App() {
   );
 
   const saveVersusRanking = (completedPlayers: VersusPlayer[]) => {
-    const rankingKey = getVersusRankingKey();
+    const rankingKey = getVersusRankingKey(completedPlayers.map(player => ({ difficulty: player.difficulty, level: player.level })));
     const recordedAt = Date.now();
     setVersusRankings(previousRankings => {
       const bestByName = new Map<string, VersusRankingEntry>();
@@ -3905,38 +3919,51 @@ export default function App() {
       return trimmedName ? [{
         name: trimmedName,
         scoreMultiplier: versusNameDrafts.length === 1 ? 1 : versusScoreMultipliers[index] ?? 1,
+        course: versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION,
       }] : [];
     });
-    const playableQuestions = getScopedPlayableQuestions(versusDifficulty, versusLevel);
     if (playerDrafts.length < 1) {
       setVersusSetupError('1人以上の名前を入力してください。');
       return;
     }
-    if (playableQuestions.length < VERSUS_QUESTION_COUNT) {
-      setVersusSetupError('この範囲には対戦に必要な20問がありません。');
+    const playerWithoutEnoughQuestions = playerDrafts.find(player => (
+      getScopedPlayableQuestions(player.course.difficulty, player.course.level).length < VERSUS_QUESTION_COUNT
+    ));
+    if (playerWithoutEnoughQuestions) {
+      setVersusSetupError(`${playerWithoutEnoughQuestions.name}の教材には、対戦に必要な20問がありません。`);
       return;
     }
 
-    const sharedQuestions = shuffleQuestions(playableQuestions).slice(0, VERSUS_QUESTION_COUNT);
-    const mixedPromptModes = shuffleQuestions<VersusPromptMode>(
-      Array.from({ length: VERSUS_QUESTION_COUNT }, (_, index) => (
-        ['spelling', 'listening', 'translation', 'listening-translation'][index % 4] as VersusPromptMode
-      ))
-    );
-    const sharedVersusQuestions = sharedQuestions.map((question, index) => ({
-      question,
-      promptMode: versusPromptSelection === 'mixed' ? mixedPromptModes[index] : versusPromptSelection,
-    }));
     setVersusPlayers(playerDrafts.map((player, index) => ({
       id: `versus-${Date.now()}-${index}`,
       name: player.name,
+      difficulty: player.course.difficulty,
+      level: player.course.level,
       score: 0,
       scoreMultiplier: player.scoreMultiplier,
       perfectCount: 0,
       missCount: 0,
       totalTimeMs: 0,
     })));
-    setVersusQuestionOrders(playerDrafts.map(() => shuffleQuestions(sharedVersusQuestions)));
+    const sharedQuestionSetsByCourse = new Map<string, VersusQuestion[]>();
+    setVersusQuestionOrders(playerDrafts.map(player => {
+      const courseKey = `${player.course.difficulty}:${player.course.level}`;
+      let sharedQuestionSet = sharedQuestionSetsByCourse.get(courseKey);
+      if (!sharedQuestionSet) {
+        const questions = shuffleQuestions(getScopedPlayableQuestions(player.course.difficulty, player.course.level)).slice(0, VERSUS_QUESTION_COUNT);
+        const mixedPromptModes = shuffleQuestions<VersusPromptMode>(
+          Array.from({ length: VERSUS_QUESTION_COUNT }, (_, index) => (
+            ['spelling', 'listening', 'translation', 'listening-translation'][index % 4] as VersusPromptMode
+          ))
+        );
+        sharedQuestionSet = questions.map((question, index) => ({
+          question,
+          promptMode: versusPromptSelection === 'mixed' ? mixedPromptModes[index] : versusPromptSelection,
+        }));
+        sharedQuestionSetsByCourse.set(courseKey, sharedQuestionSet);
+      }
+      return shuffleQuestions(sharedQuestionSet);
+    }));
     setVersusPlayerIndex(0);
     setVersusQuestionIndex(0);
     setVersusInput('');
@@ -3945,7 +3972,7 @@ export default function App() {
     setVersusQuestionStartedAt(null);
     setVersusShowHandoff(true);
     setVersusSetupError('');
-    const bestScoreKey = getVersusBestScoreKey();
+    const bestScoreKey = getVersusBestScoreKey(playerDrafts[0]?.course);
     setVersusBestScoreKey(bestScoreKey);
     setVersusPreviousBestScore(versusBestScores[bestScoreKey] ?? 0);
     setVersusIsNewBest(false);
@@ -3979,7 +4006,7 @@ export default function App() {
     const durationMs = Math.max(Date.now() - startedAt, 100);
     const charsPerSecond = answer.length / (durationMs / 1000);
     const isPerfect = versusQuestionMisses === 0;
-    const gainedScore = Math.max(0, 100 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond) - versusQuestionMisses * 15);
+    const gainedScore = Math.max(0, 50 + (isPerfect ? 50 : 0) + getVersusSpeedBonus(charsPerSecond) - versusQuestionMisses * 15);
     const isLastQuestion = versusQuestionIndex >= VERSUS_QUESTION_COUNT - 1;
     const isLastPlayer = versusPlayerIndex >= versusPlayers.length - 1;
     const isSoloChallenge = versusPlayers.length === 1;
@@ -7218,10 +7245,11 @@ export default function App() {
   }
 
   if (gameState.screen === 'versus-setup') {
-    const availableVersusLevels = getAvailableLevels(versusDifficulty);
     const isSoloSetup = versusNameDrafts.length === 1;
     const setupTitle = isSoloSetup ? 'ひとりで20問バトル！' : 'みんなで20問バトル！';
     const currentVersusRanking = versusRankings[getVersusRankingKey()] ?? [];
+    const activeVersusCourses = getActiveVersusCourseSelections();
+    const courseSummary = [...new Set(activeVersusCourses.map(course => `${DIFFICULTY_LABELS[course.difficulty]} Level ${course.level}`))].join(' ・ ');
     const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', 'listening-translation': 'リスニング＋和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
       <ScreenContainer className="items-center justify-center p-4">
@@ -7234,20 +7262,13 @@ export default function App() {
             </div>
 
             <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-3">
-              <p className="text-sm font-black text-cyan-200">1. 出題範囲を選ぶ</p>
+              <p className="text-sm font-black text-cyan-200">1. 参加者ごとの教材</p>
+              <p className="mt-2 text-sm font-bold text-slate-200">名前の下で、それぞれ教材とLevelを選びます。</p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {DIFFICULTIES.map(difficulty => (
-                  <button key={difficulty} onClick={() => { setVersusDifficulty(difficulty); setVersusLevel(getSafeLevelForDifficulty(difficulty, versusLevel)); }} className={`rounded-lg border px-4 py-2 font-black ${versusDifficulty === difficulty ? 'border-cyan-300 bg-cyan-600 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
-                    {DIFFICULTY_LABELS[difficulty]}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {availableVersusLevels.map(level => (
-                  <button key={level} onClick={() => setVersusLevel(level)} className={`rounded-lg border px-4 py-2 font-black ${versusLevel === level ? 'border-emerald-300 bg-emerald-600 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
-                    Level {level}
-                  </button>
-                ))}
+                {versusNameDrafts.map((name, index) => {
+                  const course = versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION;
+                  return <span key={`${name}-${index}`} className="rounded-lg border border-cyan-400/30 bg-cyan-950/35 px-3 py-2 text-xs font-bold text-cyan-100">{name.trim() || `参加者${index + 1}`}：{DIFFICULTY_LABELS[course.difficulty]} Level {course.level}</span>;
+                })}
               </div>
             </div>
 
@@ -7269,17 +7290,29 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3">
+            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3 md:col-span-2">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-violet-200">3. 名前を入力（1〜5人）</p>
-                {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => { setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`]); setVersusScoreMultipliers(multipliers => [...multipliers, 1]); }}>＋ 参加者を追加</GameButton>}
+                <p className="text-sm font-black text-violet-200">3. 名前・教材・得点倍率を入力（1〜5人）</p>
+                {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => { setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`]); setVersusScoreMultipliers(multipliers => [...multipliers, 1]); setVersusCourseSelections(courses => [...courses, courses[0] ?? DEFAULT_VERSUS_COURSE_SELECTION]); }}>＋ 参加者を追加</GameButton>}
               </div>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {versusNameDrafts.map((name, index) => (
                   <div key={index} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
                     <div className="flex items-center gap-2">
                       <input value={name} maxLength={20} onChange={event => setVersusNameDrafts(names => names.map((currentName, currentIndex) => currentIndex === index ? event.target.value : currentName))} className="min-w-0 flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 font-bold text-white outline-none focus:border-violet-300" aria-label={`参加者${index + 1}の名前`} />
-                      {versusNameDrafts.length > 1 && <button onClick={() => { setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index)); setVersusScoreMultipliers(multipliers => multipliers.filter((_, currentIndex) => currentIndex !== index)); }} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
+                      {versusNameDrafts.length > 1 && <button onClick={() => { setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index)); setVersusScoreMultipliers(multipliers => multipliers.filter((_, currentIndex) => currentIndex !== index)); setVersusCourseSelections(courses => courses.filter((_, currentIndex) => currentIndex !== index)); }} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label className="min-w-0 text-xs font-bold text-violet-100">教材
+                        <select value={(versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION).difficulty} onChange={event => setVersusCourseSelections(courses => courses.map((course, currentIndex) => currentIndex === index ? { difficulty: event.target.value as Difficulty, level: getSafeLevelForDifficulty(event.target.value as Difficulty, course.level) } : course))} className="mt-1 w-full rounded-lg border border-violet-400/45 bg-slate-900 px-2 py-1.5 text-sm font-black text-white" aria-label={`${name || `参加者${index + 1}`}の教材`}>
+                          {DIFFICULTIES.map(difficulty => <option key={difficulty} value={difficulty}>{DIFFICULTY_LABELS[difficulty]}</option>)}
+                        </select>
+                      </label>
+                      <label className="min-w-0 text-xs font-bold text-violet-100">Level
+                        <select value={(versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION).level} onChange={event => setVersusCourseSelections(courses => courses.map((course, currentIndex) => currentIndex === index ? { ...course, level: Number(event.target.value) as Level } : course))} className="mt-1 w-full rounded-lg border border-violet-400/45 bg-slate-900 px-2 py-1.5 text-sm font-black text-white" aria-label={`${name || `参加者${index + 1}`}のLevel`}>
+                          {getAvailableLevels((versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION).difficulty).map(level => <option key={level} value={level}>Level {level}</option>)}
+                        </select>
+                      </label>
                     </div>
                     <label className="flex items-center justify-between gap-2 text-xs font-bold text-violet-100">
                       得点倍率
@@ -7299,7 +7332,7 @@ export default function App() {
             <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-4 md:col-span-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="flex items-center gap-2 text-base font-black text-yellow-200"><Trophy size={18} /> この設定のランキング</p>
-                <p className="text-xs font-bold text-slate-300">{DIFFICULTY_LABELS[versusDifficulty]} Level {versusLevel} ・ {promptSelectionLabel}</p>
+                <p className="text-xs font-bold text-slate-300">{courseSummary || '教材未選択'} ・ {promptSelectionLabel}</p>
               </div>
               {currentVersusRanking.length > 0 ? (
                 <ol className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -7343,6 +7376,7 @@ export default function App() {
             <Trophy size={58} className="mx-auto text-yellow-300" />
             <p className="mt-5 text-sm font-black uppercase tracking-[0.25em] text-violet-300">Next Player</p>
             <h1 className="mt-2 text-4xl font-black text-white">{currentPlayer.name} の番！</h1>
+            <p className="mt-3 text-lg font-black text-cyan-200">{DIFFICULTY_LABELS[currentPlayer.difficulty]} Level {currentPlayer.level}</p>
             <p className="mt-4 text-slate-300">20問を続けて入力します。ほかの人は答えを見ないでね。</p>
             <GameButton onClick={beginVersusTurn} size="lg" className="mt-7 w-full bg-violet-600 border-violet-300 hover:bg-violet-500" autoFocus>スタート</GameButton>
             <p className="mt-2 text-xs font-bold text-slate-400"><kbd className="rounded border border-slate-500 bg-slate-900 px-1.5 py-0.5">Enter</kbd> でも始められます</p>
@@ -7355,7 +7389,7 @@ export default function App() {
       <ScreenContainer className="items-center justify-center p-4">
         <Box className="w-full max-w-3xl">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-600 pb-4">
-            <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {VERSUS_QUESTION_COUNT} 問</p></div>
+            <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-xs font-bold text-cyan-200">{DIFFICULTY_LABELS[currentPlayer.difficulty]} Level {currentPlayer.level}</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {VERSUS_QUESTION_COUNT} 問</p></div>
             <div className="flex items-center gap-2"><div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在の得点</p><p className="text-2xl font-black text-white">{currentAdjustedScore}</p><p className="text-[10px] font-bold text-yellow-100/75">基本 {currentPlayer.score} × {currentPlayer.scoreMultiplier}倍</p></div><GameButton size="sm" variant="outline" onClick={quitVersusMatch}>やめる</GameButton></div>
           </div>
           <div className="py-10 text-center">
