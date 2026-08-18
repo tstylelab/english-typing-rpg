@@ -8258,7 +8258,10 @@ export default function App() {
                        <span>ボタン / Right Ctrl</span>
                      </div>
                    </div>
-                   <div className="battle-action-buttons flex w-full gap-2 sm:w-auto sm:justify-end">
+                   <div className="battle-action-buttons flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap sm:justify-end">
+                   <div role="status" aria-live="polite" className="battle-remaining inline-flex flex-1 items-center justify-center whitespace-nowrap rounded-xl border border-red-400/45 bg-red-950/30 px-4 py-2.5 text-sm font-black text-red-100 shadow-[0_0_18px_rgba(248,113,113,0.1)] sm:flex-none">
+                     あと <span className="ml-1 text-base text-white">{questionsLeft}問</span>
+                   </div>
                    <button
                      type="button"
                      onClick={() => {
@@ -8285,12 +8288,6 @@ export default function App() {
                    </div>
                  </div>
                  <div className="battle-translation text-center mb-2 min-h-[24px]">
-                  <div className="mb-3 flex justify-center">
-                    <div className="inline-flex items-center gap-3 rounded-xl border border-red-400/65 bg-red-950/65 px-5 py-2 text-base font-black text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.2)] md:px-7 md:py-2.5 md:text-xl">
-                      <span className="text-red-300">このバトルは</span>
-                      <span className="text-2xl text-white md:text-3xl">あと {questionsLeft}問</span>
-                    </div>
-                  </div>
                    {showJapanese && (
                      <div>
                        <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{gameState.currentQuestion.translation}</p>
