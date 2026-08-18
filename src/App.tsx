@@ -7261,6 +7261,12 @@ export default function App() {
               <p className="mt-2 text-sm font-bold text-slate-300">{isSoloSetup ? '20問を連続で解いて、自分の最高記録に挑戦します。' : '同じ20問で、正確さと速さを競います。普段の学習記録には残りません。'}</p>
             </div>
 
+            <div className="rounded-xl border border-fuchsia-300/55 bg-fuchsia-950/25 p-3 text-center shadow-[0_0_22px_rgba(217,70,239,0.16)] md:col-span-2">
+              <p className="mb-2 text-xs font-black text-fuchsia-100">設定ができたら、ここからすぐ開始</p>
+              <GameButton onClick={startVersusMatch} size="lg" className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500 sm:w-auto sm:min-w-80">バトルをはじめる <ArrowRight size={22} /></GameButton>
+            </div>
+            {versusSetupError && <p className="text-center font-bold text-red-300 md:col-span-2">{versusSetupError}</p>}
+
             <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-3">
               <p className="text-sm font-black text-cyan-200">1. 参加者ごとの教材</p>
               <p className="mt-2 text-sm font-bold text-slate-200">名前の下で、それぞれ教材とLevelを選びます。</p>
@@ -7327,7 +7333,7 @@ export default function App() {
 
             <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-sm text-amber-100">
               <p className="font-black">採点ルール</p>
-              <p className="mt-1">正解100点、ミスなしなら50点追加、速さに応じて最大100点追加です。ミスは1回につき15点減点（その問題の最低点は0点）。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
+              <p className="mt-1">正解50点、ミスなしなら50点追加、速さに応じて最大50点追加です。ミスは1回につき15点減点（その問題の最低点は0点）。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
             </div>
             <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-4 md:col-span-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
@@ -7349,10 +7355,8 @@ export default function App() {
               )}
               <p className="mt-3 text-xs text-slate-400">同じ名前は最高記録だけを残します。ハンデは対戦中のみで、ランキングは基本点で公平に記録します。</p>
             </div>
-            {versusSetupError && <p className="text-center font-bold text-red-300 md:col-span-2">{versusSetupError}</p>}
             <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between md:col-span-2">
               <GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
-              <GameButton onClick={startVersusMatch} size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500">バトルをはじめる <ArrowRight size={22} /></GameButton>
             </div>
           </div>
         </Box>
@@ -8213,7 +8217,6 @@ export default function App() {
                <Home size={16} /> EXIT
              </GameButton>
              <div className="flex gap-4">
-               <div className="bg-red-900/50 border border-red-500/50 px-3 py-1 rounded-full text-red-200 text-xs font-bold">あと {questionsLeft}問</div>
                {gameState.mode === 'weakness' && (
                  <div className="bg-orange-900/50 border border-orange-500/50 px-3 py-1 rounded-full text-orange-200 text-xs font-bold">
                    残り苦手語: {remainingWeakCount}
@@ -8281,7 +8284,13 @@ export default function App() {
                    </button>
                    </div>
                  </div>
-                  <div className="battle-translation text-center mb-2 min-h-[24px]">
+                 <div className="battle-translation text-center mb-2 min-h-[24px]">
+                  <div className="mb-3 flex justify-center">
+                    <div className="inline-flex items-center gap-3 rounded-xl border border-red-400/65 bg-red-950/65 px-5 py-2 text-base font-black text-red-100 shadow-[0_0_22px_rgba(248,113,113,0.2)] md:px-7 md:py-2.5 md:text-xl">
+                      <span className="text-red-300">このバトルは</span>
+                      <span className="text-2xl text-white md:text-3xl">あと {questionsLeft}問</span>
+                    </div>
+                  </div>
                    {showJapanese && (
                      <div>
                        <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{gameState.currentQuestion.translation}</p>
