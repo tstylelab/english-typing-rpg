@@ -57,6 +57,8 @@ english-typing-rpg/
           grade5.json
           grade4.json
           gradepre1.json
+        conversation/
+          beginner.json
 
   data-source/
     eiken/
@@ -84,11 +86,15 @@ english-typing-rpg/
 
 ### `src/data/questions.ts`
 
-英検5級、4級、準1級の問題JSONを読み込み、アプリで使える形にまとめています。
+英検5級、4級、準1級と、英会話教材の問題JSONを読み込み、アプリで使える形にまとめています。
 
 ### `src/data/questionSets/eiken/*.json`
 
 ゲーム内で実際に使う問題データです。
+
+### `src/data/questionSets/conversation/beginner.json`
+
+英検4級を終えたころから始められる「英会話 はじめて」の教材です。各問題に、相手の発言、返答、両方の日本語、話すコツ、会話例を収録しています。
 
 ### `src/data/questionExamples.ts`
 

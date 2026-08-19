@@ -8,7 +8,7 @@ import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
 
-type Difficulty = 'Eiken5' | 'Eiken4' | 'EikenPre1';
+type Difficulty = 'Eiken5' | 'Eiken4' | 'EikenPre1' | 'Conversation';
 type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
@@ -90,6 +90,9 @@ interface Question {
   exampleEn?: string;
   exampleJa?: string;
   synonyms?: string[];
+  promptEn?: string;
+  promptJa?: string;
+  speakingTip?: string;
 }
 
 interface BattleLogItem {
@@ -293,6 +296,7 @@ const DIFFICULTY_HP_MULTIPLIERS: Record<Difficulty, number> = {
   Eiken5: 1,
   Eiken4: 1,
   EikenPre1: 1.35,
+  Conversation: 1,
 };
 
 const getGuideTargetCount = (difficulty: Difficulty, level: Level) => {
@@ -1692,17 +1696,20 @@ const SPEECH_VOICE_OPTIONS: { id: SpeechVoiceMode; label: string; description: s
   { id: 'uk_male', label: '英語 男性', description: 'イギリス英語の男性音声' },
 ];
 const NON_RANDOM_SPEECH_VOICE_MODES: Exclude<SpeechVoiceMode, 'random'>[] = ['us_female', 'us_male', 'uk_female', 'uk_male'];
-const DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'EikenPre1'];
+const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'EikenPre1'];
+const DIFFICULTIES: Difficulty[] = [...EIKEN_DIFFICULTIES, 'Conversation'];
 const LEVELS: Level[] = [1, 2, 3];
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken5: '英検5級',
   Eiken4: '英検4級',
   EikenPre1: '英検準1級',
+  Conversation: '英会話 はじめて',
 };
 const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
   Eiken5: 'bg-blue-600 border-blue-400 text-white',
   Eiken4: 'bg-purple-600 border-purple-400 text-white',
   EikenPre1: 'bg-emerald-600 border-emerald-400 text-white',
+  Conversation: 'bg-cyan-600 border-cyan-400 text-white',
 };
 const getAvailableLevels = (difficulty: Difficulty): Level[] => {
   void difficulty;
@@ -3357,6 +3364,13 @@ const QuestionListRow = React.memo(function QuestionListRow({
           </div>
         </div>
         <div className="text-right flex-shrink-0">
+          {question.promptEn && (
+            <div className="mb-2 max-w-sm rounded-lg border border-violet-400/25 bg-violet-950/25 px-3 py-2 text-left">
+              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-violet-300">相手</div>
+              <div className="mt-1 text-sm font-bold text-violet-50">{question.promptEn}</div>
+              {question.promptJa && <div className="mt-0.5 text-[11px] font-medium text-violet-200/75">{question.promptJa}</div>}
+            </div>
+          )}
           <div className="text-slate-300 font-bold text-sm md:text-base">{question.translation}</div>
           {question.basicMeaning && (
             <div className="mt-0.5 text-[10px] font-medium text-slate-500 md:text-[11px]">
@@ -3394,6 +3408,11 @@ const QuestionListRow = React.memo(function QuestionListRow({
         <div className="mt-3 ml-[6.75rem] rounded-lg border border-slate-700/80 bg-slate-950/70 px-3 py-2">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-300">Example</p>
           <p className="mt-1 text-xs md:text-sm text-slate-200">{example}</p>
+        </div>
+      )}
+      {question.speakingTip && (
+        <div className="mt-2 ml-[6.75rem] text-xs font-semibold text-amber-100/90">
+          <span className="text-amber-300">話すコツ:</span> {question.speakingTip}
         </div>
       )}
       {synonyms.length > 0 && (
@@ -4219,6 +4238,26 @@ export default function App() {
       });
   }, [speechRatePercent, speechVoiceMode, speechVoices]);
 
+  const speakBattleQuestion = useCallback((question: Question, difficulty: Difficulty, mode: Mode) => {
+    if (difficulty !== 'Conversation' || !question.promptEn) {
+      speakWithSettings(question.text);
+      return;
+    }
+
+    const speechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
+    const speechOptions = {
+      voice: speechConfig.voice,
+      lang: speechConfig.lang,
+      rate: speechRatePercent / 100,
+    };
+    speakText(question.promptEn, {
+      ...speechOptions,
+      onend: mode === 'guide'
+        ? () => speakText(question.text, { ...speechOptions, interrupt: false })
+        : undefined,
+    });
+  }, [speakWithSettings, speechRatePercent, speechVoiceMode, speechVoices]);
+
   useEffect(() => {
     const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
     if (gameState.screen !== 'versus-play' || versusShowHandoff || (currentVersusQuestion?.promptMode !== 'listening' && currentVersusQuestion?.promptMode !== 'listening-translation')) return;
@@ -4948,9 +4987,9 @@ export default function App() {
 
   const speakCurrentQuestion = useCallback(() => {
       if (!gameState.currentQuestion.text) return;
-      speakWithSettings(gameState.currentQuestion.text);
+      speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
       setTimeout(() => inputRef.current?.focus(), 10);
-  }, [gameState.currentQuestion.text, speakWithSettings]);
+  }, [gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
     setGameState(prev => {
@@ -5751,8 +5790,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (gameState.screen === 'battle' && gameState.inputMode !== 'text-only' && gameState.monsterHp > 0) speakWithSettings(gameState.currentQuestion.text);
-  }, [gameState.currentQuestion, gameState.screen, gameState.inputMode, gameState.monsterHp, speakWithSettings]);
+    if (gameState.screen === 'battle' && gameState.inputMode !== 'text-only' && gameState.monsterHp > 0) {
+      speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
+    }
+  }, [gameState.currentQuestion, gameState.screen, gameState.inputMode, gameState.mode, gameState.monsterHp, gameState.selectedDifficulty, speakBattleQuestion]);
 
   const handleTypingPracticeInput = (value: string) => {
     const target = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
@@ -6862,7 +6903,7 @@ export default function App() {
               </div>
             )}
             <div className="flex-1 min-h-0">
-               <Box className="h-full flex flex-col" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} words)`}>
+               <Box className="h-full flex flex-col" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
                    <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
                      <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
                        <AlertCircle size={28} className="mb-3 text-slate-500" />
@@ -7631,7 +7672,7 @@ export default function App() {
                         <BookOpen size={18} /> 図鑑
                       </GameButton>
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-amber-300 hover:bg-amber-950/25">
-                        <ClipboardList size={18} /> 単語リスト
+                        <ClipboardList size={18} /> {gameState.selectedDifficulty === 'Conversation' ? '表現リスト' : '単語リスト'}
                       </GameButton>
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'settings' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25">
                         <Volume2 size={18} /> 設定
@@ -7755,14 +7796,21 @@ export default function App() {
   }
 
   if (gameState.screen === 'level-select') {
+    const isConversationCourse = gameState.selectedDifficulty === 'Conversation';
     const availableLevels = getAvailableLevels(gameState.selectedDifficulty);
     const selectedQuestionCount = QUESTIONS[gameState.selectedDifficulty]?.[gameState.selectedLevel]?.length ?? 0;
     const selectedLearningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
-    const levelDescriptions: Record<Level, string> = {
-      1: 'Short Words / 単語',
-      2: 'Phrases / 熟語',
-      3: 'Sentences / 文章',
-    };
+    const levelDescriptions: Record<Level, string> = isConversationCourse
+      ? {
+          1: 'Quick Responses / あいさつ・反応',
+          2: 'Ask & Answer / 質問・自己表現',
+          3: 'Real Scenes / 場面別ミニ会話',
+        }
+      : {
+          1: 'Short Words / 単語',
+          2: 'Phrases / 熟語',
+          3: 'Sentences / 文章',
+        };
     const levelIcons: Record<Level, React.ReactNode> = {
       1: <Sword size={26} />,
       2: <Shield size={26} />,
@@ -7803,7 +7851,7 @@ export default function App() {
                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-amber-200">Course Select</p>
                 <h2 className="mt-1 text-3xl font-black text-white md:text-4xl">教材を選ぶ</h2>
                 <p className="mt-2 text-sm font-bold leading-relaxed text-slate-300">
-                  ふだん使う教材・級・Levelをここで選びます。決定すると、4つのモードを選ぶ画面に進みます。
+                  ふだん使う教材とLevelをここで選びます。決定すると、4つの学習モードを選ぶ画面に進みます。
                 </p>
               </div>
             </div>
@@ -7815,7 +7863,10 @@ export default function App() {
                   <div className="grid gap-3">
                     <button
                       type="button"
-                      className="relative overflow-hidden rounded-lg border-2 border-cyan-300 bg-cyan-500/16 p-4 text-left shadow-[0_0_24px_rgba(34,211,238,0.14)]"
+                      onClick={() => {
+                        if (isConversationCourse) updateSelectedDifficulty('Eiken4');
+                      }}
+                      className={`relative overflow-hidden rounded-lg border-2 p-4 text-left transition-all ${!isConversationCourse ? 'border-cyan-300 bg-cyan-500/16 shadow-[0_0_24px_rgba(34,211,238,0.14)]' : 'border-slate-700 bg-slate-900/64 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
                     >
                       <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-amber-300/18"></div>
                       <div className="pointer-events-none absolute bottom-2 right-3 text-4xl opacity-90">ABC</div>
@@ -7824,16 +7875,27 @@ export default function App() {
                           <p className="text-xl font-black text-white">英検</p>
                           <p className="mt-1 text-sm font-bold text-cyan-100">級ごとに単語・熟語・文章を練習</p>
                         </div>
-                        <CheckCircle2 className="text-cyan-200" size={24} />
+                        {!isConversationCourse && <CheckCircle2 className="text-cyan-200" size={24} />}
                       </div>
                     </button>
                     <div className="grid grid-cols-2 gap-3">
-                      {['TOEIC', '英会話'].map(label => (
-                        <div key={label} className="rounded-lg border border-slate-700 bg-slate-900/60 p-4 opacity-60">
-                          <p className="text-base font-black text-slate-200">{label}</p>
-                          <p className="mt-1 text-xs font-bold text-slate-500">準備中</p>
+                      <div className="rounded-lg border border-slate-700 bg-slate-900/60 p-4 opacity-60">
+                        <p className="text-base font-black text-slate-200">TOEIC</p>
+                        <p className="mt-1 text-xs font-bold text-slate-500">準備中</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => updateSelectedDifficulty('Conversation')}
+                        className={`rounded-lg border-2 p-4 text-left transition-all ${isConversationCourse ? 'border-emerald-300 bg-emerald-500/16 text-white shadow-[0_0_24px_rgba(52,211,153,0.16)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/20'}`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div>
+                            <p className="text-base font-black">英会話</p>
+                            <p className="mt-1 text-xs font-bold text-emerald-200/80">聞く・返す・声に出す</p>
+                          </div>
+                          {isConversationCourse && <CheckCircle2 className="text-emerald-200" size={20} />}
                         </div>
-                      ))}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -7844,7 +7906,7 @@ export default function App() {
                   <p className="mt-2 text-2xl font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
                   <div className="mt-4 grid grid-cols-3 gap-2 text-center">
                     <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-3">
-                      <p className="text-[10px] font-black text-sky-200">単語数</p>
+                      <p className="text-[10px] font-black text-sky-200">{isConversationCourse ? '会話数' : '単語数'}</p>
                       <p className="mt-1 text-xl font-black text-white">{selectedQuestionCount}</p>
                     </div>
                     <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-3">
@@ -7861,9 +7923,9 @@ export default function App() {
 
               <section className="space-y-5">
                 <div>
-                  <p className="mb-2 text-sm font-black text-cyan-200">2. 級</p>
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                    {DIFFICULTIES.map(diff => {
+                  <p className="mb-2 text-sm font-black text-cyan-200">2. {isConversationCourse ? 'コース' : '級'}</p>
+                  <div className={`grid grid-cols-1 gap-3 ${isConversationCourse ? '' : 'sm:grid-cols-3'}`}>
+                    {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
                       const isSelected = gameState.selectedDifficulty === diff;
                       const levelCount = getAvailableLevels(diff).length;
                       return (
@@ -7876,7 +7938,7 @@ export default function App() {
                           <div className="flex items-start justify-between gap-2">
                             <div>
                               <p className="text-xl font-black">{DIFFICULTY_LABELS[diff]}</p>
-                              <p className="mt-2 text-xs font-bold text-slate-400">Level {levelCount}段階</p>
+                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : `Level ${levelCount}段階`}</p>
                             </div>
                             {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
                           </div>
@@ -7917,7 +7979,9 @@ export default function App() {
                   <div>
                     <p className="text-sm font-black text-white">この教材で始めます</p>
                     <p className="mt-1 text-xs font-bold text-slate-400">
-                      次の画面で、基礎練習・リスニング練習・音声バトル・和訳バトルを選べます。
+                      {isConversationCourse
+                        ? '次の画面で、会話の型・聞いて返す練習・実戦バトルを選べます。'
+                        : '次の画面で、基礎練習・リスニング練習・音声バトル・和訳バトルを選べます。'}
                     </p>
                   </div>
                   <GameButton
@@ -7937,6 +8001,7 @@ export default function App() {
   }
 
   if (gameState.screen === 'mode-select') {
+    const isConversationCourse = gameState.selectedDifficulty === 'Conversation';
     const monstersObj = MONSTERS[gameState.selectedLevel];
     const learningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const guideTargetCount = getGuideTargetCount(gameState.selectedDifficulty, gameState.selectedLevel);
@@ -7992,7 +8057,7 @@ export default function App() {
                   </h2>
                 </div>
                 <p className="rounded-full border border-cyan-300/25 bg-cyan-950/40 px-4 py-2 text-sm font-black text-cyan-50">
-                  {learningSummary.playableCount}単語中 {learningSummary.masteredCount}単語が覚えた
+                  {learningSummary.playableCount}{isConversationCourse ? '表現' : '単語'}中 {learningSummary.masteredCount}{isConversationCourse ? '表現' : '単語'}を習得
                 </p>
               </div>
             </div>
@@ -8005,7 +8070,7 @@ export default function App() {
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
                   <h1 className="mt-1 text-3xl font-black text-white md:text-4xl">モードをえらぶ</h1>
-                  <p className="mt-2 text-sm font-bold text-slate-300">今日の気分に合わせて、練習かチャレンジを選ぼう。</p>
+                  <p className="mt-2 text-sm font-bold text-slate-300">{isConversationCourse ? '相手のひと言を聞いて、自分の返答を英語で組み立てよう。' : '今日の気分に合わせて、練習かチャレンジを選ぼう。'}</p>
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-left sm:min-w-[420px]">
                   <div className="rounded-lg border border-sky-400/30 bg-sky-500/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
@@ -8043,8 +8108,8 @@ export default function App() {
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-200"><Shield size={21} /></div>
                         <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${guideStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Basic Training / 基礎練習</p>
-                          <p className={`mt-1 text-xs font-bold ${guideStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>スペルを見て入力。指の運動に最適！</p>
+                          <p className={`text-base font-black md:text-lg ${guideStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Conversation Basics / 会話の型練習' : 'Basic Training / 基礎練習'}</p>
+                          <p className={`mt-1 text-xs font-bold ${guideStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手のひと言と返答を見て、会話を丸ごと覚えます。' : 'スペルを見て入力。指の運動に最適！'}</p>
                         </div>
                       </div>
                       <div className={`mt-3 flex items-center gap-1 text-xs font-black ${guideStatus.isComplete ? 'text-amber-200' : 'text-emerald-200'}`}>
@@ -8058,8 +8123,8 @@ export default function App() {
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200"><Volume2 size={21} /></div>
                         <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${easyStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Listening Training / リスニング練習</p>
-                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>音声と日本語を見て練習。スペルは隠れます。</p>
+                          <p className={`text-base font-black md:text-lg ${easyStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Reply Training / 聞いて返す練習' : 'Listening Training / リスニング練習'}</p>
+                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の発言を聞き、日本語をヒントに英語で返します。' : '音声と日本語を見て練習。スペルは隠れます。'}</p>
                         </div>
                       </div>
                       <div className={`mt-3 flex items-center gap-1 text-xs font-black ${easyStatus.isComplete ? 'text-amber-200' : 'text-cyan-200'}`}>
@@ -8090,8 +8155,8 @@ export default function App() {
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-orange-400/15 text-orange-200"><Volume2 size={21} /></div>
                         <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${normalStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Listening Battle / 音声バトル</p>
-                          <p className={`mt-1 text-xs font-bold ${normalStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>音声だけを聞いて入力。耳を頼りに戦います。</p>
+                          <p className={`text-base font-black md:text-lg ${normalStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Quick Reply Battle / 即答バトル' : 'Listening Battle / 音声バトル'}</p>
+                          <p className={`mt-1 text-xs font-bold ${normalStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の音声だけを聞き、とっさに英語で返します。' : '音声だけを聞いて入力。耳を頼りに戦います。'}</p>
                         </div>
                       </div>
                       <div className={`mt-3 flex items-center gap-1 text-xs font-black ${normalStatus.isComplete ? 'text-amber-200' : 'text-orange-200'}`}>
@@ -8105,8 +8170,8 @@ export default function App() {
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-400/15 text-red-200"><Keyboard size={21} /></div>
                         <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${hardStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>Translation Battle / 和訳バトル</p>
-                          <p className={`mt-1 text-xs font-bold ${hardStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>和訳だけを見て入力。できればかなり実力派です。</p>
+                          <p className={`text-base font-black md:text-lg ${hardStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Scene Battle / 場面バトル' : 'Translation Battle / 和訳バトル'}</p>
+                          <p className={`mt-1 text-xs font-bold ${hardStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '会話の場面と返したい意味から、英文を作ります。' : '和訳だけを見て入力。できればかなり実力派です。'}</p>
                         </div>
                       </div>
                       <div className={`mt-3 flex items-center gap-1 text-xs font-black ${hardStatus.isComplete ? 'text-amber-200' : 'text-red-200'}`}>
@@ -8126,7 +8191,7 @@ export default function App() {
                   <LayoutGrid size={18} /> 教材を変える
                 </GameButton>
                 <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-amber-400/45 bg-amber-950/25 text-amber-100 hover:border-amber-300 hover:bg-amber-900/30">
-                  <ClipboardList size={18} /> 単語リスト
+                  <ClipboardList size={18} /> {isConversationCourse ? '表現リスト' : '単語リスト'}
                 </GameButton>
               </div>
             </div>
@@ -8155,6 +8220,7 @@ export default function App() {
     }
     const hpPercent = (gameState.monsterHp / gameState.maxMonsterHp) * 100;
     const isBoss = currentMonster.type === 'boss';
+    const isConversationBattle = gameState.selectedDifficulty === 'Conversation';
     const showJapanese = gameState.inputMode !== 'voice-only';
     const previousQuestionExample = lastSolvedQuestion
       ? getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
@@ -8292,7 +8358,26 @@ export default function App() {
                    </div>
                  </div>
                  <div className="battle-translation text-center mb-2 min-h-[24px]">
-                   {showJapanese && (
+                   {isConversationBattle ? (
+                     <div className="mx-auto max-w-3xl space-y-2">
+                       {gameState.inputMode === 'voice-only' ? (
+                         <p className="text-base font-black text-cyan-200 md:text-lg">相手のひと言を聞いて、英語で返そう</p>
+                       ) : (
+                         <div className="rounded-xl border border-violet-400/30 bg-violet-950/25 px-4 py-3 text-left">
+                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-violet-300">Partner / 相手</p>
+                           <p className="mt-1 text-lg font-black text-white md:text-xl">{gameState.currentQuestion.promptEn}</p>
+                           {gameState.currentQuestion.promptJa && <p className="mt-1 text-xs font-bold text-violet-200/80">{gameState.currentQuestion.promptJa}</p>}
+                         </div>
+                       )}
+                       {showJapanese && (
+                         <div className="text-left">
+                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">You / あなたの返答</p>
+                           <p className="mt-1 text-base font-bold text-blue-200 md:text-lg">{gameState.currentQuestion.translation}</p>
+                           {showGuide && gameState.currentQuestion.speakingTip && <p className="mt-1 text-xs font-bold text-amber-200">💡 {gameState.currentQuestion.speakingTip}</p>}
+                         </div>
+                       )}
+                     </div>
+                   ) : showJapanese && (
                      <div>
                        <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{gameState.currentQuestion.translation}</p>
                        {gameState.currentQuestion.basicMeaning && (
@@ -8328,11 +8413,26 @@ export default function App() {
                        </span>
                        <span className="font-mono text-lg font-bold text-white md:text-xl">{lastSolvedQuestion.text}</span>
                        <div className="flex flex-col">
+                         {isConversationBattle && lastSolvedQuestion.promptEn && (
+                           <span className="text-xs font-bold text-violet-200 md:text-sm">相手: {lastSolvedQuestion.promptEn}</span>
+                         )}
                          <span className="text-base font-bold text-emerald-100 md:text-lg">{lastSolvedQuestion.translation}</span>
                          {lastSolvedQuestion.basicMeaning && (
                            <span className="text-xs font-medium text-slate-400 md:text-sm">Basic: {lastSolvedQuestion.basicMeaning}</span>
                          )}
                        </div>
+                       {isConversationBattle && (
+                         <button
+                           type="button"
+                           onClick={() => {
+                             speakWithSettings(lastSolvedQuestion.text);
+                             inputRef.current?.focus();
+                           }}
+                           className="inline-flex items-center gap-1 rounded-full border border-cyan-300/40 bg-cyan-500/10 px-2.5 py-1 text-[11px] font-bold text-cyan-100 transition-colors hover:bg-cyan-500/20"
+                         >
+                           <Volume2 size={13} /> 返答を聞いて声に出す
+                         </button>
+                       )}
                        <button
                          type="button"
                          onClick={() => {
@@ -8358,6 +8458,13 @@ export default function App() {
                            <span className="hidden text-slate-500 md:inline">|</span>
                            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">Example</span>
                            <span className="text-base text-slate-200 md:text-lg">{previousQuestionExample}</span>
+                         </>
+                       )}
+                       {isConversationBattle && lastSolvedQuestion.speakingTip && (
+                         <>
+                           <span className="hidden text-slate-500 md:inline">|</span>
+                           <span className="text-[10px] font-bold tracking-[0.16em] text-amber-300">SPEAKING TIP</span>
+                           <span className="text-xs font-semibold text-amber-50 md:text-sm">{lastSolvedQuestion.speakingTip}</span>
                          </>
                        )}
                        {previousQuestionGrammar && (
