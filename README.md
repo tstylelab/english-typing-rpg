@@ -8,6 +8,10 @@
 
 https://en-typing.tsg-gt.com/
 
+## Codex作業の引き継ぎ
+
+別のPCで作業を再開するときは、最新の判断・変更内容・確認手順をまとめた [`docs/HANDOFF.md`](docs/HANDOFF.md) を確認してください。
+
 ## GitHubリポジトリ
 
 https://github.com/tstylelab/english-typing-rpg

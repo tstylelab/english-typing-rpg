@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { getQuestionExample } from './data/questionExamples';
+import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import HelpScreen from './HelpScreen';
 
@@ -8158,6 +8159,9 @@ export default function App() {
     const previousQuestionExample = lastSolvedQuestion
       ? getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : null;
+    const previousQuestionGrammar = lastSolvedQuestion
+      ? getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
+      : null;
     const previousQuestionSynonyms = lastSolvedQuestion && !(['Eiken5', 'Eiken4', 'EikenPre1'].includes(gameState.selectedDifficulty) && gameState.selectedLevel === 3)
       ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : [];
@@ -8356,6 +8360,16 @@ export default function App() {
                            <span className="text-base text-slate-200 md:text-lg">{previousQuestionExample}</span>
                          </>
                        )}
+                       {previousQuestionGrammar && (
+                         <>
+                           <span className="hidden text-slate-500 md:inline">|</span>
+                           <span className="rounded-full border border-amber-300/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-black text-amber-200">
+                             文法・{previousQuestionGrammar.label}
+                           </span>
+                           <span className="text-xs font-bold text-amber-50 md:text-sm">{previousQuestionGrammar.note}</span>
+                           <span className="font-mono text-xs text-amber-200/90">型: {previousQuestionGrammar.pattern}</span>
+                         </>
+                       )}
                      </div>
                    </div>
                  )}
@@ -8444,10 +8458,11 @@ export default function App() {
                 <div className="divide-y divide-slate-700">
                   {gameState.battleLog.map((log, idx) => {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                     return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
-                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}</div></div>
+                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
                       <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
                     </div>;
                   })}
@@ -8506,7 +8521,7 @@ export default function App() {
             {gameState.battleLog.length > 6 && <p className="border-t border-slate-700 px-3 py-2 text-xs font-bold text-slate-400">最初の6問を表示しています。残りは単語リストから確認できます。</p>}
           </section>
 
-          <footer className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-600 pt-3 text-sm font-bold"><span className="text-slate-300">学習中 {learningSummary.learningCount}　・　もう少し {learningSummary.cautionCount}　・　覚えた {learningSummary.masteredCount}</span><div className="flex gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleBackToMode} size="sm" variant="ghost">コースをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ</GameButton></div></footer>
+          <footer className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-600 pt-3 text-sm font-bold"><span className="text-slate-300">学習中 {learningSummary.learningCount} ・ もう少し {learningSummary.cautionCount} ・ 覚えた {learningSummary.masteredCount}</span><div className="flex gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleBackToMode} size="sm" variant="ghost">コースをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ</GameButton></div></footer>
         </Box>
       </ScreenContainer>
     );
