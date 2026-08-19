@@ -94,7 +94,7 @@ english-typing-rpg/
 
 ### `src/data/questionSets/conversation/beginner.json`
 
-英検4級を終えたころから始められる「英会話 はじめて」の教材です。各問題に、相手の発言、返答、両方の日本語、話すコツ、会話例を収録しています。
+英検4級を終えたころから始められる「英会話 はじめて」の教材です。Levelごとに72会話、合計216会話を収録しています。各問題に、相手の発言、返答、両方の日本語、話すコツ、会話例があります。
 
 ### `src/data/questionExamples.ts`
 
