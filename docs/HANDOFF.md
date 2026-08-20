@@ -32,7 +32,7 @@
 - 既存の「前回の続きから」、教材選択、20問バトル、保存済み進捗は変更していない。
 - `npm.cmd run build`: 成功。
 - `npm.cmd run lint`: エラー0件。以前からあるReact Hook依存関係の警告が1件。
-- 2026-08-20時点では未コミット。次回のコミット・push対象。
+- GitHubの `main` へコミット `7963054 Add first-time player guidance` をpush済み。
 
 ## 2026-08-19に行ったこと
 
