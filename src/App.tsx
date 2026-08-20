@@ -3468,6 +3468,7 @@ export default function App() {
   const [typingPracticeIndex, setTypingPracticeIndex] = useState(0);
   const [typingPracticeInput, setTypingPracticeInput] = useState('');
   const [typingPracticeMisses, setTypingPracticeMisses] = useState(0);
+  const [showFirstPlayGuide, setShowFirstPlayGuide] = useState(false);
   const [versusBestScores, setVersusBestScores] = useState<Record<string, number>>(() => safeLoadJson<Record<string, number>>(STORAGE_KEYS.versusBestScores, {}));
   const [versusRankings, setVersusRankings] = useState<Record<string, VersusRankingEntry[]>>(() => normalizeVersusRankings(safeLoadJson<unknown>(STORAGE_KEYS.versusRankings, {})));
   const [maxKeystrokes, setMaxKeystrokes] = useState<number>(0);
@@ -7634,6 +7635,17 @@ export default function App() {
 
                   <div className="grid gap-3 p-4 sm:grid-cols-2">
                     <GameButton
+                      onClick={() => setShowFirstPlayGuide(true)}
+                      variant="outline"
+                      className="w-full min-h-[58px] border-emerald-300/70 bg-emerald-950/42 text-emerald-50 shadow-[0_0_26px_rgba(52,211,153,0.16)] hover:border-emerald-200 hover:bg-emerald-900/48 sm:col-span-2"
+                      size="md"
+                    >
+                      <span className="flex items-center justify-center gap-2 text-base sm:text-lg">
+                        <Star size={22} /> 初めて遊ぶ人はこちら
+                      </span>
+                    </GameButton>
+
+                    <GameButton
                       onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)}
                       className="w-full min-h-[72px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500 sm:col-span-2"
                       size="md"
@@ -7683,6 +7695,84 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+
+                {showFirstPlayGuide && (
+                  <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/82 p-4 backdrop-blur-sm"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="first-play-guide-title"
+                    onMouseDown={(event) => {
+                      if (event.target === event.currentTarget) setShowFirstPlayGuide(false);
+                    }}
+                  >
+                    <div className="w-full max-w-2xl overflow-hidden rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
+                      <div className="border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.62),rgba(15,23,42,0.96))] px-5 py-5 text-center sm:px-7">
+                        <p className="text-xs font-black tracking-[0.18em] text-emerald-200">はじめて遊ぶ人へ</p>
+                        <h2 id="first-play-guide-title" className="mt-2 text-2xl font-black text-white sm:text-3xl">近い方を選ぶだけでOK！</h2>
+                        <p className="mt-2 text-sm font-bold text-slate-300">あとから、いつでも別のコースへ変更できます。</p>
+                      </div>
+
+                      <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowFirstPlayGuide(false);
+                            setTypingPracticeIndex(0);
+                            setTypingPracticeInput('');
+                            setTypingPracticeMisses(0);
+                            setGameState(prev => ({ ...prev, screen: 'typing-practice' }));
+                          }}
+                          className="rounded-xl border-2 border-emerald-400/55 bg-emerald-950/42 p-5 text-left transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-900/48 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"
+                        >
+                          <span className="flex items-center gap-3 text-lg font-black text-white">
+                            <Keyboard size={25} className="text-emerald-200" /> 文字入力から練習する
+                          </span>
+                          <span className="mt-3 block text-sm font-bold leading-6 text-slate-300">
+                            キーボードに慣れていない人向け。押す場所からゆっくり覚えます。
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowFirstPlayGuide(false);
+                            startGame('Eiken5', 1, 'guide', 'voice-text');
+                          }}
+                          className="relative rounded-xl border-2 border-cyan-300 bg-cyan-950/48 p-5 text-left shadow-[0_0_28px_rgba(34,211,238,0.13)] transition hover:-translate-y-0.5 hover:bg-cyan-900/48 focus:outline-none focus:ring-4 focus:ring-cyan-300/40"
+                        >
+                          <span className="absolute right-3 top-3 rounded-full bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">おすすめ</span>
+                          <span className="flex items-center gap-3 pr-16 text-lg font-black text-white">
+                            <ArrowRight size={25} className="text-cyan-200" /> 文字入力はできる
+                          </span>
+                          <span className="mt-3 block text-sm font-black text-cyan-100">英検5級・Level 1・基礎練習</span>
+                          <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
+                            英単語を見ながら入力する、一番始めやすいコースです。
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowFirstPlayGuide(false);
+                            setGameState(prev => ({ ...prev, screen: 'level-select' }));
+                          }}
+                          className="rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-sm font-black text-slate-200 transition hover:border-cyan-300 hover:bg-slate-700 sm:col-span-2"
+                        >
+                          英検の級やLevelを自分で選びたい
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => setShowFirstPlayGuide(false)}
+                          className="px-4 py-2 text-sm font-bold text-slate-400 transition hover:text-white sm:col-span-2"
+                        >
+                          閉じる
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-4 flex w-full max-w-3xl items-center justify-center text-center text-xs font-bold text-slate-400 md:justify-start">
                   Word List・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
