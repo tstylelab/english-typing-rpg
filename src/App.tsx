@@ -4,6 +4,7 @@ import { QUESTIONS } from './data/questions';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
+import { BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
@@ -213,7 +214,7 @@ type ResolvedSpeechConfig = {
 };
 
 interface GameState {
-  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results' | 'typing-practice';
+  screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results' | 'typing-practice' | 'beginner-battle';
   selectedDifficulty: Difficulty;
   selectedLevel: Level;
   mode: Mode;
@@ -3275,6 +3276,44 @@ const ScreenContainer = ({ children, className = "" }: { children: React.ReactNo
   </div>
 );
 
+const GuidedKeyboard = ({
+  nextLetter,
+  onPress,
+  highlightNext = true,
+  disabled = false,
+}: {
+  nextLetter: string;
+  onPress: (letter: string) => void;
+  highlightNext?: boolean;
+  disabled?: boolean;
+}) => {
+  const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
+
+  return (
+    <div className="guided-keyboard space-y-1.5 rounded-xl border border-slate-600 bg-slate-950/72 p-2 sm:space-y-2 sm:p-3">
+      {keyboardRows.map(row => (
+        <div key={row} className="guided-keyboard-row flex justify-center gap-1 sm:gap-1.5">
+          {[...row].map(letter => {
+            const isNext = highlightNext && letter === nextLetter;
+            return (
+              <button
+                key={letter}
+                type="button"
+                disabled={disabled}
+                onClick={() => onPress(letter)}
+                aria-label={`${letter.toUpperCase()}のキー`}
+                className={`guided-keyboard-key flex h-10 w-[clamp(1.7rem,7.6vw,2.75rem)] items-center justify-center rounded-md border text-sm font-black uppercase text-white transition sm:h-11 sm:text-base ${isNext ? 'scale-105 border-amber-100 bg-amber-400 text-slate-950 shadow-[0_0_18px_rgba(251,191,36,0.68)]' : TYPING_FINGER_KEY_CLASSES[letter] ?? 'border-slate-500 bg-slate-800'} ${disabled ? 'cursor-not-allowed opacity-55' : 'active:scale-95'}`}
+              >
+                {letter}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Box = ({ children, className = "", title }: { children: React.ReactNode; className?: string; title?: React.ReactNode }) => (
   <div className={`bg-slate-800/90 border-2 border-slate-600 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm ${className}`}>
     {title && (<div className="bg-slate-700/80 px-4 py-2 border-b border-slate-600 font-bold text-slate-200 flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-blue-400"></div>{title}</div>)}
@@ -3469,6 +3508,12 @@ export default function App() {
   const [typingPracticeInput, setTypingPracticeInput] = useState('');
   const [typingPracticeMisses, setTypingPracticeMisses] = useState(0);
   const [showFirstPlayGuide, setShowFirstPlayGuide] = useState(false);
+  const [beginnerBattleIndex, setBeginnerBattleIndex] = useState(0);
+  const [beginnerBattleInput, setBeginnerBattleInput] = useState('');
+  const [beginnerBattleKeyHintsEnabled, setBeginnerBattleKeyHintsEnabled] = useState(true);
+  const [beginnerBattleMessage, setBeginnerBattleMessage] = useState('');
+  const [beginnerBattleResolving, setBeginnerBattleResolving] = useState(false);
+  const [beginnerBattleClearedPhase, setBeginnerBattleClearedPhase] = useState<number | null>(null);
   const [versusBestScores, setVersusBestScores] = useState<Record<string, number>>(() => safeLoadJson<Record<string, number>>(STORAGE_KEYS.versusBestScores, {}));
   const [versusRankings, setVersusRankings] = useState<Record<string, VersusRankingEntry[]>>(() => normalizeVersusRankings(safeLoadJson<unknown>(STORAGE_KEYS.versusRankings, {})));
   const [maxKeystrokes, setMaxKeystrokes] = useState<number>(0);
@@ -3535,6 +3580,8 @@ export default function App() {
   const inputRef = useRef<HTMLInputElement>(null);
   const versusInputRef = useRef<HTMLInputElement>(null);
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
+  const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
+  const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
   const newPlayerNameInputRef = useRef<HTMLInputElement>(null);
   const progressImportInputRef = useRef<HTMLInputElement>(null);
   const playerProfilesSectionRef = useRef<HTMLDivElement>(null);
@@ -4392,6 +4439,9 @@ export default function App() {
     return () => {
       if (speechPreviewTimeoutRef.current !== null) {
         window.clearTimeout(speechPreviewTimeoutRef.current);
+      }
+      if (beginnerBattleAdvanceTimeoutRef.current !== null) {
+        window.clearTimeout(beginnerBattleAdvanceTimeoutRef.current);
       }
       clearAutoPlayTimeout();
       if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -5811,6 +5861,119 @@ export default function App() {
       setTypingPracticeInput('');
     }
     window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
+  };
+
+  const clearBeginnerBattleAdvanceTimeout = () => {
+    if (beginnerBattleAdvanceTimeoutRef.current !== null) {
+      window.clearTimeout(beginnerBattleAdvanceTimeoutRef.current);
+      beginnerBattleAdvanceTimeoutRef.current = null;
+    }
+  };
+
+  const startBeginnerBattle = () => {
+    clearBeginnerBattleAdvanceTimeout();
+    setBeginnerBattleIndex(0);
+    setBeginnerBattleInput('');
+    setBeginnerBattleKeyHintsEnabled(true);
+    setBeginnerBattleMessage('光っているキーを押してみよう！');
+    setBeginnerBattleResolving(false);
+    setBeginnerBattleClearedPhase(null);
+    soundEngine.stopBattleAmbience();
+    soundEngine.stopBattleMusic();
+    soundEngine.startBattleMusic(
+      getBattleMusicPath('guide', 'voice-text', false),
+      BGM_VOLUME_LEVELS[bgmVolumeLevel]
+    );
+    setGameState(prev => ({ ...prev, screen: 'beginner-battle' }));
+    window.setTimeout(() => {
+      beginnerBattleInputRef.current?.focus();
+      speakWithSettings(BEGINNER_BATTLE_QUESTIONS[0].text);
+    }, 250);
+  };
+
+  const leaveBeginnerBattle = () => {
+    clearBeginnerBattleAdvanceTimeout();
+    soundEngine.stopBattleAmbience();
+    soundEngine.stopBattleMusic();
+    setBeginnerBattleResolving(false);
+    setBeginnerBattleClearedPhase(null);
+    setGameState(prev => ({ ...prev, screen: 'title' }));
+  };
+
+  const continueBeginnerBattle = () => {
+    const nextIndex = beginnerBattleIndex + 1;
+    const nextQuestion = BEGINNER_BATTLE_QUESTIONS[nextIndex];
+    setBeginnerBattleIndex(nextIndex);
+    setBeginnerBattleInput('');
+    setBeginnerBattleMessage('つぎのモンスターも、ゆっくり倒そう！');
+    setBeginnerBattleClearedPhase(null);
+    setBeginnerBattleResolving(false);
+    window.setTimeout(() => {
+      beginnerBattleInputRef.current?.focus();
+      if (nextQuestion) speakWithSettings(nextQuestion.text);
+    }, 150);
+  };
+
+  const handleBeginnerBattleInput = (value: string) => {
+    if (beginnerBattleResolving || beginnerBattleClearedPhase !== null) return;
+    const question = BEGINNER_BATTLE_QUESTIONS[beginnerBattleIndex];
+    if (!question) return;
+
+    const normalizedValue = value.toLowerCase();
+    if (!question.text.startsWith(normalizedValue)) {
+      soundEngine.playMiss();
+      setBeginnerBattleMessage('だいじょうぶ！光っているキーを押してみよう。');
+      window.setTimeout(() => beginnerBattleInputRef.current?.focus(), 0);
+      return;
+    }
+
+    if (normalizedValue.length > beginnerBattleInput.length) soundEngine.playType();
+    setBeginnerBattleInput(normalizedValue);
+    setBeginnerBattleMessage('');
+    if (normalizedValue !== question.text) {
+      window.setTimeout(() => beginnerBattleInputRef.current?.focus(), 0);
+      return;
+    }
+
+    const phaseIndex = Math.floor(beginnerBattleIndex / BEGINNER_BATTLE_PHASE_SIZE);
+    const isPhaseEnd = (beginnerBattleIndex + 1) % BEGINNER_BATTLE_PHASE_SIZE === 0;
+    const isFinalQuestion = beginnerBattleIndex === BEGINNER_BATTLE_QUESTIONS.length - 1;
+    setBeginnerBattleResolving(true);
+    soundEngine.playAttack();
+    setMonsterShake(true);
+    setBeginnerBattleMessage('やった！モンスターにこうげき！');
+
+    clearBeginnerBattleAdvanceTimeout();
+    beginnerBattleAdvanceTimeoutRef.current = window.setTimeout(() => {
+      beginnerBattleAdvanceTimeoutRef.current = null;
+      setMonsterShake(false);
+      if (isFinalQuestion) {
+        soundEngine.stopBattleMusic();
+        soundEngine.playCritical();
+        setBeginnerBattleIndex(BEGINNER_BATTLE_QUESTIONS.length);
+        setBeginnerBattleInput('');
+        setBeginnerBattleMessage('');
+        setBeginnerBattleResolving(false);
+        return;
+      }
+      if (isPhaseEnd) {
+        soundEngine.playCritical();
+        setBeginnerBattleClearedPhase(phaseIndex);
+        setBeginnerBattleResolving(false);
+        return;
+      }
+
+      const nextIndex = beginnerBattleIndex + 1;
+      const nextQuestion = BEGINNER_BATTLE_QUESTIONS[nextIndex];
+      setBeginnerBattleIndex(nextIndex);
+      setBeginnerBattleInput('');
+      setBeginnerBattleResolving(false);
+      setBeginnerBattleMessage('');
+      window.setTimeout(() => {
+        beginnerBattleInputRef.current?.focus();
+        if (nextQuestion) speakWithSettings(nextQuestion.text);
+      }, 100);
+    }, 320);
   };
 
   // --- Screens ---
@@ -7491,19 +7654,136 @@ export default function App() {
     const target = TYPING_PRACTICE_STEPS[typingPracticeIndex];
     const nextLetter = target?.[typingPracticeInput.length] ?? '';
     const fingerGuide = TYPING_FINGER_GUIDES[nextLetter];
-    const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
     const isComplete = typingPracticeIndex >= TYPING_PRACTICE_STEPS.length;
     const practicePhase = typingPracticeIndex < 2 ? 'まんなかを見つけよう' : typingPracticeIndex < 13 ? '文字の場所を覚えよう' : '短い単語を打とう';
     return (
       <ScreenContainer className="items-center justify-center px-3 py-6">
         <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
           <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。急がなくて大丈夫です。</p>
-          {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><GameButton className="mt-6" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton></div> : <>
+          {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><div className="mt-6 grid gap-3 sm:grid-cols-2"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton variant="success" onClick={startBeginnerBattle}><Sword size={19} /> つぎは はじめてバトルへ</GameButton></div></div> : <>
             <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" aria-label="typing practice input" /></div>
-            <div className="mt-5 space-y-2 rounded-xl border border-slate-600 bg-slate-900/70 p-3">{keyboardRows.map(row => <div key={row} className="flex justify-center gap-1">{[...row].map(letter => <button key={letter} onClick={() => handleTypingPracticeInput(typingPracticeInput + letter)} className={`min-h-11 min-w-8 rounded border font-black uppercase text-white sm:min-w-11 ${letter === nextLetter ? 'border-amber-200 bg-amber-400 text-slate-950 shadow-[0_0_16px_rgba(251,191,36,0.55)]' : TYPING_FINGER_KEY_CLASSES[letter] ?? 'border-slate-500 bg-slate-800'}`}>{letter}</button>)}</div>)}</div>
+            <div className="mt-5"><GuidedKeyboard nextLetter={nextLetter} onPress={letter => handleTypingPracticeInput(typingPracticeInput + letter)} /></div>
             <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>やめる</GameButton></div>
           </>}
         </Box>
+      </ScreenContainer>
+    );
+  }
+
+  if (gameState.screen === 'beginner-battle') {
+    const isComplete = beginnerBattleIndex >= BEGINNER_BATTLE_QUESTIONS.length;
+    const safeQuestionIndex = Math.min(beginnerBattleIndex, BEGINNER_BATTLE_QUESTIONS.length - 1);
+    const phaseIndex = Math.floor(safeQuestionIndex / BEGINNER_BATTLE_PHASE_SIZE);
+    const phase = BEGINNER_BATTLE_PHASES[phaseIndex];
+    const question = BEGINNER_BATTLE_QUESTIONS[safeQuestionIndex];
+    const questionIndexInPhase = safeQuestionIndex % BEGINNER_BATTLE_PHASE_SIZE;
+    const nextLetter = isComplete ? '' : question.text[beginnerBattleInput.length] ?? '';
+    const beginnerMonsters = [MONSTERS[1].guide[0], MONSTERS[1].guide[2], MONSTERS[1].guide[4]];
+    const currentMonster = beginnerMonsters[phaseIndex] ?? beginnerMonsters[0];
+    const remainingQuestions = beginnerBattleClearedPhase !== null
+      ? 0
+      : BEGINNER_BATTLE_PHASE_SIZE - questionIndexInPhase;
+    const hpPercent = beginnerBattleClearedPhase !== null
+      ? 0
+      : Math.max(10, (remainingQuestions / BEGINNER_BATTLE_PHASE_SIZE) * 100);
+
+    if (isComplete) {
+      return (
+        <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950 px-3 py-5">
+          <img src={COURSE_SELECT_ILLUSTRATION_IMAGE} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-slate-950/72" />
+          <div className="relative z-10 w-full max-w-2xl rounded-2xl border-2 border-amber-300/60 bg-slate-900/94 p-6 text-center shadow-[0_28px_90px_rgba(0,0,0,0.72)] sm:p-8">
+            <div className="text-6xl">🏆</div>
+            <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">30もん クリア！</p>
+            <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">はじめてバトル せいこう！</h1>
+            <p className="mt-3 text-base font-bold leading-7 text-slate-200">文字を見つけて、英検5級の単語まで打てました。何回でも遊んで大丈夫です。</p>
+            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-cyan-950/35 p-4 text-left">
+              <p className="font-black text-cyan-100">つぎのおすすめ</p>
+              <p className="mt-1 text-sm font-bold leading-6 text-slate-300">英検5級 Level 1の基礎練習へ進むと、もっとたくさんの英単語とモンスターに出会えます。</p>
+            </div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <GameButton variant="outline" onClick={startBeginnerBattle}><RotateCcw size={18} /> もう一度あそぶ</GameButton>
+              <GameButton onClick={() => startGame('Eiken5', 1, 'guide', 'voice-text')}><ArrowRight size={19} /> 英検5級へすすむ</GameButton>
+              <GameButton variant="ghost" className="text-slate-300 hover:bg-slate-800 hover:text-white sm:col-span-2" onClick={leaveBeginnerBattle}>タイトルへ戻る</GameButton>
+            </div>
+          </div>
+        </ScreenContainer>
+      );
+    }
+
+    return (
+      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950 px-2 py-3 sm:px-4">
+        <img src={COURSE_SELECT_ILLUSTRATION_IMAGE} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div className="absolute inset-0 bg-slate-950/76" />
+        <div className="beginner-battle-panel relative z-10 w-full max-w-5xl overflow-hidden rounded-2xl border border-cyan-300/40 bg-slate-900/94 shadow-[0_24px_80px_rgba(0,0,0,0.7)]">
+          <header className="beginner-battle-header flex flex-col gap-3 border-b border-slate-700 bg-slate-950/72 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-black tracking-[0.16em] text-emerald-200">キーボードつき・はじめてバトル</p>
+              <h1 className="mt-1 text-xl font-black text-white sm:text-2xl">{phase.title}</h1>
+            </div>
+            <div className="flex gap-2">
+              {BEGINNER_BATTLE_PHASES.map((item, index) => (
+                <div key={item.title} className={`rounded-full border px-3 py-1 text-xs font-black ${index < phaseIndex ? 'border-emerald-300/50 bg-emerald-500/18 text-emerald-100' : index === phaseIndex ? 'border-amber-200 bg-amber-400/18 text-amber-100' : 'border-slate-700 bg-slate-900 text-slate-500'}`}>
+                  {index < phaseIndex ? '✓ ' : ''}{index + 1}. {item.shortTitle}
+                </div>
+              ))}
+            </div>
+          </header>
+
+          <div className="beginner-battle-content grid gap-3 p-3 md:grid-cols-[0.72fr_1.28fr] md:p-4">
+            <section className="beginner-battle-monster flex min-h-[205px] flex-col items-center justify-center rounded-xl border border-violet-300/25 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.18),rgba(15,23,42,0.78)_68%)] p-3 text-center">
+              <p className="text-sm font-black text-violet-100">{currentMonster.name}</p>
+              <div className={`beginner-battle-avatar my-1 transition duration-200 ${monsterShake ? 'scale-90 brightness-150' : 'animate-bounce-slow'} ${beginnerBattleClearedPhase !== null ? 'opacity-35 grayscale' : ''}`}>
+                <MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={beginnerBattleClearedPhase !== null ? 'win' : 'normal'} size={120} visualStyle={getMonsterVisualStyle(currentMonster)} />
+              </div>
+              <div className="w-full max-w-[260px] rounded-lg border border-slate-600 bg-slate-950/70 px-3 py-2">
+                <div className="flex justify-between text-xs font-black text-slate-200"><span>モンスター</span><span>あと {remainingQuestions} 問</span></div>
+                <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-800"><div className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300" style={{ width: `${hpPercent}%` }} /></div>
+              </div>
+            </section>
+
+            <section className="beginner-battle-prompt flex min-h-[205px] flex-col justify-center rounded-xl border border-cyan-300/25 bg-slate-950/58 p-4 text-center">
+              {beginnerBattleClearedPhase !== null ? (
+                <div>
+                  <div className="text-5xl">🎉</div>
+                  <p className="mt-2 text-2xl font-black text-amber-200">モンスターをたおした！</p>
+                  <p className="mt-2 text-sm font-bold text-slate-300">10問できました。つぎも同じように、ゆっくり進めば大丈夫です。</p>
+                  <GameButton className="mt-5" variant="success" onClick={continueBeginnerBattle}>つぎのモンスターへ <ArrowRight size={18} /></GameButton>
+                </div>
+              ) : (
+                <>
+                  <p className="text-xs font-black tracking-[0.14em] text-cyan-200">{phase.description}</p>
+                  <div className="mt-2 flex items-center justify-center gap-3">
+                    <span className="beginner-battle-emoji text-5xl" aria-hidden="true">{question.emoji}</span>
+                    <div className="text-left"><p className="text-sm font-black text-slate-300">{question.translation}</p><button type="button" onClick={() => speakWithSettings(question.text)} className="mt-1 inline-flex items-center gap-1 text-xs font-black text-cyan-200 hover:text-cyan-100"><Volume2 size={15} /> 音を聞く</button></div>
+                  </div>
+                  <div className="mt-3 flex min-h-[64px] items-center justify-center gap-1 rounded-xl border border-slate-600 bg-slate-900/82 px-3 py-2">
+                    {[...question.text].map((letter, index) => (
+                      <span key={`${letter}-${index}`} className={`flex h-12 min-w-9 items-center justify-center rounded-lg border px-2 text-3xl font-black uppercase transition sm:min-w-11 ${index < beginnerBattleInput.length ? 'border-emerald-300 bg-emerald-400/20 text-emerald-100' : index === beginnerBattleInput.length ? 'border-amber-200 bg-amber-400/16 text-amber-100 shadow-[0_0_16px_rgba(251,191,36,0.28)]' : 'border-slate-700 bg-slate-950/55 text-slate-400'}`}>{letter}</span>
+                    ))}
+                  </div>
+                  <input ref={beginnerBattleInputRef} autoFocus value={beginnerBattleInput} onChange={event => handleBeginnerBattleInput(event.target.value.toLowerCase())} className="sr-only" aria-label="はじめてバトルの入力" />
+                  <p className={`mt-2 min-h-6 text-sm font-black ${beginnerBattleMessage.startsWith('だいじょうぶ') ? 'text-amber-200' : 'text-emerald-200'}`}>{beginnerBattleMessage || `${questionIndexInPhase + 1} / ${BEGINNER_BATTLE_PHASE_SIZE} 問`}</p>
+                </>
+              )}
+            </section>
+
+            <section className="beginner-battle-keyboard md:col-span-2">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-2 px-1">
+                <p className="text-sm font-black text-slate-200">画面のキーを押しても、パソコンのキーボードを押してもOK！</p>
+                <button type="button" onClick={() => { setBeginnerBattleKeyHintsEnabled(enabled => !enabled); window.setTimeout(() => beginnerBattleInputRef.current?.focus(), 0); }} className="rounded-full border border-slate-600 bg-slate-800 px-3 py-1.5 text-xs font-black text-slate-200 hover:border-amber-300">
+                  キーの光：{beginnerBattleKeyHintsEnabled ? 'あり' : 'なし'}
+                </button>
+              </div>
+              <GuidedKeyboard nextLetter={nextLetter} highlightNext={beginnerBattleKeyHintsEnabled} disabled={beginnerBattleResolving || beginnerBattleClearedPhase !== null} onPress={letter => handleBeginnerBattleInput(beginnerBattleInput + letter)} />
+            </section>
+          </div>
+
+          <footer className="beginner-battle-footer flex items-center justify-between border-t border-slate-700 bg-slate-950/55 px-4 py-2">
+            <p className="text-xs font-bold text-slate-400">時間制限・減点・ゲームオーバーはありません</p>
+            <GameButton size="sm" variant="outline" onClick={leaveBeginnerBattle}>やめる</GameButton>
+          </footer>
+        </div>
       </ScreenContainer>
     );
   }
@@ -7698,7 +7978,7 @@ export default function App() {
 
                 {showFirstPlayGuide && (
                   <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/82 p-4 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/82 p-4 backdrop-blur-sm"
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="first-play-guide-title"
@@ -7706,7 +7986,7 @@ export default function App() {
                       if (event.target === event.currentTarget) setShowFirstPlayGuide(false);
                     }}
                   >
-                    <div className="w-full max-w-2xl overflow-hidden rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
+                    <div className="my-auto max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
                       <div className="border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.62),rgba(15,23,42,0.96))] px-5 py-5 text-center sm:px-7">
                         <p className="text-xs font-black tracking-[0.18em] text-emerald-200">はじめて遊ぶ人へ</p>
                         <h2 id="first-play-guide-title" className="mt-2 text-2xl font-black text-white sm:text-3xl">近い方を選ぶだけでOK！</h2>
@@ -7749,6 +8029,18 @@ export default function App() {
                           <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
                             英単語を見ながら入力する、一番始めやすいコースです。
                           </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowFirstPlayGuide(false);
+                            startBeginnerBattle();
+                          }}
+                          className="rounded-lg border border-amber-300/55 bg-amber-950/28 px-4 py-3 text-left transition hover:border-amber-200 hover:bg-amber-900/38 sm:col-span-2"
+                        >
+                          <span className="flex items-center gap-2 text-sm font-black text-amber-100"><Sword size={18} /> タイピング練習を終えた人</span>
+                          <span className="mt-1 block text-xs font-bold text-slate-300">キーボードを見ながら「はじめてバトル」に挑戦できます。</span>
                         </button>
 
                         <button

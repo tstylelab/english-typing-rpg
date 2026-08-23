@@ -1,1 +1,82 @@
 @import "tailwindcss";
+
+@media (min-width: 700px) and (max-height: 520px) {
+  .beginner-battle-panel {
+    max-height: calc(100vh - 0.5rem);
+  }
+
+  .beginner-battle-header {
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .beginner-battle-header h1 {
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  .beginner-battle-header p,
+  .beginner-battle-header div {
+    font-size: 0.65rem;
+  }
+
+  .beginner-battle-content {
+    gap: 0.35rem;
+    padding: 0.35rem;
+  }
+
+  .beginner-battle-monster,
+  .beginner-battle-prompt {
+    min-height: 124px;
+    padding: 0.3rem;
+  }
+
+  .beginner-battle-avatar {
+    display: flex;
+    height: 62px;
+    align-items: center;
+    justify-content: center;
+    margin-block: -0.2rem;
+  }
+
+  .beginner-battle-avatar svg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .beginner-battle-emoji {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .beginner-battle-keyboard > div:first-child {
+    margin-bottom: 0.2rem;
+  }
+
+  .beginner-battle-keyboard p {
+    font-size: 0.68rem;
+  }
+
+  .guided-keyboard {
+    padding: 0.3rem;
+  }
+
+  .guided-keyboard-row {
+    gap: 0.25rem;
+  }
+
+  .guided-keyboard-key {
+    width: 2.15rem;
+    height: 1.85rem;
+    font-size: 0.75rem;
+  }
+
+  .beginner-battle-footer {
+    padding: 0.2rem 0.75rem;
+  }
+
+  .beginner-battle-footer button {
+    padding-block: 0.25rem;
+  }
+}
