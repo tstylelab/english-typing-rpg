@@ -4552,7 +4552,7 @@ export default function App() {
   ]);
 
   useEffect(() => {
-    if (gameState.screen !== 'battle') {
+    if (gameState.screen !== 'battle' && gameState.screen !== 'beginner-battle') {
       clearPendingBattleEndTimeout();
       soundEngine.stopBattleAmbience();
       soundEngine.stopBattleMusic();
@@ -7678,7 +7678,13 @@ export default function App() {
     const question = BEGINNER_BATTLE_QUESTIONS[safeQuestionIndex];
     const questionIndexInPhase = safeQuestionIndex % BEGINNER_BATTLE_PHASE_SIZE;
     const nextLetter = isComplete ? '' : question.text[beginnerBattleInput.length] ?? '';
-    const beginnerMonsters = [MONSTERS[1].guide[0], MONSTERS[1].guide[2], MONSTERS[1].guide[4]];
+    const beginnerMonsters = [
+      MONSTERS[1].guide[0],
+      MONSTERS[1].guide[1],
+      MONSTERS[1].guide[2],
+      MONSTERS[1].guide[3],
+      MONSTERS[1].guide[4],
+    ];
     const currentMonster = beginnerMonsters[phaseIndex] ?? beginnerMonsters[0];
     const remainingQuestions = beginnerBattleClearedPhase !== null
       ? 0
@@ -7694,7 +7700,7 @@ export default function App() {
           <div className="absolute inset-0 bg-slate-950/72" />
           <div className="relative z-10 w-full max-w-2xl rounded-2xl border-2 border-amber-300/60 bg-slate-900/94 p-6 text-center shadow-[0_28px_90px_rgba(0,0,0,0.72)] sm:p-8">
             <div className="text-6xl">🏆</div>
-            <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">30もん クリア！</p>
+            <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">{BEGINNER_BATTLE_QUESTIONS.length}もん クリア！</p>
             <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">はじめてバトル せいこう！</h1>
             <p className="mt-3 text-base font-bold leading-7 text-slate-200">文字を見つけて、英検5級の単語まで打てました。何回でも遊んで大丈夫です。</p>
             <div className="mt-6 rounded-xl border border-cyan-300/35 bg-cyan-950/35 p-4 text-left">
@@ -7721,7 +7727,7 @@ export default function App() {
               <p className="text-xs font-black tracking-[0.16em] text-emerald-200">キーボードつき・はじめてバトル</p>
               <h1 className="mt-1 text-xl font-black text-white sm:text-2xl">{phase.title}</h1>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap justify-end gap-1.5">
               {BEGINNER_BATTLE_PHASES.map((item, index) => (
                 <div key={item.title} className={`rounded-full border px-3 py-1 text-xs font-black ${index < phaseIndex ? 'border-emerald-300/50 bg-emerald-500/18 text-emerald-100' : index === phaseIndex ? 'border-amber-200 bg-amber-400/18 text-amber-100' : 'border-slate-700 bg-slate-900 text-slate-500'}`}>
                   {index < phaseIndex ? '✓ ' : ''}{index + 1}. {item.shortTitle}
@@ -7747,7 +7753,7 @@ export default function App() {
                 <div>
                   <div className="text-5xl">🎉</div>
                   <p className="mt-2 text-2xl font-black text-amber-200">モンスターをたおした！</p>
-                  <p className="mt-2 text-sm font-bold text-slate-300">10問できました。つぎも同じように、ゆっくり進めば大丈夫です。</p>
+                  <p className="mt-2 text-sm font-bold text-slate-300">{BEGINNER_BATTLE_PHASE_SIZE}問できました。つぎも同じように、ゆっくり進めば大丈夫です。</p>
                   <GameButton className="mt-5" variant="success" onClick={continueBeginnerBattle}>つぎのモンスターへ <ArrowRight size={18} /></GameButton>
                 </div>
               ) : (
