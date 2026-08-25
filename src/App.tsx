@@ -8071,8 +8071,8 @@ export default function App() {
                     <div className="my-auto max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
                       <div className="border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.62),rgba(15,23,42,0.96))] px-5 py-5 text-center sm:px-7">
                         <p className="text-xs font-black tracking-[0.18em] text-emerald-200">はじめて遊ぶ人へ</p>
-                        <h2 id="first-play-guide-title" className="mt-2 text-2xl font-black text-white sm:text-3xl">近い方を選ぶだけでOK！</h2>
-                        <p className="mt-2 text-sm font-bold text-slate-300">あとから、いつでも別のコースへ変更できます。</p>
+                        <h2 id="first-play-guide-title" className="mt-2 text-2xl font-black text-white sm:text-3xl">今の自分に近いものを選ぼう！</h2>
+                        <p className="mt-2 text-sm font-bold text-slate-300">迷ったら左上から。順番に進めば大丈夫です。</p>
                       </div>
 
                       <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6">
@@ -8088,28 +8088,10 @@ export default function App() {
                           className="rounded-xl border-2 border-emerald-400/55 bg-emerald-950/42 p-5 text-left transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-900/48 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"
                         >
                           <span className="flex items-center gap-3 text-lg font-black text-white">
-                            <Keyboard size={25} className="text-emerald-200" /> 文字入力から練習する
+                            <Keyboard size={25} className="text-emerald-200" /> はじめてキーボードを使う
                           </span>
                           <span className="mt-3 block text-sm font-bold leading-6 text-slate-300">
-                            キーボードに慣れていない人向け。押す場所からゆっくり覚えます。
-                          </span>
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setShowFirstPlayGuide(false);
-                            startGame('Eiken5', 1, 'guide', 'voice-text');
-                          }}
-                          className="relative rounded-xl border-2 border-cyan-300 bg-cyan-950/48 p-5 text-left shadow-[0_0_28px_rgba(34,211,238,0.13)] transition hover:-translate-y-0.5 hover:bg-cyan-900/48 focus:outline-none focus:ring-4 focus:ring-cyan-300/40"
-                        >
-                          <span className="absolute right-3 top-3 rounded-full bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">おすすめ</span>
-                          <span className="flex items-center gap-3 pr-16 text-lg font-black text-white">
-                            <ArrowRight size={25} className="text-cyan-200" /> 文字入力はできる
-                          </span>
-                          <span className="mt-3 block text-sm font-black text-cyan-100">英検5級・Level 1・基礎練習</span>
-                          <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
-                            英単語を見ながら入力する、一番始めやすいコースです。
+                            まずは押す場所から。画面のキーボードを見ながら、ゆっくり覚えます。
                           </span>
                         </button>
 
@@ -8119,10 +8101,28 @@ export default function App() {
                             setShowFirstPlayGuide(false);
                             startBeginnerBattle();
                           }}
-                          className="rounded-lg border border-amber-300/55 bg-amber-950/28 px-4 py-3 text-left transition hover:border-amber-200 hover:bg-amber-900/38 sm:col-span-2"
+                          className="relative rounded-xl border-2 border-amber-300/70 bg-amber-950/36 p-5 text-left shadow-[0_0_28px_rgba(251,191,36,0.12)] transition hover:-translate-y-0.5 hover:border-amber-200 hover:bg-amber-900/42 focus:outline-none focus:ring-4 focus:ring-amber-300/35"
                         >
-                          <span className="flex items-center gap-2 text-sm font-black text-amber-100"><Sword size={18} /> タイピング練習を終えた人</span>
-                          <span className="mt-1 block text-xs font-bold text-slate-300">キーボードを見ながら「はじめてバトル」に挑戦できます。</span>
+                          <span className="absolute right-3 top-3 rounded-full bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">つぎの一歩</span>
+                          <span className="flex items-center gap-3 pr-20 text-lg font-black text-white">
+                            <Sword size={25} className="text-amber-200" /> タイピング練習を終えた
+                          </span>
+                          <span className="mt-3 block text-sm font-black text-amber-100">キーボードつき・はじめてバトル</span>
+                          <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
+                            光るキーを見ながら、10問ずつモンスターと戦えます。時間制限や減点はありません。
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setShowFirstPlayGuide(false);
+                            startGame('Eiken5', 1, 'guide', 'voice-text');
+                          }}
+                          className="rounded-lg border border-cyan-300/60 bg-cyan-950/36 px-4 py-3 text-left transition hover:border-cyan-200 hover:bg-cyan-900/42 sm:col-span-2"
+                        >
+                          <span className="flex items-center gap-2 text-sm font-black text-cyan-100"><ArrowRight size={18} /> 英語学習の本編に進みたい</span>
+                          <span className="mt-1 block text-xs font-bold leading-5 text-slate-300">まずは「英検5級・Level 1・基礎練習」から始めます。英単語を見ながら入力するコースです。</span>
                         </button>
 
                         <button
@@ -8133,7 +8133,7 @@ export default function App() {
                           }}
                           className="rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 text-sm font-black text-slate-200 transition hover:border-cyan-300 hover:bg-slate-700 sm:col-span-2"
                         >
-                          英検の級やLevelを自分で選びたい
+                          英検の級・Level・英会話を自分で選びたい
                         </button>
 
                         <button
