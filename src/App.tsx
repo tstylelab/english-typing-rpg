@@ -4,7 +4,7 @@ import { QUESTIONS } from './data/questions';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
-import { BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
+import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
@@ -3611,6 +3611,8 @@ export default function App() {
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
+  const beginnerBattleSpeechTimeoutRef = useRef<number | null>(null);
+  const beginnerBattleSpeechRunIdRef = useRef(0);
   const newPlayerNameInputRef = useRef<HTMLInputElement>(null);
   const progressImportInputRef = useRef<HTMLInputElement>(null);
   const playerProfilesSectionRef = useRef<HTMLDivElement>(null);
@@ -4315,6 +4317,51 @@ export default function App() {
       });
   }, [speechRatePercent, speechVoiceMode, speechVoices]);
 
+  const clearBeginnerBattleSpeechTimeout = useCallback(() => {
+    if (beginnerBattleSpeechTimeoutRef.current !== null) {
+      window.clearTimeout(beginnerBattleSpeechTimeoutRef.current);
+      beginnerBattleSpeechTimeoutRef.current = null;
+    }
+  }, []);
+
+  const speakBeginnerBattleLetter = useCallback((letter: string) => {
+    beginnerBattleSpeechRunIdRef.current += 1;
+    clearBeginnerBattleSpeechTimeout();
+    if (!letter) return;
+    const speechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
+    speakText(letter.toUpperCase(), {
+      voice: speechConfig.voice,
+      lang: speechConfig.lang,
+      rate: speechRatePercent / 100,
+    });
+  }, [clearBeginnerBattleSpeechTimeout, speechRatePercent, speechVoiceMode, speechVoices]);
+
+  const speakBeginnerBattlePrompt = useCallback((question: BeginnerBattleQuestion, inputLength = 0) => {
+    const runId = beginnerBattleSpeechRunIdRef.current + 1;
+    beginnerBattleSpeechRunIdRef.current = runId;
+    clearBeginnerBattleSpeechTimeout();
+    const nextLetter = question.text[inputLength];
+    const speechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
+    const speechOptions = {
+      voice: speechConfig.voice,
+      lang: speechConfig.lang,
+      rate: speechRatePercent / 100,
+    };
+    speakText(question.text, {
+      ...speechOptions,
+      onend: nextLetter
+        ? () => {
+          if (beginnerBattleSpeechRunIdRef.current !== runId) return;
+          beginnerBattleSpeechTimeoutRef.current = window.setTimeout(() => {
+            beginnerBattleSpeechTimeoutRef.current = null;
+            if (beginnerBattleSpeechRunIdRef.current !== runId) return;
+            speakText(nextLetter.toUpperCase(), { ...speechOptions, interrupt: false });
+          }, 300);
+        }
+        : undefined,
+    });
+  }, [clearBeginnerBattleSpeechTimeout, speechRatePercent, speechVoiceMode, speechVoices]);
+
   const speakBattleQuestion = useCallback((question: Question, difficulty: Difficulty, mode: Mode) => {
     if (difficulty !== 'Conversation' || !question.promptEn) {
       speakWithSettings(question.text);
@@ -4471,6 +4518,9 @@ export default function App() {
       }
       if (beginnerBattleAdvanceTimeoutRef.current !== null) {
         window.clearTimeout(beginnerBattleAdvanceTimeoutRef.current);
+      }
+      if (beginnerBattleSpeechTimeoutRef.current !== null) {
+        window.clearTimeout(beginnerBattleSpeechTimeoutRef.current);
       }
       clearAutoPlayTimeout();
       if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -5922,7 +5972,7 @@ export default function App() {
     setGameState(prev => ({ ...prev, screen: 'beginner-battle' }));
     window.setTimeout(() => {
       beginnerBattleInputRef.current?.focus();
-      if (savedQuestion) speakWithSettings(savedQuestion.text);
+      if (savedQuestion) speakBeginnerBattlePrompt(savedQuestion, savedProgress.input.length);
     }, 250);
   };
 
@@ -5931,6 +5981,9 @@ export default function App() {
 
   const leaveBeginnerBattle = () => {
     clearBeginnerBattleAdvanceTimeout();
+    beginnerBattleSpeechRunIdRef.current += 1;
+    clearBeginnerBattleSpeechTimeout();
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel();
     soundEngine.stopBattleAmbience();
     soundEngine.stopBattleMusic();
     setBeginnerBattleResolving(false);
@@ -5949,9 +6002,9 @@ export default function App() {
     setBeginnerBattleResolving(false);
     window.setTimeout(() => {
       beginnerBattleInputRef.current?.focus();
-      if (nextQuestion) speakWithSettings(nextQuestion.text);
+      if (nextQuestion) speakBeginnerBattlePrompt(nextQuestion);
     }, 150);
-  }, [beginnerBattleIndex, speakWithSettings]);
+  }, [beginnerBattleIndex, speakBeginnerBattlePrompt]);
 
   useEffect(() => {
     if (gameState.screen !== 'beginner-battle' || beginnerBattleClearedPhase === null) return;
@@ -6001,6 +6054,7 @@ export default function App() {
     setBeginnerBattleMessage('');
     if (normalizedValue !== question.text) {
       saveBeginnerBattleProgress(beginnerBattleIndex, normalizedValue);
+      speakBeginnerBattleLetter(question.text[normalizedValue.length] ?? '');
       window.setTimeout(() => beginnerBattleInputRef.current?.focus(), 0);
       return;
     }
@@ -6048,7 +6102,7 @@ export default function App() {
       setBeginnerBattleMessage('');
       window.setTimeout(() => {
         beginnerBattleInputRef.current?.focus();
-        if (nextQuestion) speakWithSettings(nextQuestion.text);
+        if (nextQuestion) speakBeginnerBattlePrompt(nextQuestion);
       }, 100);
     }, 320);
   };
@@ -7756,6 +7810,8 @@ export default function App() {
     const questionIndexInPhase = safeQuestionIndex % BEGINNER_BATTLE_PHASE_SIZE;
     const nextLetter = isComplete ? '' : question.text[beginnerBattleInput.length] ?? '';
     const currentMonster = MONSTERS[1].guide[phaseIndex] ?? MONSTERS[1].guide[0];
+    const isFirstSetCheckpoint = beginnerBattleClearedPhase === (BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE) - 1;
+    const setLabel = phaseIndex < BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE ? '前半100問' : '後半100問';
     const remainingQuestions = beginnerBattleClearedPhase !== null
       ? 0
       : BEGINNER_BATTLE_PHASE_SIZE - questionIndexInPhase;
@@ -7772,7 +7828,7 @@ export default function App() {
             <div className="text-6xl">🏆</div>
             <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">{BEGINNER_BATTLE_QUESTIONS.length}もん クリア！</p>
             <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">はじめてバトル せいこう！</h1>
-            <p className="mt-3 text-base font-bold leading-7 text-slate-200">文字を見つけて、英検5級の単語まで打てました。何回でも遊んで大丈夫です。</p>
+            <p className="mt-3 text-base font-bold leading-7 text-slate-200">3文字から5文字まで、200個の単語を打てました。英検5級に進む準備はばっちりです。</p>
             <div className="mt-6 rounded-xl border border-cyan-300/35 bg-cyan-950/35 p-4 text-left">
               <p className="font-black text-cyan-100">つぎのおすすめ</p>
               <p className="mt-1 text-sm font-bold leading-6 text-slate-300">英検5級 Level 1の基礎練習へ進むと、もっとたくさんの英単語とモンスターに出会えます。</p>
@@ -7805,7 +7861,7 @@ export default function App() {
               <h1 className="mt-1 text-xl font-black text-white sm:text-2xl">{phase.title}</h1>
             </div>
             <div className="min-w-[220px] rounded-xl border border-slate-700 bg-slate-900/75 px-3 py-2">
-              <div className="flex items-center justify-between text-xs font-black"><span className="text-amber-100">ステージ {phaseIndex + 1} / {BEGINNER_BATTLE_PHASES.length}</span><span className="text-slate-400">{BEGINNER_BATTLE_PHASE_SIZE}問ずつ</span></div>
+              <div className="flex items-center justify-between text-xs font-black"><span className="text-amber-100">ステージ {phaseIndex + 1} / {BEGINNER_BATTLE_PHASES.length}</span><span className="text-slate-400">{setLabel}</span></div>
               <div className="mt-2 grid grid-cols-10 gap-1" aria-label={`全${BEGINNER_BATTLE_PHASES.length}ステージ中${phaseIndex + 1}ステージ`}>
                 {BEGINNER_BATTLE_PHASES.map((item, index) => <span key={item.title} title={item.shortTitle} className={`h-2 rounded-full ${index < phaseIndex ? 'bg-emerald-400' : index === phaseIndex ? 'bg-amber-300' : 'bg-slate-700'}`} />)}
               </div>
@@ -7825,7 +7881,17 @@ export default function App() {
             </section>
 
             <section className="beginner-battle-prompt flex min-h-[205px] flex-col justify-center rounded-xl border border-cyan-300/25 bg-slate-950/58 p-4 text-center">
-              {beginnerBattleClearedPhase !== null ? (
+              {isFirstSetCheckpoint ? (
+                <div>
+                  <div className="text-5xl">🎆</div>
+                  <p className="mt-2 text-2xl font-black text-amber-200">前半100問 クリア！</p>
+                  <p className="mt-2 text-sm font-bold leading-6 text-slate-300">ここで英検5級へ進んでもOK。まだ遊びたいときは、新しい100問に挑戦できます。</p>
+                  <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                    <GameButton variant="success" onClick={continueBeginnerBattle}>つづきの100問へ <span className="rounded border border-white/45 bg-black/15 px-1.5 py-0.5 text-xs">Enter</span> <ArrowRight size={18} /></GameButton>
+                    <GameButton variant="outline" onClick={() => startGame('Eiken5', 1, 'guide', 'voice-text')}>英検5級へすすむ <ArrowRight size={18} /></GameButton>
+                  </div>
+                </div>
+              ) : beginnerBattleClearedPhase !== null ? (
                 <div>
                   <div className="text-5xl">🎉</div>
                   <p className="mt-2 text-2xl font-black text-amber-200">モンスターをたおした！</p>
@@ -7837,11 +7903,11 @@ export default function App() {
                   <p className="text-xs font-black tracking-[0.14em] text-cyan-200">{phase.description}</p>
                   <div className="mt-2 flex items-center justify-center gap-3">
                     <span className="beginner-battle-emoji text-5xl" aria-hidden="true">{question.emoji}</span>
-                    <div className="text-left"><p className="text-sm font-black text-slate-300">{question.translation}</p><button type="button" onClick={() => speakWithSettings(question.text)} className="mt-1 inline-flex items-center gap-1 text-xs font-black text-cyan-200 hover:text-cyan-100"><Volume2 size={15} /> 音を聞く</button></div>
+                    <div className="text-left"><p className="text-sm font-black text-slate-300">{question.translation}</p><button type="button" onClick={() => speakBeginnerBattlePrompt(question, beginnerBattleInput.length)} className="mt-1 inline-flex items-center gap-1 text-xs font-black text-cyan-200 hover:text-cyan-100"><Volume2 size={15} /> 単語とつぎの文字を聞く</button></div>
                   </div>
                   <div className="mt-3 flex min-h-[64px] items-center justify-center gap-1 rounded-xl border border-slate-600 bg-slate-900/82 px-3 py-2">
                     {[...question.text].map((letter, index) => (
-                      <span key={`${letter}-${index}`} className={`flex h-12 min-w-9 items-center justify-center rounded-lg border px-2 text-3xl font-black uppercase transition sm:min-w-11 ${index < beginnerBattleInput.length ? 'border-emerald-300 bg-emerald-400/20 text-emerald-100' : index === beginnerBattleInput.length ? 'border-amber-200 bg-amber-400/16 text-amber-100 shadow-[0_0_16px_rgba(251,191,36,0.28)]' : 'border-slate-700 bg-slate-950/55 text-slate-400'}`}>{letter}</span>
+                      <span key={`${letter}-${index}`} className={`flex h-12 min-w-9 items-center justify-center rounded-lg border px-2 text-3xl font-black transition sm:min-w-11 ${beginnerBattleIndex >= BEGINNER_BATTLE_FIRST_SET_SIZE ? 'lowercase' : 'uppercase'} ${index < beginnerBattleInput.length ? 'border-emerald-300 bg-emerald-400/20 text-emerald-100' : index === beginnerBattleInput.length ? 'border-amber-200 bg-amber-400/16 text-amber-100 shadow-[0_0_16px_rgba(251,191,36,0.28)]' : 'border-slate-700 bg-slate-950/55 text-slate-400'}`}>{letter}</span>
                     ))}
                   </div>
                   <input ref={beginnerBattleInputRef} autoFocus value={beginnerBattleInput} onChange={event => handleBeginnerBattleInput(event.target.value.toLowerCase())} className="sr-only" aria-label="はじめてバトルの入力" />
