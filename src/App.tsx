@@ -320,9 +320,41 @@ const getBattleDamageMultiplier = (mode: Mode, inputMode: InputMode) => {
 
 const normalizeTypingText = (text: string) => (
   text
+    .replace(/[\uFF01-\uFF5E]/g, char => String.fromCharCode(char.charCodeAt(0) - 0xFEE0))
+    .replace(/\u3000/g, ' ')
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201C\u201D]/g, '"')
 );
+
+const PHYSICAL_TYPING_KEY_PAIRS: Record<string, [string, string]> = {
+  Digit0: ['0', ')'], Digit1: ['1', '!'], Digit2: ['2', '@'], Digit3: ['3', '#'], Digit4: ['4', '$'],
+  Digit5: ['5', '%'], Digit6: ['6', '^'], Digit7: ['7', '&'], Digit8: ['8', '*'], Digit9: ['9', '('],
+  Space: [' ', ' '], Minus: ['-', '_'], Equal: ['=', '+'], BracketLeft: ['[', '{'], BracketRight: [']', '}'],
+  Backslash: ['\\', '|'], Semicolon: [';', ':'], Quote: ["'", '"'], Comma: [',', '<'], Period: ['.', '>'], Slash: ['/', '?'],
+};
+
+const getPhysicalTypingCharacter = (event: KeyboardEvent, expectedCharacter = ''): string | null => {
+  if (event.ctrlKey || event.metaKey || event.altKey) return null;
+
+  let character: string | null = null;
+  if (event.key.length === 1 && /^[\x20-\x7E]$/.test(event.key)) {
+    character = event.key;
+  } else if (/^Key[A-Z]$/.test(event.code)) {
+    character = event.code.slice(3).toLowerCase();
+  } else {
+    const pair = PHYSICAL_TYPING_KEY_PAIRS[event.code];
+    if (pair) {
+      if (expectedCharacter && pair.includes(expectedCharacter)) return expectedCharacter;
+      character = pair[event.shiftKey ? 1 : 0];
+    }
+  }
+
+  if (!character) return null;
+  if (/^[a-z]$/i.test(character) && expectedCharacter.toLowerCase() === character.toLowerCase()) {
+    return expectedCharacter;
+  }
+  return character;
+};
 
 const DEFAULT_BATTLE_QUESTION_LIMIT = 10;
 const FINAL_BOSS_QUESTION_LIMIT = 20;
@@ -4161,20 +4193,28 @@ export default function App() {
     const currentQuestion = currentVersusQuestion.question;
     const normalizedValue = normalizeTypingText(value);
     const normalizedAnswer = normalizeTypingText(currentQuestion.text);
-    if (value.length > versusInput.length) soundEngine.playType();
+    if (normalizedValue.length > versusInput.length) soundEngine.playType();
     if (!normalizedAnswer.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setVersusQuestionMisses(count => count + 1);
       if (currentVersusQuestion.promptMode === 'listening' || currentVersusQuestion.promptMode === 'translation' || currentVersusQuestion.promptMode === 'listening-translation') {
-        setVersusHintLength(length => Math.min(length + 1, currentQuestion.text.length));
+        let mismatchIndex = 0;
+        while (
+          mismatchIndex < normalizedValue.length
+          && mismatchIndex < normalizedAnswer.length
+          && normalizedValue[mismatchIndex] === normalizedAnswer[mismatchIndex]
+        ) {
+          mismatchIndex += 1;
+        }
+        setVersusHintLength(Math.min(mismatchIndex + 1, normalizedAnswer.length));
       }
       setVersusInput(versusInput);
       return;
     }
-    setVersusInput(value);
+    setVersusInput(normalizedValue);
     if (normalizedValue === normalizedAnswer) {
       soundEngine.playAttack();
-      finishVersusQuestion(value);
+      finishVersusQuestion(normalizedValue);
     }
   };
 
@@ -5892,26 +5932,25 @@ export default function App() {
     advanceGame(finalDamage, charsPerSec, false, charCount);
   };
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+  const handleBattleInputValue = (value: string) => {
     const targetText = gameState.currentQuestion.text;
-    const normalizedVal = normalizeTypingText(val);
+    const normalizedVal = normalizeTypingText(value);
     const normalizedTargetText = normalizeTypingText(targetText);
-    if (val.length > gameState.userInput.length) soundEngine.playType();
-    if (!gameState.startTime && val.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
+    if (normalizedVal.length > gameState.userInput.length) soundEngine.playType();
+    if (!gameState.startTime && normalizedVal.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
     
     if (gameState.mode === 'guide' && gameState.selectedLevel === 1) {
         if (normalizedTargetText.startsWith(normalizedVal)) {
-            setGameState(prev => ({ ...prev, userInput: val, hintLength: 0 }));
-            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(val);
+            setGameState(prev => ({ ...prev, userInput: normalizedVal, hintLength: 0 }));
+            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(normalizedVal);
         } else {
             soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
             setGameState(prev => ({ ...prev, userInput: "", combo: 0, missCount: prev.missCount + 1, hintLength: 0 })); 
         }
     } else {
         if (normalizedTargetText.startsWith(normalizedVal)) {
-            setGameState(prev => ({ ...prev, userInput: val, hintLength: 0 }));
-            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(val);
+            setGameState(prev => ({ ...prev, userInput: normalizedVal, hintLength: 0 }));
+            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(normalizedVal);
         } else {
             soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
             const shouldShowHint = gameState.mode === 'challenge';
@@ -5928,15 +5967,16 @@ export default function App() {
 
   const handleTypingPracticeInput = (value: string) => {
     const target = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
-    if (!target.startsWith(value)) {
+    const normalizedValue = normalizeTypingText(value).toLowerCase();
+    if (!target.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setTypingPracticeMisses(count => count + 1);
       window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
       return;
     }
-    if (value.length > typingPracticeInput.length) soundEngine.playType();
-    setTypingPracticeInput(value);
-    if (value === target) {
+    if (normalizedValue.length > typingPracticeInput.length) soundEngine.playType();
+    setTypingPracticeInput(normalizedValue);
+    if (normalizedValue === target) {
       setTypingPracticeIndex(index => Math.min(index + 1, TYPING_PRACTICE_STEPS.length));
       setTypingPracticeInput('');
     }
@@ -5948,6 +5988,10 @@ export default function App() {
       window.clearTimeout(beginnerBattleAdvanceTimeoutRef.current);
       beginnerBattleAdvanceTimeoutRef.current = null;
     }
+  };
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleBattleInputValue(e.target.value);
   };
 
   const beginBeginnerBattle = (restart: boolean) => {
@@ -6041,7 +6085,7 @@ export default function App() {
     const question = BEGINNER_BATTLE_QUESTIONS[beginnerBattleIndex];
     if (!question) return;
 
-    const normalizedValue = value.toLowerCase();
+    const normalizedValue = normalizeTypingText(value).toLowerCase();
     if (!question.text.startsWith(normalizedValue)) {
       soundEngine.playMiss();
       setBeginnerBattleMessage('だいじょうぶ！光っているキーを押してみよう。');
@@ -6106,6 +6150,57 @@ export default function App() {
       }, 100);
     }, 320);
   };
+
+  useEffect(() => {
+    const handlePhysicalTypingKey = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
+
+      let currentValue = '';
+      let targetText = '';
+      let updateValue: ((value: string) => void) | null = null;
+
+      if (gameState.screen === 'battle' && gameState.monsterHp > 0 && !showBossIntro) {
+        currentValue = normalizeTypingText(gameState.userInput);
+        targetText = normalizeTypingText(gameState.currentQuestion.text);
+        updateValue = handleBattleInputValue;
+      } else if (gameState.screen === 'versus-play' && !versusShowHandoff) {
+        const currentQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex]?.question;
+        if (!currentQuestion) return;
+        currentValue = normalizeTypingText(versusInput);
+        targetText = normalizeTypingText(currentQuestion.text);
+        updateValue = handleVersusInput;
+      } else if (
+        gameState.screen === 'beginner-battle'
+        && !beginnerBattleResolving
+        && beginnerBattleClearedPhase === null
+        && beginnerBattleIndex < BEGINNER_BATTLE_QUESTIONS.length
+      ) {
+        currentValue = beginnerBattleInput;
+        targetText = BEGINNER_BATTLE_QUESTIONS[beginnerBattleIndex]?.text ?? '';
+        updateValue = handleBeginnerBattleInput;
+      } else if (gameState.screen === 'typing-practice' && typingPracticeIndex < TYPING_PRACTICE_STEPS.length) {
+        currentValue = typingPracticeInput;
+        targetText = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
+        updateValue = handleTypingPracticeInput;
+      }
+
+      if (!updateValue || !targetText) return;
+      if (event.code === 'Backspace') {
+        event.preventDefault();
+        if (currentValue) updateValue(currentValue.slice(0, -1));
+        return;
+      }
+      if (currentValue.length >= targetText.length) return;
+
+      const character = getPhysicalTypingCharacter(event, targetText[currentValue.length] ?? '');
+      if (character === null) return;
+      event.preventDefault();
+      updateValue(currentValue + character);
+    };
+
+    window.addEventListener('keydown', handlePhysicalTypingKey);
+    return () => window.removeEventListener('keydown', handlePhysicalTypingKey);
+  });
 
   // --- Screens ---
   const selectedSpeechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
@@ -7706,7 +7801,7 @@ export default function App() {
     const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
     const currentQuestion = currentVersusQuestion?.question;
     const currentAdjustedScore = currentPlayer ? getAdjustedVersusScore(currentPlayer) : 0;
-    const versusHint = currentQuestion?.text.slice(0, versusHintLength) ?? '';
+    const versusHintCharacter = versusHintLength > 0 ? currentQuestion?.text[versusHintLength - 1] : '';
     if (!currentPlayer || !currentQuestion || !currentVersusQuestion) {
       return <ScreenContainer className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
     }
@@ -7738,8 +7833,9 @@ export default function App() {
             {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
             {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
-            {versusHint && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl tracking-[0.14em] text-white">{versusHint}</span><span className="ml-2 text-xs text-slate-400">ミスごとに1文字ずつ表示</span></p>}
-            <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
+            {versusHintCharacter && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl text-white">{versusHintLength}文字目は「{versusHintCharacter}」</span><span className="ml-2 text-xs text-slate-400">間違えた位置の文字です</span></p>}
+            <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
+            <p className="mt-2 text-xs font-bold text-emerald-300">半角／全角の切り替え不要・日本語入力のままでOK</p>
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
         </Box>
@@ -7790,9 +7886,9 @@ export default function App() {
     return (
       <ScreenContainer className="items-center justify-center px-3 py-6">
         <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
-          <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。急がなくて大丈夫です。</p>
+          <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。半角／全角は切り替えなくてOKです。</p>
           {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><div className="mt-6 grid gap-3 sm:grid-cols-2"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton variant="success" onClick={startBeginnerBattle}><Sword size={19} /> つぎは はじめてバトルへ</GameButton></div></div> : <>
-            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" aria-label="typing practice input" /></div>
+            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="typing practice input" /></div>
             <div className="mt-5"><GuidedKeyboard nextLetter={nextLetter} onPress={letter => handleTypingPracticeInput(typingPracticeInput + letter)} /></div>
             <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>やめる</GameButton></div>
           </>}
@@ -7910,7 +8006,7 @@ export default function App() {
                       <span key={`${letter}-${index}`} className={`flex h-12 min-w-9 items-center justify-center rounded-lg border px-2 text-3xl font-black transition sm:min-w-11 ${beginnerBattleIndex >= BEGINNER_BATTLE_FIRST_SET_SIZE ? 'lowercase' : 'uppercase'} ${index < beginnerBattleInput.length ? 'border-emerald-300 bg-emerald-400/20 text-emerald-100' : index === beginnerBattleInput.length ? 'border-amber-200 bg-amber-400/16 text-amber-100 shadow-[0_0_16px_rgba(251,191,36,0.28)]' : 'border-slate-700 bg-slate-950/55 text-slate-400'}`}>{letter}</span>
                     ))}
                   </div>
-                  <input ref={beginnerBattleInputRef} autoFocus value={beginnerBattleInput} onChange={event => handleBeginnerBattleInput(event.target.value.toLowerCase())} className="sr-only" aria-label="はじめてバトルの入力" />
+                  <input ref={beginnerBattleInputRef} autoFocus value={beginnerBattleInput} onChange={event => handleBeginnerBattleInput(event.target.value.toLowerCase())} className="sr-only" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="はじめてバトルの入力" />
                   <p className={`mt-2 min-h-6 text-sm font-black ${beginnerBattleMessage.startsWith('だいじょうぶ') ? 'text-amber-200' : 'text-emerald-200'}`}>{beginnerBattleMessage || `${questionIndexInPhase + 1} / ${BEGINNER_BATTLE_PHASE_SIZE} 問`}</p>
                 </>
               )}
@@ -7928,7 +8024,7 @@ export default function App() {
           </div>
 
           <footer className="beginner-battle-footer flex items-center justify-between border-t border-slate-700 bg-slate-950/55 px-4 py-2">
-            <p className="text-xs font-bold text-slate-400">時間制限・減点なし ・ 途中のつづきは自動保存</p>
+            <p className="text-xs font-bold text-slate-400">半角／全角の切り替え不要 ・ 日本語入力のままでOK ・ 途中自動保存</p>
             <GameButton size="sm" variant="outline" onClick={leaveBeginnerBattle}>やめる</GameButton>
           </footer>
         </div>
@@ -8933,7 +9029,7 @@ export default function App() {
                             return <span key={index} className={className}>{(!isTyped && !isHint && !isAlwaysVisible && isCurrent) ? '_' : (char === ' ' ? '\u00A0' : char)}</span>;
                         })}
                     </div>
-                    <input ref={inputRef} type="text" value={gameState.userInput} onChange={handleInput} className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus />
+                    <input ref={inputRef} type="text" value={gameState.userInput} onChange={handleInput} className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10" lang="en" inputMode="text" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus />
                  </div>
                  {showPreviousStudyCard && lastSolvedQuestion && (
                     <div className="battle-previous-study mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
@@ -9011,7 +9107,7 @@ export default function App() {
                    </div>
                  )}
             </div>
-              <div className="battle-footer-label mt-2 text-center"><span className="text-slate-500 text-[10px] uppercase tracking-widest border border-slate-700 px-2 py-0.5 rounded bg-slate-900">Type the spell to attack</span></div>
+              <div className="battle-footer-label mt-2 text-center"><span className="rounded border border-emerald-500/35 bg-emerald-950/30 px-2 py-0.5 text-[11px] font-bold text-emerald-200">半角／全角の切り替え不要・日本語入力のままでOK</span></div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
                 @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }
@@ -9032,7 +9128,7 @@ export default function App() {
                   .battle-screen .battle-question-panel { padding: 0.5rem 0.75rem; }
                   .battle-screen .battle-question-text { min-height: 2.3em !important; }
                   .battle-screen .battle-previous-study { margin-top: 0.5rem; padding: 0.4rem 0.65rem; }
-                  .battle-screen .battle-footer-label { display: none; }
+                  .battle-screen .battle-footer-label { margin-top: 0.25rem; }
                 }`}</style>
       </ScreenContainer>
     );
