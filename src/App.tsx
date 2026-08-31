@@ -3642,8 +3642,6 @@ export default function App() {
   const battleImeComposingRef = useRef(false);
   const battleIgnoreCompositionCommitRef = useRef(false);
   const versusInputRef = useRef<HTMLInputElement>(null);
-  const versusImeComposingRef = useRef(false);
-  const versusIgnoreCompositionCommitRef = useRef(false);
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
@@ -5994,28 +5992,6 @@ export default function App() {
     }
   };
 
-  const handleVersusInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (versusImeComposingRef.current || versusIgnoreCompositionCommitRef.current || (event.nativeEvent as InputEvent).isComposing) {
-      event.target.value = versusInput;
-      return;
-    }
-    handleVersusInput(event.target.value);
-  };
-
-  const handleVersusCompositionStart = () => {
-    versusImeComposingRef.current = true;
-  };
-
-  const handleVersusCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
-    versusImeComposingRef.current = false;
-    versusIgnoreCompositionCommitRef.current = true;
-    event.currentTarget.value = versusInput;
-    window.requestAnimationFrame(() => {
-      versusIgnoreCompositionCommitRef.current = false;
-      versusInputRef.current?.focus();
-    });
-  };
-
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (battleImeComposingRef.current || battleIgnoreCompositionCommitRef.current || (e.nativeEvent as InputEvent).isComposing) {
       e.target.value = gameState.userInput;
@@ -7885,19 +7861,17 @@ export default function App() {
               ref={versusInputRef}
               type="text"
               value={versusInput}
-              onChange={handleVersusInputChange}
-              onCompositionStart={handleVersusCompositionStart}
-              onCompositionEnd={handleVersusCompositionEnd}
+              onChange={event => handleVersusInput(event.target.value)}
               className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200"
               lang="en"
-              inputMode="email"
+              inputMode="text"
               autoComplete="off"
               autoCapitalize="none"
               autoCorrect="off"
               spellCheck={false}
               aria-label="英単語を入力"
             />
-            <p className="mt-2 text-xs font-bold text-emerald-300">英字入力を優先する設定で開始します</p>
+            <p className="mt-2 text-xs font-bold text-emerald-300">英字キーを押して入力します</p>
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
         </Box>
@@ -9104,7 +9078,7 @@ export default function App() {
                       onCompositionEnd={handleBattleCompositionEnd}
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
-                      inputMode="email"
+                      inputMode="text"
                       autoComplete="off"
                       autoCapitalize="none"
                       autoCorrect="off"
@@ -9188,7 +9162,7 @@ export default function App() {
                    </div>
                  )}
             </div>
-              <div className="battle-footer-label mt-2 text-center"><span className="rounded border border-emerald-500/35 bg-emerald-950/30 px-2 py-0.5 text-[11px] font-bold text-emerald-200">英字入力を優先する設定で開始します</span></div>
+              <div className="battle-footer-label mt-2 text-center"><span className="rounded border border-emerald-500/35 bg-emerald-950/30 px-2 py-0.5 text-[11px] font-bold text-emerald-200">英字キーを押して入力します</span></div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
                 @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }
