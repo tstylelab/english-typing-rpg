@@ -3639,6 +3639,8 @@ export default function App() {
   const [versusPreviousBestScore, setVersusPreviousBestScore] = useState(0);
   const [versusIsNewBest, setVersusIsNewBest] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const battleImeComposingRef = useRef(false);
+  const battleIgnoreCompositionCommitRef = useRef(false);
   const versusInputRef = useRef<HTMLInputElement>(null);
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
@@ -5991,7 +5993,25 @@ export default function App() {
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (battleImeComposingRef.current || battleIgnoreCompositionCommitRef.current || (e.nativeEvent as InputEvent).isComposing) {
+      e.target.value = gameState.userInput;
+      return;
+    }
     handleBattleInputValue(e.target.value);
+  };
+
+  const handleBattleCompositionStart = () => {
+    battleImeComposingRef.current = true;
+  };
+
+  const handleBattleCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
+    battleImeComposingRef.current = false;
+    battleIgnoreCompositionCommitRef.current = true;
+    event.currentTarget.value = gameState.userInput;
+    window.requestAnimationFrame(() => {
+      battleIgnoreCompositionCommitRef.current = false;
+      inputRef.current?.focus();
+    });
   };
 
   const beginBeginnerBattle = (restart: boolean) => {
@@ -6198,8 +6218,11 @@ export default function App() {
       updateValue(currentValue + character);
     };
 
-    window.addEventListener('keydown', handlePhysicalTypingKey);
-    return () => window.removeEventListener('keydown', handlePhysicalTypingKey);
+    // Capture physical keys before Android IMEs can turn them into composition
+    // input. This lets a connected keyboard type English even when the tablet
+    // resumes with Japanese/full-width input still selected.
+    window.addEventListener('keydown', handlePhysicalTypingKey, true);
+    return () => window.removeEventListener('keydown', handlePhysicalTypingKey, true);
   });
 
   // --- Screens ---
@@ -9029,7 +9052,22 @@ export default function App() {
                             return <span key={index} className={className}>{(!isTyped && !isHint && !isAlwaysVisible && isCurrent) ? '_' : (char === ' ' ? '\u00A0' : char)}</span>;
                         })}
                     </div>
-                    <input ref={inputRef} type="text" value={gameState.userInput} onChange={handleInput} className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10" lang="en" inputMode="text" autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoFocus />
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={gameState.userInput}
+                      onChange={handleInput}
+                      onCompositionStart={handleBattleCompositionStart}
+                      onCompositionEnd={handleBattleCompositionEnd}
+                      className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
+                      lang="en"
+                      inputMode="text"
+                      autoComplete="off"
+                      autoCapitalize="none"
+                      autoCorrect="off"
+                      spellCheck={false}
+                      autoFocus
+                    />
                  </div>
                  {showPreviousStudyCard && lastSolvedQuestion && (
                     <div className="battle-previous-study mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
