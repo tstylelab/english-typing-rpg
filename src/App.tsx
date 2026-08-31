@@ -4225,11 +4225,6 @@ export default function App() {
   const updateExternalKeyboardMode = (enabled: boolean) => {
     setExternalKeyboardMode(enabled);
     localStorage.setItem(STORAGE_KEYS.externalKeyboardMode, String(enabled));
-    if (enabled) {
-      inputRef.current?.blur();
-      versusInputRef.current?.blur();
-      return;
-    }
     window.requestAnimationFrame(() => {
       if (gameState.screen === 'battle') inputRef.current?.focus({ preventScroll: true });
       if (gameState.screen === 'versus-play' && !versusShowHandoff) versusInputRef.current?.focus({ preventScroll: true });
@@ -4237,24 +4232,14 @@ export default function App() {
   };
 
   const keepTypingInputReady = (ref: React.RefObject<HTMLInputElement | null>) => {
-    if (externalKeyboardMode) {
-      ref.current?.blur();
-      return;
-    }
     ref.current?.focus({ preventScroll: true });
   };
 
   useEffect(() => {
     if (gameState.screen !== 'versus-play' || versusShowHandoff) return;
-    const timeoutId = window.setTimeout(() => {
-      if (externalKeyboardMode) {
-        versusInputRef.current?.blur();
-      } else {
-        versusInputRef.current?.focus();
-      }
-    }, 0);
+    const timeoutId = window.setTimeout(() => versusInputRef.current?.focus({ preventScroll: true }), 0);
     return () => window.clearTimeout(timeoutId);
-  }, [externalKeyboardMode, gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
+  }, [gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
 
   const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'practice' | 'battle' | null => {
     if (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text')) {
@@ -4662,12 +4647,8 @@ export default function App() {
 
   useEffect(() => {
     if (gameState.screen !== 'battle') return;
-    if (externalKeyboardMode) {
-      inputRef.current?.blur();
-      return;
-    }
-    inputRef.current?.focus();
-  }, [externalKeyboardMode, gameState.screen, gameState.currentQuestion]);
+    inputRef.current?.focus({ preventScroll: true });
+  }, [gameState.screen, gameState.currentQuestion]);
 
   useEffect(() => {
     if (gameState.screen !== 'battle' && gameState.screen !== 'versus-play') {
@@ -7900,8 +7881,6 @@ export default function App() {
               className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200"
               lang="en"
               inputMode={externalKeyboardMode ? 'none' : 'text'}
-              readOnly={externalKeyboardMode}
-              tabIndex={externalKeyboardMode ? -1 : 0}
               autoComplete="off"
               autoCapitalize="none"
               autoCorrect="off"
@@ -9103,9 +9082,7 @@ export default function App() {
                  </div>
                  <div
                    className={`battle-question-panel relative bg-black/40 rounded-xl border border-slate-700 shadow-inner ${questionPresentation.panelClass}`}
-                   onClick={() => {
-                     if (!externalKeyboardMode) inputRef.current?.focus();
-                   }}
+                   onClick={() => inputRef.current?.focus({ preventScroll: true })}
                  >
                     <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
                         {gameState.currentQuestion.text.split('').map((char, index) => {
@@ -9128,13 +9105,11 @@ export default function App() {
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
                       inputMode={externalKeyboardMode ? 'none' : 'text'}
-                      readOnly={externalKeyboardMode}
-                      tabIndex={externalKeyboardMode ? -1 : 0}
                       autoComplete="off"
                       autoCapitalize="none"
                       autoCorrect="off"
                       spellCheck={false}
-                      autoFocus={!externalKeyboardMode}
+                      autoFocus
                     />
                  </div>
                  {showPreviousStudyCard && lastSolvedQuestion && (
