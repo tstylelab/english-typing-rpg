@@ -20,6 +20,12 @@ type BattleHistoryItem = { damage: number; speed: number };
 type VersusPromptMode = 'spelling' | 'listening' | 'translation' | 'listening-translation';
 type VersusPromptSelection = VersusPromptMode | 'mixed';
 type VersusCourseSelection = { difficulty: Difficulty; level: Level };
+type StoredVersusSetup = {
+  names: string[];
+  scoreMultipliers: number[];
+  courseSelections: VersusCourseSelection[];
+  promptSelection: VersusPromptSelection;
+};
 
 type VersusQuestion = {
   question: Question;
@@ -2396,6 +2402,7 @@ const STORAGE_KEYS = {
   savedSelectionLists: 'etyping_saved_selection_lists',
   versusBestScores: 'etyping_versus_best_scores',
   versusRankings: 'etyping_versus_rankings',
+  versusSetup: 'etyping_versus_setup',
   playerProfiles: 'etyping_player_profiles',
   activePlayerId: 'etyping_active_player_id',
   lastSelectedCourse: 'etyping_last_selected_course',
@@ -3356,6 +3363,53 @@ const GuidedKeyboard = ({
   );
 };
 
+const getStoredVersusSetup = (): StoredVersusSetup => {
+  const fallback: StoredVersusSetup = {
+    names: ['プレイヤー1', 'プレイヤー2'],
+    scoreMultipliers: [1, 1],
+    courseSelections: [DEFAULT_VERSUS_COURSE_SELECTION, DEFAULT_VERSUS_COURSE_SELECTION],
+    promptSelection: 'spelling',
+  };
+  const saved = safeLoadJson<Partial<StoredVersusSetup>>(STORAGE_KEYS.versusSetup, {});
+  if (!Array.isArray(saved.names)) return fallback;
+
+  const names = saved.names
+    .slice(0, 5)
+    .flatMap((name, index) => typeof name === 'string' && name.trim()
+      ? [name.trim().slice(0, 20)]
+      : [`プレイヤー${index + 1}`]);
+  if (names.length === 0) return fallback;
+
+  const savedCourses = Array.isArray(saved.courseSelections) ? saved.courseSelections : [];
+  const courseSelections = names.map((_, index): VersusCourseSelection => {
+    const candidate = savedCourses[index] as Partial<VersusCourseSelection> | undefined;
+    const difficulty = DIFFICULTIES.includes(candidate?.difficulty as Difficulty)
+      ? candidate?.difficulty as Difficulty
+      : DEFAULT_VERSUS_COURSE_SELECTION.difficulty;
+    const requestedLevel = candidate?.level === 1 || candidate?.level === 2 || candidate?.level === 3
+      ? candidate.level
+      : DEFAULT_VERSUS_COURSE_SELECTION.level;
+    return { difficulty, level: getSafeLevelForDifficulty(difficulty, requestedLevel) };
+  });
+
+  const savedMultipliers = Array.isArray(saved.scoreMultipliers) ? saved.scoreMultipliers : [];
+  const scoreMultipliers = names.map((_, index) => {
+    if (names.length === 1) return 1;
+    const candidate = savedMultipliers[index];
+    return typeof candidate === 'number' && VERSUS_SCORE_MULTIPLIER_OPTIONS.some(option => option.value === candidate)
+      ? candidate
+      : 1;
+  });
+  const promptSelection = saved.promptSelection === 'listening'
+    || saved.promptSelection === 'translation'
+    || saved.promptSelection === 'listening-translation'
+    || saved.promptSelection === 'mixed'
+    ? saved.promptSelection
+    : 'spelling';
+
+  return { names, scoreMultipliers, courseSelections, promptSelection };
+};
+
 type BeginnerBattleSavedProgress = {
   questionIndex: number;
   input: string;
@@ -3629,13 +3683,11 @@ export default function App() {
   const [lastSolvedQuestion, setLastSolvedQuestion] = useState<Question | null>(null);
   const [showBossIntro, setShowBossIntro] = useState(false);
   const [progressTransferStatus, setProgressTransferStatus] = useState('');
-  const [versusNameDrafts, setVersusNameDrafts] = useState(['プレイヤー1', 'プレイヤー2']);
-  const [versusScoreMultipliers, setVersusScoreMultipliers] = useState<number[]>([1, 1]);
-  const [versusCourseSelections, setVersusCourseSelections] = useState<VersusCourseSelection[]>([
-    DEFAULT_VERSUS_COURSE_SELECTION,
-    DEFAULT_VERSUS_COURSE_SELECTION,
-  ]);
-  const [versusPromptSelection, setVersusPromptSelection] = useState<VersusPromptSelection>('spelling');
+  const [initialVersusSetup] = useState(getStoredVersusSetup);
+  const [versusNameDrafts, setVersusNameDrafts] = useState([...initialVersusSetup.names]);
+  const [versusScoreMultipliers, setVersusScoreMultipliers] = useState<number[]>([...initialVersusSetup.scoreMultipliers]);
+  const [versusCourseSelections, setVersusCourseSelections] = useState<VersusCourseSelection[]>(initialVersusSetup.courseSelections.map(course => ({ ...course })));
+  const [versusPromptSelection, setVersusPromptSelection] = useState<VersusPromptSelection>(initialVersusSetup.promptSelection);
   const [versusPlayers, setVersusPlayers] = useState<VersusPlayer[]>([]);
   const [versusQuestionOrders, setVersusQuestionOrders] = useState<VersusQuestion[][]>([]);
   const [versusPlayerIndex, setVersusPlayerIndex] = useState(0);
@@ -4082,6 +4134,14 @@ export default function App() {
       setVersusSetupError(`${playerWithoutEnoughQuestions.name}の教材には、対戦に必要な20問がありません。`);
       return;
     }
+
+    const setupToSave: StoredVersusSetup = {
+      names: playerDrafts.map(player => player.name),
+      scoreMultipliers: playerDrafts.map(player => player.scoreMultiplier),
+      courseSelections: playerDrafts.map(player => ({ ...player.course })),
+      promptSelection: versusPromptSelection,
+    };
+    localStorage.setItem(STORAGE_KEYS.versusSetup, JSON.stringify(setupToSave));
 
     setVersusPlayers(playerDrafts.map((player, index) => ({
       id: `versus-${Date.now()}-${index}`,
@@ -7844,6 +7904,7 @@ export default function App() {
                 <p className="text-sm font-black text-violet-200">3. 名前・教材・得点倍率を入力（1〜5人）</p>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => { setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`]); setVersusScoreMultipliers(multipliers => [...multipliers, 1]); setVersusCourseSelections(courses => [...courses, courses[0] ?? DEFAULT_VERSUS_COURSE_SELECTION]); }}>＋ 参加者を追加</GameButton>}
               </div>
+              <p className="mt-1 text-xs font-bold text-violet-100/75">バトル開始時の設定をこの端末に保存し、次回そのまま表示します。</p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {versusNameDrafts.map((name, index) => (
                   <div key={index} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
