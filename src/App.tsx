@@ -326,6 +326,14 @@ const normalizeTypingText = (text: string) => (
     .replace(/[\u201C\u201D]/g, '"')
 );
 
+const isLikelyAndroidTablet = () => {
+  if (typeof navigator === 'undefined' || typeof window === 'undefined') return false;
+  const userAgent = navigator.userAgent;
+  if (!/Android/i.test(userAgent)) return false;
+  const shortestScreenSide = Math.min(window.screen.width, window.screen.height);
+  return !/Mobile/i.test(userAgent) || shortestScreenSide >= 600;
+};
+
 const PHYSICAL_TYPING_KEY_PAIRS: Record<string, [string, string]> = {
   Digit0: ['0', ')'], Digit1: ['1', '!'], Digit2: ['2', '@'], Digit3: ['3', '#'], Digit4: ['4', '$'],
   Digit5: ['5', '%'], Digit6: ['6', '^'], Digit7: ['7', '&'], Digit8: ['8', '*'], Digit9: ['9', '('],
@@ -3590,6 +3598,7 @@ export default function App() {
   const [speechRatePercent, setSpeechRatePercent] = useState<number>(100);
   const [translationBattleCorrectSpeechEnabled, setTranslationBattleCorrectSpeechEnabled] = useState(true);
   const [externalKeyboardMode, setExternalKeyboardMode] = useState(() => localStorage.getItem(STORAGE_KEYS.externalKeyboardMode) === 'true');
+  const [androidTablet] = useState(isLikelyAndroidTablet);
   const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(getDefaultAutoPlaySettings());
   const [selectedQuestionKeysByScope, setSelectedQuestionKeysByScope] = useState<Record<string, string[]>>({});
   const [markedQuestionKeysByScope, setMarkedQuestionKeysByScope] = useState<Record<string, string[]>>({});
@@ -3641,9 +3650,14 @@ export default function App() {
   const [versusPreviousBestScore, setVersusPreviousBestScore] = useState(0);
   const [versusIsNewBest, setVersusIsNewBest] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const battleKeyboardTargetRef = useRef<HTMLDivElement>(null);
   const battleImeComposingRef = useRef(false);
   const battleIgnoreCompositionCommitRef = useRef(false);
   const versusInputRef = useRef<HTMLInputElement>(null);
+  const versusKeyboardTargetRef = useRef<HTMLDivElement>(null);
+  const versusImeComposingRef = useRef(false);
+  const versusIgnoreCompositionCommitRef = useRef(false);
+  const handledPhysicalKeyIdsRef = useRef(new Set<string>());
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
@@ -4225,21 +4239,31 @@ export default function App() {
   const updateExternalKeyboardMode = (enabled: boolean) => {
     setExternalKeyboardMode(enabled);
     localStorage.setItem(STORAGE_KEYS.externalKeyboardMode, String(enabled));
+    handledPhysicalKeyIdsRef.current.clear();
     window.requestAnimationFrame(() => {
-      if (gameState.screen === 'battle') inputRef.current?.focus({ preventScroll: true });
-      if (gameState.screen === 'versus-play' && !versusShowHandoff) versusInputRef.current?.focus({ preventScroll: true });
+      if (gameState.screen === 'battle') {
+        (enabled ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+      }
+      if (gameState.screen === 'versus-play' && !versusShowHandoff) {
+        (enabled ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
+      }
     });
   };
 
-  const keepTypingInputReady = (ref: React.RefObject<HTMLInputElement | null>) => {
-    ref.current?.focus({ preventScroll: true });
+  const keepTypingInputReady = (
+    input: React.RefObject<HTMLInputElement | null>,
+    keyboardTarget: React.RefObject<HTMLDivElement | null>,
+  ) => {
+    (externalKeyboardMode ? keyboardTarget.current : input.current)?.focus({ preventScroll: true });
   };
 
   useEffect(() => {
     if (gameState.screen !== 'versus-play' || versusShowHandoff) return;
-    const timeoutId = window.setTimeout(() => versusInputRef.current?.focus({ preventScroll: true }), 0);
+    const timeoutId = window.setTimeout(() => {
+      (externalKeyboardMode ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
+    }, 0);
     return () => window.clearTimeout(timeoutId);
-  }, [gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
+  }, [externalKeyboardMode, gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
 
   const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'practice' | 'battle' | null => {
     if (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text')) {
@@ -4647,8 +4671,8 @@ export default function App() {
 
   useEffect(() => {
     if (gameState.screen !== 'battle') return;
-    inputRef.current?.focus({ preventScroll: true });
-  }, [gameState.screen, gameState.currentQuestion]);
+    (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+  }, [externalKeyboardMode, gameState.screen, gameState.currentQuestion]);
 
   useEffect(() => {
     if (gameState.screen !== 'battle' && gameState.screen !== 'versus-play') {
@@ -5176,8 +5200,10 @@ export default function App() {
   const speakCurrentQuestion = useCallback(() => {
       if (!gameState.currentQuestion.text) return;
       speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
-      setTimeout(() => inputRef.current?.focus(), 10);
-  }, [gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, speakBattleQuestion]);
+      setTimeout(() => {
+        (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+      }, 10);
+  }, [externalKeyboardMode, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
     setGameState(prev => {
@@ -5755,7 +5781,7 @@ export default function App() {
   const handleSkip = () => {
     setLastSolvedQuestion(gameState.currentQuestion);
     advanceGame(0, 0, true, 0);
-    inputRef.current?.focus();
+    (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
   };
 
   const advanceGame = (damage: number, speed: number, skipped: boolean, addedChars: number) => {
@@ -6008,6 +6034,32 @@ export default function App() {
     }
   };
 
+  const handleVersusInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (versusImeComposingRef.current || versusIgnoreCompositionCommitRef.current || (event.nativeEvent as InputEvent).isComposing) {
+      event.target.value = versusInput;
+      return;
+    }
+    handleVersusInput(event.target.value);
+  };
+
+  const handleVersusCompositionStart = () => {
+    versusImeComposingRef.current = true;
+  };
+
+  const handleVersusCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
+    versusImeComposingRef.current = false;
+    versusIgnoreCompositionCommitRef.current = true;
+    const normalizedValue = normalizeTypingText(event.currentTarget.value);
+    event.currentTarget.value = versusInput;
+    if (/^[\x20-\x7E]*$/.test(normalizedValue)) {
+      handleVersusInput(normalizedValue);
+    }
+    window.requestAnimationFrame(() => {
+      versusIgnoreCompositionCommitRef.current = false;
+      versusInputRef.current?.focus({ preventScroll: true });
+    });
+  };
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (battleImeComposingRef.current || battleIgnoreCompositionCommitRef.current || (e.nativeEvent as InputEvent).isComposing) {
       e.target.value = gameState.userInput;
@@ -6023,10 +6075,14 @@ export default function App() {
   const handleBattleCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
     battleImeComposingRef.current = false;
     battleIgnoreCompositionCommitRef.current = true;
+    const normalizedValue = normalizeTypingText(event.currentTarget.value);
     event.currentTarget.value = gameState.userInput;
+    if (/^[\x20-\x7E]*$/.test(normalizedValue)) {
+      handleBattleInputValue(normalizedValue);
+    }
     window.requestAnimationFrame(() => {
       battleIgnoreCompositionCommitRef.current = false;
-      inputRef.current?.focus();
+      inputRef.current?.focus({ preventScroll: true });
     });
   };
 
@@ -6188,8 +6244,15 @@ export default function App() {
   };
 
   useEffect(() => {
-    const handlePhysicalTypingKey = (event: KeyboardEvent) => {
-      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
+    const handlePhysicalTypingKey = (event: KeyboardEvent, phase: 'down' | 'up') => {
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      const keyId = event.code || event.key;
+      if (phase === 'up') {
+        if (handledPhysicalKeyIdsRef.current.delete(keyId)) return;
+        if (!externalKeyboardMode) return;
+      } else if (event.defaultPrevented && !externalKeyboardMode) {
+        return;
+      }
 
       let currentValue = '';
       let targetText = '';
@@ -6224,6 +6287,7 @@ export default function App() {
       if (event.code === 'Backspace') {
         event.preventDefault();
         if (currentValue) updateValue(currentValue.slice(0, -1));
+        if (phase === 'down') handledPhysicalKeyIdsRef.current.add(keyId);
         return;
       }
       if (currentValue.length >= targetText.length) return;
@@ -6232,13 +6296,21 @@ export default function App() {
       if (character === null) return;
       event.preventDefault();
       updateValue(currentValue + character);
+      if (phase === 'down') handledPhysicalKeyIdsRef.current.add(keyId);
     };
+
+    const handlePhysicalTypingKeyDown = (event: KeyboardEvent) => handlePhysicalTypingKey(event, 'down');
+    const handlePhysicalTypingKeyUp = (event: KeyboardEvent) => handlePhysicalTypingKey(event, 'up');
 
     // Capture physical keys before Android IMEs can turn them into composition
     // input. This lets a connected keyboard type English even when the tablet
     // resumes with Japanese/full-width input still selected.
-    window.addEventListener('keydown', handlePhysicalTypingKey, true);
-    return () => window.removeEventListener('keydown', handlePhysicalTypingKey, true);
+    window.addEventListener('keydown', handlePhysicalTypingKeyDown, true);
+    window.addEventListener('keyup', handlePhysicalTypingKeyUp, true);
+    return () => {
+      window.removeEventListener('keydown', handlePhysicalTypingKeyDown, true);
+      window.removeEventListener('keyup', handlePhysicalTypingKeyUp, true);
+    };
   });
 
   // --- Screens ---
@@ -7867,20 +7939,29 @@ export default function App() {
             <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-xs font-bold text-cyan-200">{DIFFICULTY_LABELS[currentPlayer.difficulty]} Level {currentPlayer.level}</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {VERSUS_QUESTION_COUNT} 問</p></div>
             <div className="flex items-center gap-2"><div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在の得点</p><p className="text-2xl font-black text-white">{currentAdjustedScore}</p><p className="text-[10px] font-bold text-yellow-100/75">基本 {currentPlayer.score} × {currentPlayer.scoreMultiplier}倍</p></div><GameButton size="sm" variant="outline" onClick={quitVersusMatch}>やめる</GameButton></div>
           </div>
-          <div className="py-10 text-center">
+          <div ref={versusKeyboardTargetRef} tabIndex={externalKeyboardMode ? 0 : -1} className="py-10 text-center outline-none">
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
-            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
-            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {versusHintCharacter && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl text-white">{versusHintLength}文字目は「{versusHintCharacter}」</span><span className="ml-2 text-xs text-slate-400">間違えた位置の文字です</span></p>}
             <input
               ref={versusInputRef}
               type="text"
               value={versusInput}
-              onChange={event => handleVersusInput(event.target.value)}
+              onChange={handleVersusInputChange}
+              onCompositionStart={handleVersusCompositionStart}
+              onCompositionEnd={handleVersusCompositionEnd}
+              onPointerDown={event => {
+                if (externalKeyboardMode && event.pointerType === 'touch') {
+                  event.preventDefault();
+                  updateExternalKeyboardMode(false);
+                }
+              }}
               className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200"
               lang="en"
-              inputMode={externalKeyboardMode ? 'none' : 'text'}
+              inputMode={externalKeyboardMode ? 'none' : (androidTablet ? 'email' : 'text')}
+              tabIndex={externalKeyboardMode ? -1 : 0}
               autoComplete="off"
               autoCapitalize="none"
               autoCorrect="off"
@@ -7894,9 +7975,9 @@ export default function App() {
                 onClick={() => updateExternalKeyboardMode(!externalKeyboardMode)}
                 className={`rounded-full border px-3 py-1 text-xs font-black transition-colors ${externalKeyboardMode ? 'border-cyan-300 bg-cyan-500/20 text-cyan-100' : 'border-slate-600 bg-slate-900/70 text-slate-300'}`}
               >
-                外付けキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
+                USBキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
               </button>
-              <p className="text-xs font-bold text-slate-400">Pixel Tablet＋USBキーボードではON（この端末に保存）</p>
+              <p className="text-xs font-bold text-slate-400">{externalKeyboardMode ? '画面で入力するときは入力欄をタップ' : '画面キーボード入力中'}</p>
             </div>
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
@@ -9002,11 +9083,11 @@ export default function App() {
                        type="button"
                        onPointerDown={event => {
                          event.preventDefault();
-                         keepTypingInputReady(inputRef);
+                         keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                        }}
                        onClick={() => {
                          speakCurrentQuestion();
-                         keepTypingInputReady(inputRef);
+                         keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                        }}
                        title="音声をもう一度再生 (Right Ctrl)"
                        aria-label="音声をもう一度再生"
@@ -9028,7 +9109,7 @@ export default function App() {
                      type="button"
                      onClick={() => {
                        toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
-                       inputRef.current?.focus();
+                       keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                      }}
                      title={isCurrentQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
                      aria-pressed={isCurrentQuestionMarked}
@@ -9081,8 +9162,17 @@ export default function App() {
                    )}
                  </div>
                  <div
+                   ref={battleKeyboardTargetRef}
+                   tabIndex={externalKeyboardMode ? 0 : -1}
                    className={`battle-question-panel relative bg-black/40 rounded-xl border border-slate-700 shadow-inner ${questionPresentation.panelClass}`}
-                   onClick={() => inputRef.current?.focus({ preventScroll: true })}
+                   onPointerDown={event => {
+                     if (externalKeyboardMode && event.pointerType === 'touch') {
+                       event.preventDefault();
+                       updateExternalKeyboardMode(false);
+                     } else {
+                       (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+                     }
+                   }}
                  >
                     <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
                         {gameState.currentQuestion.text.split('').map((char, index) => {
@@ -9104,12 +9194,13 @@ export default function App() {
                       onCompositionEnd={handleBattleCompositionEnd}
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
-                      inputMode={externalKeyboardMode ? 'none' : 'text'}
+                      inputMode={externalKeyboardMode ? 'none' : (androidTablet ? 'email' : 'text')}
+                      tabIndex={externalKeyboardMode ? -1 : 0}
                       autoComplete="off"
                       autoCapitalize="none"
                       autoCorrect="off"
                       spellCheck={false}
-                      autoFocus
+                      autoFocus={!externalKeyboardMode}
                     />
                  </div>
                  {showPreviousStudyCard && lastSolvedQuestion && (
@@ -9133,7 +9224,7 @@ export default function App() {
                            type="button"
                            onClick={() => {
                              speakWithSettings(lastSolvedQuestion.text);
-                             inputRef.current?.focus();
+                             keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                            }}
                            className="inline-flex items-center gap-1 rounded-full border border-cyan-300/40 bg-cyan-500/10 px-2.5 py-1 text-[11px] font-bold text-cyan-100 transition-colors hover:bg-cyan-500/20"
                          >
@@ -9144,7 +9235,7 @@ export default function App() {
                          type="button"
                          onClick={() => {
                            toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion);
-                           inputRef.current?.focus();
+                           keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                          }}
                          title={isPreviousQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
                          aria-pressed={isPreviousQuestionMarked}
@@ -9195,9 +9286,9 @@ export default function App() {
                   onClick={() => updateExternalKeyboardMode(!externalKeyboardMode)}
                   className={`rounded-full border px-3 py-1 text-[11px] font-black transition-colors ${externalKeyboardMode ? 'border-cyan-300 bg-cyan-500/20 text-cyan-100' : 'border-slate-600 bg-slate-900/70 text-slate-300'}`}
                 >
-                  外付けキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
+                  USBキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
                 </button>
-                <span className="text-[11px] font-bold text-slate-400">Pixel Tablet＋USBキーボードではON（この端末に保存）</span>
+                <span className="text-[11px] font-bold text-slate-400">{externalKeyboardMode ? '画面で入力するときは問題欄をタップ' : '画面キーボード入力中'}</span>
               </div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
