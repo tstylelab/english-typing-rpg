@@ -3270,7 +3270,7 @@ type GameButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const PLAYER_NAME_MAX_LENGTH = 30;
 
-const GameButton = ({ onClick, children, className = "", variant = "primary", disabled = false, size = "md", autoFocus = false, type = "button" }: GameButtonProps) => {
+const GameButton = ({ onClick, children, className = "", variant = "primary", disabled = false, size = "md", autoFocus = false, type = "button", ...buttonProps }: GameButtonProps) => {
   const baseStyle = "relative font-bold transition-all transform active:scale-95 flex items-center justify-center gap-2 overflow-hidden border-2 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300";
   const sizes: Record<GameButtonSize, string> = { sm: "px-4 py-2 text-sm", md: "px-6 py-3", lg: "px-10 py-4 text-xl" };
   const variants: Record<GameButtonVariant, string> = {
@@ -3292,7 +3292,7 @@ const GameButton = ({ onClick, children, className = "", variant = "primary", di
   }, [autoFocus]);
 
   return (
-    <button ref={btnRef} type={type} onClick={onClick} disabled={disabled} className={`${baseStyle} ${sizes[size]} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}>
+    <button {...buttonProps} ref={btnRef} type={type} onClick={onClick} disabled={disabled} className={`${baseStyle} ${sizes[size]} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}>
       <span className="relative z-10">{children}</span>
       <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
     </button>
@@ -3642,6 +3642,8 @@ export default function App() {
   const battleImeComposingRef = useRef(false);
   const battleIgnoreCompositionCommitRef = useRef(false);
   const versusInputRef = useRef<HTMLInputElement>(null);
+  const versusImeComposingRef = useRef(false);
+  const versusIgnoreCompositionCommitRef = useRef(false);
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
@@ -5992,6 +5994,28 @@ export default function App() {
     }
   };
 
+  const handleVersusInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (versusImeComposingRef.current || versusIgnoreCompositionCommitRef.current || (event.nativeEvent as InputEvent).isComposing) {
+      event.target.value = versusInput;
+      return;
+    }
+    handleVersusInput(event.target.value);
+  };
+
+  const handleVersusCompositionStart = () => {
+    versusImeComposingRef.current = true;
+  };
+
+  const handleVersusCompositionEnd = (event: React.CompositionEvent<HTMLInputElement>) => {
+    versusImeComposingRef.current = false;
+    versusIgnoreCompositionCommitRef.current = true;
+    event.currentTarget.value = versusInput;
+    window.requestAnimationFrame(() => {
+      versusIgnoreCompositionCommitRef.current = false;
+      versusInputRef.current?.focus();
+    });
+  };
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (battleImeComposingRef.current || battleIgnoreCompositionCommitRef.current || (e.nativeEvent as InputEvent).isComposing) {
       e.target.value = gameState.userInput;
@@ -7853,12 +7877,32 @@ export default function App() {
           </div>
           <div className="py-10 text-center">
             {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
-            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); versusInputRef.current?.focus({ preventScroll: true }); }} onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus({ preventScroll: true }); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
-            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus(); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); versusInputRef.current?.focus({ preventScroll: true }); }} onClick={() => { speakWithSettings(currentQuestion.text); versusInputRef.current?.focus({ preventScroll: true }); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {versusHintCharacter && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl text-white">{versusHintLength}文字目は「{versusHintCharacter}」</span><span className="ml-2 text-xs text-slate-400">間違えた位置の文字です</span></p>}
-            <input ref={versusInputRef} value={versusInput} onChange={event => handleVersusInput(event.target.value)} className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="英単語を入力" />
-            <p className="mt-2 text-xs font-bold text-emerald-300">半角／全角の切り替え不要・日本語入力のままでOK</p>
+            <div className="relative mt-8 min-h-[66px] w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white focus-within:border-cyan-200">
+              <div className="pointer-events-none flex min-h-8 items-center justify-center break-words" aria-hidden="true">
+                {versusInput || <span className="text-base text-slate-500">英語を入力</span>}
+                <span className="ml-0.5 inline-block h-7 w-0.5 animate-pulse bg-cyan-200" />
+              </div>
+              <input
+                ref={versusInputRef}
+                type="password"
+                value={versusInput}
+                onChange={handleVersusInputChange}
+                onCompositionStart={handleVersusCompositionStart}
+                onCompositionEnd={handleVersusCompositionEnd}
+                className="absolute inset-0 h-full w-full cursor-text opacity-0"
+                lang="en"
+                autoComplete="new-password"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                aria-label="英単語を入力"
+              />
+            </div>
+            <p className="mt-2 text-xs font-bold text-emerald-300">ゲーム開始時に英語入力用の欄を選択します</p>
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
         </Box>
@@ -8961,9 +9005,13 @@ export default function App() {
                    <div className="flex flex-wrap items-center gap-2">
                      <button
                        type="button"
+                       onPointerDown={event => {
+                         event.preventDefault();
+                         inputRef.current?.focus({ preventScroll: true });
+                       }}
                        onClick={() => {
                          speakCurrentQuestion();
-                         inputRef.current?.focus();
+                         inputRef.current?.focus({ preventScroll: true });
                        }}
                        title="音声をもう一度再生 (Right Ctrl)"
                        aria-label="音声をもう一度再生"
@@ -9054,15 +9102,14 @@ export default function App() {
                     </div>
                     <input
                       ref={inputRef}
-                      type="text"
+                      type="password"
                       value={gameState.userInput}
                       onChange={handleInput}
                       onCompositionStart={handleBattleCompositionStart}
                       onCompositionEnd={handleBattleCompositionEnd}
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
-                      inputMode="text"
-                      autoComplete="off"
+                      autoComplete="new-password"
                       autoCapitalize="none"
                       autoCorrect="off"
                       spellCheck={false}
@@ -9145,7 +9192,7 @@ export default function App() {
                    </div>
                  )}
             </div>
-              <div className="battle-footer-label mt-2 text-center"><span className="rounded border border-emerald-500/35 bg-emerald-950/30 px-2 py-0.5 text-[11px] font-bold text-emerald-200">半角／全角の切り替え不要・日本語入力のままでOK</span></div>
+              <div className="battle-footer-label mt-2 text-center"><span className="rounded border border-emerald-500/35 bg-emerald-950/30 px-2 py-0.5 text-[11px] font-bold text-emerald-200">ゲーム開始時に英語入力用の欄を選択します</span></div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
                 @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }
