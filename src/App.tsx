@@ -5,7 +5,7 @@ import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
-import { getAutomaticLearningLevel, getNextAutomaticLearningState, type LearningProgressLevel } from './learningProgress';
+import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
@@ -4414,12 +4414,16 @@ export default function App() {
     difficulty: Difficulty,
     level: Level,
     question: Question,
-    outcome: 'success' | 'struggle',
+    missCount: number,
+    characterCount: number,
     mode: Mode,
     inputMode: InputMode,
   ): LearningStatusChange | null => {
     const track = getAutoLearningTrack(mode, inputMode);
     if (!track) return null;
+    const outcome: AutomaticLearningOutcome = track === 'battle' && EIKEN_DIFFICULTIES.includes(difficulty)
+      ? getBattleLearningOutcome(level, missCount, characterCount)
+      : missCount === 0 ? 'success' : 'struggle';
 
     const current = getManualQuestionStatus(difficulty, level, question);
     const nextAutomaticState = getNextAutomaticLearningState(current, track, outcome);
@@ -5872,7 +5876,8 @@ export default function App() {
         gameState.selectedDifficulty,
         gameState.selectedLevel,
         gameState.currentQuestion,
-        gameState.missCount === 0 ? 'success' : 'struggle',
+        gameState.missCount,
+        addedChars,
         gameState.mode,
         gameState.inputMode,
       )
