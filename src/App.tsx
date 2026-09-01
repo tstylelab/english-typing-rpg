@@ -5,6 +5,7 @@ import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
+import { getAutomaticLearningLevel, getNextAutomaticLearningState, type LearningProgressLevel } from './learningProgress';
 import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
@@ -106,6 +107,7 @@ interface BattleLogItem {
     question: Question;
     missCount: number;
     skipped: boolean;
+    learningChange?: LearningStatusChange | null;
 }
 
 type WeakQuestionStat = {
@@ -114,10 +116,17 @@ type WeakQuestionStat = {
   consecutiveCorrect: number;
 };
 
-type LearningLevel = 1 | 2 | 3;
+type LearningLevel = LearningProgressLevel;
+
+type LearningStatusChange = {
+  from: LearningLevel;
+  to: LearningLevel;
+  source: 'listening' | 'battle';
+};
 
 type ManualQuestionStatus = {
   practiceLevel: LearningLevel;
+  listeningLevel: LearningLevel;
   battleLevel: LearningLevel;
   manualOverrideLevel: LearningLevel | null;
   excluded: boolean;
@@ -2526,6 +2535,7 @@ const COMPACT_QUESTION_LIST_RENDER_LIMIT = 160;
 
 const DEFAULT_MANUAL_QUESTION_STATUS: ManualQuestionStatus = {
   practiceLevel: 1,
+  listeningLevel: 1,
   battleLevel: 1,
   manualOverrideLevel: null,
   excluded: false,
@@ -2554,6 +2564,9 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
           : LEARNING_LEVELS.includes(value?.learningLevel as LearningLevel)
             ? value.learningLevel as LearningLevel
             : 1,
+        listeningLevel: LEARNING_LEVELS.includes(value?.listeningLevel as LearningLevel)
+          ? Math.min(2, value.listeningLevel as LearningLevel) as LearningLevel
+          : 1,
         battleLevel: LEARNING_LEVELS.includes(value?.battleLevel as LearningLevel)
           ? value.battleLevel as LearningLevel
           : 1,
@@ -2634,8 +2647,14 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
 };
 
 const getEffectiveLearningLevel = (status: ManualQuestionStatus): LearningLevel => (
-  status.manualOverrideLevel ?? status.battleLevel
+  status.manualOverrideLevel ?? getAutomaticLearningLevel(status)
 );
+
+const LEARNING_LEVEL_LABELS: Record<LearningLevel, string> = {
+  1: '学習中',
+  2: 'もう少し',
+  3: '覚えた',
+};
 
 const withDerivedLearningLevel = (status: ManualQuestionStatus): ManualQuestionStatus => ({
   ...status,
@@ -3483,7 +3502,8 @@ const QuestionListRow = React.memo(function QuestionListRow({
   onToggleExcluded,
 }: QuestionListRowProps) {
   const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
-  const autoLabel = manualStatus.battleLevel === 1 ? '学習中' : manualStatus.battleLevel === 2 ? 'もう少し' : '覚えた';
+  const automaticLevel = getAutomaticLearningLevel(manualStatus);
+  const autoLabel = LEARNING_LEVEL_LABELS[automaticLevel];
   const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
 
   return (
@@ -4325,9 +4345,9 @@ export default function App() {
     return () => window.clearTimeout(timeoutId);
   }, [externalKeyboardMode, gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
 
-  const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'practice' | 'battle' | null => {
-    if (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text')) {
-      return 'practice';
+  const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'listening' | 'battle' | null => {
+    if (mode === 'challenge' && inputMode === 'voice-text') {
+      return 'listening';
     }
     if (mode === 'weakness' || (mode === 'challenge' && (inputMode === 'voice-only' || inputMode === 'text-only'))) {
       return 'battle';
@@ -4397,31 +4417,19 @@ export default function App() {
     outcome: 'success' | 'struggle',
     mode: Mode,
     inputMode: InputMode,
-  ) => {
+  ): LearningStatusChange | null => {
     const track = getAutoLearningTrack(mode, inputMode);
-    if (!track) return;
+    if (!track) return null;
 
-    updateManualQuestionStatus(difficulty, level, question, current => {
-      if (track === 'practice') {
-        if (outcome !== 'success') return current;
-        return {
-          ...current,
-          practiceLevel: Math.min(3, current.practiceLevel + 1) as LearningLevel,
-        };
-      }
+    const current = getManualQuestionStatus(difficulty, level, question);
+    const nextAutomaticState = getNextAutomaticLearningState(current, track, outcome);
+    if (nextAutomaticState === current) return null;
+    const nextStatus = { ...current, ...nextAutomaticState };
 
-      if (outcome === 'success') {
-        return {
-          ...current,
-          battleLevel: Math.min(3, current.battleLevel + 1) as LearningLevel,
-        };
-      }
-
-      return {
-        ...current,
-        battleLevel: Math.max(1, current.battleLevel - 1) as LearningLevel,
-      };
-    });
+    updateManualQuestionStatus(difficulty, level, question, () => nextStatus);
+    const from = getEffectiveLearningLevel(current);
+    const to = getEffectiveLearningLevel(nextStatus);
+    return from === to ? null : { from, to, source: track };
   };
 
   const persistManualQuestionStatuses = useCallback((nextStatuses: Record<string, ManualQuestionStatus>) => {
@@ -5859,16 +5867,16 @@ export default function App() {
 
     recordRecentQuestionSource(wasCurrentQuestionReview);
 
-    if (!skipped) {
-      updateAutoLearningStatus(
+    const learningChange = !skipped
+      ? updateAutoLearningStatus(
         gameState.selectedDifficulty,
         gameState.selectedLevel,
         gameState.currentQuestion,
         gameState.missCount === 0 ? 'success' : 'struggle',
         gameState.mode,
         gameState.inputMode,
-      );
-    }
+      )
+      : null;
 
     const newMissedQs = [...gameState.currentBattleMissedQuestions];
     if (gameState.missCount > 0 && !newMissedQs.some(q => q.text === gameState.currentQuestion.text)) { newMissedQs.push(gameState.currentQuestion); }
@@ -5902,7 +5910,8 @@ export default function App() {
     const logItem: BattleLogItem = {
         question: gameState.currentQuestion,
         missCount: skipped ? -1 : gameState.missCount, 
-        skipped: skipped
+        skipped: skipped,
+        learningChange,
     };
     const newBattleLog = [...gameState.battleLog, logItem];
 
@@ -6043,23 +6052,13 @@ export default function App() {
     if (normalizedVal.length > gameState.userInput.length) soundEngine.playType();
     if (!gameState.startTime && normalizedVal.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
     
-    if (gameState.mode === 'guide' && gameState.selectedLevel === 1) {
-        if (normalizedTargetText.startsWith(normalizedVal)) {
-            setGameState(prev => ({ ...prev, userInput: normalizedVal, hintLength: 0 }));
-            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(normalizedVal);
-        } else {
-            soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
-            setGameState(prev => ({ ...prev, userInput: "", combo: 0, missCount: prev.missCount + 1, hintLength: 0 })); 
-        }
+    if (normalizedTargetText.startsWith(normalizedVal)) {
+        setGameState(prev => ({ ...prev, userInput: normalizedVal, hintLength: 0 }));
+        if (normalizedVal === normalizedTargetText) handleCorrectAnswer(normalizedVal);
     } else {
-        if (normalizedTargetText.startsWith(normalizedVal)) {
-            setGameState(prev => ({ ...prev, userInput: normalizedVal, hintLength: 0 }));
-            if (normalizedVal === normalizedTargetText) handleCorrectAnswer(normalizedVal);
-        } else {
-            soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
-            const shouldShowHint = gameState.mode === 'challenge';
-            setGameState(prev => ({ ...prev, missCount: prev.missCount + 1, hintLength: shouldShowHint ? prev.hintLength + 1 : 0 })); 
-        }
+        soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
+        const shouldShowHint = gameState.mode === 'challenge';
+        setGameState(prev => ({ ...prev, missCount: prev.missCount + 1, hintLength: shouldShowHint ? prev.hintLength + 1 : 0 }));
     }
   };
 
@@ -7495,7 +7494,8 @@ export default function App() {
                      const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
                      const isSelectedForAutoPlay = selectedQuestionKeySet.has(questionKey);
                      const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
-                     const autoLabel = manualStatus.battleLevel === 1 ? '学習中' : manualStatus.battleLevel === 2 ? 'もう少し' : '覚えた';
+                     const automaticLevel = getAutomaticLearningLevel(manualStatus);
+                     const autoLabel = LEARNING_LEVEL_LABELS[automaticLevel];
                      const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
                      const example = currentQuestionExamples.get(questionKey);
                      return (
@@ -8720,7 +8720,12 @@ export default function App() {
                       >
                         <div className="flex items-center justify-between gap-2">
                           <div>
-                            <p className="text-base font-black">英会話</p>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <p className="text-base font-black">英会話</p>
+                              <span className="rounded-full border border-amber-300/60 bg-amber-400/15 px-2 py-0.5 text-[10px] font-black tracking-wide text-amber-200">
+                                ベータ版
+                              </span>
+                            </div>
                             <p className="mt-1 text-xs font-bold text-emerald-200/80">聞く・返す・声に出す</p>
                           </div>
                           {isConversationCourse && <CheckCircle2 className="text-emerald-200" size={20} />}
@@ -8767,7 +8772,14 @@ export default function App() {
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div>
-                              <p className="text-xl font-black">{DIFFICULTY_LABELS[diff]}</p>
+                              <div className="flex flex-wrap items-center gap-2">
+                                <p className="text-xl font-black">{DIFFICULTY_LABELS[diff]}</p>
+                                {diff === 'Conversation' && (
+                                  <span className="rounded-full border border-amber-300/60 bg-amber-400/15 px-2 py-0.5 text-[10px] font-black tracking-wide text-amber-200">
+                                    ベータ版
+                                  </span>
+                                )}
+                              </div>
                               <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : `Level ${levelCount}段階`}</p>
                             </div>
                             {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
@@ -8954,7 +8966,7 @@ export default function App() {
                         <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200"><Volume2 size={21} /></div>
                         <div className="min-w-0">
                           <p className={`text-base font-black md:text-lg ${easyStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Reply Training / 聞いて返す練習' : 'Listening Training / リスニング練習'}</p>
-                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の発言を聞き、日本語をヒントに英語で返します。' : '音声と日本語を見て練習。スペルは隠れます。'}</p>
+                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の発言を聞いて返答。ノーミスなら「もう少し」へ進みます。' : '音声と日本語から入力。ノーミスなら「もう少し」へ進みます。'}</p>
                         </div>
                       </div>
                       <div className={`mt-3 flex items-center gap-1 text-xs font-black ${easyStatus.isComplete ? 'text-amber-200' : 'text-cyan-200'}`}>
@@ -9075,6 +9087,7 @@ export default function App() {
     const previousQuestionKey = lastSolvedQuestion
       ? getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : null;
+    const previousLearningChange = gameState.battleLog[gameState.battleLog.length - 1]?.learningChange ?? null;
     const isPreviousQuestionMarked = previousQuestionKey
       ? (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(previousQuestionKey)
       : false;
@@ -9271,7 +9284,7 @@ export default function App() {
                          Previous
                        </span>
                        <span className="font-mono text-lg font-bold text-white md:text-xl">{lastSolvedQuestion.text}</span>
-                       <div className="flex flex-col">
+                        <div className="flex flex-col">
                          {isConversationBattle && lastSolvedQuestion.promptEn && (
                            <span className="text-xs font-bold text-violet-200 md:text-sm">相手: {lastSolvedQuestion.promptEn}</span>
                          )}
@@ -9279,8 +9292,13 @@ export default function App() {
                          {lastSolvedQuestion.basicMeaning && (
                            <span className="text-xs font-medium text-slate-400 md:text-sm">Basic: {lastSolvedQuestion.basicMeaning}</span>
                          )}
-                       </div>
-                       {isConversationBattle && (
+                        </div>
+                        {previousLearningChange && (
+                          <span className={`rounded-full border px-2.5 py-1 text-[11px] font-bold ${previousLearningChange.to > previousLearningChange.from ? 'border-emerald-300/40 bg-emerald-500/10 text-emerald-100' : 'border-sky-300/35 bg-sky-950/40 text-sky-100'}`}>
+                            学習状態: {LEARNING_LEVEL_LABELS[previousLearningChange.from]} → {LEARNING_LEVEL_LABELS[previousLearningChange.to]}
+                          </span>
+                        )}
+                        {isConversationBattle && (
                          <button
                            type="button"
                            onClick={() => {
@@ -9389,6 +9407,11 @@ export default function App() {
     const skippedCount = gameState.battleLog.filter(log => log.skipped).length;
     const answeredCount = gameState.battleLog.length - skippedCount;
     const perfectRate = answeredCount > 0 ? Math.round((perfectCount / answeredCount) * 100) : 0;
+    const learningChanges = gameState.battleLog.flatMap(log => log.learningChange ? [log.learningChange] : []);
+    const promotedToCautionCount = learningChanges.filter(change => change.from === 1 && change.to === 2).length;
+    const promotedToMasteredCount = learningChanges.filter(change => change.to === 3).length;
+    const returnedToCautionCount = learningChanges.filter(change => change.from === 3 && change.to === 2).length;
+    const returnedToLearningCount = learningChanges.filter(change => change.to === 1).length;
     // Advance while the current step is still within the generated stage length.
     const isNextAvailable = gameState.currentMonsterIndex < gameState.totalMonstersInStage - 1;
     const nextMonsterIsFinal = gameState.currentMonsterIndex === gameState.totalMonstersInStage - 2;
@@ -9453,6 +9476,18 @@ export default function App() {
               </section>
 
               <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">これまでに取り組んだ単語</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">語</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+
+              {learningChanges.length > 0 && (
+                <section className="rounded-xl border border-emerald-500/25 bg-emerald-950/15 p-3">
+                  <p className="text-sm font-black text-emerald-100">今回の学習変化</p>
+                  <div className="mt-2 flex flex-wrap gap-2 text-xs font-bold">
+                    {promotedToCautionCount > 0 && <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-emerald-100">もう少しへ {promotedToCautionCount}問</span>}
+                    {promotedToMasteredCount > 0 && <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 text-violet-100">覚えた {promotedToMasteredCount}問</span>}
+                    {returnedToCautionCount > 0 && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 text-amber-100">もう少しに戻った {returnedToCautionCount}問</span>}
+                    {returnedToLearningCount > 0 && <span className="rounded-full border border-sky-400/30 bg-sky-950/40 px-2.5 py-1 text-sky-100">学習中に戻った {returnedToLearningCount}問</span>}
+                  </div>
+                </section>
+              )}
 
               {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
 
