@@ -186,22 +186,69 @@ const EIKEN5_LEVEL2_EXACT_EXAMPLES: Record<string, string> = {
   'over there': 'My school is over there.',
   'right here': 'Come and sit right here.',
   'T-shirt': 'This T-shirt is new.',
+  'get dressed': 'I get dressed before breakfast.',
+  'make my bed': 'I make my bed every morning.',
+  'do the dishes': 'I do the dishes after dinner.',
+  'wash the dishes': 'I wash the dishes with my brother.',
+  'set the table': 'I set the table before dinner.',
+  'feed my dog': 'I feed my dog every morning.',
+  'walk the dog': 'I walk the dog after school.',
+  'put away': 'Please put away your books.',
+  'take a shower': 'I take a shower after soccer practice.',
+  'carry a bag': 'I carry a bag to school.',
+  'go for a walk': 'We go for a walk after dinner.',
+  'go to the library': 'I go to the library on Saturday.',
+  'go to the zoo': 'We go to the zoo on Sunday.',
+  'ride a bike': 'I ride a bike in the park.',
+  'take a bus': 'I take a bus to school.',
+  'get to school': 'I get to school at eight.',
+  'visit my friend': 'I visit my friend after school.',
+  'stay at home': 'I stay at home on rainy days.',
+  'play cards': 'We play cards after dinner.',
+  'go straight': 'Go straight for two blocks.',
+  'turn left': 'Turn left at the corner.',
+  'turn right': 'Turn right at the next light.',
+  'cross the street': 'We cross the street at the light.',
+  'stop here': 'Please stop here and wait.',
+  'be careful': 'Be careful when you cross the street.',
+  'come with me': 'Please come with me to the library.',
+  'follow me': 'Follow me to the classroom.',
+  'show me': 'Please show me your picture.',
+  'ask a question': 'I want to ask a question.',
+  'answer a question': 'She raised her hand to answer a question.',
+  'in class': 'We speak English in class.',
+  'on Monday': 'We have music class on Monday.',
+  'after lunch': 'I play soccer after lunch.',
+  'before school': 'I read a book before school.',
+  'at noon': 'We eat lunch at noon.',
+  'in summer': 'We swim in the sea in summer.',
+  'on the weekend': 'I play with my friends on the weekend.',
+  'at the bus stop': 'I meet my friend at the bus stop.',
+  'across the street': 'The library is across the street.',
+  'in my bag': 'My notebook is in my bag.',
+  'every day': 'I study English every day.',
+  'this week': 'We have two tests this week.',
+  'next month': 'We will visit Kyoto next month.',
+  'after dinner': 'I do my homework after dinner.',
+  'before bed': 'I brush my teeth before bed.',
+  'in the park': 'We play soccer in the park.',
+  'a bottle of': 'Please bring a bottle of water.',
+  'a bowl of': 'I eat a bowl of rice for breakfast.',
+  'a pair of': 'I need a pair of shoes.',
+  'a new one': 'This pencil is broken, so I need a new one.',
+  'a little bit': 'Please wait a little bit.',
+  'very much': 'Thank you very much.',
+  'I am ready': 'I am ready for school.',
+  'I am hungry': 'I am hungry after soccer practice.',
+  'I am tired': 'I am tired after the long walk.',
+  'sounds good': '“Let’s play soccer.” “Sounds good!”',
+  'good job': 'Good job! You answered every question.',
+  'see you later': 'See you later, Ken.',
+  'come on': 'Come on, or we’ll be late.',
+  'never mind': 'Never mind. It is not a problem.',
+  'take a break': 'Let’s take a break now.',
+  'have a seat': 'Please have a seat here.',
 };
-
-const EIKEN5_LEVEL2_VERB_STARTERS = [
-  'get', 'go', 'come', 'look', 'listen', 'sit', 'stand', 'write', 'clean', 'wake',
-  'take', 'have', 'play', 'watch', 'read', 'study', 'cook', 'help', 'do', 'wash',
-  'use', 'make', 'speak', 'swim', 'run', 'walk', 'live', 'like', 'want', 'talk', 'wait',
-];
-
-const EIKEN5_LEVEL2_TIME_PHRASES = new Set([
-  'all day', 'all night', 'all the time', 'for a long time', 'once a week', 'twice a month',
-  'three times a year', 'every morning', 'last night', 'this morning', 'tomorrow morning',
-  'day after tomorrow', 'day before yesterday', 'next week', 'last month', 'next year',
-  'in the morning', 'in the afternoon', 'in the evening', 'at night', 'on Sunday', 'after school',
-]);
-
-const EIKEN5_LEVEL2_LOCATION_PHRASES = new Set(['at home', 'at school']);
 
 const getEiken5Level1FallbackExample = (text: string) => {
   if (EIKEN5_LEVEL1_EXACT_EXAMPLES[text]) return EIKEN5_LEVEL1_EXACT_EXAMPLES[text];
@@ -324,29 +371,7 @@ const getEiken5Level1FallbackExample = (text: string) => {
 };
 
 const getEiken5Level2FallbackExample = (text: string) => {
-  if (EIKEN5_LEVEL2_EXACT_EXAMPLES[text]) return EIKEN5_LEVEL2_EXACT_EXAMPLES[text];
-  if (EIKEN5_LEVEL2_TIME_PHRASES.has(text)) return pickExample(text, [
-    `We study English ${text}.`,
-    `My father is busy ${text}.`,
-    `I do my homework ${text}.`,
-  ]);
-  if (EIKEN5_LEVEL2_LOCATION_PHRASES.has(text)) return pickExample(text, [
-    `I study English ${text}.`,
-    `My mother is ${text} now.`,
-    `We eat dinner ${text}.`,
-  ]);
-  if (EIKEN5_LEVEL2_VERB_STARTERS.some(starter => text.startsWith(`${starter} `))) return pickExample(text, [
-    `I ${text}.`,
-    `We ${text} after school.`,
-    `They ${text} every day.`,
-    `My brother likes to ${text}.`,
-  ]);
-  return pickExample(text, [
-    `I like ${text}.`,
-    `We use ${text} in class.`,
-    `My teacher says ${text}.`,
-    `I hear "${text}" at school.`,
-  ]);
+  return EIKEN5_LEVEL2_EXACT_EXAMPLES[text] ?? null;
 };
 
 const EIKEN4_LEVEL1_EXACT_EXAMPLES: Record<string, string> = {
