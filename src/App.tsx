@@ -197,6 +197,7 @@ type PlayerProfileData = {
   manualQuestionStatuses?: Record<string, ManualQuestionStatus>;
   reviewQueue?: ReviewQueueEntry[];
   dailyProgress?: DailyProgress;
+  dailyActivityHistory?: DailyActivityHistory;
   bgmVolumeLevel?: number;
   speechVoiceMode?: SpeechVoiceMode;
   speechRatePercent?: number;
@@ -267,6 +268,13 @@ type DailyProgress = {
   date: string;
   questionCount: number;
 };
+
+type DailyActivity = {
+  answered: number;
+  skipped: number;
+};
+
+type DailyActivityHistory = Record<string, DailyActivity>;
 
 type MonsterDialogueState = 'start' | 'combo' | 'desperate' | 'damaged' | 'taunt' | 'defeat';
 
@@ -2417,6 +2425,7 @@ const STORAGE_KEYS = {
   manualQuestionStatuses: 'etyping_manual_question_statuses',
   reviewQueue: 'etyping_review_queue',
   dailyProgress: 'etyping_daily_progress',
+  dailyActivityHistory: 'etyping_daily_activity_history',
   bgmVolumeLevel: 'etyping_bgm_volume_level',
   speechVoiceMode: 'etyping_speech_voice_mode',
   speechRatePercent: 'etyping_speech_rate_percent',
@@ -2512,6 +2521,27 @@ const createDailyProgress = (date: string = getTodayKey()): DailyProgress => ({
   date,
   questionCount: 0,
 });
+
+const DATE_KEY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+const MONTH_KEY_PATTERN = /^\d{4}-\d{2}$/;
+
+const shiftMonthKey = (monthKey: string, offset: number): string => {
+  const [year, month] = monthKey.split('-').map(Number);
+  const shifted = new Date(Date.UTC(year, month - 1 + offset, 1));
+  return `${shifted.getUTCFullYear()}-${String(shifted.getUTCMonth() + 1).padStart(2, '0')}`;
+};
+
+const getMonthCalendarCells = (monthKey: string): Array<number | null> => {
+  if (!MONTH_KEY_PATTERN.test(monthKey)) return [];
+  const [year, month] = monthKey.split('-').map(Number);
+  const firstWeekday = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
+  const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const cells: Array<number | null> = [
+    ...Array.from({ length: firstWeekday }, () => null),
+    ...Array.from({ length: daysInMonth }, (_, index) => index + 1),
+  ];
+  return [...cells, ...Array.from({ length: (7 - (cells.length % 7)) % 7 }, () => null)];
+};
 
 const getReviewScopeKey = (difficulty: Difficulty, level: Level) => `${difficulty}:${level}`;
 
@@ -2722,12 +2752,40 @@ const normalizeDailyProgress = (value: unknown): DailyProgress => {
   if (!value || typeof value !== 'object') return createDailyProgress(todayKey);
 
   const typedValue = value as Partial<DailyProgress>;
-  const date = typeof typedValue.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(typedValue.date)
+  const date = typeof typedValue.date === 'string' && DATE_KEY_PATTERN.test(typedValue.date)
     ? typedValue.date
     : todayKey;
   const questionCount = Number.isFinite(typedValue.questionCount) ? Math.max(0, Number(typedValue.questionCount)) : 0;
 
   return { date, questionCount };
+};
+
+const normalizeDailyActivityHistory = (
+  value: unknown,
+  legacyDailyProgress?: DailyProgress,
+): DailyActivityHistory => {
+  const normalized = Object.fromEntries(
+    Object.entries(typeof value === 'object' && value !== null ? value : {}).flatMap(([date, activity]) => {
+      if (!DATE_KEY_PATTERN.test(date) || !activity || typeof activity !== 'object') return [];
+      const typedActivity = activity as Partial<DailyActivity>;
+      const answered = Number.isFinite(typedActivity.answered) ? Math.max(0, Math.floor(Number(typedActivity.answered))) : 0;
+      const skipped = Number.isFinite(typedActivity.skipped) ? Math.max(0, Math.floor(Number(typedActivity.skipped))) : 0;
+      return answered > 0 || skipped > 0 ? [[date, { answered, skipped }]] : [];
+    })
+  ) as DailyActivityHistory;
+
+  if (
+    legacyDailyProgress
+    && legacyDailyProgress.questionCount > 0
+    && !normalized[legacyDailyProgress.date]
+  ) {
+    normalized[legacyDailyProgress.date] = {
+      answered: Math.floor(legacyDailyProgress.questionCount),
+      skipped: 0,
+    };
+  }
+
+  return normalized;
 };
 
 const normalizeQuestionArray = (value: unknown): Question[] => (
@@ -2769,6 +2827,7 @@ const normalizeQuestionArray = (value: unknown): Question[] => (
 
 const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
   const typedValue = typeof value === 'object' && value !== null ? value as Partial<PlayerProfileData> : {};
+  const dailyProgress = normalizeDailyProgress(typedValue.dailyProgress ?? createDailyProgress());
 
   return {
     defeatedMonsterIds: normalizeDefeatedMonsterIds(typedValue.defeatedMonsterIds ?? []),
@@ -2778,7 +2837,8 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
     weakQuestionStats: normalizeWeakQuestionStats(typedValue.weakQuestionStats ?? {}),
     manualQuestionStatuses: normalizeManualQuestionStatuses(typedValue.manualQuestionStatuses ?? {}),
     reviewQueue: normalizeReviewQueue(typedValue.reviewQueue ?? []),
-    dailyProgress: normalizeDailyProgress(typedValue.dailyProgress ?? createDailyProgress()),
+    dailyProgress,
+    dailyActivityHistory: normalizeDailyActivityHistory(typedValue.dailyActivityHistory, dailyProgress),
     bgmVolumeLevel: normalizeBgmVolumeLevel(typedValue.bgmVolumeLevel),
     speechVoiceMode: normalizeSpeechVoiceMode(typedValue.speechVoiceMode),
     speechRatePercent: normalizeSpeechRatePercent(typedValue.speechRatePercent),
@@ -3685,6 +3745,9 @@ export default function App() {
   const [weakQuestionStats, setWeakQuestionStats] = useState<Record<string, WeakQuestionStat>>({});
   const [manualQuestionStatuses, setManualQuestionStatuses] = useState<Record<string, ManualQuestionStatus>>({});
   const [dailyProgress, setDailyProgress] = useState<DailyProgress>(createDailyProgress());
+  const [dailyActivityHistory, setDailyActivityHistory] = useState<DailyActivityHistory>({});
+  const [showMonthlyActivity, setShowMonthlyActivity] = useState(false);
+  const [activityMonth, setActivityMonth] = useState(() => getTodayKey().slice(0, 7));
   const [bgmVolumeLevel, setBgmVolumeLevel] = useState<number>(3);
   const [allSpeechVoices, setAllSpeechVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [speechVoices, setSpeechVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -3802,6 +3865,10 @@ export default function App() {
     const savedManualStatuses = normalizeManualQuestionStatuses(safeLoadJson<Record<string, ManualQuestionStatus>>(STORAGE_KEYS.manualQuestionStatuses, {}));
     const savedReviewQueue = normalizeReviewQueue(safeLoadJson<ReviewQueueEntry[]>(STORAGE_KEYS.reviewQueue, []));
     const savedDailyProgress = normalizeDailyProgress(safeLoadJson<DailyProgress>(STORAGE_KEYS.dailyProgress, createDailyProgress()));
+    const savedDailyActivityHistory = normalizeDailyActivityHistory(
+      safeLoadJson<DailyActivityHistory>(STORAGE_KEYS.dailyActivityHistory, {}),
+      savedDailyProgress,
+    );
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
     const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
@@ -3822,6 +3889,7 @@ export default function App() {
       manualQuestionStatuses: savedManualStatuses,
       reviewQueue: savedReviewQueue,
       dailyProgress: savedDailyProgress,
+      dailyActivityHistory: savedDailyActivityHistory,
       bgmVolumeLevel: savedBgmVolumeLevelRaw ? parseInt(savedBgmVolumeLevelRaw, 10) : 3,
       speechVoiceMode: savedSpeechVoiceModeRaw ?? 'us_female',
       speechRatePercent: savedSpeechRatePercentRaw ? parseInt(savedSpeechRatePercentRaw, 10) : 100,
@@ -3843,6 +3911,7 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.manualQuestionStatuses, JSON.stringify(normalizedData.manualQuestionStatuses ?? {}));
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedData.reviewQueue ?? []));
     localStorage.setItem(STORAGE_KEYS.dailyProgress, JSON.stringify(normalizedData.dailyProgress ?? createDailyProgress()));
+    localStorage.setItem(STORAGE_KEYS.dailyActivityHistory, JSON.stringify(normalizedData.dailyActivityHistory ?? {}));
     localStorage.setItem(STORAGE_KEYS.bgmVolumeLevel, String(normalizedData.bgmVolumeLevel ?? 3));
     localStorage.setItem(STORAGE_KEYS.speechVoiceMode, normalizedData.speechVoiceMode ?? 'us_female');
     localStorage.setItem(STORAGE_KEYS.speechRatePercent, String(normalizedData.speechRatePercent ?? 100));
@@ -3874,6 +3943,7 @@ export default function App() {
     setManualQuestionStatuses(normalizedData.manualQuestionStatuses ?? {});
     reviewQueueRef.current = normalizedReviewQueue;
     setDailyProgress(normalizedDailyProgress);
+    setDailyActivityHistory(normalizedData.dailyActivityHistory ?? {});
     setBgmVolumeLevel(normalizedData.bgmVolumeLevel ?? 3);
     setSpeechVoiceMode(normalizedData.speechVoiceMode ?? 'us_female');
     setSpeechRatePercent(normalizedData.speechRatePercent ?? 100);
@@ -3897,6 +3967,7 @@ export default function App() {
     manualQuestionStatuses,
     reviewQueue: reviewQueueRef.current,
     dailyProgress,
+    dailyActivityHistory,
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
@@ -3913,6 +3984,7 @@ export default function App() {
     weakQuestionStats,
     manualQuestionStatuses,
     dailyProgress,
+    dailyActivityHistory,
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
@@ -3988,6 +4060,10 @@ export default function App() {
     const savedManualStatuses = normalizeManualQuestionStatuses(safeLoadJson<Record<string, ManualQuestionStatus>>(STORAGE_KEYS.manualQuestionStatuses, {}));
     const savedReviewQueue = normalizeReviewQueue(safeLoadJson<ReviewQueueEntry[]>(STORAGE_KEYS.reviewQueue, []));
     const savedDailyProgress = normalizeDailyProgress(safeLoadJson<DailyProgress>(STORAGE_KEYS.dailyProgress, createDailyProgress()));
+    const savedDailyActivityHistory = normalizeDailyActivityHistory(
+      safeLoadJson<DailyActivityHistory>(STORAGE_KEYS.dailyActivityHistory, {}),
+      savedDailyProgress,
+    );
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
     const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
@@ -4027,6 +4103,8 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedReviewQueue));
     setDailyProgress(normalizedDailyProgress);
     localStorage.setItem(STORAGE_KEYS.dailyProgress, JSON.stringify(normalizedDailyProgress));
+    setDailyActivityHistory(savedDailyActivityHistory);
+    localStorage.setItem(STORAGE_KEYS.dailyActivityHistory, JSON.stringify(savedDailyActivityHistory));
 
     const savedBgmVolumeLevel = localStorage.getItem(STORAGE_KEYS.bgmVolumeLevel);
     if (savedBgmVolumeLevel) {
@@ -4653,6 +4731,7 @@ export default function App() {
     weakQuestionStats,
     manualQuestionStatuses,
     dailyProgress,
+    dailyActivityHistory,
     bgmVolumeLevel,
     speechVoiceMode,
     speechRatePercent,
@@ -5078,7 +5157,7 @@ export default function App() {
   };
 
   const buildProgressExportPayload = (): ProgressExportPayload => ({
-    formatVersion: 2,
+    formatVersion: 3,
     app: 'english-typing-rpg',
     exportedAt: new Date().toISOString(),
     player: {
@@ -5120,6 +5199,7 @@ export default function App() {
     const importedManualStatuses = normalizeManualQuestionStatuses(importedData.manualQuestionStatuses ?? {});
     const importedReviewQueue = normalizeReviewQueue(importedData.reviewQueue ?? []);
     const importedDailyProgress = normalizeDailyProgress(importedData.dailyProgress ?? createDailyProgress(todayKey));
+    const importedDailyActivityHistory = normalizeDailyActivityHistory(importedData.dailyActivityHistory, importedDailyProgress);
     const normalizedReviewQueue = importedDailyProgress.date === todayKey
       ? importedReviewQueue
       : importedReviewQueue.map((entry) => ({ ...entry, remainingQuestions: 0 }));
@@ -5165,6 +5245,8 @@ export default function App() {
 
     setDailyProgress(normalizedDailyProgress);
     localStorage.setItem(STORAGE_KEYS.dailyProgress, JSON.stringify(normalizedDailyProgress));
+    setDailyActivityHistory(importedDailyActivityHistory);
+    localStorage.setItem(STORAGE_KEYS.dailyActivityHistory, JSON.stringify(importedDailyActivityHistory));
 
     setBgmVolumeLevel(importedBgmVolumeLevel);
     localStorage.setItem(STORAGE_KEYS.bgmVolumeLevel, String(importedBgmVolumeLevel));
@@ -5334,16 +5416,31 @@ export default function App() {
       recordWeakQuestionStats(newMissed);
   };
 
-  const incrementDailyQuestionCount = () => {
+  const recordDailyActivity = (skipped: boolean) => {
     const todayKey = getTodayKey();
-    setDailyProgress(prev => {
-      const base = prev.date === todayKey ? prev : createDailyProgress(todayKey);
-      const nextProgress = {
-        ...base,
-        questionCount: base.questionCount + 1,
+    if (!skipped) {
+      setDailyProgress(prev => {
+        const base = prev.date === todayKey ? prev : createDailyProgress(todayKey);
+        const nextProgress = {
+          ...base,
+          questionCount: base.questionCount + 1,
+        };
+        localStorage.setItem(STORAGE_KEYS.dailyProgress, JSON.stringify(nextProgress));
+        return nextProgress;
+      });
+    }
+
+    setDailyActivityHistory(prev => {
+      const current = prev[todayKey] ?? { answered: 0, skipped: 0 };
+      const nextHistory = {
+        ...prev,
+        [todayKey]: {
+          answered: current.answered + (skipped ? 0 : 1),
+          skipped: current.skipped + (skipped ? 1 : 0),
+        },
       };
-      localStorage.setItem(STORAGE_KEYS.dailyProgress, JSON.stringify(nextProgress));
-      return nextProgress;
+      localStorage.setItem(STORAGE_KEYS.dailyActivityHistory, JSON.stringify(nextHistory));
+      return nextHistory;
     });
   };
 
@@ -5415,6 +5512,7 @@ export default function App() {
       STORAGE_KEYS.manualQuestionStatuses,
       STORAGE_KEYS.reviewQueue,
       STORAGE_KEYS.dailyProgress,
+      STORAGE_KEYS.dailyActivityHistory,
       STORAGE_KEYS.bgmVolumeLevel,
       STORAGE_KEYS.speechVoiceMode,
       STORAGE_KEYS.speechRatePercent,
@@ -5431,6 +5529,7 @@ export default function App() {
     setManualQuestionStatuses({});
     setMarkedQuestionKeysByScope({});
     setDailyProgress(createDailyProgress());
+    setDailyActivityHistory({});
     reviewQueueRef.current = [];
     activeReviewEntryRef.current = null;
     setShowResetConfirm(false);
@@ -5891,7 +5990,7 @@ export default function App() {
   };
 
   const advanceGame = (damage: number, speed: number, skipped: boolean, addedChars: number) => {
-    incrementDailyQuestionCount();
+    recordDailyActivity(skipped);
     decrementReviewQueueTimers();
 
     const nextHp = skipped ? gameState.monsterHp : Math.max(0, gameState.monsterHp - damage);
@@ -7825,7 +7924,7 @@ export default function App() {
               </div>
               <div className="rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-4 text-sm text-slate-300">
                 <p className="font-bold text-cyan-200">引き継げる主な内容</p>
-                <p className="mt-2">苦手語、ミス統計、手動設定、除外設定、復習キュー、日次進捗、保存済み選択リスト、自動再生設定</p>
+                <p className="mt-2">苦手語、ミス統計、手動設定、除外設定、復習キュー、日別・月間の学習記録、保存済み選択リスト、自動再生設定</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <GameButton onClick={downloadProgressSnapshot} className="sm:flex-1 bg-cyan-600 border-cyan-400 text-white hover:bg-cyan-500">
@@ -7837,7 +7936,7 @@ export default function App() {
               </div>
               <div className="rounded-xl border border-red-500/30 bg-red-950/15 p-4">
                 <p className="text-sm font-bold text-red-200">現在のプレイヤーの学習データをリセット</p>
-                <p className="mt-1 text-xs text-slate-400">撃破数、スコア、苦手語、日次進捗などを消去します。必要なら先に書き出してください。</p>
+                <p className="mt-1 text-xs text-slate-400">撃破数、スコア、苦手語、日別・月間の学習記録などを消去します。必要なら先に書き出してください。</p>
                 <GameButton onClick={handleResetHistory} variant="outline" size="sm" className="mt-3 border-red-600/60 text-red-200 hover:border-red-400 hover:bg-red-950/40">
                   <RotateCcw size={16} /> 履歴をリセット
                 </GameButton>
@@ -8281,7 +8380,21 @@ export default function App() {
     const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
     const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
     const totalMonsters = allMonsterIds.length;
-    const todayQuestionCount = dailyProgress.date === getTodayKey() ? dailyProgress.questionCount : 0;
+    const todayKey = getTodayKey();
+    const currentMonthKey = todayKey.slice(0, 7);
+    const todayQuestionCount = dailyActivityHistory[todayKey]?.answered
+      ?? (dailyProgress.date === todayKey ? dailyProgress.questionCount : 0);
+    const activityMonthCells = getMonthCalendarCells(activityMonth);
+    const activityMonthSummary = Object.entries(dailyActivityHistory).reduce((summary, [date, activity]) => {
+      if (!date.startsWith(`${activityMonth}-`)) return summary;
+      return {
+        answered: summary.answered + activity.answered,
+        skipped: summary.skipped + activity.skipped,
+        activeDays: summary.activeDays + (activity.answered > 0 ? 1 : 0),
+      };
+    }, { answered: 0, skipped: 0, activeDays: 0 });
+    const [activityYear, activityMonthNumber] = activityMonth.split('-').map(Number);
+    const activityPlayerName = getCurrentActivePlayer()?.name ?? 'Player';
     const nextBattleMode: Extract<Mode, 'guide' | 'challenge'> = resumeMode;
     const nextBattleInputMode = resumeInputMode;
     const nextBattleList = nextBattleMode === 'guide' || nextBattleInputMode === 'voice-text'
@@ -8352,13 +8465,22 @@ export default function App() {
               <div className="grid w-full items-stretch gap-8 lg:grid-cols-[minmax(0,680px)_minmax(360px,1fr)]">
               <div className="flex h-full w-full max-w-3xl flex-col items-center justify-self-center lg:items-start lg:justify-self-start">
                 <div className="mb-5 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
-                  <div className="rounded-lg border border-emerald-300/35 bg-emerald-950/22 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActivityMonth(currentMonthKey);
+                      setShowMonthlyActivity(true);
+                    }}
+                    className="group rounded-lg border border-emerald-300/35 bg-emerald-950/22 px-4 py-3 text-left shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm transition hover:border-emerald-200/70 hover:bg-emerald-900/30 focus:outline-none focus:ring-4 focus:ring-emerald-300/25"
+                    aria-label="今月の学習記録を見る"
+                  >
                     <div className="flex items-center gap-2 text-emerald-200">
                       <Target size={18} />
-                      <span className="text-xs font-black">今日の問題数</span>
+                      <span className="text-xs font-black">今日の解答数</span>
                     </div>
                     <p className="mt-1 text-3xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-base text-emerald-100">問</span></p>
-                  </div>
+                    <span className="mt-1 block text-[11px] font-black text-emerald-200/85 group-hover:text-emerald-100">今月の記録を見る →</span>
+                  </button>
                   <div className="rounded-lg border border-amber-300/42 bg-amber-950/24 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
                     <div className="flex items-center gap-2 text-amber-200">
                       <Trophy size={18} />
@@ -8626,6 +8748,104 @@ export default function App() {
                 )}
               </aside>
               </div>
+                    {showMonthlyActivity && (
+                      <div
+                        className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/82 p-3 backdrop-blur-sm sm:p-4"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="monthly-activity-title"
+                        onMouseDown={(event) => {
+                          if (event.target === event.currentTarget) setShowMonthlyActivity(false);
+                        }}
+                      >
+                        <div className="my-auto w-full max-w-xl overflow-hidden rounded-2xl border-2 border-emerald-300/50 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
+                          <div className="flex items-start justify-between gap-4 border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.68),rgba(15,23,42,0.98))] px-5 py-4 sm:px-6">
+                            <div>
+                              <p className="text-xs font-black tracking-[0.16em] text-emerald-200">{activityPlayerName} の学習記録</p>
+                              <h2 id="monthly-activity-title" className="mt-1 text-2xl font-black text-white">今月のがんばり</h2>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => setShowMonthlyActivity(false)}
+                              className="rounded-lg border border-slate-600 bg-slate-800 px-3 py-1.5 text-sm font-black text-slate-200 hover:border-slate-400 hover:text-white"
+                            >
+                              閉じる
+                            </button>
+                          </div>
+
+                          <div className="p-4 sm:p-6">
+                            <div className="flex items-center justify-between gap-3">
+                              <button
+                                type="button"
+                                onClick={() => setActivityMonth(month => shiftMonthKey(month, -1))}
+                                className="rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-sm font-black text-slate-200 hover:border-emerald-300 hover:text-white"
+                                aria-label="前の月を見る"
+                              >
+                                ← 前月
+                              </button>
+                              <p className="text-xl font-black text-white">{activityYear}年{activityMonthNumber}月</p>
+                              <button
+                                type="button"
+                                onClick={() => setActivityMonth(month => shiftMonthKey(month, 1))}
+                                disabled={activityMonth >= currentMonthKey}
+                                className="rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-sm font-black text-slate-200 hover:border-emerald-300 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+                                aria-label="次の月を見る"
+                              >
+                                次月 →
+                              </button>
+                            </div>
+
+                            <div className="mt-4 grid grid-cols-3 gap-2">
+                              <div className="rounded-lg border border-emerald-400/35 bg-emerald-950/35 px-2 py-3 text-center">
+                                <p className="text-[11px] font-black text-emerald-200">解答数</p>
+                                <p className="mt-1 text-2xl font-black text-white">{activityMonthSummary.answered}<span className="ml-1 text-xs text-emerald-100">問</span></p>
+                              </div>
+                              <div className="rounded-lg border border-cyan-400/35 bg-cyan-950/35 px-2 py-3 text-center">
+                                <p className="text-[11px] font-black text-cyan-200">取り組んだ日</p>
+                                <p className="mt-1 text-2xl font-black text-white">{activityMonthSummary.activeDays}<span className="ml-1 text-xs text-cyan-100">日</span></p>
+                              </div>
+                              <div className="rounded-lg border border-slate-500/45 bg-slate-800/70 px-2 py-3 text-center">
+                                <p className="text-[11px] font-black text-slate-300">スキップ</p>
+                                <p className="mt-1 text-2xl font-black text-white">{activityMonthSummary.skipped}<span className="ml-1 text-xs text-slate-300">問</span></p>
+                              </div>
+                            </div>
+
+                            <div className="mt-5 grid grid-cols-7 gap-1 text-center text-[11px] font-black text-slate-400">
+                              {['日', '月', '火', '水', '木', '金', '土'].map(dayLabel => <div key={dayLabel} className="py-1">{dayLabel}</div>)}
+                            </div>
+                            <div className="grid grid-cols-7 gap-1.5">
+                              {activityMonthCells.map((day, index) => {
+                                if (day === null) return <div key={`blank-${index}`} aria-hidden="true" />;
+                                const dateKey = `${activityMonth}-${String(day).padStart(2, '0')}`;
+                                const activity = dailyActivityHistory[dateKey] ?? { answered: 0, skipped: 0 };
+                                const intensityClass = activity.answered >= 20
+                                  ? 'border-emerald-300 bg-emerald-500/35 text-white'
+                                  : activity.answered >= 10
+                                    ? 'border-cyan-400/70 bg-cyan-500/25 text-cyan-50'
+                                    : activity.answered > 0
+                                      ? 'border-sky-500/55 bg-sky-500/15 text-sky-50'
+                                      : 'border-slate-700 bg-slate-950/55 text-slate-500';
+                                const isToday = dateKey === todayKey;
+                                return (
+                                  <div
+                                    key={dateKey}
+                                    className={`min-h-[54px] rounded-lg border px-1 py-1.5 text-center ${intensityClass} ${isToday ? 'ring-2 ring-amber-300 ring-offset-1 ring-offset-slate-900' : ''}`}
+                                    aria-label={`${activityMonthNumber}月${day}日、${activity.answered}問解答、${activity.skipped}問スキップ`}
+                                  >
+                                    <p className="text-[10px] font-bold opacity-75">{day}</p>
+                                    <p className="mt-0.5 text-sm font-black">{activity.answered > 0 ? activity.answered : '—'}</p>
+                                  </div>
+                                );
+                              })}
+                            </div>
+
+                            <p className="mt-4 text-xs font-bold leading-5 text-slate-400">
+                              数字はその日に最後まで入力した問題数です。スキップは解答数には含めません。過去の記録は、この機能を追加した日以降から蓄積されます。
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                     {showResetConfirm && (
                       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                         <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
