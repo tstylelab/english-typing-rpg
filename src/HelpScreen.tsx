@@ -1,4 +1,4 @@
-import { BookOpen, Brain, LayoutGrid, Sword, Target } from 'lucide-react';
+import { BookOpen, Brain, LayoutGrid, Sword, Target, Volume2 } from 'lucide-react';
 
 type HelpScreenProps = {
   onBack: () => void;
@@ -80,6 +80,30 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
               </div>
             </div>
 
+            <div className="rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-5">
+              <div className="flex items-center gap-2 text-cyan-200">
+                <Volume2 size={19} />
+                <h2 className="text-lg font-black text-white">連続再生で耳から復習する</h2>
+              </div>
+              <p className="mt-3 text-sm leading-7 text-slate-200">
+                トップ画面の「連続再生」を押すと、現在選んでいる教材を、最後に使った設定のまま自動で読み上げます。
+                初めて使うときは「苦手語だけ・通常順」が選ばれています。
+              </p>
+              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                <div className="rounded-xl border border-cyan-500/25 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
+                  <p className="font-black text-cyan-100">連続再生</p>
+                  <p className="mt-1">保存されている設定ですぐに再生を始めます。再生中の単語・和訳・例文を確認でき、途中で停止することもできます。</p>
+                </div>
+                <div className="rounded-xl border border-slate-600 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
+                  <p className="font-black text-white">再生設定</p>
+                  <p className="mt-1">再生する範囲、内容、順番、間隔、速度、リピート、シャッフルなどを変更できます。変更した設定は自動保存され、次回も使われます。</p>
+                </div>
+              </div>
+              <p className="mt-4 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-sm leading-7 text-amber-50">
+                苦手語がまだ0件のときは再生されません。「再生設定」を開き、「このレベル全部」など別の再生元を選んでください。
+              </p>
+            </div>
+
             <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
               <div className="rounded-2xl border border-amber-500/25 bg-amber-500/10 p-5">
                 <div className="flex items-center gap-2 text-amber-200">
@@ -99,10 +123,10 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                   <h2 className="text-lg font-black text-white">よく使う画面</h2>
                 </div>
                 <div className="mt-3 space-y-2 text-sm leading-7 text-slate-200">
-                  <p>単語帳: 学習した問題を一覧で確認できます。</p>
-                  <p>Word List: 収録されている単語をまとめて見返せます。</p>
-                  <p>ゲーム設定: 音声や表示を調整できます。</p>
-                  <p>Player Profiles: プレイヤーごとの進捗を分けて保存できます。</p>
+                  <p>図鑑: 倒したモンスターを確認できます。</p>
+                  <p>単語リスト: 収録語の確認、復習、連続再生の管理ができます。</p>
+                  <p>設定: 音声や表示、学習データを管理できます。</p>
+                  <p>プレイヤー管理: プレイヤーごとの進捗を分けて保存できます。</p>
                 </div>
               </div>
             </div>

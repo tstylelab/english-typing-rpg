@@ -3780,6 +3780,7 @@ export default function App() {
   const [weakListSort, setWeakListSort] = useState<'recent' | 'frequent'>('recent');
   const [questionListRenderLimit, setQuestionListRenderLimit] = useState(DEFAULT_QUESTION_LIST_RENDER_LIMIT);
   const [wordListToolsOpen, setWordListToolsOpen] = useState(false);
+  const [autoPlaySelectionToolsOpen, setAutoPlaySelectionToolsOpen] = useState(false);
   const [weakReviewPanelOpen, setWeakReviewPanelOpen] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -4830,6 +4831,12 @@ export default function App() {
 
     return () => window.clearTimeout(timerId);
   }, [gameState.screen, wordListToolsOpen]);
+
+  useEffect(() => {
+    if (wordListToolsOpen && autoPlaySettings.source === 'selected') {
+      setAutoPlaySelectionToolsOpen(true);
+    }
+  }, [autoPlaySettings.source, wordListToolsOpen]);
 
   useEffect(() => {
     const nextCriteria = [
@@ -7051,6 +7058,43 @@ export default function App() {
     };
 
     const handleStartAutoPlay = () => startAutoPlayForQuestions(autoPlayTargetQuestions);
+    const autoPlaySourceOptions: Array<{
+      key: AutoPlaySource;
+      label: string;
+      count: number;
+      note: string;
+      activeClassName: string;
+    }> = [
+      {
+        key: 'all',
+        label: 'このレベル全部',
+        count: visiblePlayableQuestions.length,
+        note: '表示中のレベルを最初から通して復習',
+        activeClassName: 'border-emerald-300 bg-emerald-500/15 text-emerald-50',
+      },
+      {
+        key: 'weak',
+        label: '苦手語だけ',
+        count: weakQuestionsInView.length,
+        note: 'ミスして苦手語に残っているものだけ',
+        activeClassName: 'border-orange-300 bg-orange-500/15 text-orange-50',
+      },
+      {
+        key: 'marked',
+        label: 'あとで復習',
+        count: markedQuestionsInView.length,
+        note: '自分で「あとで復習」に登録したものだけ',
+        activeClassName: 'border-yellow-300 bg-yellow-500/15 text-yellow-50',
+      },
+      {
+        key: 'selected',
+        label: '自分で選んだ語',
+        count: selectedQuestionsInView.length,
+        note: '下の選択ツールで作ったリストを再生',
+        activeClassName: 'border-cyan-300 bg-cyan-500/15 text-cyan-50',
+      },
+    ];
+    const selectedAutoPlaySource = autoPlaySourceOptions.find(option => option.key === autoPlaySettings.source) ?? autoPlaySourceOptions[0];
 
     const activeQuestionListRenderLimit = (isAutoPlaying || wordListToolsOpen)
       ? COMPACT_QUESTION_LIST_RENDER_LIMIT
@@ -7238,71 +7282,93 @@ export default function App() {
               </GameButton>
             </div>
             <div ref={autoPlayPanelRef} className="mb-4 scroll-mt-4 flex-shrink-0 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-4 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
-              <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Auto Play</p>
-                  <h3 className="mt-1 text-xl font-black text-white">単語一覧の連続再生</h3>
-                  <p className="mt-2 text-xs text-slate-300">苦手語だけ、または自分で選んだ単語だけを連続再生できます。和訳は日本語音声、用語と例文は英語音声で読み上げます。</p>
+                  <h3 className="mt-1 text-xl font-black text-white">連続再生の設定</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">上から順に「再生する単語」「読み上げる内容」「再生順」を選び、最後に再生ボタンを押してください。</p>
+                  <p className="mt-2 text-xs font-bold text-cyan-200">迷ったときは「苦手語だけ・用語＋和訳＋例文・通常順」がおすすめです。</p>
                 </div>
-                <div className="rounded-xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-sm text-slate-200">
-                  <div>対象数: <span className="font-black text-white">{autoPlayTargetQuestions.length}</span></div>
-                  <div>再生可能: <span className="font-black text-cyan-200">{autoPlayPlayableQuestionCount}</span></div>
-                  <div className="mt-1 text-xs text-slate-400">{autoPlayStatusText}</div>
+                <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
+                  <div className="text-xs font-bold text-slate-400">現在の設定</div>
+                  <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
+                  <div className="mt-2 flex items-center justify-between gap-4 text-xs">
+                    <span>対象 {autoPlayTargetQuestions.length}語</span>
+                    <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}語</span>
+                  </div>
+                  <div className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-400">{autoPlayStatusText}</div>
                 </div>
               </div>
-              <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-                <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4">
-                  <p className="text-sm font-bold text-cyan-200">1. 再生元</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <button
-                      onClick={() => updateAutoPlaySetting('source', 'all')}
-                      className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'all' ? 'border-emerald-300 bg-emerald-500/20 text-emerald-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                    >
-                      このレベル全部 ({visiblePlayableQuestions.length})
-                    </button>
-                    <button
-                      onClick={() => updateAutoPlaySetting('source', 'weak')}
-                      className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'weak' ? 'border-orange-300 bg-orange-500/20 text-orange-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                    >
-                      苦手語だけ ({weakQuestionsInView.length})
-                    </button>
-                    <button
-                      onClick={() => updateAutoPlaySetting('source', 'marked')}
-                      className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'marked' ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                    >
-                      あとで復習 ({markedQuestionsInView.length})
-                    </button>
-                    <button
-                      onClick={() => updateAutoPlaySetting('source', 'selected')}
-                      className={`rounded-full border px-4 py-2 text-sm font-bold transition-colors ${autoPlaySettings.source === 'selected' ? 'border-cyan-300 bg-cyan-500/20 text-cyan-100' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                    >
-                      自分で選んだ語 ({selectedQuestionsInView.length})
-                    </button>
+              <div className="mt-5 space-y-4">
+                <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 md:p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">1</span>
+                    <div>
+                      <p className="font-black text-white">再生する単語を選ぶ</p>
+                      <p className="mt-1 text-xs text-slate-400">どのグループを連続再生するか選びます。</p>
+                    </div>
                   </div>
-                  <p className="mt-4 text-sm font-bold text-cyan-200">2. 再生する内容</p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {autoPlaySourceOptions.map(option => (
+                      <button
+                        key={option.key}
+                        type="button"
+                        aria-pressed={autoPlaySettings.source === option.key}
+                        onClick={() => {
+                          updateAutoPlaySetting('source', option.key);
+                          if (option.key === 'selected') setAutoPlaySelectionToolsOpen(true);
+                        }}
+                        className={`rounded-xl border px-4 py-3 text-left transition-all ${autoPlaySettings.source === option.key ? `${option.activeClassName} ring-1 ring-current/30` : 'border-slate-700 bg-slate-950/65 text-slate-300 hover:border-slate-500 hover:bg-slate-900'}`}
+                      >
+                        <span className="flex items-center justify-between gap-2">
+                          <span className="text-sm font-black">{option.label}</span>
+                          <span className="rounded-full bg-black/25 px-2 py-0.5 text-xs font-black">{option.count}語</span>
+                        </span>
+                        <span className="mt-2 block text-xs leading-5 text-slate-400">{option.note}</span>
+                      </button>
+                    ))}
+                  </div>
                   {autoPlaySettings.source !== 'all' && autoPlayTargetQuestions.length === 0 && visiblePlayableQuestions.length > 0 && (
-                    <p className="mt-3 text-xs text-amber-200">
+                    <p className="mt-4 rounded-lg border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs leading-5 text-amber-100">
                       このレベルでは、まだ対象語がありません。「このレベル全部」を選ぶと自動再生できます。
                     </p>
                   )}
+                </div>
+                <div className="grid gap-4 lg:grid-cols-2">
+                  <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 md:p-5">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">2</span>
+                      <div>
+                        <p className="font-black text-white">読み上げる内容を選ぶ</p>
+                        <p className="mt-1 text-xs text-slate-400">聞きたいものを1つ以上選びます。</p>
+                      </div>
+                    </div>
                   <div className="mt-3 grid gap-2 sm:grid-cols-3">
                     {[
-                      { key: 'playText', label: '用語', checked: autoPlaySettings.playText },
-                      { key: 'playTranslation', label: '和訳', checked: autoPlaySettings.playTranslation },
-                      { key: 'playExample', label: '例文', checked: autoPlaySettings.playExample },
+                      { key: 'playText', label: '用語', note: '英単語・英語表現', checked: autoPlaySettings.playText },
+                      { key: 'playTranslation', label: '和訳', note: '日本語の意味', checked: autoPlaySettings.playTranslation },
+                      { key: 'playExample', label: '例文', note: '使い方が分かる英文', checked: autoPlaySettings.playExample },
                     ].map(item => (
-                      <label key={item.key} className="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-200">
+                      <label key={item.key} className={`flex cursor-pointer items-start gap-3 rounded-xl border px-3 py-3 text-sm transition-colors ${item.checked ? 'border-cyan-400/60 bg-cyan-500/10 text-cyan-50' : 'border-slate-700 bg-slate-950/70 text-slate-300'}`}>
                         <input
                           type="checkbox"
                           checked={item.checked}
                           onChange={(e) => updateAutoPlaySetting(item.key as keyof AutoPlaySettings, e.target.checked as never)}
-                          className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
+                          className="mt-0.5 h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
                         />
-                        <span>{item.label}</span>
+                        <span><span className="block font-black">{item.label}</span><span className="mt-1 block text-[11px] text-slate-400">{item.note}</span></span>
                       </label>
                     ))}
                   </div>
-                  <p className="mt-4 text-sm font-bold text-cyan-200">再生順</p>
+                  </div>
+                  <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 md:p-5">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-cyan-400/50 bg-cyan-950 text-sm font-black text-cyan-100">→</span>
+                      <div>
+                        <p className="font-black text-white">読み上げる順番を選ぶ</p>
+                        <p className="mt-1 text-xs text-slate-400">覚え方に合う順番を選びます。</p>
+                      </div>
+                    </div>
                   <div className="mt-3 grid gap-2 sm:grid-cols-3">
                     {[
                       { key: 'normal', label: '通常順', note: '用語→和訳→例文' },
@@ -7319,7 +7385,22 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                  <p className="mt-4 text-sm font-bold text-cyan-200">3. 間隔</p>
+                  </div>
+                </div>
+                <details className="group rounded-xl border border-slate-700 bg-slate-900/50">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 md:px-5">
+                    <div>
+                      <p className="font-black text-white">細かい再生設定（必要なとき）</p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">
+                        速度・間隔・リピート・シャッフルを調整できます。現在の速度は {autoPlaySettings.playbackRatePercent / 100}x です。
+                      </p>
+                    </div>
+                    <span className="flex-none text-sm font-bold text-cyan-200">
+                      <span className="group-open:hidden">開く ▼</span>
+                      <span className="hidden group-open:inline">閉じる ▲</span>
+                    </span>
+                  </summary>
+                  <div className="border-t border-slate-700 p-4 md:p-5">
                   <label className="mt-3 flex items-center justify-between gap-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-200">
                     <span className="font-bold text-cyan-100">{'リピート再生'}</span>
                     <input
@@ -7381,6 +7462,21 @@ export default function App() {
                       ))}
                     </div>
                   </div>
+                  </div>
+                </details>
+                <div className="rounded-xl border border-cyan-500/35 bg-gradient-to-br from-cyan-950/35 to-slate-900/70 p-4 md:p-5">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">3</span>
+                      <div>
+                        <p className="font-black text-white">この設定で再生する</p>
+                        <p className="mt-1 text-xs text-slate-400">準備ができたら、下のボタンを押してください。</p>
+                      </div>
+                    </div>
+                    <div className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-100">
+                      {selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}語
+                    </div>
+                  </div>
                   <div className="mt-4 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-sm font-bold text-cyan-200">現在再生中</span>
@@ -7418,10 +7514,10 @@ export default function App() {
                     <GameButton
                       onClick={handleStartAutoPlay}
                       size="sm"
-                      className="bg-cyan-600 border-cyan-400 text-white hover:bg-cyan-500"
+                      className="min-h-12 flex-1 bg-cyan-600 border-cyan-300 text-white shadow-lg shadow-cyan-950/40 hover:bg-cyan-500"
                       disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
                     >
-                      <Volume2 size={16} className="mr-1" /> 連続再生を開始
+                      <Volume2 size={16} className="mr-1" /> この設定で連続再生を開始
                     </GameButton>
                     <GameButton
                       onClick={() => stopAutoPlay()}
@@ -7434,14 +7530,26 @@ export default function App() {
                     </GameButton>
                   </div>
                 </div>
-                <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4">
-                  <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <details
+                  open={autoPlaySelectionToolsOpen}
+                  onToggle={(event) => setAutoPlaySelectionToolsOpen(event.currentTarget.open)}
+                  className="group rounded-xl border border-slate-700 bg-slate-900/50"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 md:px-5">
                     <div>
-                      <p className="text-sm font-bold text-cyan-200">任意選択リスト</p>
-                      <p className="mt-1 text-xs text-slate-400">この難易度・レベルで選んだ単語は自動保存されます。さらに名前を付けて複数保存できます。</p>
+                      <p className="font-black text-white">自分で単語を選ぶ・リストを保存</p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">「自分で選んだ語」を使う人向けの詳細ツールです。</p>
                     </div>
-                    <div className="text-xs text-slate-400">現在の選択: {selectedQuestionsInView.length}語</div>
-                  </div>
+                    <div className="flex flex-none items-center gap-3">
+                      <span className="rounded-full bg-slate-950/70 px-3 py-1 text-xs font-bold text-slate-300">現在 {selectedQuestionsInView.length}語</span>
+                      <span className="text-sm font-bold text-cyan-200">
+                        <span className="group-open:hidden">開く ▼</span>
+                        <span className="hidden group-open:inline">閉じる ▲</span>
+                      </span>
+                    </div>
+                  </summary>
+                  <div className="border-t border-slate-700 p-4 md:p-5">
+                    <p className="text-xs leading-5 text-slate-400">この難易度・レベルで選んだ単語は自動保存されます。さらに名前を付けて複数保存できます。</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <GameButton
                       onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty, gameState.selectedLevel, weakQuestionsInView.map(q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))}
@@ -7529,7 +7637,8 @@ export default function App() {
                       <div className="rounded-xl border border-dashed border-slate-700 bg-slate-950/50 px-3 py-4 text-sm text-slate-400">まだ保存済みリストはありません。</div>
                     )}
                   </div>
-                </div>
+                  </div>
+                </details>
               </div>
             </div>
             </>
@@ -8631,9 +8740,9 @@ export default function App() {
                         variant="outline"
                         className="w-full min-h-[64px] border-slate-600 bg-slate-900/65 px-2 text-sm text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25"
                         size="md"
-                        aria-label="連続再生の管理"
+                        aria-label="連続再生の設定"
                       >
-                        <ClipboardList size={18} /> 管理
+                        <ClipboardList size={18} /> 再生設定
                       </GameButton>
                     </div>
 
@@ -8648,7 +8757,7 @@ export default function App() {
                         <Volume2 size={18} /> 設定
                       </GameButton>
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'help' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-violet-300 hover:bg-violet-950/25">
-                        <AlertCircle size={18} /> ヘルプ
+                        <AlertCircle size={18} /> 遊び方
                       </GameButton>
                     </div>
                   </div>
