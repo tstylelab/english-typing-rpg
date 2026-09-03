@@ -2565,7 +2565,7 @@ const getDefaultWeakQuestionStat = (): WeakQuestionStat => ({
 });
 
 const getDefaultAutoPlaySettings = (): AutoPlaySettings => ({
-  source: 'all',
+  source: 'weak',
   playText: true,
   playTranslation: true,
   playExample: true,
@@ -4831,6 +4831,7 @@ export default function App() {
     if (!previousCriteria || previousCriteria === nextCriteria) return;
 
     if (gameState.screen !== 'question-list') return;
+    if (!previousCriteria.startsWith('question-list|')) return;
     if (!isAutoPlaying) return;
     stopAutoPlay('一覧条件の変更に合わせて停止しました');
   }, [
@@ -6635,6 +6636,138 @@ export default function App() {
     playAt(0);
   };
 
+  const startAutoPlayForQuestions = (targetQuestions: Question[]) => {
+    if (!autoPlaySettings.playText && !autoPlaySettings.playTranslation && !autoPlaySettings.playExample) {
+      setAutoPlayStatusText('再生対象を1つ以上選んでください');
+      return;
+    }
+
+    const autoPlayJapaneseVoice = getJapaneseSpeechVoice();
+    const getEnglishAutoPlaySpeechConfig = () => resolveSpeechConfig(speechVoices, speechVoiceMode);
+    const playbackQuestions = autoPlaySettings.shuffle
+      ? shuffleQuestions(targetQuestions)
+      : targetQuestions;
+
+    const entries = playbackQuestions.flatMap((question, questionIndex) => {
+      const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
+      const example = currentQuestionExamples.get(questionKey);
+      const nextEntries: Array<{
+        label: string;
+        text: string;
+        lang: string;
+        voice: SpeechSynthesisVoice | null;
+        gapAfterSeconds: number;
+        nowPlaying: AutoPlayNowPlaying;
+      }> = [];
+      const pushEntry = (entry: {
+        label: string;
+        text: string;
+        lang: string;
+        voice: SpeechSynthesisVoice | null;
+        nowPlaying: AutoPlayNowPlaying;
+      }) => {
+        nextEntries.push({
+          ...entry,
+          gapAfterSeconds: autoPlaySettings.itemGapSeconds,
+        });
+      };
+
+      if (autoPlaySettings.sequenceMode === 'exampleFirst' && autoPlaySettings.playExample && example) {
+        const speechConfig = getEnglishAutoPlaySpeechConfig();
+        pushEntry({
+          label: `例文: ${question.text}`,
+          text: example,
+          lang: speechConfig.lang,
+          voice: speechConfig.voice,
+          nowPlaying: {
+            questionText: question.text,
+            translation: question.translation,
+            basicMeaning: question.basicMeaning,
+            example,
+            activePart: 'example',
+          },
+        });
+      }
+
+      if (autoPlaySettings.sequenceMode === 'exampleTextExample' && autoPlaySettings.playExample && example) {
+        const speechConfig = getEnglishAutoPlaySpeechConfig();
+        pushEntry({
+          label: `例文: ${question.text}`,
+          text: example,
+          lang: speechConfig.lang,
+          voice: speechConfig.voice,
+          nowPlaying: {
+            questionText: question.text,
+            translation: question.translation,
+            basicMeaning: question.basicMeaning,
+            example,
+            activePart: 'example',
+          },
+        });
+      }
+
+      if (autoPlaySettings.playText) {
+        const speechConfig = getEnglishAutoPlaySpeechConfig();
+        pushEntry({
+          label: `単語: ${question.text}`,
+          text: question.text,
+          lang: speechConfig.lang,
+          voice: speechConfig.voice,
+          nowPlaying: {
+            questionText: question.text,
+            translation: question.translation,
+            basicMeaning: question.basicMeaning,
+            example: example ?? null,
+            activePart: 'text',
+          },
+        });
+      }
+
+      if (autoPlaySettings.playTranslation) {
+        pushEntry({
+          label: `和訳: ${question.translation}`,
+          text: question.translation,
+          lang: autoPlayJapaneseVoice?.lang || 'ja-JP',
+          voice: autoPlayJapaneseVoice,
+          nowPlaying: {
+            questionText: question.text,
+            translation: question.translation,
+            basicMeaning: question.basicMeaning,
+            example: example ?? null,
+            activePart: 'translation',
+          },
+        });
+      }
+
+      if (autoPlaySettings.playExample && example && autoPlaySettings.sequenceMode !== 'exampleFirst') {
+        const speechConfig = getEnglishAutoPlaySpeechConfig();
+        pushEntry({
+          label: `例文: ${question.text}`,
+          text: example,
+          lang: speechConfig.lang,
+          voice: speechConfig.voice,
+          nowPlaying: {
+            questionText: question.text,
+            translation: question.translation,
+            basicMeaning: question.basicMeaning,
+            example,
+            activePart: 'example',
+          },
+        });
+      }
+
+      if (nextEntries.length > 0) {
+        nextEntries[nextEntries.length - 1].gapAfterSeconds = questionIndex < playbackQuestions.length - 1
+          ? autoPlaySettings.questionGapSeconds
+          : 0;
+      }
+
+      return nextEntries;
+    });
+
+    startAutoPlaySequence(entries);
+  };
+
   if (gameState.screen === 'rank-list') {
       const allMonsterIds = Object.values(MONSTERS).flatMap(lvl => [...lvl.guide, ...lvl.challenge]).map(m => m.id);
       const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
@@ -6845,7 +6978,6 @@ export default function App() {
             ? markedQuestionsInView
             : selectedQuestionsInView
       : [];
-    const autoPlayJapaneseVoice = wordListToolsOpen ? getJapaneseSpeechVoice() : null;
     const autoPlayPlayableQuestionCount = wordListToolsOpen
       ? autoPlayTargetQuestions.filter(q => {
         if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
@@ -6905,136 +7037,7 @@ export default function App() {
       }));
     };
 
-    const handleStartAutoPlay = () => {
-      if (!autoPlaySettings.playText && !autoPlaySettings.playTranslation && !autoPlaySettings.playExample) {
-        setAutoPlayStatusText('再生対象を1つ以上選んでください');
-        return;
-      }
-
-      const getEnglishAutoPlaySpeechConfig = () => resolveSpeechConfig(speechVoices, speechVoiceMode);
-      const playbackQuestions = autoPlaySettings.shuffle
-        ? shuffleQuestions(autoPlayTargetQuestions)
-        : autoPlayTargetQuestions;
-
-      const entries = playbackQuestions.flatMap((question, questionIndex) => {
-        const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
-        const example = currentQuestionExamples.get(questionKey);
-        const nextEntries: Array<{
-          label: string;
-          text: string;
-          lang: string;
-          voice: SpeechSynthesisVoice | null;
-          gapAfterSeconds: number;
-          nowPlaying: AutoPlayNowPlaying;
-        }> = [];
-        const pushEntry = (entry: {
-          label: string;
-          text: string;
-          lang: string;
-          voice: SpeechSynthesisVoice | null;
-          nowPlaying: AutoPlayNowPlaying;
-        }) => {
-          nextEntries.push({
-            ...entry,
-            gapAfterSeconds: autoPlaySettings.itemGapSeconds,
-          });
-        };
-
-        if (autoPlaySettings.sequenceMode === 'exampleFirst' && autoPlaySettings.playExample && example) {
-          const speechConfig = getEnglishAutoPlaySpeechConfig();
-          pushEntry({
-            label: `例文: ${question.text}`,
-            text: example,
-            lang: speechConfig.lang,
-            voice: speechConfig.voice,
-            nowPlaying: {
-              questionText: question.text,
-              translation: question.translation,
-              basicMeaning: question.basicMeaning,
-              example,
-              activePart: 'example',
-            },
-          });
-        }
-
-        if (autoPlaySettings.sequenceMode === 'exampleTextExample' && autoPlaySettings.playExample && example) {
-          const speechConfig = getEnglishAutoPlaySpeechConfig();
-          pushEntry({
-            label: `例文: ${question.text}`,
-            text: example,
-            lang: speechConfig.lang,
-            voice: speechConfig.voice,
-            nowPlaying: {
-              questionText: question.text,
-              translation: question.translation,
-              basicMeaning: question.basicMeaning,
-              example,
-              activePart: 'example',
-            },
-          });
-        }
-
-        if (autoPlaySettings.playText) {
-          const speechConfig = getEnglishAutoPlaySpeechConfig();
-          pushEntry({
-            label: `単語: ${question.text}`,
-            text: question.text,
-            lang: speechConfig.lang,
-            voice: speechConfig.voice,
-            nowPlaying: {
-              questionText: question.text,
-              translation: question.translation,
-              basicMeaning: question.basicMeaning,
-              example: example ?? null,
-              activePart: 'text',
-            },
-          });
-        }
-
-        if (autoPlaySettings.playTranslation) {
-          pushEntry({
-            label: `和訳: ${question.translation}`,
-            text: question.translation,
-            lang: autoPlayJapaneseVoice?.lang || 'ja-JP',
-            voice: autoPlayJapaneseVoice,
-            nowPlaying: {
-              questionText: question.text,
-              translation: question.translation,
-              basicMeaning: question.basicMeaning,
-              example: example ?? null,
-              activePart: 'translation',
-            },
-          });
-        }
-
-        if (autoPlaySettings.playExample && example && autoPlaySettings.sequenceMode !== 'exampleFirst') {
-          const speechConfig = getEnglishAutoPlaySpeechConfig();
-          pushEntry({
-            label: `例文: ${question.text}`,
-            text: example,
-            lang: speechConfig.lang,
-            voice: speechConfig.voice,
-            nowPlaying: {
-              questionText: question.text,
-              translation: question.translation,
-              basicMeaning: question.basicMeaning,
-              example,
-              activePart: 'example',
-            },
-          });
-        }
-
-        if (nextEntries.length > 0) {
-          nextEntries[nextEntries.length - 1].gapAfterSeconds = questionIndex < playbackQuestions.length - 1
-            ? autoPlaySettings.questionGapSeconds
-            : 0;
-        }
-
-        return nextEntries;
-      });
-
-      startAutoPlaySequence(entries);
-    };
+    const handleStartAutoPlay = () => startAutoPlayForQuestions(autoPlayTargetQuestions);
 
     const activeQuestionListRenderLimit = (isAutoPlaying || wordListToolsOpen)
       ? COMPACT_QUESTION_LIST_RENDER_LIMIT
@@ -8445,6 +8448,52 @@ export default function App() {
         `${getTodayKey()}:${nextBattleProgress}:${todayQuestionCount}:${totalDefeated}`
       )
       : '';
+    const titlePlayableQuestions = currentScopedQuestions.filter(question => (
+      !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, question)
+    ));
+    const titleWeakQuestionTexts = new Set(weakQuestions.map(question => question.text));
+    const titleWeakQuestions = titlePlayableQuestions.filter(question => titleWeakQuestionTexts.has(question.text));
+    const titleSelectionScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
+    const titleMarkedQuestionKeys = new Set(markedQuestionKeysByScope[titleSelectionScopeKey] ?? []);
+    const titleSelectedQuestionKeys = new Set(selectedQuestionKeysByScope[titleSelectionScopeKey] ?? []);
+    const titleMarkedQuestions = titlePlayableQuestions.filter(question => (
+      titleMarkedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
+    ));
+    const titleSelectedQuestions = titlePlayableQuestions.filter(question => (
+      titleSelectedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
+    ));
+    const titleAutoPlayTargetQuestions = autoPlaySettings.source === 'all'
+      ? titlePlayableQuestions
+      : autoPlaySettings.source === 'weak'
+        ? titleWeakQuestions
+        : autoPlaySettings.source === 'marked'
+          ? titleMarkedQuestions
+          : titleSelectedQuestions;
+    const titleAutoPlayPlayableQuestionCount = titleAutoPlayTargetQuestions.filter(question => {
+      if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
+      const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
+      return !!currentQuestionExamples.get(questionKey);
+    }).length;
+    const titleAutoPlaySourceLabel: Record<AutoPlaySource, string> = {
+      all: 'このレベル全部',
+      weak: '苦手語だけ',
+      marked: 'あとで復習',
+      selected: '自分で選んだ語',
+    };
+    const titleAutoPlaySequenceLabel: Record<AutoPlaySequenceMode, string> = {
+      normal: '通常順',
+      exampleFirst: '例文から',
+      exampleTextExample: '例文→用語→例文',
+    };
+    const openTitleAutoPlayManager = () => {
+      setQuestionListFilter('all');
+      setWordListToolsOpen(true);
+      setGameState(prev => ({ ...prev, screen: 'question-list' }));
+    };
+    const handleTitleAutoPlay = () => {
+      openTitleAutoPlayManager();
+      startAutoPlayForQuestions(titleAutoPlayTargetQuestions);
+    };
 
     return (
       <ScreenContainer>
@@ -8542,6 +8591,40 @@ export default function App() {
                     >
                       <ArrowRight size={26} /> 前回の続きから
                     </GameButton>
+
+                    <div className="rounded-lg border border-cyan-300/35 bg-cyan-950/28 p-3 shadow-[0_0_24px_rgba(34,211,238,0.1)] sm:col-span-2">
+                      <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <p className="flex items-center gap-2 text-sm font-black text-cyan-100">
+                            <Volume2 size={18} /> 復習を自動で聞く
+                          </p>
+                          <p className="mt-1 text-xs font-semibold text-slate-300">
+                            前回の設定をそのまま使います
+                          </p>
+                        </div>
+                        <p className="text-xs font-black text-cyan-200">
+                          {titleAutoPlaySourceLabel[autoPlaySettings.source]}・{titleAutoPlaySequenceLabel[autoPlaySettings.sequenceMode]}・{titleAutoPlayPlayableQuestionCount}語
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <GameButton
+                          onClick={handleTitleAutoPlay}
+                          className="min-h-[56px] border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 text-base text-white hover:from-cyan-500 hover:to-blue-500"
+                          size="md"
+                        >
+                          <Volume2 size={22} /> 連続再生
+                        </GameButton>
+                        <GameButton
+                          onClick={openTitleAutoPlayManager}
+                          variant="outline"
+                          className="min-h-[56px] border-cyan-300/55 bg-slate-900/65 text-base text-cyan-100 hover:border-cyan-200 hover:bg-cyan-950/45"
+                          size="md"
+                        >
+                          <ClipboardList size={21} /> 管理画面
+                        </GameButton>
+                      </div>
+                    </div>
+
                     <GameButton
                       onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
                       variant="outline"
