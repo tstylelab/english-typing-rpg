@@ -3826,6 +3826,8 @@ export default function App() {
   const autoPlayTimeoutRef = useRef<number | null>(null);
   const autoPlayRunIdRef = useRef(0);
   const autoPlayListCriteriaRef = useRef('');
+  const autoPlayPanelRef = useRef<HTMLDivElement>(null);
+  const autoPlayScrollRequestedRef = useRef(false);
   const questionPoolRef = useRef<Record<string, QuestionPoolState>>({});
   const reviewQueueRef = useRef<ReviewQueueEntry[]>([]);
   const activeReviewEntryRef = useRef<ReviewQueueEntry | null>(null);
@@ -4817,6 +4819,17 @@ export default function App() {
 
     return () => window.clearTimeout(timerId);
   }, [gameState.screen, settingsFocusSection]);
+
+  useEffect(() => {
+    if (gameState.screen !== 'question-list' || !wordListToolsOpen || !autoPlayScrollRequestedRef.current) return;
+
+    const timerId = window.setTimeout(() => {
+      autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      autoPlayScrollRequestedRef.current = false;
+    }, 80);
+
+    return () => window.clearTimeout(timerId);
+  }, [gameState.screen, wordListToolsOpen]);
 
   useEffect(() => {
     const nextCriteria = [
@@ -7224,7 +7237,7 @@ export default function App() {
                 <Flame size={16} className="mr-1" /> {'Translation Battle\u5fa9\u7fd2'}
               </GameButton>
             </div>
-            <div className="mb-4 flex-shrink-0 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-4 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
+            <div ref={autoPlayPanelRef} className="mb-4 scroll-mt-4 flex-shrink-0 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-4 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Auto Play</p>
@@ -8469,23 +8482,8 @@ export default function App() {
         : autoPlaySettings.source === 'marked'
           ? titleMarkedQuestions
           : titleSelectedQuestions;
-    const titleAutoPlayPlayableQuestionCount = titleAutoPlayTargetQuestions.filter(question => {
-      if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
-      const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
-      return !!currentQuestionExamples.get(questionKey);
-    }).length;
-    const titleAutoPlaySourceLabel: Record<AutoPlaySource, string> = {
-      all: 'このレベル全部',
-      weak: '苦手語だけ',
-      marked: 'あとで復習',
-      selected: '自分で選んだ語',
-    };
-    const titleAutoPlaySequenceLabel: Record<AutoPlaySequenceMode, string> = {
-      normal: '通常順',
-      exampleFirst: '例文から',
-      exampleTextExample: '例文→用語→例文',
-    };
     const openTitleAutoPlayManager = () => {
+      autoPlayScrollRequestedRef.current = true;
       setQuestionListFilter('all');
       setWordListToolsOpen(true);
       setGameState(prev => ({ ...prev, screen: 'question-list' }));
@@ -8592,39 +8590,6 @@ export default function App() {
                       <ArrowRight size={26} /> 前回の続きから
                     </GameButton>
 
-                    <div className="rounded-lg border border-cyan-300/35 bg-cyan-950/28 p-3 shadow-[0_0_24px_rgba(34,211,238,0.1)] sm:col-span-2">
-                      <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                          <p className="flex items-center gap-2 text-sm font-black text-cyan-100">
-                            <Volume2 size={18} /> 復習を自動で聞く
-                          </p>
-                          <p className="mt-1 text-xs font-semibold text-slate-300">
-                            前回の設定をそのまま使います
-                          </p>
-                        </div>
-                        <p className="text-xs font-black text-cyan-200">
-                          {titleAutoPlaySourceLabel[autoPlaySettings.source]}・{titleAutoPlaySequenceLabel[autoPlaySettings.sequenceMode]}・{titleAutoPlayPlayableQuestionCount}語
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <GameButton
-                          onClick={handleTitleAutoPlay}
-                          className="min-h-[56px] border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 text-base text-white hover:from-cyan-500 hover:to-blue-500"
-                          size="md"
-                        >
-                          <Volume2 size={22} /> 連続再生
-                        </GameButton>
-                        <GameButton
-                          onClick={openTitleAutoPlayManager}
-                          variant="outline"
-                          className="min-h-[56px] border-cyan-300/55 bg-slate-900/65 text-base text-cyan-100 hover:border-cyan-200 hover:bg-cyan-950/45"
-                          size="md"
-                        >
-                          <ClipboardList size={21} /> 管理画面
-                        </GameButton>
-                      </div>
-                    </div>
-
                     <GameButton
                       onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
                       variant="outline"
@@ -8651,6 +8616,26 @@ export default function App() {
                     >
                       <Keyboard size={24} /> はじめてのタイピング練習
                     </GameButton>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <GameButton
+                        onClick={handleTitleAutoPlay}
+                        variant="outline"
+                        className="w-full min-h-[64px] border-cyan-300/55 bg-cyan-950/25 px-2 text-sm text-cyan-100 hover:border-cyan-200 hover:bg-cyan-900/35"
+                        size="md"
+                      >
+                        <Volume2 size={19} /> 連続再生
+                      </GameButton>
+                      <GameButton
+                        onClick={openTitleAutoPlayManager}
+                        variant="outline"
+                        className="w-full min-h-[64px] border-slate-600 bg-slate-900/65 px-2 text-sm text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25"
+                        size="md"
+                        aria-label="連続再生の管理"
+                      >
+                        <ClipboardList size={18} /> 管理
+                      </GameButton>
+                    </div>
 
                     <div className="grid grid-cols-2 gap-3 sm:col-span-2 md:grid-cols-4">
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-emerald-300 hover:bg-emerald-950/25">
