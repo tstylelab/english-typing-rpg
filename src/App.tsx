@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark } from 'lucide-react';
+import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
@@ -167,6 +167,7 @@ type AutoPlaySettings = {
 };
 
 type AutoPlayNowPlayingPart = 'text' | 'translation' | 'example';
+type AutoPlayWakeLockState = 'inactive' | 'requesting' | 'active' | 'unavailable' | 'unsupported';
 
 type AutoPlayNowPlaying = {
   questionText: string;
@@ -3768,6 +3769,7 @@ export default function App() {
   const [settingsFocusSection, setSettingsFocusSection] = useState<'progress-transfer' | 'player-profiles' | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [autoPlayStatusText, setAutoPlayStatusText] = useState('待機中');
+  const [autoPlayWakeLockState, setAutoPlayWakeLockState] = useState<AutoPlayWakeLockState>('inactive');
   const sessionWeakQuestionsRef = useRef<Question[] | null>(null);
   const [autoPlayNowPlaying, setAutoPlayNowPlaying] = useState<AutoPlayNowPlaying | null>(null);
   const [bookLevel, setBookLevel] = useState<Level>(1);
@@ -3826,6 +3828,9 @@ export default function App() {
   const speechPreviewTimeoutRef = useRef<number | null>(null);
   const autoPlayTimeoutRef = useRef<number | null>(null);
   const autoPlayRunIdRef = useRef(0);
+  const autoPlayWakeLockRef = useRef<WakeLockSentinel | null>(null);
+  const autoPlayWakeLockWantedRef = useRef(false);
+  const autoPlayWakeLockRequestIdRef = useRef(0);
   const autoPlayListCriteriaRef = useRef('');
   const autoPlayPanelRef = useRef<HTMLDivElement>(null);
   const autoPlayScrollRequestedRef = useRef(false);
@@ -4670,6 +4675,57 @@ export default function App() {
     }
   }, []);
 
+  const releaseAutoPlayWakeLock = useCallback(() => {
+    autoPlayWakeLockWantedRef.current = false;
+    autoPlayWakeLockRequestIdRef.current += 1;
+    const wakeLock = autoPlayWakeLockRef.current;
+    autoPlayWakeLockRef.current = null;
+    setAutoPlayWakeLockState('inactive');
+    if (wakeLock && !wakeLock.released) {
+      void wakeLock.release().catch(() => {
+        // The browser may have released it already (for example when the tab became hidden).
+      });
+    }
+  }, []);
+
+  const requestAutoPlayWakeLock = useCallback(async () => {
+    if (!autoPlayWakeLockWantedRef.current) return;
+    if (typeof navigator === 'undefined' || !('wakeLock' in navigator)) {
+      setAutoPlayWakeLockState('unsupported');
+      return;
+    }
+    if (typeof document !== 'undefined' && document.visibilityState !== 'visible') return;
+    if (autoPlayWakeLockRef.current && !autoPlayWakeLockRef.current.released) {
+      setAutoPlayWakeLockState('active');
+      return;
+    }
+
+    const requestId = autoPlayWakeLockRequestIdRef.current + 1;
+    autoPlayWakeLockRequestIdRef.current = requestId;
+    setAutoPlayWakeLockState('requesting');
+    try {
+      const wakeLock = await navigator.wakeLock.request('screen');
+      if (!autoPlayWakeLockWantedRef.current || autoPlayWakeLockRequestIdRef.current !== requestId) {
+        void wakeLock.release().catch(() => {
+          // The request finished after playback stopped, so no further action is needed.
+        });
+        return;
+      }
+
+      autoPlayWakeLockRef.current = wakeLock;
+      setAutoPlayWakeLockState('active');
+      wakeLock.addEventListener('release', () => {
+        if (autoPlayWakeLockRef.current !== wakeLock) return;
+        autoPlayWakeLockRef.current = null;
+        setAutoPlayWakeLockState(autoPlayWakeLockWantedRef.current ? 'unavailable' : 'inactive');
+      }, { once: true });
+    } catch {
+      if (autoPlayWakeLockWantedRef.current && autoPlayWakeLockRequestIdRef.current === requestId) {
+        setAutoPlayWakeLockState('unavailable');
+      }
+    }
+  }, []);
+
   const stopAutoPlay = useCallback((statusText: string = '停止しました') => {
     autoPlayRunIdRef.current += 1;
     clearAutoPlayTimeout();
@@ -4679,7 +4735,8 @@ export default function App() {
     setIsAutoPlaying(false);
     setAutoPlayNowPlaying(null);
     setAutoPlayStatusText(statusText);
-  }, [clearAutoPlayTimeout]);
+    releaseAutoPlayWakeLock();
+  }, [clearAutoPlayTimeout, releaseAutoPlayWakeLock]);
 
   const clearPendingBattleEndTimeout = useCallback(() => {
     if (pendingBattleEndTimeoutRef.current !== null) {
@@ -4779,6 +4836,28 @@ export default function App() {
       synth.onvoiceschanged = previousHandler ?? null;
     };
   }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && autoPlayWakeLockWantedRef.current) {
+        void requestAutoPlayWakeLock();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      autoPlayWakeLockWantedRef.current = false;
+      autoPlayWakeLockRequestIdRef.current += 1;
+      const wakeLock = autoPlayWakeLockRef.current;
+      autoPlayWakeLockRef.current = null;
+      if (wakeLock && !wakeLock.released) {
+        void wakeLock.release().catch(() => {
+          // The page is closing and the browser may have released it already.
+        });
+      }
+    };
+  }, [requestAutoPlayWakeLock]);
 
   useEffect(() => {
     return () => {
@@ -6604,6 +6683,8 @@ export default function App() {
     }
     setAutoPlayNowPlaying(null);
     setIsAutoPlaying(true);
+    autoPlayWakeLockWantedRef.current = true;
+    void requestAutoPlayWakeLock();
 
     const playAt = (index: number) => {
       if (autoPlayRunIdRef.current !== runId) return;
@@ -6617,6 +6698,7 @@ export default function App() {
         setIsAutoPlaying(false);
         setAutoPlayNowPlaying(null);
         setAutoPlayStatusText('再生が完了しました');
+        releaseAutoPlayWakeLock();
         return;
       }
 
@@ -7475,6 +7557,30 @@ export default function App() {
                     </div>
                     <div className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-100">
                       {selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}語
+                    </div>
+                  </div>
+                  <div
+                    aria-live="polite"
+                    className={`mt-4 flex items-start gap-3 rounded-lg border px-3 py-3 ${autoPlayWakeLockState === 'active' ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-50' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'border-amber-400/35 bg-amber-500/10 text-amber-50' : 'border-slate-700 bg-slate-950/55 text-slate-200'}`}
+                  >
+                    <Sun size={18} className={`mt-0.5 flex-none ${autoPlayWakeLockState === 'active' ? 'text-emerald-300' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'text-amber-300' : 'text-cyan-300'}`} />
+                    <div>
+                      <p className="text-sm font-black">
+                        {autoPlayWakeLockState === 'active'
+                          ? '画面をつけたまま再生中'
+                          : autoPlayWakeLockState === 'requesting'
+                            ? '画面の自動ロック防止を準備中'
+                            : autoPlayWakeLockState === 'unsupported'
+                              ? 'この端末は自動ロック防止に対応していません'
+                              : autoPlayWakeLockState === 'unavailable'
+                                ? '画面の自動ロック防止を利用できませんでした'
+                                : '再生中は画面の自動ロックを防ぎます'}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">
+                        {autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported'
+                          ? '音声の連続再生はそのまま続きます。省電力モードや端末設定をご確認ください。'
+                          : '連続再生を停止すると通常の画面設定に戻ります。'}
+                      </p>
                     </div>
                   </div>
                   <div className="mt-4 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">

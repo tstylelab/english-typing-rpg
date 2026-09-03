@@ -92,7 +92,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl border border-cyan-500/25 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
                   <p className="font-black text-cyan-100">連続再生</p>
-                  <p className="mt-1">保存されている設定ですぐに再生を始めます。再生中の単語・和訳・例文を確認でき、途中で停止することもできます。</p>
+                  <p className="mt-1">保存されている設定ですぐに再生を始めます。再生中の単語・和訳・例文を確認でき、途中で停止することもできます。対応端末では、連続再生中だけ画面の自動ロックを防ぎます。</p>
                 </div>
                 <div className="rounded-xl border border-slate-600 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
                   <p className="font-black text-white">再生設定</p>
