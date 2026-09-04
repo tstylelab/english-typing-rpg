@@ -3629,6 +3629,7 @@ type QuestionListRowProps = {
   question: Question;
   idx: number;
   displayIndex: number;
+  isMissRanking: boolean;
   questionKey: string;
   isWeakQuestion: boolean;
   stats?: WeakQuestionStat;
@@ -3648,6 +3649,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
   question,
   idx,
   displayIndex,
+  isMissRanking,
   questionKey,
   isWeakQuestion,
   stats,
@@ -3671,7 +3673,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
     <div key={`${questionKey}-${idx}`} className={`p-3 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div className="flex items-start gap-4 min-w-0">
-          <div className="mt-1 min-w-[2.75rem] rounded-full border border-slate-600 bg-slate-900/80 px-2 py-1 text-center font-mono text-[11px] font-bold tracking-[0.18em] text-slate-400">
+          <div className={`mt-1 min-w-[2.75rem] rounded-full border px-2 py-1 text-center font-mono text-[11px] font-bold tracking-[0.18em] ${isMissRanking ? 'border-amber-400/50 bg-amber-500/10 text-amber-200' : 'border-slate-600 bg-slate-900/80 text-slate-400'}`}>
             {String(displayIndex).padStart(3, '0')}
           </div>
           <label className="mt-1 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
@@ -3694,8 +3696,9 @@ const QuestionListRow = React.memo(function QuestionListRow({
               {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
               {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
               {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
-              {isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
-              {!isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
+              {isMissRanking && stats && <span className="rounded-full border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-100">つまずき {stats.missCount}回</span>}
+              {!isMissRanking && isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
+              {!isMissRanking && !isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-3">
               <span className={`rounded-2xl border px-4 py-2 text-xl font-black leading-none tracking-[0.08em] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] md:text-2xl ${isManualOverrideActive ? 'border-slate-700 bg-slate-900/60 text-slate-300' : manualStatus.learningLevel === 1 ? 'border-sky-400/30 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-100' : 'border-violet-400/30 bg-violet-500/10 text-violet-100'}`}>
@@ -3858,7 +3861,7 @@ export default function App() {
   const [flash, setFlash] = useState(false);
   const [monsterShake, setMonsterShake] = useState(false); 
   const [scoreViewDiff, setScoreViewDiff] = useState<Difficulty>('Eiken5');
-  const [questionListFilter, setQuestionListFilter] = useState<'all' | 'weak' | 'marked'>('all');
+  const [questionListFilter, setQuestionListFilter] = useState<'all' | 'weak' | 'marked' | 'miss-ranking'>('all');
   const [weakListSort, setWeakListSort] = useState<'recent' | 'frequent'>('recent');
   const [questionListRenderLimit, setQuestionListRenderLimit] = useState(DEFAULT_QUESTION_LIST_RENDER_LIMIT);
   const [wordListToolsOpen, setWordListToolsOpen] = useState(false);
@@ -7179,11 +7182,17 @@ export default function App() {
       }
       return (bStats.lastMissedAt - aStats.lastMissedAt) || (bStats.missCount - aStats.missCount) || a.text.localeCompare(b.text);
     });
+    const missRankingQuestions = [...playableQuestions]
+      .filter(question => (weakQuestionStats[question.text]?.missCount ?? 0) > 0)
+      .sort((a, b) => ((weakQuestionStats[b.text]?.missCount ?? 0) - (weakQuestionStats[a.text]?.missCount ?? 0)) || ((weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0)) || a.text.localeCompare(b.text))
+      .slice(0, 30);
     const visibleQuestions = questionListFilter === 'weak'
       ? sortedWeakQuestions
       : questionListFilter === 'marked'
         ? markedQuestionsInView
-        : questions;
+        : questionListFilter === 'miss-ranking'
+          ? missRankingQuestions
+          : questions;
     const visiblePlayableQuestions = visibleQuestions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const recentWeakSamples = [...weakQuestionsInView]
       .sort((a, b) => (weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0))
@@ -7195,6 +7204,7 @@ export default function App() {
     const topMissedQuestions = [...weakQuestionsInView]
       .sort((a, b) => ((weakQuestionStats[b.text]?.missCount ?? 0) - (weakQuestionStats[a.text]?.missCount ?? 0)) || ((weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0)))
       .slice(0, 10);
+    const missRankingReviewQuestions = missRankingQuestions.slice(0, 10);
     const reviewTargetQuestions = questionListFilter === 'weak'
       ? visibleQuestions
       : questionListFilter === 'marked'
@@ -7241,10 +7251,14 @@ export default function App() {
       ? 'あとで復習に追加した用語はまだありません'
       : questionListFilter === 'weak'
         ? 'この一覧に苦手語はまだありません'
-        : '表示できる用語がありません';
+        : questionListFilter === 'miss-ranking'
+          ? 'まだミスの記録がありません'
+          : '表示できる用語がありません';
     const emptyListDescription = questionListFilter === 'marked'
       ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
-      : '通常の一覧に戻して、出題できる問題を確認できます。';
+      : questionListFilter === 'miss-ranking'
+        ? 'この教材・レベルでつまずいた単語が、ここへ回数順に表示されます。'
+        : '通常の一覧に戻して、出題できる問題を確認できます。';
 
     const startReviewFromList = (mode: Mode, inputMode: InputMode) => {
       if (reviewTargetQuestions.length === 0) return;
@@ -7259,6 +7273,11 @@ export default function App() {
     const startTopMissReview = (mode: Mode, inputMode: InputMode) => {
       if (topMissedQuestions.length === 0) return;
       startGame(gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, topMissedQuestions);
+    };
+
+    const startMissRankingReview = () => {
+      if (missRankingReviewQuestions.length === 0) return;
+      startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'text-only', missRankingReviewQuestions);
     };
 
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
@@ -7324,6 +7343,7 @@ export default function App() {
           key={questionKey}
           idx={idx}
           displayIndex={idx + 1}
+          isMissRanking={questionListFilter === 'miss-ranking'}
           question={q}
           questionKey={questionKey}
           isWeakQuestion={weakQuestionTexts.has(q.text)}
@@ -7420,6 +7440,7 @@ export default function App() {
                 <div className="flex bg-slate-800 p-1 rounded-lg self-start">
                 <button onClick={() => setQuestionListFilter('all')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'all' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>すべて</button>
                 <button onClick={() => setQuestionListFilter('weak')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'weak' ? 'bg-orange-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>苦手だけ</button>
+                <button onClick={() => setQuestionListFilter('miss-ranking')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'miss-ranking' ? 'bg-amber-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>ミスランキング</button>
                 <button onClick={() => setQuestionListFilter('marked')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
                 </div>
                 {questionListFilter === 'weak' && (
@@ -7877,6 +7898,20 @@ export default function App() {
               </div>
             </div>
             </>
+            )}
+            {questionListFilter === 'miss-ranking' && (
+              <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/35 bg-amber-950/20 p-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-amber-200"><Trophy size={18} /><p className="text-sm font-black">累計ミスランキング・上位30語</p></div>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">現在の教材・レベルで、一度以上つまずいた単語を回数順に表示します。克服済みの単語も含み、除外中の単語は表示しません。</p>
+                    <p className="mt-1 text-[11px] text-slate-500">「つまずき1回」は、その単語で一度以上ミスしたバトルが1回あったという記録です。</p>
+                  </div>
+                  <GameButton onClick={startMissRankingReview} size="sm" className="flex-shrink-0 bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={missRankingReviewQuestions.length === 0}>
+                    <Flame size={16} /> 上位10語を復習
+                  </GameButton>
+                </div>
+              </div>
             )}
             {questionListFilter === 'weak' && (
               <div className="mb-4 flex-shrink-0">
