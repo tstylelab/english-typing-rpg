@@ -5,6 +5,8 @@ const repoRoot = process.cwd();
 const sourceCsvPath = path.join(repoRoot, 'data-source', 'eiken', 'gradepre1', 'gradepre1_master.csv');
 const basicMeaningsPath = path.join(repoRoot, 'data-source', 'eiken', 'gradepre1', 'basic-meanings.json');
 const outputJsonPath = path.join(repoRoot, 'src', 'data', 'questionSets', 'eiken', 'gradepre1.json');
+const part1OutputJsonPath = path.join(repoRoot, 'src', 'data', 'questionSets', 'eiken', 'gradepre1-part1.json');
+const part2OutputJsonPath = path.join(repoRoot, 'src', 'data', 'questionSets', 'eiken', 'gradepre1-part2.json');
 
 const parseCsv = (input) => {
   const rows = [];
@@ -74,7 +76,7 @@ if (!headerRow) {
 }
 
 const headerIndex = Object.fromEntries(headerRow.map((name, index) => [name, index]));
-const requiredColumns = ['text', 'level', 'translation', 'status'];
+const requiredColumns = ['text', 'level', 'part', 'translation', 'status'];
 
 for (const column of requiredColumns) {
   if (!(column in headerIndex)) {
@@ -83,6 +85,10 @@ for (const column of requiredColumns) {
 }
 
 const levels = { 1: [], 2: [], 3: [] };
+const partLevels = {
+  1: { 1: [], 2: [], 3: [] },
+  2: { 1: [], 2: [], 3: [] },
+};
 const stats = {
   skippedBlankText: 0,
   skippedBlankTranslation: 0,
@@ -93,6 +99,7 @@ const stats = {
 for (const row of dataRows) {
   const text = (row[headerIndex.text] ?? '').trim();
   const level = (row[headerIndex.level] ?? '').trim();
+  const part = (row[headerIndex.part] ?? '').trim();
   const translation = (row[headerIndex.translation] ?? '').trim();
   const exampleJa = (row[headerIndex.exampleJa] ?? '').trim();
   const exampleEn = (row[headerIndex.exampleEn] ?? '').trim();
@@ -119,11 +126,16 @@ for (const row of dataRows) {
     continue;
   }
 
+  if (!['1', '2'].includes(part)) {
+    throw new Error(`Ready row has invalid part for ${text}: ${part || '(blank)'}`);
+  }
+
   const nextQuestion = { text, translation };
   if (basicMeaning) nextQuestion.basicMeaning = basicMeaning;
   if (exampleEn) nextQuestion.exampleEn = exampleEn;
   if (exampleJa) nextQuestion.exampleJa = exampleJa;
   levels[level].push(nextQuestion);
+  partLevels[part][level].push(nextQuestion);
 }
 
 const output = {
@@ -136,12 +148,43 @@ const output = {
 
 fs.writeFileSync(outputJsonPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
 
+const part1Output = {
+  category: 'eiken',
+  series: 'gradepre1-part1',
+  difficultyKey: 'EikenPre1Part1',
+  displayName: '英検準1級①',
+  levels: partLevels[1],
+};
+const part2Output = {
+  category: 'eiken',
+  series: 'gradepre1-part2',
+  difficultyKey: 'EikenPre1Part2',
+  displayName: '英検準1級②',
+  levels: partLevels[2],
+};
+
+fs.writeFileSync(part1OutputJsonPath, `${JSON.stringify(part1Output, null, 2)}\n`, 'utf8');
+fs.writeFileSync(part2OutputJsonPath, `${JSON.stringify(part2Output, null, 2)}\n`, 'utf8');
+
 console.log(JSON.stringify({
   outputJsonPath,
+  splitOutputJsonPaths: [part1OutputJsonPath, part2OutputJsonPath],
   counts: {
     1: levels[1].length,
     2: levels[2].length,
     3: levels[3].length,
+  },
+  splitCounts: {
+    1: {
+      1: partLevels[1][1].length,
+      2: partLevels[1][2].length,
+      3: partLevels[1][3].length,
+    },
+    2: {
+      1: partLevels[2][1].length,
+      2: partLevels[2][2].length,
+      3: partLevels[2][3].length,
+    },
   },
   skipped: stats,
 }, null, 2));

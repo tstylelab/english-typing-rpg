@@ -60,6 +60,12 @@ const rows = parseCsv(fs.readFileSync(masterCsvPath, 'utf8'));
 const [headerRow, ...dataRows] = rows;
 const headerIndex = Object.fromEntries(headerRow.map((name, index) => [name, index]));
 
+for (const column of ['text', 'level', 'part', 'translation', 'status']) {
+  if (!(column in headerIndex)) {
+    throw new Error(`Master CSV is missing required column: ${column}`);
+  }
+}
+
 const getValue = (row, column) => String(row[headerIndex[column]] ?? '').trim();
 const readyRows = dataRows.filter((row) => getValue(row, 'status') === 'ready');
 const problems = [];
@@ -73,6 +79,7 @@ for (const row of readyRows) {
   const sourceText = getValue(row, 'sourceText');
   const text = getValue(row, 'text');
   const level = getValue(row, 'level');
+  const part = getValue(row, 'part');
   const translation = getValue(row, 'translation');
   const exampleEn = getValue(row, 'exampleEn');
   const exampleJa = getValue(row, 'exampleJa');
@@ -82,6 +89,7 @@ for (const row of readyRows) {
 
   if (!text) problems.push(`ready row missing text: ${sourceText || '(blank sourceText)'}`);
   if (!['1', '2', '3'].includes(level)) problems.push(`ready row has invalid level for ${text || sourceText}`);
+  if (!['1', '2'].includes(part)) problems.push(`ready row has invalid part for ${text || sourceText}`);
   if (!translation) problems.push(`ready row missing translation: ${text || sourceText}`);
   if (!isLevel3Sentence && !exampleEn) problems.push(`ready row missing exampleEn: ${text || sourceText}`);
   if (text && !(isLevel3Sentence ? isSentenceText(text) : isWordOrPhraseText(text))) {
@@ -111,7 +119,19 @@ const summary = {
   draftRows: dataRows.filter((row) => getValue(row, 'status') === 'draft').length,
   needsReviewRows: dataRows.filter((row) => getValue(row, 'status') === 'needs_review').length,
   readyWithExampleJa: readyRows.filter((row) => getValue(row, 'exampleJa')).length,
+  splitCounts: {
+    1: Object.fromEntries(['1', '2', '3'].map((level) => [level, readyRows.filter((row) => getValue(row, 'part') === '1' && getValue(row, 'level') === level).length])),
+    2: Object.fromEntries(['1', '2', '3'].map((level) => [level, readyRows.filter((row) => getValue(row, 'part') === '2' && getValue(row, 'level') === level).length])),
+  },
 };
+
+for (const level of ['1', '2', '3']) {
+  const part1Count = summary.splitCounts[1][level];
+  const part2Count = summary.splitCounts[2][level];
+  if (Math.abs(part1Count - part2Count) > 1) {
+    problems.push(`level ${level} is not split evenly: ${part1Count} / ${part2Count}`);
+  }
+}
 
 console.log(JSON.stringify({ summary, problems, warnings }, null, 2));
 

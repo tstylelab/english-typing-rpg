@@ -2448,7 +2448,7 @@ export const getQuestionSynonyms = (
     }
   }
 
-  if (difficulty === 'EikenPre1' && level === 1) {
+  if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && level === 1) {
     result = limitSynonyms(
       PRE1_LEVEL1_SYNONYMS[question.text]
       ?? PRE1_CORE_HINTS[question.text]
@@ -2460,7 +2460,7 @@ export const getQuestionSynonyms = (
     return result;
   }
 
-  if (difficulty === 'EikenPre1' && level === 2) {
+  if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && level === 2) {
     result = limitSynonyms(
       PRE1_LEVEL2_HINTS[question.text]
       ?? derivePre1Hint(question.text, level)

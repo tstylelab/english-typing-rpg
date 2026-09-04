@@ -7,6 +7,62 @@ const existingJsonPath = path.join(repoRoot, 'src', 'data', 'questionSets', 'eik
 const examplesTsPath = path.join(repoRoot, 'src', 'data', 'questionExamples.ts');
 const outputCsvPath = path.join(repoRoot, 'data-source', 'eiken', 'gradepre1', 'gradepre1_master.csv');
 
+const parseCsv = (input) => {
+  const rows = [];
+  let row = [];
+  let cell = '';
+  let inQuotes = false;
+
+  for (let index = 0; index < input.length; index += 1) {
+    const char = input[index];
+    const next = input[index + 1];
+    if (inQuotes) {
+      if (char === '"' && next === '"') {
+        cell += '"';
+        index += 1;
+      } else if (char === '"') {
+        inQuotes = false;
+      } else {
+        cell += char;
+      }
+    } else if (char === '"') {
+      inQuotes = true;
+    } else if (char === ',') {
+      row.push(cell);
+      cell = '';
+    } else if (char === '\n') {
+      row.push(cell.replace(/\r$/, ''));
+      rows.push(row);
+      row = [];
+      cell = '';
+    } else {
+      cell += char;
+    }
+  }
+
+  if (cell.length > 0 || row.length > 0) {
+    row.push(cell.replace(/\r$/, ''));
+    rows.push(row);
+  }
+  return rows.filter((candidate) => candidate.some((value) => value.trim() !== ''));
+};
+
+const readExistingPartAssignments = () => {
+  if (!fs.existsSync(outputCsvPath)) return new Map();
+  const [header = [], ...rows] = parseCsv(fs.readFileSync(outputCsvPath, 'utf8'));
+  const textIndex = header.indexOf('text');
+  const levelIndex = header.indexOf('level');
+  const partIndex = header.indexOf('part');
+  if (textIndex === -1 || levelIndex === -1 || partIndex === -1) return new Map();
+
+  return new Map(rows.flatMap((cells) => {
+    const text = normalizeText(cells[textIndex]);
+    const level = normalizeText(cells[levelIndex]);
+    const part = normalizeText(cells[partIndex]);
+    return text && ['1', '2'].includes(part) ? [[`${level}:${text}`, part]] : [];
+  }));
+};
+
 const csvEscape = (value) => {
   const text = String(value ?? '');
   if (/[",\r\n]/.test(text)) {
@@ -68,6 +124,7 @@ const detectIssues = (value) => {
 const isSafeDraftText = (value) => /^[A-Za-z][A-Za-z' -]*[A-Za-z]$/.test(value);
 
 const existingData = JSON.parse(fs.readFileSync(existingJsonPath, 'utf8'));
+const existingPartAssignments = readExistingPartAssignments();
 const examplesSource = fs.readFileSync(examplesTsPath, 'utf8');
 const level1Examples = extractObjectLiteral(examplesSource, 'PRE1_LEVEL1_EXAMPLES');
 const level2Examples = extractObjectLiteral(examplesSource, 'PRE1_LEVEL2_EXAMPLES');
@@ -75,13 +132,15 @@ const existingEntries = new Map();
 const existingComparable = new Map();
 
 for (const [level, questions] of Object.entries(existingData.levels ?? {})) {
-  for (const question of questions) {
+  const part1Count = Math.floor(questions.length / 2);
+  for (const [questionIndex, question] of questions.entries()) {
     const text = normalizeText(question.text);
     if (!text) continue;
     const record = {
       sourceText: '',
       text,
       level,
+      part: existingPartAssignments.get(`${level}:${text}`) ?? (questionIndex < part1Count ? '1' : '2'),
       translation: normalizeText(question.translation),
       exampleEn: normalizeText(
         level === '1'
@@ -143,6 +202,7 @@ for (const sourceText of rawTexts) {
     sourceText,
     text: suggestedText,
     level: inferredLevel,
+    part: matchedExisting?.part ?? '',
     translation: matchedExisting?.translation ?? '',
     exampleJa: matchedExisting?.exampleJa ?? '',
     exampleEn: matchedExisting?.exampleEn ?? '',
@@ -162,6 +222,7 @@ for (const existing of existingEntries.values()) {
     sourceText: '',
     text: existing.text,
     level: existing.level,
+    part: existing.part,
     translation: existing.translation,
     exampleJa: existing.exampleJa,
     exampleEn: existing.exampleEn,
@@ -172,11 +233,12 @@ for (const existing of existingEntries.values()) {
 }
 
 const csvLines = [
-  ['sourceText', 'text', 'level', 'translation', 'exampleJa', 'exampleEn', 'status', 'issues', 'notes'].join(','),
+  ['sourceText', 'text', 'level', 'part', 'translation', 'exampleJa', 'exampleEn', 'status', 'issues', 'notes'].join(','),
   ...rows.map((row) => [
     row.sourceText,
     row.text,
     row.level,
+    row.part,
     row.translation,
     row.exampleJa,
     row.exampleEn,

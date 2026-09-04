@@ -1,4 +1,4 @@
-type DifficultyKey = 'Eiken5' | 'Eiken4' | 'EikenPre1' | 'Conversation';
+type DifficultyKey = 'Eiken5' | 'Eiken4' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
 type LevelKey = 1 | 2 | 3;
 type QuestionLike = { text: string; exampleEn?: string };
 
@@ -1269,7 +1269,7 @@ export const getQuestionExample = (
     return null;
   }
 
-  if (difficulty !== 'EikenPre1') return null;
+  if (difficulty !== 'EikenPre1Part1' && difficulty !== 'EikenPre1Part2') return null;
 
   if (level === 1) {
     return PRE1_LEVEL1_EXAMPLES[question.text] ?? getPre1Level1FallbackExample(question.text);

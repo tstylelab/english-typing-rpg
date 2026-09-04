@@ -1,0 +1,4775 @@
+{
+  "category": "eiken",
+  "series": "gradepre1-part2",
+  "difficultyKey": "EikenPre1Part2",
+  "displayName": "英検準1級②",
+  "levels": {
+    "1": [
+      {
+        "text": "overrate",
+        "translation": "過大評価する",
+        "exampleEn": "You should not overrate your abilities after just one success.",
+        "exampleJa": "一度の成功だけで自分の能力を過大評価してはいけない。"
+      },
+      {
+        "text": "sympathize",
+        "translation": "同情する / 共感する",
+        "exampleEn": "Many people sympathized with the victims.",
+        "exampleJa": "多くの人が被害者の立場に共感した。"
+      },
+      {
+        "text": "glide",
+        "translation": "滑るように進む",
+        "exampleEn": "The swan glided quietly across the lake.",
+        "exampleJa": "白鳥が湖の上を静かに滑るように進んだ。"
+      },
+      {
+        "text": "kidnap",
+        "translation": "誘拐する",
+        "exampleEn": "The police are searching for a man suspected of kidnapping a child.",
+        "exampleJa": "警察は子どもを誘拐した疑いのある男を捜している。"
+      },
+      {
+        "text": "simmer",
+        "translation": "とろ火で煮る",
+        "exampleEn": "The soup needs to simmer for a while over low heat.",
+        "exampleJa": "そのスープは弱火でしばらく煮る必要がある。"
+      },
+      {
+        "text": "thaw",
+        "translation": "解ける / 解凍する",
+        "exampleEn": "The frozen ground begins to thaw little by little in spring.",
+        "exampleJa": "春になると凍った地面が少しずつ解け始める。"
+      },
+      {
+        "text": "unfold",
+        "translation": "展開する / 広げる",
+        "exampleEn": "Unexpected events unfolded one after another at the meeting.",
+        "exampleJa": "その会議では予想外の出来事が次々に展開した。"
+      },
+      {
+        "text": "detain",
+        "translation": "拘束する / 引き留める",
+        "exampleEn": "The police detained the man for questioning.",
+        "exampleJa": "警察は事情を聞くためにその男を一時拘束した。"
+      },
+      {
+        "text": "puncture",
+        "translation": "穴をあける",
+        "exampleEn": "A sharp piece of metal punctured the tire.",
+        "exampleJa": "とがった金属片がタイヤに穴をあけた。"
+      },
+      {
+        "text": "strangle",
+        "translation": "締めつける",
+        "basicMeaning": "首を絞める",
+        "exampleEn": "High costs can strangle small businesses."
+      },
+      {
+        "text": "hygiene",
+        "translation": "衛生",
+        "exampleEn": "Hygiene control is especially important in workplaces that handle food.",
+        "exampleJa": "食品を扱う職場では衛生管理が特に重要だ。"
+      },
+      {
+        "text": "oppression",
+        "translation": "抑圧",
+        "exampleEn": "The story depicts liberation from years of oppression.",
+        "exampleJa": "その物語は長年の抑圧からの解放を描いている。"
+      },
+      {
+        "text": "collaboration",
+        "translation": "協力 / 共同作業",
+        "exampleEn": "A new research center was built through collaboration between the university and the company.",
+        "exampleJa": "大学と企業の協力で新しい研究施設が作られた。"
+      },
+      {
+        "text": "harbor",
+        "translation": "港",
+        "exampleEn": "The fishing boats returned to the harbor by evening.",
+        "exampleJa": "漁船が夕方までに港へ戻ってきた。"
+      },
+      {
+        "text": "lawn",
+        "translation": "芝生",
+        "exampleEn": "The children were playing on the wide lawn.",
+        "exampleJa": "子どもたちは広い芝生の上で遊んでいた。"
+      },
+      {
+        "text": "pedestrian",
+        "translation": "歩行者",
+        "exampleEn": "New traffic lights were installed to protect pedestrians.",
+        "exampleJa": "歩行者の安全を守るために新しい信号が設置された。"
+      },
+      {
+        "text": "racism",
+        "translation": "人種差別",
+        "exampleEn": "The class learned about racism in history.",
+        "exampleJa": "その授業では歴史の中の人種差別について学んだ。"
+      },
+      {
+        "text": "summit",
+        "translation": "首脳会談 / 山頂",
+        "exampleEn": "World leaders held a summit on climate issues.",
+        "exampleJa": "各国の首脳は気候問題について首脳会談を開いた。"
+      },
+      {
+        "text": "bug",
+        "translation": "虫 / 不具合",
+        "exampleEn": "A bug in the program caused the app to crash."
+      },
+      {
+        "text": "maternity",
+        "translation": "母性 / 出産",
+        "exampleEn": "The hospital has a ward specializing in maternity care.",
+        "exampleJa": "その病院には出産を支える専門の病棟がある。"
+      },
+      {
+        "text": "certainty",
+        "translation": "確実性 / 確信",
+        "exampleEn": "It is difficult to predict the future with certainty.",
+        "exampleJa": "将来のことを確実に予測するのは難しい。"
+      },
+      {
+        "text": "imbalance",
+        "translation": "不均衡 / アンバランス",
+        "exampleEn": "An imbalance in diet can lead to health problems.",
+        "exampleJa": "食生活の不均衡が健康問題につながることがある。"
+      },
+      {
+        "text": "incidence",
+        "translation": "発生率 / 発生",
+        "exampleEn": "The incidence of the disease has decreased in recent years.",
+        "exampleJa": "その病気の発生率はここ数年で下がっている。"
+      },
+      {
+        "text": "pit",
+        "translation": "穴 / くぼみ",
+        "exampleEn": "A large pit had formed in the road and needed repair.",
+        "exampleJa": "道路に大きな穴ができていたので修理が必要だった。"
+      },
+      {
+        "text": "texture",
+        "translation": "手触り / 質感",
+        "exampleEn": "The fabric is popular for its soft texture.",
+        "exampleJa": "その布はやわらかい質感で人気がある。"
+      },
+      {
+        "text": "thumb",
+        "translation": "親指",
+        "exampleEn": "He hurt his thumb slightly when he fell.",
+        "exampleJa": "彼は転んで親指を少し痛めた。"
+      },
+      {
+        "text": "undergraduate",
+        "translation": "学部生",
+        "exampleEn": "Many undergraduates take part in the experiments in that lab.",
+        "exampleJa": "その研究室では多くの学部生が実験に参加している。"
+      },
+      {
+        "text": "wisdom",
+        "translation": "知恵",
+        "exampleEn": "There is much to learn from the wisdom of older people.",
+        "exampleJa": "年長者の知恵から学べることは多い。"
+      },
+      {
+        "text": "bride",
+        "translation": "花嫁",
+        "exampleEn": "The bride thanked her family before the ceremony.",
+        "exampleJa": "花嫁は式の前に家族へ感謝の言葉を伝えた。"
+      },
+      {
+        "text": "dictator",
+        "translation": "独裁者",
+        "exampleEn": "The country was under the control of a dictator for many years.",
+        "exampleJa": "その国は長い間独裁者の支配下にあった。"
+      },
+      {
+        "text": "signature",
+        "translation": "署名",
+        "exampleEn": "The contract requires the signatures of both parties.",
+        "exampleJa": "契約書には両者の署名が必要だ。"
+      },
+      {
+        "text": "testament",
+        "translation": "証拠 / 遺言",
+        "exampleEn": "The result is a testament to years of effort."
+      },
+      {
+        "text": "attachment",
+        "translation": "愛着 / 添付ファイル",
+        "exampleEn": "I have a strong attachment to that photograph.",
+        "exampleJa": "その写真には強い愛着がある。"
+      },
+      {
+        "text": "bachelor",
+        "translation": "独身男性 / 学士",
+        "exampleEn": "He lives in the city as a young bachelor.",
+        "exampleJa": "彼はまだ若い独身男性として都会で暮らしている。"
+      },
+      {
+        "text": "blister",
+        "translation": "まめ / 水ぶくれ",
+        "exampleEn": "A long hike left a large blister on my foot.",
+        "exampleJa": "長い登山で足に大きなまめができた。"
+      },
+      {
+        "text": "blockade",
+        "translation": "封鎖",
+        "exampleEn": "The blockade of the road greatly delayed the transport of supplies.",
+        "exampleJa": "道路の封鎖で物資の輸送が大きく遅れた。"
+      },
+      {
+        "text": "condo",
+        "translation": "分譲マンション",
+        "exampleEn": "They bought a new condo near the station.",
+        "exampleJa": "彼らは駅の近くに新しい分譲マンションを買った。"
+      },
+      {
+        "text": "invoice",
+        "translation": "請求書",
+        "exampleEn": "The invoice must be submitted to the accounting department by the end of the month.",
+        "exampleJa": "月末までに請求書を経理部へ提出しなければならない。"
+      },
+      {
+        "text": "leisure",
+        "translation": "余暇 / 暇",
+        "exampleEn": "Reading is one of my favorite leisure activities."
+      },
+      {
+        "text": "meditation",
+        "translation": "瞑想",
+        "exampleEn": "He spends ten minutes in meditation every morning.",
+        "exampleJa": "彼は毎朝十分ほど静かに瞑想している。"
+      },
+      {
+        "text": "procession",
+        "translation": "行列 / 行進",
+        "exampleEn": "A colorful procession moved through the town on the festival day.",
+        "exampleJa": "祭りの日には色鮮やかな行列が町を進んだ。"
+      },
+      {
+        "text": "unrest",
+        "translation": "不安 / 騒乱",
+        "exampleEn": "The election was held amid growing social unrest.",
+        "exampleJa": "社会の不安が広がる中で選挙が行われた。"
+      },
+      {
+        "text": "equator",
+        "translation": "赤道",
+        "exampleEn": "The country is located near the equator.",
+        "exampleJa": "その国は赤道の近くに位置している。"
+      },
+      {
+        "text": "exhausted",
+        "translation": "疲れ果てた",
+        "exampleEn": "Everyone was exhausted after the long meeting.",
+        "exampleJa": "長い会議のあとで全員が疲れ果てていた。"
+      },
+      {
+        "text": "problematic",
+        "translation": "問題のある",
+        "exampleEn": "There were several problematic points in the explanation.",
+        "exampleJa": "その説明にはいくつか問題のある点があった。"
+      },
+      {
+        "text": "desirable",
+        "translation": "望ましい",
+        "exampleEn": "In the area, using public transportation is more desirable than using cars.",
+        "exampleJa": "その地域では車より公共交通の利用が望ましい。"
+      },
+      {
+        "text": "geological",
+        "translation": "地質学の / 地質の",
+        "exampleEn": "The survey team is monitoring geological changes over the long term.",
+        "exampleJa": "調査隊は地質の変化を長期的に観測している。"
+      },
+      {
+        "text": "rash",
+        "translation": "軽率な / 発疹",
+        "exampleEn": "His rash remark confused the discussion.",
+        "exampleJa": "彼の軽率な発言が議論を混乱させた。"
+      },
+      {
+        "text": "solitary",
+        "translation": "孤独な / たった一人の",
+        "exampleEn": "The researcher continued a solitary life in the mountain cabin.",
+        "exampleJa": "その研究者は山小屋で一人きりの生活を続けた。"
+      },
+      {
+        "text": "uneven",
+        "translation": "でこぼこの / 不均一な",
+        "exampleEn": "The old road had an uneven surface and was hard to walk on.",
+        "exampleJa": "その古い道は表面がでこぼこしていて歩きにくかった。"
+      },
+      {
+        "text": "antique",
+        "translation": "骨董品",
+        "exampleEn": "An antique clock was on sale in the shop.",
+        "exampleJa": "その店では古い骨董品の時計が売られていた。"
+      },
+      {
+        "text": "economical",
+        "translation": "経済的な / 節約になる",
+        "exampleEn": "The new car is economical because it uses little fuel.",
+        "exampleJa": "その新型車は燃費が良くて経済的だ。"
+      },
+      {
+        "text": "fictional",
+        "translation": "架空の",
+        "exampleEn": "The novel is set in a fictional town.",
+        "exampleJa": "その小説は架空の町を舞台にしている。"
+      },
+      {
+        "text": "victorious",
+        "translation": "勝利した",
+        "exampleEn": "The players left the venue with victorious smiles.",
+        "exampleJa": "選手たちは勝利した笑顔で会場を後にした。"
+      },
+      {
+        "text": "witty",
+        "translation": "機知に富んだ",
+        "exampleEn": "His witty reply made the audience laugh.",
+        "exampleJa": "彼の機知に富んだ返答に会場が笑いに包まれた。"
+      },
+      {
+        "text": "blurry",
+        "translation": "ぼやけた",
+        "exampleEn": "The old photo was blurry but valuable.",
+        "exampleJa": "古い写真は少しぼやけていたが価値があった。"
+      },
+      {
+        "text": "exceptional",
+        "translation": "並外れた",
+        "exampleEn": "She completed the difficult task with exceptional concentration.",
+        "exampleJa": "彼女は並外れた集中力で難しい課題を終えた。"
+      },
+      {
+        "text": "finite",
+        "translation": "限りのある",
+        "exampleEn": "We need to treat the Earth's resources as finite.",
+        "exampleJa": "地球の資源は限りのあるものとして扱う必要がある。"
+      },
+      {
+        "text": "on-the-job",
+        "translation": "実地の / 仕事をしながらの",
+        "exampleEn": "Most of the training was on-the-job and practical."
+      },
+      {
+        "text": "cheery",
+        "translation": "陽気な",
+        "exampleEn": "She greeted us with a cheery smile."
+      },
+      {
+        "text": "cowardly",
+        "translation": "臆病な",
+        "exampleEn": "It was cowardly to blame someone else for the mistake."
+      },
+      {
+        "text": "immeasurable",
+        "translation": "計り知れない",
+        "exampleEn": "Her support had an immeasurable effect on the project."
+      },
+      {
+        "text": "impaired",
+        "translation": "損なわれた / 障害のある",
+        "exampleEn": "His vision was temporarily impaired by the bright light."
+      },
+      {
+        "text": "impassable",
+        "translation": "通行できない",
+        "exampleEn": "The road became impassable after the flood."
+      },
+      {
+        "text": "inactive",
+        "translation": "活動していない / 不活発な",
+        "exampleEn": "The account remained inactive for several months."
+      },
+      {
+        "text": "inconvenient",
+        "translation": "不便な",
+        "exampleEn": "The new station is convenient, but the bus route is inconvenient."
+      },
+      {
+        "text": "superstitious",
+        "translation": "迷信深い",
+        "exampleEn": "He is superstitious about certain numbers."
+      },
+      {
+        "text": "unpleasant",
+        "translation": "不快な",
+        "exampleEn": "It was an unpleasant experience for everyone involved."
+      },
+      {
+        "text": "wicked",
+        "translation": "邪悪な",
+        "exampleEn": "The story centers on a wicked ruler."
+      },
+      {
+        "text": "ecological",
+        "translation": "生態学上の / 環境の",
+        "exampleEn": "The report examines the ecological impact of tourism."
+      },
+      {
+        "text": "imaginary",
+        "translation": "想像上の",
+        "exampleEn": "The child created an imaginary friend."
+      },
+      {
+        "text": "ripe",
+        "translation": "熟した",
+        "exampleEn": "The farmers picked the ripe fruit in the morning."
+      },
+      {
+        "text": "disguise",
+        "translation": "変装させる / 隠す",
+        "exampleEn": "He tried to disguise his disappointment with a smile."
+      },
+      {
+        "text": "curb",
+        "translation": "(増加や悪化を)抑える",
+        "exampleEn": "The new policy aims to curb waste."
+      },
+      {
+        "text": "restrain",
+        "translation": "抑える / 制止する",
+        "exampleEn": "She tried to restrain her anger during the discussion."
+      },
+      {
+        "text": "stumble",
+        "translation": "つまずく",
+        "exampleEn": "He stumbled on the steps in the dark."
+      },
+      {
+        "text": "diminish",
+        "translation": "(徐々に)減少する",
+        "exampleEn": "The pain gradually diminished."
+      },
+      {
+        "text": "rotate",
+        "translation": "回転する / 交代する",
+        "exampleEn": "The earth rotates once every twenty-four hours."
+      },
+      {
+        "text": "compress",
+        "translation": "圧縮する / 圧迫する",
+        "exampleEn": "The software can compress large files quickly."
+      },
+      {
+        "text": "decode",
+        "translation": "解読する",
+        "exampleEn": "Experts worked to decode the message."
+      },
+      {
+        "text": "offset",
+        "translation": "相殺する / 埋め合わせる",
+        "exampleEn": "The savings offset the increase in fuel costs."
+      },
+      {
+        "text": "bid",
+        "translation": "入札する / 値をつける",
+        "exampleEn": "Several companies bid for the project."
+      },
+      {
+        "text": "burst",
+        "translation": "破裂する / 突発的に起こる",
+        "exampleEn": "The balloon burst with a loud noise."
+      },
+      {
+        "text": "overtake",
+        "translation": "追い越す / 圧倒する",
+        "exampleEn": "The blue car managed to overtake the truck."
+      },
+      {
+        "text": "retain",
+        "translation": "保つ / 保持する",
+        "exampleEn": "This material retains heat well."
+      },
+      {
+        "text": "litter",
+        "translation": "ごみを散らかす / ごみ",
+        "exampleEn": "Visitors were asked not to litter the park."
+      },
+      {
+        "text": "prohibit",
+        "translation": "(規則で)禁止する",
+        "exampleEn": "The law prohibits discrimination."
+      },
+      {
+        "text": "discipline",
+        "translation": "規律 / しつける",
+        "exampleEn": "Daily practice requires discipline."
+      },
+      {
+        "text": "yield",
+        "translation": "生み出す / 屈する / 収穫",
+        "exampleEn": "The farm yields more rice in warm years."
+      },
+      {
+        "text": "sweep",
+        "translation": "掃く / さっと動く",
+        "exampleEn": "She swept the floor before opening the shop."
+      },
+      {
+        "text": "dictate",
+        "translation": "命じる / 書き取らせる",
+        "exampleEn": "The manager did not want to dictate every detail."
+      },
+      {
+        "text": "inject",
+        "translation": "注入する",
+        "exampleEn": "Doctors injected the medicine slowly."
+      },
+      {
+        "text": "urge",
+        "translation": "強く促す / 衝動",
+        "exampleEn": "Experts urged the public to stay calm."
+      },
+      {
+        "text": "mimic",
+        "translation": "まねる",
+        "exampleEn": "The child tried to mimic his teacher's voice."
+      },
+      {
+        "text": "roam",
+        "translation": "歩き回る",
+        "exampleEn": "Wild deer roam freely in the forest."
+      },
+      {
+        "text": "assess",
+        "translation": "(価値や状況を)評価する",
+        "exampleEn": "The doctor assessed his condition."
+      },
+      {
+        "text": "boast",
+        "translation": "自慢する",
+        "exampleEn": "He likes to boast about his achievements."
+      },
+      {
+        "text": "drag",
+        "translation": "引きずる",
+        "exampleEn": "They had to drag the heavy box across the floor."
+      },
+      {
+        "text": "repay",
+        "translation": "返済する / 報いる",
+        "exampleEn": "He promised to repay the money by Friday."
+      },
+      {
+        "text": "overthrow",
+        "translation": "打倒する / 転覆させる",
+        "exampleEn": "The group attempted to overthrow the government."
+      },
+      {
+        "text": "fulfill",
+        "translation": "果たす / 満たす",
+        "exampleEn": "We must fulfill our responsibilities to the team."
+      },
+      {
+        "text": "doom",
+        "translation": "破滅させる / 破滅",
+        "exampleEn": "Poor planning can doom a project from the start."
+      },
+      {
+        "text": "affiliate",
+        "translation": "提携する / 系列会社",
+        "exampleEn": "The college is affiliated with a major university."
+      },
+      {
+        "text": "assault",
+        "translation": "暴行",
+        "basicMeaning": "襲う",
+        "exampleEn": "The article covered a serious assault case."
+      },
+      {
+        "text": "testimony",
+        "translation": "証言",
+        "exampleEn": "Her testimony changed the course of the trial."
+      },
+      {
+        "text": "errand",
+        "translation": "使い / 用事",
+        "exampleEn": "I have to run a few errands before lunch."
+      },
+      {
+        "text": "friction",
+        "translation": "摩擦 / 不和",
+        "exampleEn": "Friction between the two teams slowed progress."
+      },
+      {
+        "text": "coalition",
+        "translation": "連合 / 連立",
+        "exampleEn": "Several parties formed a coalition after the election."
+      },
+      {
+        "text": "influx",
+        "translation": "流入",
+        "exampleEn": "The city saw an influx of visitors during the festival."
+      },
+      {
+        "text": "curse",
+        "translation": "ののしる / 呪い",
+        "exampleEn": "He began to curse when the machine stopped working."
+      },
+      {
+        "text": "app",
+        "translation": "アプリ",
+        "exampleEn": "The app helps users manage their daily tasks."
+      },
+      {
+        "text": "visibility",
+        "translation": "視界 / 見通し",
+        "exampleEn": "Visibility was poor because of the fog."
+      },
+      {
+        "text": "fabric",
+        "translation": "布地",
+        "exampleEn": "This fabric feels smooth and light."
+      },
+      {
+        "text": "collision",
+        "translation": "衝突",
+        "exampleEn": "The collision blocked the road for hours."
+      },
+      {
+        "text": "dioxide",
+        "translation": "二酸化物",
+        "exampleEn": "Plants absorb carbon dioxide from the air."
+      },
+      {
+        "text": "orbit",
+        "translation": "軌道 / 周回する",
+        "exampleEn": "The satellite remains in orbit around Earth."
+      },
+      {
+        "text": "literacy",
+        "translation": "読み書き能力",
+        "exampleEn": "The program aims to improve literacy among children."
+      },
+      {
+        "text": "scheme",
+        "translation": "計画 / 仕組み",
+        "exampleEn": "The city introduced a new recycling scheme."
+      },
+      {
+        "text": "completion",
+        "translation": "完成",
+        "exampleEn": "The bridge is close to completion."
+      },
+      {
+        "text": "expertise",
+        "translation": "専門知識",
+        "exampleEn": "We need someone with legal expertise."
+      },
+      {
+        "text": "diploma",
+        "translation": "卒業証書",
+        "exampleEn": "She framed her diploma and hung it on the wall."
+      },
+      {
+        "text": "livelihood",
+        "translation": "生計",
+        "exampleEn": "Fishing is the main livelihood in the village."
+      },
+      {
+        "text": "motive",
+        "translation": "動機",
+        "exampleEn": "Police are still investigating the motive."
+      },
+      {
+        "text": "recession",
+        "translation": "不況",
+        "exampleEn": "Many small businesses suffered during the recession."
+      },
+      {
+        "text": "surrounding",
+        "translation": "周囲の",
+        "exampleEn": "We enjoyed the surrounding scenery from the train."
+      },
+      {
+        "text": "venture",
+        "translation": "事業 / 思い切って行く",
+        "exampleEn": "The startup began as a small family venture."
+      },
+      {
+        "text": "physician",
+        "translation": "医師",
+        "exampleEn": "You should consult a physician if the pain continues."
+      },
+      {
+        "text": "perspective",
+        "translation": "視点 / 見方",
+        "exampleEn": "Travel changed my perspective."
+      },
+      {
+        "text": "physics",
+        "translation": "物理学",
+        "exampleEn": "She chose physics as her major at university."
+      },
+      {
+        "text": "legislation",
+        "translation": "法律 / 法制",
+        "exampleEn": "The new legislation will take effect next year."
+      },
+      {
+        "text": "daring",
+        "translation": "大胆な",
+        "exampleEn": "The rescue team made a daring attempt."
+      },
+      {
+        "text": "transparent",
+        "translation": "透明な / 明白な",
+        "exampleEn": "The bottle is made of transparent plastic."
+      },
+      {
+        "text": "tragic",
+        "translation": "悲劇的な",
+        "exampleEn": "The accident was a tragic event for the town."
+      },
+      {
+        "text": "sinister",
+        "translation": "不吉な / 邪悪な",
+        "exampleEn": "There was something sinister about the empty building."
+      },
+      {
+        "text": "striking",
+        "translation": "著しい / 印象的な",
+        "exampleEn": "The painting has a striking use of color."
+      },
+      {
+        "text": "plural",
+        "translation": "複数の / 複数形",
+        "exampleEn": "The noun takes a different ending in the plural form."
+      },
+      {
+        "text": "vital",
+        "translation": "極めて重要な / 生命に関わる",
+        "exampleEn": "Clean water is vital for public health."
+      },
+      {
+        "text": "sensitive",
+        "translation": "敏感な / 配慮の必要な",
+        "exampleEn": "This is a sensitive issue for many residents."
+      },
+      {
+        "text": "remarkable",
+        "translation": "注目すべき / 顕著な",
+        "exampleEn": "She made remarkable progress in a short time."
+      },
+      {
+        "text": "minimal",
+        "translation": "最小限の",
+        "exampleEn": "The damage was minimal after the repairs."
+      },
+      {
+        "text": "bankrupt",
+        "translation": "破産した",
+        "exampleEn": "The company went bankrupt after years of losses."
+      },
+      {
+        "text": "authentic",
+        "translation": "本物の / 信頼できる",
+        "exampleEn": "The museum confirmed that the painting was authentic."
+      },
+      {
+        "text": "moderate",
+        "translation": "適度な / 穏健な",
+        "exampleEn": "Moderate exercise can improve your health."
+      },
+      {
+        "text": "alien",
+        "translation": "異質な / 外国の",
+        "exampleEn": "The customs felt alien to the visitors at first."
+      },
+      {
+        "text": "prompt",
+        "translation": "迅速な / 促す",
+        "exampleEn": "Thank you for your prompt reply."
+      },
+      {
+        "text": "random",
+        "translation": "無作為の / 手当たり次第の",
+        "exampleEn": "The names were chosen at random."
+      },
+      {
+        "text": "decisive",
+        "translation": "決定的な / 決断力のある",
+        "exampleEn": "The final goal was the decisive moment of the match."
+      },
+      {
+        "text": "inevitable",
+        "translation": "(避けようがなく)避けられない",
+        "exampleEn": "Some mistakes are inevitable at first."
+      },
+      {
+        "text": "acid",
+        "translation": "酸 / 酸性の",
+        "exampleEn": "The liquid contains a strong acid."
+      },
+      {
+        "text": "climatic",
+        "translation": "気候の",
+        "exampleEn": "The area has undergone major climatic changes."
+      },
+      {
+        "text": "incredible",
+        "translation": "信じられない / 驚くべき",
+        "exampleEn": "She has an incredible memory for names."
+      },
+      {
+        "text": "precise",
+        "translation": "(細部まで)正確な",
+        "exampleEn": "Please give precise instructions."
+      },
+      {
+        "text": "invaluable",
+        "translation": "非常に貴重な",
+        "exampleEn": "Your advice was invaluable to the team."
+      },
+      {
+        "text": "stern",
+        "translation": "厳しい",
+        "exampleEn": "The coach gave the players a stern warning."
+      },
+      {
+        "text": "indifferent",
+        "translation": "無関心な",
+        "exampleEn": "He seemed indifferent to the criticism."
+      },
+      {
+        "text": "charitable",
+        "translation": "慈善の / 寛大な",
+        "exampleEn": "They donated the money to a charitable organization."
+      },
+      {
+        "text": "massive",
+        "translation": "巨大な",
+        "exampleEn": "A massive wall surrounded the old city."
+      },
+      {
+        "text": "comparable",
+        "translation": "比較できる / 同程度の",
+        "exampleEn": "The two products are comparable in quality."
+      },
+      {
+        "text": "irrational",
+        "translation": "不合理な",
+        "exampleEn": "Fear can sometimes lead to irrational decisions."
+      },
+      {
+        "text": "cynical",
+        "translation": "皮肉な / 冷笑的な",
+        "exampleEn": "His cynical comments upset the team."
+      },
+      {
+        "text": "overly",
+        "translation": "過度に",
+        "exampleEn": "The instructions were overly complicated."
+      },
+      {
+        "text": "literally",
+        "translation": "文字どおりに",
+        "exampleEn": "The word cannot be taken literally in this context."
+      },
+      {
+        "text": "voluntarily",
+        "translation": "自発的に",
+        "exampleEn": "Many students participated voluntarily in the survey."
+      },
+      {
+        "text": "technically",
+        "translation": "技術的には / 厳密には",
+        "exampleEn": "Technically, the machine is still under warranty."
+      },
+      {
+        "text": "wholly",
+        "translation": "完全に",
+        "exampleEn": "The decision was not wholly unexpected."
+      },
+      {
+        "text": "approximately",
+        "translation": "およそ",
+        "exampleEn": "Approximately fifty people attended the lecture."
+      },
+      {
+        "text": "uniquely",
+        "translation": "独特に / 唯一",
+        "exampleEn": "The city is uniquely suited for the event."
+      },
+      {
+        "text": "bewilder",
+        "translation": "当惑させる",
+        "exampleEn": "The sudden question seemed to bewilder him."
+      },
+      {
+        "text": "clutch",
+        "translation": "しっかりつかむ",
+        "exampleEn": "She clutched her bag tightly on the crowded train."
+      },
+      {
+        "text": "discard",
+        "translation": "捨てる",
+        "exampleEn": "Please discard any damaged materials."
+      },
+      {
+        "text": "enlist",
+        "translation": "参加する / 協力を得る",
+        "exampleEn": "We enlisted local volunteers to help with the event."
+      },
+      {
+        "text": "heed",
+        "translation": "注意を払う",
+        "exampleEn": "Drivers should heed the warning signs."
+      },
+      {
+        "text": "liberate",
+        "translation": "解放する",
+        "exampleEn": "The reform helped liberate workers from unfair rules."
+      },
+      {
+        "text": "overlap",
+        "translation": "重なる",
+        "exampleEn": "Our schedules overlap on Friday afternoon."
+      },
+      {
+        "text": "reconstruct",
+        "translation": "再建する / 復元する",
+        "exampleEn": "The town worked to reconstruct the damaged bridge."
+      },
+      {
+        "text": "shriek",
+        "translation": "甲高い声を上げる",
+        "exampleEn": "Someone shrieked when the lights went out."
+      },
+      {
+        "text": "sprain",
+        "translation": "捻挫する / 捻挫",
+        "exampleEn": "He sprained his ankle during practice."
+      },
+      {
+        "text": "resent",
+        "translation": "憤る / 不快に思う",
+        "exampleEn": "She resented being ignored in the meeting."
+      },
+      {
+        "text": "thrive",
+        "translation": "繁栄する / 元気に育つ",
+        "exampleEn": "Small plants can thrive in this climate."
+      },
+      {
+        "text": "embrace",
+        "translation": "受け入れる / 抱きしめる",
+        "exampleEn": "The company chose to embrace new technology."
+      },
+      {
+        "text": "excel",
+        "translation": "秀でる",
+        "exampleEn": "She excels at solving complex problems."
+      },
+      {
+        "text": "enroll",
+        "translation": "登録する / 入学する",
+        "exampleEn": "He enrolled in a night course last month."
+      },
+      {
+        "text": "retrieve",
+        "translation": "取り戻す / 回収する",
+        "exampleEn": "She went back to retrieve her notebook."
+      },
+      {
+        "text": "degrade",
+        "translation": "劣化させる / 品位を落とす",
+        "exampleEn": "Sunlight can degrade some materials over time."
+      },
+      {
+        "text": "reconcile",
+        "translation": "和解させる / 調和させる",
+        "exampleEn": "They were able to reconcile after a long conversation."
+      },
+      {
+        "text": "contaminate",
+        "translation": "(水や土壌を)汚染する",
+        "exampleEn": "Dirty water can contaminate the soil."
+      },
+      {
+        "text": "disrupt",
+        "translation": "妨害する / 混乱させる",
+        "exampleEn": "Snow can disrupt train service in winter."
+      },
+      {
+        "text": "divert",
+        "translation": "そらす / 迂回させる",
+        "exampleEn": "Police diverted traffic away from the bridge."
+      },
+      {
+        "text": "grumble",
+        "translation": "ぶつぶつ言う",
+        "exampleEn": "He began to grumble about the delay."
+      },
+      {
+        "text": "provoke",
+        "translation": "引き起こす / 怒らせる",
+        "exampleEn": "The remark could provoke unnecessary conflict."
+      },
+      {
+        "text": "outweigh",
+        "translation": "上回る",
+        "exampleEn": "The benefits outweigh the risks in this case."
+      },
+      {
+        "text": "crave",
+        "translation": "強く望む",
+        "exampleEn": "After the hike, we craved cold water."
+      },
+      {
+        "text": "sustain",
+        "translation": "維持する / 支える",
+        "exampleEn": "The region cannot sustain growth without more water."
+      },
+      {
+        "text": "disclose",
+        "translation": "明らかにする",
+        "exampleEn": "The company declined to disclose the full details."
+      },
+      {
+        "text": "tempt",
+        "translation": "誘惑する",
+        "exampleEn": "The smell of fresh bread tempted us inside."
+      },
+      {
+        "text": "resign",
+        "translation": "辞職する",
+        "exampleEn": "She chose to resign from the committee."
+      },
+      {
+        "text": "dismiss",
+        "translation": "退ける / 解雇する",
+        "exampleEn": "The judge dismissed the complaint."
+      },
+      {
+        "text": "surpass",
+        "translation": "上回る",
+        "exampleEn": "This year's sales surpassed expectations."
+      },
+      {
+        "text": "bounce",
+        "translation": "跳ねる / 立ち直る",
+        "exampleEn": "The ball bounced high off the wall."
+      },
+      {
+        "text": "bureau",
+        "translation": "局 / 事務局",
+        "exampleEn": "The statistics bureau released new data."
+      },
+      {
+        "text": "dependency",
+        "translation": "依存",
+        "exampleEn": "The country reduced its dependency on imported fuel."
+      },
+      {
+        "text": "discomfort",
+        "translation": "不快感",
+        "exampleEn": "The new shoes caused some discomfort at first."
+      },
+      {
+        "text": "drawback",
+        "translation": "欠点",
+        "exampleEn": "The plan has one serious drawback."
+      },
+      {
+        "text": "feast",
+        "translation": "祝宴 / ごちそう",
+        "exampleEn": "The family prepared a feast for the holiday."
+      },
+      {
+        "text": "hydrogen",
+        "translation": "水素",
+        "exampleEn": "Hydrogen is the lightest element."
+      },
+      {
+        "text": "modernization",
+        "translation": "近代化",
+        "exampleEn": "The railway system needs modernization."
+      },
+      {
+        "text": "objective",
+        "translation": "目的 / 客観的な基準",
+        "exampleEn": "Our main objective is quality."
+      },
+      {
+        "text": "poll",
+        "translation": "世論調査 / 投票",
+        "exampleEn": "The latest poll shows rising support for the plan."
+      },
+      {
+        "text": "ration",
+        "translation": "配給量 / 配給する",
+        "exampleEn": "Water was rationed during the drought."
+      },
+      {
+        "text": "revenue",
+        "translation": "収益",
+        "exampleEn": "Tourism is a major source of revenue for the town."
+      },
+      {
+        "text": "scholarship",
+        "translation": "奨学金 / 学識",
+        "exampleEn": "She won a scholarship to study abroad."
+      },
+      {
+        "text": "upbringing",
+        "translation": "育ち / しつけ",
+        "exampleEn": "His upbringing influenced his values."
+      },
+      {
+        "text": "compliment",
+        "translation": "ほめ言葉 / ほめる",
+        "exampleEn": "She took the comment as a compliment."
+      },
+      {
+        "text": "excerpt",
+        "translation": "抜粋",
+        "exampleEn": "The magazine published an excerpt from the novel."
+      },
+      {
+        "text": "downturn",
+        "translation": "景気後退 / 落ち込み",
+        "exampleEn": "Sales fell during the economic downturn."
+      },
+      {
+        "text": "intersection",
+        "translation": "交差点 / 交差",
+        "exampleEn": "Turn left at the next intersection."
+      },
+      {
+        "text": "anarchy",
+        "translation": "無政府状態",
+        "exampleEn": "Without clear rules, the situation could turn into anarchy."
+      },
+      {
+        "text": "breakup",
+        "translation": "分裂 / 別れ",
+        "exampleEn": "The breakup of the company surprised many employees."
+      },
+      {
+        "text": "exemption",
+        "translation": "免除",
+        "exampleEn": "Students may qualify for a fee exemption."
+      },
+      {
+        "text": "monarch",
+        "translation": "君主",
+        "exampleEn": "The monarch addressed the nation on television."
+      },
+      {
+        "text": "narrative",
+        "translation": "物語 / 話術",
+        "exampleEn": "The film has a simple but effective narrative."
+      },
+      {
+        "text": "sensation",
+        "translation": "感覚 / 大評判",
+        "exampleEn": "The singer became a sensation overnight."
+      },
+      {
+        "text": "apprentice",
+        "translation": "見習い",
+        "exampleEn": "He worked as an apprentice in a bakery."
+      },
+      {
+        "text": "dehydration",
+        "translation": "脱水",
+        "exampleEn": "Athletes must avoid dehydration in hot weather."
+      },
+      {
+        "text": "questionable",
+        "translation": "疑わしい",
+        "exampleEn": "The report was based on questionable data."
+      },
+      {
+        "text": "outdated",
+        "translation": "時代遅れの",
+        "exampleEn": "The office still uses outdated equipment."
+      },
+      {
+        "text": "forthcoming",
+        "translation": "来たるべき / 率直な",
+        "exampleEn": "Details of the forthcoming event were announced."
+      },
+      {
+        "text": "gross",
+        "translation": "総計の / ひどい",
+        "exampleEn": "The company's gross income increased this year."
+      },
+      {
+        "text": "overdue",
+        "translation": "期限の過ぎた / 待ち望まれた",
+        "exampleEn": "The library book is overdue by three days."
+      },
+      {
+        "text": "contemporary",
+        "translation": "同時代の / 現代の",
+        "exampleEn": "The museum features contemporary art."
+      },
+      {
+        "text": "drastic",
+        "translation": "思い切った / 極端な",
+        "exampleEn": "The city took drastic measures to reduce traffic."
+      },
+      {
+        "text": "conditional",
+        "translation": "条件付きの",
+        "exampleEn": "His offer was conditional on quick approval."
+      },
+      {
+        "text": "subjective",
+        "translation": "主観的な",
+        "exampleEn": "Art reviews are often subjective."
+      },
+      {
+        "text": "exotic",
+        "translation": "異国風の / 珍しい",
+        "exampleEn": "The market sells exotic fruits from overseas."
+      },
+      {
+        "text": "intensive",
+        "translation": "集中的な",
+        "exampleEn": "She took an intensive language course."
+      },
+      {
+        "text": "obscure",
+        "translation": "不明瞭な / 無名の",
+        "exampleEn": "The meaning of the sentence remained obscure."
+      },
+      {
+        "text": "tedious",
+        "translation": "退屈な",
+        "exampleEn": "The paperwork was long and tedious."
+      },
+      {
+        "text": "exclusive",
+        "translation": "独占的な / 限定的な",
+        "exampleEn": "The club is exclusive to members only."
+      },
+      {
+        "text": "decent",
+        "translation": "きちんとした / かなり良い",
+        "exampleEn": "He earns a decent salary now."
+      },
+      {
+        "text": "considerate",
+        "translation": "思いやりのある",
+        "exampleEn": "It was considerate of her to call in advance."
+      },
+      {
+        "text": "durable",
+        "translation": "(壊れにくく)長持ちする",
+        "exampleEn": "These shoes are light but durable."
+      },
+      {
+        "text": "perpetual",
+        "translation": "絶え間ない / 永続する",
+        "exampleEn": "The machine needs repair because of perpetual vibration."
+      },
+      {
+        "text": "proficient",
+        "translation": "熟達した",
+        "exampleEn": "She is proficient in three languages."
+      },
+      {
+        "text": "acoustic",
+        "translation": "音の / 音響の",
+        "exampleEn": "The hall was designed for acoustic quality."
+      },
+      {
+        "text": "biographical",
+        "translation": "伝記の",
+        "exampleEn": "She is reading a biographical novel about the artist."
+      },
+      {
+        "text": "botanical",
+        "translation": "植物の",
+        "exampleEn": "The botanical garden is popular in spring."
+      },
+      {
+        "text": "brutal",
+        "translation": "残酷な / 厳しい",
+        "exampleEn": "The runners faced brutal heat during the race."
+      },
+      {
+        "text": "commendable",
+        "translation": "賞賛に値する",
+        "exampleEn": "Her efforts to support the community were commendable."
+      },
+      {
+        "text": "desperate",
+        "translation": "必死の / 絶望的な",
+        "exampleEn": "They made a desperate attempt to save time."
+      },
+      {
+        "text": "extravagant",
+        "translation": "ぜいたくな / 派手な",
+        "exampleEn": "The hotel lobby had an extravagant design."
+      },
+      {
+        "text": "filthy",
+        "translation": "非常に汚い",
+        "exampleEn": "The floor was filthy after the storm."
+      },
+      {
+        "text": "serene",
+        "translation": "穏やかな",
+        "exampleEn": "The lake looked serene in the morning light."
+      },
+      {
+        "text": "inherent",
+        "translation": "本来備わった",
+        "exampleEn": "There are inherent risks in mountain climbing."
+      },
+      {
+        "text": "subsequently",
+        "translation": "その後",
+        "exampleEn": "He moved to Tokyo and subsequently started his own business."
+      },
+      {
+        "text": "deliberately",
+        "translation": "故意に / 慎重に",
+        "exampleEn": "She spoke slowly and deliberately."
+      },
+      {
+        "text": "portray",
+        "translation": "描く / 表現する",
+        "exampleEn": "The film portrays life in a small village."
+      },
+      {
+        "text": "dispatch",
+        "translation": "発送する / 派遣する",
+        "exampleEn": "The company dispatched the package this morning."
+      },
+      {
+        "text": "amend",
+        "translation": "修正する",
+        "exampleEn": "The committee voted to amend the proposal."
+      },
+      {
+        "text": "betray",
+        "translation": "裏切る / 露呈させる",
+        "exampleEn": "His face betrayed his disappointment."
+      },
+      {
+        "text": "wither",
+        "translation": "しおれる",
+        "exampleEn": "The flowers withered in the heat."
+      },
+      {
+        "text": "omit",
+        "translation": "省く",
+        "exampleEn": "Please do not omit any important details."
+      },
+      {
+        "text": "fabricate",
+        "translation": "作り上げる / でっち上げる",
+        "exampleEn": "The company fabricates parts for aircraft."
+      },
+      {
+        "text": "violate",
+        "translation": "違反する / 侵害する",
+        "exampleEn": "The company was fined for violating safety rules."
+      },
+      {
+        "text": "allege",
+        "translation": "主張する",
+        "exampleEn": "The article alleged that the data had been altered."
+      },
+      {
+        "text": "integrate",
+        "translation": "(別々のものを)統合する",
+        "exampleEn": "The program helps newcomers integrate into society."
+      },
+      {
+        "text": "underestimate",
+        "translation": "過小評価する",
+        "exampleEn": "Do not underestimate the difficulty of the task."
+      },
+      {
+        "text": "escort",
+        "translation": "付き添う / 護衛する",
+        "exampleEn": "A staff member escorted the guests to the hall."
+      },
+      {
+        "text": "facilitate",
+        "translation": "促進する / 容易にする",
+        "exampleEn": "The new system facilitates communication between teams."
+      },
+      {
+        "text": "initiate",
+        "translation": "始める / 開始する",
+        "exampleEn": "The city initiated a recycling campaign."
+      },
+      {
+        "text": "convey",
+        "translation": "伝える / 運ぶ",
+        "exampleEn": "Her voice conveyed both relief and joy."
+      },
+      {
+        "text": "populate",
+        "translation": "住みつく / 満たす",
+        "exampleEn": "Many birds populate the island in summer."
+      },
+      {
+        "text": "reinforce",
+        "translation": "(さらに)強化する",
+        "exampleEn": "The coach's words reinforced my confidence."
+      },
+      {
+        "text": "attain",
+        "translation": "(目標を)達成する",
+        "exampleEn": "She worked hard to attain her goal."
+      },
+      {
+        "text": "deceive",
+        "translation": "だます",
+        "exampleEn": "He tried to deceive the inspectors with false numbers."
+      },
+      {
+        "text": "frustrate",
+        "translation": "いら立たせる",
+        "exampleEn": "Long delays frustrate commuters."
+      },
+      {
+        "text": "subsidize",
+        "translation": "補助金を出す",
+        "exampleEn": "The government subsidized the bus service in rural areas."
+      },
+      {
+        "text": "alternate",
+        "translation": "交互の / 交代する",
+        "exampleEn": "The team met on alternate Fridays."
+      },
+      {
+        "text": "dedicate",
+        "translation": "(目的のために)ささげる",
+        "exampleEn": "She dedicated the book to her parents."
+      },
+      {
+        "text": "endeavor",
+        "translation": "努力 / 努める",
+        "exampleEn": "The project was a joint endeavor by several groups."
+      },
+      {
+        "text": "intrigue",
+        "translation": "興味をそそる / 陰謀",
+        "exampleEn": "The unusual design intrigued many visitors."
+      },
+      {
+        "text": "soar",
+        "translation": "急上昇する / 高く舞い上がる",
+        "exampleEn": "Prices began to soar after the shortage."
+      },
+      {
+        "text": "tease",
+        "translation": "からかう",
+        "exampleEn": "Friends sometimes tease each other for fun."
+      },
+      {
+        "text": "confer",
+        "translation": "(称号や権利を)授ける",
+        "exampleEn": "The two leaders conferred in private."
+      },
+      {
+        "text": "forbid",
+        "translation": "(規則で)禁じる",
+        "exampleEn": "School rules forbid smoking."
+      },
+      {
+        "text": "oblige",
+        "translation": "義務づける / 恩義を感じさせる",
+        "exampleEn": "The rules oblige all visitors to sign in."
+      },
+      {
+        "text": "discontent",
+        "translation": "不満",
+        "exampleEn": "There was growing discontent among the workers."
+      },
+      {
+        "text": "disposal",
+        "translation": "処分 / 利用自由",
+        "exampleEn": "Safe disposal of waste is essential."
+      },
+      {
+        "text": "exile",
+        "translation": "追放 / 亡命",
+        "exampleEn": "The writer spent many years in exile."
+      },
+      {
+        "text": "foe",
+        "translation": "敵",
+        "exampleEn": "The hero finally faced his old foe."
+      },
+      {
+        "text": "itinerary",
+        "translation": "旅程",
+        "exampleEn": "The guide handed out a detailed itinerary."
+      },
+      {
+        "text": "persecution",
+        "translation": "迫害",
+        "exampleEn": "Many people fled the region to escape persecution."
+      },
+      {
+        "text": "publication",
+        "translation": "出版 / 出版物",
+        "exampleEn": "The article will appear in a major publication."
+      },
+      {
+        "text": "riddle",
+        "translation": "なぞなぞ / 謎",
+        "exampleEn": "The old book begins with a strange riddle."
+      },
+      {
+        "text": "sanitation",
+        "translation": "衛生設備 / 衛生状態",
+        "exampleEn": "Poor sanitation can lead to serious disease."
+      },
+      {
+        "text": "component",
+        "translation": "構成要素",
+        "exampleEn": "Trust is a key component of teamwork."
+      },
+      {
+        "text": "quota",
+        "translation": "割り当て / ノルマ",
+        "exampleEn": "Each team was given a sales quota."
+      },
+      {
+        "text": "cuisine",
+        "translation": "料理",
+        "exampleEn": "The restaurant is known for its local cuisine."
+      },
+      {
+        "text": "detour",
+        "translation": "回り道 / 迂回する",
+        "exampleEn": "We took a detour because the road was closed."
+      },
+      {
+        "text": "inmate",
+        "translation": "収容者",
+        "exampleEn": "The program teaches job skills to inmates."
+      },
+      {
+        "text": "fatigue",
+        "translation": "疲労",
+        "exampleEn": "Long hours of work caused severe fatigue."
+      },
+      {
+        "text": "uproar",
+        "translation": "騒動",
+        "exampleEn": "The announcement caused an uproar online."
+      },
+      {
+        "text": "coincidence",
+        "translation": "偶然の一致",
+        "exampleEn": "It was a coincidence that we met there."
+      },
+      {
+        "text": "correspondence",
+        "translation": "通信 / 一致",
+        "exampleEn": "Their correspondence continued for many years."
+      },
+      {
+        "text": "ballot",
+        "translation": "投票用紙 / 投票",
+        "exampleEn": "Voters placed their ballot in the box."
+      },
+      {
+        "text": "competence",
+        "translation": "能力",
+        "exampleEn": "Her competence as a manager was clear."
+      },
+      {
+        "text": "enterprise",
+        "translation": "企業 / 進取の気性",
+        "exampleEn": "She started a small enterprise."
+      },
+      {
+        "text": "famine",
+        "translation": "飢饉",
+        "exampleEn": "The region faced famine after years of drought."
+      },
+      {
+        "text": "leftover",
+        "translation": "残り物",
+        "exampleEn": "We used the leftovers for lunch."
+      },
+      {
+        "text": "apprehension",
+        "translation": "不安 / 逮捕",
+        "exampleEn": "She felt apprehension before the interview."
+      },
+      {
+        "text": "dweller",
+        "translation": "居住者",
+        "exampleEn": "City dwellers often seek quiet on weekends."
+      },
+      {
+        "text": "geometry",
+        "translation": "幾何学",
+        "exampleEn": "Geometry was her favorite subject in school."
+      },
+      {
+        "text": "standby",
+        "translation": "待機 / 予備の",
+        "exampleEn": "The staff remained on standby overnight."
+      },
+      {
+        "text": "lenient",
+        "translation": "寛大な",
+        "exampleEn": "The teacher was lenient with late homework."
+      },
+      {
+        "text": "stubborn",
+        "translation": "頑固な",
+        "exampleEn": "He is too stubborn to change his mind easily."
+      },
+      {
+        "text": "clumsy",
+        "translation": "不器用な / ぎこちない",
+        "exampleEn": "His clumsy apology made things worse."
+      },
+      {
+        "text": "perilous",
+        "translation": "危険な",
+        "exampleEn": "The climbers faced a perilous path."
+      },
+      {
+        "text": "adverse",
+        "translation": "不利な / 逆の",
+        "exampleEn": "The plan was delayed by adverse weather."
+      },
+      {
+        "text": "persistent",
+        "translation": "粘り強い / 持続する",
+        "exampleEn": "A persistent cough kept him awake."
+      },
+      {
+        "text": "outrageous",
+        "translation": "とんでもない / 法外な",
+        "exampleEn": "The store charged an outrageous price."
+      },
+      {
+        "text": "skeptical",
+        "translation": "懐疑的な",
+        "exampleEn": "Many residents were skeptical about the promise."
+      },
+      {
+        "text": "legitimate",
+        "translation": "(法や道理にかなった)正当な",
+        "exampleEn": "The complaint raised legitimate concerns."
+      },
+      {
+        "text": "corrupt",
+        "translation": "腐敗した",
+        "exampleEn": "The report exposed corrupt practices in the office."
+      },
+      {
+        "text": "experimental",
+        "translation": "実験的な",
+        "exampleEn": "The lab is testing an experimental treatment."
+      },
+      {
+        "text": "improper",
+        "translation": "不適切な",
+        "exampleEn": "The manager was warned about improper conduct."
+      },
+      {
+        "text": "spontaneous",
+        "translation": "自発的な",
+        "exampleEn": "The audience gave a spontaneous round of applause."
+      },
+      {
+        "text": "unconditional",
+        "translation": "無条件の",
+        "exampleEn": "The offer came with unconditional support."
+      },
+      {
+        "text": "counterfeit",
+        "translation": "偽造の / 偽造品",
+        "exampleEn": "The police seized counterfeit bills."
+      },
+      {
+        "text": "inaccurate",
+        "translation": "不正確な",
+        "exampleEn": "The article contained inaccurate figures."
+      },
+      {
+        "text": "inadequate",
+        "translation": "不十分な",
+        "exampleEn": "The shelter was inadequate for the number of people."
+      },
+      {
+        "text": "inappropriate",
+        "translation": "不適切な",
+        "exampleEn": "That comment was inappropriate for the meeting."
+      },
+      {
+        "text": "retreat",
+        "translation": "退却する / 退却",
+        "exampleEn": "The army was forced to retreat."
+      },
+      {
+        "text": "revolt",
+        "translation": "反乱 / 反抗する",
+        "exampleEn": "The harsh policy led to a revolt."
+      },
+      {
+        "text": "deflect",
+        "translation": "そらす / はね返す",
+        "exampleEn": "He tried to deflect criticism with a joke."
+      },
+      {
+        "text": "demote",
+        "translation": "降格させる",
+        "exampleEn": "The company chose not to demote the employee."
+      },
+      {
+        "text": "despise",
+        "translation": "軽蔑する",
+        "exampleEn": "He came to despise dishonesty in any form."
+      },
+      {
+        "text": "grasp",
+        "translation": "つかむ / 理解する",
+        "exampleEn": "It took me a while to grasp the main idea."
+      },
+      {
+        "text": "summon",
+        "translation": "呼び出す / 呼び寄せる",
+        "exampleEn": "The manager summoned everyone to the meeting room."
+      },
+      {
+        "text": "expel",
+        "translation": "追放する / 除名する",
+        "exampleEn": "The school decided to expel the student for repeated misconduct."
+      },
+      {
+        "text": "redeem",
+        "translation": "償う / 引き換える",
+        "exampleEn": "Customers can redeem the coupon online."
+      },
+      {
+        "text": "comprise",
+        "translation": "成る / 含む",
+        "exampleEn": "The committee comprises five members."
+      },
+      {
+        "text": "prevail",
+        "translation": "広まる / 打ち勝つ",
+        "exampleEn": "A calm atmosphere prevailed throughout the event."
+      },
+      {
+        "text": "eject",
+        "translation": "追い出す / 射出する",
+        "exampleEn": "Security officers ejected the man from the stadium."
+      },
+      {
+        "text": "falsify",
+        "translation": "改ざんする / 偽る",
+        "exampleEn": "It is illegal to falsify official records."
+      },
+      {
+        "text": "obstruct",
+        "translation": "妨げる / ふさぐ",
+        "exampleEn": "A fallen tree obstructed the road."
+      },
+      {
+        "text": "depict",
+        "translation": "描写する",
+        "exampleEn": "The painting depicts life in the countryside."
+      },
+      {
+        "text": "tremble",
+        "translation": "震える",
+        "exampleEn": "Her hands began to tremble from the cold."
+      },
+      {
+        "text": "confess",
+        "translation": "告白する / 自白する",
+        "exampleEn": "He finally confessed that he had made the mistake."
+      },
+      {
+        "text": "ache",
+        "translation": "痛む / 痛み",
+        "exampleEn": "My shoulders ached after the long drive."
+      },
+      {
+        "text": "assert",
+        "translation": "主張する",
+        "exampleEn": "She asserted that the data were accurate."
+      },
+      {
+        "text": "impose",
+        "translation": "(規則や負担を)課す",
+        "exampleEn": "The city imposed a water restriction."
+      },
+      {
+        "text": "interpret",
+        "translation": "(意味を)解釈する",
+        "exampleEn": "People often interpret silence differently."
+      },
+      {
+        "text": "devote",
+        "translation": "(時間や労力を)ささげる",
+        "exampleEn": "She devotes most of her time to research."
+      },
+      {
+        "text": "deteriorate",
+        "translation": "(状態が)悪化する",
+        "exampleEn": "The patient's condition deteriorated overnight."
+      },
+      {
+        "text": "contemplate",
+        "translation": "熟考する / じっと見つめる",
+        "exampleEn": "They are contemplating a move to another city."
+      },
+      {
+        "text": "delegate",
+        "translation": "委任する / 代表者",
+        "exampleEn": "A good leader knows how to delegate tasks."
+      },
+      {
+        "text": "propel",
+        "translation": "推進する / 駆り立てる",
+        "exampleEn": "Strong winds propelled the boat forward."
+      },
+      {
+        "text": "recede",
+        "translation": "後退する / 薄れる",
+        "exampleEn": "The floodwaters began to recede by morning."
+      },
+      {
+        "text": "scrape",
+        "translation": "こする / こすり取る",
+        "exampleEn": "He scraped the mud off his shoes."
+      },
+      {
+        "text": "smash",
+        "translation": "粉々に壊す / 激突する",
+        "exampleEn": "The ball smashed a window."
+      },
+      {
+        "text": "scold",
+        "translation": "しかる",
+        "exampleEn": "She scolded him for being careless."
+      },
+      {
+        "text": "amuse",
+        "translation": "楽しませる",
+        "exampleEn": "The magician amused the children."
+      },
+      {
+        "text": "overhaul",
+        "translation": "徹底的に見直す / 分解修理する",
+        "exampleEn": "The company plans to overhaul its website."
+      },
+      {
+        "text": "herd",
+        "translation": "群れ / 追い立てる",
+        "exampleEn": "A herd of deer crossed the field at dawn."
+      },
+      {
+        "text": "bait",
+        "translation": "えさ / おびき寄せるもの",
+        "exampleEn": "The fisherman put fresh bait on the hook."
+      },
+      {
+        "text": "petition",
+        "translation": "請願書 / 請願する",
+        "exampleEn": "Residents signed a petition against the plan."
+      },
+      {
+        "text": "ransom",
+        "translation": "身代金",
+        "exampleEn": "The kidnappers demanded a ransom."
+      },
+      {
+        "text": "fragrance",
+        "translation": "香り",
+        "exampleEn": "The fragrance of fresh flowers filled the room."
+      },
+      {
+        "text": "insight",
+        "translation": "洞察 / 見識",
+        "exampleEn": "The book offers useful insight."
+      },
+      {
+        "text": "conquest",
+        "translation": "征服",
+        "exampleEn": "The museum exhibits tools from the age of conquest."
+      },
+      {
+        "text": "sincerity",
+        "translation": "誠実さ",
+        "exampleEn": "Her sincerity won the trust of the team."
+      },
+      {
+        "text": "tariff",
+        "translation": "関税",
+        "exampleEn": "The new tariff raised import costs."
+      },
+      {
+        "text": "sanction",
+        "translation": "制裁 / 認可",
+        "exampleEn": "The country faced economic sanctions."
+      },
+      {
+        "text": "outcast",
+        "translation": "のけ者",
+        "exampleEn": "He felt like an outcast at the new school."
+      },
+      {
+        "text": "destruction",
+        "translation": "破壊",
+        "exampleEn": "The earthquake caused widespread destruction."
+      },
+      {
+        "text": "peasant",
+        "translation": "農民",
+        "exampleEn": "The book describes the lives of medieval peasants."
+      },
+      {
+        "text": "faculty",
+        "translation": "学部 / 能力 / 教員団",
+        "exampleEn": "She joined the science faculty last year."
+      },
+      {
+        "text": "tactics",
+        "translation": "戦術",
+        "exampleEn": "The coach changed the team's tactics at halftime."
+      },
+      {
+        "text": "correlation",
+        "translation": "相関関係",
+        "exampleEn": "Researchers found a correlation between sleep and mood."
+      },
+      {
+        "text": "availability",
+        "translation": "利用可能性 / 入手可能性",
+        "exampleEn": "The availability of fresh water is a major concern."
+      },
+      {
+        "text": "prevention",
+        "translation": "予防 / 防止",
+        "exampleEn": "Prevention is better than treatment in many cases."
+      },
+      {
+        "text": "reptile",
+        "translation": "は虫類",
+        "exampleEn": "The zoo has a house for reptiles."
+      },
+      {
+        "text": "fate",
+        "translation": "運命",
+        "exampleEn": "No one knew the fate of the missing ship."
+      },
+      {
+        "text": "inclination",
+        "translation": "傾向 / 傾き",
+        "exampleEn": "She has an inclination toward science."
+      },
+      {
+        "text": "scorn",
+        "translation": "軽蔑 / 軽蔑する",
+        "exampleEn": "He spoke with scorn about the proposal."
+      },
+      {
+        "text": "contempt",
+        "translation": "軽蔑",
+        "exampleEn": "She looked at the decision with contempt."
+      },
+      {
+        "text": "tender",
+        "translation": "優しい / 柔らかい",
+        "exampleEn": "The nurse gave the child a tender smile."
+      },
+      {
+        "text": "peculiar",
+        "translation": "独特の / 奇妙な",
+        "exampleEn": "There was a peculiar smell in the room."
+      },
+      {
+        "text": "vigorous",
+        "translation": "精力的な / 活発な",
+        "exampleEn": "They began a vigorous debate."
+      },
+      {
+        "text": "gloomy",
+        "translation": "暗い / 憂うつな",
+        "exampleEn": "The sky looked gloomy before the rain."
+      },
+      {
+        "text": "medieval",
+        "translation": "中世の",
+        "exampleEn": "The town is famous for its medieval castle."
+      },
+      {
+        "text": "subtle",
+        "translation": "微妙な / 巧妙な",
+        "exampleEn": "The dish had a subtle flavor."
+      },
+      {
+        "text": "rigid",
+        "translation": "厳格な / 硬い",
+        "exampleEn": "The old rules were too rigid for modern life."
+      },
+      {
+        "text": "coarse",
+        "translation": "粗い / 下品な",
+        "exampleEn": "The cloth felt coarse against my skin."
+      },
+      {
+        "text": "slack",
+        "translation": "緩い / たるんだ",
+        "exampleEn": "The rope became slack after the load was removed."
+      },
+      {
+        "text": "trivial",
+        "translation": "ささいな",
+        "exampleEn": "We should not waste time on trivial issues."
+      },
+      {
+        "text": "redundant",
+        "translation": "余分な / 冗長な",
+        "exampleEn": "Several steps in the process were redundant."
+      },
+      {
+        "text": "premature",
+        "translation": "早すぎる / 時期尚早の",
+        "exampleEn": "It is premature to celebrate the result now."
+      },
+      {
+        "text": "attentive",
+        "translation": "注意深い / 親切な",
+        "exampleEn": "The nurse was attentive to every patient."
+      },
+      {
+        "text": "integral",
+        "translation": "不可欠な",
+        "exampleEn": "Trust is an integral part of teamwork."
+      },
+      {
+        "text": "prevalent",
+        "translation": "広く行き渡った / 流行している",
+        "exampleEn": "This disease is prevalent in humid regions."
+      },
+      {
+        "text": "unaware",
+        "translation": "気づいていない",
+        "exampleEn": "I was unaware of the rule change."
+      },
+      {
+        "text": "worthwhile",
+        "translation": "やりがいのある / 価値のある",
+        "exampleEn": "The project was difficult but worthwhile."
+      },
+      {
+        "text": "eligible",
+        "translation": "資格がある",
+        "exampleEn": "Only members are eligible for the discount."
+      },
+      {
+        "text": "vicious",
+        "translation": "凶暴な / 悪意のある",
+        "exampleEn": "The article triggered a vicious argument online."
+      },
+      {
+        "text": "invisible",
+        "translation": "目に見えない",
+        "exampleEn": "Most bacteria are invisible to the naked eye."
+      },
+      {
+        "text": "invalid",
+        "translation": "無効な",
+        "exampleEn": "The card became invalid after its expiration date."
+      },
+      {
+        "text": "rotten",
+        "translation": "腐った",
+        "exampleEn": "The fruit had turned rotten in the heat."
+      },
+      {
+        "text": "plague",
+        "translation": "疫病 / 苦しめるもの",
+        "exampleEn": "The region was once struck by plague."
+      },
+      {
+        "text": "sponsor",
+        "translation": "後援者 / 後援する",
+        "exampleEn": "A local company agreed to sponsor the event."
+      },
+      {
+        "text": "incorporate",
+        "translation": "取り入れる / 組み込む",
+        "exampleEn": "The design incorporates traditional patterns."
+      },
+      {
+        "text": "sway",
+        "translation": "揺れる / 影響を与える",
+        "exampleEn": "Tall trees swayed in the wind."
+      },
+      {
+        "text": "renovate",
+        "translation": "改装する",
+        "exampleEn": "They plan to renovate the old library."
+      },
+      {
+        "text": "maximize",
+        "translation": "最大にする",
+        "exampleEn": "We need to maximize the use of limited space."
+      },
+      {
+        "text": "uncover",
+        "translation": "明らかにする / 見つける",
+        "exampleEn": "The investigation uncovered new evidence."
+      },
+      {
+        "text": "mislead",
+        "translation": "誤解させる / 誤った方向へ導く",
+        "exampleEn": "The advertisement could mislead consumers."
+      },
+      {
+        "text": "outnumber",
+        "translation": "数で上回る",
+        "exampleEn": "Visitors outnumbered residents during the festival."
+      },
+      {
+        "text": "presume",
+        "translation": "推定する / 思い込む",
+        "exampleEn": "I presumed that the meeting had been canceled."
+      },
+      {
+        "text": "refine",
+        "translation": "洗練する / 精製する",
+        "exampleEn": "The team refined the plan after discussion."
+      },
+      {
+        "text": "strive",
+        "translation": "努力する",
+        "exampleEn": "We strive to provide better service each year."
+      },
+      {
+        "text": "thrill",
+        "translation": "わくわくさせる / 興奮",
+        "exampleEn": "The news thrilled the young players."
+      },
+      {
+        "text": "tighten",
+        "translation": "引き締める / 厳しくする",
+        "exampleEn": "Please tighten the lid before carrying the bottle."
+      },
+      {
+        "text": "arouse",
+        "translation": "呼び起こす",
+        "exampleEn": "The news aroused public interest."
+      },
+      {
+        "text": "buzz",
+        "translation": "ブーンと鳴る / ざわめき",
+        "exampleEn": "My phone began to buzz in my pocket."
+      },
+      {
+        "text": "converge",
+        "translation": "集中する / 収束する",
+        "exampleEn": "The roads converge near the station."
+      },
+      {
+        "text": "deduct",
+        "translation": "差し引く",
+        "exampleEn": "Tax will be deducted from the total amount."
+      },
+      {
+        "text": "disconnect",
+        "translation": "切り離す / 接続を切る",
+        "exampleEn": "Please disconnect the cable before moving the machine."
+      },
+      {
+        "text": "gossip",
+        "translation": "うわさ話 / うわさする",
+        "exampleEn": "Office gossip spread quickly after the announcement."
+      },
+      {
+        "text": "suck",
+        "translation": "吸う",
+        "exampleEn": "A pump sucks water from the well."
+      },
+      {
+        "text": "dye",
+        "translation": "染める / 染料",
+        "exampleEn": "She used a natural dye to color the cloth."
+      },
+      {
+        "text": "trespass",
+        "translation": "不法侵入する",
+        "exampleEn": "Visitors must not trespass on private land."
+      },
+      {
+        "text": "graze",
+        "translation": "草を食べる / かすめる",
+        "exampleEn": "Cows grazed peacefully in the field."
+      },
+      {
+        "text": "entrust",
+        "translation": "任せる",
+        "exampleEn": "She entrusted the task to an experienced assistant."
+      },
+      {
+        "text": "peer",
+        "translation": "同僚 / じっと見る",
+        "exampleEn": "Children learn a lot from their peers."
+      },
+      {
+        "text": "molecule",
+        "translation": "分子",
+        "exampleEn": "A water molecule contains hydrogen and oxygen."
+      },
+      {
+        "text": "meantime",
+        "translation": "その間",
+        "exampleEn": "The repairs will take an hour; in the meantime, please wait here."
+      },
+      {
+        "text": "chatter",
+        "translation": "おしゃべり / ぺちゃくちゃ話す",
+        "exampleEn": "The room was full of cheerful chatter."
+      },
+      {
+        "text": "methodology",
+        "translation": "方法論",
+        "exampleEn": "The researchers explained their methodology clearly."
+      },
+      {
+        "text": "burglar",
+        "translation": "泥棒",
+        "exampleEn": "The burglar entered through an open window."
+      },
+      {
+        "text": "canyon",
+        "translation": "峡谷",
+        "exampleEn": "They hiked along the edge of the canyon."
+      },
+      {
+        "text": "duration",
+        "translation": "継続期間",
+        "exampleEn": "The duration of the flight is about two hours."
+      },
+      {
+        "text": "fountain",
+        "translation": "噴水",
+        "exampleEn": "Children gathered around the fountain in the square."
+      },
+      {
+        "text": "genius",
+        "translation": "天才",
+        "exampleEn": "Many people consider him a musical genius."
+      },
+      {
+        "text": "grassland",
+        "translation": "草原",
+        "exampleEn": "Large animals live in the open grassland."
+      },
+      {
+        "text": "longevity",
+        "translation": "長寿 / 長続き",
+        "exampleEn": "Regular exercise may contribute to longevity."
+      },
+      {
+        "text": "organizer",
+        "translation": "主催者",
+        "exampleEn": "The organizers thanked the volunteers after the event."
+      },
+      {
+        "text": "rehearsal",
+        "translation": "リハーサル",
+        "exampleEn": "The actors gathered for the final rehearsal."
+      },
+      {
+        "text": "sociology",
+        "translation": "社会学",
+        "exampleEn": "She studied sociology at university."
+      },
+      {
+        "text": "spectacle",
+        "translation": "光景 / 見せ物",
+        "exampleEn": "The fireworks created a spectacular spectacle over the river."
+      },
+      {
+        "text": "norm",
+        "translation": "規範 / 標準",
+        "exampleEn": "Remote work is becoming the norm in some industries."
+      },
+      {
+        "text": "certificate",
+        "translation": "証明書",
+        "exampleEn": "Please submit a medical certificate with your application."
+      },
+      {
+        "text": "asteroid",
+        "translation": "小惑星",
+        "exampleEn": "Scientists are tracking a large asteroid near Earth."
+      },
+      {
+        "text": "syndrome",
+        "translation": "症候群",
+        "exampleEn": "The doctor explained the symptoms of the syndrome."
+      },
+      {
+        "text": "detention",
+        "translation": "拘留 / 居残り",
+        "exampleEn": "He received detention for breaking school rules."
+      },
+      {
+        "text": "distress",
+        "translation": "苦悩 / 苦しめる",
+        "exampleEn": "The news caused great distress to the family."
+      },
+      {
+        "text": "ignition",
+        "translation": "点火",
+        "exampleEn": "Turn off the ignition before leaving the car."
+      },
+      {
+        "text": "esteem",
+        "translation": "尊敬 / 尊重する",
+        "exampleEn": "She is held in high esteem by her colleagues."
+      },
+      {
+        "text": "hospitality",
+        "translation": "もてなし / 親切な対応",
+        "exampleEn": "We were grateful for their warm hospitality."
+      },
+      {
+        "text": "sane",
+        "translation": "正気の / 分別のある",
+        "exampleEn": "We need a sane solution to this problem."
+      },
+      {
+        "text": "doubtful",
+        "translation": "疑わしい / たぶん無理な",
+        "exampleEn": "It is doubtful that the train will arrive on time."
+      },
+      {
+        "text": "favorable",
+        "translation": "好意的な / 有利な",
+        "exampleEn": "The review was favorable overall."
+      },
+      {
+        "text": "tolerant",
+        "translation": "寛容な / 我慢強い",
+        "exampleEn": "A tolerant attitude helps people work together."
+      },
+      {
+        "text": "ironic",
+        "translation": "皮肉な / 皮肉にも",
+        "exampleEn": "It was ironic that he forgot his own advice."
+      },
+      {
+        "text": "rewarding",
+        "translation": "やりがいのある",
+        "exampleEn": "Teaching young children can be very rewarding."
+      },
+      {
+        "text": "abridged",
+        "translation": "要約された / 短縮版の",
+        "exampleEn": "I bought an abridged edition of the novel."
+      },
+      {
+        "text": "irresponsible",
+        "translation": "無責任な",
+        "exampleEn": "It was irresponsible to ignore the warning signs."
+      },
+      {
+        "text": "notorious",
+        "translation": "悪名高い",
+        "exampleEn": "The area was once notorious for heavy traffic."
+      },
+      {
+        "text": "recurrent",
+        "translation": "繰り返し起こる",
+        "exampleEn": "He suffers from recurrent headaches."
+      },
+      {
+        "text": "irresistible",
+        "translation": "抵抗できない / 魅力的な",
+        "exampleEn": "The smell of fresh bread was irresistible."
+      },
+      {
+        "text": "binding",
+        "translation": "拘束力のある / 製本",
+        "exampleEn": "The agreement is legally binding."
+      },
+      {
+        "text": "dejected",
+        "translation": "落胆した",
+        "exampleEn": "He looked dejected after the game."
+      },
+      {
+        "text": "fictitious",
+        "translation": "架空の",
+        "exampleEn": "The article used a fictitious name for privacy."
+      },
+      {
+        "text": "gracious",
+        "translation": "優雅な / 丁寧な",
+        "exampleEn": "She was gracious to every guest."
+      },
+      {
+        "text": "upcoming",
+        "translation": "近く予定されている",
+        "exampleEn": "Details of the upcoming event will be announced soon."
+      },
+      {
+        "text": "grind",
+        "translation": "すりつぶす / きしむ",
+        "exampleEn": "They grind coffee beans every morning."
+      },
+      {
+        "text": "archive",
+        "translation": "記録保管所 / 保存する",
+        "exampleEn": "The museum archives old photographs carefully."
+      },
+      {
+        "text": "devise",
+        "translation": "考案する",
+        "exampleEn": "The team devised a new way to collect data."
+      },
+      {
+        "text": "precede",
+        "translation": "先行する / 先に来る",
+        "exampleEn": "A short speech preceded the concert."
+      },
+      {
+        "text": "horrify",
+        "translation": "ぞっとさせる",
+        "exampleEn": "The careless remark horrified the audience."
+      },
+      {
+        "text": "lodge",
+        "translation": "宿泊する / 申し立てる",
+        "exampleEn": "They lodged a complaint with the company."
+      },
+      {
+        "text": "mediate",
+        "translation": "仲裁する",
+        "exampleEn": "A lawyer was asked to mediate the dispute."
+      },
+      {
+        "text": "mingle",
+        "translation": "交わる / 混ざる",
+        "exampleEn": "Guests mingled in the hall before dinner."
+      },
+      {
+        "text": "perspire",
+        "translation": "汗をかく",
+        "exampleEn": "We began to perspire in the summer heat."
+      },
+      {
+        "text": "concede",
+        "translation": "認める / 譲る",
+        "exampleEn": "He conceded that her argument was stronger."
+      },
+      {
+        "text": "hinder",
+        "translation": "妨げる",
+        "exampleEn": "Heavy snow hindered traffic in the city."
+      },
+      {
+        "text": "waver",
+        "translation": "揺らぐ / ためらう",
+        "exampleEn": "Her voice did not waver during the speech."
+      },
+      {
+        "text": "formulate",
+        "translation": "明確に述べる / 立案する",
+        "exampleEn": "We need to formulate a clear policy."
+      },
+      {
+        "text": "exhale",
+        "translation": "息を吐く",
+        "exampleEn": "Take a deep breath and exhale slowly."
+      },
+      {
+        "text": "rebound",
+        "translation": "跳ね返る / 回復する",
+        "exampleEn": "Sales began to rebound after the holiday season."
+      },
+      {
+        "text": "gratify",
+        "translation": "満足させる",
+        "exampleEn": "It gratified her to see the students succeed."
+      },
+      {
+        "text": "pledge",
+        "translation": "誓約 / 誓う",
+        "exampleEn": "The mayor made a pledge to improve safety."
+      },
+      {
+        "text": "fasten",
+        "translation": "固定する / 留める",
+        "exampleEn": "Please fasten your seat belt before takeoff."
+      },
+      {
+        "text": "relay",
+        "translation": "中継する / 伝える",
+        "exampleEn": "Could you relay this message to the team?"
+      },
+      {
+        "text": "align",
+        "translation": "一直線に並べる / 合わせる",
+        "exampleEn": "The two reports align on the main point."
+      },
+      {
+        "text": "ascend",
+        "translation": "上昇する / 登る",
+        "exampleEn": "We watched the balloon ascend into the sky."
+      },
+      {
+        "text": "gaze",
+        "translation": "見つめる / 視線",
+        "exampleEn": "She stood by the window and gazed at the sea."
+      },
+      {
+        "text": "adore",
+        "translation": "とても好きである / 崇拝する",
+        "exampleEn": "Children adore the playful puppy."
+      },
+      {
+        "text": "chill",
+        "translation": "冷やす / 寒気",
+        "exampleEn": "Please chill the juice before serving it."
+      },
+      {
+        "text": "curve",
+        "translation": "曲線 / カーブする",
+        "exampleEn": "The road curves around the hill."
+      },
+      {
+        "text": "deflate",
+        "translation": "しぼませる / 意気消沈させる",
+        "exampleEn": "The bad news seemed to deflate the team."
+      },
+      {
+        "text": "detach",
+        "translation": "切り離す",
+        "exampleEn": "Detach the label carefully from the package."
+      },
+      {
+        "text": "enclose",
+        "translation": "同封する / 囲む",
+        "exampleEn": "We enclosed a copy of the receipt with the letter."
+      },
+      {
+        "text": "fetch",
+        "translation": "取って来る",
+        "exampleEn": "Could you fetch the file from the next room?"
+      },
+      {
+        "text": "proclaim",
+        "translation": "宣言する",
+        "exampleEn": "The government proclaimed a day of mourning."
+      },
+      {
+        "text": "forge",
+        "translation": "築く / 偽造する",
+        "exampleEn": "The two companies forged a close partnership."
+      },
+      {
+        "text": "outburst",
+        "translation": "爆発的な発言 / 噴出",
+        "exampleEn": "His angry outburst surprised everyone."
+      },
+      {
+        "text": "dimension",
+        "translation": "側面 / 次元",
+        "exampleEn": "The problem has a social dimension."
+      },
+      {
+        "text": "swarm",
+        "translation": "群れ / 群がる",
+        "exampleEn": "A swarm of bees gathered near the tree."
+      },
+      {
+        "text": "sequel",
+        "translation": "続編",
+        "exampleEn": "The author is already working on a sequel."
+      },
+      {
+        "text": "artifact",
+        "translation": "工芸品 / 遺物",
+        "exampleEn": "The museum displayed ancient artifacts from the region."
+      },
+      {
+        "text": "mercy",
+        "translation": "慈悲",
+        "exampleEn": "The judge showed mercy in the final decision."
+      },
+      {
+        "text": "successor",
+        "translation": "後継者",
+        "exampleEn": "The company named her as the successor to the president."
+      },
+      {
+        "text": "triumph",
+        "translation": "勝利 / 勝利する",
+        "exampleEn": "Their hard work ended in triumph."
+      },
+      {
+        "text": "clause",
+        "translation": "条項 / 節",
+        "exampleEn": "Please read the final clause of the contract carefully."
+      },
+      {
+        "text": "analogy",
+        "translation": "類推 / 類似",
+        "exampleEn": "The teacher used an analogy to explain the idea."
+      },
+      {
+        "text": "downfall",
+        "translation": "没落",
+        "exampleEn": "His pride led to his downfall."
+      },
+      {
+        "text": "fusion",
+        "translation": "融合",
+        "exampleEn": "The menu is known for its fusion of local and foreign flavors."
+      },
+      {
+        "text": "fracture",
+        "translation": "骨折 / ひび",
+        "exampleEn": "The scan revealed a small fracture in his arm."
+      },
+      {
+        "text": "menace",
+        "translation": "脅威",
+        "exampleEn": "Plastic waste is a growing menace to marine life."
+      },
+      {
+        "text": "setback",
+        "translation": "後退 / 挫折",
+        "exampleEn": "The project suffered a minor setback last week."
+      },
+      {
+        "text": "empathy",
+        "translation": "共感",
+        "exampleEn": "Good teachers show empathy toward their students."
+      },
+      {
+        "text": "tumble",
+        "translation": "転がり落ちる / 倒れる",
+        "exampleEn": "Boxes began to tumble from the shelf."
+      },
+      {
+        "text": "diameter",
+        "translation": "直径",
+        "exampleEn": "The table measures one meter in diameter."
+      },
+      {
+        "text": "momentum",
+        "translation": "勢い / 運動量",
+        "exampleEn": "The campaign gained momentum in the final week."
+      },
+      {
+        "text": "pharmacy",
+        "translation": "薬局",
+        "exampleEn": "There is a pharmacy next to the clinic."
+      },
+      {
+        "text": "glacier",
+        "translation": "氷河",
+        "exampleEn": "The glacier has been shrinking for decades."
+      },
+      {
+        "text": "misery",
+        "translation": "悲惨さ / 苦しみ",
+        "exampleEn": "The storm caused misery across the region."
+      },
+      {
+        "text": "ambassador",
+        "translation": "大使",
+        "exampleEn": "The ambassador attended the ceremony."
+      },
+      {
+        "text": "autopsy",
+        "translation": "検死 / 解剖",
+        "exampleEn": "The doctor performed an autopsy to find the cause of death."
+      },
+      {
+        "text": "courtesy",
+        "translation": "礼儀 / 厚意",
+        "exampleEn": "As a courtesy, he opened the door for her."
+      },
+      {
+        "text": "discourse",
+        "translation": "論説 / 談話",
+        "exampleEn": "Public discourse on the issue has changed."
+      },
+      {
+        "text": "horizontal",
+        "translation": "水平の",
+        "exampleEn": "Draw a horizontal line across the page."
+      },
+      {
+        "text": "indefinite",
+        "translation": "不明確な / 無期限の",
+        "exampleEn": "The trip was delayed for an indefinite period."
+      },
+      {
+        "text": "vulgar",
+        "translation": "下品な",
+        "exampleEn": "His vulgar joke made everyone uncomfortable."
+      },
+      {
+        "text": "resilient",
+        "translation": "回復力のある / 弾力のある",
+        "exampleEn": "Children are often more resilient than adults expect."
+      },
+      {
+        "text": "aquatic",
+        "translation": "水生の",
+        "exampleEn": "The lake is home to many aquatic plants."
+      },
+      {
+        "text": "insistent",
+        "translation": "しつこい / 強く主張する",
+        "exampleEn": "He was insistent that we leave at once."
+      },
+      {
+        "text": "frantic",
+        "translation": "必死の / 取り乱した",
+        "exampleEn": "They made a frantic search for the missing key."
+      },
+      {
+        "text": "deceptive",
+        "translation": "人を惑わす / 見かけによらない",
+        "exampleEn": "The calm sea can be deceptive in winter."
+      },
+      {
+        "text": "illogical",
+        "translation": "非論理的な",
+        "exampleEn": "His conclusion seemed illogical to the audience."
+      },
+      {
+        "text": "elaborate",
+        "translation": "(細部まで)入念な / 精巧な",
+        "exampleEn": "Could you elaborate on your proposal?"
+      },
+      {
+        "text": "mellow",
+        "translation": "円熟した / 柔らかい",
+        "exampleEn": "The cheese has a mellow flavor."
+      },
+      {
+        "text": "boundless",
+        "translation": "果てしない",
+        "exampleEn": "The child showed boundless curiosity."
+      },
+      {
+        "text": "cordial",
+        "translation": "心からの / 親切な",
+        "exampleEn": "They maintained a cordial relationship."
+      },
+      {
+        "text": "seasonal",
+        "translation": "季節の / 季節的な",
+        "exampleEn": "The shop sells seasonal fruit."
+      },
+      {
+        "text": "cumulative",
+        "translation": "累積する / 累積的な",
+        "exampleEn": "The cumulative effect of small changes was significant."
+      },
+      {
+        "text": "savage",
+        "translation": "激しい / 残酷な",
+        "exampleEn": "The town was hit by a savage storm."
+      },
+      {
+        "text": "admirable",
+        "translation": "立派な / 賞賛に値する",
+        "exampleEn": "Her patience was truly admirable."
+      },
+      {
+        "text": "informative",
+        "translation": "有益な / 情報に富む",
+        "exampleEn": "The lecture was short but informative."
+      },
+      {
+        "text": "proportional",
+        "translation": "比例した / 釣り合った",
+        "exampleEn": "The payment is proportional to the amount of work."
+      },
+      {
+        "text": "simultaneous",
+        "translation": "同時の",
+        "exampleEn": "The two events happened almost simultaneously."
+      },
+      {
+        "text": "uneasy",
+        "translation": "不安な / 落ち着かない",
+        "exampleEn": "I felt uneasy about the sudden silence."
+      },
+      {
+        "text": "unequal",
+        "translation": "不平等な / 等しくない",
+        "exampleEn": "The two sides entered the debate under unequal conditions."
+      },
+      {
+        "text": "autonomous",
+        "translation": "(外部に頼らず)自律した",
+        "exampleEn": "The rover can operate in an autonomous mode."
+      },
+      {
+        "text": "pessimistic",
+        "translation": "悲観的な",
+        "exampleEn": "He is pessimistic about the short-term outlook."
+      },
+      {
+        "text": "repetitive",
+        "translation": "繰り返しの多い",
+        "exampleEn": "The task is simple but repetitive."
+      },
+      {
+        "text": "respiratory",
+        "translation": "呼吸器の",
+        "exampleEn": "Air pollution can cause respiratory problems."
+      },
+      {
+        "text": "coherent",
+        "translation": "一貫した / 筋の通った",
+        "exampleEn": "She gave a coherent explanation of the plan."
+      },
+      {
+        "text": "abundant",
+        "translation": "(量が)豊富な",
+        "exampleEn": "Fresh water is abundant here."
+      },
+      {
+        "text": "accurate",
+        "translation": "(事実や情報が)正確な",
+        "exampleEn": "The report was accurate."
+      },
+      {
+        "text": "adjust",
+        "translation": "(状態に合わせて)調整する",
+        "exampleEn": "You can adjust the chair height."
+      },
+      {
+        "text": "aggression",
+        "translation": "攻撃性 / 敵意",
+        "exampleEn": "The coach warned against aggression on the field."
+      },
+      {
+        "text": "allocate",
+        "translation": "(予算や資源を)割り当てる",
+        "exampleEn": "The city allocated more money to schools."
+      },
+      {
+        "text": "ambitious",
+        "translation": "(大きな目標を持つ)野心的な",
+        "exampleEn": "She set an ambitious goal for the year."
+      },
+      {
+        "text": "anticipate",
+        "translation": "(先を見こして)予期する",
+        "exampleEn": "We anticipate a rise in demand."
+      },
+      {
+        "text": "apparent",
+        "translation": "(見たところ)明らかな",
+        "exampleEn": "It soon became apparent that we were lost."
+      },
+      {
+        "text": "appeal",
+        "translation": "(強く)訴える / (人を)ひきつける",
+        "exampleEn": "The idea appeals to young voters."
+      },
+      {
+        "text": "appoint",
+        "translation": "(役職に)任命する",
+        "exampleEn": "They appointed her chair of the committee."
+      },
+      {
+        "text": "appreciate",
+        "translation": "(価値や重要性を)理解する",
+        "exampleEn": "I appreciate your honest feedback."
+      },
+      {
+        "text": "arbitrary",
+        "translation": "(根拠なく)恣意的な",
+        "exampleEn": "The limit seems arbitrary to many users."
+      },
+      {
+        "text": "architecture",
+        "translation": "建築 / 建築様式",
+        "exampleEn": "The city has beautiful architecture."
+      },
+      {
+        "text": "asset",
+        "translation": "資産 / 強み",
+        "exampleEn": "Trust is a valuable asset."
+      },
+      {
+        "text": "assign",
+        "translation": "(仕事や任務を)割り当てる",
+        "exampleEn": "The teacher assigned extra homework."
+      },
+      {
+        "text": "assist",
+        "translation": "(人を)手助けする",
+        "exampleEn": "Two volunteers assisted the elderly man."
+      },
+      {
+        "text": "attribute",
+        "translation": "(人や物の)属性",
+        "exampleEn": "Patience is her best attribute."
+      },
+      {
+        "text": "authorize",
+        "translation": "(公的に)認可する",
+        "exampleEn": "The manager authorized the refund."
+      },
+      {
+        "text": "bias",
+        "translation": "偏り / 先入観",
+        "exampleEn": "The survey showed a clear bias."
+      },
+      {
+        "text": "brief",
+        "translation": "(時間や文章が)簡潔な",
+        "exampleEn": "He gave a brief explanation."
+      },
+      {
+        "text": "capacity",
+        "translation": "容量 / 能力",
+        "exampleEn": "This hall has a large capacity."
+      },
+      {
+        "text": "capture",
+        "translation": "(注意や心を)引きつける / (映像や変化を)捉える",
+        "exampleEn": "The photo captures the moment well."
+      },
+      {
+        "text": "cease",
+        "translation": "(活動を)やめる",
+        "exampleEn": "The noise ceased at midnight."
+      },
+      {
+        "text": "challenge",
+        "translation": "課題 / 挑戦",
+        "exampleEn": "Climate change is a global challenge."
+      },
+      {
+        "text": "clarify",
+        "translation": "(意味などを)明確にする",
+        "exampleEn": "Could you clarify the last point?"
+      },
+      {
+        "text": "combine",
+        "translation": "(複数のものを)組み合わせる",
+        "exampleEn": "The recipe combines sweet and sour flavors."
+      },
+      {
+        "text": "commence",
+        "translation": "(公式に)開始する",
+        "exampleEn": "The ceremony will commence at noon."
+      },
+      {
+        "text": "commit",
+        "translation": "(責任を持って)関わる / (約束を)する",
+        "exampleEn": "The company committed itself to safer practices."
+      },
+      {
+        "text": "commodity",
+        "translation": "(売買される)商品",
+        "exampleEn": "Oil is a valuable commodity."
+      },
+      {
+        "text": "compatible",
+        "translation": "(一緒に使えて)両立する",
+        "exampleEn": "This software is compatible with older systems."
+      },
+      {
+        "text": "compile",
+        "translation": "(情報を集めて)編集する",
+        "exampleEn": "She compiled the data into a chart."
+      },
+      {
+        "text": "complement",
+        "translation": "(不足を)補う / 補完物",
+        "exampleEn": "The scarf complements her coat."
+      },
+      {
+        "text": "compromise",
+        "translation": "妥協 / 譲歩",
+        "exampleEn": "They reached a fair compromise."
+      },
+      {
+        "text": "concentrate",
+        "translation": "(意識や力を)集中する",
+        "exampleEn": "Please concentrate on the task."
+      },
+      {
+        "text": "conclude",
+        "translation": "(検討の末に)結論づける",
+        "exampleEn": "The study concluded that sleep matters."
+      },
+      {
+        "text": "concrete",
+        "translation": "(抽象でなく)具体的な",
+        "exampleEn": "We need concrete evidence."
+      },
+      {
+        "text": "conflict",
+        "translation": "対立 / 食い違い",
+        "exampleEn": "The conflict lasted for years."
+      },
+      {
+        "text": "conservative",
+        "translation": "保守的な",
+        "exampleEn": "He comes from a conservative family."
+      },
+      {
+        "text": "considerable",
+        "translation": "(数量が)かなりの",
+        "exampleEn": "The project requires a considerable amount of time."
+      },
+      {
+        "text": "consistent",
+        "translation": "(方針や態度が)一貫した",
+        "exampleEn": "Her results have been consistent for months."
+      },
+      {
+        "text": "constant",
+        "translation": "(途切れず)絶え間ない",
+        "exampleEn": "The machine makes a constant noise."
+      },
+      {
+        "text": "context",
+        "translation": "(言葉や出来事の)文脈",
+        "exampleEn": "You need to see the word in context."
+      },
+      {
+        "text": "contribute",
+        "translation": "(発展などに)貢献する",
+        "exampleEn": "Everyone can contribute ideas to the discussion."
+      },
+      {
+        "text": "controversial",
+        "translation": "(意見が分かれて)論争を呼ぶ",
+        "exampleEn": "The proposal remains highly controversial."
+      },
+      {
+        "text": "cope",
+        "translation": "(困難に)うまく対処する",
+        "exampleEn": "He struggled to cope after the accident."
+      },
+      {
+        "text": "core",
+        "translation": "中心 / 核心",
+        "exampleEn": "Safety is at the core of the plan."
+      },
+      {
+        "text": "corporate",
+        "translation": "企業の / 法人の",
+        "exampleEn": "She works in corporate law."
+      },
+      {
+        "text": "correspond",
+        "translation": "(内容が)対応する",
+        "exampleEn": "The results do not correspond with our expectations."
+      },
+      {
+        "text": "criterion",
+        "translation": "(判断の)基準",
+        "exampleEn": "Cost is an important criterion."
+      },
+      {
+        "text": "curious",
+        "translation": "(知りたがって)好奇心の強い",
+        "exampleEn": "Children are naturally curious."
+      },
+      {
+        "text": "currency",
+        "translation": "通貨 / 通用",
+        "exampleEn": "Digital currency is growing fast."
+      },
+      {
+        "text": "decade",
+        "translation": "10年間",
+        "exampleEn": "The town changed a lot over the last decade."
+      },
+      {
+        "text": "decline",
+        "translation": "(数や質が)落ちる",
+        "exampleEn": "Sales declined in winter."
+      },
+      {
+        "text": "deficit",
+        "translation": "赤字 / 不足",
+        "exampleEn": "The country faces a budget deficit."
+      },
+      {
+        "text": "delay",
+        "translation": "(時期を)遅らせる",
+        "exampleEn": "Fog delayed the flight."
+      },
+      {
+        "text": "demand",
+        "translation": "需要 / 要求",
+        "exampleEn": "There is strong demand for clean energy."
+      },
+      {
+        "text": "dense",
+        "translation": "(人や建物が)密集した",
+        "exampleEn": "The forest is dense and dark."
+      },
+      {
+        "text": "deny",
+        "translation": "(事実や要求を)否定する",
+        "exampleEn": "He denied the accusation."
+      },
+      {
+        "text": "depart",
+        "translation": "(場所を)出発する",
+        "exampleEn": "The train departs at 7:30."
+      },
+      {
+        "text": "depend",
+        "translation": "(条件しだいで)決まる",
+        "exampleEn": "Success depends on preparation."
+      },
+      {
+        "text": "depress",
+        "translation": "(気分を)落ち込ませる / 憂うつにする",
+        "exampleEn": "The news depressed everyone."
+      },
+      {
+        "text": "derive",
+        "translation": "(別のものから)引き出す",
+        "exampleEn": "Many English words derive from Latin."
+      },
+      {
+        "text": "diagnose",
+        "translation": "(病気を)診断する",
+        "exampleEn": "Doctors diagnosed him with pneumonia."
+      },
+      {
+        "text": "differ",
+        "translation": "(互いに)異なる",
+        "exampleEn": "Opinions differ from person to person."
+      },
+      {
+        "text": "discriminate",
+        "translation": "(不当に)差別する",
+        "exampleEn": "It is illegal to discriminate on the basis of age."
+      },
+      {
+        "text": "distribute",
+        "translation": "(広く)配布する",
+        "exampleEn": "Volunteers distributed food to the crowd."
+      },
+      {
+        "text": "diverse",
+        "translation": "(種類が)多様な",
+        "exampleEn": "The city has a diverse population."
+      },
+      {
+        "text": "domestic",
+        "translation": "(外国でなく)国内の",
+        "exampleEn": "Domestic flights were canceled due to snow."
+      },
+      {
+        "text": "dominant",
+        "translation": "支配的な / 優勢な",
+        "exampleEn": "Online shopping has become the dominant trend."
+      },
+      {
+        "text": "economy",
+        "translation": "(社会全体の)経済",
+        "exampleEn": "The local economy depends on tourism."
+      },
+      {
+        "text": "emotion",
+        "translation": "(人の)感情",
+        "exampleEn": "Her voice was full of emotion."
+      },
+      {
+        "text": "encourage",
+        "translation": "(人を)励ます",
+        "exampleEn": "Good teachers encourage curiosity."
+      },
+      {
+        "text": "environmental",
+        "translation": "環境の / 環境保護に関する",
+        "exampleEn": "The group supports environmental education."
+      },
+      {
+        "text": "eventual",
+        "translation": "(長い過程の末の)最終的な",
+        "exampleEn": "Her eventual success inspired the team."
+      },
+      {
+        "text": "evident",
+        "translation": "(見て)明白な",
+        "exampleEn": "Her relief was evident on her face."
+      },
+      {
+        "text": "evolve",
+        "translation": "(時間をかけて)発展する",
+        "exampleEn": "Languages evolve over time."
+      },
+      {
+        "text": "exclude",
+        "translation": "(対象から)除外する",
+        "exampleEn": "The list excludes part-time workers."
+      },
+      {
+        "text": "exhibit",
+        "translation": "(作品を)展示する / (特徴を)示す",
+        "exampleEn": "The museum exhibits local art."
+      },
+      {
+        "text": "expenditure",
+        "translation": "支出",
+        "exampleEn": "Government expenditure rose last year."
+      },
+      {
+        "text": "expert",
+        "translation": "(その分野の)専門家",
+        "exampleEn": "Ask an expert for advice."
+      },
+      {
+        "text": "exploit",
+        "translation": "(利益のために)利用する",
+        "exampleEn": "Some companies exploit cheap labor."
+      },
+      {
+        "text": "expose",
+        "translation": "(危険や批判に)さらす",
+        "exampleEn": "The article exposed serious flaws in the system."
+      },
+      {
+        "text": "external",
+        "translation": "(組織の)外部の",
+        "exampleEn": "The device has no external damage."
+      },
+      {
+        "text": "extract",
+        "translation": "(情報や成分を)取り出す",
+        "exampleEn": "The recipe uses oil extracted from seeds."
+      },
+      {
+        "text": "federal",
+        "translation": "(国の)連邦の",
+        "exampleEn": "Federal law protects this area."
+      },
+      {
+        "text": "fee",
+        "translation": "料金 / 謝礼",
+        "exampleEn": "There is no fee for this class."
+      },
+      {
+        "text": "focus",
+        "translation": "焦点 / 注目点",
+        "exampleEn": "The main focus is safety."
+      },
+      {
+        "text": "forecast",
+        "translation": "予測 / 予報",
+        "exampleEn": "Rain is in the forecast for tomorrow."
+      },
+      {
+        "text": "framework",
+        "translation": "(考え方の)枠組み",
+        "exampleEn": "The report provides a clear framework."
+      },
+      {
+        "text": "frequent",
+        "translation": "(回数が)頻繁な",
+        "exampleEn": "We had frequent power cuts last summer."
+      },
+      {
+        "text": "fund",
+        "translation": "資金 / 基金",
+        "exampleEn": "The charity needs more funds."
+      },
+      {
+        "text": "furthermore",
+        "translation": "(論を進めて)そのうえ",
+        "exampleEn": "Furthermore, the plan would cost less."
+      },
+      {
+        "text": "gender",
+        "translation": "(社会的・生物学的な)性別",
+        "exampleEn": "The survey asked about age and gender."
+      },
+      {
+        "text": "genuine",
+        "translation": "(偽物でなく)本物の / 真の",
+        "exampleEn": "Her apology sounded genuine."
+      },
+      {
+        "text": "harm",
+        "translation": "(相手に)害を与える",
+        "exampleEn": "Too much sun can harm your skin."
+      },
+      {
+        "text": "hazard",
+        "translation": "危険 / 危険要因",
+        "exampleEn": "Smoke is a serious hazard."
+      },
+      {
+        "text": "household",
+        "translation": "世帯 / 家庭",
+        "exampleEn": "Many households recycle paper."
+      },
+      {
+        "text": "ideal",
+        "translation": "理想的な / 理想の",
+        "exampleEn": "This room is ideal for meetings."
+      },
+      {
+        "text": "identify",
+        "translation": "(正体を)特定する",
+        "exampleEn": "The police identified the suspect."
+      },
+      {
+        "text": "ignore",
+        "translation": "(意図的に)無視する",
+        "exampleEn": "Please do not ignore the warning signs."
+      },
+      {
+        "text": "immediate",
+        "translation": "(時間を置かず)即時の",
+        "exampleEn": "The patient needs immediate care."
+      },
+      {
+        "text": "impact",
+        "translation": "影響 / 衝撃",
+        "exampleEn": "The decision had a big impact."
+      },
+      {
+        "text": "include",
+        "translation": "(一部として)含む",
+        "exampleEn": "The price includes breakfast."
+      },
+      {
+        "text": "increase",
+        "translation": "増加する",
+        "exampleEn": "The company increased wages this year."
+      },
+      {
+        "text": "individual",
+        "translation": "個人 / 個々の人",
+        "exampleEn": "Each individual has different needs."
+      },
+      {
+        "text": "infer",
+        "translation": "(情報から)推測する",
+        "exampleEn": "From his tone, I inferred that he was upset."
+      },
+      {
+        "text": "influence",
+        "translation": "(人の考えや行動に)影響を与える",
+        "exampleEn": "Friends can strongly influence teenagers."
+      },
+      {
+        "text": "initial",
+        "translation": "最初の / 初期の",
+        "exampleEn": "The initial response was positive."
+      },
+      {
+        "text": "insist",
+        "translation": "(強く)主張する",
+        "exampleEn": "She insisted on paying the bill."
+      },
+      {
+        "text": "install",
+        "translation": "(設備やソフトを)設置する",
+        "exampleEn": "They installed solar panels on the roof."
+      },
+      {
+        "text": "internal",
+        "translation": "(組織の)内部の",
+        "exampleEn": "The report found internal problems."
+      },
+      {
+        "text": "interval",
+        "translation": "(時間や距離の)間隔",
+        "exampleEn": "The buses arrive at 15-minute intervals."
+      },
+      {
+        "text": "issue",
+        "translation": "(社会的な)問題",
+        "exampleEn": "Water safety is a major issue."
+      },
+      {
+        "text": "journal",
+        "translation": "(研究論文などを載せる)学術誌 / 専門誌",
+        "exampleEn": "She published the article in a journal."
+      },
+      {
+        "text": "justify",
+        "translation": "(理由を示して)正当化する",
+        "exampleEn": "Nothing can justify such violence."
+      },
+      {
+        "text": "labor",
+        "translation": "(肉体・精神の)労働",
+        "exampleEn": "The job requires physical labor."
+      },
+      {
+        "text": "launch",
+        "translation": "(事業や商品を)開始する / 打ち上げる",
+        "exampleEn": "The company launched a new service."
+      },
+      {
+        "text": "legal",
+        "translation": "(法律上)合法の",
+        "exampleEn": "You should get legal advice."
+      },
+      {
+        "text": "liberal",
+        "translation": "自由主義の / 寛大な",
+        "exampleEn": "She takes a more liberal view on education."
+      },
+      {
+        "text": "limit",
+        "translation": "(範囲や量を)制限する",
+        "exampleEn": "Parents often limit screen time before bed."
+      },
+      {
+        "text": "localize",
+        "translation": "地域化する",
+        "exampleEn": "Doctors were able to localize the source of the pain."
+      },
+      {
+        "text": "maintain",
+        "translation": "(よい状態を)維持する",
+        "exampleEn": "It is hard to maintain a healthy routine."
+      },
+      {
+        "text": "majority",
+        "translation": "大多数 / 過半数",
+        "exampleEn": "The majority supported the proposal."
+      },
+      {
+        "text": "margin",
+        "translation": "差 / 余白",
+        "exampleEn": "The team won by a small margin."
+      },
+      {
+        "text": "mature",
+        "translation": "(十分に)成熟した",
+        "exampleEn": "He became more mature after the experience."
+      },
+      {
+        "text": "maximum",
+        "translation": "最大の",
+        "exampleEn": "The hall has a maximum capacity of 500."
+      },
+      {
+        "text": "measure",
+        "translation": "対策 / 測定基準",
+        "exampleEn": "The city took strict measures."
+      },
+      {
+        "text": "medical",
+        "translation": "医学の / 医療の",
+        "exampleEn": "He is seeking medical treatment abroad."
+      },
+      {
+        "text": "mental",
+        "translation": "精神の / 心の",
+        "exampleEn": "Regular breaks improve mental focus."
+      },
+      {
+        "text": "minor",
+        "translation": "些細な",
+        "exampleEn": "The car sustained only minor damage."
+      },
+      {
+        "text": "mutual",
+        "translation": "相互の / 互いの",
+        "exampleEn": "The two countries reached a mutual agreement."
+      },
+      {
+        "text": "narrow",
+        "translation": "狭い / 限定的な",
+        "exampleEn": "We crossed a narrow bridge."
+      },
+      {
+        "text": "necessary",
+        "translation": "(欠かせず)必要な",
+        "exampleEn": "A passport is necessary for this trip."
+      },
+      {
+        "text": "neglect",
+        "translation": "(義務を)怠る",
+        "exampleEn": "No child should suffer from neglect."
+      },
+      {
+        "text": "notable",
+        "translation": "(特に)注目すべき",
+        "exampleEn": "She made a notable contribution to the field."
+      },
+      {
+        "text": "observe",
+        "translation": "(注意して)観察する",
+        "exampleEn": "Researchers observed a change in behavior."
+      },
+      {
+        "text": "occur",
+        "translation": "起こる",
+        "exampleEn": "Such errors rarely occur."
+      },
+      {
+        "text": "obvious",
+        "translation": "(だれの目にも)明らかな",
+        "exampleEn": "The answer may seem obvious now."
+      },
+      {
+        "text": "ordinary",
+        "translation": "普通の / 平凡な",
+        "exampleEn": "It was just an ordinary day."
+      },
+      {
+        "text": "participate",
+        "translation": "(活動に)参加する",
+        "exampleEn": "Anyone can participate in the workshop."
+      },
+      {
+        "text": "particular",
+        "translation": "特定の / 特有の",
+        "exampleEn": "He showed particular interest in science."
+      },
+      {
+        "text": "perceive",
+        "translation": "(感覚や理解で)認識する",
+        "exampleEn": "Children perceive time differently from adults."
+      },
+      {
+        "text": "permanent",
+        "translation": "永続的な / 恒久的な",
+        "exampleEn": "The stain left permanent marks."
+      },
+      {
+        "text": "permit",
+        "translation": "(一般に)許可する",
+        "exampleEn": "The museum does not permit flash photography."
+      },
+      {
+        "text": "phase",
+        "translation": "段階 / 時期",
+        "exampleEn": "The project is now in its final phase."
+      },
+      {
+        "text": "physical",
+        "translation": "身体の / 物理的な",
+        "exampleEn": "Regular exercise improves physical strength."
+      },
+      {
+        "text": "policy",
+        "translation": "(政府や組織の)方針",
+        "exampleEn": "The company changed its hiring policy."
+      },
+      {
+        "text": "positive",
+        "translation": "前向きな / 肯定的な",
+        "exampleEn": "She tries to stay positive."
+      },
+      {
+        "text": "primary",
+        "translation": "主要な / 第一の",
+        "exampleEn": "Our primary concern is safety."
+      },
+      {
+        "text": "process",
+        "translation": "過程 / 処理",
+        "exampleEn": "Learning is a slow process."
+      },
+      {
+        "text": "professional",
+        "translation": "専門職の / 職業上の",
+        "exampleEn": "She gave me professional advice."
+      },
+      {
+        "text": "promote",
+        "translation": "(普及や成長を)促進する / 昇進させる",
+        "exampleEn": "The campaign promotes healthy eating."
+      },
+      {
+        "text": "prospect",
+        "translation": "見通し / 将来性",
+        "exampleEn": "The job offers good prospects."
+      },
+      {
+        "text": "protect",
+        "translation": "(危険から)守る",
+        "exampleEn": "Sunscreen helps protect your skin."
+      },
+      {
+        "text": "provide",
+        "translation": "(必要なものを)提供する",
+        "exampleEn": "The course provides practical training."
+      },
+      {
+        "text": "publish",
+        "translation": "(本や記事を)公表する",
+        "exampleEn": "The paper was published last month."
+      },
+      {
+        "text": "pursue",
+        "translation": "(目標を)追求する",
+        "exampleEn": "She decided to pursue a career in law."
+      },
+      {
+        "text": "recover",
+        "translation": "(失ったものを)回復する",
+        "exampleEn": "He recovered quickly after surgery."
+      },
+      {
+        "text": "reduce",
+        "translation": "(量を)減らす",
+        "exampleEn": "This change could reduce traffic noise."
+      },
+      {
+        "text": "regulate",
+        "translation": "(ルールで)規制する",
+        "exampleEn": "The government regulates food safety."
+      },
+      {
+        "text": "release",
+        "translation": "(製品や情報を)公開する / 解放する",
+        "exampleEn": "The studio released a new film."
+      },
+      {
+        "text": "rely",
+        "translation": "(人や助けに)頼る",
+        "exampleEn": "Many villages rely on well water."
+      },
+      {
+        "text": "remove",
+        "translation": "(その場から)取り除く",
+        "exampleEn": "Please remove your shoes at the door."
+      },
+      {
+        "text": "require",
+        "translation": "(条件として)必要とする",
+        "exampleEn": "The job requires patience and skill."
+      },
+      {
+        "text": "reserve",
+        "translation": "(あらかじめ)予約する / 予備として取っておく",
+        "exampleEn": "I reserved a table for six."
+      },
+      {
+        "text": "reveal",
+        "translation": "(隠れていたことを)明らかにする / 見せる",
+        "exampleEn": "The test revealed the problem."
+      }
+    ],
+    "2": [
+      {
+        "text": "push for",
+        "translation": "を強く求める",
+        "exampleEn": "The group is pushing for stricter rules."
+      },
+      {
+        "text": "push through",
+        "translation": "押し通す / やり抜く",
+        "exampleEn": "They pushed through the final stage of the project."
+      },
+      {
+        "text": "put down",
+        "translation": "書き留める / けなす / 置く",
+        "exampleEn": "She put down her thoughts in a notebook."
+      },
+      {
+        "text": "put forth",
+        "translation": "出す / 提案する",
+        "exampleEn": "The committee put forth a new proposal."
+      },
+      {
+        "text": "put forward",
+        "translation": "提案する / 前に出す",
+        "exampleEn": "She put forward an interesting idea."
+      },
+      {
+        "text": "put in",
+        "translation": "差し込む / 費やす / 申請する",
+        "exampleEn": "They put in a lot of effort to finish on time."
+      },
+      {
+        "text": "put A through to B",
+        "translation": "AをBにつなぐ",
+        "exampleEn": "Could you put me through to the sales department?"
+      },
+      {
+        "text": "read off",
+        "translation": "読み上げる",
+        "exampleEn": "The teacher read off the names one by one."
+      },
+      {
+        "text": "refrain from doing",
+        "translation": "するのを控える",
+        "exampleEn": "Please refrain from using your phone during the performance."
+      },
+      {
+        "text": "roll in",
+        "translation": "どっと入ってくる / 転がり込む",
+        "exampleEn": "Orders began to roll in after the ad campaign."
+      },
+      {
+        "text": "roll up",
+        "translation": "巻き上げる / 到着する",
+        "exampleEn": "He rolled up his sleeves and got to work."
+      },
+      {
+        "text": "round off",
+        "translation": "締めくくる / 丸める",
+        "exampleEn": "They rounded off the evening with a song."
+      },
+      {
+        "text": "round up",
+        "translation": "集める / 端数を切り上げる",
+        "exampleEn": "We need to round up all the participants."
+      },
+      {
+        "text": "run against",
+        "translation": "に反する / に立候補して争う",
+        "exampleEn": "The proposal runs against our policy."
+      },
+      {
+        "text": "run down",
+        "translation": "要約して話す / 衰えさせる",
+        "exampleEn": "Could you run down the main points for me?"
+      },
+      {
+        "text": "run through",
+        "translation": "ざっと見直す / 通り抜ける",
+        "exampleEn": "Let's run through the checklist once more."
+      },
+      {
+        "text": "scoop up",
+        "translation": "すくい上げる / 一気に買い集める",
+        "exampleEn": "She scooped up the spilled rice with a spoon."
+      },
+      {
+        "text": "scratch out",
+        "translation": "かき消す / かろうじて得る",
+        "exampleEn": "He scratched out the wrong word and rewrote it."
+      },
+      {
+        "text": "see about",
+        "translation": "に対処する / を手配する",
+        "exampleEn": "I will see about booking the tickets."
+      },
+      {
+        "text": "see A off",
+        "translation": "Aを見送る",
+        "exampleEn": "We went to the station to see her off."
+      },
+      {
+        "text": "see through",
+        "translation": "見抜く / 最後までやり通す",
+        "exampleEn": "She saw through his excuse at once."
+      },
+      {
+        "text": "send for",
+        "translation": "を呼びにやる / 取り寄せる",
+        "exampleEn": "The doctor was sent for immediately."
+      },
+      {
+        "text": "send out for",
+        "translation": "を出前で取る",
+        "exampleEn": "We sent out for pizza after work."
+      },
+      {
+        "text": "set down",
+        "translation": "書き留める / 置く",
+        "exampleEn": "She set down her ideas in a notebook."
+      },
+      {
+        "text": "set in",
+        "translation": "始まる / 定着する",
+        "exampleEn": "Winter has begun to set in early this year."
+      },
+      {
+        "text": "set off",
+        "translation": "出発する / 引き起こす",
+        "exampleEn": "They set off early in the morning."
+      },
+      {
+        "text": "set out to do",
+        "translation": "するつもりで始める",
+        "exampleEn": "They set out to build a better service."
+      },
+      {
+        "text": "settle up",
+        "translation": "勘定を済ませる",
+        "exampleEn": "We settled up before leaving the hotel."
+      },
+      {
+        "text": "shake up",
+        "translation": "大きく変える / 動揺させる",
+        "exampleEn": "The company shook up its management team."
+      },
+      {
+        "text": "single out",
+        "translation": "を選び出す / 取り上げる",
+        "exampleEn": "The coach singled out her effort for praise."
+      },
+      {
+        "text": "sit by",
+        "translation": "傍観する",
+        "exampleEn": "We cannot just sit by and do nothing."
+      },
+      {
+        "text": "skim over",
+        "translation": "ざっと目を通す",
+        "exampleEn": "I skimmed over the report before the meeting."
+      },
+      {
+        "text": "slip by",
+        "translation": "いつの間にか過ぎる",
+        "exampleEn": "The summer vacation slipped by quickly."
+      },
+      {
+        "text": "smooth over",
+        "translation": "を丸く収める",
+        "exampleEn": "She tried to smooth over the disagreement."
+      },
+      {
+        "text": "spring from",
+        "translation": "から生じる",
+        "exampleEn": "Many problems spring from poor communication."
+      },
+      {
+        "text": "spring up",
+        "translation": "突然現れる",
+        "exampleEn": "New cafes have sprung up around the station."
+      },
+      {
+        "text": "stand down",
+        "translation": "退く / 辞任する",
+        "exampleEn": "The chairperson agreed to stand down next month."
+      },
+      {
+        "text": "stand up to",
+        "translation": "に立ち向かう / に耐える",
+        "exampleEn": "She stood up to unfair criticism."
+      },
+      {
+        "text": "stay off",
+        "translation": "に近づかない / を避ける",
+        "exampleEn": "You should stay off that wet floor."
+      },
+      {
+        "text": "step down",
+        "translation": "辞任する / 身を引く",
+        "exampleEn": "The director stepped down after ten years."
+      },
+      {
+        "text": "stick to",
+        "translation": "を守る / に固執する",
+        "exampleEn": "Please stick to the schedule."
+      },
+      {
+        "text": "stick up for",
+        "translation": "をかばう / 擁護する",
+        "exampleEn": "He always sticks up for his friends."
+      },
+      {
+        "text": "stir in",
+        "translation": "をかき混ぜて入れる",
+        "exampleEn": "Stir in the sugar slowly."
+      },
+      {
+        "text": "stir up",
+        "translation": "かき立てる / かき混ぜる",
+        "exampleEn": "The speech stirred up strong emotions."
+      },
+      {
+        "text": "talk down to A",
+        "translation": "Aを見下した話し方をする",
+        "exampleEn": "You should not talk down to your students."
+      },
+      {
+        "text": "talk A into doing",
+        "translation": "Aを説得してさせる",
+        "exampleEn": "She talked him into joining the trip."
+      },
+      {
+        "text": "talk up",
+        "translation": "を盛んにほめる / 宣伝する",
+        "exampleEn": "The media talked up the new product."
+      },
+      {
+        "text": "tell on",
+        "translation": "に告げ口する / に悪影響を及ぼす",
+        "exampleEn": "The long hours are starting to tell on him."
+      },
+      {
+        "text": "the other way around",
+        "translation": "逆に",
+        "exampleEn": "I thought he was the teacher, but it was the other way around."
+      },
+      {
+        "text": "throw off",
+        "translation": "振り払う / 取り除く",
+        "exampleEn": "She tried to throw off her anxiety."
+      },
+      {
+        "text": "throw up",
+        "translation": "吐く / 急に生じる",
+        "exampleEn": "The project threw up several unexpected problems."
+      },
+      {
+        "text": "tidy up",
+        "translation": "片づける",
+        "exampleEn": "Please tidy up the room before dinner."
+      },
+      {
+        "text": "tie up",
+        "translation": "縛る / 時間を取る / 提携する",
+        "exampleEn": "The meeting tied up the staff for most of the day."
+      },
+      {
+        "text": "tip over",
+        "translation": "ひっくり返る / ひっくり返す",
+        "exampleEn": "The vase tipped over in the wind."
+      },
+      {
+        "text": "touch up",
+        "translation": "手直しする / 修整する",
+        "exampleEn": "She touched up the photo before printing it."
+      },
+      {
+        "text": "track down",
+        "translation": "追跡して見つける",
+        "exampleEn": "The reporter tracked down the original source."
+      },
+      {
+        "text": "trip up",
+        "translation": "つまずかせる / 失敗させる",
+        "exampleEn": "A small detail tripped up the team."
+      },
+      {
+        "text": "tune in to",
+        "translation": "にチャンネルを合わせる / 注意を向ける",
+        "exampleEn": "Many listeners tuned in to the live broadcast."
+      },
+      {
+        "text": "tune up",
+        "translation": "調整する",
+        "exampleEn": "He tuned up the engine before the trip."
+      },
+      {
+        "text": "turn around",
+        "translation": "好転させる / 振り向く",
+        "exampleEn": "The new manager turned the business around."
+      },
+      {
+        "text": "turn away",
+        "translation": "追い返す / 顔をそむける",
+        "exampleEn": "The shelter could not turn away anyone in need."
+      },
+      {
+        "text": "turn in",
+        "translation": "提出する / 寝る / 引き渡す",
+        "exampleEn": "Please turn in your report by Friday."
+      },
+      {
+        "text": "walk off with",
+        "translation": "を持ち去る / を楽々手に入れる",
+        "exampleEn": "Someone walked off with my umbrella."
+      },
+      {
+        "text": "wander off",
+        "translation": "ふらりと離れる",
+        "exampleEn": "The child wandered off from the group."
+      },
+      {
+        "text": "want for",
+        "translation": "を欠く",
+        "exampleEn": "The town never wanted for fresh water."
+      },
+      {
+        "text": "wash away",
+        "translation": "洗い流す / 消し去る",
+        "exampleEn": "The heavy rain washed away the footprints."
+      },
+      {
+        "text": "wash down",
+        "translation": "水などで飲み下す",
+        "exampleEn": "She washed the pills down with a glass of water."
+      },
+      {
+        "text": "watch over",
+        "translation": "見守る / 世話をする",
+        "exampleEn": "An older nurse watched over the children."
+      },
+      {
+        "text": "weigh on",
+        "translation": "重くのしかかる / 心を悩ませる",
+        "exampleEn": "The uncertainty weighed on everyone in the office."
+      },
+      {
+        "text": "win over",
+        "translation": "味方に引き入れる / 納得させる",
+        "exampleEn": "Her honesty won over the audience."
+      },
+      {
+        "text": "agree on",
+        "translation": "(案や条件に)合意する",
+        "exampleEn": "They agreed on a new plan."
+      },
+      {
+        "text": "aim at",
+        "translation": "(目標として)目指す / 狙う",
+        "exampleEn": "The campaign aims at young voters."
+      },
+      {
+        "text": "appeal to",
+        "translation": "(感情に)訴えかける",
+        "exampleEn": "The ad appeals to young people."
+      },
+      {
+        "text": "approve of",
+        "translation": "(考えや行動に)賛成する",
+        "exampleEn": "I do not approve of that idea."
+      },
+      {
+        "text": "be based on",
+        "translation": "(事実や理論に)基づいている",
+        "exampleEn": "The film is based on a true story."
+      },
+      {
+        "text": "be composed of",
+        "translation": "(要素から)成り立っている",
+        "exampleEn": "The committee is composed of five members."
+      },
+      {
+        "text": "be concerned about",
+        "translation": "(問題を)心配している",
+        "exampleEn": "Parents are concerned about online safety."
+      },
+      {
+        "text": "be exposed to",
+        "translation": "(危険や影響に)さらされる",
+        "exampleEn": "Children are exposed to many ads."
+      },
+      {
+        "text": "be inclined to",
+        "translation": "(ある傾向に)なりがちである",
+        "exampleEn": "He is inclined to doubt new ideas."
+      },
+      {
+        "text": "be involved in",
+        "translation": "(事件や活動に)関わっている",
+        "exampleEn": "She was involved in the project."
+      },
+      {
+        "text": "break down",
+        "translation": "故障する / 分解する",
+        "exampleEn": "My car broke down yesterday."
+      },
+      {
+        "text": "build up",
+        "translation": "(時間をかけて)蓄積する",
+        "exampleEn": "Stress can build up over time."
+      },
+      {
+        "text": "call for",
+        "translation": "(状況が)必要とする",
+        "exampleEn": "The crisis calls for quick action."
+      },
+      {
+        "text": "carry out",
+        "translation": "(計画を)実行する",
+        "exampleEn": "The researchers carried out the experiment."
+      },
+      {
+        "text": "catch up with",
+        "translation": "(人や流れに)追いつく",
+        "exampleEn": "I ran to catch up with Ken."
+      },
+      {
+        "text": "come across",
+        "translation": "偶然出会う / ふと見つける",
+        "exampleEn": "I came across an old photo."
+      },
+      {
+        "text": "come up with",
+        "translation": "思いつく / 考え出す",
+        "exampleEn": "She came up with a good idea."
+      },
+      {
+        "text": "consist of",
+        "translation": "(要素から)成る",
+        "exampleEn": "The team consists of five members."
+      },
+      {
+        "text": "cope with",
+        "translation": "(問題や状況に)対処する",
+        "exampleEn": "She learned to cope with stress."
+      },
+      {
+        "text": "deal with",
+        "translation": "(問題を)扱う / 対処する",
+        "exampleEn": "He dealt with the complaint well."
+      },
+      {
+        "text": "depend on",
+        "translation": "(条件や人に)依存する",
+        "exampleEn": "Success depends on hard work."
+      },
+      {
+        "text": "differ from",
+        "translation": "(〜とは)異なる",
+        "exampleEn": "My view differs from yours."
+      },
+      {
+        "text": "distinguish A from B",
+        "translation": "AとBを区別する",
+        "exampleEn": "Can you distinguish fact from opinion?"
+      },
+      {
+        "text": "draw attention to",
+        "translation": "注意を向ける / 問題提起する",
+        "exampleEn": "The report draws attention to rural poverty."
+      },
+      {
+        "text": "drop out of",
+        "translation": "(学校などを)中退する",
+        "exampleEn": "He dropped out of college."
+      },
+      {
+        "text": "engage in",
+        "translation": "(活動に)従事する",
+        "exampleEn": "Many students engage in volunteer work."
+      },
+      {
+        "text": "figure out",
+        "translation": "理解する / 解決する",
+        "exampleEn": "It took us hours to figure out the cause."
+      },
+      {
+        "text": "fill in",
+        "translation": "(用紙に)記入する",
+        "exampleEn": "Please fill in this form."
+      },
+      {
+        "text": "focus on",
+        "translation": "(一点に)集中する / 重点を置く",
+        "exampleEn": "The discussion focused on practical solutions."
+      },
+      {
+        "text": "gain access to",
+        "translation": "(情報や場所を)利用できるようになる",
+        "exampleEn": "Only staff can gain access to the room."
+      },
+      {
+        "text": "get rid of",
+        "translation": "(不要なものを)取り除いてなくす",
+        "exampleEn": "She finally got rid of the broken printer."
+      },
+      {
+        "text": "go through",
+        "translation": "経験する / ひと通り確認する",
+        "exampleEn": "She went through a hard time."
+      },
+      {
+        "text": "hold back",
+        "translation": "抑える / 引き止める",
+        "exampleEn": "Do not hold back your opinion."
+      },
+      {
+        "text": "in accordance with",
+        "translation": "(規則などに)従って",
+        "exampleEn": "The work was done in accordance with the rules."
+      },
+      {
+        "text": "in addition to",
+        "translation": "(〜に)加えて",
+        "exampleEn": "In addition to English, he studies math."
+      },
+      {
+        "text": "in charge of",
+        "translation": "(仕事を)担当して",
+        "exampleEn": "She is in charge of sales."
+      },
+      {
+        "text": "in contrast to",
+        "translation": "(〜とは)対照的に",
+        "exampleEn": "In contrast to his brother, he is quiet."
+      },
+      {
+        "text": "in favor of",
+        "translation": "(案などに)賛成して",
+        "exampleEn": "Most members are in favor of the plan."
+      },
+      {
+        "text": "in terms of",
+        "translation": "(〜の観点で)",
+        "exampleEn": "The idea works well in terms of cost."
+      },
+      {
+        "text": "keep up with",
+        "translation": "(変化や人に)遅れずについていく",
+        "exampleEn": "Small firms struggle to keep up with rapid change."
+      },
+      {
+        "text": "lead to",
+        "translation": "(結果として)つながる",
+        "exampleEn": "Poor sleep can lead to mistakes."
+      },
+      {
+        "text": "look into",
+        "translation": "調べる / 検討する",
+        "exampleEn": "The police will look into the case."
+      },
+      {
+        "text": "make a difference",
+        "translation": "(結果に)変化をもたらす",
+        "exampleEn": "Small steps can make a difference."
+      },
+      {
+        "text": "make up for",
+        "translation": "(損失などを)埋め合わせる",
+        "exampleEn": "I worked late to make up for lost time."
+      },
+      {
+        "text": "object to",
+        "translation": "(提案などに)反対する",
+        "exampleEn": "Some people object to the change."
+      },
+      {
+        "text": "participate in",
+        "translation": "(活動や会合に)参加する",
+        "exampleEn": "Many students participate in the event."
+      },
+      {
+        "text": "pay attention to",
+        "translation": "(細部に)注意を払う",
+        "exampleEn": "Please pay attention to the signs."
+      },
+      {
+        "text": "point out",
+        "translation": "(問題点を)指摘する / 明確に示す",
+        "exampleEn": "She pointed out the main problem."
+      },
+      {
+        "text": "prevent A from B",
+        "translation": "AがBするのを防ぐ",
+        "exampleEn": "The lock prevents children from opening the door."
+      },
+      {
+        "text": "put off",
+        "translation": "(予定を)延期する",
+        "exampleEn": "We had to put off the meeting."
+      },
+      {
+        "text": "recover from",
+        "translation": "(病気や失敗から)回復する",
+        "exampleEn": "He recovered from the flu."
+      },
+      {
+        "text": "refer to",
+        "translation": "(話題として)言及する / 参照する",
+        "exampleEn": "The guide refers to local customs."
+      },
+      {
+        "text": "rely on",
+        "translation": "(人や支援に)頼る",
+        "exampleEn": "Many farmers rely on rain."
+      },
+      {
+        "text": "result in",
+        "translation": "(結果として)〜になる",
+        "exampleEn": "Careless driving can result in accidents."
+      },
+      {
+        "text": "result from",
+        "translation": "(〜が原因で)生じる",
+        "exampleEn": "The delay resulted from bad weather."
+      },
+      {
+        "text": "run out of",
+        "translation": "(資源などを)使い果たす",
+        "exampleEn": "We ran out of paper."
+      },
+      {
+        "text": "set up",
+        "translation": "(組織を)設立する / (設備を)設置する",
+        "exampleEn": "They set up a small business."
+      },
+      {
+        "text": "show up",
+        "translation": "現れる / 姿を見せる",
+        "exampleEn": "Only ten people showed up."
+      },
+      {
+        "text": "stand for",
+        "translation": "表す / 支持する",
+        "exampleEn": "NPO stands for non-profit organization."
+      },
+      {
+        "text": "suffer from",
+        "translation": "(病気や問題に)苦しむ",
+        "exampleEn": "Many people suffer from back pain."
+      },
+      {
+        "text": "take advantage of",
+        "translation": "(機会を)活用する / 利用する",
+        "exampleEn": "Students should take advantage of this chance."
+      },
+      {
+        "text": "take care of",
+        "translation": "(人や物の)世話をする",
+        "exampleEn": "She takes care of her grandmother."
+      },
+      {
+        "text": "take into account",
+        "translation": "(事情を考えて)考慮に入れる / 計算に入れる",
+        "exampleEn": "The judge took his age into account."
+      },
+      {
+        "text": "take part in",
+        "translation": "(一員として)参加する",
+        "exampleEn": "He took part in the contest."
+      },
+      {
+        "text": "take responsibility for",
+        "translation": "(結果に)責任を負う",
+        "exampleEn": "Leaders must take responsibility for mistakes."
+      },
+      {
+        "text": "turn down",
+        "translation": "断る / 音量などを下げる",
+        "exampleEn": "She turned down the offer."
+      },
+      {
+        "text": "turn out",
+        "translation": "判明する / 結果的に〜になる",
+        "exampleEn": "The plan turned out well."
+      },
+      {
+        "text": "work on",
+        "translation": "(課題に)取り組む / 働きかける",
+        "exampleEn": "We are working on a new app."
+      },
+      {
+        "text": "be aware of",
+        "translation": "(事実に)気づいている",
+        "exampleEn": "You should be aware of the risk."
+      },
+      {
+        "text": "bear in mind",
+        "translation": "(重要点を)心に留める",
+        "exampleEn": "Bear in mind that time is limited."
+      },
+      {
+        "text": "face criticism",
+        "translation": "批判に直面する / 批判を受ける",
+        "exampleEn": "The company faced criticism online."
+      },
+      {
+        "text": "gain popularity",
+        "translation": "(広く)人気を得る",
+        "exampleEn": "The game gained popularity quickly."
+      },
+      {
+        "text": "have an impact on",
+        "translation": "(結果や社会に)影響を及ぼす",
+        "exampleEn": "The decision had an impact on prices."
+      },
+      {
+        "text": "keep track of",
+        "translation": "(変化や記録を)追う",
+        "exampleEn": "I use an app to keep track of my spending."
+      },
+      {
+        "text": "meet a deadline",
+        "translation": "(仕事を)締め切りに間に合わせる",
+        "exampleEn": "We worked late to meet the deadline."
+      },
+      {
+        "text": "on behalf of",
+        "translation": "(人や組織を)代表して",
+        "exampleEn": "She spoke on behalf of the team."
+      },
+      {
+        "text": "play a role in",
+        "translation": "(物事に)役割を果たす",
+        "exampleEn": "Diet plays a role in health."
+      },
+      {
+        "text": "pose a threat to",
+        "translation": "(安全などへの)脅威となる",
+        "exampleEn": "Plastic waste poses a threat to sea life."
+      },
+      {
+        "text": "raise awareness of",
+        "translation": "(問題への)意識を高める",
+        "exampleEn": "The campaign raised awareness of food waste."
+      },
+      {
+        "text": "reach a conclusion",
+        "translation": "(考えた末に)結論に達する",
+        "exampleEn": "The team finally reached a conclusion."
+      },
+      {
+        "text": "under pressure",
+        "translation": "重圧の中で / 追い詰められて",
+        "exampleEn": "He works well under pressure."
+      },
+      {
+        "text": "with regard to",
+        "translation": "(話題に)関して",
+        "exampleEn": "I have a question with regard to fees."
+      },
+      {
+        "text": "at first glance",
+        "translation": "(ぱっと見て)一見したところ",
+        "exampleEn": "At first glance, the answer seemed easy."
+      },
+      {
+        "text": "for the sake of",
+        "translation": "(利益や目的の)ために",
+        "exampleEn": "They moved for the sake of safety."
+      },
+      {
+        "text": "in the long run",
+        "translation": "(短期でなく)長期的には",
+        "exampleEn": "The change will help in the long run."
+      },
+      {
+        "text": "out of date",
+        "translation": "時代遅れの / 期限切れの",
+        "exampleEn": "This data is out of date."
+      },
+      {
+        "text": "take effect",
+        "translation": "効力を生じる / 発効する",
+        "exampleEn": "The new rule takes effect next month."
+      },
+      {
+        "text": "with the exception of",
+        "translation": "(一部を)除いて",
+        "exampleEn": "With the exception of one student, everyone passed."
+      }
+    ],
+    "3": [
+      {
+        "text": "That seems reasonable to me.",
+        "translation": "私にはそれが妥当に思えます。"
+      },
+      {
+        "text": "I'd rather not jump to conclusions.",
+        "translation": "早まって結論は出したくありません。"
+      },
+      {
+        "text": "We should keep an open mind.",
+        "translation": "先入観を持たずに考えるべきです。"
+      },
+      {
+        "text": "I think we need more information.",
+        "translation": "もっと情報が必要だと思います。"
+      },
+      {
+        "text": "We may be missing something important.",
+        "translation": "何か大事なことを見落としているかもしれません。"
+      },
+      {
+        "text": "It's too early to tell.",
+        "translation": "まだ判断するには早すぎます。"
+      },
+      {
+        "text": "I wouldn't be surprised if that were true.",
+        "translation": "それが本当でも驚きません。"
+      },
+      {
+        "text": "That's certainly a possibility.",
+        "translation": "それは十分あり得ます。"
+      },
+      {
+        "text": "There's a chance we're overthinking it.",
+        "translation": "私たちは考えすぎている可能性があります。"
+      },
+      {
+        "text": "I wouldn't take that at face value.",
+        "translation": "それをそのまま鵜呑みにはしません。"
+      },
+      {
+        "text": "It's better to be cautious.",
+        "translation": "慎重であるに越したことはありません。"
+      },
+      {
+        "text": "I can see where you're coming from.",
+        "translation": "あなたの考え方は理解できます。"
+      },
+      {
+        "text": "That doesn't necessarily mean it's wrong.",
+        "translation": "だからといってそれが間違いだとは限りません。"
+      },
+      {
+        "text": "I'm not saying it's impossible.",
+        "translation": "不可能だと言っているわけではありません。"
+      },
+      {
+        "text": "We should look at the bigger picture.",
+        "translation": "もっと大きな視点で見るべきです。"
+      },
+      {
+        "text": "That's easier said than done.",
+        "translation": "言うのは簡単ですが実行は難しいです。"
+      },
+      {
+        "text": "I'm not ready to rule it out.",
+        "translation": "それを完全に否定するつもりはありません。"
+      },
+      {
+        "text": "That may not be the best approach.",
+        "translation": "それは最善のやり方ではないかもしれません。"
+      },
+      {
+        "text": "I can see the logic behind that.",
+        "translation": "その考えの筋道は分かります。"
+      },
+      {
+        "text": "That sounds good in theory.",
+        "translation": "理屈としてはよさそうです。"
+      },
+      {
+        "text": "I'm not sure that's the main issue.",
+        "translation": "それが一番の問題とは限らない気がします。"
+      },
+      {
+        "text": "We need to be realistic about this.",
+        "translation": "この件は現実的に考える必要があります。"
+      },
+      {
+        "text": "That could lead to misunderstandings.",
+        "translation": "それは誤解につながるかもしれません。"
+      },
+      {
+        "text": "I'd rather focus on what we can do now.",
+        "translation": "今できることに集中したいです。"
+      },
+      {
+        "text": "I think that's a step in the right direction.",
+        "translation": "それは良い方向への一歩だと思います。"
+      },
+      {
+        "text": "Sounds about right.",
+        "translation": "だいたいそんな感じだと思います。"
+      },
+      {
+        "text": "That works for me.",
+        "translation": "それで大丈夫です。"
+      },
+      {
+        "text": "I'm not ruling it out.",
+        "translation": "その可能性を否定するつもりはありません。"
+      },
+      {
+        "text": "That's not a bad idea.",
+        "translation": "それは悪くない考えですね。"
+      },
+      {
+        "text": "I was just thinking that.",
+        "translation": "ちょうど私もそう思っていました。"
+      },
+      {
+        "text": "That crossed my mind too.",
+        "translation": "私もそれを思い浮かべていました。"
+      },
+      {
+        "text": "I don't quite see it that way.",
+        "translation": "私はそこまでそうは思いません。"
+      },
+      {
+        "text": "I'm not fully convinced.",
+        "translation": "まだ完全には納得していません。"
+      },
+      {
+        "text": "I'm on the fence about it.",
+        "translation": "それについてはまだ決めかねています。"
+      },
+      {
+        "text": "That's a tough call.",
+        "translation": "それは判断が難しいですね。"
+      },
+      {
+        "text": "It could go either way.",
+        "translation": "どちらに転ぶか分かりません。"
+      },
+      {
+        "text": "That's a valid concern.",
+        "translation": "それはもっともな懸念です。"
+      },
+      {
+        "text": "I get the point you're making.",
+        "translation": "あなたの言いたい点は分かります。"
+      },
+      {
+        "text": "I'm not sure I follow.",
+        "translation": "話を十分に追えていないかもしれません。"
+      },
+      {
+        "text": "Could you walk me through that?",
+        "translation": "そこを順を追って説明してもらえますか。"
+      },
+      {
+        "text": "What makes you feel that way?",
+        "translation": "どうしてそう感じるのですか。"
+      },
+      {
+        "text": "What brought you to that conclusion?",
+        "translation": "どうしてそういう結論になったのですか。"
+      },
+      {
+        "text": "I get where you're going with this.",
+        "translation": "あなたがこの話をどこに持っていきたいのか分かります。"
+      },
+      {
+        "text": "I wouldn't count on it.",
+        "translation": "それはあまり当てにしないほうがいいです。"
+      },
+      {
+        "text": "I wouldn't read too much into that.",
+        "translation": "それを深読みしすぎないほうがいいです。"
+      },
+      {
+        "text": "That doesn't sound like the whole story.",
+        "translation": "それだけが話のすべてには聞こえません。"
+      },
+      {
+        "text": "I'm not sure it works that way.",
+        "translation": "それがそういう仕組みかは分かりません。"
+      },
+      {
+        "text": "That might be pushing it.",
+        "translation": "それは少し言いすぎかもしれません。"
+      },
+      {
+        "text": "I don't know if that's fair.",
+        "translation": "それが公平かどうかは分かりません。"
+      },
+      {
+        "text": "I'm not against it.",
+        "translation": "それに反対というわけではありません。"
+      },
+      {
+        "text": "I'm all for that.",
+        "translation": "私はそれに大賛成です。"
+      },
+      {
+        "text": "I can go with that.",
+        "translation": "それでいけます。"
+      },
+      {
+        "text": "I'm not ready to commit to that.",
+        "translation": "それに決めるにはまだ早いです。"
+      },
+      {
+        "text": "Let's not get ahead of ourselves.",
+        "translation": "先走りすぎないようにしましょう。"
+      },
+      {
+        "text": "Let's see how it goes.",
+        "translation": "少し様子を見ましょう。"
+      },
+      {
+        "text": "Let's see where this goes.",
+        "translation": "この先どうなるか見てみましょう。"
+      },
+      {
+        "text": "I'm keeping an open mind.",
+        "translation": "先入観を持たずに考えています。"
+      },
+      {
+        "text": "That seems about right to me.",
+        "translation": "私にはだいたい妥当に思えます。"
+      },
+      {
+        "text": "That adds up.",
+        "translation": "それなら筋が通っています。"
+      },
+      {
+        "text": "I can work with that.",
+        "translation": "それを前提に進められます。"
+      },
+      {
+        "text": "That's more like it.",
+        "translation": "そういう方向ならいいですね。"
+      },
+      {
+        "text": "I'm not making excuses.",
+        "translation": "言い訳をしているわけではありません。"
+      },
+      {
+        "text": "I'm just being realistic.",
+        "translation": "ただ現実的に考えているだけです。"
+      },
+      {
+        "text": "I'm trying to be careful.",
+        "translation": "慎重に進めようとしているだけです。"
+      },
+      {
+        "text": "That's not what I'm getting at.",
+        "translation": "私が言いたいのはそういうことではありません。"
+      },
+      {
+        "text": "Let me think for a second.",
+        "translation": "少し考えさせてください。"
+      },
+      {
+        "text": "I'm still not convinced.",
+        "translation": "私はまだ納得していません。"
+      },
+      {
+        "text": "I can see that happening.",
+        "translation": "そうなる可能性はあると思います。"
+      },
+      {
+        "text": "I can see why that matters.",
+        "translation": "それが大事な理由は分かります。"
+      },
+      {
+        "text": "I'm not saying you're wrong.",
+        "translation": "あなたが間違っていると言いたいわけではありません。"
+      },
+      {
+        "text": "I'm trying to look at both sides.",
+        "translation": "両方の立場から見ようとしています。"
+      },
+      {
+        "text": "I'm not sure I'm with you there.",
+        "translation": "そこは少し同意しかねます。"
+      },
+      {
+        "text": "I'm not sure that's enough.",
+        "translation": "それで十分かは分かりません。"
+      },
+      {
+        "text": "That may be part of it.",
+        "translation": "それも一因かもしれません。"
+      },
+      {
+        "text": "I'm not sure what to make of that.",
+        "translation": "それをどう受け止めればいいのかまだ分かりません。"
+      }
+    ]
+  }
+}

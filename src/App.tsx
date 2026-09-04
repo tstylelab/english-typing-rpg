@@ -10,7 +10,7 @@ import HelpScreen from './HelpScreen';
 
 // --- Types & Interfaces ---
 
-type Difficulty = 'Eiken5' | 'Eiken4' | 'EikenPre1' | 'Conversation';
+type Difficulty = 'Eiken5' | 'Eiken4' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
 type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
@@ -336,7 +336,8 @@ const LEARNING_LEVELS: LearningLevel[] = [1, 2, 3];
 const DIFFICULTY_HP_MULTIPLIERS: Record<Difficulty, number> = {
   Eiken5: 1,
   Eiken4: 1,
-  EikenPre1: 1.35,
+  EikenPre1Part1: 1.35,
+  EikenPre1Part2: 1.35,
   Conversation: 1,
 };
 
@@ -660,8 +661,9 @@ const isScopedDefeatedMonsterKey = (value: string) => {
   if (parts.length !== 5) return false;
 
   const [difficulty, level, mode, inputMode, monsterId] = parts;
-  if (!DIFFICULTIES.includes(difficulty as Difficulty)) return false;
-  if (!getAvailableLevels(difficulty as Difficulty).includes(Number(level) as Level)) return false;
+  const isCurrentDifficulty = DIFFICULTIES.includes(difficulty as Difficulty);
+  if (!isCurrentDifficulty && difficulty !== LEGACY_PRE1_DIFFICULTY) return false;
+  if (!LEVELS.includes(Number(level) as Level)) return false;
   if (!['guide', 'challenge', 'weakness'].includes(mode)) return false;
   if (!['voice-text', 'text-only', 'voice-only'].includes(inputMode)) return false;
   return monsterId.length > 0;
@@ -1777,21 +1779,26 @@ const SPEECH_VOICE_OPTIONS: { id: SpeechVoiceMode; label: string; description: s
   { id: 'uk_male', label: '英語 男性', description: 'イギリス英語の男性音声' },
 ];
 const NON_RANDOM_SPEECH_VOICE_MODES: Exclude<SpeechVoiceMode, 'random'>[] = ['us_female', 'us_male', 'uk_female', 'uk_male'];
-const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'EikenPre1'];
+const PRE1_DIFFICULTIES: Difficulty[] = ['EikenPre1Part1', 'EikenPre1Part2'];
+const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', ...PRE1_DIFFICULTIES];
 const DIFFICULTIES: Difficulty[] = [...EIKEN_DIFFICULTIES, 'Conversation'];
+const LEGACY_PRE1_DIFFICULTY = 'EikenPre1';
 const LEVELS: Level[] = [1, 2, 3];
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken5: '英検5級',
   Eiken4: '英検4級',
-  EikenPre1: '英検準1級',
+  EikenPre1Part1: '英検準1級①',
+  EikenPre1Part2: '英検準1級②',
   Conversation: '英会話 はじめて',
 };
 const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
   Eiken5: 'bg-blue-600 border-blue-400 text-white',
   Eiken4: 'bg-purple-600 border-purple-400 text-white',
-  EikenPre1: 'bg-emerald-600 border-emerald-400 text-white',
+  EikenPre1Part1: 'bg-emerald-600 border-emerald-400 text-white',
+  EikenPre1Part2: 'bg-teal-600 border-teal-400 text-white',
   Conversation: 'bg-cyan-600 border-cyan-400 text-white',
 };
+const isEikenDifficulty = (difficulty: Difficulty) => EIKEN_DIFFICULTIES.includes(difficulty);
 const getAvailableLevels = (difficulty: Difficulty): Level[] => {
   void difficulty;
   return LEVELS;
@@ -2491,9 +2498,12 @@ type StoredCourseSelection = {
 
 const getStoredCourseSelection = (): StoredCourseSelection => {
   const saved = safeLoadJson<Partial<StoredCourseSelection>>(STORAGE_KEYS.lastSelectedCourse, {});
-  const difficulty = DIFFICULTIES.includes(saved.difficulty as Difficulty)
-    ? saved.difficulty as Difficulty
-    : 'Eiken5';
+  const savedDifficulty = saved.difficulty as string | undefined;
+  const difficulty = savedDifficulty === LEGACY_PRE1_DIFFICULTY
+    ? 'EikenPre1Part1'
+    : DIFFICULTIES.includes(savedDifficulty as Difficulty)
+      ? savedDifficulty as Difficulty
+      : 'Eiken5';
   const requestedLevel: Level = saved.level === 1 || saved.level === 2 || saved.level === 3
     ? saved.level
     : 1;
@@ -2606,7 +2616,8 @@ const shuffleQuestions = <T,>(items: T[]) => {
 };
 
 const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestionStatus> | unknown) => (
-  Object.fromEntries(
+  (() => {
+    const normalized = Object.fromEntries(
     Object.entries(typeof statuses === 'object' && statuses !== null ? statuses : {}).map(([key, value]) => [
       key,
       withDerivedLearningLevel({
@@ -2630,47 +2641,113 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
         updatedAt: Number.isFinite(value?.updatedAt) ? value.updatedAt : 0,
       }),
     ])
-  ) as Record<string, ManualQuestionStatus>
+    ) as Record<string, ManualQuestionStatus>;
+
+    for (const [legacyKey, nextKey] of LEGACY_PRE1_QUESTION_KEY_MAP) {
+      if (normalized[legacyKey] && !normalized[nextKey]) {
+        normalized[nextKey] = normalized[legacyKey];
+      }
+    }
+
+    return normalized;
+  })()
 );
 
 const getQuestionStatusKey = (difficulty: Difficulty, level: Level, question: Question) => (
   `${difficulty}:${level}:${question.text}:${question.translation}`
 );
 
-const normalizeSelectedQuestionKeysByScope = (value: unknown) => (
-  Object.fromEntries(
+const LEGACY_PRE1_QUESTION_KEY_MAP = new Map<string, string>();
+const PRE1_DIFFICULTY_BY_LEGACY_QUESTION_KEY = new Map<string, Difficulty>();
+for (const difficulty of PRE1_DIFFICULTIES) {
+  for (const level of LEVELS) {
+    for (const question of QUESTIONS[difficulty]?.[level] ?? []) {
+      const legacyKey = `${LEGACY_PRE1_DIFFICULTY}:${level}:${question.text}:${question.translation}`;
+      LEGACY_PRE1_QUESTION_KEY_MAP.set(legacyKey, getQuestionStatusKey(difficulty, level, question));
+      PRE1_DIFFICULTY_BY_LEGACY_QUESTION_KEY.set(legacyKey, difficulty);
+    }
+  }
+}
+
+const migrateLegacyPre1QuestionKey = (key: string) => {
+  const migratedKey = LEGACY_PRE1_QUESTION_KEY_MAP.get(key);
+  const difficulty = PRE1_DIFFICULTY_BY_LEGACY_QUESTION_KEY.get(key);
+  return migratedKey && difficulty ? { key: migratedKey, difficulty } : null;
+};
+
+const normalizeSelectedQuestionKeysByScope = (value: unknown) => {
+  const normalized = Object.fromEntries(
     Object.entries(typeof value === 'object' && value !== null ? value : {}).map(([key, item]) => [
       key,
       Array.isArray(item)
         ? item.filter((entry): entry is string => typeof entry === 'string')
         : [],
     ])
-  ) as Record<string, string[]>
-);
+  ) as Record<string, string[]>;
 
-const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => (
-  Array.isArray(value)
+  for (const level of LEVELS) {
+    const legacyScope = `${LEGACY_PRE1_DIFFICULTY}:${level}`;
+    for (const legacyQuestionKey of normalized[legacyScope] ?? []) {
+      const migrated = migrateLegacyPre1QuestionKey(legacyQuestionKey);
+      if (!migrated) continue;
+      const nextScope = getReviewScopeKey(migrated.difficulty, level);
+      normalized[nextScope] = Array.from(new Set([...(normalized[nextScope] ?? []), migrated.key]));
+    }
+  }
+
+  return normalized;
+};
+
+const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => {
+  const normalized = Array.isArray(value)
     ? value.flatMap((item) => {
       if (!item || typeof item !== 'object') return [];
       const typedItem = item as Partial<SavedSelectionList> & Record<string, unknown>;
-      const difficulty = typedItem.difficulty;
+      const difficulty = typedItem.difficulty as string | undefined;
       const level = typedItem.level;
-      if (!DIFFICULTIES.includes(difficulty as Difficulty)) return [];
       if (![1, 2, 3].includes(level as number)) return [];
 
+      const id = typeof typedItem.id === 'string' && typedItem.id.length > 0 ? typedItem.id : `${difficulty}:${level}:${Date.now()}`;
+      const name = typeof typedItem.name === 'string' && typedItem.name.trim().length > 0 ? typedItem.name.trim() : '保存リスト';
+      const questionKeys = Array.isArray(typedItem.questionKeys)
+        ? typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string')
+        : [];
+      const updatedAt = Number.isFinite(typedItem.updatedAt) ? Number(typedItem.updatedAt) : 0;
+
+      if (difficulty === LEGACY_PRE1_DIFFICULTY) {
+        return PRE1_DIFFICULTIES.flatMap((nextDifficulty): SavedSelectionList[] => {
+          const migratedKeys = questionKeys.flatMap((key) => {
+            const migrated = migrateLegacyPre1QuestionKey(key);
+            return migrated?.difficulty === nextDifficulty ? [migrated.key] : [];
+          });
+          if (migratedKeys.length === 0) return [];
+
+          return [{
+            id: `${id}:${nextDifficulty}`,
+            name: `${name}（${DIFFICULTY_LABELS[nextDifficulty]}）`,
+            difficulty: nextDifficulty,
+            level: level as Level,
+            questionKeys: Array.from(new Set(migratedKeys)),
+            updatedAt,
+          }];
+        });
+      }
+
+      if (!DIFFICULTIES.includes(difficulty as Difficulty)) return [];
+
       return [{
-        id: typeof typedItem.id === 'string' && typedItem.id.length > 0 ? typedItem.id : `${difficulty}:${level}:${Date.now()}`,
-        name: typeof typedItem.name === 'string' && typedItem.name.trim().length > 0 ? typedItem.name.trim() : '保存リスト',
+        id,
+        name,
         difficulty: difficulty as Difficulty,
         level: level as Level,
-        questionKeys: Array.isArray(typedItem.questionKeys)
-          ? typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string')
-          : [],
-        updatedAt: Number.isFinite(typedItem.updatedAt) ? Number(typedItem.updatedAt) : 0,
+        questionKeys,
+        updatedAt,
       }];
     })
-    : []
-);
+    : [];
+
+  return Array.from(new Map(normalized.map((item) => [item.id, item])).values());
+};
 
 const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
   const defaults = getDefaultAutoPlaySettings();
@@ -3483,9 +3560,12 @@ const getStoredVersusSetup = (): StoredVersusSetup => {
   const savedCourses = Array.isArray(saved.courseSelections) ? saved.courseSelections : [];
   const courseSelections = names.map((_, index): VersusCourseSelection => {
     const candidate = savedCourses[index] as Partial<VersusCourseSelection> | undefined;
-    const difficulty = DIFFICULTIES.includes(candidate?.difficulty as Difficulty)
-      ? candidate?.difficulty as Difficulty
-      : DEFAULT_VERSUS_COURSE_SELECTION.difficulty;
+    const savedDifficulty = candidate?.difficulty as string | undefined;
+    const difficulty = savedDifficulty === LEGACY_PRE1_DIFFICULTY
+      ? 'EikenPre1Part1'
+      : DIFFICULTIES.includes(savedDifficulty as Difficulty)
+        ? savedDifficulty as Difficulty
+        : DEFAULT_VERSUS_COURSE_SELECTION.difficulty;
     const requestedLevel = candidate?.level === 1 || candidate?.level === 2 || candidate?.level === 3
       ? candidate.level
       : DEFAULT_VERSUS_COURSE_SELECTION.level;
@@ -7187,7 +7267,7 @@ export default function App() {
       : visibleQuestions;
     const questionRows = renderedQuestions.map((q, idx) => {
       const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
-      const synonyms = ['Eiken5', 'Eiken4', 'EikenPre1'].includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
+      const synonyms = isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
         ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, q)
         : [];
       return (
@@ -9302,7 +9382,7 @@ export default function App() {
               <section className="space-y-5">
                 <div>
                   <p className="mb-2 text-sm font-black text-cyan-200">2. {isConversationCourse ? 'コース' : '級'}</p>
-                  <div className={`grid grid-cols-1 gap-3 ${isConversationCourse ? '' : 'sm:grid-cols-3'}`}>
+                  <div className={`grid grid-cols-1 gap-3 ${isConversationCourse ? '' : 'sm:grid-cols-2'}`}>
                     {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
                       const isSelected = gameState.selectedDifficulty === diff;
                       const levelCount = getAvailableLevels(diff).length;
@@ -9613,7 +9693,7 @@ export default function App() {
     const previousQuestionGrammar = lastSolvedQuestion
       ? getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : null;
-    const previousQuestionSynonyms = lastSolvedQuestion && !(['Eiken5', 'Eiken4', 'EikenPre1'].includes(gameState.selectedDifficulty) && gameState.selectedLevel === 3)
+    const previousQuestionSynonyms = lastSolvedQuestion && !(isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel === 3)
       ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : [];
     const showPreviousStudyCard = !!lastSolvedQuestion;
@@ -10314,7 +10394,7 @@ export default function App() {
              <div className="space-y-1">
                  {gameState.battleLog.map((log, idx) => {
                      const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                     const resultQuestionSynonyms = ['Eiken5', 'Eiken4', 'EikenPre1'].includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
+                     const resultQuestionSynonyms = isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
                        ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, log.question)
                        : [];
                      return (

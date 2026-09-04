@@ -28,7 +28,7 @@ https://github.com/tstylelab/english-typing-rpg
 
 ## 主な機能
 
-- 英検5級、英検4級、英検準1級の問題に対応
+- 英検5級、英検4級、英検準1級①・②の問題に対応
 - 単語、熟語、文章レベルの練習
 - RPG風のモンスターバトル
 - タイピング練習
@@ -86,7 +86,7 @@ english-typing-rpg/
 
 ### `src/data/questions.ts`
 
-英検5級、4級、準1級と、英会話教材の問題JSONを読み込み、アプリで使える形にまとめています。
+英検5級、4級、準1級①・②と、英会話教材の問題JSONを読み込み、アプリで使える形にまとめています。
 
 ### `src/data/questionSets/eiken/*.json`
 
