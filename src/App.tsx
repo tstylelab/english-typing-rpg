@@ -3923,6 +3923,16 @@ export default function App() {
   const profilesReadyRef = useRef(false);
   const profileHydratingRef = useRef(false);
 
+  const resetBattleImeState = useCallback(() => {
+    battleImeComposingRef.current = false;
+    battleIgnoreCompositionCommitRef.current = false;
+  }, []);
+
+  const resetVersusImeState = useCallback(() => {
+    versusImeComposingRef.current = false;
+    versusIgnoreCompositionCommitRef.current = false;
+  }, []);
+
   const updateSelectedDifficulty = (difficulty: Difficulty, screen?: GameState['screen']) => {
     setGameState(prev => ({
       ...prev,
@@ -4520,6 +4530,8 @@ export default function App() {
     setExternalKeyboardMode(enabled);
     localStorage.setItem(STORAGE_KEYS.externalKeyboardMode, String(enabled));
     handledPhysicalKeyIdsRef.current.clear();
+    resetBattleImeState();
+    resetVersusImeState();
     window.requestAnimationFrame(() => {
       if (gameState.screen === 'battle') {
         (enabled ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
@@ -4534,16 +4546,19 @@ export default function App() {
     input: React.RefObject<HTMLInputElement | null>,
     keyboardTarget: React.RefObject<HTMLDivElement | null>,
   ) => {
+    if (input === inputRef) resetBattleImeState();
+    if (input === versusInputRef) resetVersusImeState();
     (externalKeyboardMode ? keyboardTarget.current : input.current)?.focus({ preventScroll: true });
   };
 
   useEffect(() => {
     if (gameState.screen !== 'versus-play' || versusShowHandoff) return;
     const timeoutId = window.setTimeout(() => {
+      resetVersusImeState();
       (externalKeyboardMode ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
     }, 0);
     return () => window.clearTimeout(timeoutId);
-  }, [externalKeyboardMode, gameState.screen, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
+  }, [externalKeyboardMode, gameState.screen, resetVersusImeState, versusShowHandoff, versusPlayerIndex, versusQuestionIndex]);
 
   const getAutoLearningTrack = (mode: Mode, inputMode: InputMode): 'listening' | 'battle' | null => {
     if (mode === 'challenge' && inputMode === 'voice-text') {
@@ -5036,8 +5051,41 @@ export default function App() {
 
   useEffect(() => {
     if (gameState.screen !== 'battle') return;
+    resetBattleImeState();
     (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
-  }, [externalKeyboardMode, gameState.screen, gameState.currentQuestion]);
+  }, [externalKeyboardMode, gameState.screen, gameState.currentQuestion, resetBattleImeState]);
+
+  useEffect(() => {
+    const clearInterruptedTypingState = () => {
+      handledPhysicalKeyIdsRef.current.clear();
+      resetBattleImeState();
+      resetVersusImeState();
+    };
+    const restoreActiveTypingTarget = () => {
+      clearInterruptedTypingState();
+      if (document.visibilityState !== 'visible') return;
+      window.setTimeout(() => {
+        if (gameState.screen === 'battle') {
+          (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+        } else if (gameState.screen === 'versus-play' && !versusShowHandoff) {
+          (externalKeyboardMode ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
+        }
+      }, 0);
+    };
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') restoreActiveTypingTarget();
+      else clearInterruptedTypingState();
+    };
+
+    window.addEventListener('blur', clearInterruptedTypingState);
+    window.addEventListener('focus', restoreActiveTypingTarget);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      window.removeEventListener('blur', clearInterruptedTypingState);
+      window.removeEventListener('focus', restoreActiveTypingTarget);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [externalKeyboardMode, gameState.screen, resetBattleImeState, resetVersusImeState, versusShowHandoff]);
 
   useEffect(() => {
     if (gameState.screen !== 'battle' && gameState.screen !== 'versus-play') {
@@ -5569,9 +5617,10 @@ export default function App() {
       if (!gameState.currentQuestion.text) return;
       speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
       setTimeout(() => {
+        resetBattleImeState();
         (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
       }, 10);
-  }, [externalKeyboardMode, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, speakBattleQuestion]);
+  }, [externalKeyboardMode, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
     setGameState(prev => {
@@ -6431,10 +6480,10 @@ export default function App() {
     if (/^[\x20-\x7E]*$/.test(normalizedValue)) {
       handleVersusInput(normalizedValue);
     }
-    window.requestAnimationFrame(() => {
+    window.setTimeout(() => {
       versusIgnoreCompositionCommitRef.current = false;
       versusInputRef.current?.focus({ preventScroll: true });
-    });
+    }, 0);
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -6457,10 +6506,10 @@ export default function App() {
     if (/^[\x20-\x7E]*$/.test(normalizedValue)) {
       handleBattleInputValue(normalizedValue);
     }
-    window.requestAnimationFrame(() => {
+    window.setTimeout(() => {
       battleIgnoreCompositionCommitRef.current = false;
       inputRef.current?.focus({ preventScroll: true });
-    });
+    }, 0);
   };
 
   const beginBeginnerBattle = (restart: boolean) => {
@@ -8463,10 +8512,11 @@ export default function App() {
               onChange={handleVersusInputChange}
               onCompositionStart={handleVersusCompositionStart}
               onCompositionEnd={handleVersusCompositionEnd}
+              onBlur={resetVersusImeState}
               onPointerDown={event => {
                 if (externalKeyboardMode && event.pointerType === 'touch') {
                   event.preventDefault();
-                  updateExternalKeyboardMode(false);
+                  keepTypingInputReady(versusInputRef, versusKeyboardTargetRef);
                 }
               }}
               className="mt-8 w-full rounded-xl border-2 border-cyan-400/55 bg-slate-950 px-5 py-4 text-center text-2xl font-black text-white outline-none focus:border-cyan-200"
@@ -8488,7 +8538,7 @@ export default function App() {
               >
                 USBキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
               </button>
-              <p className="text-xs font-bold text-slate-400">{externalKeyboardMode ? '画面で入力するときは入力欄をタップ' : '画面キーボード入力中'}</p>
+              <p className="text-xs font-bold text-slate-400">{externalKeyboardMode ? '画面キーボードに戻すときはOFF' : '画面キーボード入力中'}</p>
             </div>
             <p className="mt-4 min-h-6 text-sm font-bold text-orange-200">{versusQuestionMisses > 0 ? `この問題のミス: ${versusQuestionMisses}` : 'ミスなしで50点ボーナス！'}</p>
           </div>
@@ -9865,10 +9915,8 @@ export default function App() {
                    onPointerDown={event => {
                      if (externalKeyboardMode && event.pointerType === 'touch') {
                        event.preventDefault();
-                       updateExternalKeyboardMode(false);
-                     } else {
-                       (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
                      }
+                     keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                    }}
                  >
                     <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
@@ -9889,6 +9937,7 @@ export default function App() {
                       onChange={handleInput}
                       onCompositionStart={handleBattleCompositionStart}
                       onCompositionEnd={handleBattleCompositionEnd}
+                      onBlur={resetBattleImeState}
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
                       inputMode={externalKeyboardMode ? 'none' : (androidTablet ? 'email' : 'text')}
@@ -9990,7 +10039,7 @@ export default function App() {
                 >
                   USBキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
                 </button>
-                <span className="text-[11px] font-bold text-slate-400">{externalKeyboardMode ? '画面で入力するときは問題欄をタップ' : '画面キーボード入力中'}</span>
+                <span className="text-[11px] font-bold text-slate-400">{externalKeyboardMode ? '画面キーボードに戻すときはOFF' : '画面キーボード入力中'}</span>
               </div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
