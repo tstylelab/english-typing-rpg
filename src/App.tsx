@@ -9750,6 +9750,8 @@ export default function App() {
     const showGuide = gameState.mode === 'guide'; 
     const questionsLeft = gameState.maxQuestions - gameState.questionCount + 1;
     const remainingWeakCount = getScopedWeakQuestions(gameState.selectedDifficulty, gameState.selectedLevel).length;
+    const stageMonsterTotal = Math.max(gameState.totalMonstersInStage, gameState.currentMonsterIndex + 1);
+    const remainingMonsterCount = Math.max(stageMonsterTotal - gameState.currentMonsterIndex, 1);
     const bossIntroLabel = getBossIntroLabel(gameState.bossStage);
     const monsterEmotion = gameState.monsterHp <= 0 ? 'win' : flash ? 'damage' : 'normal';
     const comboLabel = getComboLabel(gameState.combo);
@@ -9820,7 +9822,22 @@ export default function App() {
                 )}
                 <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
                 <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
-                <div className="battle-hp w-64 mt-2 bg-slate-800/80 p-2 rounded-lg border border-slate-600"><div className="flex justify-between text-slate-300 text-[10px] font-bold mb-1 px-1"><span className="flex items-center gap-2">{currentMonster.name} <span className="bg-slate-700 px-1 rounded text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span><span>{gameState.monsterHp} / {gameState.maxMonsterHp}</span></div><div className="h-3 bg-slate-900 rounded-full overflow-hidden relative shadow-inner"><div className={`h-full transition-all duration-300 relative overflow-hidden ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div></div>
+                <div className="battle-hp mt-2 w-72 max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
+                  <div className="mb-1 flex items-center justify-between gap-2 px-1 text-[10px] font-bold text-slate-300">
+                    <span className="flex min-w-0 items-center gap-2"><span className="truncate">{currentMonster.name}</span><span className="flex-shrink-0 rounded bg-slate-700 px-1 text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span>
+                    <span className="flex-shrink-0">{gameState.monsterHp} / {gameState.maxMonsterHp}</span>
+                  </div>
+                  <div className="h-3 overflow-hidden rounded-full bg-slate-900 shadow-inner"><div className={`relative h-full overflow-hidden transition-all duration-300 ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div>
+                  <div className="mt-1.5 flex justify-end px-1">
+                    <span
+                      className="rounded-full border border-slate-600/80 bg-slate-900/55 px-2 py-0.5 text-[9px] font-bold tracking-wide text-slate-400"
+                      aria-label={`このコースは全${stageMonsterTotal}体中、現在のモンスターを含めて残り${remainingMonsterCount}体`}
+                      title="現在のモンスターを含む残り数"
+                    >
+                      残り {remainingMonsterCount}体 / 全{stageMonsterTotal}体
+                    </span>
+                  </div>
+                </div>
             </div>
              <div className="battle-card w-full bg-slate-800/95 backdrop-blur border-4 border-slate-600 rounded-2xl shadow-xl p-4 md:p-5 mt-4 relative">
                  <div className="absolute top-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div>
