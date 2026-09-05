@@ -3618,10 +3618,10 @@ const clearBeginnerBattleProgress = () => {
   localStorage.removeItem(STORAGE_KEYS.beginnerBattleProgress);
 };
 
-const Box = ({ children, className = "", title }: { children: React.ReactNode; className?: string; title?: React.ReactNode }) => (
+const Box = ({ children, className = "", contentClassName = "p-6", title }: { children: React.ReactNode; className?: string; contentClassName?: string; title?: React.ReactNode }) => (
   <div className={`bg-slate-800/90 border-2 border-slate-600 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm ${className}`}>
     {title && (<div className="bg-slate-700/80 px-4 py-2 border-b border-slate-600 font-bold text-slate-200 flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-blue-400"></div>{title}</div>)}
-    <div className="p-6">{children}</div>
+    <div className={contentClassName}>{children}</div>
   </div>
 );
 
@@ -8388,57 +8388,31 @@ export default function App() {
     const courseSummary = [...new Set(activeVersusCourses.map(course => `${DIFFICULTY_LABELS[course.difficulty]} Level ${course.level}`))].join(' ・ ');
     const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', 'listening-translation': 'リスニング＋和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
-      <ScreenContainer className="items-center justify-center p-4">
-        <Box title={setupTitle} className="w-full max-w-5xl">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="text-center md:col-span-2">
-              <Trophy size={40} className="mx-auto text-yellow-300" />
-              <h1 className="mt-1 text-2xl font-black text-white md:text-3xl">{setupTitle}</h1>
-              <p className="mt-2 text-sm font-bold text-slate-300">{isSoloSetup ? `選んだLevelの${getVersusQuestionCount(activeVersusCourses[0]?.level ?? 1)}問を解いて、自分の最高記録に挑戦します。` : 'Level 1は20問、Level 2は12問、Level 3は7問。問題数の差を自動補正して競います。普段の学習記録には残りません。'}</p>
-            </div>
-
-            <div className="rounded-xl border border-fuchsia-300/55 bg-fuchsia-950/25 p-3 text-center shadow-[0_0_22px_rgba(217,70,239,0.16)] md:col-span-2">
-              <p className="mb-2 text-xs font-black text-fuchsia-100">設定ができたら、ここからすぐ開始</p>
-              <GameButton onClick={startVersusMatch} size="lg" className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 border-violet-300 hover:from-violet-500 hover:to-fuchsia-500 sm:w-auto sm:min-w-80">バトルをはじめる <ArrowRight size={22} /></GameButton>
-            </div>
-            {versusSetupError && <p className="text-center font-bold text-red-300 md:col-span-2">{versusSetupError}</p>}
-
-            <div className="rounded-xl border border-cyan-400/25 bg-slate-900/55 p-3">
-              <p className="text-sm font-black text-cyan-200">1. 参加者ごとの教材</p>
-              <p className="mt-2 text-sm font-bold text-slate-200">名前の下で、それぞれ教材とLevelを選びます。</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {versusNameDrafts.map((name, index) => {
-                  const course = versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION;
-                  return <span key={`${name}-${index}`} className="rounded-lg border border-cyan-400/30 bg-cyan-950/35 px-3 py-2 text-xs font-bold text-cyan-100">{name.trim() || `参加者${index + 1}`}：{DIFFICULTY_LABELS[course.difficulty]} Level {course.level}・{getVersusQuestionCount(course.level)}問</span>;
-                })}
+      <ScreenContainer className="items-center p-2 sm:p-4">
+        <Box className="w-full max-w-5xl" contentClassName="p-3 sm:p-4">
+          <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+            <div className="flex items-start gap-3">
+              <Trophy size={30} className="mt-0.5 shrink-0 text-yellow-300" />
+              <div>
+                <h1 className="text-xl font-black text-white sm:text-2xl">{setupTitle}</h1>
+                <p className="mt-1 text-xs font-bold leading-relaxed text-slate-300 sm:text-sm">{isSoloSetup ? `選んだLevelの${getVersusQuestionCount(activeVersusCourses[0]?.level ?? 1)}問を解いて、自分の最高記録に挑戦します。` : 'Level 1は20問、Level 2は12問、Level 3は7問。問題数の差を自動補正して競います。普段の学習記録には残りません。'}</p>
               </div>
             </div>
-
-            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-3">
-              <p className="text-sm font-black text-sky-200">2. 出題方法を選ぶ</p>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                {([
-                  ['spelling', 'スペル表示', '英単語を見て入力'],
-                  ['listening-translation', 'リスニング＋和訳', '音を聞き、日本語の意味を見て入力'],
-                  ['translation', '和訳', '日本語の意味だけを見て入力'],
-                  ['listening', 'リスニング', '音声だけを聞いて入力'],
-                  ['mixed', 'おまかせ', '4種類を問題ごとにランダム出題'],
-                ] as const).map(([mode, label, description]) => (
-                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-3 text-left ${mode === 'mixed' ? 'sm:col-span-2' : ''} ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
-                    <p className="font-black">{label}</p>
-                    <p className="mt-1 text-xs font-bold opacity-80">{description}</p>
-                  </button>
-                ))}
-              </div>
+            <div className="rounded-xl border border-fuchsia-300/55 bg-fuchsia-950/25 p-2.5 text-center shadow-[0_0_22px_rgba(217,70,239,0.16)]">
+              <p className="mb-1 text-[11px] font-black text-fuchsia-100">設定ができたら開始</p>
+              <GameButton onClick={startVersusMatch} className="w-full border-violet-300 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 md:min-w-64">バトルをはじめる <ArrowRight size={20} /></GameButton>
             </div>
+          </div>
+          {versusSetupError && <p className="mt-3 text-center font-bold text-red-300">{versusSetupError}</p>}
 
-            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3 md:col-span-2">
+          <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]">
+            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-violet-200">3. 名前・教材・得点倍率を入力（1〜5人）</p>
+                <p className="text-sm font-black text-violet-200">1. 名前・教材・得点倍率（1〜5人）</p>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => { setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`]); setVersusScoreMultipliers(multipliers => [...multipliers, 1]); setVersusCourseSelections(courses => [...courses, courses[0] ?? DEFAULT_VERSUS_COURSE_SELECTION]); }}>＋ 参加者を追加</GameButton>}
               </div>
-              <p className="mt-1 text-xs font-bold text-violet-100/75">バトル開始時の設定をこの端末に保存し、次回そのまま表示します。</p>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <p className="mt-1 text-[11px] font-bold text-violet-100/75">開始した設定をこの端末に保存し、次回そのまま表示します。</p>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {versusNameDrafts.map((name, index) => (
                   <div key={index} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
                     <div className="flex items-center gap-2">
@@ -8468,12 +8442,32 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-sm text-amber-100">
+            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-3">
+              <p className="text-sm font-black text-sky-200">2. 出題方法</p>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                {([
+                  ['spelling', 'スペル表示', '英単語を見て入力'],
+                  ['listening-translation', 'リスニング＋和訳', '音と日本語で入力'],
+                  ['translation', '和訳', '日本語だけで入力'],
+                  ['listening', 'リスニング', '音声だけで入力'],
+                  ['mixed', 'おまかせ', '4種類をランダム出題'],
+                ] as const).map(([mode, label, description]) => (
+                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-2.5 text-left ${mode === 'mixed' ? 'sm:col-span-2' : ''} ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
+                    <p className="text-sm font-black">{label}</p>
+                    <p className="mt-0.5 text-[11px] font-bold opacity-80">{description}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(240px,0.65fr)_minmax(0,1.35fr)]">
+            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-xs leading-relaxed text-amber-100">
               <p className="font-black">採点ルール</p>
               <p className="mt-1">正解50点、ミスなしなら50点追加、速さに応じて最大50点追加です。ミスは1回につき15点減点（その問題の最低点は0点）。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
               <p className="mt-1">Levelごとの問題数差は、20問相当の得点に自動補正します。</p>
             </div>
-            <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-4 md:col-span-2">
+            <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="flex items-center gap-2 text-base font-black text-yellow-200"><Trophy size={18} /> この設定のランキング</p>
                 <p className="text-xs font-bold text-slate-300">{courseSummary || '教材未選択'} ・ {promptSelectionLabel}</p>
@@ -8489,13 +8483,13 @@ export default function App() {
                   ))}
                 </ol>
               ) : (
-                <p className="mt-3 rounded-lg border border-dashed border-slate-600 px-4 py-5 text-center text-sm font-bold text-slate-400">まだ記録がありません。最初の1戦でランキング入り！</p>
+                <p className="mt-2 rounded-lg border border-dashed border-slate-600 px-4 py-3 text-center text-sm font-bold text-slate-400">まだ記録がありません。最初の1戦でランキング入り！</p>
               )}
-              <p className="mt-3 text-xs text-slate-400">同じ名前は最高記録だけを残します。ハンデは対戦中のみで、ランキングは問題数を補正した基本点で公平に記録します。</p>
+              <p className="mt-2 text-xs text-slate-400">同じ名前は最高記録だけを残します。ハンデは対戦中のみで、ランキングは問題数を補正した基本点で公平に記録します。</p>
             </div>
-            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between md:col-span-2">
-              <GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
-            </div>
+          </div>
+          <div className="mt-3 flex justify-start">
+            <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
           </div>
         </Box>
       </ScreenContainer>
