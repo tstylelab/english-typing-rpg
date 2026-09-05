@@ -8638,9 +8638,14 @@ export default function App() {
     const question = BEGINNER_BATTLE_QUESTIONS[safeQuestionIndex];
     const questionIndexInPhase = safeQuestionIndex % BEGINNER_BATTLE_PHASE_SIZE;
     const nextLetter = isComplete ? '' : question.text[beginnerBattleInput.length] ?? '';
-    const currentMonster = MONSTERS[1].guide[phaseIndex] ?? MONSTERS[1].guide[0];
+    const currentMonster = MONSTERS[1].guide[phaseIndex % MONSTERS[1].guide.length] ?? MONSTERS[1].guide[0];
     const isFirstSetCheckpoint = beginnerBattleClearedPhase === (BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE) - 1;
-    const setLabel = phaseIndex < BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE ? '前半100問' : '後半100問';
+    const isSecondSetCheckpoint = beginnerBattleClearedPhase === ((BEGINNER_BATTLE_FIRST_SET_SIZE * 2) / BEGINNER_BATTLE_PHASE_SIZE) - 1;
+    const setLabel = phaseIndex < BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE
+      ? '1〜100問'
+      : phaseIndex < (BEGINNER_BATTLE_FIRST_SET_SIZE * 2) / BEGINNER_BATTLE_PHASE_SIZE
+        ? '101〜200問'
+        : '追加100問';
     const remainingQuestions = beginnerBattleClearedPhase !== null
       ? 0
       : BEGINNER_BATTLE_PHASE_SIZE - questionIndexInPhase;
@@ -8657,7 +8662,7 @@ export default function App() {
             <div className="text-6xl">🏆</div>
             <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">{BEGINNER_BATTLE_QUESTIONS.length}もん クリア！</p>
             <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">はじめてバトル せいこう！</h1>
-            <p className="mt-3 text-base font-bold leading-7 text-slate-200">3文字から5文字まで、200個の単語を打てました。英検5級に進む準備はばっちりです。</p>
+            <p className="mt-3 text-base font-bold leading-7 text-slate-200">1文字から5文字まで、300個の単語を打てました。アルファベットのキーともっと仲よくなれました！</p>
             <div className="mt-6 rounded-xl border border-cyan-300/35 bg-cyan-950/35 p-4 text-left">
               <p className="font-black text-cyan-100">つぎのおすすめ</p>
               <p className="mt-1 text-sm font-bold leading-6 text-slate-300">英検5級 Level 1の基礎練習へ進むと、もっとたくさんの英単語とモンスターに出会えます。</p>
@@ -8710,13 +8715,13 @@ export default function App() {
             </section>
 
             <section className="beginner-battle-prompt flex min-h-[205px] flex-col justify-center rounded-xl border border-cyan-300/25 bg-slate-950/58 p-4 text-center">
-              {isFirstSetCheckpoint ? (
+              {isFirstSetCheckpoint || isSecondSetCheckpoint ? (
                 <div>
                   <div className="text-5xl">🎆</div>
-                  <p className="mt-2 text-2xl font-black text-amber-200">前半100問 クリア！</p>
-                  <p className="mt-2 text-sm font-bold leading-6 text-slate-300">ここで英検5級へ進んでもOK。まだ遊びたいときは、新しい100問に挑戦できます。</p>
+                  <p className="mt-2 text-2xl font-black text-amber-200">{isFirstSetCheckpoint ? '100問 クリア！' : '200問 クリア！'}</p>
+                  <p className="mt-2 text-sm font-bold leading-6 text-slate-300">{isFirstSetCheckpoint ? 'ここで英検5級へ進んでもOK。まだ遊びたいときは、つぎの100問に挑戦できます。' : 'ここまででもすごい！ もう少しアルファベットを覚えたいときは、登場回数が少なかった文字も練習できる追加100問に挑戦できます。'}</p>
                   <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                    <GameButton variant="success" onClick={continueBeginnerBattle}>つづきの100問へ <span className="rounded border border-white/45 bg-black/15 px-1.5 py-0.5 text-xs">Enter</span> <ArrowRight size={18} /></GameButton>
+                    <GameButton variant="success" onClick={continueBeginnerBattle}>{isFirstSetCheckpoint ? 'つづきの100問へ' : '追加の100問へ'} <span className="rounded border border-white/45 bg-black/15 px-1.5 py-0.5 text-xs">Enter</span> <ArrowRight size={18} /></GameButton>
                     <GameButton variant="outline" onClick={() => startGame('Eiken5', 1, 'guide', 'voice-text')}>英検5級へすすむ <ArrowRight size={18} /></GameButton>
                   </div>
                 </div>
@@ -9079,7 +9084,7 @@ export default function App() {
                           </span>
                           <span className="mt-3 block text-sm font-black text-amber-100">キーボードつき・はじめてバトル</span>
                           <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
-                            光るキーを見ながら、10問ずつモンスターと戦えます。時間制限や減点はありません。
+                            光るキーを見ながら、10問ずつモンスターと戦えます。全300問ですが、100問ごとに続けるか選べます。
                           </span>
                         </button>
 
