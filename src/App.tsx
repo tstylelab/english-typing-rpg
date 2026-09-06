@@ -14,6 +14,7 @@ type Difficulty = 'Eiken5' | 'Eiken4' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'C
 type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
+type BattleKeyboardGuideMode = 'off' | 'highlight' | 'table';
 type BattleResult = 'win' | 'lose' | 'draw' | null;
 type SpeechVoiceMode = 'random' | 'us_female' | 'us_male' | 'uk_female' | 'uk_male';
 type BossStage = 0 | 1 | 2 | 3 | 4;
@@ -2450,6 +2451,7 @@ const STORAGE_KEYS = {
   lastSelectedCourse: 'etyping_last_selected_course',
   beginnerBattleProgress: 'etyping_beginner_battle_progress',
   externalKeyboardMode: 'etyping_external_keyboard_mode',
+  battleKeyboardGuides: 'etyping_battle_keyboard_guides',
 } as const;
 
 const safeLoadJson = <T,>(key: string, fallback: T): T => {
@@ -3507,11 +3509,15 @@ const GuidedKeyboard = ({
   onPress,
   highlightNext = true,
   disabled = false,
+  includeSpace = false,
+  preserveFocus = false,
 }: {
   nextLetter: string;
   onPress: (letter: string) => void;
   highlightNext?: boolean;
   disabled?: boolean;
+  includeSpace?: boolean;
+  preserveFocus?: boolean;
 }) => {
   const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
 
@@ -3520,14 +3526,16 @@ const GuidedKeyboard = ({
       {keyboardRows.map(row => (
         <div key={row} className="guided-keyboard-row flex justify-center gap-1 sm:gap-1.5">
           {[...row].map(letter => {
-            const isNext = highlightNext && letter === nextLetter;
+            const isNext = highlightNext && letter === nextLetter.toLowerCase();
             return (
               <button
                 key={letter}
                 type="button"
                 disabled={disabled}
+                onPointerDown={event => { if (preserveFocus) event.preventDefault(); }}
                 onClick={() => onPress(letter)}
                 aria-label={`${letter.toUpperCase()}のキー`}
+                aria-current={isNext ? 'true' : undefined}
                 className={`guided-keyboard-key flex h-10 w-[clamp(1.7rem,7.6vw,2.75rem)] items-center justify-center rounded-md border text-sm font-black uppercase text-white transition sm:h-11 sm:text-base ${isNext ? 'scale-105 border-amber-100 bg-amber-400 text-slate-950 shadow-[0_0_18px_rgba(251,191,36,0.68)]' : TYPING_FINGER_KEY_CLASSES[letter] ?? 'border-slate-500 bg-slate-800'} ${disabled ? 'cursor-not-allowed opacity-55' : 'active:scale-95'}`}
               >
                 {letter}
@@ -3536,6 +3544,19 @@ const GuidedKeyboard = ({
           })}
         </div>
       ))}
+      {includeSpace && (
+        <div className="flex justify-center">
+          <button
+            type="button"
+            disabled={disabled}
+            onPointerDown={event => { if (preserveFocus) event.preventDefault(); }}
+            onClick={() => onPress(' ')}
+            aria-label="スペースのキー"
+            aria-current={highlightNext && nextLetter === ' ' ? 'true' : undefined}
+            className={`guided-keyboard-space h-9 w-48 rounded-md border text-xs font-bold ${highlightNext && nextLetter === ' ' ? 'border-amber-100 bg-amber-400 text-slate-950' : 'border-slate-500 bg-slate-800 text-white'}`}
+          >スペース（あいだをあける）</button>
+        </div>
+      )}
     </div>
   );
 };
@@ -3847,6 +3868,22 @@ export default function App() {
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
   const [activePlayerId, setActivePlayerId] = useState('');
+  const [battleKeyboardGuides, setBattleKeyboardGuides] = useState<Record<string, BattleKeyboardGuideMode>>(() => {
+    const saved = safeLoadJson<unknown>(STORAGE_KEYS.battleKeyboardGuides, {});
+    if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return {};
+    return Object.fromEntries(Object.entries(saved).filter((entry): entry is [string, BattleKeyboardGuideMode] => (
+      entry[1] === 'off' || entry[1] === 'highlight' || entry[1] === 'table'
+    )));
+  });
+  const battleKeyboardGuideMode = battleKeyboardGuides[activePlayerId] ?? 'off';
+  const canUseBattleKeyboardGuide = gameState.selectedDifficulty === 'Eiken5' && gameState.selectedLevel === 1 && gameState.mode === 'guide';
+  const showBattleKeyboardGuide = canUseBattleKeyboardGuide && battleKeyboardGuideMode !== 'off';
+  const useBattleKeyboardTarget = externalKeyboardMode || showBattleKeyboardGuide;
+  const updateBattleKeyboardGuide = (mode: BattleKeyboardGuideMode) => {
+    const next = { ...battleKeyboardGuides, [activePlayerId]: mode };
+    setBattleKeyboardGuides(next);
+    localStorage.setItem(STORAGE_KEYS.battleKeyboardGuides, JSON.stringify(next));
+  };
   const [newPlayerName, setNewPlayerName] = useState('');
   const [playerNameDrafts, setPlayerNameDrafts] = useState<Record<string, string>>({});
   const [settingsFocusSection, setSettingsFocusSection] = useState<'progress-transfer' | 'player-profiles' | null>(null);
@@ -4537,7 +4574,7 @@ export default function App() {
     resetVersusImeState();
     window.requestAnimationFrame(() => {
       if (gameState.screen === 'battle') {
-        (enabled ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+        (enabled || showBattleKeyboardGuide ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
       }
       if (gameState.screen === 'versus-play' && !versusShowHandoff) {
         (enabled ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
@@ -4551,7 +4588,7 @@ export default function App() {
   ) => {
     if (input === inputRef) resetBattleImeState();
     if (input === versusInputRef) resetVersusImeState();
-    (externalKeyboardMode ? keyboardTarget.current : input.current)?.focus({ preventScroll: true });
+    (externalKeyboardMode || (input === inputRef && showBattleKeyboardGuide) ? keyboardTarget.current : input.current)?.focus({ preventScroll: true });
   };
 
   useEffect(() => {
@@ -5055,8 +5092,8 @@ export default function App() {
   useEffect(() => {
     if (gameState.screen !== 'battle') return;
     resetBattleImeState();
-    (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
-  }, [externalKeyboardMode, gameState.screen, gameState.currentQuestion, resetBattleImeState]);
+    (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+  }, [useBattleKeyboardTarget, gameState.screen, gameState.currentQuestion, resetBattleImeState]);
 
   useEffect(() => {
     const clearInterruptedTypingState = () => {
@@ -5069,7 +5106,7 @@ export default function App() {
       if (document.visibilityState !== 'visible') return;
       window.setTimeout(() => {
         if (gameState.screen === 'battle') {
-          (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+          (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
         } else if (gameState.screen === 'versus-play' && !versusShowHandoff) {
           (externalKeyboardMode ? versusKeyboardTargetRef.current : versusInputRef.current)?.focus({ preventScroll: true });
         }
@@ -5088,7 +5125,7 @@ export default function App() {
       window.removeEventListener('focus', restoreActiveTypingTarget);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [externalKeyboardMode, gameState.screen, resetBattleImeState, resetVersusImeState, versusShowHandoff]);
+  }, [externalKeyboardMode, useBattleKeyboardTarget, gameState.screen, resetBattleImeState, resetVersusImeState, versusShowHandoff]);
 
   useEffect(() => {
     if (gameState.screen !== 'battle' && gameState.screen !== 'versus-play') {
@@ -5621,9 +5658,9 @@ export default function App() {
       speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
       setTimeout(() => {
         resetBattleImeState();
-        (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+        (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
       }, 10);
-  }, [externalKeyboardMode, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
+  }, [useBattleKeyboardTarget, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
     setGameState(prev => {
@@ -6218,7 +6255,7 @@ export default function App() {
   const handleSkip = () => {
     setLastSolvedQuestion(gameState.currentQuestion);
     advanceGame(0, 0, true, 0);
-    (externalKeyboardMode ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
+    (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
   };
 
   const advanceGame = (damage: number, speed: number, skipped: boolean, addedChars: number) => {
@@ -6511,8 +6548,13 @@ export default function App() {
     }
     window.setTimeout(() => {
       battleIgnoreCompositionCommitRef.current = false;
-      inputRef.current?.focus({ preventScroll: true });
+      (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
     }, 0);
+  };
+
+  const startGuidedEiken5 = () => {
+    updateBattleKeyboardGuide('highlight');
+    startGame('Eiken5', 1, 'guide', 'voice-text');
   };
 
   const beginBeginnerBattle = (restart: boolean) => {
@@ -6543,6 +6585,12 @@ export default function App() {
 
   const startBeginnerBattle = () => beginBeginnerBattle(false);
   const restartBeginnerBattle = () => beginBeginnerBattle(true);
+  const startAddedBeginnerBattle = () => {
+    // The 300-question version removed its save on completion. Let returning
+    // players explicitly start the new set without guessing their progress.
+    saveBeginnerBattleProgress(300);
+    beginBeginnerBattle(false);
+  };
 
   const leaveBeginnerBattle = () => {
     clearBeginnerBattleAdvanceTimeout();
@@ -6678,7 +6726,7 @@ export default function App() {
       const keyId = event.code || event.key;
       if (phase === 'up') {
         if (handledPhysicalKeyIdsRef.current.delete(keyId)) return;
-        if (!externalKeyboardMode) return;
+        if (!externalKeyboardMode && !(gameState.screen === 'battle' && showBattleKeyboardGuide)) return;
       } else if (event.defaultPrevented && !externalKeyboardMode) {
         return;
       }
@@ -8639,13 +8687,10 @@ export default function App() {
     const questionIndexInPhase = safeQuestionIndex % BEGINNER_BATTLE_PHASE_SIZE;
     const nextLetter = isComplete ? '' : question.text[beginnerBattleInput.length] ?? '';
     const currentMonster = MONSTERS[1].guide[phaseIndex % MONSTERS[1].guide.length] ?? MONSTERS[1].guide[0];
-    const isFirstSetCheckpoint = beginnerBattleClearedPhase === (BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE) - 1;
-    const isSecondSetCheckpoint = beginnerBattleClearedPhase === ((BEGINNER_BATTLE_FIRST_SET_SIZE * 2) / BEGINNER_BATTLE_PHASE_SIZE) - 1;
-    const setLabel = phaseIndex < BEGINNER_BATTLE_FIRST_SET_SIZE / BEGINNER_BATTLE_PHASE_SIZE
-      ? '1〜100問'
-      : phaseIndex < (BEGINNER_BATTLE_FIRST_SET_SIZE * 2) / BEGINNER_BATTLE_PHASE_SIZE
-        ? '101〜200問'
-        : '追加100問';
+    const completedQuestions = beginnerBattleClearedPhase !== null ? (beginnerBattleClearedPhase + 1) * BEGINNER_BATTLE_PHASE_SIZE : 0;
+    const isSetCheckpoint = completedQuestions > 0 && completedQuestions % BEGINNER_BATTLE_FIRST_SET_SIZE === 0 && completedQuestions < BEGINNER_BATTLE_QUESTIONS.length;
+    const setStart = Math.floor(safeQuestionIndex / BEGINNER_BATTLE_FIRST_SET_SIZE) * BEGINNER_BATTLE_FIRST_SET_SIZE;
+    const setLabel = `${setStart + 1}〜${Math.min(setStart + BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_QUESTIONS.length)}問`;
     const remainingQuestions = beginnerBattleClearedPhase !== null
       ? 0
       : BEGINNER_BATTLE_PHASE_SIZE - questionIndexInPhase;
@@ -8662,14 +8707,14 @@ export default function App() {
             <div className="text-6xl">🏆</div>
             <p className="mt-3 text-sm font-black tracking-[0.18em] text-amber-200">{BEGINNER_BATTLE_QUESTIONS.length}もん クリア！</p>
             <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">はじめてバトル せいこう！</h1>
-            <p className="mt-3 text-base font-bold leading-7 text-slate-200">1文字から5文字まで、300個の単語を打てました。アルファベットのキーともっと仲よくなれました！</p>
+            <p className="mt-3 text-base font-bold leading-7 text-slate-200">1文字から5文字まで、復習もまぜて{BEGINNER_BATTLE_QUESTIONS.length}問できました。アルファベットのキーともっと仲よくなれました！</p>
             <div className="mt-6 rounded-xl border border-cyan-300/35 bg-cyan-950/35 p-4 text-left">
               <p className="font-black text-cyan-100">つぎのおすすめ</p>
-              <p className="mt-1 text-sm font-bold leading-6 text-slate-300">英検5級 Level 1の基礎練習へ進むと、もっとたくさんの英単語とモンスターに出会えます。</p>
+              <p className="mt-1 text-sm font-bold leading-6 text-slate-300">英検5級 Level 1の基礎練習でも、光るキーボードを使えます。慣れたら「表だけ」や「非表示」に変えられます。</p>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <GameButton variant="outline" onClick={restartBeginnerBattle}><RotateCcw size={18} /> もう一度あそぶ</GameButton>
-              <GameButton onClick={() => startGame('Eiken5', 1, 'guide', 'voice-text')}><ArrowRight size={19} /> 英検5級へすすむ</GameButton>
+              <GameButton onClick={startGuidedEiken5}><ArrowRight size={19} /> ガイド付きで英検5級へ</GameButton>
               <GameButton variant="ghost" className="text-slate-300 hover:bg-slate-800 hover:text-white sm:col-span-2" onClick={leaveBeginnerBattle}>タイトルへ戻る</GameButton>
             </div>
           </div>
@@ -8702,6 +8747,13 @@ export default function App() {
             </div>
           </header>
 
+          {beginnerBattleIndex === 0 && beginnerBattleInput === '' && !beginnerBattleResolving && (
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-b border-slate-700 px-3 py-2 text-xs">
+              <span className="font-bold text-slate-300">300問まで終えた人は</span>
+              <button type="button" onClick={startAddedBeginnerBattle} className="rounded-lg border border-amber-300/50 bg-amber-950/40 px-3 py-2 font-black text-amber-100 hover:bg-amber-900/50">追加100問から遊ぶ（301問目〜）</button>
+            </div>
+          )}
+
           <div className="beginner-battle-content grid gap-3 p-3 md:grid-cols-[0.72fr_1.28fr] md:p-4">
             <section className="beginner-battle-monster flex min-h-[205px] flex-col items-center justify-center rounded-xl border border-violet-300/25 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.18),rgba(15,23,42,0.78)_68%)] p-3 text-center">
               <p className="text-sm font-black text-violet-100">{currentMonster.name}</p>
@@ -8715,14 +8767,14 @@ export default function App() {
             </section>
 
             <section className="beginner-battle-prompt flex min-h-[205px] flex-col justify-center rounded-xl border border-cyan-300/25 bg-slate-950/58 p-4 text-center">
-              {isFirstSetCheckpoint || isSecondSetCheckpoint ? (
+              {isSetCheckpoint ? (
                 <div>
                   <div className="text-5xl">🎆</div>
-                  <p className="mt-2 text-2xl font-black text-amber-200">{isFirstSetCheckpoint ? '100問 クリア！' : '200問 クリア！'}</p>
-                  <p className="mt-2 text-sm font-bold leading-6 text-slate-300">{isFirstSetCheckpoint ? 'ここで英検5級へ進んでもOK。まだ遊びたいときは、つぎの100問に挑戦できます。' : 'ここまででもすごい！ もう少しアルファベットを覚えたいときは、登場回数が少なかった文字も練習できる追加100問に挑戦できます。'}</p>
+                  <p className="mt-2 text-2xl font-black text-amber-200">{completedQuestions}問 クリア！</p>
+                  <p className="mt-2 text-sm font-bold leading-6 text-slate-300">つぎの100問で練習を続けても、ガイド付きで英検5級の基礎練習へ進んでもOK。自分のペースで選ぼう。</p>
                   <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                    <GameButton variant="success" onClick={continueBeginnerBattle}>{isFirstSetCheckpoint ? 'つづきの100問へ' : '追加の100問へ'} <span className="rounded border border-white/45 bg-black/15 px-1.5 py-0.5 text-xs">Enter</span> <ArrowRight size={18} /></GameButton>
-                    <GameButton variant="outline" onClick={() => startGame('Eiken5', 1, 'guide', 'voice-text')}>英検5級へすすむ <ArrowRight size={18} /></GameButton>
+                    <GameButton variant="success" onClick={continueBeginnerBattle}>つづきの100問へ <span className="rounded border border-white/45 bg-black/15 px-1.5 py-0.5 text-xs">Enter</span> <ArrowRight size={18} /></GameButton>
+                    <GameButton variant="outline" onClick={startGuidedEiken5}>ガイド付きで英検5級へ <ArrowRight size={18} /></GameButton>
                   </div>
                 </div>
               ) : beginnerBattleClearedPhase !== null ? (
@@ -9084,7 +9136,7 @@ export default function App() {
                           </span>
                           <span className="mt-3 block text-sm font-black text-amber-100">キーボードつき・はじめてバトル</span>
                           <span className="mt-1 block text-sm font-bold leading-6 text-slate-300">
-                            光るキーを見ながら、10問ずつモンスターと戦えます。全300問ですが、100問ごとに続けるか選べます。
+                            光るキーを見ながら、10問ずつモンスターと戦えます。全{BEGINNER_BATTLE_QUESTIONS.length}問。100問ごとに続けるか選べて、英検5級にもガイド付きで進めます。
                           </span>
                         </button>
 
@@ -9810,7 +9862,7 @@ export default function App() {
     });
 
     return (
-      <ScreenContainer className={`battle-screen ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
+      <ScreenContainer className={`battle-screen ${showBattleKeyboardGuide ? 'battle-with-keyboard' : ''} ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
         <div className="mobile-landscape-notice pointer-events-none fixed inset-x-3 bottom-3 z-30 hidden items-center justify-center gap-2 rounded-xl border border-cyan-300/45 bg-slate-950/92 px-4 py-3 text-center text-sm font-black text-cyan-100 shadow-xl">
           <RotateCcw size={18} className="text-cyan-300" /> スマホでは縦向きにして遊ぼう
         </div>
@@ -9839,6 +9891,14 @@ export default function App() {
                <Home size={16} /> EXIT
              </GameButton>
              <div className="flex gap-4">
+               {canUseBattleKeyboardGuide && (
+                 <div role="group" aria-label="キーボードガイド" className="flex flex-wrap items-center justify-end gap-1 text-xs">
+                   <span className="mr-1 font-bold text-slate-300">ガイド</span>
+                   {([['off', '非表示'], ['highlight', '次のキーが光る'], ['table', '表だけ']] as const).map(([mode, label]) => (
+                     <button key={mode} type="button" aria-pressed={battleKeyboardGuideMode === mode} onClick={() => updateBattleKeyboardGuide(mode)} className={`rounded-lg border px-2.5 py-2 font-bold ${battleKeyboardGuideMode === mode ? 'border-cyan-300 bg-cyan-950 text-cyan-100' : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{label}</button>
+                   ))}
+                 </div>
+               )}
                {gameState.mode === 'weakness' && (
                  <div className="bg-orange-900/50 border border-orange-500/50 px-3 py-1 rounded-full text-orange-200 text-xs font-bold">
                    残り苦手語: {remainingWeakCount}
@@ -9961,10 +10021,10 @@ export default function App() {
                  </div>
                  <div
                    ref={battleKeyboardTargetRef}
-                   tabIndex={externalKeyboardMode ? 0 : -1}
+                   tabIndex={useBattleKeyboardTarget ? 0 : -1}
                    className={`battle-question-panel relative bg-black/40 rounded-xl border border-slate-700 shadow-inner ${questionPresentation.panelClass}`}
                    onPointerDown={event => {
-                     if (externalKeyboardMode && event.pointerType === 'touch') {
+                     if (useBattleKeyboardTarget && event.pointerType === 'touch') {
                        event.preventDefault();
                      }
                      keepTypingInputReady(inputRef, battleKeyboardTargetRef);
@@ -9991,15 +10051,35 @@ export default function App() {
                       onBlur={resetBattleImeState}
                       className="battle-input w-full h-full opacity-0 absolute inset-0 cursor-default z-10"
                       lang="en"
-                      inputMode={externalKeyboardMode ? 'none' : (androidTablet ? 'email' : 'text')}
-                      tabIndex={externalKeyboardMode ? -1 : 0}
+                      inputMode={useBattleKeyboardTarget ? 'none' : (androidTablet ? 'email' : 'text')}
+                      tabIndex={useBattleKeyboardTarget ? -1 : 0}
+                      readOnly={showBattleKeyboardGuide}
                       autoComplete="off"
                       autoCapitalize="none"
                       autoCorrect="off"
                       spellCheck={false}
-                      autoFocus={!externalKeyboardMode}
+                      autoFocus={!useBattleKeyboardTarget}
                     />
                  </div>
+                 {showBattleKeyboardGuide && (
+                   <section className="battle-guided-keyboard mt-3" aria-label="英検5級のキーボードガイド">
+                     <p className="mb-1.5 text-center text-xs font-bold text-cyan-100">{battleKeyboardGuideMode === 'highlight' ? '光るキーを押そう。画面のキーでも入力できます。' : '表を見ながら入力しよう。画面のキーでも入力できます。'}</p>
+                     <GuidedKeyboard
+                       nextLetter={normalizeTypingText(gameState.currentQuestion.text)[gameState.userInput.length] ?? ''}
+                       highlightNext={battleKeyboardGuideMode === 'highlight'}
+                       includeSpace
+                       preserveFocus
+                       disabled={gameState.monsterHp <= 0 || showBossIntro}
+                       onPress={letter => {
+                         if (gameState.monsterHp <= 0 || showBossIntro) return;
+                         const expected = normalizeTypingText(gameState.currentQuestion.text)[gameState.userInput.length] ?? '';
+                         const character = expected.toLowerCase() === letter ? expected : letter;
+                         handleBattleInputValue(gameState.userInput + character);
+                         keepTypingInputReady(inputRef, battleKeyboardTargetRef);
+                       }}
+                     />
+                   </section>
+                 )}
                  {showPreviousStudyCard && lastSolvedQuestion && (
                     <div className="battle-previous-study mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
                      <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-left leading-snug">
@@ -10090,7 +10170,7 @@ export default function App() {
                 >
                   USBキーボード: {externalKeyboardMode ? 'ON' : 'OFF'}
                 </button>
-                <span className="text-[11px] font-bold text-slate-400">{externalKeyboardMode ? '画面キーボードに戻すときはOFF' : '画面キーボード入力中'}</span>
+                <span className="text-[11px] font-bold text-slate-400">{showBattleKeyboardGuide ? '画面のガイド・実物のキーボードで入力できます' : externalKeyboardMode ? '画面キーボードに戻すときはOFF' : '画面キーボード入力中'}</span>
               </div>
         </div>
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }

@@ -1,5 +1,112 @@
 @import "tailwindcss";
 
+/* Only the optional Grade 5 keyboard layout uses this space. */
+.battle-with-keyboard .battle-main {
+  max-width: 1120px;
+  margin-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+.battle-with-keyboard .battle-card {
+  margin-top: 0;
+  padding: 0.75rem;
+}
+.battle-with-keyboard .battle-question-panel {
+  padding: 0.5rem;
+}
+.battle-with-keyboard .battle-question-text {
+  min-height: 1.8em !important;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+}
+.battle-with-keyboard .battle-controls {
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.battle-with-keyboard .battle-replay,
+.battle-with-keyboard .battle-bookmark,
+.battle-with-keyboard .battle-skip,
+.battle-with-keyboard .battle-remaining {
+  padding: 0.4rem 0.65rem;
+}
+.battle-with-keyboard .battle-shortcut {
+  display: none;
+}
+.battle-with-keyboard .mobile-landscape-notice {
+  display: none !important;
+}
+@media (min-width: 900px), (min-width: 700px) and (orientation: landscape) {
+  .battle-screen.battle-with-keyboard .battle-main {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 1rem;
+  }
+  .battle-with-keyboard .battle-monster-area {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+  .battle-screen.battle-with-keyboard .battle-dialogue {
+    position: static;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .battle-with-keyboard .battle-hp {
+    max-width: 100%;
+  }
+  .battle-with-keyboard .battle-card {
+    grid-column: 2;
+    min-width: 0;
+  }
+  .battle-with-keyboard .battle-footer-label {
+    grid-column: 2;
+  }
+}
+@media (max-width: 699px) {
+  .battle-with-keyboard .battle-monster-area {
+    margin-bottom: 0.5rem;
+  }
+  .battle-with-keyboard .battle-avatar {
+    height: 90px;
+  }
+  .battle-with-keyboard .battle-avatar svg {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (min-width: 700px) and (max-height: 520px) {
+  .battle-screen.battle-with-keyboard .battle-main {
+    grid-template-columns: 145px minmax(0, 1fr);
+    column-gap: 0.5rem;
+    margin-top: 0.25rem;
+    padding: 0 0.5rem 0.5rem;
+  }
+  .battle-with-keyboard .battle-topbar { padding-block: 0.2rem; }
+  .battle-with-keyboard .battle-topbar button { padding-block: 0.2rem; }
+  .battle-with-keyboard .battle-topbar > button { flex-direction: row; gap: 0.35rem; }
+  .battle-with-keyboard .battle-avatar svg { width: 90px; height: 90px; }
+  .battle-with-keyboard .battle-controls { flex-direction: row; }
+  .battle-with-keyboard .battle-action-buttons { width: auto; }
+  .battle-with-keyboard .battle-replay,
+  .battle-with-keyboard .battle-bookmark,
+  .battle-with-keyboard .battle-skip,
+  .battle-with-keyboard .battle-remaining { font-size: 11px; padding: 0.25rem 0.4rem; }
+  .battle-with-keyboard .battle-guided-keyboard { margin-top: 0.35rem; }
+  .battle-with-keyboard .battle-card { padding: 0.5rem; }
+  .battle-with-keyboard .battle-translation { min-height: 0; margin-bottom: 0.2rem; }
+  .battle-with-keyboard .battle-question-panel { padding: 0.25rem; }
+  .battle-with-keyboard .battle-question-text {
+    min-height: 1.25em !important;
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+  .battle-with-keyboard .guided-keyboard { gap: 0.25rem; }
+  .battle-with-keyboard .guided-keyboard-key { height: 2rem; width: 2.5rem; }
+  .battle-with-keyboard .guided-keyboard-space { height: 1.75rem; }
+  .battle-with-keyboard .battle-footer-label { margin-top: 0.25rem; }
+  .battle-with-keyboard .battle-previous-study { margin-top: 0.35rem; }
+}
+
 @media (min-width: 700px) and (max-height: 520px) {
   .beginner-battle-panel {
     max-height: calc(100vh - 0.5rem);
