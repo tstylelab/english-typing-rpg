@@ -2452,6 +2452,7 @@ const STORAGE_KEYS = {
   beginnerBattleProgress: 'etyping_beginner_battle_progress',
   externalKeyboardMode: 'etyping_external_keyboard_mode',
   battleKeyboardGuides: 'etyping_battle_keyboard_guides',
+  mainGameStartedPlayers: 'etyping_main_game_started_players',
 } as const;
 
 const safeLoadJson = <T,>(key: string, fallback: T): T => {
@@ -3868,6 +3869,19 @@ export default function App() {
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
   const [activePlayerId, setActivePlayerId] = useState('');
+  const [mainGameStartedPlayers, setMainGameStartedPlayers] = useState<Record<string, boolean>>(() => {
+    const saved = safeLoadJson<unknown>(STORAGE_KEYS.mainGameStartedPlayers, {});
+    if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return {};
+    return Object.fromEntries(Object.entries(saved).filter(([, started]) => started === true));
+  });
+  // Older versions did not store a start flag. Existing learning records still
+  // identify returning players; merely opening the title does not count.
+  const hasStartedMainGame = mainGameStartedPlayers[activePlayerId] === true
+    || gameState.defeatedMonsterIds.length > 0
+    || maxKeystrokes > 0
+    || Object.keys(bestScores).length > 0
+    || dailyProgress.questionCount > 0
+    || Object.values(dailyActivityHistory).some(day => day.answered > 0 || day.skipped > 0);
   const [battleKeyboardGuides, setBattleKeyboardGuides] = useState<Record<string, BattleKeyboardGuideMode>>(() => {
     const saved = safeLoadJson<unknown>(STORAGE_KEYS.battleKeyboardGuides, {});
     if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return {};
@@ -5885,6 +5899,9 @@ export default function App() {
     }
 
     if (mode === 'guide' || mode === 'challenge') {
+      const startedPlayers = { ...mainGameStartedPlayers, [activePlayerId]: true };
+      setMainGameStartedPlayers(startedPlayers);
+      localStorage.setItem(STORAGE_KEYS.mainGameStartedPlayers, JSON.stringify(startedPlayers));
       setResumeMode(mode);
       setResumeInputMode(mode === 'guide' ? 'voice-text' : inputMode);
     }
@@ -9003,22 +9020,25 @@ export default function App() {
 
                   <div className="grid gap-3 p-4 sm:grid-cols-2">
                     <GameButton
-                      onClick={() => setShowFirstPlayGuide(true)}
-                      variant="outline"
-                      className="w-full min-h-[58px] border-emerald-300/70 bg-emerald-950/42 text-emerald-50 shadow-[0_0_26px_rgba(52,211,153,0.16)] hover:border-emerald-200 hover:bg-emerald-900/48 sm:col-span-2"
-                      size="md"
-                    >
-                      <span className="flex items-center justify-center gap-2 text-base sm:text-lg">
-                        <Star size={22} /> 初めて遊ぶ人はこちら
-                      </span>
-                    </GameButton>
-
-                    <GameButton
-                      onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)}
+                      onClick={() => hasStartedMainGame
+                        ? startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)
+                        : setGameState(prev => ({ ...prev, screen: 'level-select' }))}
                       className="w-full min-h-[72px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500 sm:col-span-2"
                       size="md"
                     >
-                      <ArrowRight size={26} /> 前回の続きから
+                      <ArrowRight size={26} /> {hasStartedMainGame ? '前回の続きから' : '教材を選んではじめる'}
+                    </GameButton>
+
+                    <GameButton
+                      onClick={() => setShowFirstPlayGuide(true)}
+                      variant="outline"
+                      className="w-full border-slate-600 bg-slate-900/45 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/30 sm:col-span-2"
+                      size="md"
+                    >
+                      <span className="flex items-center justify-center gap-2 text-base">
+                        <Keyboard size={18} /> タイピングに慣れていない方へ
+                      </span>
+                      <span className="text-xs font-medium text-slate-400">キーの場所から、ゆっくり練習できます</span>
                     </GameButton>
 
                     <GameButton
@@ -9097,9 +9117,9 @@ export default function App() {
                   >
                     <div className="my-auto max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
                       <div className="border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.62),rgba(15,23,42,0.96))] px-5 py-5 text-center sm:px-7">
-                        <p className="text-xs font-black tracking-[0.18em] text-emerald-200">はじめて遊ぶ人へ</p>
+                        <p className="text-sm font-bold text-emerald-200">タイピングの練習から始めたい方へ</p>
                         <h2 id="first-play-guide-title" className="mt-2 text-2xl font-black text-white sm:text-3xl">今の自分に近いものを選ぼう！</h2>
-                        <p className="mt-2 text-sm font-bold text-slate-300">迷ったら左上から。順番に進めば大丈夫です。</p>
+                        <p className="mt-2 text-sm font-bold text-slate-300">キーの場所から練習したい方は左上へ。文字入力ができる方は、本編へ進めます。</p>
                       </div>
 
                       <div className="grid gap-3 p-4 sm:grid-cols-2 sm:p-6">
