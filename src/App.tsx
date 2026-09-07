@@ -3962,6 +3962,7 @@ export default function App() {
   const speechPreviewTimeoutRef = useRef<number | null>(null);
   const autoPlayTimeoutRef = useRef<number | null>(null);
   const autoPlayRunIdRef = useRef(0);
+  const autoPlayNavigateRef = useRef<((direction: -1 | 1) => void) | null>(null);
   const autoPlayWakeLockRef = useRef<WakeLockSentinel | null>(null);
   const autoPlayWakeLockWantedRef = useRef(false);
   const autoPlayWakeLockRequestIdRef = useRef(0);
@@ -4877,6 +4878,7 @@ export default function App() {
 
   const stopAutoPlay = useCallback((statusText: string = '停止しました') => {
     autoPlayRunIdRef.current += 1;
+    autoPlayNavigateRef.current = null;
     clearAutoPlayTimeout();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -6859,6 +6861,7 @@ export default function App() {
 
   const startAutoPlaySequence = (
     entries: Array<{
+      questionIndex: number;
       label: string;
       text: string;
       lang: string;
@@ -6873,7 +6876,7 @@ export default function App() {
     }
 
     autoPlayRunIdRef.current += 1;
-    const runId = autoPlayRunIdRef.current;
+    let runId = autoPlayRunIdRef.current;
     clearAutoPlayTimeout();
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -6883,6 +6886,7 @@ export default function App() {
     autoPlayWakeLockWantedRef.current = true;
     void requestAutoPlayWakeLock();
 
+    let currentIndex = 0;
     const playAt = (index: number) => {
       if (autoPlayRunIdRef.current !== runId) return;
 
@@ -6893,6 +6897,7 @@ export default function App() {
           return;
         }
         setIsAutoPlaying(false);
+        autoPlayNavigateRef.current = null;
         setAutoPlayNowPlaying(null);
         setAutoPlayStatusText('再生が完了しました');
         releaseAutoPlayWakeLock();
@@ -6900,6 +6905,8 @@ export default function App() {
       }
 
       const entry = entries[index];
+      currentIndex = index;
+      const entryRunId = runId;
       setAutoPlayNowPlaying(entry.nowPlaying);
       setAutoPlayStatusText(`${index + 1}/${entries.length} ${entry.label}`);
       const playbackRate = Math.max(0.5, autoPlaySettings.playbackRatePercent / 100);
@@ -6916,15 +6923,17 @@ export default function App() {
         rate: entry.lang.startsWith('ja') ? 1 : autoPlaySettings.playbackRatePercent / 100,
         interrupt: false,
         onend: () => {
-          if (autoPlayRunIdRef.current !== runId) return;
+          if (autoPlayRunIdRef.current !== entryRunId) return;
           autoPlayTimeoutRef.current = window.setTimeout(() => {
+            if (autoPlayRunIdRef.current !== entryRunId) return;
             autoPlayTimeoutRef.current = null;
             playAt(index + 1);
           }, nextDelaySeconds * 1000);
         },
         onerror: () => {
-          if (autoPlayRunIdRef.current !== runId) return;
+          if (autoPlayRunIdRef.current !== entryRunId) return;
           autoPlayTimeoutRef.current = window.setTimeout(() => {
+            if (autoPlayRunIdRef.current !== entryRunId) return;
             autoPlayTimeoutRef.current = null;
             playAt(index + 1);
           }, nextDelaySeconds * 1000);
@@ -6932,6 +6941,27 @@ export default function App() {
       });
     };
 
+    // Navigate whole questions, not individual word/translation/example utterances.
+    autoPlayNavigateRef.current = (direction) => {
+      if (autoPlayRunIdRef.current !== runId) return;
+      const questionIndex = entries[currentIndex].questionIndex;
+      let targetIndex = currentIndex;
+      if (direction === 1) {
+        while (targetIndex < entries.length && entries[targetIndex].questionIndex === questionIndex) targetIndex += 1;
+      } else {
+        while (targetIndex > 0 && entries[targetIndex - 1].questionIndex === questionIndex) targetIndex -= 1;
+        if (targetIndex > 0) {
+          targetIndex -= 1;
+          const previousQuestionIndex = entries[targetIndex].questionIndex;
+          while (targetIndex > 0 && entries[targetIndex - 1].questionIndex === previousQuestionIndex) targetIndex -= 1;
+        }
+      }
+      // Invalidate callbacks before cancel(), which may fire an error/end event.
+      runId = ++autoPlayRunIdRef.current;
+      clearAutoPlayTimeout();
+      window.speechSynthesis.cancel();
+      playAt(targetIndex);
+    };
     playAt(0);
   };
 
@@ -6951,6 +6981,7 @@ export default function App() {
       const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
       const example = currentQuestionExamples.get(questionKey);
       const nextEntries: Array<{
+        questionIndex: number;
         label: string;
         text: string;
         lang: string;
@@ -6967,6 +6998,7 @@ export default function App() {
       }) => {
         nextEntries.push({
           ...entry,
+          questionIndex,
           gapAfterSeconds: autoPlaySettings.itemGapSeconds,
         });
       };
@@ -7802,6 +7834,26 @@ export default function App() {
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-sm font-bold text-cyan-200">現在再生中</span>
                       <span className="text-xs font-bold text-slate-400">{isAutoPlaying ? '再生中' : '待機中'}</span>
+                    </div>
+                    <div className="mt-2 flex gap-2" role="group" aria-label="用語単位で移動">
+                      <button
+                        type="button"
+                        onClick={() => autoPlayNavigateRef.current?.(-1)}
+                        disabled={!isAutoPlaying}
+                        title="ひとつ前の用語を最初から再生（最初の用語では聞き直し）"
+                        className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        ← 前の用語
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => autoPlayNavigateRef.current?.(1)}
+                        disabled={!isAutoPlaying}
+                        title="今の用語をスキップして次の用語を再生"
+                        className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        次の用語 →
+                      </button>
                     </div>
                     {autoPlayNowPlaying ? (
                       <div className="mt-3 space-y-2">
