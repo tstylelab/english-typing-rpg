@@ -7,6 +7,7 @@ import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import HelpScreen from './HelpScreen';
+import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 
 // --- Types & Interfaces ---
 
@@ -3970,6 +3971,7 @@ export default function App() {
   const autoPlayPanelRef = useRef<HTMLDivElement>(null);
   const autoPlayScrollRequestedRef = useRef(false);
   const questionPoolRef = useRef<Record<string, QuestionPoolState>>({});
+  const learningQuestionBalanceRef = useRef<Record<string, LearningQuestionBalance>>({});
   const reviewQueueRef = useRef<ReviewQueueEntry[]>([]);
   const activeReviewEntryRef = useRef<ReviewQueueEntry | null>(null);
   const recentReviewAppearanceRef = useRef<boolean[]>([]);
@@ -5971,6 +5973,12 @@ export default function App() {
     clearPendingBattleEndTimeout();
     setLastSolvedQuestion(null);
     recentReviewAppearanceRef.current = [];
+    const learningBalance = learningQuestionBalanceRef.current[JSON.stringify([activePlayerId, diff, level, mode, inputMode])];
+    if (learningBalance) {
+      // Each monster/retry gets its own ten-question minimum; keep the word rotation.
+      learningBalance.position = 0;
+      learningBalance.unfinishedCount = 0;
+    }
     const safeIndices = indices.length > 0 ? indices : [0];
     const safeStepIndex = Math.min(Math.max(stepIndex, 0), safeIndices.length - 1);
     const actualMonsterIndex = safeIndices[safeStepIndex] ?? 0;
@@ -5998,7 +6006,7 @@ export default function App() {
         else { question = { text: "No Weakness", translation: "苦手なし" }; }
         activeReviewEntryRef.current = null;
     } else {
-        question = getNextBattleQuestion(diff, level, null, safeStepIndex, mode);
+        question = getNextBattleQuestion(diff, level, null, safeStepIndex, mode, inputMode);
     }
 
     setGameState(prev => ({
@@ -6132,14 +6140,13 @@ export default function App() {
     return getNextQuestionFromPool(diff, level);
   };
 
-  const getPlayableRandomQuestion = (
+  const getEligibleBattleQuestions = (
     diff: Difficulty,
     level: Level,
-    currentQ: Question | null,
     stageIndex: number,
     mode: Mode,
-  ): Question => {
-    const playableList = getScopedPlayableQuestions(diff, level);
+    playableList = getScopedPlayableQuestions(diff, level),
+  ): Question[] => {
     const curriculumLimit = (
       diff === 'Eiken5' && mode === 'guide' && level === 2
         ? (stageIndex < 7 ? 40 : stageIndex < 14 ? 100 : Infinity)
@@ -6154,7 +6161,17 @@ export default function App() {
     const courseList = curriculumLimit === Infinity
       ? playableList
       : playableList.filter(question => (QUESTIONS[diff]?.[level] ?? []).indexOf(question) < curriculumLimit);
-    const list = courseList.length > 0 ? courseList : playableList;
+    return courseList.length > 0 ? courseList : playableList;
+  };
+
+  const getPlayableRandomQuestion = (
+    diff: Difficulty,
+    level: Level,
+    currentQ: Question | null,
+    stageIndex: number,
+    mode: Mode,
+    list = getEligibleBattleQuestions(diff, level, stageIndex, mode),
+  ): Question => {
     if (list.length === 0) return { text: "No Data", translation: "出題できる問題がありません" };
     const poolFallback = getRandomQuestion(diff, level, currentQ);
     const candidates = list.filter(question => (
@@ -6258,17 +6275,33 @@ export default function App() {
     currentQ: Question | null,
     stageIndex: number,
     mode: Mode,
+    inputMode: InputMode,
+    justUpdatedLevel?: LearningLevel,
   ): Question => {
-    if (!canServeReviewQuestion()) {
-      activeReviewEntryRef.current = null;
-      return getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode);
-    }
-
-    const reviewEntry = getDueReviewQuestion(diff, level, currentQ);
-    activeReviewEntryRef.current = reviewEntry;
-    if (reviewEntry) return reviewEntry.question;
+    const playableQuestions = getScopedPlayableQuestions(diff, level);
+    const eligibleQuestions = getEligibleBattleQuestions(diff, level, stageIndex, mode, playableQuestions);
+    const scopeKey = JSON.stringify([activePlayerId, diff, level, mode, inputMode]);
+    const state = learningQuestionBalanceRef.current[scopeKey]
+      ?? (learningQuestionBalanceRef.current[scopeKey] = createLearningQuestionBalance());
+    const getKey = (question: Question) => getQuestionStatusKey(diff, level, question);
+    const currentKey = currentQ ? getKey(currentQ) : undefined;
     activeReviewEntryRef.current = null;
-    return getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode);
+    return selectLearningBalancedQuestion({
+      state,
+      playableQuestions,
+      eligibleQuestions,
+      getKey,
+      // React hasn't rendered the just-completed answer's promotion/demotion yet.
+      getLevel: question => justUpdatedLevel !== undefined && getKey(question) === currentKey
+        ? justUpdatedLevel
+        : getEffectiveLearningLevel(getManualQuestionStatus(diff, level, question)),
+      currentKey,
+      chooseDefault: () => {
+        const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ) : null;
+        activeReviewEntryRef.current = reviewEntry;
+        return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions);
+      },
+    });
   };
 
   const handleSkip = () => {
@@ -6396,6 +6429,8 @@ export default function App() {
         gameState.currentQuestion,
         gameState.currentMonsterIndex,
         gameState.mode,
+        gameState.inputMode,
+        learningChange?.to,
       );
     }
     
@@ -9736,12 +9771,14 @@ export default function App() {
             </div>
 
             <div className="relative p-5 md:p-7">
-              <div className="pointer-events-none absolute right-5 top-4 hidden rounded-full border border-amber-200/45 bg-slate-950/82 px-4 py-2 text-sm font-black text-amber-100 shadow-[0_10px_28px_rgba(0,0,0,0.28)] xl:block">
-                今日の冒険を選ぼう!
-              </div>
               <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
+                    <p className="hidden rounded-full border border-amber-200/45 bg-slate-950/82 px-3 py-1 text-xs font-black text-amber-100 xl:block">
+                      今日の冒険を選ぼう!
+                    </p>
+                  </div>
                   <h1 className="mt-1 text-3xl font-black text-white md:text-4xl">モードをえらぶ</h1>
                   <p className="mt-2 text-sm font-bold text-slate-300">{isConversationCourse ? '相手のひと言を聞いて、自分の返答を英語で組み立てよう。' : '今日の気分に合わせて、練習かチャレンジを選ぼう。'}</p>
                 </div>
