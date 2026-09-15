@@ -14,9 +14,18 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
   for(const count of [100,1000]) {
    const page = await browser.newPage({viewport:{width:1366,height:900}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
-   await page.addInitScript(()=>{speechSynthesis.speak=()=>{};navigator.clipboard.writeText=async text=>{window.copied=text;};});
+   await page.addInitScript(()=>{
+    speechSynthesis.speak=()=>{};
+    navigator.clipboard.writeText=async text=>{window.copied=text;};
+    window.openCalls=[];
+    window.open=(...args)=>{window.openCalls.push({args,copied:window.copied});return null;};
+   });
    await page.goto(url);
    await page.getByRole('button',{name:'単語リスト',exact:true}).click();
+   await page.getByRole('button',{name:/AIに学習相談/}).click();
+   await page.getByRole('button',{name:'コピーしてChatGPTを開く',exact:true}).click();
+   assert.equal(await page.evaluate(()=>window.openCalls.length),0,'No data: no external tab');
+   await page.keyboard.press('Escape');
    await page.evaluate(async ({count,terms})=>{
     const {AiStudyRecorder}=await import('/src/aiStudyReview.ts');
     const r=new AiStudyRecorder(localStorage.getItem('etyping_active_player_id'),localStorage);r.load();
@@ -45,6 +54,20 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
    assert.equal(report,await page.evaluate(()=>window.copied));
    assert.ok(report.includes('候補10件') && report.includes('原則60文字以内'));
    assert.ok(report.length<6500, 'Twenty distinct terms yield at most ten compact candidates');
+   for(const [name,target] of [['ChatGPT','https://chatgpt.com/'],['Gemini','https://gemini.google.com/app']]) {
+    await dialog.getByRole('button',{name:`コピーして${name}を開く`,exact:true}).click();
+    const last=await page.evaluate(()=>window.openCalls.at(-1));
+    assert.deepEqual(last.args,[target,'_blank','noopener,noreferrer']);
+    assert.equal(last.copied,report,'Copy completed before opening; prompt never included in URL');
+    const link=dialog.getByRole('link',{name:`${name}を開く（開かない場合）`});
+    assert.equal(await link.getAttribute('href'),target);
+    assert.equal(await link.getAttribute('rel'),'noopener noreferrer');
+   }
+   await page.evaluate(()=>{window.open=()=>{throw new Error('test popup denied');};});
+   await dialog.getByRole('button',{name:'コピーしてChatGPTを開く',exact:true}).click();
+   assert.ok(await dialog.getByRole('status').filter({hasText:'コピーしました'}).isVisible());
+   assert.ok(await dialog.getByRole('link').isVisible());
+   assert.equal(await page.evaluate(()=>window.writes),0);
    await page.keyboard.press('Escape');await dialog.waitFor({state:'detached'});
    assert.equal(await opener.evaluate(e=>e===document.activeElement),true);
    await opener.click();await dialog.waitFor();
@@ -53,6 +76,11 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
    assert.equal(await dialog.evaluate(e=>e.scrollWidth>e.clientWidth),false);
    if(process.env.AI_REVIEW_SCREENSHOT) await dialog.screenshot({path:process.env.AI_REVIEW_SCREENSHOT});
    await page.evaluate(()=>{navigator.clipboard.writeText=async()=>{throw new Error('test denied');};});
+   const opensBefore=await page.evaluate(()=>window.openCalls.length);
+   await page.evaluate(()=>{window.open=(...args)=>{window.openCalls.push({args});return null;};});
+   await dialog.getByRole('button',{name:'コピーしてGeminiを開く',exact:true}).click();
+   assert.equal(await page.evaluate(()=>window.openCalls.length),opensBefore,'Failed copy must not open AI');
+   assert.equal(await dialog.getByRole('link').count(),0);
    await dialog.getByRole('button',{name:'相談文を作ってコピー',exact:true}).click();
    await dialog.getByRole('textbox',{name:'AIへの相談文'}).waitFor();
    assert.ok(await dialog.getByRole('status').filter({hasText:'自動コピーが使えませんでした'}).isVisible());
