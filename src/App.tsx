@@ -3695,7 +3695,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
   const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
 
   return (
-    <div key={`${questionKey}-${idx}`} className={`p-3 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
+    <div key={`${questionKey}-${idx}`} className={`question-list-row p-3 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div className="flex items-start gap-4 min-w-0">
           <div className={`mt-1 min-w-[2.75rem] rounded-full border px-2 py-1 text-center font-mono text-[11px] font-bold tracking-[0.18em] ${isMissRanking ? 'border-amber-400/50 bg-amber-500/10 text-amber-200' : 'border-slate-600 bg-slate-900/80 text-slate-400'}`}>

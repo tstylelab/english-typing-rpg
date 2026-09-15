@@ -100,10 +100,45 @@ const reportStart = performance.now();
 const report = buildAiStudyReport(many.snapshot(), 'recent200', { Eiken5: '英検5級' }, now);
 const reportMs = performance.now() - reportStart;
 assert.ok(report.includes('実際の記録 200問'));
-assert.ok(report.includes('r 200/400'));
+assert.ok(report.includes('正解r→入力l（200回）'));
 assert.ok(report.includes('正解r→入力l'));
 assert.ok(report.includes('実際の英語の発音と区別'));
+assert.ok(report.includes('最大10件') && report.includes('原則60文字以内') && report.includes('原則50文字以内'));
+assert.ok(report.includes('単語｜私のミス｜覚え方・理由') && report.includes('正解→実際の入力'));
+assert.ok(report.includes('視覚的な覚え方') && report.includes('別々の出題での観測回数'));
+assert.ok(!report.includes('【出題方法別】') && !report.includes('次回5分'));
+assert.ok(report.length < 2300, 'Single-term prompt stays compact');
 assert.ok(report.includes('プレイヤー') && !report.includes('player-a-name'));
+
+const names = ['alpha', 'beta', 'gamma', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima'];
+const rankedRecords = names.flatMap((word, index) =>
+  Array.from({ length: 12 - index }, () => ({ ...many.snapshot()[0], ...meta(word) })));
+const shortReport = buildAiStudyReport(rankedRecords, 'recent200', {}, now);
+for (const word of names.slice(0, 10)) assert.ok(shortReport.includes(`"${word}"`));
+for (const word of names.slice(10)) assert.ok(!shortReport.includes(`"${word}"`), 'Export at most ten terms');
+assert.ok(shortReport.includes('候補10件') && shortReport.length < 5000);
+assert.ok(report.includes('候補1件'), 'Do not pad sparse data to ten terms');
+// Same word/meaning across courses is one candidate, preserving its sources.
+const merged = buildAiStudyReport([many.snapshot()[0], { ...many.snapshot()[0], course: 'Eiken4' }], 'week', {}, now);
+assert.ok(merged.includes('候補1件') && merged.includes('出題2回') && merged.includes('Eiken4'));
+const mix = (word, count, failures, mistakes) => Array.from({length: count}, (_, i) => ({
+  ...many.snapshot()[0], ...meta(word), misses: i < failures ? 1 : 0, mistakes: i < failures ? mistakes : [],
+}));
+const rError = [{ position: 0, expected: 'r', typed: 'l' }];
+const prioritized = buildAiStudyReport([
+  ...mix('frequent', 80, 3, rError), ...mix('recurring', 4, 3, rError),
+  ...mix('oneoff', 1, 1, rError),
+], 'week', {}, now);
+assert.ok(prioritized.indexOf('"recurring"') < prioritized.indexOf('"frequent"'));
+assert.ok(prioritized.indexOf('"frequent"') < prioritized.indexOf('"oneoff"'));
+const multi = buildAiStudyReport(mix('river', 2, 2, [...rError, {position: 3, expected:'e', typed:'a'}]), 'week', {}, now);
+assert.ok(multi.includes('複数位置でミスした出題2回') && multi.includes('正解e→入力a（2回）'));
+const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
+assert.ok(noMissReport.includes('一言だけ返してください'));
+const panel = readFileSync(new URL('../src/AiStudyReviewPanel.tsx', import.meta.url), 'utf8');
+assert.ok(panel.includes('createPortal(') && panel.includes('showModal()'));
+assert.ok(!panel.includes('recorder.flush('), 'Opening/copying must not synchronously save');
+assert.ok(panel.includes('{preview && <textarea'), 'Do not lay out report text after successful copy');
 
 // Dates, metadata boundaries and report limits; no past data invented.
 now += 8 * 86400_000;

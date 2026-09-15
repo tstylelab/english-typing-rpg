@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Keep offscreen word cards out of layout/paint work; retain search and keyboard access. */
+.question-list-row {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 240px;
+}
+@media (max-width: 767px) {
+  .question-list-row { contain-intrinsic-block-size: auto 400px; }
+}
+
 /* Only the optional Grade 5 keyboard layout uses this space. */
 .battle-with-keyboard .battle-main {
   max-width: 1120px;
