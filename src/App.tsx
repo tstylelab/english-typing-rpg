@@ -8,6 +8,8 @@ import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_B
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import HelpScreen from './HelpScreen';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
+import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
+import AiStudyReviewPanel from './AiStudyReviewPanel';
 
 // --- Types & Interfaces ---
 
@@ -3870,6 +3872,31 @@ export default function App() {
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
   const [activePlayerId, setActivePlayerId] = useState('');
+  const aiStudyRecorder = useMemo(() => new AiStudyRecorder(activePlayerId, {
+    getItem: key => localStorage.getItem(key),
+    setItem: (key, value) => localStorage.setItem(key, value),
+    removeItem: key => localStorage.removeItem(key),
+  }), [activePlayerId]);
+  useEffect(() => {
+    if (!activePlayerId) return;
+    aiStudyRecorder.load();
+    const flush = () => aiStudyRecorder.flush();
+    const onHidden = () => { if (document.visibilityState === 'hidden') flush(); };
+    window.addEventListener('pagehide', flush);
+    document.addEventListener('visibilitychange', onHidden);
+    return () => {
+      aiStudyRecorder.discard();
+      aiStudyRecorder.flush();
+      window.removeEventListener('pagehide', flush);
+      document.removeEventListener('visibilitychange', onHidden);
+    };
+  }, [activePlayerId, aiStudyRecorder]);
+  useEffect(() => {
+    if (gameState.screen !== 'battle') {
+      aiStudyRecorder.discard();
+      aiStudyRecorder.flush();
+    }
+  }, [gameState.screen, aiStudyRecorder]);
   const [mainGameStartedPlayers, setMainGameStartedPlayers] = useState<Record<string, boolean>>(() => {
     const saved = safeLoadJson<unknown>(STORAGE_KEYS.mainGameStartedPlayers, {});
     if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return {};
@@ -5426,6 +5453,8 @@ export default function App() {
     }
 
     const remainingProfiles = playerProfiles.filter((profile) => profile.id !== profileId);
+    if (profileId === activePlayerId) aiStudyRecorder.clear();
+    try { localStorage.removeItem(aiReviewStorageKey(profileId)); } catch { /* Optional analytics must not block profile deletion. */ }
     const nextActiveProfile = remainingProfiles.find((profile) => profile.id === activePlayerId) ?? remainingProfiles[0];
 
     beginProfileHydration();
@@ -5790,6 +5819,7 @@ export default function App() {
   };
 
   const confirmResetHistory = () => {
+    aiStudyRecorder.clear();
     [
       STORAGE_KEYS.defeatedMonsters,
       STORAGE_KEYS.bestScores,
@@ -5969,6 +5999,11 @@ export default function App() {
     initBattle(diff, level, mode, inputMode, startStep, indices, selectedList, totalStageMonsters, 0, 0);
   };
 
+  const getStudyContext = (question: Question, diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode): StudyContext => ({
+    course: diff, level, mode, inputMode, word: question.text, meaning: question.translation,
+    answerVisible: mode === 'guide',
+  });
+
   const initBattle = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, stepIndex: number, indices: number[], monsterList: Monster[], totalMonsters: number, currentScore: number, currentKeystrokes: number) => {
     clearPendingBattleEndTimeout();
     setLastSolvedQuestion(null);
@@ -6009,6 +6044,7 @@ export default function App() {
         question = getNextBattleQuestion(diff, level, null, safeStepIndex, mode, inputMode);
     }
 
+    aiStudyRecorder.start(getStudyContext(question, diff, level, mode, inputMode));
     setGameState(prev => ({
       ...prev, screen: 'battle', selectedDifficulty: diff, selectedLevel: level, mode: mode, inputMode: inputMode,
       currentMonsterIndex: safeStepIndex, currentMonsterList: monsterList, challengeModeIndices: safeIndices,
@@ -6311,6 +6347,7 @@ export default function App() {
   };
 
   const advanceGame = (damage: number, speed: number, skipped: boolean, addedChars: number) => {
+    aiStudyRecorder.finish(skipped, gameState.missCount);
     recordDailyActivity(skipped);
     decrementReviewQueueTimers();
 
@@ -6434,8 +6471,9 @@ export default function App() {
       );
     }
     
+    aiStudyRecorder.start(getStudyContext(nextQ, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode));
     setGameState(prev => ({
-      ...prev, monsterHp: nextHp, score: currentScore, combo: skipped ? 0 : prev.combo + 1, currentQuestion: nextQ, userInput: "", 
+      ...prev, monsterHp: nextHp, score: currentScore, combo: skipped ? 0 : prev.combo + 1, currentQuestion: nextQ, userInput: "",
       startTime: null, history: newHistory, questionCount: prev.questionCount + 1, missCount: 0, totalKeystrokes: nextKeystrokes, hintLength: 0, currentBattleMissedQuestions: newMissedQs,
       battleLog: newBattleLog
     }));
@@ -6510,6 +6548,7 @@ export default function App() {
     const targetText = gameState.currentQuestion.text;
     const normalizedVal = normalizeTypingText(value);
     const normalizedTargetText = normalizeTypingText(targetText);
+    aiStudyRecorder.observe(normalizedTargetText, gameState.userInput, normalizedVal, gameState.hintLength > 0);
     if (normalizedVal.length > gameState.userInput.length) soundEngine.playType();
     if (!gameState.startTime && normalizedVal.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
     
@@ -7505,6 +7544,7 @@ export default function App() {
                <div className="flex flex-wrap bg-slate-800 p-1 rounded-lg">{DIFFICULTIES.map(d => (<button key={d} onClick={() => updateSelectedDifficulty(d)} className={`px-4 py-2 rounded-md font-bold transition-colors ${gameState.selectedDifficulty === d ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>{DIFFICULTY_LABELS[d]}</button>))}</div>
                <div className="flex bg-slate-800 p-1 rounded-lg">{getAvailableLevels(gameState.selectedDifficulty).map(l => (<button key={l} onClick={() => setGameState(prev => ({ ...prev, selectedLevel: l }))} className={`px-4 py-2 rounded-md font-bold transition-colors ${gameState.selectedLevel === l ? 'bg-green-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>Level {l}</button>))}</div>
            </div>
+           <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} />
            <div className="mb-4 flex-shrink-0 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.14),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.96),rgba(12,18,32,0.92))] p-4 shadow-[0_0_30px_rgba(34,211,238,0.08)]">
              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                <div>

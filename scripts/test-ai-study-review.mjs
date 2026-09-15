@@ -1,0 +1,156 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { performance } from 'node:perf_hooks';
+import vm from 'node:vm';
+import ts from 'typescript';
+
+const source = readFileSync(new URL('../src/aiStudyReview.ts', import.meta.url), 'utf8');
+const context = { exports: {} };
+vm.runInNewContext(ts.transpile(source, { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }), context);
+const { AiStudyRecorder, aiReviewStorageKey, buildAiStudyReport } = context.exports;
+let now = Date.UTC(2026, 8, 15, 12);
+const memory = new Map([['etyping_weak_question_stats', 'original learning data']]);
+let reads = 0, writes = 0;
+const storage = {
+  getItem(key) { reads++; return memory.get(key) ?? null; },
+  setItem(key, value) { writes++; memory.set(key, value); },
+  removeItem(key) { memory.delete(key); },
+};
+const meta = (word = 'river') => ({ word, meaning: '川', course: 'Eiken5', level: 1, mode: 'challenge', inputMode: 'text-only', answerVisible: false });
+const recorder = new AiStudyRecorder('a', storage, () => now);
+recorder.load();
+recorder.start(meta());
+recorder.observe('river', '', 'l', false);
+recorder.observe('river', '', 'l', true);
+recorder.observe('river', '', 'r', true);
+for (let i = 1; i < 5; i++) recorder.observe('river', 'river'.slice(0, i), 'river'.slice(0, i + 1), true);
+recorder.finish(false, 2);
+assert.equal(writes, 0, 'No writes during input or question completion');
+assert.equal(reads, 1, 'No reads during input or question completion');
+let record = recorder.snapshot()[0];
+assert.equal(record.letters.r[0], 2);
+assert.equal(record.letters.r[1], 1);
+assert.equal(record.mistakes.length, 1, 'Repeat misses must not inflate first-position counts');
+assert.equal(record.misses, 2);
+assert.equal(record.hinted, true);
+recorder.flush();
+assert.equal(writes, 1);
+assert.equal(memory.get('etyping_weak_question_stats'), 'original learning data');
+const reloaded = new AiStudyRecorder('a', storage, () => now);
+reloaded.load();
+assert.equal(reloaded.snapshot().length, 1);
+assert.equal(new AiStudyRecorder('b', storage, () => now).snapshot().length, 0);
+
+recorder.start(meta());
+recorder.observe('river', '', 'river', false); // paste
+recorder.observe('river', '', 'r', false); // revisiting pasted position
+recorder.finish(false, 0);
+record = recorder.snapshot().at(-1);
+assert.equal(Object.keys(record.letters).length, 0);
+assert.equal(record.unclassified, 1);
+recorder.start(meta());
+recorder.observe('river', '', '4', false);
+recorder.observe('river', '', 'r', false);
+recorder.finish(true, 1);
+assert.equal(Object.keys(recorder.snapshot().at(-1).letters).length, 0, 'Unclassifiable first attempts must not turn into successes');
+recorder.start(meta());
+recorder.observe('river', '', 'l', false);
+recorder.discard();
+assert.equal(recorder.snapshot().length, 3, 'Abandoned answers are not exported');
+recorder.finish(false, 0);
+assert.equal(recorder.snapshot().length, 3, 'Completion is idempotent');
+
+recorder.setEnabled(false);
+const before = recorder.snapshot().length;
+recorder.start(meta()); recorder.observe('river', '', 'l', false); recorder.finish(false, 1);
+assert.equal(recorder.snapshot().length, before);
+const disabled = new AiStudyRecorder('a', storage, () => now); disabled.load();
+assert.equal(disabled.enabled, false);
+recorder.setEnabled(true);
+
+for (const raw of ['{broken', JSON.stringify({ version: 1, enabled: true, records: [null, {}, { word: 5 }] }), 'x'.repeat(600_001)]) {
+  memory.set(aiReviewStorageKey('bad'), raw);
+  const bad = new AiStudyRecorder('bad', storage, () => now);
+  assert.doesNotThrow(() => bad.load());
+  assert.equal(bad.snapshot().length, 0);
+}
+const blocked = new AiStudyRecorder('blocked', {
+  getItem() { throw new Error('SecurityError'); }, setItem() { throw new Error('QuotaExceededError'); }, removeItem() { throw new Error('blocked'); },
+}, () => now);
+assert.doesNotThrow(() => { blocked.load(); blocked.start(meta()); blocked.observe('river', '', 'l', false); blocked.finish(false, 1); blocked.flush(); });
+assert.ok(blocked.warning);
+assert.ok(buildAiStudyReport(blocked.snapshot(), 'recent200', {}, now).includes('river'));
+
+const many = new AiStudyRecorder('many', storage, () => now); many.load();
+const start = performance.now();
+const writesBefore = writes;
+for (let i = 0; i < 1200; i++) {
+  many.start(meta());
+  many.observe('river', '', 'l', false);
+  for (let p = 0; p < 5; p++) many.observe('river', 'river'.slice(0, p), 'river'.slice(0, p + 1), true);
+  many.finish(false, 1);
+}
+const inputMs = performance.now() - start;
+assert.equal(writes, writesBefore);
+assert.equal(many.snapshot().length, 1000);
+const saveStart = performance.now(); many.flush(); const saveMs = performance.now() - saveStart;
+const serializedLength = memory.get(aiReviewStorageKey('many')).length;
+assert.ok(serializedLength <= 600_000);
+const reportStart = performance.now();
+const report = buildAiStudyReport(many.snapshot(), 'recent200', { Eiken5: '英検5級' }, now);
+const reportMs = performance.now() - reportStart;
+assert.ok(report.includes('実際の記録 200問'));
+assert.ok(report.includes('r 200/400'));
+assert.ok(report.includes('正解r→入力l'));
+assert.ok(report.includes('実際の英語の発音と区別'));
+assert.ok(report.includes('プレイヤー') && !report.includes('player-a-name'));
+
+// Dates, metadata boundaries and report limits; no past data invented.
+now += 8 * 86400_000;
+assert.equal(buildAiStudyReport(many.snapshot(), 'week', {}, now), '');
+assert.ok(buildAiStudyReport(many.snapshot(), 'recent200', {}, now));
+now += 23 * 86400_000;
+assert.equal(many.snapshot().length, 0);
+assert.equal(buildAiStudyReport([], 'recent200', {}, now), '');
+recorder.clear(); assert.equal(recorder.snapshot().length, 0);
+const cleared = new AiStudyRecorder('a', storage, () => now); cleared.load(); assert.equal(cleared.snapshot().length, 0);
+
+// Maximum detail inputs stay bounded and still save on a menu boundary.
+const dense = new AiStudyRecorder('dense', storage, () => now); dense.load();
+for (let i = 0; i < 1000; i++) {
+  const word = 'a'.repeat(500);
+  dense.start({ ...meta(word), meaning: '意味'.repeat(250) });
+  for (let p = 0; p < 100; p++) dense.observe(word, word.slice(0, p), word.slice(0, p) + 'e', false);
+  dense.finish(false, 100);
+}
+assert.ok(dense.snapshot()[0].truncated);
+assert.equal(dense.snapshot()[0].mistakes.length, 16);
+dense.flush(); assert.ok(memory.get(aiReviewStorageKey('dense')).length <= 600_000);
+
+// App wiring: recorder is observational, and its output never alters grading.
+const app = readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
+assert.ok(app.includes('aiStudyRecorder.finish(skipped, gameState.missCount)'));
+const input = app.slice(app.indexOf('  const handleBattleInputValue = ('), app.indexOf('  const handleTypingPracticeInput = ('));
+assert.ok(input.includes('aiStudyRecorder.observe('));
+assert.ok(!input.includes('aiStudyRecorder.flush('));
+assert.ok(!input.includes('aiStudyRecorder.load('));
+console.log('PASS: first attempts, repeat/deletion/paste handling, denominators, opt-out, player isolation, reload, corrupted/blocked storage, 1000-record/cap limits, retention, report and App wiring.');
+console.log(JSON.stringify({ completedQuestions: 1200, observeAndFinishMs: +inputMs.toFixed(2), inputStorageWrites: 0, memoryStorageFlushMs: +saveMs.toFixed(2), savedCharacters: serializedLength, reportMs: +reportMs.toFixed(2) }));
+
+if (process.argv.includes('--sample')) {
+  now = Date.UTC(2026, 8, 15, 12);
+  const sample = new AiStudyRecorder('synthetic-example', storage, () => now); sample.load();
+  for (let i = 0; i < 12; i++) {
+    const word = i % 2 ? 'Wednesday' : 'river';
+    sample.start({ ...meta(word), meaning: i % 2 ? '水曜日' : '川' });
+    for (let p = 0; p < word.length; p++) {
+      if ((word === 'river' && p === 0 && i < 6) || (word === 'Wednesday' && p === 2 && i < 8)) {
+        sample.observe(word, word.slice(0, p), word.slice(0, p) + (p === 0 ? 'l' : 'n'), false);
+      }
+      sample.observe(word, word.slice(0, p), word.slice(0, p + 1), false);
+    }
+    sample.finish(false, i < 6 || (word === 'Wednesday' && i < 8) ? 1 : 0);
+  }
+  console.log('\nSYNTHETIC EXAMPLE — not the user\'s actual learning history\n');
+  console.log(buildAiStudyReport(sample.snapshot(), 'recent200', { Eiken5: '英検5級' }, now));
+}
