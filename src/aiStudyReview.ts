@@ -178,7 +178,24 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
     samples: Map<string, number>; positions: Map<number, number>; multiPositionAttempts: number;
     modes: Set<string>; courses: Set<string>; hints: number;
   }>();
+  const opportunities = new Map<string, number>();
+  const pairs = new Map<string, { mode: string; expected: string; typed: string; count: number; attempts: number; words: Set<string>; examples: Set<string> }>();
   for (const r of chosen) {
+    const mode = modeLabel(r);
+    for (const [letter, [total]] of Object.entries(r.letters)) {
+      const key = `${mode}:${letter}`;
+      opportunities.set(key, (opportunities.get(key) ?? 0) + total);
+    }
+    const seenPairs = new Set<string>();
+    for (const m of r.mistakes) {
+      const pairKey = `${mode}:${m.expected}:${m.typed}`;
+      const pair = pairs.get(pairKey) ?? { mode, expected: m.expected, typed: m.typed, count: 0, attempts: 0, words: new Set<string>(), examples: new Set<string>() };
+      pair.count++;
+      if (!seenPairs.has(pairKey)) { pair.attempts++; seenPairs.add(pairKey); }
+      pair.words.add(r.word.toLowerCase());
+      if (pair.examples.size < 2) pair.examples.add(`${safeText(r.word)}の${m.position + 1}文字目`);
+      pairs.set(pairKey, pair);
+    }
     const key = JSON.stringify([r.word, r.meaning]);
     const word = words.get(key) ?? {
       record: r, count: 0, failed: 0, skipped: 0, misses: 0,
@@ -209,16 +226,22 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
       || b.failed - a.failed || b.positions.size - a.positions.size || b.skipped - a.skipped).slice(0, 10);
   const lines = [
     '以下の英語タイピング学習データから、スペルを覚えるアドバイスを日本語でまとめてください。',
-    'データにある語・熟語・文を最大10件扱い、少ない場合はその件数だけ。ない語やミスを補わないでください。',
+    '表は末尾の候補一覧にある語・熟語・文を最大10件扱い、少ない場合はその件数だけ。ない語やミスを補わないでください。',
     '【1. まず表】',
-    'Markdownで「単語｜私のミス｜覚え方・理由」の3列。急いでいる時は表だけで分かるようにしてください。',
+    'Markdownで「単語・意味・類義語｜私のミス」の2列だけ。意味・類義語のために列を増やさないでください。',
+    '左セルは単語、短い日本語の意味、類義語を改行で併記（必要なら<br>）。意味は学習データを使い、類義語はその意味・品詞に合うものを原則1語だけ。不確かなものや適切な語がない場合は省略し、常に置換可能とは説明しないでください。',
     '「私のミス」は記録された位置と「正解→実際の入力」を反映し、原則30文字以内。例がなければ「詳細記録なし」としてください。',
-    '「覚え方・理由」は原則60文字以内。語幹＋語尾、元の単語＋接尾辞、複合語、よく出る綴りのかたまりなどで、実際に間違えた箇所の覚え方を説明してください。',
-    '実際の語の構造と、暗記のためだけの区切りを区別してください。構造として説明できない語は無理に分解せず「視覚的な覚え方」と明示してください。',
+    'スマホで読むためセル内に長い説明を入れず、覚え方・理由は下のTipsに移してください。',
     '長い熟語・文は、正しい表現を特定できる範囲で間違えた部分を中心に短く示してください。',
     '【2. 記憶に残すためのTips】',
-    '各語1行・原則50文字以内。短い語呂やイメージなど、その綴りならではの記憶フックを追加してください。',
-    '表の説明を繰り返さず、表は「綴りの構造」、Tipsは「記憶に残る工夫」と役割を分けてください。追加の工夫がない語のTipsは省略して構いません。',
+    '再ミスの多い3〜5語に絞り、各語2〜3文・目安80〜160文字。候補が3語未満ならその語だけ。全10語へ薄い一言を付けないでください。',
+    '各Tipsは「実際に間違えた位置」→「その文字を選べる具体的な手掛かり」→「役立つ場合だけ関連語や接頭辞・接尾辞の知識」の順で書いてください。',
+    '語幹＋語尾、元の単語＋接尾辞、複合語、綴りのかたまりなどを使い、なぜその区切りや意味が間違えた文字を覚える助けになるか説明してください。',
+    '実際の語の構造と、暗記のためだけの区切りを区別してください。構造として説明できない語は無理に分解せず「視覚的な覚え方」と明示してください。',
+    '「ひとかたまりで覚える」「標識を想像する」「繰り返す」だけで終わらず、実際の誤入力と正解の違いに結び付けてください。',
+    '【3. 共通するミスへの短いヒント（根拠がある場合のみ）】',
+    '文字の取り違え集計から最大2項目、各2文程度。記録されたL/Rやa/eなどについて、実例に結び付けた綴りの覚え方を添えてください。これらの組合せが記録になければ作らないでください。',
+    '1語だけなら「この語での記録」と限定し、複数語で観測された傾向と区別。表とTipsの繰り返しや、一般的な発音指導で埋めないでください。',
     '前置き・総評・長い傾向分析・練習メニュー・締めの言葉は不要。',
     '【注意（回答には繰り返さない）】',
     '暗記用の読み方は「暗記用」と添え、実際の英語の発音と区別してください。架空の語源や、例外のある綴りの絶対ルールは作らないでください。',
@@ -230,6 +253,12 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
     '正しい文字だけ先へ進むゲーム。取り違えはその位置の初回入力で、単語全体の誤答ではありません。位置別の回数は別々の出題での観測回数であり、同じ問題中の連打ではありません。',
     '複数文字入力等は分類対象外。各問の記録は最大16位置、各語の出力は頻度順に最大5例なので、記録されていない箇所のミスや文字の入れ替わりを推測で補わないでください。',
   ];
+  lines.push('【文字の取り違え集計：期間内の全記録・出題方法別・頻度上位5項目】');
+  for (const pair of [...pairs.values()].sort((a, b) => b.count - a.count || b.words.size - a.words.size).slice(0, 5)) {
+    lines.push(`${pair.mode}：正解${pair.expected}→実際の入力${pair.typed}：${pair.count}位置／${pair.attempts}出題／${pair.words.size}種類の語。正解${pair.expected}の入力機会${opportunities.get(`${pair.mode}:${pair.expected}`) ?? 0}位置。例：${[...pair.examples].join('、')}`);
+  }
+  if (!pairs.size) lines.push('分類できた取り違えなし。共通するミスへのヒントは省略してください。');
+  lines.push('入力機会は各位置の初回英字入力。未入力位置は含まない。取り違えの詳細には保存上限があり、件数は記録された分だけ。出題方法を混ぜて弱点を断定しないでください。', '【単語・表現の候補】');
   for (const w of ranked) {
     const r = w.record;
     const samples = [...w.samples].sort((a, b) => b[1] - a[1]).slice(0, 5)

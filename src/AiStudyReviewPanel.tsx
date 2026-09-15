@@ -72,7 +72,7 @@ function ReviewDialog({ recorder, courseLabels, onClose }: Props & { onClose: ()
       <button type="button" autoFocus onClick={() => dialog.current?.close()} className="rounded-lg border border-slate-600 px-3 py-2">閉じる</button>
     </div>
     <div className="space-y-3">
-      <p>間違えた語の覚え方を、<strong>最大10件の表＋短いTips</strong>で相談します。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
+      <p><strong>意味・類義語付きの2列表＋ミスに合ったTips</strong>で相談します。表は最大10件、詳しい覚え方は3〜5語。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
       <div className="flex flex-wrap items-center gap-3">
         <label className="flex items-center gap-2">
           <input type="checkbox" checked={enabled} onChange={e => {

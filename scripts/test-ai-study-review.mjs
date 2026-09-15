@@ -103,11 +103,12 @@ assert.ok(report.includes('実際の記録 200問'));
 assert.ok(report.includes('正解r→入力l（200回）'));
 assert.ok(report.includes('正解r→入力l'));
 assert.ok(report.includes('実際の英語の発音と区別'));
-assert.ok(report.includes('最大10件') && report.includes('原則60文字以内') && report.includes('原則50文字以内'));
-assert.ok(report.includes('単語｜私のミス｜覚え方・理由') && report.includes('正解→実際の入力'));
+assert.ok(report.includes('最大10件') && report.includes('3〜5語') && report.includes('80〜160文字'));
+assert.ok(report.includes('単語・意味・類義語｜私のミス') && report.includes('2列だけ') && report.includes('正解→実際の入力'));
+assert.ok(report.includes('意味・品詞に合うものを原則1語') && report.includes('最大2項目'));
 assert.ok(report.includes('視覚的な覚え方') && report.includes('別々の出題での観測回数'));
 assert.ok(!report.includes('【出題方法別】') && !report.includes('次回5分'));
-assert.ok(report.length < 2300, 'Single-term prompt stays compact');
+assert.ok(report.length < 3500, 'Single-term prompt stays bounded');
 assert.ok(report.includes('プレイヤー') && !report.includes('player-a-name'));
 
 const names = ['alpha', 'beta', 'gamma', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima'];
@@ -116,7 +117,7 @@ const rankedRecords = names.flatMap((word, index) =>
 const shortReport = buildAiStudyReport(rankedRecords, 'recent200', {}, now);
 for (const word of names.slice(0, 10)) assert.ok(shortReport.includes(`"${word}"`));
 for (const word of names.slice(10)) assert.ok(!shortReport.includes(`"${word}"`), 'Export at most ten terms');
-assert.ok(shortReport.includes('候補10件') && shortReport.length < 5000);
+assert.ok(shortReport.includes('候補10件') && shortReport.length < 7000);
 assert.ok(report.includes('候補1件'), 'Do not pad sparse data to ten terms');
 // Same word/meaning across courses is one candidate, preserving its sources.
 const merged = buildAiStudyReport([many.snapshot()[0], { ...many.snapshot()[0], course: 'Eiken4' }], 'week', {}, now);
@@ -129,8 +130,19 @@ const prioritized = buildAiStudyReport([
   ...mix('frequent', 80, 3, rError), ...mix('recurring', 4, 3, rError),
   ...mix('oneoff', 1, 1, rError),
 ], 'week', {}, now);
-assert.ok(prioritized.indexOf('"recurring"') < prioritized.indexOf('"frequent"'));
-assert.ok(prioritized.indexOf('"frequent"') < prioritized.indexOf('"oneoff"'));
+const candidateSection = prioritized.split('【単語・表現の候補】')[1];
+assert.ok(candidateSection.indexOf('"recurring"') < candidateSection.indexOf('"frequent"'));
+assert.ok(candidateSection.indexOf('"frequent"') < candidateSection.indexOf('"oneoff"'));
+assert.ok(report.includes('正解r→実際の入力l：200位置／200出題／1種類の語。正解rの入力機会400位置'));
+const mixedModes = buildAiStudyReport([
+  ...mix('river', 2, 2, rError), ...mix('road', 1, 1, rError),
+  {...many.snapshot()[0], ...meta('rose'), answerVisible:true},
+], 'week', {}, now);
+assert.ok(mixedModes.includes('和訳バトル：正解r→実際の入力l：3位置／3出題／2種類の語'));
+assert.ok(mixedModes.includes('スペル表示あり（基礎練習）：正解r→実際の入力l：1位置／1出題／1種類の語'));
+assert.ok(!mixedModes.includes('正解a→実際の入力e：'), 'Do not invent absent a/e confusion');
+const vowelMix = buildAiStudyReport(mix('cat', 2, 2, [{position:1,expected:'a',typed:'e'}]), 'week', {}, now);
+assert.ok(vowelMix.includes('正解a→実際の入力e：2位置／2出題／1種類の語'));
 const multi = buildAiStudyReport(mix('river', 2, 2, [...rError, {position: 3, expected:'e', typed:'a'}]), 'week', {}, now);
 assert.ok(multi.includes('複数位置でミスした出題2回') && multi.includes('正解e→入力a（2回）'));
 const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
