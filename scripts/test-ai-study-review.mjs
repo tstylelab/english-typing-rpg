@@ -109,8 +109,13 @@ assert.ok(report.includes('意味・品詞に合うものを原則1語') && repo
 assert.ok(report.includes('親しみのある自然な話し言葉') && report.includes('思い出す手掛かり'));
 assert.ok(report.includes('正解の言い直しは禁止') && report.includes('無理なダジャレ'));
 assert.ok(report.includes('専門用語を使うなら短く意味を添え') && report.includes('文章を長くしない'));
-assert.ok(report.includes('小学生にも話しかける') && report.includes('覚えるきっかけ'));
-assert.ok(report.includes('暗記用のイメージだよ') && report.includes('別々の出題での観測回数'));
+assert.ok(report.includes('小学生にも大人にも読みやすい') && report.includes('覚えるきっかけ'));
+assert.ok(report.includes('やわらかい「です・ます」') && report.includes('それぞれ1〜2か所程度'));
+assert.ok(report.includes('毎項目・毎文に付けず') && report.includes('表や注意書きには付けず'));
+assert.ok(report.includes('スペル暗記用のイメージです') && report.includes('別々の出題での観測回数'));
+const styleExamples = report.split('【文体の完成例：学習データではない】')[1].split('【3.')[0];
+assert.ok(styleExamples.includes('よさそうです♪') && styleExamples.includes('サンドイッチ！'));
+assert.ok(!/だよ|なるよ|見てみよう|残るよ|見るよね|だね|になるね|じゃおう/.test(styleExamples), 'Style examples must not reintroduce casual endings');
 assert.ok(report.includes('Tipsで繰り返さない') && report.includes('位置数・語数の報告で書き出さない'));
 assert.ok(report.includes('【文体の完成例：学習データではない】') && report.includes('例の単語やミスを候補へ追加せず'));
 assert.ok(report.includes('AではなくA') && report.includes('文字を入れ替えたとは断定できません'));
