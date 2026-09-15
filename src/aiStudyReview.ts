@@ -52,6 +52,7 @@ function validRecord(value: unknown): value is StudyRecord {
 /** No storage, serialization, React updates or network calls in observe()/finish(). */
 export class AiStudyRecorder {
   private records: StudyRecord[] = [];
+  private battleRecords = new Set<StudyRecord>();
   private current: StudyRecord | null = null;
   private seen = new Set<number>();
   private loaded = false;
@@ -128,7 +129,10 @@ export class AiStudyRecorder {
 
   finish(skipped: boolean, misses: number) {
     if (!this.current) return;
-    this.records.push({ ...this.current, at: this.now(), skipped, misses: Math.min(100_000, Math.max(0, Math.floor(misses))) });
+    const record = { ...this.current, at: this.now(), skipped, misses: Math.min(100_000, Math.max(0, Math.floor(misses))) };
+    this.records.push(record);
+    this.battleRecords.add(record);
+    if (this.battleRecords.size > AI_REVIEW_LIMIT) this.battleRecords.delete(this.battleRecords.values().next().value!);
     if (this.records.length > AI_REVIEW_LIMIT) this.records.splice(0, this.records.length - AI_REVIEW_LIMIT);
     this.dirty = true;
     this.discard();
@@ -137,6 +141,10 @@ export class AiStudyRecorder {
   discard() { this.current = null; this.seen.clear(); }
 
   snapshot() { return this.records.filter(r => r.at >= this.now() - MAX_AGE).slice(); }
+
+  // Session-only references; no new persisted schema or work on each keystroke.
+  beginBattle() { this.battleRecords.clear(); this.discard(); }
+  battleSnapshot() { return this.snapshot().filter(r => this.battleRecords.has(r)); }
 
   // Called at battle/menu boundaries and when the page is hidden, never per key.
   flush() {
@@ -159,7 +167,7 @@ export class AiStudyRecorder {
   setEnabled(enabled: boolean) { this.enabled = enabled; this.discard(); this.dirty = true; this.flush(); }
 
   clear() {
-    this.discard(); this.records = []; this.dirty = true; this.flush();
+    this.discard(); this.battleRecords.clear(); this.records = []; this.dirty = true; this.flush();
   }
 }
 
@@ -169,7 +177,8 @@ const modeLabel = (r: StudyRecord) => r.answerVisible ? 'スペル表示あり�
   : r.inputMode === 'voice-text' ? 'リスニング練習（音声＋和訳）'
     : r.inputMode === 'voice-only' ? '音声バトル' : '和訳バトル';
 
-export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod, courseLabels: Record<string, string>, now = Date.now()): string {
+export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod, courseLabels: Record<string, string>, now = Date.now(), battleRecords?: StudyRecord[]): string {
+  const battle = new Set(battleRecords);
   const recent = records.filter(r => r.at >= now - MAX_AGE && r.at <= now).sort((a, b) => a.at - b.at);
   const chosen = period === 'week' ? recent.filter(r => r.at >= now - 7 * 86400_000) : recent.slice(-200);
   if (!chosen.length) return '';
@@ -177,6 +186,7 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
     record: StudyRecord; count: number; failed: number; skipped: number; misses: number;
     samples: Map<string, number>; positions: Map<number, number>; multiPositionAttempts: number;
     modes: Set<string>; courses: Set<string>; hints: number;
+    battleFailed: number; historyFailed: number; historySkipped: number;
   }>();
   const opportunities = new Map<string, number>();
   const pairs = new Map<string, { mode: string; expected: string; typed: string; count: number; attempts: number; words: Set<string>; examples: Set<string> }>();
@@ -201,8 +211,11 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
       record: r, count: 0, failed: 0, skipped: 0, misses: 0,
       samples: new Map<string, number>(), positions: new Map<number, number>(), multiPositionAttempts: 0,
       modes: new Set<string>(), courses: new Set<string>(), hints: 0,
+      battleFailed: 0, historyFailed: 0, historySkipped: 0,
     };
     word.count++; word.failed += Number(r.misses > 0); word.skipped += Number(r.skipped);
+    if (battle.has(r)) word.battleFailed += Number(r.misses > 0);
+    else { word.historyFailed += Number(r.misses > 0); word.historySkipped += Number(r.skipped); }
     word.misses += r.misses; word.hints += Number(r.hinted); word.modes.add(modeLabel(r));
     word.courses.add(`${courseLabels[r.course] ?? r.course} Level ${r.level}`);
     const positions = new Set(r.mistakes.map(m => m.position));
@@ -218,12 +231,17 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
   // use exposure-adjusted frequency, recurring positions, and spread as tie breakers.
   const recurring = (w: { positions: Map<number, number> }) =>
     [...w.positions.values()].reduce((sum, count) => sum + Math.max(0, count - 1), 0);
-  const ranked = [...words.values()].filter(w => w.failed || w.skipped)
+  const sorted = [...words.values()].filter(w => w.failed || w.skipped)
     .sort((a, b) => Number(b.failed >= 2) - Number(a.failed >= 2)
       || Number(b.failed > 0) - Number(a.failed > 0)
       || (b.failed / (b.count + 2)) - (a.failed / (a.count + 2))
       || recurring(b) - recurring(a) || b.multiPositionAttempts - a.multiPositionAttempts
-      || b.failed - a.failed || b.positions.size - a.positions.size || b.skipped - a.skipped).slice(0, 10);
+      || b.failed - a.failed || b.positions.size - a.positions.size || b.skipped - a.skipped);
+  const currentPicks = sorted.filter(w => w.battleFailed)
+    .sort((a, b) => Number(b.historyFailed > 0) - Number(a.historyFailed > 0)).slice(0, 3);
+  const ranked = battleRecords === undefined ? sorted.slice(0, 10)
+    : [...currentPicks, ...sorted.filter(w => !w.battleFailed && (w.historyFailed || w.historySkipped))
+      .slice(0, 10 - currentPicks.length)];
   const lines = [
     '以下の英語タイピング学習データから、スペルを覚えるアドバイスを日本語でまとめてください。',
     '表は末尾の候補一覧にある語・熟語・文を最大10件扱い、少ない場合はその件数だけ。ない語やミスを補わないでください。',
@@ -235,9 +253,10 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
     '長い熟語・文は、正しい表現を特定できる範囲で間違えた部分を中心に短く示してください。',
     '【2. 記憶に残すためのTips】',
     '再ミスの多い3〜5語に絞り、各語2〜3文・目安80〜160文字。候補が3語未満ならその語だけ。全10語へ薄い一言を付けないでください。',
-    '隣で一緒に覚える人のような、親しみのある自然な話し言葉で。「〜と覚えるのも手です」「ここだけ目印にしてみましょう」など、押し付けず大人にも読みやすい調子にしてください。',
+    '小学生にも話しかけるような、親しみのある自然な話し言葉で。「ここ、迷うよね」「この文字を目印にしてみよう」「〜って覚えるのもアリだよ」くらいの気楽な調子にしてください。毎回同じ相づちは付けず、大人も一緒に読める文章にしてください。',
     '目的は正解の説明ではなく、思い出す手掛かりです。間違えた文字に結び付く小さなイメージ・語呂・身近な関連語を使い、少しくすっとする工夫も自然に浮かぶ場合だけ歓迎します。',
-    '無理なダジャレ・こじつけ・幼児向けの口調・説教・大げさな褒め言葉は不要。専門用語には短く意味を添え、親しみを出すために文章を長くしないでください。',
+    '無理なダジャレ・こじつけ・幼児向けの口調・説教・大げさな褒め言葉は不要。難しい漢字や専門用語はできるだけ普段の言葉に置き換え、専門用語を使うなら短く意味を添えてください。親しみを出すために文章を長くしないでください。',
+    '「今回も以前もミスあり」の候補があれば詳しいTipsで優先。ただし今回だけのミスを長年の苦手と決めつけず、以前の履歴の語も取り上げてください。',
     '各Tipsは「実際に間違えた位置」→「その文字を選べる具体的な手掛かり」→「役立つ場合だけ関連語や接頭辞・接尾辞の知識」の順で書いてください。',
     '語幹＋語尾、元の単語＋接尾辞、複合語、綴りのかたまりなどを使い、なぜその区切りや意味が間違えた文字を覚える助けになるか説明してください。',
     '実際の語の構造と、暗記のためだけの区切りを区別してください。構造として説明できない語は無理に分解せず「視覚的な覚え方」と明示してください。',
@@ -257,6 +276,7 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
     '正しい文字だけ先へ進むゲーム。取り違えはその位置の初回入力で、単語全体の誤答ではありません。位置別の回数は別々の出題での観測回数であり、同じ問題中の連打ではありません。',
     '複数文字入力等は分類対象外。各問の記録は最大16位置、各語の出力は頻度順に最大5例なので、記録されていない箇所のミスや文字の入れ替わりを推測で補わないでください。',
   ];
+  if (battleRecords !== undefined) lines.push(`結果画面の選定：今回ミスした語${currentPicks.length}件（最大3件）＋それ以外の以前の履歴${ranked.length - currentPicks.length}件。重複なし。不足時は無理に10件へ増やしません。回数は指定期間全体の実績です。`);
   lines.push('【文字の取り違え集計：期間内の全記録・出題方法別・頻度上位5項目】');
   for (const pair of [...pairs.values()].sort((a, b) => b.count - a.count || b.words.size - a.words.size).slice(0, 5)) {
     lines.push(`${pair.mode}：正解${pair.expected}→実際の入力${pair.typed}：${pair.count}位置／${pair.attempts}出題／${pair.words.size}種類の語。正解${pair.expected}の入力機会${opportunities.get(`${pair.mode}:${pair.expected}`) ?? 0}位置。例：${[...pair.examples].join('、')}`);
@@ -269,6 +289,7 @@ export function buildAiStudyReport(records: StudyRecord[], period: ReviewPeriod,
       .map(([sample, count]) => `${sample}（${count}回）`).join('、');
     lines.push(
       `${safeText(r.word)} / ${safeText(r.meaning)}（${[...w.courses].join('／')}）`,
+      ...(battleRecords === undefined ? [] : [`選定元：${w.battleFailed ? w.historyFailed ? '今回も以前もミスあり' : '今回のミス（以前のミス記録なし）' : '以前の履歴'}。今回ミス${w.battleFailed}出題／以前ミス${w.historyFailed}出題。`]),
       `出題${w.count}回、ミスあり${w.failed}回、スキップ${w.skipped}回。複数位置でミスした出題${w.multiPositionAttempts}回。取り違え：${samples || '分類できた例なし'}。`,
       `出題方法：${[...w.modes].join('／')}。途中ヒント${w.hints}回。`,
     );

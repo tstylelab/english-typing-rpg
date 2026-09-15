@@ -108,7 +108,8 @@ assert.ok(report.includes('単語・意味・類義語｜私のミス') && repor
 assert.ok(report.includes('意味・品詞に合うものを原則1語') && report.includes('最大2項目'));
 assert.ok(report.includes('親しみのある自然な話し言葉') && report.includes('思い出す手掛かり'));
 assert.ok(report.includes('正解の言い直しは禁止') && report.includes('無理なダジャレ'));
-assert.ok(report.includes('専門用語には短く意味を添え') && report.includes('文章を長くしない'));
+assert.ok(report.includes('専門用語を使うなら短く意味を添え') && report.includes('文章を長くしない'));
+assert.ok(report.includes('小学生にも話しかける') && report.includes('ここ、迷うよね'));
 assert.ok(report.includes('視覚的な覚え方') && report.includes('別々の出題での観測回数'));
 assert.ok(!report.includes('【出題方法別】') && !report.includes('次回5分'));
 assert.ok(report.length < 3500, 'Single-term prompt stays bounded');
@@ -176,6 +177,31 @@ for (let i = 0; i < 1000; i++) {
 assert.ok(dense.snapshot()[0].truncated);
 assert.equal(dense.snapshot()[0].mistakes.length, 16);
 dense.flush(); assert.ok(memory.get(aiReviewStorageKey('dense')).length <= 600_000);
+
+// Result advice: at most three current mistakes, history fills remaining slots.
+const balanced = new AiStudyRecorder('balanced', storage, () => now); balanced.load();
+const addMistake = word => { balanced.start(meta(word)); balanced.observe(word, '', 'z', false); balanced.finish(false, 1); };
+for (let i = 0; i < 12; i++) { addMistake(`history${i}`); addMistake(`history${i}`); }
+balanced.beginBattle();
+addMistake('history11');
+for (let i = 0; i < 6; i++) addMistake(`current${i}`);
+balanced.flush();
+const resultReport = buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now, balanced.battleSnapshot());
+assert.ok(resultReport.includes('今回ミスした語3件（最大3件）＋それ以外の以前の履歴7件'));
+const resultCandidates = resultReport.split('【単語・表現の候補】')[1];
+assert.equal((resultCandidates.match(/選定元：/g) || []).length, 10);
+assert.equal((resultCandidates.match(/今回も以前もミスあり/g) || []).length, 1);
+assert.equal((resultCandidates.match(/今回のミス（以前のミス記録なし）/g) || []).length, 2);
+assert.equal((resultCandidates.match(/"history11" \/ /g) || []).length, 1, 'No duplicate candidates');
+assert.ok(!buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now).includes('結果画面の選定'));
+balanced.beginBattle();
+assert.equal(balanced.battleSnapshot().length, 0, 'Retry/next monster resets the session');
+assert.ok(buildAiStudyReport(balanced.snapshot(), 'week', {}, now, []).includes('以前の履歴10件'));
+balanced.clear(); balanced.beginBattle();
+for (let i = 0; i < 6; i++) addMistake(`fresh${i}`);
+assert.ok(buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now, balanced.battleSnapshot()).includes('候補3件'));
+balanced.clear(); assert.equal(balanced.battleSnapshot().length, 0);
+balanced.setEnabled(false); addMistake('disabled'); assert.equal(balanced.battleSnapshot().length, 0);
 
 // App wiring: recorder is observational, and its output never alters grading.
 const app = readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');

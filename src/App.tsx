@@ -6044,6 +6044,7 @@ export default function App() {
         question = getNextBattleQuestion(diff, level, null, safeStepIndex, mode, inputMode);
     }
 
+    aiStudyRecorder.beginBattle();
     aiStudyRecorder.start(getStudyContext(question, diff, level, mode, inputMode));
     setGameState(prev => ({
       ...prev, screen: 'battle', selectedDifficulty: diff, selectedLevel: level, mode: mode, inputMode: inputMode,
@@ -6101,6 +6102,7 @@ export default function App() {
         if (isEditableEventTarget(e.target)) return;
 
         if (gameState.screen === 'result') {
+            if (e.target instanceof Element && e.target.closest('button, a, select, summary, dialog')) return;
             if (e.key === 'Enter') {
                 e.preventDefault();
                 // Find primary action button and click it
@@ -10442,6 +10444,8 @@ export default function App() {
               )}
 
               {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+
+              <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} result />
 
               <section className="rounded-xl border border-slate-600 bg-slate-950/35 p-2"><p className="px-1 pb-2 text-xs font-black text-slate-200">移動・メニュー</p><div className="grid grid-cols-2 gap-2"><GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton><GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="outline">ホームへ</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="outline"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton></div></section>
 
