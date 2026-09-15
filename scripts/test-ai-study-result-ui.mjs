@@ -34,6 +34,22 @@ try {
     await page.waitForTimeout(150);
   }
   await copy.waitFor();
+  const panel = page.locator('section').filter({ has: page.getByRole('heading', { name: 'AIにコピペで学習相談', exact: true }) });
+  const navigation = page.locator('section').filter({ has: page.getByText('移動・メニュー', { exact: true }) });
+  async function assertCompactLayout() {
+    assert.equal(await panel.getByRole('button').count(), 4, 'Only three actions and settings at rest');
+    assert.equal(await panel.locator('p').count(), 0, 'No persistent explanatory paragraphs');
+    const menuBox = await navigation.boundingBox();
+    const panelBox = await panel.boundingBox();
+    assert.ok(menuBox && panelBox && panelBox.y >= menuBox.y + menuBox.height, 'Navigation above AI panel');
+    assert.equal(await panel.evaluate(e => e.scrollWidth > e.clientWidth), false);
+  }
+  await assertCompactLayout();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await assertCompactLayout();
+  await panel.scrollIntoViewIfNeeded();
+  if (process.env.AI_RESULT_SCREENSHOT) await panel.screenshot({ path: process.env.AI_RESULT_SCREENSHOT });
+  await page.setViewportSize({ width: 1366, height: 900 });
   await copy.focus(); await page.keyboard.press('Enter');
   await page.getByRole('status').filter({ hasText: 'コピーしました' }).waitFor();
   assert.ok((await page.evaluate(() => window.copied)).includes('今回ミスした語1件'));
@@ -46,10 +62,10 @@ try {
   await copy.scrollIntoViewIfNeeded();
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   assert.ok(await copy.isVisible());
-  if (process.env.AI_RESULT_SCREENSHOT) await page.screenshot({ path: process.env.AI_RESULT_SCREENSHOT, fullPage: true });
   await page.getByRole('button', { name: '設定', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'AIに学習相談' });
   await dialog.waitFor();
+  assert.ok(await dialog.getByText(/今回のミスから最大3語/).isVisible(), 'Explanation available in settings');
   await dialog.getByRole('combobox').selectOption('week');
   await page.keyboard.press('Escape'); await dialog.waitFor({ state: 'detached' });
   await copy.click();

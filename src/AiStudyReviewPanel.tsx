@@ -76,11 +76,11 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
 
   const content = <>
     <div className="mb-3 flex items-center justify-between gap-3">
-      <h2 id={inline ? undefined : 'ai-review-title'} className="font-bold text-violet-100">AIに学習相談</h2>
+      <h2 id={inline ? undefined : 'ai-review-title'} className="font-bold text-violet-100">{inline ? 'AIにコピペで学習相談' : 'AIに学習相談'}</h2>
       <button type="button" autoFocus={!inline} onClick={() => inline ? onClose() : dialog.current?.close()} className="rounded-lg border border-slate-600 px-3 py-2">{inline ? '設定' : '閉じる'}</button>
     </div>
     <div className="space-y-3">
-      {result && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大10語（{period === 'week' ? '過去7日間' : '直近200問'}）。覚えるコツを聞いてみよう！</p>}
+      {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大10語（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
       {!inline && <>
       <p><strong>意味・類義語付きの2列表＋ミスに合ったTips</strong>で相談します。表は最大10件、詳しい覚え方は3〜5語。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
       <div className="flex flex-wrap items-center gap-3">
@@ -105,7 +105,7 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
         <button type="button" disabled={copying} onClick={() => copy()} className="rounded-lg border border-violet-400/50 bg-violet-700 px-3 py-2 font-bold hover:bg-violet-600 disabled:opacity-50">{copying ? 'コピー中…' : '相談文を作ってコピー'}</button>
         {(Object.keys(AI_DESTINATIONS) as AiDestination[]).map(target => <button key={target} type="button" disabled={copying} onClick={() => copy(target)} className="rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 font-bold hover:bg-slate-700 disabled:opacity-50">コピーして{target}を開く</button>)}
       </div>
-      <p className="text-xs text-slate-400">AIは別タブで開きます。入力欄への貼り付けと送信はご自身で行ってください。</p>
+      {!inline && <p className="text-xs text-slate-400">AIは別タブで開きます。入力欄への貼り付けと送信はご自身で行ってください。</p>}
       {status && <p role="status" className="text-violet-100">{status}</p>}
       {destination && <a href={AI_DESTINATIONS[destination]} target="_blank" rel="noopener noreferrer" className="inline-block text-violet-200 underline">{destination}を開く（開かない場合）</a>}
       {report && <>
