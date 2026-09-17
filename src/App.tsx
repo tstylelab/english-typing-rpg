@@ -3696,40 +3696,13 @@ const QuestionListRow = React.memo(function QuestionListRow({
 
   return (
     <div key={`${questionKey}-${idx}`} className={`question-list-row p-2 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
-      <div className="grid gap-1 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-3">
-        <div className="flex flex-wrap items-center gap-2 min-w-0">
-          <div className={`shrink-0 font-mono text-[11px] font-bold ${isMissRanking ? 'text-amber-200' : 'text-slate-400'}`}>
-            {String(displayIndex).padStart(3, '0')}
+      <div className="word-list-heading">
+        <div className="word-list-vocabulary">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="shrink-0 text-[10px] font-mono text-slate-500">{String(displayIndex).padStart(3, '0')}</span>
+            <span className="word-list-term text-xl md:text-2xl font-bold text-cyan-100">{question.text}</span>
           </div>
-          <label className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
-            <input
-              type="checkbox"
-              aria-label={`${question.text} を選択`}
-              checked={isSelectedForAutoPlay}
-              onChange={() => onToggleSelected(question)}
-              className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
-            />
-          </label>
-          <button aria-label={`${question.text} を音声で再生`} onClick={() => onSpeak(question.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
-          <div className="min-w-0 flex-1 basis-40">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-base md:text-lg font-mono text-blue-100 font-bold break-words [overflow-wrap:anywhere]">{question.text}</span>
-              <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] ${manualStatus.learningLevel === 1 ? 'border border-sky-400/35 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border border-emerald-400/35 bg-emerald-500/10 text-emerald-100' : 'border border-violet-400/35 bg-violet-500/10 text-violet-100'}`}>
-                {learningLabel}
-              </span>
-              {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
-              {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動優先</span>}
-              {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
-              {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
-              {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
-              {isMissRanking && stats && <span className="rounded-full border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-100">つまずき {stats.missCount}回</span>}
-              {!isMissRanking && isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
-              {!isMissRanking && !isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
-            </div>
-            {isManualOverrideActive && <span className="text-[11px] text-slate-400">自動判定: {autoLabel}</span>}
-          </div>
-        </div>
-        <div className="min-w-0 text-left md:text-right [overflow-wrap:anywhere]">
+          <div className="word-list-meaning text-left">
           {question.promptEn && (
             <div className="mb-2 max-w-sm rounded-lg border border-violet-400/25 bg-violet-950/25 px-3 py-2 text-left">
               <div className="text-[10px] font-black uppercase tracking-[0.16em] text-violet-300">相手</div>
@@ -3743,9 +3716,40 @@ const QuestionListRow = React.memo(function QuestionListRow({
               Basic: {question.basicMeaning}
             </div>
           )}
+          </div>
+        </div>
+        <div className="word-list-tools">
+          <div className="flex items-center gap-1">
+          <label className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
+            <input
+              type="checkbox"
+              aria-label={`${question.text} を選択`}
+              checked={isSelectedForAutoPlay}
+              onChange={() => onToggleSelected(question)}
+              className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
+            />
+          </label>
+          <button aria-label={`${question.text} を音声で再生`} onClick={() => onSpeak(question.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
+
+          </div>
+          <div className="flex flex-wrap items-center gap-1 min-w-0">
+              <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] ${manualStatus.learningLevel === 1 ? 'border border-sky-400/35 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border border-emerald-400/35 bg-emerald-500/10 text-emerald-100' : 'border border-violet-400/35 bg-violet-500/10 text-violet-100'}`}>
+                {learningLabel}
+              </span>
+              {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
+              {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動優先</span>}
+              {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
+              {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
+              {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
+              {isMissRanking && stats && <span className="rounded-full border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-100">つまずき {stats.missCount}回</span>}
+              {!isMissRanking && isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
+              {!isMissRanking && !isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
+
+            {isManualOverrideActive && <span className="text-[11px] text-slate-400">自動判定: {autoLabel}</span>}
+          </div>
         </div>
       </div>
-      <div className="mt-1 flex flex-wrap items-center gap-1">
+      <div className="word-list-actions mt-1 flex flex-wrap items-center gap-1">
         <span className="text-[11px] font-bold text-slate-400">手動設定</span>
         {LEARNING_LEVELS.map(level => (
           <button
@@ -7530,7 +7534,7 @@ export default function App() {
 
     return (
       <ScreenContainer className="bg-slate-900">
-        <div className="max-w-6xl w-full p-2 sm:p-4 h-full flex flex-col">
+        <div className="word-list-page max-w-6xl min-w-0 w-full p-2 sm:p-4 h-full flex flex-col">
            <div className="flex justify-between items-center mb-6 flex-shrink-0">
               <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
               <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><ClipboardList /> 問題リスト (Word List)</h2>
@@ -8183,7 +8187,7 @@ export default function App() {
               </div>
             )}
             <div className="flex-1 min-h-0">
-               <Box className="h-full flex flex-col" contentClassName="p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
+               <Box className="h-full min-w-0 w-full flex flex-col" contentClassName="min-w-0 w-full p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
                    <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
                      <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
                        <AlertCircle size={28} className="mb-3 text-slate-500" />

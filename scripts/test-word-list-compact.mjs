@@ -11,7 +11,7 @@ try {
  await page.getByRole('button', { name: '単語リスト', exact: true }).click();
  await page.getByRole('button', { name: '英検準1級①', exact: true }).click();
  const row = page.locator('.question-list-row').first();
- for (const width of [1366, 390, 320]) {
+ for (const width of [1366, 1180, 1024, 820, 768, 640, 390, 320]) {
    await page.setViewportSize({ width, height: 900 });
    await row.scrollIntoViewIfNeeded();
    await page.waitForTimeout(250);
@@ -19,10 +19,29 @@ try {
    assert.ok(box.height < (width > 767 ? 180 : 300), `Compact row at ${width}: ${box.height}`);
    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
    assert.equal(await row.evaluate(e => e.scrollWidth > e.clientWidth), false);
+   const meaning = await row.locator('.word-list-meaning').boundingBox();
+   assert.ok(meaning.x >= box.x && meaning.x + meaning.width <= box.x + box.width + 1, `Meaning stays inside card at ${width}`);
    assert.ok(await row.getByText('例文', { exact: true }).isVisible());
    if (process.env.WORD_LIST_SCREENSHOT_DIR && width !== 320) await page.screenshot({ path: `${process.env.WORD_LIST_SCREENSHOT_DIR}/word-list-${width}.png` });
    console.log(`PASS width ${width}: row height ${box.height}px`);
  }
+ // Resize while scrolled down, including cards previously skipped by content-visibility.
+ const distant = page.locator('.question-list-row').nth(14);
+ for (const width of [1500, 1180, 900, 768, 390, 1500]) {
+   await page.setViewportSize({width, height:800});
+   await distant.scrollIntoViewIfNeeded();
+   await page.waitForTimeout(200);
+   const clipping = await distant.evaluate(e => {
+     const r = e.getBoundingClientRect();
+     const meaning = e.querySelector('.word-list-meaning').getBoundingClientRect();
+     const ancestors = []; for (let p = e.parentElement; p; p=p.parentElement) {
+       if (['hidden','auto','scroll','clip'].includes(getComputedStyle(p).overflowX)) ancestors.push(p.getBoundingClientRect().right);
+     }
+     return meaning.right > Math.min(innerWidth, ...ancestors) + 1 || r.right > innerWidth + 1;
+   });
+   assert.equal(clipping, false, `No clipped translation after resize at ${width}`);
+ }
+ await row.scrollIntoViewIfNeeded();
  await row.getByRole('checkbox').check();
  assert.ok(await row.getByText('選択中', { exact: true }).isVisible());
  await row.getByRole('button', { name: '覚えた', exact: true }).click();
