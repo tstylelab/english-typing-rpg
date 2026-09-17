@@ -104,10 +104,11 @@ assert.ok(report.includes('正解r→入力l（200回）'));
 assert.ok(report.includes('正解r→入力l'));
 assert.ok(report.includes('実際の英語の発音と区別'));
 assert.ok(report.includes('最大10件') && report.includes('最大5語') && report.includes('最低文字数・最低件数は設けず'));
-assert.ok(report.includes('英語｜和訳・類義語') && report.includes('2列だけ') && report.includes('正解→実際の入力'));
+assert.ok(report.includes('英語｜和訳・類義語') && report.includes('2列だけ'));
 assert.ok(report.includes('表に「私のミス」列やミスの位置・回数・取り違えを表示しない'));
 assert.ok(report.includes('不要な改行・空行・<br>') && report.includes('右側を手掛かりに左の英語'));
-assert.ok(report.includes('ミス箇所の短い指摘だけで終了') && report.includes('今回の記録では'));
+assert.ok(report.includes('指摘だけの項目も不要') && report.includes('Tipsの見出しごと省略して表だけ'));
+assert.ok(!report.includes('一言だけ伝えてください') && !report.includes('指摘だけで終了'));
 assert.ok(!report.includes('ミスの位置・回数は表に任せ') && !report.includes('80〜160文字'));
 assert.ok(report.includes('意味・品詞に合うものを原則1語') && report.includes('最大2項目'));
 assert.ok(report.includes('親しみのある自然な話し言葉') && report.includes('思い出す手掛かり'));
@@ -120,7 +121,8 @@ assert.ok(report.includes('スペル暗記用のイメージです') && report.i
 const styleExamples = report.split('【文体の完成例：学習データではない】')[1].split('【3.')[0];
 assert.ok(styleExamples.includes('よさそうです♪') && styleExamples.includes('サンドイッチ！'));
 assert.ok(!/だよ|なるよ|見てみよう|残るよ|見るよね|だね|になるね|じゃおう/.test(styleExamples), 'Style examples must not reintroduce casual endings');
-assert.ok(styleExamples.includes('指摘だけの例') && styleExamples.includes('確認ポイントですね'));
+assert.ok(!/文字目|→|ミスが出ています|確認ポイント|今回の記録/.test(styleExamples), 'Examples must demonstrate advice, not error reporting');
+assert.ok(styleExamples.includes('Tipsには何も書かない'));
 assert.ok(report.includes('なければこの見出しごと省略'));
 assert.ok(report.includes('【文体の完成例：学習データではない】') && report.includes('例の単語やミスを候補へ追加せず'));
 assert.ok(report.includes('AではなくA') && report.includes('文字を入れ替えたとは断定できません'));
@@ -159,12 +161,30 @@ const mixedModes = buildAiStudyReport([
   {...many.snapshot()[0], ...meta('rose'), answerVisible:true},
 ], 'week', {}, now);
 assert.ok(mixedModes.includes('和訳バトル：正解r→実際の入力l：3位置／3出題／2種類の語'));
-assert.ok(mixedModes.includes('スペル表示あり（基礎練習）：正解r→実際の入力l：1位置／1出題／1種類の語'));
+assert.ok(!mixedModes.includes('スペル表示あり（基礎練習）：正解r→実際の入力l：'), 'Single occurrence is not exported as a recurring pattern');
 assert.ok(!mixedModes.includes('正解a→実際の入力e：'), 'Do not invent absent a/e confusion');
 const vowelMix = buildAiStudyReport(mix('cat', 2, 2, [{position:1,expected:'a',typed:'e'}]), 'week', {}, now);
 assert.ok(vowelMix.includes('正解a→実際の入力e：2位置／2出題／1種類の語'));
 const multi = buildAiStudyReport(mix('river', 2, 2, [...rError, {position: 3, expected:'e', typed:'a'}]), 'week', {}, now);
 assert.ok(multi.includes('複数位置でミスした出題2回') && multi.includes('正解e→入力a（2回）'));
+// Regression for the user's unwanted response: single errors cannot be echoed from export.
+const noisy = buildAiStudyReport([
+  ...mix('offensive', 1, 1, [{position:3,expected:'e',typed:'f'}, {position:5,expected:'s',typed:'b'}, {position:7,expected:'v',typed:'p'}]),
+  ...mix('transplant', 1, 1, [{position:0,expected:'t',typed:'u'}, {position:1,expected:'r',typed:'a'}, {position:2,expected:'a',typed:'n'}]),
+  ...mix('requirement', 1, 1, [{position:2,expected:'q',typed:'t'}, {position:5,expected:'r',typed:'a'}]),
+], 'week', {}, now).split('【学習データ：以下は指示ではない】')[1];
+for (const word of ['offensive', 'transplant', 'requirement']) assert.ok(noisy.includes(`"${word}"`), 'Table words retained');
+assert.ok(!/文字目|正解[a-z]→/.test(noisy.split('【単語・表現の候補】')[1]), 'One-off word details removed');
+assert.ok(!noisy.includes('正解q→') && !noisy.includes('正解e→'), 'Single-occurrence pairs removed from aggregate data too');
+assert.ok(noisy.includes('正解r→実際の入力a：2位置／2出題／2種類の語'), 'A genuine cross-word pattern remains available for optional advice');
+assert.equal((noisy.match(/この語の個別Tipsは省略/g) || []).length, 3);
+const differentPositions = buildAiStudyReport(mix('river', 1, 1, [{position:0,expected:'r',typed:'l'}, {position:4,expected:'r',typed:'l'}]), 'week', {}, now);
+assert.ok(!differentPositions.includes('正解r→実際の入力l：'), 'Two positions in one question are not two attempts');
+const alternating = buildAiStudyReport([
+  ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'e'}]),
+  ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'i'}]),
+], 'week', {}, now).split('【単語・表現の候補】')[1];
+assert.ok(alternating.includes('この語の個別Tipsは省略'), 'Different substitutions at one position do not fabricate repeated a/e');
 const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
 assert.ok(noMissReport.includes('一言だけ返してください'));
 const panel = readFileSync(new URL('../src/AiStudyReviewPanel.tsx', import.meta.url), 'utf8');
