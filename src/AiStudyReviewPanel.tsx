@@ -82,7 +82,7 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
     <div className="space-y-3">
       {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大10語（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
       {!inline && <>
-      <p><strong>英語と和訳・類義語の復習表</strong>で相談します。表は最大10件。Tipsは繰り返すミスに役立つ助言がある場合だけ、最大5語です。ミス一覧は出しません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
+      <p><strong>苦手な英語を覚えるアイデア</strong>を相談します。復習表は最大10件、覚え方のTipsは3〜5語（候補が少なければその件数）です。ミス一覧は出しません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
       <div className="flex flex-wrap items-center gap-3">
         <label className="flex items-center gap-2">
           <input type="checkbox" checked={enabled} onChange={e => {

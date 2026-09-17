@@ -3695,24 +3695,25 @@ const QuestionListRow = React.memo(function QuestionListRow({
   const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
 
   return (
-    <div key={`${questionKey}-${idx}`} className={`question-list-row p-3 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
-      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-        <div className="flex items-start gap-4 min-w-0">
-          <div className={`mt-1 min-w-[2.75rem] rounded-full border px-2 py-1 text-center font-mono text-[11px] font-bold tracking-[0.18em] ${isMissRanking ? 'border-amber-400/50 bg-amber-500/10 text-amber-200' : 'border-slate-600 bg-slate-900/80 text-slate-400'}`}>
+    <div key={`${questionKey}-${idx}`} className={`question-list-row p-2 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
+      <div className="grid gap-1 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-3">
+        <div className="flex flex-wrap items-center gap-2 min-w-0">
+          <div className={`shrink-0 font-mono text-[11px] font-bold ${isMissRanking ? 'text-amber-200' : 'text-slate-400'}`}>
             {String(displayIndex).padStart(3, '0')}
           </div>
-          <label className="mt-1 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
+          <label className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
             <input
               type="checkbox"
+              aria-label={`${question.text} を選択`}
               checked={isSelectedForAutoPlay}
               onChange={() => onToggleSelected(question)}
               className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
             />
           </label>
-          <button onClick={() => onSpeak(question.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="text-lg md:text-xl font-mono text-blue-100 font-bold break-all">{question.text}</span>
+          <button aria-label={`${question.text} を音声で再生`} onClick={() => onSpeak(question.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
+          <div className="min-w-0 flex-1 basis-40">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-base md:text-lg font-mono text-blue-100 font-bold break-words [overflow-wrap:anywhere]">{question.text}</span>
               <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] ${manualStatus.learningLevel === 1 ? 'border border-sky-400/35 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border border-emerald-400/35 bg-emerald-500/10 text-emerald-100' : 'border border-violet-400/35 bg-violet-500/10 text-violet-100'}`}>
                 {learningLabel}
               </span>
@@ -3725,17 +3726,10 @@ const QuestionListRow = React.memo(function QuestionListRow({
               {!isMissRanking && isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
               {!isMissRanking && !isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
             </div>
-            <div className="mt-2 flex flex-wrap items-center gap-3">
-              <span className={`rounded-2xl border px-4 py-2 text-xl font-black leading-none tracking-[0.08em] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] md:text-2xl ${isManualOverrideActive ? 'border-slate-700 bg-slate-900/60 text-slate-300' : manualStatus.learningLevel === 1 ? 'border-sky-400/30 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-100' : 'border-violet-400/30 bg-violet-500/10 text-violet-100'}`}>
-                {learningLabel}
-              </span>
-              <span className={`rounded-full border px-2.5 py-1 text-[11px] font-bold ${isManualOverrideActive ? 'border-slate-700 bg-slate-900/70 text-slate-400' : 'border-cyan-400/30 bg-cyan-500/10 text-cyan-100'}`}>
-                自動: {autoLabel}
-              </span>
-            </div>
+            {isManualOverrideActive && <span className="text-[11px] text-slate-400">自動判定: {autoLabel}</span>}
           </div>
         </div>
-        <div className="text-right flex-shrink-0">
+        <div className="min-w-0 text-left md:text-right [overflow-wrap:anywhere]">
           {question.promptEn && (
             <div className="mb-2 max-w-sm rounded-lg border border-violet-400/25 bg-violet-950/25 px-3 py-2 text-left">
               <div className="text-[10px] font-black uppercase tracking-[0.16em] text-violet-300">相手</div>
@@ -3751,7 +3745,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
           )}
         </div>
       </div>
-      <div className="mt-3 ml-[6.75rem] flex flex-wrap items-center gap-2 md:justify-end">
+      <div className="mt-1 flex flex-wrap items-center gap-1">
         <span className="text-[11px] font-bold text-slate-400">手動設定</span>
         {LEARNING_LEVELS.map(level => (
           <button
@@ -3777,18 +3771,17 @@ const QuestionListRow = React.memo(function QuestionListRow({
         </button>
       </div>
       {example && (
-        <div className="mt-3 ml-[6.75rem] rounded-lg border border-slate-700/80 bg-slate-950/70 px-3 py-2">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-300">Example</p>
-          <p className="mt-1 text-xs md:text-sm text-slate-200">{example}</p>
+        <div className="mt-1 text-xs md:text-sm leading-snug text-slate-200 [overflow-wrap:anywhere]">
+          <span className="mr-2 text-[10px] font-bold text-emerald-300">例文</span>{example}
         </div>
       )}
       {question.speakingTip && (
-        <div className="mt-2 ml-[6.75rem] text-xs font-semibold text-amber-100/90">
+        <div className="mt-1 text-xs font-semibold text-amber-100/90 [overflow-wrap:anywhere]">
           <span className="text-amber-300">話すコツ:</span> {question.speakingTip}
         </div>
       )}
       {synonyms.length > 0 && (
-        <div className="mt-2 ml-[6.75rem] text-xs font-semibold text-cyan-100/90">
+        <div className="mt-1 text-xs font-semibold text-cyan-100/90 [overflow-wrap:anywhere]">
           <span className="text-cyan-300">類義/関連:</span> {synonyms.join(' / ')}
         </div>
       )}
@@ -7537,7 +7530,7 @@ export default function App() {
 
     return (
       <ScreenContainer className="bg-slate-900">
-        <div className="max-w-4xl w-full p-4 h-full flex flex-col">
+        <div className="max-w-6xl w-full p-2 sm:p-4 h-full flex flex-col">
            <div className="flex justify-between items-center mb-6 flex-shrink-0">
               <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
               <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><ClipboardList /> 問題リスト (Word List)</h2>
@@ -8190,7 +8183,7 @@ export default function App() {
               </div>
             )}
             <div className="flex-1 min-h-0">
-               <Box className="h-full flex flex-col" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
+               <Box className="h-full flex flex-col" contentClassName="p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
                    <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
                      <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
                        <AlertCircle size={28} className="mb-3 text-slate-500" />

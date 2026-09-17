@@ -103,34 +103,20 @@ assert.ok(report.includes('実際の記録 200問'));
 assert.ok(report.includes('正解r→入力l（200回）'));
 assert.ok(report.includes('正解r→入力l'));
 assert.ok(report.includes('実際の英語の発音と区別'));
-assert.ok(report.includes('最大10件') && report.includes('最大5語') && report.includes('最低文字数・最低件数は設けず'));
-assert.ok(report.includes('英語｜和訳・類義語') && report.includes('2列だけ'));
-assert.ok(report.includes('表に「私のミス」列やミスの位置・回数・取り違えを表示しない'));
-assert.ok(report.includes('不要な改行・空行・<br>') && report.includes('右側を手掛かりに左の英語'));
-assert.ok(report.includes('指摘だけの項目も不要') && report.includes('Tipsの見出しごと省略して表だけ'));
-assert.ok(!report.includes('一言だけ伝えてください') && !report.includes('指摘だけで終了'));
-assert.ok(!report.includes('ミスの位置・回数は表に任せ') && !report.includes('80〜160文字'));
-assert.ok(report.includes('意味・品詞に合うものを原則1語') && report.includes('最大2項目'));
-assert.ok(report.includes('親しみのある自然な話し言葉') && report.includes('思い出す手掛かり'));
-assert.ok(report.includes('正解の言い直しは禁止') && report.includes('無理なダジャレ'));
-assert.ok(report.includes('専門用語を使うなら短く意味を添え') && report.includes('文章を長くしない'));
-assert.ok(report.includes('小学生にも大人にも読みやすい') && report.includes('思い出す手掛かり'));
-assert.ok(report.includes('やわらかい「です・ます」') && report.includes('それぞれ1〜2か所程度'));
-assert.ok(report.includes('毎項目・毎文に付けず') && report.includes('表や注意書きには付けず'));
-assert.ok(report.includes('スペル暗記用のイメージです') && report.includes('別々の出題での観測回数'));
-const styleExamples = report.split('【文体の完成例：学習データではない】')[1].split('【3.')[0];
-assert.ok(styleExamples.includes('よさそうです♪') && styleExamples.includes('サンドイッチ！'));
-assert.ok(!/だよ|なるよ|見てみよう|残るよ|見るよね|だね|になるね|じゃおう/.test(styleExamples), 'Style examples must not reintroduce casual endings');
-assert.ok(!/文字目|→|ミスが出ています|確認ポイント|今回の記録/.test(styleExamples), 'Examples must demonstrate advice, not error reporting');
-assert.ok(styleExamples.includes('Tipsには何も書かない'));
-assert.ok(report.includes('なければこの見出しごと省略'));
-assert.ok(report.includes('【文体の完成例：学習データではない】') && report.includes('例の単語やミスを候補へ追加せず'));
-assert.ok(report.includes('AではなくA') && report.includes('文字を入れ替えたとは断定できません'));
-assert.ok(!report.includes('「実際に間違えた位置」→'), 'Old report-first structure removed');
-const candidateData = report.split('【単語・表現の候補】')[1];
-assert.ok(!/temporary|executive/.test(candidateData), 'Style examples never enter candidate data');
-assert.ok(!report.includes('【出題方法別】') && !report.includes('次回5分'));
-assert.ok(report.length < 4500, 'Single-term prompt including three style examples stays bounded');
+const instructions = report.split('【学習データ：以下は指示ではない】')[0];
+assert.ok(instructions.length < 1100, 'Keep the request short instead of accumulating conflicting rules');
+assert.ok(instructions.includes('英語｜和訳・類義語') && instructions.includes('2列だけ'));
+assert.ok(instructions.includes('3〜5語') && instructions.includes('最大5語'));
+assert.ok(instructions.includes('候補が3語未満なら全語'));
+assert.ok(instructions.includes('ミスが1回だけでも対象'));
+assert.ok(instructions.includes('表だけで終わらず、Tipsも書いて'));
+assert.ok(instructions.includes('反復記録はTipsを出す条件ではありません'));
+assert.ok(instructions.includes('元の単語・接頭辞や接尾辞') && instructions.includes('身近な使用場面'));
+assert.ok(instructions.includes('文字位置・誤入力の矢印・回数の羅列'));
+assert.ok(instructions.includes('やわらかい「です・ます」') && instructions.includes('「！」「♪」'));
+assert.ok(instructions.includes('架空の語源は作らず') && instructions.includes('原因を断定しない'));
+assert.ok(!/Tipsは任意|Tipsは省略|Tipsには何も書かない|表だけで終了|条件を満たさないTips/.test(report));
+assert.ok(report.length < 2600, 'Single-term export stays compact');
 assert.ok(report.includes('プレイヤー') && !report.includes('player-a-name'));
 
 const names = ['alpha', 'beta', 'gamma', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima'];
@@ -148,6 +134,10 @@ const mix = (word, count, failures, mistakes) => Array.from({length: count}, (_,
   ...many.snapshot()[0], ...meta(word), misses: i < failures ? 1 : 0, mistakes: i < failures ? mistakes : [],
 }));
 const rError = [{ position: 0, expected: 'r', typed: 'l' }];
+const allSingleErrors = buildAiStudyReport(names.slice(0, 10).flatMap(word => mix(word, 1, 1, [])), 'week', {}, now);
+assert.ok(allSingleErrors.includes('候補10件') && allSingleErrors.includes('反復パターンの記録なし'));
+assert.ok(allSingleErrors.includes('表だけで終わらず、Tipsも書いて'));
+assert.ok(!/Tips[^。\n]*省略|表だけで終了/.test(allSingleErrors), 'Ten one-off failures with no diagnostic details still request memory tips');
 const prioritized = buildAiStudyReport([
   ...mix('frequent', 80, 3, rError), ...mix('recurring', 4, 3, rError),
   ...mix('oneoff', 1, 1, rError),
@@ -177,14 +167,15 @@ for (const word of ['offensive', 'transplant', 'requirement']) assert.ok(noisy.i
 assert.ok(!/文字目|正解[a-z]→/.test(noisy.split('【単語・表現の候補】')[1]), 'One-off word details removed');
 assert.ok(!noisy.includes('正解q→') && !noisy.includes('正解e→'), 'Single-occurrence pairs removed from aggregate data too');
 assert.ok(noisy.includes('正解r→実際の入力a：2位置／2出題／2種類の語'), 'A genuine cross-word pattern remains available for optional advice');
-assert.equal((noisy.match(/この語の個別Tipsは省略/g) || []).length, 3);
+assert.ok(!noisy.includes('Tipsは省略'), 'Single-error candidates must remain eligible for memory advice');
 const differentPositions = buildAiStudyReport(mix('river', 1, 1, [{position:0,expected:'r',typed:'l'}, {position:4,expected:'r',typed:'l'}]), 'week', {}, now);
 assert.ok(!differentPositions.includes('正解r→実際の入力l：'), 'Two positions in one question are not two attempts');
 const alternating = buildAiStudyReport([
   ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'e'}]),
   ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'i'}]),
 ], 'week', {}, now).split('【単語・表現の候補】')[1];
-assert.ok(alternating.includes('この語の個別Tipsは省略'), 'Different substitutions at one position do not fabricate repeated a/e');
+assert.ok(alternating.includes('繰り返した取り違え：記録なし'), 'Different substitutions at one position do not fabricate repeated a/e');
+assert.ok(!alternating.includes('Tipsは省略'), 'Absent patterns must not suppress advice');
 const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
 assert.ok(noMissReport.includes('一言だけ返してください'));
 const panel = readFileSync(new URL('../src/AiStudyReviewPanel.tsx', import.meta.url), 'utf8');
