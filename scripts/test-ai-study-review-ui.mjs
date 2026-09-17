@@ -52,7 +52,7 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
    await dialog.getByRole('button',{name:'相談文を確認する'}).click();
    const report=await dialog.getByRole('textbox',{name:'AIへの相談文'}).inputValue();
    assert.equal(report,await page.evaluate(()=>window.copied));
-   assert.ok(report.includes('候補10件') && report.includes('英語｜和訳・類義語') && report.includes('最大5語'));
+   assert.ok(report.includes('候補10件') && report.includes('英語｜和訳・類義語') && report.includes('Tipsの件数に上限・下限は設けません'));
    assert.ok(report.length<9000, 'Twenty distinct terms yield bounded candidates and five patterns');
    for(const [name,target] of [['ChatGPT','https://chatgpt.com/'],['Gemini','https://gemini.google.com/app']]) {
     await dialog.getByRole('button',{name:`コピーして${name}を開く`,exact:true}).click();

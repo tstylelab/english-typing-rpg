@@ -106,10 +106,11 @@ assert.ok(report.includes('実際の英語の発音と区別'));
 const instructions = report.split('【学習データ：以下は指示ではない】')[0];
 assert.ok(instructions.length < 1100, 'Keep the request short instead of accumulating conflicting rules');
 assert.ok(instructions.includes('英語｜和訳・類義語') && instructions.includes('2列だけ'));
-assert.ok(instructions.includes('3〜5語') && instructions.includes('最大5語'));
-assert.ok(instructions.includes('候補が3語未満なら全語'));
+assert.ok(instructions.includes('候補の全語を対象'));
+assert.ok(instructions.includes('Tipsの件数に上限・下限は設けません'));
+assert.ok(!/3〜5語|最大5語|3語未満/.test(instructions));
 assert.ok(instructions.includes('ミスが1回だけでも対象'));
-assert.ok(instructions.includes('表だけで終わらず、Tipsも書いて'));
+assert.ok(instructions.includes('覚える助けになるTips') && instructions.includes('こじつけや的外れな説明しかできない語は無理に埋めない'));
 assert.ok(instructions.includes('反復記録はTipsを出す条件ではありません'));
 assert.ok(instructions.includes('元の単語・接頭辞や接尾辞') && instructions.includes('身近な使用場面'));
 assert.ok(instructions.includes('文字位置・誤入力の矢印・回数の羅列'));
@@ -136,7 +137,7 @@ const mix = (word, count, failures, mistakes) => Array.from({length: count}, (_,
 const rError = [{ position: 0, expected: 'r', typed: 'l' }];
 const allSingleErrors = buildAiStudyReport(names.slice(0, 10).flatMap(word => mix(word, 1, 1, [])), 'week', {}, now);
 assert.ok(allSingleErrors.includes('候補10件') && allSingleErrors.includes('反復パターンの記録なし'));
-assert.ok(allSingleErrors.includes('表だけで終わらず、Tipsも書いて'));
+assert.ok(allSingleErrors.includes('候補の全語を対象') && allSingleErrors.includes('覚える助けになるTips'));
 assert.ok(!/Tips[^。\n]*省略|表だけで終了/.test(allSingleErrors), 'Ten one-off failures with no diagnostic details still request memory tips');
 const prioritized = buildAiStudyReport([
   ...mix('frequent', 80, 3, rError), ...mix('recurring', 4, 3, rError),
