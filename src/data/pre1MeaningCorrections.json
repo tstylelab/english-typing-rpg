@@ -1,0 +1,512 @@
+[
+  {
+    "text": "demonstrate",
+    "translation": "(事実を)示す",
+    "exampleEn": "The experiment demonstrated the theory.",
+    "meaning": "（実験や実演で）実証する・やって見せる"
+  },
+  {
+    "text": "indicate",
+    "translation": "(事実や傾向を)示す",
+    "exampleEn": "Dark clouds indicate rain.",
+    "meaning": "（兆候や数値が）指し示す・示唆する"
+  },
+  {
+    "text": "shift",
+    "translation": "変化 / 交代勤務",
+    "exampleEn": "A major shift is taking place in consumer attitudes.",
+    "meaning": "（考え方・方針などの）転換 / 交代制の勤務時間"
+  },
+  {
+    "text": "conventional",
+    "translation": "従来の / ありふれた",
+    "exampleEn": "The company introduced a new system to replace conventional methods.",
+    "meaning": "（昔からの慣習・やり方に従った）従来型の・型にはまった"
+  },
+  {
+    "text": "overall",
+    "translation": "(全体としての)全体的な",
+    "exampleEn": "Overall, the results were encouraging.",
+    "meaning": "全体を総合すると / 全体的な・総合的な"
+  },
+  {
+    "text": "notably",
+    "translation": "特に",
+    "exampleEn": "The area is known notably for its spring scenery.",
+    "meaning": "とりわけ・特筆すべきことに / 目立って"
+  },
+  {
+    "text": "publicity",
+    "translation": "世間の注目 / 宣伝",
+    "exampleEn": "The incident attracted a great deal of publicity.",
+    "meaning": "（報道などによる）世間の注目・宣伝"
+  },
+  {
+    "text": "potential",
+    "translation": "(将来の)可能性を持つ",
+    "exampleEn": "The area has great potential for growth.",
+    "meaning": "潜在能力・発展の可能性 / 潜在的な"
+  },
+  {
+    "text": "species",
+    "translation": "種",
+    "exampleEn": "This species lives only on the island.",
+    "meaning": "（生物の分類上の）種"
+  },
+  {
+    "text": "tissue",
+    "translation": "組織",
+    "exampleEn": "The doctor collected a small amount of tissue for testing.",
+    "meaning": "（細胞が集まった）生体の組織"
+  },
+  {
+    "text": "account",
+    "translation": "説明 / 報告",
+    "exampleEn": "His account of the accident was very detailed.",
+    "meaning": "（出来事についての）詳しい説明・報告 / 口座"
+  },
+  {
+    "text": "access",
+    "translation": "利用する / 接続する",
+    "exampleEn": "Students can access the library database from home.",
+    "meaning": "（情報・サービスに）アクセスする・利用する"
+  },
+  {
+    "text": "acknowledge",
+    "translation": "(事実として)認める",
+    "exampleEn": "She acknowledged the mistake.",
+    "meaning": "（事実や自分の非を）認める / 受け取ったことを知らせる"
+  },
+  {
+    "text": "resident",
+    "translation": "住民",
+    "exampleEn": "Every resident received a notice about the evacuation.",
+    "meaning": "（ある場所に住む）住民・居住者 / 居住している"
+  },
+  {
+    "text": "inhabitant",
+    "translation": "住民 / 居住者",
+    "exampleEn": "The inhabitants of the island have long lived by fishing.",
+    "meaning": "（地域・島などの）住民・生息する動物"
+  },
+  {
+    "text": "dweller",
+    "translation": "居住者",
+    "exampleEn": "City dwellers often seek quiet on weekends.",
+    "meaning": "（都市など、特定の場所に）住む人"
+  },
+  {
+    "text": "colleague",
+    "translation": "同僚",
+    "exampleEn": "She worked with her colleagues to finish the new project.",
+    "meaning": "（職場や同じ専門分野の）同僚・仕事仲間"
+  },
+  {
+    "text": "coworker",
+    "translation": "同僚",
+    "exampleEn": "He explained the workflow to his new coworker.",
+    "meaning": "同じ職場で働く仲間・同僚"
+  },
+  {
+    "text": "peer",
+    "translation": "同僚 / じっと見る",
+    "exampleEn": "Children learn a lot from their peers.",
+    "meaning": "（年齢・地位・能力などが）同等の仲間 / じっと目を凝らして見る"
+  },
+  {
+    "text": "fatal",
+    "translation": "致命的な",
+    "exampleEn": "The mistake was fatal to the plan.",
+    "meaning": "死や取り返しのつかない失敗につながる・致命的な"
+  },
+  {
+    "text": "deadly",
+    "translation": "致命的な",
+    "exampleEn": "Even a small amount of the gas can be deadly.",
+    "meaning": "命を奪うほど危険な / 致命的な"
+  },
+  {
+    "text": "artificial",
+    "translation": "人工の",
+    "exampleEn": "The lake is not natural but artificial.",
+    "meaning": "人工の・自然のものをまねて作った / わざとらしい"
+  },
+  {
+    "text": "man-made",
+    "translation": "人工の",
+    "exampleEn": "The lake is man-made, not natural.",
+    "meaning": "自然にできたのでなく、人間が作った・人工の"
+  },
+  {
+    "text": "modify",
+    "translation": "修正する / 変更する",
+    "exampleEn": "The design was modified slightly to make it easier to use.",
+    "meaning": "（形や仕組みに部分的な）変更を加える・修正する"
+  },
+  {
+    "text": "revise",
+    "translation": "修正する / 見直す",
+    "exampleEn": "The committee revised part of the proposal.",
+    "meaning": "（文章・計画などを見直して）改訂する・修正する"
+  },
+  {
+    "text": "amend",
+    "translation": "修正する",
+    "exampleEn": "The committee voted to amend the proposal.",
+    "meaning": "（法律・規則・文書などを）改正する・修正する"
+  },
+  {
+    "text": "outweigh",
+    "translation": "上回る",
+    "exampleEn": "The benefits outweigh the risks in this case.",
+    "meaning": "（利点などが欠点より）重要性・影響の大きさで上回る"
+  },
+  {
+    "text": "surpass",
+    "translation": "上回る",
+    "exampleEn": "This year's sales surpassed expectations.",
+    "meaning": "（成績・実績などが）超える・上回る"
+  },
+  {
+    "text": "overrate",
+    "translation": "過大評価する",
+    "exampleEn": "You should not overrate your abilities after just one success.",
+    "meaning": "（価値・能力・質を）実際より高く評価する"
+  },
+  {
+    "text": "overestimate",
+    "translation": "過大評価する",
+    "exampleEn": "We found that we had overestimated the budget needed at first.",
+    "meaning": "（必要量・費用・能力などを）実際より多く・高く見積もる"
+  },
+  {
+    "text": "imitate",
+    "translation": "まねる",
+    "exampleEn": "Children often imitate the way adults speak.",
+    "meaning": "（行動・作風・製品などを）まねる・模倣する"
+  },
+  {
+    "text": "mimic",
+    "translation": "まねる",
+    "exampleEn": "The child tried to mimic his teacher's voice.",
+    "meaning": "（声・しぐさなどをそっくりに）まねる"
+  },
+  {
+    "text": "fictional",
+    "translation": "架空の",
+    "exampleEn": "The novel is set in a fictional town.",
+    "meaning": "小説・物語の中の / 創作された・架空の"
+  },
+  {
+    "text": "fictitious",
+    "translation": "架空の",
+    "exampleEn": "The article used a fictitious name for privacy.",
+    "meaning": "本当には存在しない、作り上げた・架空の"
+  },
+  {
+    "text": "improper",
+    "translation": "不適切な",
+    "exampleEn": "The manager was warned about improper conduct.",
+    "meaning": "（礼儀や規則に反して）不適切な・不正な"
+  },
+  {
+    "text": "inappropriate",
+    "translation": "不適切な",
+    "exampleEn": "That comment was inappropriate for the meeting.",
+    "meaning": "（その場・相手・目的に）ふさわしくない"
+  },
+  {
+    "text": "obstruct",
+    "translation": "妨げる / ふさぐ",
+    "exampleEn": "A fallen tree obstructed the road.",
+    "meaning": "（道や通路などを）ふさぐ / 進行を妨害する"
+  },
+  {
+    "text": "hinder",
+    "translation": "妨げる",
+    "exampleEn": "Heavy snow hindered traffic in the city.",
+    "meaning": "（進行・達成を）妨げる・遅らせる"
+  },
+  {
+    "text": "suppress",
+    "translation": "抑える / 抑圧する",
+    "exampleEn": "The medicine works to suppress coughing.",
+    "meaning": "（感情・反乱・症状などを）抑え込む / 情報を公表させない"
+  },
+  {
+    "text": "restrain",
+    "translation": "抑える / 制止する",
+    "exampleEn": "She tried to restrain her anger during the discussion.",
+    "meaning": "（人の行動や自分の感情を）制止する・抑制する"
+  },
+  {
+    "text": "sufficient",
+    "translation": "十分な",
+    "exampleEn": "Sufficient food is necessary for safe climbing.",
+    "meaning": "（必要な量や程度が）足りている・十分な"
+  },
+  {
+    "text": "reinforce",
+    "translation": "(さらに)強化する",
+    "exampleEn": "The coach's words reinforced my confidence.",
+    "meaning": "（補強・追加によって）さらに強固にする"
+  },
+  {
+    "text": "strengthen",
+    "translation": "強化する",
+    "exampleEn": "The city plans to strengthen the river banks.",
+    "meaning": "（力・強度・関係などを）強くする・強化する"
+  },
+  {
+    "text": "reveal",
+    "translation": "(隠れていたことを)明らかにする / 見せる",
+    "exampleEn": "The test revealed the problem.",
+    "meaning": "（隠れていた事実や姿を）明らかにする・見せる"
+  },
+  {
+    "text": "disclose",
+    "translation": "明らかにする",
+    "exampleEn": "The company declined to disclose the full details.",
+    "meaning": "（秘密・未公表の情報を）開示する・打ち明ける"
+  },
+  {
+    "text": "uncover",
+    "translation": "明らかにする / 見つける",
+    "exampleEn": "The investigation uncovered new evidence.",
+    "meaning": "（調査などで隠れていた事実を）発見する / 覆いを取る"
+  },
+  {
+    "text": "integral",
+    "translation": "不可欠な",
+    "exampleEn": "Trust is an integral part of teamwork.",
+    "meaning": "全体を成り立たせるのに不可欠な・一体の"
+  },
+  {
+    "text": "substantial",
+    "translation": "かなりの / 相当な",
+    "exampleEn": "The city suffered substantial damage last year.",
+    "meaning": "（量・規模・程度が）かなり大きい / 実質的な"
+  },
+  {
+    "text": "considerable",
+    "translation": "(数量が)かなりの",
+    "exampleEn": "The project requires a considerable amount of time.",
+    "meaning": "（量・時間・費用などが）かなりの・相当な"
+  },
+  {
+    "text": "objective",
+    "translation": "目的 / 客観的な基準",
+    "exampleEn": "Our main objective is quality.",
+    "meaning": "達成したい目標・目的 / 客観的な"
+  },
+  {
+    "text": "brief",
+    "translation": "(時間や文章が)簡潔な",
+    "exampleEn": "He gave a brief explanation.",
+    "meaning": "（説明・時間などが）短い・簡潔な"
+  },
+  {
+    "text": "ironic",
+    "translation": "皮肉な / 皮肉にも",
+    "exampleEn": "It was ironic that he forgot his own advice.",
+    "meaning": "（予想に反する結果などが）皮肉な"
+  },
+  {
+    "text": "disposal",
+    "translation": "処分 / 利用自由",
+    "exampleEn": "Safe disposal of waste is essential.",
+    "meaning": "廃棄・処分 / 自由に使える状態"
+  },
+  {
+    "text": "strangle",
+    "translation": "締めつける",
+    "exampleEn": "High costs can strangle small businesses.",
+    "meaning": "首を絞める / （資金不足などが事業を）締めつけて立ち行かなくする"
+  },
+  {
+    "text": "commission",
+    "translation": "委員会",
+    "exampleEn": "The commission reviewed the contents of the report again.",
+    "meaning": "（調査などを担う）委員会 / 手数料 / 正式な依頼"
+  },
+  {
+    "text": "expectancy",
+    "translation": "予想 / 期待",
+    "exampleEn": "Expectancy for the new system is growing across the region.",
+    "meaning": "何かよいことが起こりそうだという期待 / 予想される期間"
+  },
+  {
+    "text": "reception",
+    "translation": "反応 / 受け止められ方",
+    "exampleEn": "The film received a warm reception overseas.",
+    "meaning": "（作品・提案などの）受け止められ方 / 受付・歓迎会"
+  },
+  {
+    "text": "primarily",
+    "translation": "主として",
+    "exampleEn": "The region's income depends primarily on tourism.",
+    "meaning": "主として・第一に"
+  },
+  {
+    "text": "abruptly",
+    "translation": "突然",
+    "exampleEn": "The meeting ended abruptly because of unexpected news.",
+    "meaning": "不意に・前触れなく急に"
+  },
+  {
+    "text": "accordingly",
+    "translation": "それに応じて",
+    "exampleEn": "The weather changed, and the schedule was adjusted accordingly.",
+    "meaning": "それに応じて / したがって"
+  },
+  {
+    "text": "continuously",
+    "translation": "継続的に / 絶えず",
+    "exampleEn": "The device operates continuously for twenty-four hours.",
+    "meaning": "中断せずに・連続して"
+  },
+  {
+    "text": "constantly",
+    "translation": "絶えず / いつも",
+    "exampleEn": "Technology is constantly changing.",
+    "meaning": "絶えず・繰り返し何度も"
+  },
+  {
+    "text": "likelihood",
+    "translation": "可能性",
+    "exampleEn": "The likelihood of heavy rain is increasing in this area.",
+    "meaning": "（ある事が実際に起こる）見込み・可能性"
+  },
+  {
+    "text": "presence",
+    "translation": "存在 / 出席",
+    "exampleEn": "The teacher's presence gave the students a sense of security.",
+    "meaning": "（その場に）いること・存在 / 出席"
+  },
+  {
+    "text": "existence",
+    "translation": "存在",
+    "exampleEn": "The existence of the cave was hardly known for a long time.",
+    "meaning": "存在していること / 生存"
+  },
+  {
+    "text": "obligation",
+    "translation": "義務",
+    "exampleEn": "Parents have an obligation to protect their children's safety.",
+    "meaning": "（法律・約束・道義上の）義務"
+  },
+  {
+    "text": "duty",
+    "translation": "義務 / 責任",
+    "exampleEn": "Parents have a duty to protect their children.",
+    "meaning": "（立場や仕事に伴う）義務・務め / 関税"
+  },
+  {
+    "text": "trait",
+    "translation": "特性 / 特徴",
+    "exampleEn": "Patience is one of her most notable traits.",
+    "meaning": "（人の性格・生物などの）特性・特徴"
+  },
+  {
+    "text": "characteristic",
+    "translation": "特徴",
+    "exampleEn": "Stone construction is a characteristic of houses in the region.",
+    "meaning": "人や物を特徴づける性質・特徴"
+  },
+  {
+    "text": "feature",
+    "translation": "特徴 / 機能",
+    "exampleEn": "One useful feature of this app is voice search.",
+    "meaning": "（目立つ）特徴 / 機能 / 顔の一部"
+  },
+  {
+    "text": "foundation",
+    "translation": "基礎 / 土台",
+    "exampleEn": "A strong foundation in grammar is important for language learning.",
+    "meaning": "（建物・考え方などを支える）基礎・土台 / 財団"
+  },
+  {
+    "text": "basis",
+    "translation": "基礎 / 根拠",
+    "exampleEn": "There is a solid scientific basis for the decision.",
+    "meaning": "（判断・行動などの）根拠・基盤"
+  },
+  {
+    "text": "unrest",
+    "translation": "不安 / 騒乱",
+    "exampleEn": "The election was held amid growing social unrest.",
+    "meaning": "（社会への不満による）不穏な状態・騒乱"
+  },
+  {
+    "text": "anxiety",
+    "translation": "不安",
+    "exampleEn": "Some students feel strong anxiety before exams.",
+    "meaning": "（先のことなどへの）不安・心配"
+  },
+  {
+    "text": "testament",
+    "translation": "証拠 / 遺言",
+    "exampleEn": "The result is a testament to years of effort.",
+    "meaning": "証し・証拠となるもの / 遺言"
+  },
+  {
+    "text": "attain",
+    "translation": "(目標を)達成する",
+    "exampleEn": "She worked hard to attain her goal.",
+    "meaning": "（努力して目標・水準に）到達する・達成する"
+  },
+  {
+    "text": "allege",
+    "translation": "主張する",
+    "exampleEn": "The article alleged that the data had been altered.",
+    "meaning": "（証拠を示さずに）事実だと申し立てる"
+  },
+  {
+    "text": "assert",
+    "translation": "主張する",
+    "exampleEn": "She asserted that the data were accurate.",
+    "meaning": "（自分の意見や権利を）はっきり主張する"
+  },
+  {
+    "text": "insist",
+    "translation": "(強く)主張する",
+    "exampleEn": "She insisted on paying the bill.",
+    "meaning": "（反対されても）強く言い張る・要求する"
+  },
+  {
+    "text": "urge",
+    "translation": "強く促す / 衝動",
+    "exampleEn": "Experts urged the public to stay calm.",
+    "meaning": "強く勧める・促す / 強い衝動"
+  },
+  {
+    "text": "tempt",
+    "translation": "誘惑する",
+    "exampleEn": "The smell of fresh bread tempted us inside.",
+    "meaning": "（魅力的なもので）誘惑する・その気にさせる"
+  },
+  {
+    "text": "discard",
+    "translation": "捨てる",
+    "exampleEn": "Please discard any damaged materials.",
+    "meaning": "（不要なものを）捨てる・処分する"
+  },
+  {
+    "text": "flaw",
+    "translation": "欠点 / 欠陥",
+    "exampleEn": "A flaw in the design was found later.",
+    "meaning": "（物・計画・性格などの）欠陥・きず"
+  },
+  {
+    "text": "drawback",
+    "translation": "欠点",
+    "exampleEn": "The plan has one serious drawback.",
+    "meaning": "（利点に対しての）欠点・不利な点"
+  },
+  {
+    "text": "faculty",
+    "translation": "学部 / 能力 / 教員団",
+    "exampleEn": "She joined the science faculty last year.",
+    "meaning": "（大学の）学部・教員団 / 生まれつきの能力"
+  }
+]

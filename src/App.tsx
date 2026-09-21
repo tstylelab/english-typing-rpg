@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
+import { getQuestionMeaning } from './data/questionMeaning';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getQuestionSynonyms } from './data/questionSynonyms';
@@ -3710,7 +3711,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
               {question.promptJa && <div className="mt-0.5 text-[11px] font-medium text-violet-200/75">{question.promptJa}</div>}
             </div>
           )}
-          <div className="text-slate-300 font-bold text-sm md:text-base">{question.translation}</div>
+          <div className="text-slate-300 font-bold text-sm md:text-base">{getQuestionMeaning(question)}</div>
           {question.basicMeaning && (
             <div className="mt-0.5 text-[10px] font-medium text-slate-500 md:text-[11px]">
               Basic: {question.basicMeaning}
@@ -7085,7 +7086,7 @@ export default function App() {
           voice: speechConfig.voice,
           nowPlaying: {
             questionText: question.text,
-            translation: question.translation,
+            translation: getQuestionMeaning(question),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -7102,7 +7103,7 @@ export default function App() {
           voice: speechConfig.voice,
           nowPlaying: {
             questionText: question.text,
-            translation: question.translation,
+            translation: getQuestionMeaning(question),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -7119,7 +7120,7 @@ export default function App() {
           voice: speechConfig.voice,
           nowPlaying: {
             questionText: question.text,
-            translation: question.translation,
+            translation: getQuestionMeaning(question),
             basicMeaning: question.basicMeaning,
             example: example ?? null,
             activePart: 'text',
@@ -7129,13 +7130,13 @@ export default function App() {
 
       if (autoPlaySettings.playTranslation) {
         pushEntry({
-          label: `和訳: ${question.translation}`,
-          text: question.translation,
+          label: `和訳: ${getQuestionMeaning(question)}`,
+          text: getQuestionMeaning(question),
           lang: autoPlayJapaneseVoice?.lang || 'ja-JP',
           voice: autoPlayJapaneseVoice,
           nowPlaying: {
             questionText: question.text,
-            translation: question.translation,
+            translation: getQuestionMeaning(question),
             basicMeaning: question.basicMeaning,
             example: example ?? null,
             activePart: 'translation',
@@ -7152,7 +7153,7 @@ export default function App() {
           voice: speechConfig.voice,
           nowPlaying: {
             questionText: question.text,
-            translation: question.translation,
+            translation: getQuestionMeaning(question),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -8259,7 +8260,7 @@ export default function App() {
                              </div>
                             </div>
                            <div className="text-right flex-shrink-0">
-                             <div className="text-slate-300 font-bold text-sm md:text-base">{q.translation}</div>
+                             <div className="text-slate-300 font-bold text-sm md:text-base">{getQuestionMeaning(q)}</div>
                              {q.basicMeaning && (
                                <div className="mt-0.5 text-[10px] font-medium text-slate-500 md:text-[11px]">
                                  Basic: {q.basicMeaning}
@@ -8720,10 +8721,10 @@ export default function App() {
             <div className="flex items-center gap-2"><div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在の得点</p><p className="text-2xl font-black text-white">{currentAdjustedScore}</p><p className="text-[10px] font-bold text-yellow-100/75">補正後 {getNormalizedVersusScore(currentPlayer)} × {currentPlayer.scoreMultiplier}倍</p></div><GameButton size="sm" variant="outline" onClick={quitVersusMatch}>やめる</GameButton></div>
           </div>
           <div ref={versusKeyboardTargetRef} tabIndex={externalKeyboardMode ? 0 : -1} className="py-10 text-center outline-none">
-            {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
+            {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{getQuestionMeaning(currentQuestion)}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
             {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
-            {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
-            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{currentQuestion.translation}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion)}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
+            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion)}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {versusHintCharacter && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl text-white">{versusHintLength}文字目は「{versusHintCharacter}」</span><span className="ml-2 text-xs text-slate-400">間違えた位置の文字です</span></p>}
             <input
               ref={versusInputRef}
@@ -8932,7 +8933,7 @@ export default function App() {
                   <p className="text-xs font-black tracking-[0.14em] text-cyan-200">{phase.description}</p>
                   <div className="mt-2 flex items-center justify-center gap-3">
                     <span className="beginner-battle-emoji text-5xl" aria-hidden="true">{question.emoji}</span>
-                    <div className="text-left"><p className="text-sm font-black text-slate-300">{question.translation}</p><button type="button" onClick={() => speakBeginnerBattlePrompt(question, beginnerBattleInput.length)} className="mt-1 inline-flex items-center gap-1 text-xs font-black text-cyan-200 hover:text-cyan-100"><Volume2 size={15} /> 単語とつぎの文字を聞く</button></div>
+                    <div className="text-left"><p className="text-sm font-black text-slate-300">{getQuestionMeaning(question)}</p><button type="button" onClick={() => speakBeginnerBattlePrompt(question, beginnerBattleInput.length)} className="mt-1 inline-flex items-center gap-1 text-xs font-black text-cyan-200 hover:text-cyan-100"><Volume2 size={15} /> 単語とつぎの文字を聞く</button></div>
                   </div>
                   <div className="mt-3 flex min-h-[64px] items-center justify-center gap-1 rounded-xl border border-slate-600 bg-slate-900/82 px-3 py-2">
                     {[...question.text].map((letter, index) => (
@@ -10151,14 +10152,14 @@ export default function App() {
                        {showJapanese && (
                          <div className="text-left">
                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">You / あなたの返答</p>
-                           <p className="mt-1 text-base font-bold text-blue-200 md:text-lg">{gameState.currentQuestion.translation}</p>
+                           <p className="mt-1 text-base font-bold text-blue-200 md:text-lg">{getQuestionMeaning(gameState.currentQuestion)}</p>
                            {showGuide && gameState.currentQuestion.speakingTip && <p className="mt-1 text-xs font-bold text-amber-200">💡 {gameState.currentQuestion.speakingTip}</p>}
                          </div>
                        )}
                      </div>
                    ) : showJapanese && (
                      <div>
-                       <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{gameState.currentQuestion.translation}</p>
+                       <p className="text-blue-300 text-lg md:text-xl font-bold drop-shadow-md">{getQuestionMeaning(gameState.currentQuestion)}</p>
                        {gameState.currentQuestion.basicMeaning && (
                          <p className="mt-1 text-[11px] font-medium text-slate-400 md:text-xs">
                            Basic: {gameState.currentQuestion.basicMeaning}
@@ -10239,7 +10240,7 @@ export default function App() {
                          {isConversationBattle && lastSolvedQuestion.promptEn && (
                            <span className="text-xs font-bold text-violet-200 md:text-sm">相手: {lastSolvedQuestion.promptEn}</span>
                          )}
-                         <span className="text-base font-bold text-emerald-100 md:text-lg">{lastSolvedQuestion.translation}</span>
+                         <span className="text-base font-bold text-emerald-100 md:text-lg">{getQuestionMeaning(lastSolvedQuestion)}</span>
                          {lastSolvedQuestion.basicMeaning && (
                            <span className="text-xs font-medium text-slate-400 md:text-sm">Basic: {lastSolvedQuestion.basicMeaning}</span>
                          )}
@@ -10412,7 +10413,7 @@ export default function App() {
                     const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                     return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
-                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
+                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
                       <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
                     </div>;
                   })}
@@ -10477,7 +10478,7 @@ export default function App() {
                 const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                 const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="grid gap-x-3 gap-y-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]">
-                  <div className="min-w-0"><span className="font-mono font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{log.question.translation}</span>{example && <p className="mt-1 text-xs text-slate-400"><span className="mr-1 font-bold text-emerald-300">例文</span>{example}</p>}</div>
+                  <div className="min-w-0"><span className="font-mono font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question)}</span>{example && <p className="mt-1 text-xs text-slate-400"><span className="mr-1 font-bold text-emerald-300">例文</span>{example}</p>}</div>
                   <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
                 </div>;
               })}
@@ -10532,7 +10533,7 @@ export default function App() {
                 const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                 const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="rounded-xl border border-slate-700 bg-slate-800/90 p-3">
-                  <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="break-words font-mono text-sm font-black text-cyan-100">{log.question.text}</p><p className="mt-0.5 text-xs font-bold text-slate-300">{log.question.translation}</p></div><span className={`flex-shrink-0 text-xs font-black ${resultClass}`}>{resultLabel}</span></div>
+                  <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="break-words font-mono text-sm font-black text-cyan-100">{log.question.text}</p><p className="mt-0.5 text-xs font-bold text-slate-300">{getQuestionMeaning(log.question)}</p></div><span className={`flex-shrink-0 text-xs font-black ${resultClass}`}>{resultLabel}</span></div>
                   {example && <p className="mt-2 border-t border-slate-700 pt-2 text-xs leading-relaxed text-slate-300"><span className="mr-1 font-black text-emerald-300">例文:</span>{example}</p>}
                 </div>;
               })}
@@ -10556,7 +10557,7 @@ export default function App() {
           <div className="hidden">
             <summary className="cursor-pointer list-none p-3 text-sm font-bold text-slate-300 marker:content-none"><span className="mr-2 text-slate-500">＋</span>今回の問題と結果を見る（{gameState.battleLog.length}問）</summary>
             <div className="space-y-1 border-t border-slate-700 p-2">
-              {gameState.battleLog.map((log, idx) => <div key={idx} className="flex items-center justify-between gap-3 rounded-lg bg-slate-800 px-3 py-2 text-sm"><span className="min-w-0 truncate font-mono text-cyan-100">{log.question.text}<span className="ml-2 font-sans text-slate-300">{log.question.translation}</span></span><span className={log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300'}>{log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`}</span></div>)}
+              {gameState.battleLog.map((log, idx) => <div key={idx} className="flex items-center justify-between gap-3 rounded-lg bg-slate-800 px-3 py-2 text-sm"><span className="min-w-0 truncate font-mono text-cyan-100">{log.question.text}<span className="ml-2 font-sans text-slate-300">{getQuestionMeaning(log.question)}</span></span><span className={log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300'}>{log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`}</span></div>)}
             </div>
           </div>
         </Box>
@@ -10736,7 +10737,7 @@ export default function App() {
                                </button>
                                <div className="min-w-0 flex-1">
                                    <span className="block font-mono text-blue-200 font-bold break-all">{log.question.text}</span>
-                                   <span className="block text-slate-300">{log.question.translation}</span>
+                                   <span className="block text-slate-300">{getQuestionMeaning(log.question)}</span>
                                    {resultQuestionSynonyms.length > 0 && (
                                      <span className="mt-0.5 block truncate text-[10px] font-semibold text-cyan-300/90">
                                        類義/関連: <span className="text-cyan-100/90">{resultQuestionSynonyms.join(' / ')}</span>
