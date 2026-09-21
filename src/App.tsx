@@ -508,8 +508,8 @@ const getBattleHp = (
   return Math.round(baseHp * difficultyHpMultiplier * bossHpMultiplier);
 };
 
-// Final displayed HP; only Pre-1 part 1's ordinary Level 1 battle enemies.
-const PRE1_PART1_LEVEL1_BATTLE_HP_CURVE = [500, 600, 700, 800, 900, 980, 1050, 1120, 1180, 1240, 1300, 1360, 1420, 1480, 1540, 1600, 1660, 1720, 1780];
+// Final displayed HP; Pre-1 parts 1 and 2's ordinary Level 1 battle enemies.
+const PRE1_LEVEL1_BATTLE_HP_CURVE = [500, 600, 700, 800, 900, 980, 1050, 1120, 1180, 1240, 1300, 1360, 1420, 1480, 1540, 1600, 1660, 1720, 1780];
 
 const getCourseBaseHp = (
   difficulty: Difficulty,
@@ -519,8 +519,8 @@ const getCourseBaseHp = (
   stepIndex: number,
   defaultBaseHp: number
 ) => {
-  if (difficulty === 'EikenPre1Part1' && level === 1 && isEndlessChallengeInputMode(mode, inputMode)) {
-    const hp = PRE1_PART1_LEVEL1_BATTLE_HP_CURVE[stepIndex];
+  if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && level === 1 && isEndlessChallengeInputMode(mode, inputMode)) {
+    const hp = PRE1_LEVEL1_BATTLE_HP_CURVE[stepIndex];
     // Undo the shared difficulty multiplier here so gameplay and previews agree.
     // Final/hidden bosses (indices 19+) retain their existing base HP.
     if (hp !== undefined) return hp / DIFFICULTY_HP_MULTIPLIERS[difficulty];
