@@ -1,8 +1,10 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import grade3 from './questionSets/eiken/grade3';
+import pre2 from './questionSets/eiken/pre2';
 
 // Resolve saved review questions too: older storage normalizers only retain text/meaning.
 const grade3Points = new Map(grade3.levels['3'].map(q => [q.text, q.grammarPoint]));
+const pre2Points = new Map(pre2.levels['3'].map(q => [q.text, q.grammarPoint]));
 
 export type QuestionGrammarPoint = {
   label: string;
@@ -198,6 +200,7 @@ export const getQuestionGrammarPoint = (
   question: Pick<Question, 'text' | 'grammarPoint'>,
 ): QuestionGrammarPoint | null => {
   if (difficulty === 'Eiken3' && level === 3) return grade3Points.get(question.text) ?? null;
+  if (difficulty === 'EikenPre2' && level === 3) return pre2Points.get(question.text) ?? null;
   if (difficulty !== 'Eiken4' || level !== 3) return null;
   return getEiken4Level3GrammarPoint(question.text);
 };

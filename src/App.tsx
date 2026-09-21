@@ -5,6 +5,8 @@ import { getQuestionMeaning } from './data/questionMeaning';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getGrade3CurriculumLimit } from './data/questionSets/eiken/grade3';
+import { getPre2CurriculumLimit } from './data/questionSets/eiken/pre2';
+import { getPre2BaseHp, getPre2BossHpMultiplier, getPre2QuestionLimit, getPre2MissMultiplier } from './data/pre2Balance';
 import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, getGrade3MissMultiplier } from './data/grade3Balance';
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
@@ -16,7 +18,7 @@ import AiStudyReviewPanel from './AiStudyReviewPanel';
 
 // --- Types & Interfaces ---
 
-type Difficulty = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
+type Difficulty = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
 type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
@@ -344,6 +346,7 @@ const DIFFICULTY_HP_MULTIPLIERS: Record<Difficulty, number> = {
   Eiken5: 1,
   Eiken4: 1,
   Eiken3: 1,
+  EikenPre2: 1,
   EikenPre1Part1: 1.35,
   EikenPre1Part2: 1.35,
   Conversation: 1,
@@ -460,6 +463,7 @@ const getBossStage = (
 const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
   if (difficulty === 'Eiken3') return getGrade3QuestionLimit(level, bossStage);
+  if (difficulty === 'EikenPre2') return getPre2QuestionLimit(level, bossStage);
   if (difficulty === 'Eiken5' && level === 2) {
     if (bossStage === 1) return 12;
     if (bossStage === 2) return 16;
@@ -489,6 +493,7 @@ const getBattleHp = (
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
   if (difficulty === 'Eiken3') return Math.round(baseHp * getGrade3BossHpMultiplier(level, bossStage));
+  if (difficulty === 'EikenPre2') return Math.round(baseHp * getPre2BossHpMultiplier(level, bossStage));
   const isEiken5Level2 = difficulty === 'Eiken5' && level === 2;
   const isEiken5Level3 = difficulty === 'Eiken5' && level === 3;
   const bossHpMultiplier = bossStage === 1
@@ -512,6 +517,7 @@ const getCourseBaseHp = (
   defaultBaseHp: number
 ) => {
   if (difficulty === 'Eiken3') return getGrade3BaseHp(level, mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
+  if (difficulty === 'EikenPre2') return getPre2BaseHp(level, mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
   if (difficulty !== 'Eiken5' || (level !== 2 && level !== 3)) return defaultBaseHp;
 
   const curve = level === 2
@@ -731,7 +737,7 @@ const getEikenLongTextGuideSpeedMultiplier = (charsPerSec: number): number => {
 // 英検4級は5級より文が長いため、同じHPに対して必要な基礎ダメージを個別に設定する。
 // これは入力の速さではなく、最後まで英文を入力できたことを評価するための調整。
 const getEikenLongTextGuideDamageMultiplier = (difficulty: Difficulty, level: Level): number => {
-  if (difficulty === 'Eiken4' || difficulty === 'Eiken3') return level === 2 ? 0.5 : 0.58;
+  if (difficulty === 'Eiken4' || difficulty === 'Eiken3' || difficulty === 'EikenPre2') return level === 2 ? 0.5 : 0.58;
   return level === 2 ? 0.7 : 0.74;
 };
 
@@ -1791,7 +1797,7 @@ const SPEECH_VOICE_OPTIONS: { id: SpeechVoiceMode; label: string; description: s
 ];
 const NON_RANDOM_SPEECH_VOICE_MODES: Exclude<SpeechVoiceMode, 'random'>[] = ['us_female', 'us_male', 'uk_female', 'uk_male'];
 const PRE1_DIFFICULTIES: Difficulty[] = ['EikenPre1Part1', 'EikenPre1Part2'];
-const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'Eiken3', ...PRE1_DIFFICULTIES];
+const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'Eiken3', 'EikenPre2', ...PRE1_DIFFICULTIES];
 const DIFFICULTIES: Difficulty[] = [...EIKEN_DIFFICULTIES, 'Conversation'];
 const LEGACY_PRE1_DIFFICULTY = 'EikenPre1';
 const LEVELS: Level[] = [1, 2, 3];
@@ -1799,6 +1805,7 @@ const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken5: '英検5級',
   Eiken4: '英検4級',
   Eiken3: '英検3級',
+  EikenPre2: '英検準2級',
   EikenPre1Part1: '英検準1級①',
   EikenPre1Part2: '英検準1級②',
   Conversation: '英会話 はじめて',
@@ -1807,6 +1814,7 @@ const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
   Eiken5: 'bg-blue-600 border-blue-400 text-white',
   Eiken4: 'bg-purple-600 border-purple-400 text-white',
   Eiken3: 'bg-amber-600 border-amber-400 text-white',
+  EikenPre2: 'bg-rose-600 border-rose-400 text-white',
   EikenPre1Part1: 'bg-emerald-600 border-emerald-400 text-white',
   EikenPre1Part2: 'bg-teal-600 border-teal-400 text-white',
   Conversation: 'bg-cyan-600 border-cyan-400 text-white',
@@ -6193,7 +6201,9 @@ export default function App() {
     inputMode: InputMode = gameState.inputMode,
   ): Question[] => {
     const curriculumLimit = (
-      diff === 'Eiken3' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
+      diff === 'EikenPre2' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
+        ? getPre2CurriculumLimit(level, stageIndex)
+        : diff === 'Eiken3' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
         ? getGrade3CurriculumLimit(level, stageIndex)
         : diff === 'Eiken5' && mode === 'guide' && level === 2
         ? (stageIndex < 7 ? 40 : stageIndex < 14 ? 100 : Infinity)
@@ -6497,7 +6507,7 @@ export default function App() {
     const charCount = finalInput.length;
     const charsPerSec = charCount / durationSec;
     const baseDamage = charCount * 10;
-    const isGrade3LongTextLearning = gameState.selectedDifficulty === 'Eiken3'
+    const isGrade3LongTextLearning = (gameState.selectedDifficulty === 'Eiken3' || gameState.selectedDifficulty === 'EikenPre2')
       && (gameState.mode === 'guide' || (gameState.mode === 'challenge' && gameState.inputMode === 'voice-text'))
       && gameState.selectedLevel !== 1;
     const isEikenLongTextGuide = isGrade3LongTextLearning || (
@@ -6519,8 +6529,10 @@ export default function App() {
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
     const isEiken5LongTextLevel = gameState.selectedDifficulty === 'Eiken5' && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3);
-    const missDamageMultiplier = gameState.selectedDifficulty === 'Eiken3'
-      ? getGrade3MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+    const missDamageMultiplier = gameState.selectedDifficulty === 'EikenPre2'
+      ? getPre2MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+      : gameState.selectedDifficulty === 'Eiken3'
+        ? getGrade3MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
       : isEiken5LongTextLevel
       ? Math.max(gameState.selectedLevel === 3 ? 0.8 : 0.75, 1 - (gameState.missCount / Math.max(charCount, 1)))
       : !isEikenLongTextGuide
@@ -9558,7 +9570,11 @@ export default function App() {
           2: 'Ask & Answer / 質問・自己表現',
           3: 'Real Scenes / 場面別ミニ会話',
         }
-      : gameState.selectedDifficulty === 'Eiken3' ? {
+      : gameState.selectedDifficulty === 'EikenPre2' ? {
+          1: '日常から社会へ・単語',
+          2: '熟語・使える表現',
+          3: '会話・文法・意見を伝える短文',
+        } : gameState.selectedDifficulty === 'Eiken3' ? {
           1: '単語・必要な基礎語の復習',
           2: '熟語・短い表現',
           3: '会話・文法の短文',
@@ -9706,7 +9722,7 @@ export default function App() {
                                   </span>
                                 )}
                               </div>
-                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken3' ? '4級の次へ・単語／熟語／会話と文法' : `Level ${levelCount}段階`}</p>
+                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'EikenPre2' ? '3級の次へ・語彙／熟語／会話と文法' : diff === 'Eiken3' ? '4級の次へ・単語／熟語／会話と文法' : `Level ${levelCount}段階`}</p>
                             </div>
                             {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
                           </div>
