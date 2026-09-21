@@ -1,4 +1,4 @@
-type DifficultyKey = 'Eiken5' | 'Eiken4' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
+import type { DifficultyKey } from './questions';
 type LevelKey = 1 | 2 | 3;
 type QuestionLike = { text: string; exampleEn?: string };
 

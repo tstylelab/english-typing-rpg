@@ -1,4 +1,5 @@
 import eikenGrade4Json from './questionSets/eiken/grade4.json';
+import eikenGrade3 from './questionSets/eiken/grade3';
 import eikenGrade5Json from './questionSets/eiken/grade5.json';
 import eikenGradePre1Part1Json from './questionSets/eiken/gradepre1-part1.json';
 import eikenGradePre1Part2Json from './questionSets/eiken/gradepre1-part2.json';
@@ -14,9 +15,10 @@ export type Question = {
   promptEn?: string;
   promptJa?: string;
   speakingTip?: string;
+  grammarPoint?: { label: string; note: string; pattern: string };
 };
 
-export type DifficultyKey = 'Eiken5' | 'Eiken4' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
+export type DifficultyKey = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
 export type LevelKey = 1 | 2 | 3;
 export type QuestionSetFile = {
   category: string;
@@ -30,6 +32,7 @@ const questionSetLibrary = {
   eiken: {
     grade5: eikenGrade5Json as QuestionSetFile,
     grade4: eikenGrade4Json as QuestionSetFile,
+    grade3: eikenGrade3,
     gradepre1Part1: eikenGradePre1Part1Json as QuestionSetFile,
     gradepre1Part2: eikenGradePre1Part2Json as QuestionSetFile,
   },
@@ -52,6 +55,7 @@ const toLevelRecord = (setFile: QuestionSetFile): Record<LevelKey, Question[]> =
 export const QUESTIONS: Record<DifficultyKey, Record<LevelKey, Question[]>> = {
   Eiken5: toLevelRecord(questionSetLibrary.eiken.grade5),
   Eiken4: toLevelRecord(questionSetLibrary.eiken.grade4),
+  Eiken3: toLevelRecord(questionSetLibrary.eiken.grade3),
   EikenPre1Part1: toLevelRecord(questionSetLibrary.eiken.gradepre1Part1),
   EikenPre1Part2: toLevelRecord(questionSetLibrary.eiken.gradepre1Part2),
   Conversation: toLevelRecord(questionSetLibrary.conversation.beginner),
