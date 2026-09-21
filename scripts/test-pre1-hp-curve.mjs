@@ -14,7 +14,7 @@ for (const input of ['voice-only','text-only']) {
     const result = ctx.tune(course,1,'challenge',input,i,previous[i],0);
     assert.equal(result.monsterHp,hp);
     assert.equal(result.maxQuestions,10);
-    for (const difficulty of ['Eiken5','Eiken4']) {
+    for (const difficulty of ['Eiken5']) {
       assert.equal(ctx.tune(difficulty,1,'challenge',input,i,previous[i],0).monsterHp,Math.round(previous[i]*ctx.DIFFICULTY_HP_MULTIPLIERS[difficulty]));
     }
   });
@@ -49,8 +49,8 @@ assert.equal(ctx.miss(3,100,28),0.8);
 assert.equal(ctx.miss(1,1,10),0.5);
 assert.equal(ctx.miss(3,0,28),1);
 assert.ok(app.includes('const missDamageMultiplier = isLengthAdjustedBattle'));
-for(const level of [2,3]) for(const input of ['voice-only','text-only']) {
-  const targets=level===2?[1000,1220,1430,1650,1870,2080,2300]:[1600,1970,2330,2700,3070,3430,3800];
+for(const level of [1,2,3]) for(const input of ['voice-only','text-only']) {
+  const targets=level===1?[350,560,750,930,1100,1250,1340]:level===2?[1000,1220,1430,1650,1870,2080,2300]:[1600,1970,2330,2700,3070,3430,3800];
   let last=0;
   for(let i=0;i<19;i++) {
     const t=ctx.tune('Eiken4',level,'challenge',input,i,2000,0);
@@ -60,7 +60,7 @@ for(const level of [2,3]) for(const input of ['voice-only','text-only']) {
     for(const mode of ['guide','challenge']) assert.equal(ctx.tune('Eiken4',level,mode,'voice-text',i,2000,0).monsterHp,2000);
   }
   for(let boss=1;boss<=4;boss++) {
-    const base=level===2?2960:4900;
+    const base=level===1?1340:level===2?2960:4900;
     const t=ctx.tune('Eiken4',level,'challenge',input,18+boss,base,boss);
     assert.equal(t.monsterHp,base*(boss+1));
     assert.equal(t.maxQuestions,(boss+1)*10);

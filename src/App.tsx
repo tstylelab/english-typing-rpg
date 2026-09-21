@@ -515,7 +515,8 @@ const PRE1_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
   3: [1800, 1930, 2070, 2200, 2330, 2470, 2600, 2730, 2870, 3000, 3130, 3270, 3400, 3530, 3670, 3800, 3930, 4070, 4200],
 };
 
-const EIKEN4_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
+const EIKEN4_BATTLE_HP_CURVES: Record<Level, number[]> = {
+  1: [350, 420, 490, 560, 630, 690, 750, 810, 870, 930, 990, 1050, 1100, 1150, 1200, 1250, 1290, 1320, 1340],
   2: [1000, 1070, 1140, 1220, 1290, 1360, 1430, 1510, 1580, 1650, 1720, 1790, 1870, 1940, 2010, 2080, 2160, 2230, 2300],
   3: [1600, 1720, 1840, 1970, 2090, 2210, 2330, 2460, 2580, 2700, 2820, 2940, 3070, 3190, 3310, 3430, 3560, 3680, 3800],
 };
@@ -534,8 +535,8 @@ const getCourseBaseHp = (
   stepIndex: number,
   defaultBaseHp: number
 ) => {
-  if (difficulty === 'Eiken4' && level !== 1 && isEndlessChallengeInputMode(mode, inputMode)) {
-    return EIKEN4_LONG_TEXT_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
+  if (difficulty === 'Eiken4' && isEndlessChallengeInputMode(mode, inputMode)) {
+    return EIKEN4_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
   }
   if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && isEndlessChallengeInputMode(mode, inputMode)) {
     const hp = (level === 1 ? PRE1_LEVEL1_BATTLE_HP_CURVE : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level])[stepIndex];
