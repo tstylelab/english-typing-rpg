@@ -12,7 +12,7 @@ type AiDestination = keyof typeof AI_DESTINATIONS;
 // Isolate expansion from the long word list. No save or report generation on open.
 export default function AiStudyReviewPanel(props: Props) {
   const [open, setOpen] = useState(false);
-  const [period, setPeriod] = useState<ReviewPeriod>('recent200');
+  const [period, setPeriod] = useState<ReviewPeriod>('week');
   const [revision, setRevision] = useState(0);
   return <section className="mb-4 flex-shrink-0 rounded-xl border border-violet-400/30 bg-violet-950/15 p-3">
     {props.result ? <ReviewDialog key={revision} {...props} period={period} setPeriod={setPeriod} inline onClose={() => setOpen(true)} /> :
@@ -80,9 +80,9 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
       <button type="button" autoFocus={!inline} onClick={() => inline ? onClose() : dialog.current?.close()} className="rounded-lg border border-slate-600 px-3 py-2">{inline ? '設定' : '閉じる'}</button>
     </div>
     <div className="space-y-3">
-      {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大10語（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
+      {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大15語（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
       {!inline && <>
-      <p><strong>苦手な英語を覚えるアイデア</strong>を相談します。復習表は最大10件。候補全体から役立つTipsを件数制限なしで相談し、最後にほかの単語にも使える覚え方をまとめてもらいます。無理なこじつけやミス一覧は求めません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
+      <p><strong>苦手な英語を覚えるアイデア</strong>を相談します。復習表は最大15件。候補全体から役立つTipsを件数制限なしで相談し、最後にほかの単語にも使える覚え方をまとめてもらいます。無理なこじつけやミス一覧は求めません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
       <div className="flex flex-wrap items-center gap-3">
         <label className="flex items-center gap-2">
           <input type="checkbox" checked={enabled} onChange={e => {
@@ -97,7 +97,7 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
       {recorder.warning && <p role="alert" className="text-xs text-amber-200">{recorder.warning}</p>}
       <label className="flex items-center gap-2">対象期間
         <select aria-label="AI相談の対象期間" disabled={copying} value={period} onChange={e => { setPeriod(e.target.value as ReviewPeriod); setReport(''); setPreview(false); setStatus(''); setDestination(null); }} className="rounded-lg border border-slate-600 bg-slate-950 px-3 py-2">
-          <option value="recent200">直近200問</option><option value="week">過去7日間</option>
+          <option value="week">過去7日間</option><option value="recent200">直近200問</option>
         </select>
       </label>
       </>}

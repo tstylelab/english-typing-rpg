@@ -124,14 +124,14 @@ assert.ok(!/Tipsは任意|Tipsは省略|Tipsには何も書かない|表だけ�
 assert.ok(report.length < 2600, 'Single-term export stays compact');
 assert.ok(report.includes('プレイヤー') && !report.includes('player-a-name'));
 
-const names = ['alpha', 'beta', 'gamma', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima'];
+const names = ['alpha', 'beta', 'gamma', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec'];
 const rankedRecords = names.flatMap((word, index) =>
-  Array.from({ length: 12 - index }, () => ({ ...many.snapshot()[0], ...meta(word) })));
+  Array.from({ length: names.length - index }, () => ({ ...many.snapshot()[0], ...meta(word) })));
 const shortReport = buildAiStudyReport(rankedRecords, 'recent200', {}, now);
-for (const word of names.slice(0, 10)) assert.ok(shortReport.includes(`"${word}"`));
-for (const word of names.slice(10)) assert.ok(!shortReport.includes(`"${word}"`), 'Export at most ten terms');
-assert.ok(shortReport.includes('候補10件') && shortReport.length < 7000);
-assert.ok(report.includes('候補1件'), 'Do not pad sparse data to ten terms');
+for (const word of names.slice(0, 15)) assert.ok(shortReport.includes(`"${word}"`));
+for (const word of names.slice(15)) assert.ok(!shortReport.includes(`"${word}"`), 'Export at most fifteen terms');
+assert.ok(shortReport.includes('候補15件') && shortReport.length < 9000);
+assert.ok(report.includes('候補1件'), 'Do not pad sparse data to fifteen terms');
 // Same word/meaning across courses is one candidate, preserving its sources.
 const merged = buildAiStudyReport([many.snapshot()[0], { ...many.snapshot()[0], course: 'Eiken4' }], 'week', {}, now);
 assert.ok(merged.includes('候補1件') && merged.includes('出題2回') && merged.includes('Eiken4'));
@@ -184,6 +184,7 @@ assert.ok(!alternating.includes('Tipsは省略'), 'Absent patterns must not supp
 const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
 assert.ok(noMissReport.includes('一言だけ返してください'));
 const panel = readFileSync(new URL('../src/AiStudyReviewPanel.tsx', import.meta.url), 'utf8');
+assert.ok(panel.includes("useState<ReviewPeriod>('week')"), 'Default to the past seven days');
 assert.ok(panel.includes('createPortal(') && panel.includes('showModal()'));
 assert.ok(!panel.includes('recorder.flush('), 'Opening/copying must not synchronously save');
 assert.ok(panel.includes('{preview && <textarea'), 'Do not lay out report text after successful copy');
@@ -213,22 +214,22 @@ dense.flush(); assert.ok(memory.get(aiReviewStorageKey('dense')).length <= 600_0
 // Result advice: at most three current mistakes, history fills remaining slots.
 const balanced = new AiStudyRecorder('balanced', storage, () => now); balanced.load();
 const addMistake = word => { balanced.start(meta(word)); balanced.observe(word, '', 'z', false); balanced.finish(false, 1); };
-for (let i = 0; i < 12; i++) { addMistake(`history${i}`); addMistake(`history${i}`); }
+for (let i = 0; i < 16; i++) { addMistake(`history${i}`); addMistake(`history${i}`); }
 balanced.beginBattle();
 addMistake('history11');
 for (let i = 0; i < 6; i++) addMistake(`current${i}`);
 balanced.flush();
 const resultReport = buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now, balanced.battleSnapshot());
-assert.ok(resultReport.includes('今回ミスした語3件（最大3件）＋それ以外の以前の履歴7件'));
+assert.ok(resultReport.includes('今回ミスした語3件（最大3件）＋それ以外の以前の履歴12件'));
 const resultCandidates = resultReport.split('【単語・表現の候補】')[1];
-assert.equal((resultCandidates.match(/選定元：/g) || []).length, 10);
+assert.equal((resultCandidates.match(/選定元：/g) || []).length, 15);
 assert.equal((resultCandidates.match(/今回も以前もミスあり/g) || []).length, 1);
 assert.equal((resultCandidates.match(/今回のミス（以前のミス記録なし）/g) || []).length, 2);
 assert.equal((resultCandidates.match(/"history11" \/ /g) || []).length, 1, 'No duplicate candidates');
 assert.ok(!buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now).includes('結果画面の選定'));
 balanced.beginBattle();
 assert.equal(balanced.battleSnapshot().length, 0, 'Retry/next monster resets the session');
-assert.ok(buildAiStudyReport(balanced.snapshot(), 'week', {}, now, []).includes('以前の履歴10件'));
+assert.ok(buildAiStudyReport(balanced.snapshot(), 'week', {}, now, []).includes('以前の履歴15件'));
 balanced.clear(); balanced.beginBattle();
 for (let i = 0; i < 6; i++) addMistake(`fresh${i}`);
 assert.ok(buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now, balanced.battleSnapshot()).includes('候補3件'));
