@@ -515,7 +515,12 @@ const PRE1_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
   3: [1800, 1930, 2070, 2200, 2330, 2470, 2600, 2730, 2870, 3000, 3130, 3270, 3400, 3530, 3670, 3800, 3930, 4070, 4200],
 };
 
-const getPre1BattleMissMultiplier = (level: Level, misses: number, length: number) => {
+const EIKEN4_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
+  2: [1000, 1070, 1140, 1220, 1290, 1360, 1430, 1510, 1580, 1650, 1720, 1790, 1870, 1940, 2010, 2080, 2160, 2230, 2300],
+  3: [1600, 1720, 1840, 1970, 2090, 2210, 2330, 2460, 2580, 2700, 2820, 2940, 3070, 3190, 3310, 3430, 3560, 3680, 3800],
+};
+
+const getLongTextBattleMissMultiplier = (level: Level, misses: number, length: number) => {
   if (misses === 0) return 1;
   if (level === 1) return 0.5;
   return Math.max(level === 3 ? 0.8 : 0.75, 1 - misses / Math.max(1, length));
@@ -529,6 +534,9 @@ const getCourseBaseHp = (
   stepIndex: number,
   defaultBaseHp: number
 ) => {
+  if (difficulty === 'Eiken4' && level !== 1 && isEndlessChallengeInputMode(mode, inputMode)) {
+    return EIKEN4_LONG_TEXT_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
+  }
   if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && isEndlessChallengeInputMode(mode, inputMode)) {
     const hp = (level === 1 ? PRE1_LEVEL1_BATTLE_HP_CURVE : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level])[stepIndex];
     // Undo the shared difficulty multiplier here so gameplay and previews agree.
@@ -6548,10 +6556,10 @@ export default function App() {
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
     const isEiken5LongTextLevel = gameState.selectedDifficulty === 'Eiken5' && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3);
-    const isPre1LongTextBattle = (gameState.selectedDifficulty === 'EikenPre1Part1' || gameState.selectedDifficulty === 'EikenPre1Part2')
+    const isLengthAdjustedBattle = (gameState.selectedDifficulty === 'Eiken4' || gameState.selectedDifficulty === 'EikenPre1Part1' || gameState.selectedDifficulty === 'EikenPre1Part2')
       && gameState.selectedLevel !== 1 && isEndlessChallengeInputMode(gameState.mode, gameState.inputMode);
-    const missDamageMultiplier = isPre1LongTextBattle
-      ? getPre1BattleMissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+    const missDamageMultiplier = isLengthAdjustedBattle
+      ? getLongTextBattleMissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
       : gameState.selectedDifficulty === 'EikenPre2'
       ? getPre2MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
       : gameState.selectedDifficulty === 'Eiken3'
