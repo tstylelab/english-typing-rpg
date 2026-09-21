@@ -1,5 +1,15 @@
 # Codex作業引き継ぎ
 
+## 2026-09-21 英検5級Level 1〜3の和訳改善（commit/push承認済み）
+
+- 開始時main=2291cd7、clean、fetch後リモート追加更新なし。
+- 全901問（501/200/200）を点検。Level 1=14、Level 2=15、Level 3=11の計40件を変更。良い訳は維持し、対象・場面・意味のずれに絞る。長文化しない本人方針を優先。
+- 全40件の比較一覧、訳の長さ、残る別解の制約は `docs/grade5-meaning-review-2026-09-21.md`。
+- `grade5MeaningCorrections.json`を既存getQuestionMeaningへ追加。元translation・英語・例文・保存キー・問題数・HP・採点・他級は不変。AI相談の旧訳の扱いも前回同様。
+- データ互換性・連続再生テスト、build、diff成功。lintはエラー0・既存警告1。分離Chromeで1366/390pxの全40件表示・旧キー学習状態の保持・代表行の横はみ出しなし、ブラウザエラー0を確認。
+- ユーザーからcommit/pushまで明示承認済み。確定ハッシュ・送信結果はObsidian同日セッションへ追記。公開反映はpushと区別する。
+- デスクトップで再開時は未コミット変更を保護し、GitHubをfetchして差分確認後にff-only同期。このファイルの先頭と上記変更一覧を読む。
+
 ## 2026-09-21 準1級Level 2・3の和訳改善（commit/push承認済み）
 
 - 開始時main=8fb3bba、clean、fetch後リモート追加更新なし。
