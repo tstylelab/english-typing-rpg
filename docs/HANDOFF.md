@@ -1,5 +1,16 @@
 # Codex作業引き継ぎ
 
+## 2026-09-21 準1級Level 2・3の和訳改善（commit/push承認済み）
+
+- 開始時main=8fb3bba、clean、fetch後リモート追加更新なし。
+- 準1級①②のLevel 2計315問・Level 3計150問を点検。Level 2=82問、Level 3=40問を修正。①は55/18件、②は27/22件。
+- endear A to Bの好意の方向、let aloneの否定用法、add up toの訳などを訂正。熟語には対象・使う状況、文章には主語・時制・言い方の強さを補足。
+- 全変更一覧・残る同義語や型出題の制約・参考辞書は `docs/pre1-level23-meaning-review-2026-09-21.md`。
+- `pre1SentenceMeaningCorrections.json`を既存getQuestionMeaningへ追加。元translation・英語・例文・識別キーは不変。Level 1の85件、他級、HP、採点、問題数を維持。AI相談の旧訳の扱いも前回と同じ。
+- データ/互換性テスト、連続再生テスト、build成功。lintはエラー0・既存警告1、diffチェック成功。
+- 分離無音Chromeの `scripts/test-pre1-sentence-meaning-ui.mjs` で4コースの全122件表示、1366/390pxの代表的長文の横はみ出しなし、旧保存キーの手動学習状態をリロード後も保持、ブラウザエラー0を確認。
+- 今回はユーザーからcommit/pushまで明示承認済み。確定ハッシュと送信結果はObsidian同日セッションに追記。公開反映はpushと区別する。
+
 ## 2026-09-21 和訳改善のcommit/push承認・報告方針
 
 - ユーザーから85語の和訳改善のcommit/push承認を受領。下記の未commit/pushは作業途中の記録。確定コミット・送信結果はObsidianの同日セッションに記録。
