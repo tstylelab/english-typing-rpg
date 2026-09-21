@@ -1,5 +1,15 @@
 # Codex作業引き継ぎ
 
+## 2026-09-21 英検4級Level 1〜3の和訳改善（commit/push承認済み）
+
+- 開始時main=d1816c2、clean、fetch後GitHub追加更新なし。
+- 全841問（441/200/200）を点検、Level 1=21、Level 2=12、Level 3=15の計48件を修正。良い訳は維持し、短い補足と意味のずれの訂正に限定。
+- 全件比較と残る制約は `docs/grade4-meaning-review-2026-09-21.md`。paint/draw、excited/exciting、until、remember to、丁寧な依頼、need等を改善。
+- `grade4MeaningCorrections.json`をgetQuestionMeaningへ追加。元translation・保存キー・英語・例文・文法ポイント・HP・採点・問題数は不変。5級・準1級の先行修正も維持。AI相談の旧訳扱いは前回同様。
+- データ互換性・連続再生テスト、build成功。lintエラー0・既存警告1。分離Chromeで1366/390pxの全変更表示・旧キー保存状態保持・代表行の横はみ出しなし、ブラウザエラー0。
+- 本人からcommit/push明示承認済み。確定ハッシュとpush結果はObsidian同日セッションへ記録。公開デプロイ完了とpushは区別する。
+- デスクトップ再開時はdirty状態保護→fetch・差分確認→ff-only同期。この先頭と変更一覧を読む。
+
 ## 2026-09-21 英検5級Level 1〜3の和訳改善（commit/push承認済み）
 
 - 開始時main=2291cd7、clean、fetch後リモート追加更新なし。

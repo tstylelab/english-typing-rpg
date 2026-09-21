@@ -6,13 +6,15 @@ const read = path => fs.readFileSync(new URL('../' + path, import.meta.url), 'ut
 const corrections = JSON.parse(read('src/data/pre1MeaningCorrections.json'));
 const sentenceCorrections = JSON.parse(read('src/data/pre1SentenceMeaningCorrections.json'));
 const grade5Corrections = JSON.parse(read('src/data/grade5MeaningCorrections.json'));
-const allCorrections = [...corrections, ...sentenceCorrections, ...grade5Corrections];
+const grade4Corrections = JSON.parse(read('src/data/grade4MeaningCorrections.json'));
+const allCorrections = [...corrections, ...sentenceCorrections, ...grade5Corrections, ...grade4Corrections];
 const source = read('src/data/questionMeaning.ts').replace(
   "import corrections from './pre1MeaningCorrections.json';",
   `const corrections = ${JSON.stringify(corrections)};`,
 ).replace("import sentenceCorrections from './pre1SentenceMeaningCorrections.json';", `const sentenceCorrections = ${JSON.stringify(sentenceCorrections)};`);
 const resolved = source.replace("import grade5Corrections from './grade5MeaningCorrections.json';", `const grade5Corrections = ${JSON.stringify(grade5Corrections)};`);
-const compiled = ts.transpileModule(resolved, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+const resolvedAll = resolved.replace("import grade4Corrections from './grade4MeaningCorrections.json';", `const grade4Corrections = ${JSON.stringify(grade4Corrections)};`);
+const compiled = ts.transpileModule(resolvedAll, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
 const { getQuestionMeaning } = await import('data:text/javascript;base64,' + Buffer.from(compiled).toString('base64'));
 const files = ['eiken/grade5', 'eiken/grade4', 'eiken/gradepre1-part1', 'eiken/gradepre1-part2', 'conversation/beginner'];
 let audited = 0;
@@ -22,6 +24,7 @@ const matches = new Map(allCorrections.map(c => [identity(c), 0]));
 assert.equal(matches.size, allCorrections.length, 'duplicate override words');
 const changesByLevel = { 1: 0, 2: 0, 3: 0 };
 const grade5Changes = { 1: 0, 2: 0, 3: 0 };
+const grade4Changes = { 1: 0, 2: 0, 3: 0 };
 for (const file of files) {
   const data = JSON.parse(read(`src/data/questionSets/${file}.json`));
   for (const [level, questions] of Object.entries(data.levels)) {
@@ -30,13 +33,18 @@ for (const file of files) {
       const key = `${data.difficultyKey}:${level}:${q.text}:${q.translation}`;
       const meaning = getQuestionMeaning(q);
       const isGrade5 = file === 'eiken/grade5';
-      const inScope = file.includes('gradepre1-part') || isGrade5;
+      const isGrade4 = file === 'eiken/grade4';
+      const inScope = file.includes('gradepre1-part') || isGrade5 || isGrade4;
       if (inScope) audited++;
       if (meaning !== q.translation) {
         assert.ok(inScope, `unexpected change: ${key}`);
         changed++;
-        (isGrade5 ? grade5Changes : changesByLevel)[level]++;
-        if (isGrade5) {
+        (isGrade5 ? grade5Changes : isGrade4 ? grade4Changes : changesByLevel)[level]++;
+        if (isGrade4) {
+          const correction = grade4Corrections.find(c => identity(c) === identity(q));
+          assert.equal(String(correction?.level), level);
+          assert.ok(meaning.length <= (level === '3' ? 35 : 22), `${q.text}: grade 4 prompt too long`);
+        } else if (isGrade5) {
           const correction = grade5Corrections.find(c => identity(c) === identity(q));
           assert.equal(String(correction?.level), level);
           assert.ok(meaning.length <= (level === '3' ? 30 : 22), `${q.text}: grade 5 prompt too long`);
@@ -55,7 +63,8 @@ for (const file of files) {
     }
   }
 }
-assert.equal(audited, 2812);
+assert.equal(audited, 3653);
+assert.deepEqual(grade4Changes, { 1: 21, 2: 12, 3: 15 });
 assert.deepEqual(grade5Changes, { 1: 14, 2: 15, 3: 11 });
 assert.deepEqual(changesByLevel, { 1: 85, 2: 82, 3: 40 });
 assert.equal(changed, allCorrections.length);
@@ -71,4 +80,4 @@ for (const q of ['question', 'q', 'currentQuestion', 'gameState.currentQuestion'
 assert.ok(app.includes('`${difficulty}:${level}:${question.text}:${question.translation}`'), 'legacy status key changed');
 assert.ok(app.includes('text: getQuestionMeaning(question),'), 'autoplay speech not updated');
 assert.ok(app.includes('meaning: question.translation,'), 'AI history grouping identity must stay unchanged');
-console.log(`PASS: ${audited} Grade 5 / Pre-1 entries, ${changed} corrections (Pre-1 ${JSON.stringify(changesByLevel)}, Grade 5 ${JSON.stringify(grade5Changes)}); other courses unchanged; legacy identities and saved-question round trips preserved.`);
+console.log(`PASS: ${audited} Eiken entries, ${changed} corrections (Pre-1 ${JSON.stringify(changesByLevel)}, Grade 5 ${JSON.stringify(grade5Changes)}, Grade 4 ${JSON.stringify(grade4Changes)}); other courses unchanged; legacy identities and saved-question round trips preserved.`);

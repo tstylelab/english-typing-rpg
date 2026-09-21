@@ -1,6 +1,7 @@
 import corrections from './pre1MeaningCorrections.json';
 import sentenceCorrections from './pre1SentenceMeaningCorrections.json';
 import grade5Corrections from './grade5MeaningCorrections.json';
+import grade4Corrections from './grade4MeaningCorrections.json';
 
 type MeaningQuestion = { text: string; translation: string; exampleEn?: string };
 
@@ -9,7 +10,7 @@ type MeaningQuestion = { text: string; translation: string; exampleEn?: string }
 const identity = (question: MeaningQuestion) => JSON.stringify([
   question.text, question.translation, question.exampleEn ?? '',
 ]);
-const meanings = new Map([...corrections, ...sentenceCorrections, ...grade5Corrections].map(entry => [identity(entry), entry.meaning]));
+const meanings = new Map([...corrections, ...sentenceCorrections, ...grade5Corrections, ...grade4Corrections].map(entry => [identity(entry), entry.meaning]));
 
 export const getQuestionMeaning = (question: MeaningQuestion): string => (
   meanings.get(identity(question)) ?? question.translation
