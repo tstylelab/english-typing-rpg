@@ -500,4 +500,19 @@ export const grade3VocabularyRows = `
 2|volunteer|自ら進んで活動する人|She works as a volunteer.
 3|information|情報|I need more information about the trip.
 2|different|異なった・違う|My opinion is different from yours.
+1|blanket|毛布|This blanket keeps me warm.
+2|total|合計の|What is the total price?
+2|forever|永遠に・ずっと|I will remember this day forever.
+2|improve|改善する・上達する|I want to improve my English.
+2|convenient|使いやすく便利な|This bus service is convenient.
+1|traffic|交通・車の往来|There is a lot of traffic today.
+2|create|新しく作り出す|We can create a story together.
+2|unique|ほかにはない独特の|Each person has a unique voice.
+1|repair|壊れた物を修理する|Can you repair my bike?
+2|temperature|温度・気温|The temperature is low today.
+2|danger|危険|The sign warns us of danger.
+2|probably|おそらく|It will probably rain tomorrow.
+2|recently|最近|Have you seen her recently?
+2|choice|選択・選んだもの|You made a good choice.
+2|possible|可能な・実現できる|Is it possible to walk there?
 `.trim();

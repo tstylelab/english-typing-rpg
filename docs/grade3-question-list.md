@@ -1,6 +1,39 @@
 # 英検3級 全問題一覧
 
-最終840問。段階→同段階内の文字数の順。出題時は学習状態に応じてこの範囲から抽選します。
+現在865問（514／183／168）。初回840問の一覧に加え、この冒頭に追加25項目を記載。ゲームでは段階→同段階内の文字数の順に並び、出題時は学習状態に応じて抽選します。
+
+## 2026-09-22 追加25項目（合計865問）
+
+実際のゲームでは段階に合う位置へ自動整列。下記以外の既存問題・保存キー・HP・採点は変更しない。
+
+|Level|段階|英語|和訳|例文|
+|---|---|---|---|---|
+|1|1|blanket|毛布|This blanket keeps me warm.|
+|1|2|total|合計の|What is the total price?|
+|1|2|forever|永遠に・ずっと|I will remember this day forever.|
+|1|2|improve|改善する・上達する|I want to improve my English.|
+|1|2|convenient|使いやすく便利な|This bus service is convenient.|
+|1|1|traffic|交通・車の往来|There is a lot of traffic today.|
+|1|2|create|新しく作り出す|We can create a story together.|
+|1|2|unique|ほかにはない独特の|Each person has a unique voice.|
+|1|1|repair|壊れた物を修理する|Can you repair my bike?|
+|1|2|temperature|温度・気温|The temperature is low today.|
+|1|2|danger|危険|The sign warns us of danger.|
+|1|2|probably|おそらく|It will probably rain tomorrow.|
+|1|2|recently|最近|Have you seen her recently?|
+|1|2|choice|選択・選んだもの|You made a good choice.|
+|1|2|possible|可能な・実現できる|Is it possible to walk there?|
+|2|2|be able to swim|泳ぐことができる|You will be able to swim soon.|
+|2|2|used to live here|以前はここに住んでいた|I used to live here.|
+|2|1|be famous for its food|その食べ物で有名である|The town is famous for its food.|
+|2|1|throw away old paper|古い紙を捨てる|Do not throw away old paper. Recycle it.|
+|2|2|look up a word|単語を辞書などで調べる|I will look up a word in my dictionary.|
+|2|2|run out of milk|牛乳を使い切る|We may run out of milk today.|
+|2|2|take turns reading|交代で読む|Let us take turns reading this story.|
+|2|2|make sure the door is shut|ドアが閉まっていることを確かめる|Please make sure the door is shut.|
+|2|1|for a while|しばらくの間|Please wait here for a while.|
+|2|1|too many books|多すぎる本|There are too many books in this bag.|
+
 詳細は [コース設計](grade3-course-2026-09-22.md)。Level 3の文法メモ本文は `src/data/questionSets/eiken/grade3Sentences.ts` の同名キーに対応します。
 
 ## Level 1（499問）
@@ -857,5 +890,4 @@
 |166|3|How long have you been learning English?|どのくらい英語を学び続けていますか|perfectprogresshow|
 |167|3|I would like to visit Canada to see my friend.|友人に会うためにカナダを訪れたいです|wouldlikereason|
 |168|3|I want to be a doctor because I like helping people.|人を助けるのが好きなので医師になりたいです|givereason|
-
 

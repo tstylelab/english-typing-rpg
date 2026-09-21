@@ -173,4 +173,14 @@ export const grade3PhraseRows = `
 3|1192|on the other hand|その一方で|It is cheap. On the other hand, it is heavy.
 3|1197|the number of students|生徒の人数|The number of students is growing.
 3|1200|where to buy tickets|切符を買う場所|Please tell me where to buy tickets.
+2|0|be able to swim|泳ぐことができる|You will be able to swim soon.
+2|0|used to live here|以前はここに住んでいた|I used to live here.
+1|0|be famous for its food|その食べ物で有名である|The town is famous for its food.
+1|0|throw away old paper|古い紙を捨てる|Do not throw away old paper. Recycle it.
+2|0|look up a word|単語を辞書などで調べる|I will look up a word in my dictionary.
+2|0|run out of milk|牛乳を使い切る|We may run out of milk today.
+2|0|take turns reading|交代で読む|Let us take turns reading this story.
+2|0|make sure the door is shut|ドアが閉まっていることを確かめる|Please make sure the door is shut.
+1|0|for a while|しばらくの間|Please wait here for a while.
+1|0|too many books|多すぎる本|There are too many books in this bag.
 `.trim();

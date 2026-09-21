@@ -36,7 +36,16 @@ for (const file of ['grade5', 'grade4', 'gradepre1-part1', 'gradepre1-part2']) {
 }
 const lower = new Set([...QUESTIONS.Eiken5[1], ...QUESTIONS.Eiken4[1]].map(q => q.text.toLowerCase()));
 assert.equal(QUESTIONS.Eiken3[1].filter(q => lower.has(q.text.toLowerCase())).length, 25);
-assert.deepEqual(Object.values(QUESTIONS.Eiken3).map(q => q.length), [499, 173, 168]);
+assert.deepEqual(Object.values(QUESTIONS.Eiken3).map(q => q.length), [514, 183, 168]);
+// Appending vocabulary must not change existing learning-record identities.
+for (const filename of ['grade3Vocabulary.ts', 'grade3Phrases.ts', 'grade3Sentences.ts']) {
+  const relative = `src/data/questionSets/eiken/${filename}`;
+  const old = execFileSync('git', ['show', `2250e3d:${relative}`], { cwd: root, encoding: 'utf8' });
+  const current = fs.readFileSync(path.join(root, relative), 'utf8').replaceAll('\r\n', '\n');
+  for (const line of old.replaceAll('\r\n', '\n').split('\n').filter(line => /^[123]\|/.test(line))) {
+    assert.ok(current.split('\n').includes(line), `Existing question changed: ${line}`);
+  }
+}
 const audit = JSON.parse(fs.readFileSync(path.join(root, 'docs/grade3-source-selection.json'), 'utf8'));
 assert.equal(audit.sourceCount, 1300);
 assert.equal(audit.audit.filter(row => row.level === 1 && row.reason === 'new-vocabulary').length, 474);
