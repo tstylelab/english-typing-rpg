@@ -8966,15 +8966,14 @@ export default function App() {
     );
   }
 
+  const todayKey = getTodayKey();
+  const todayQuestionCount = dailyActivityHistory[todayKey]?.answered
+    ?? (dailyProgress.date === todayKey ? dailyProgress.questionCount : 0);
+
   if (gameState.screen === 'title') {
-    const allMonsterIds = Object.values(MONSTERS).flatMap(lvl => [...lvl.guide, ...lvl.challenge]).map(m => m.id);
-    const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
-    const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
-    const totalMonsters = allMonsterIds.length;
-    const todayKey = getTodayKey();
+    // Count course-specific victories, not deduplicated monster species.
+    const totalDefeated = normalizeDefeatedMonsterIds(gameState.defeatedMonsterIds).length;
     const currentMonthKey = todayKey.slice(0, 7);
-    const todayQuestionCount = dailyActivityHistory[todayKey]?.answered
-      ?? (dailyProgress.date === todayKey ? dailyProgress.questionCount : 0);
     const activityMonthCells = getMonthCalendarCells(activityMonth);
     const activityMonthSummary = Object.entries(dailyActivityHistory).reduce((summary, [date, activity]) => {
       if (!date.startsWith(`${activityMonth}-`)) return summary;
@@ -9108,7 +9107,8 @@ export default function App() {
                       <Trophy size={18} />
                       <span className="text-xs font-black">撃破数</span>
                     </div>
-                    <p className="mt-1 text-3xl font-black text-white">{totalDefeated}<span className="mx-1 text-base text-amber-100">/</span><span className="text-xl text-amber-100">{totalMonsters}</span></p>
+                    <p className="mt-1 text-3xl font-black text-white">{totalDefeated}<span className="ml-1 text-base text-amber-100">体</span></p>
+                    <p title="同じコースで同じモンスターを再び倒した場合は重複カウントしません。" className="mt-1 text-[11px] font-bold text-amber-100/80">級・レベル・出題方法ごとの撃破を合計</p>
                   </div>
                 </div>
 
@@ -9988,6 +9988,13 @@ export default function App() {
     const stageMonsterTotal = Math.max(gameState.totalMonstersInStage, gameState.currentMonsterIndex + 1);
     const remainingMonsterCount = Math.max(stageMonsterTotal - gameState.currentMonsterIndex, 1);
     const bossIntroLabel = getBossIntroLabel(gameState.bossStage);
+    const leaveBattle = (screen: 'title' | 'mode-select') => {
+      clearPendingBattleEndTimeout();
+      soundEngine.stopBattleAmbience();
+      soundEngine.stopBattleMusic();
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      setGameState(prev => ({ ...prev, screen }));
+    };
     const monsterEmotion = gameState.monsterHp <= 0 ? 'win' : flash ? 'damage' : 'normal';
     const comboLabel = getComboLabel(gameState.combo);
     const questionPresentation = getBattleQuestionPresentation(gameState.currentQuestion.text);
@@ -10026,35 +10033,6 @@ export default function App() {
             </div>
           </div>
         )}
-        <div className="battle-topbar w-full bg-slate-900/80 border-b border-slate-700 p-2 z-20 flex justify-between items-center shadow-md">
-             <GameButton
-               size="sm"
-               variant="ghost"
-               onClick={() => {
-                 soundEngine.stopBattleAmbience();
-                 soundEngine.stopBattleMusic();
-                 setGameState(prev => ({ ...prev, screen: 'title' }));
-               }}
-               className="text-slate-400 text-xs py-1"
-             >
-               <Home size={16} /> EXIT
-             </GameButton>
-             <div className="flex gap-4">
-               {canUseBattleKeyboardGuide && (
-                 <div role="group" aria-label="キーボードガイド" className="flex flex-wrap items-center justify-end gap-1 text-xs">
-                   <span className="mr-1 font-bold text-slate-300">ガイド</span>
-                   {([['off', '非表示'], ['highlight', '次のキーが光る'], ['table', '表だけ']] as const).map(([mode, label]) => (
-                     <button key={mode} type="button" aria-pressed={battleKeyboardGuideMode === mode} onClick={() => updateBattleKeyboardGuide(mode)} className={`rounded-lg border px-2.5 py-2 font-bold ${battleKeyboardGuideMode === mode ? 'border-cyan-300 bg-cyan-950 text-cyan-100' : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{label}</button>
-                   ))}
-                 </div>
-               )}
-               {gameState.mode === 'weakness' && (
-                 <div className="bg-orange-900/50 border border-orange-500/50 px-3 py-1 rounded-full text-orange-200 text-xs font-bold">
-                   残り苦手語: {remainingWeakCount}
-                 </div>
-               )}
-             </div>
-        </div>
         <div className="battle-main w-full max-w-4xl mx-auto flex flex-col items-center justify-start mt-4 px-4 pb-20">
              <div className="battle-monster-area relative w-full flex flex-col items-center z-10 mb-4">
                 {gameState.combo >= 3 && (
@@ -10065,7 +10043,12 @@ export default function App() {
                 )}
                 <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
                 <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
-                <div className="battle-hp mt-2 w-72 max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
+                <div className="battle-status-row">
+                  <nav aria-label="バトルから移動" className="battle-navigation">
+                    <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
+                    <button type="button" onClick={() => leaveBattle('mode-select')}><LayoutGrid size={16} />コース選択に戻る</button>
+                  </nav>
+                <div className="battle-hp w-72 max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
                   <div className="mb-1 flex items-center justify-between gap-2 px-1 text-[10px] font-bold text-slate-300">
                     <span className="flex min-w-0 items-center gap-2"><span className="truncate">{currentMonster.name}</span><span className="flex-shrink-0 rounded bg-slate-700 px-1 text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span>
                     <span className="flex-shrink-0">{gameState.monsterHp} / {gameState.maxMonsterHp}</span>
@@ -10079,6 +10062,22 @@ export default function App() {
                     >
                       残り {remainingMonsterCount}体 / 全{stageMonsterTotal}体
                     </span>
+                  </div>
+                </div>
+                  <div className="battle-options">
+               {canUseBattleKeyboardGuide && (
+                 <div role="group" aria-label="キーボードガイド" className="flex flex-wrap items-center justify-end gap-1 text-xs">
+                   <span className="mr-1 font-bold text-slate-300">ガイド</span>
+                   {([['off', '非表示'], ['highlight', '次のキーが光る'], ['table', '表だけ']] as const).map(([mode, label]) => (
+                     <button key={mode} type="button" aria-pressed={battleKeyboardGuideMode === mode} onClick={() => updateBattleKeyboardGuide(mode)} className={`rounded-lg border px-2.5 py-2 font-bold ${battleKeyboardGuideMode === mode ? 'border-cyan-300 bg-cyan-950 text-cyan-100' : 'border-slate-600 bg-slate-800 text-slate-300'}`}>{label}</button>
+                   ))}
+                 </div>
+               )}
+               {gameState.mode === 'weakness' && (
+                 <div className="bg-orange-900/50 border border-orange-500/50 px-3 py-1 rounded-full text-orange-200 text-xs font-bold">
+                   残り苦手語: {remainingWeakCount}
+                 </div>
+               )}
                   </div>
                 </div>
             </div>
@@ -10325,7 +10324,7 @@ export default function App() {
               <style>{`@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } } .animate-shake { animation: shake 0.3s ease-in-out; } .animate-bounce-slow { animation: bounce 2s infinite; } @keyframes finalBossFlash { 0% { opacity: 0; } 12% { opacity: 0.96; } 100% { opacity: 0; } } @keyframes finalBossReveal { 0% { opacity: 0; transform: scale(0.88); } 18% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.04); } }
                 @media (max-width: 960px) and (orientation: landscape) { .battle-screen .mobile-landscape-notice { display: flex; top: 0.75rem; bottom: auto; } }
                 @media (min-width: 961px) and (max-width: 1366px) and (orientation: landscape) {
-                  .battle-screen .battle-main { margin-top: 0.35rem; padding: 0 0.75rem 1rem; }
+                  .battle-screen .battle-main { margin-top: 0.35rem; padding: 2rem 0.75rem 1rem; }
                   .battle-screen .battle-monster-area { margin-bottom: 0.35rem; }
                   .battle-screen .battle-combo { display: none; }
                   .battle-screen .battle-dialogue { display: block; position: absolute; top: 0.25rem; left: calc(50% + 3.5rem); z-index: 20; max-width: min(17rem, calc(50vw - 4.5rem)); margin: 0; }
@@ -10422,6 +10421,10 @@ export default function App() {
             </main>
 
             <aside className="space-y-3 lg:order-1">
+              <div className="result-today flex items-center justify-between gap-3 rounded-xl border border-emerald-400/30 bg-emerald-950/25 px-3 py-2">
+                <span className="flex items-center gap-2 text-sm font-bold text-emerald-100"><Target size={17} />今日の解答数</span>
+                <span className="text-xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-xs text-emerald-200">問</span></span>
+              </div>
               <section className="overflow-hidden rounded-xl border border-slate-600 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,41,59,0.82))] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
                 <div className="flex items-center justify-between gap-3"><div><p className="text-sm font-black text-white">今回の成績</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">{gameState.battleLog.length}問のバトル結果</p></div><div className="rounded-lg border border-cyan-300/30 bg-cyan-500/10 px-3 py-1.5 text-right"><p className="text-[10px] font-bold text-cyan-200">正確さ</p><p className="text-3xl font-black leading-none text-cyan-100">{perfectRate}%</p></div></div>
                 <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>

@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* Reuse the HP row instead of a separate full-width exit header. */
+.battle-status-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .75rem; width: 100%; margin-top: .5rem; }
+.battle-navigation { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
+.battle-navigation button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 40px; padding: .4rem .65rem; border: 1px solid #64748b; border-radius: .5rem; background: #1e293b; color: #f1f5f9; font-size: 12px; font-weight: 700; }
+.battle-navigation button:hover { background: #334155; border-color: #67e8f9; }
+.battle-navigation button:focus-visible { outline: 2px solid #67e8f9; outline-offset: 2px; }
+.battle-options { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem; min-width: 0; }
+@media (max-width: 639px) {
+  .battle-status-row { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .battle-navigation { flex-direction: row; width: 100%; }
+  .battle-navigation button { flex: 1; min-height: 44px; }
+  .battle-status-row .battle-hp { justify-self: center; }
+  .battle-options { justify-content: center; }
+}
+.battle-with-keyboard .battle-status-row { grid-template-columns: minmax(0, 1fr); gap: .35rem; }
+.battle-with-keyboard .battle-navigation { align-items: stretch; }
+.battle-with-keyboard .battle-options { justify-content: center; }
+
 /* Keep offscreen word cards out of layout/paint work; retain search and keyboard access. */
 .question-list-row {
   content-visibility: auto;
