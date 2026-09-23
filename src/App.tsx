@@ -521,6 +521,11 @@ const EIKEN4_BATTLE_HP_CURVES: Record<Level, number[]> = {
   3: [1600, 1720, 1840, 1970, 2090, 2210, 2330, 2460, 2580, 2700, 2820, 2940, 3070, 3190, 3310, 3430, 3560, 3680, 3800],
 };
 
+const INTERMEDIATE_LEVEL1_BATTLE_HP_CURVES = {
+  Eiken3: [380, 450, 520, 590, 660, 730, 800, 850, 900, 950, 1000, 1050, 1100, 1140, 1180, 1220, 1260, 1300, 1340],
+  EikenPre2: [400, 480, 560, 640, 710, 780, 850, 900, 950, 1000, 1040, 1080, 1120, 1160, 1200, 1240, 1280, 1310, 1340],
+};
+
 const getLongTextBattleMissMultiplier = (level: Level, misses: number, length: number) => {
   if (misses === 0) return 1;
   if (level === 1) return 0.5;
@@ -535,6 +540,9 @@ const getCourseBaseHp = (
   stepIndex: number,
   defaultBaseHp: number
 ) => {
+  if ((difficulty === 'Eiken3' || difficulty === 'EikenPre2') && level === 1 && isEndlessChallengeInputMode(mode, inputMode)) {
+    return INTERMEDIATE_LEVEL1_BATTLE_HP_CURVES[difficulty][stepIndex] ?? defaultBaseHp;
+  }
   if (difficulty === 'Eiken4' && isEndlessChallengeInputMode(mode, inputMode)) {
     return EIKEN4_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
   }
