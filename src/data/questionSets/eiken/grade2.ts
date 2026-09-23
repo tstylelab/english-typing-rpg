@@ -3,18 +3,21 @@ import borrowedVocabulary from './grade2BorrowedVocabulary.json';
 import { grade2VocabularyRows } from './grade2Vocabulary';
 import { grade2PhraseRows } from './grade2Phrases';
 import { grade2SentenceRows, grade2Grammar } from './grade2Sentences';
+import { grade2SupplementWords, grade2SupplementPhrases } from './grade2Supplement';
 
 type Entry = { band: number; sourceId?: number; question: Question };
 const lines = (rows: string) => rows.split('\n').map(line => line.split('|'));
 const vocabulary: Entry[] = [
-  ...lines(grade2VocabularyRows).map(([band, text, translation, exampleEn]) => ({
+  ...lines(`${grade2VocabularyRows}\n${grade2SupplementWords}`).map(([band, text, translation, exampleEn]) => ({
     band: Number(band), question: { text, translation, exampleEn },
   })),
   ...borrowedVocabulary,
 ];
-const phrases: Entry[] = lines(grade2PhraseRows).map(([band, sourceId, text, translation, exampleEn]) => ({
+const phrases: Entry[] = [...lines(grade2PhraseRows).map(([band, sourceId, text, translation, exampleEn]) => ({
   band: Number(band), sourceId: Number(sourceId), question: { text, translation, exampleEn },
-}));
+})), ...lines(grade2SupplementPhrases).map(([band, text, translation, exampleEn]) => ({
+  band: Number(band), question: { text, translation, exampleEn },
+}))];
 const sentences: Entry[] = lines(grade2SentenceRows).map(([band, sourceId, grammar, text, translation]) => ({
   band: Number(band), sourceId: Number(sourceId), question: { text, translation, grammarPoint: grade2Grammar[grammar] },
 }));

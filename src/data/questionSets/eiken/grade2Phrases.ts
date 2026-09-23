@@ -3,7 +3,7 @@
 export const grade2PhraseRows = `
 1|1301|according to the report|その報告書によると|According to the report, sales increased.
 2|1302|in order to save money|お金を節約するために|We walk in order to save money.
-2|1303|a number of students|かなりの数の生徒|A number of students joined the club.
+2|1303|a number of students|何人もの生徒|A number of students joined the club.
 2|1305|work on a report|報告書に取り組む|I worked on a report all morning.
 2|1306|suffer from a headache|頭痛に苦しむ|She suffered from a headache.
 1|1308|ask her for help|彼女に助けを求める|I asked her for help.
@@ -22,7 +22,7 @@ export const grade2PhraseRows = `
 2|1330|take part in the event|催しに参加する|Many children took part in the event.
 2|1332|tea rather than coffee|コーヒーよりも紅茶|I chose tea rather than coffee.
 2|1333|be similar to this one|これに似ている|Your bag is similar to this one.
-1|1334|bring back a book|本を返却する|Please bring back the book.
+1|1334|bring back a book|本を持って戻る|Please bring back the book.
 2|1335|figure out the answer|答えを考えて見つける|Can you figure out the answer?
 2|1336|happen to see her|偶然彼女を見かける|I happened to see her there.
 2|1339|prevent him from leaving|彼が出発するのを妨げる|The rain prevented him from leaving.
@@ -86,7 +86,7 @@ export const grade2PhraseRows = `
 2|1439|as follows|次のとおり|The rules are as follows.
 2|1442|be responsible for safety|安全に責任を負う|He is responsible for safety.
 2|1444|be satisfied with the result|結果に満足している|We are satisfied with the result.
-2|1448|catch up with the class|授業に追いつく|She worked hard to catch up with the class.
+2|1448|catch up with the class|クラスの学習に追いつく|She worked hard to catch up with the class.
 2|1451|compare this with that|これとあれを比較する|Compare this with that.
 2|1452|concentrate on the task|その作業に集中する|Concentrate on the task.
 2|1453|count on my friends|友人たちを頼りにする|I can count on my friends.
@@ -101,7 +101,7 @@ export const grade2PhraseRows = `
 2|1470|in general|一般的に|In general, children need enough sleep.
 3|1473|in terms of cost|費用の面では|In terms of cost, this plan is better.
 2|1474|in time for the show|公演に間に合うように|We arrived in time for the show.
-3|1475|in vain|無駄に終わって|We searched in vain.
+3|1475|in vain|むだに・成果なく|We searched in vain.
 2|1476|just in case it rains|雨が降るといけないので|Take an umbrella just in case it rains.
 2|1477|keep my promise|約束を守る|I always try to keep my promise.
 1|1479|leave my bag behind|かばんを置き忘れる|I left my bag behind on the bus.
@@ -148,7 +148,7 @@ export const grade2PhraseRows = `
 2|1611|get by on little money|少ないお金で何とか暮らす|They get by on little money.
 1|1613|hang up the phone|電話を切る|She hung up the phone.
 2|1614|have something in common|共通点がある|We have something in common.
-2|1615|have second thoughts|考え直す|I am having second thoughts.
+2|1615|have second thoughts|決めたことに迷いが生じる|I am having second thoughts.
 3|1619|in contrast to the past|昔とは対照的に|In contrast to the past, travel is easier.
 2|1620|in detail|詳しく|Please explain it in detail.
 2|1622|in exchange for a ticket|切符と引き換えに|I gave her a book in exchange for a ticket.

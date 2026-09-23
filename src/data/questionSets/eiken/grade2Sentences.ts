@@ -72,13 +72,13 @@ export const grade2SentenceRows = `
 2|0|gerund|We avoided driving in the snow.|私たちは雪の中の運転を避けました。
 2|0|infinitive|She went to the library to study.|彼女は勉強するために図書館へ行きました。
 2|0|infinitive|We started a campaign to reduce waste.|ごみを減らすための運動を始めました。
-2|0|comparison|This device uses less energy than that one.|この装置はあちらの装置より少ないエネルギーで動きます。
+2|0|comparison|This device uses less energy than that one.|この装置はあちらの装置よりエネルギーの使用量が少ないです。
 2|0|comparison|The new bridge is as wide as the old one.|新しい橋は古い橋と同じ幅です。
 2|0|passive|The bridge was built last year.|その橋は昨年建設されました。
 2|0|passive|The results will be announced tomorrow.|結果は明日発表されます。
 3|0|relative|The woman who spoke to us is a scientist.|私たちに話しかけた女性は科学者です。
 3|0|relative|The book that you recommended was useful.|あなたが勧めた本は役に立ちました。
-3|0|contrast|Although the plan is expensive, it may save energy.|その計画は高価ですが、節電につながるかもしれません。
+3|0|contrast|Although the plan is expensive, it may save energy.|その計画には費用がかかりますが、節電につながるかもしれません。
 3|0|result|The factory closed; as a result, many people lost their jobs.|工場が閉鎖し、その結果多くの人が仕事を失いました。
 3|0|importance|It is necessary for us to protect local nature.|私たちが地域の自然を守ることは必要です。
 3|0|opinion|I believe that small actions can make a difference.|小さな行動でも変化を生めると私は信じています。
@@ -112,7 +112,7 @@ export const grade2SentenceRows = `
 3|0|reason|One reason is that everyone needs a fair chance.|一つの理由は、誰にも公平な機会が必要だからです。
 3|0|addition|Furthermore, better transport may create jobs.|そのうえ、交通の改善は雇用を生むかもしれません。
 3|0|contrast|Although the device is expensive, it uses less electricity.|その機器は高価ですが、電力消費が少ないです。
-3|0|result|As a result, the town attracted more visitors.|その結果、町にはより多くの訪問者が来ました。
+3|0|result|As a result, the town attracted more visitors.|その結果、町はより多くの訪問者を引きつけました。
 3|0|trend|More and more people are concerned about privacy.|プライバシーを気にする人がますます増えています。
 3|0|importance|It is necessary to protect personal data online.|オンライン上で個人情報を守ることが必要です。
 3|0|relative|The scientist who spoke at the conference studies climate.|会議で話した科学者は気候を研究しています。

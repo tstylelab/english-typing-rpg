@@ -103,7 +103,7 @@
     "sourceId": 254,
     "question": {
       "text": "income",
-      "translation": "働いて得る収入",
+      "translation": "収入・所得",
       "exampleEn": "His income fell last year."
     }
   },
@@ -130,7 +130,7 @@
     "sourceId": 271,
     "question": {
       "text": "creature",
-      "translation": "正体の分からない生き物",
+      "translation": "生き物",
       "exampleEn": "There is a story about a strange creature living in the lake."
     }
   },
@@ -229,7 +229,7 @@
     "sourceId": 378,
     "question": {
       "text": "vehicle",
-      "translation": "道路を走る車両",
+      "translation": "車などの乗り物",
       "exampleEn": "An emergency vehicle passed through the intersection at high speed."
     }
   },
@@ -391,7 +391,7 @@
     "sourceId": 508,
     "question": {
       "text": "transfer",
-      "translation": "患者を別の施設へ移す",
+      "translation": "別の場所へ移す",
       "exampleEn": "The hospital decided to transfer the patient to a larger facility."
     }
   },
@@ -436,7 +436,7 @@
     "sourceId": 543,
     "question": {
       "text": "expense",
-      "translation": "仕事でかかった費用",
+      "translation": "必要な支出・経費",
       "exampleEn": "The travel expense was approved as a business cost."
     }
   },
@@ -580,7 +580,7 @@
     "sourceId": 647,
     "question": {
       "text": "council",
-      "translation": "市の議会",
+      "translation": "議会・評議会",
       "exampleEn": "The city council discussed the new budget plan."
     }
   },
@@ -598,7 +598,7 @@
     "sourceId": 673,
     "question": {
       "text": "requirement",
-      "translation": "応募に必要な条件",
+      "translation": "必要条件・要件",
       "exampleEn": "Please check the requirements carefully before applying."
     }
   },
@@ -643,7 +643,7 @@
     "sourceId": 702,
     "question": {
       "text": "recover",
-      "translation": "手術後に回復する",
+      "translation": "病気やけがから回復する",
       "exampleEn": "He recovered quickly after surgery."
     }
   },
@@ -688,7 +688,7 @@
     "sourceId": 715,
     "question": {
       "text": "determine",
-      "translation": "検査して確かめる",
+      "translation": "（事実などを）突き止める",
       "exampleEn": "The tests will determine whether the water is safe."
     }
   },
@@ -697,7 +697,7 @@
     "sourceId": 716,
     "question": {
       "text": "struggle",
-      "translation": "支払いに苦労する",
+      "translation": "苦労しながら取り組む",
       "exampleEn": "Many families struggle to pay the rent."
     }
   },
@@ -868,7 +868,7 @@
     "sourceId": 811,
     "question": {
       "text": "witness",
-      "translation": "事件を目撃した人",
+      "translation": "目撃者・証人",
       "exampleEn": "A witness gave the police a detailed account of the accident."
     }
   },
@@ -877,7 +877,7 @@
     "sourceId": 812,
     "question": {
       "text": "restore",
-      "translation": "元の水位に戻す",
+      "translation": "元の状態に戻す",
       "exampleEn": "The rain restored the lake level."
     }
   },
@@ -904,7 +904,7 @@
     "sourceId": 838,
     "question": {
       "text": "contribution",
-      "translation": "研究による貢献",
+      "translation": "貢献",
       "exampleEn": "Her research made a major contribution to medicine."
     }
   },
@@ -913,7 +913,7 @@
     "sourceId": 857,
     "question": {
       "text": "authority",
-      "translation": "承認する権限",
+      "translation": "公的な権限",
       "exampleEn": "The authority to approve the budget belongs to the mayor."
     }
   },
@@ -967,7 +967,7 @@
     "sourceId": 899,
     "question": {
       "text": "extreme",
-      "translation": "非常に厳しい",
+      "translation": "極端な・非常に激しい",
       "exampleEn": "The area can experience extreme heat in summer."
     }
   },
@@ -1147,7 +1147,7 @@
     "sourceId": 942,
     "question": {
       "text": "employment",
-      "translation": "安定した雇用",
+      "translation": "雇用",
       "exampleEn": "Stable employment is hard to find in the area."
     }
   },
@@ -1210,7 +1210,7 @@
     "sourceId": 958,
     "question": {
       "text": "status",
-      "translation": "患者の現在の状態",
+      "translation": "現在の状況・状態",
       "exampleEn": "The latest status of the patient was reported."
     }
   },
@@ -1246,7 +1246,7 @@
     "sourceId": 983,
     "question": {
       "text": "alternative",
-      "translation": "代わりになるもの",
+      "translation": "代わりの選択肢",
       "exampleEn": "When the trains stopped, we looked for an alternative."
     }
   },
@@ -1309,7 +1309,7 @@
     "sourceId": 1022,
     "question": {
       "text": "complaint",
-      "translation": "店への苦情",
+      "translation": "苦情・不満",
       "exampleEn": "The store received several complaints about its service."
     }
   },
@@ -1345,7 +1345,7 @@
     "sourceId": 1031,
     "question": {
       "text": "applicant",
-      "translation": "その職への応募者",
+      "translation": "応募者・申請者",
       "exampleEn": "More than one hundred applicants applied for the position."
     }
   },
@@ -1408,7 +1408,7 @@
     "sourceId": 1062,
     "question": {
       "text": "ideal",
-      "translation": "最も適している",
+      "translation": "理想的な",
       "exampleEn": "This room is ideal for meetings."
     }
   },
@@ -1435,7 +1435,7 @@
     "sourceId": 1067,
     "question": {
       "text": "reasonable",
-      "translation": "費用の面で妥当な",
+      "translation": "理にかなった・妥当な",
       "exampleEn": "I think the proposal is reasonable in terms of cost."
     }
   },
@@ -1462,7 +1462,7 @@
     "sourceId": 1070,
     "question": {
       "text": "permanent",
-      "translation": "永久に残る",
+      "translation": "一時的でない・永続的な",
       "exampleEn": "The stain left permanent marks."
     }
   },
@@ -1480,7 +1480,7 @@
     "sourceId": 1081,
     "question": {
       "text": "vital",
-      "translation": "生きるために極めて重要な",
+      "translation": "極めて重要な",
       "exampleEn": "Clean water is vital for public health."
     }
   },
@@ -1597,7 +1597,7 @@
     "sourceId": 1118,
     "question": {
       "text": "interfere",
-      "translation": "作業を邪魔する",
+      "translation": "（他人の活動に）干渉する",
       "exampleEn": "External noise interfered with the recording work."
     }
   },
@@ -1696,7 +1696,7 @@
     "sourceId": 1170,
     "question": {
       "text": "exclusive",
-      "translation": "会員だけが利用できる",
+      "translation": "（特定の人だけに）限定された",
       "exampleEn": "The club is exclusive to members only."
     }
   },
@@ -1750,7 +1750,7 @@
     "sourceId": 1212,
     "question": {
       "text": "accompany",
-      "translation": "同時に起こる",
+      "translation": "（出来事に）伴う",
       "exampleEn": "Strong winds accompanied the storm."
     }
   },
@@ -1759,7 +1759,7 @@
     "sourceId": 1213,
     "question": {
       "text": "confess",
-      "translation": "自分の過ちを認める",
+      "translation": "過ちを告白する",
       "exampleEn": "He finally confessed that he had made the mistake."
     }
   },
@@ -1777,7 +1777,7 @@
     "sourceId": 1227,
     "question": {
       "text": "protest",
-      "translation": "計画に抗議する",
+      "translation": "不服を表して抗議する",
       "exampleEn": "Residents gathered to protest against the construction plan."
     }
   },
@@ -1795,7 +1795,7 @@
     "sourceId": 1236,
     "question": {
       "text": "demonstrate",
-      "translation": "実験で証明する",
+      "translation": "実演・証拠で明らかに示す",
       "exampleEn": "The experiment demonstrated the theory."
     }
   },
@@ -1831,7 +1831,7 @@
     "sourceId": 1242,
     "question": {
       "text": "fulfill",
-      "translation": "責任を果たす",
+      "translation": "義務・約束を果たす",
       "exampleEn": "We must fulfill our responsibilities to the team."
     }
   },
@@ -1858,7 +1858,7 @@
     "sourceId": 1274,
     "question": {
       "text": "corporation",
-      "translation": "一つの企業",
+      "translation": "法人としての企業",
       "exampleEn": "The corporation has many branches overseas."
     }
   },
@@ -1876,7 +1876,7 @@
     "sourceId": 1276,
     "question": {
       "text": "victim",
-      "translation": "災害の被害者",
+      "translation": "事件や災害の被害者",
       "exampleEn": "Rescue teams searched all night for victims of the earthquake."
     }
   },

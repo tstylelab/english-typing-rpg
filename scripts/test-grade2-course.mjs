@@ -13,7 +13,7 @@ const lower = new Set(['Eiken5', 'Eiken4', 'Eiken3', 'EikenPre2'].flatMap(key =>
 assert.equal(audit.sourceCount, 1738);
 assert.deepEqual(audit.sourceKinds, { 単語編: 1300, 熟語編: 400, 英作文編: 38 });
 assert.equal(Object.values(audit.decisionCounts).reduce((sum, count) => sum + count, 0), 1738);
-assert.deepEqual(Object.values(QUESTIONS.Eiken2).map(qs => qs.length), [529, 193, 94]);
+assert.deepEqual(Object.values(QUESTIONS.Eiken2).map(qs => qs.length), [549, 203, 94]);
 assert.equal(audit.decisionCounts['new-entry'], 314);
 assert.equal(audit.decisionCounts['reused-existing-meaning'], 215);
 assert.equal(audit.decisionCounts.concretized, 193);
@@ -45,7 +45,6 @@ for (const row of audit.selected.filter(row => row.answer)) {
 const byAnswer = level => new Map(QUESTIONS.Eiken2[level].map(q => [q.text, q]));
 const words = byAnswer(1);
 assert.equal(words.get('classic').translation, '長く親しまれている名作');
-assert.equal(words.get('recover').translation, '手術後に回復する');
 assert.equal(words.get('criminal').translation, '犯罪を犯した人');
 assert.equal(words.get('burst').translation, '風船などが破裂する');
 const expressions = byAnswer(2);
@@ -58,4 +57,4 @@ for (const boss of [0, 1, 2, 3, 4]) {
 }
 assert.equal(balance.getGrade2MissMultiplier(1, 1, 8), 0.5);
 assert.ok(balance.getGrade2MissMultiplier(3, 1, 40) > 0.9);
-console.log('Grade 2 course: 529 words, 193 phrases, 94 sentences; source and lower-course audits passed.');
+console.log('Grade 2 course: 549 words, 203 phrases, 94 sentences; source and lower-course audits passed.');

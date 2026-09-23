@@ -9,13 +9,13 @@ export const grade2VocabularyRows = `
 1|electricity|電気|The storm cut off the electricity.
 1|stress|精神的な負担・ストレス|Too much stress can affect sleep.
 1|fuel|燃料|This bus uses less fuel.
-1|benefit|健康によい効果|Exercise has many health benefits.
-2|security|空港の保安担当者|Airport security checked my bag.
+1|benefit|利益・恩恵|Exercise has many health benefits.
+2|security|警備・保安|The airport improved its security.
 2|supplement|栄養補助食品|She takes a vitamin supplement.
 2|whether|〜かどうか|I do not know whether he will come.
 1|prefer|〜の方を好む|I prefer tea to coffee.
-1|attach|メールにファイルを添付する|Please attach the file to your email.
-2|client|弁護士に依頼する人|The lawyer met her client.
+1|attach|ファイルなどを添付する|Please attach the file to your email.
+2|client|仕事を依頼する顧客|The lawyer met her client.
 2|bacteria|細菌|Some bacteria help us digest food.
 2|retirement|仕事からの引退|He plans to travel after retirement.
 1|farming|農業|Farming is important in this area.
@@ -23,7 +23,7 @@ export const grade2VocabularyRows = `
 1|advertisement|広告|I saw the advertisement online.
 1|data|調査などのデータ|The data shows a clear change.
 2|solution|問題の解決策|We need a solution to this problem.
-1|competition|料理などを競う大会|She won the cooking competition.
+1|competition|技能などを競う大会|She won the cooking competition.
 2|industry|産業|The tourism industry is growing.
 1|participant|参加者|Each participant received a map.
 1|payment|支払い|The payment is due on Friday.
@@ -36,7 +36,7 @@ export const grade2VocabularyRows = `
 1|afford|費用を出せる|We cannot afford a new car.
 2|locate|場所を特定する|The police located the missing dog.
 2|employ|人を雇う|The company employs fifty people.
-2|involve|計画に多くの人を関わらせる|The project involves many students.
+2|involve|（人を）関わらせる|The project involves many students.
 1|edit|文章や動画を編集する|I need to edit this report.
 2|decision|決定・決断|It was a difficult decision.
 1|cell|細胞|The human body has many cells.
@@ -69,13 +69,13 @@ export const grade2VocabularyRows = `
 2|global warming|地球温暖化|Global warming affects the oceans.
 2|law|法律|The new law protects children.
 1|muscle|筋肉|Running builds leg muscles.
-2|agent|旅行代理店の担当者|The travel agent booked our tickets.
-2|development|町の開発|The town's development created jobs.
+2|agent|代理人・仲介業者|The travel agent booked our tickets.
+2|development|土地などの開発|The town's development created jobs.
 1|exhibition|展覧会|We visited an art exhibition.
 2|aim|活動などの目的|The aim is to reduce waste.
-1|trail|森の中の小道|We followed the trail through the forest.
+1|trail|山や森の小道|We followed the trail through the forest.
 2|pressure|精神的な重圧|She works well under pressure.
-2|response|メールへの返答|I got a quick response to my email.
+2|response|問いかけへの返答|I got a quick response to my email.
 1|skin|皮膚・肌|The sun can damage your skin.
 2|rare|珍しい・まれな|This bird is rare in Japan.
 1|casual|普段着の・気軽な|Wear casual clothes to the party.
@@ -83,12 +83,12 @@ export const grade2VocabularyRows = `
 2|directly|直接に|Please speak directly to the manager.
 2|frequently|頻繁に|Buses come frequently in the morning.
 3|environmentally|環境面で|They designed an environmentally friendly car.
-2|respond|質問に返答する|He responded to my question.
+2|respond|問いかけに応答する|He responded to my question.
 1|behave|行儀よく振る舞う|The children behaved well.
-1|upgrade|コンピューターの性能を上げる|I upgraded my computer.
+1|upgrade|機器などの性能を上げる|I upgraded my computer.
 2|cure|病気を治す|This medicine may cure the disease.
 1|scan|機械で読み取る|Scan the ticket at the gate.
-2|improvement|英語力の上達|I can see an improvement in her English.
+2|improvement|以前よりよくなること・改善|I can see an improvement in her English.
 2|privacy|私生活の秘密・プライバシー|The app protects your privacy.
 2|healthcare|医療サービス|Healthcare is important for everyone.
 2|term|特定の意味を持つ用語|What does this term mean?
@@ -97,7 +97,7 @@ export const grade2VocabularyRows = `
 2|construction|建設|Construction of the bridge began today.
 2|crop|農作物|The farmers grow several crops.
 2|campaign|目的を持った運動|The school started a recycling campaign.
-2|conference|国際的な会議|She spoke at an international conference.
+2|conference|会議・協議会|She spoke at an international conference.
 1|poison|毒|Keep the poison away from children.
 1|delivery|配達|The delivery arrived this morning.
 3|slum|貧しい人々が住む密集地域|The charity works in a city slum.
@@ -132,23 +132,23 @@ export const grade2VocabularyRows = `
 2|consumer|消費者|Consumers want safe products.
 2|production|生産|Food production increased this year.
 2|growth|事業などの成長|The company reported strong growth.
-2|range|範囲|The store has a wide range of books.
+2|range|種類などの幅|The store has a wide range of books.
 1|roommate|同居人|My roommate cooks dinner on Fridays.
 2|step|作業の一段階|The first step is to collect data.
-2|pattern|数字に見られる規則性|I noticed a pattern in the numbers.
+2|pattern|繰り返し現れる型・規則性|I noticed a pattern in the numbers.
 1|jewelry|身につける装身具|She makes jewelry by hand.
 1|pamphlet|案内用の小冊子|Take a pamphlet at the entrance.
 1|shark|サメ|A shark swam near the boat.
 2|conclusion|結論|We reached the same conclusion.
 2|loss|損失・失うこと|The business suffered a loss.
 1|password|パスワード|Do not share your password.
-1|code|文字や数字を組み合わせたコード|Enter the code on the screen.
+1|code|識別などに使う符号・番号|Enter the code on the screen.
 1|programmer|プログラマー|My brother works as a programmer.
 2|instinct|本能|Birds know where to fly by instinct.
 1|route|道順・経路|This route takes us to the station.
 1|bubble|泡|A bubble rose to the surface.
 2|banking|銀行業務|Online banking is convenient.
-1|label|衣類についた表示札|Read the label before washing.
+1|label|品物につける表示札|Read the label before washing.
 1|dinosaur|恐竜|We saw a dinosaur skeleton.
 2|due|提出期限が来る|The report is due tomorrow.
 2|high-quality|質の高い|They sell high-quality furniture.
@@ -179,7 +179,7 @@ export const grade2VocabularyRows = `
 2|means|手段・方法|The train is a useful means of transport.
 2|collection|集めた品物|She has a collection of stamps.
 2|combination|組み合わせ|This combination works well.
-2|connection|インターネットの接続|The internet connection is slow.
+2|connection|機器などの接続|The internet connection is slow.
 1|link|クリックしてページを開くリンク|Click the link to open the page.
 1|vegetarian|菜食主義者|My friend is a vegetarian.
 1|laboratory|実験室|The scientist works in a laboratory.
@@ -190,9 +190,9 @@ export const grade2VocabularyRows = `
 1|container|容器|Put the food in a container.
 1|breath|息|Take a deep breath.
 1|entry|施設への入場|Entry to the museum is free.
-2|drug|医師が処方する薬|The doctor prescribed a new drug.
+2|drug|薬・医薬品|The doctor prescribed a new drug.
 2|youth|若い人たち|The center offers activities for youth.
-1|mineral|水に含まれるミネラル|This water contains minerals.
+1|mineral|カルシウムなどの無機質|This water contains minerals.
 1|league|競技の連盟|Our team joined a new league.
 2|content|内容|The content of the letter surprised me.
 2|false|事実でない・誤った|That story is false.
@@ -208,7 +208,7 @@ export const grade2VocabularyRows = `
 1|surround|取り囲む|Trees surround the house.
 1|digest|食べ物を消化する|It takes time to digest food.
 1|reset|設定を元に戻す|Press this button to reset the clock.
-2|qualify|決勝に進む資格を得る|She qualified for the final round.
+2|qualify|条件を満たして資格を得る|She qualified for the final round.
 2|motivate|やる気にさせる|His words motivated the team.
 2|satisfy|満足させる|The meal satisfied everyone.
 1|flood|洪水|The heavy rain caused a flood.
@@ -220,7 +220,7 @@ export const grade2VocabularyRows = `
 1|traveler|旅行者|The traveler asked for directions.
 1|steel|鋼鉄|The bridge is made of steel.
 2|surgery|外科手術|He had surgery last week.
-2|childcare|子どもを預かる保育|The town needs more childcare services.
+2|childcare|子どもの世話・保育|The town needs more childcare services.
 2|threat|脅威|Plastic waste is a threat to sea life.
 1|error|誤り|There is an error in the report.
 2|flexibility|柔軟性|The job offers flexibility.
@@ -256,12 +256,12 @@ export const grade2VocabularyRows = `
 2|worldwide|世界中で|The game became popular worldwide.
 3|additionally|さらに・加えて|Additionally, the plan will save money.
 2|commonly|一般によく|This word is commonly used.
-2|closely|よく見て注意深く|Look closely at the picture.
+2|closely|細部まで注意深く|Look closely at the picture.
 3|thus|それゆえ|The road was closed; thus, we turned back.
 1|overnight|一晩のうちに|The temperature fell overnight.
 2|fairly|かなり・ある程度|The test was fairly difficult.
-2|wherever|好きな場所ならどこでも|Sit wherever you like.
-2|threaten|生き物を危険にさらす|Pollution threatens sea life.
+2|wherever|どこであっても|Sit wherever you like.
+2|threaten|存続や安全を脅かす|Pollution threatens sea life.
 1|unpack|荷物を開く|I unpacked my suitcase.
 1|enlarge|拡大する|Can you enlarge this photo?
 1|stir|かき混ぜる|Stir the soup gently.
@@ -273,7 +273,7 @@ export const grade2VocabularyRows = `
 1|kindergarten|幼稚園|My daughter goes to kindergarten.
 1|length|長さ|Measure the length of the desk.
 3|economics|経済学|She studies economics at college.
-2|gap|二つの点数の差|There is a gap between the two scores.
+2|gap|二つの間の差・隔たり|There is a gap between the two scores.
 1|wool|羊毛|This sweater is made of wool.
 1|tail|しっぽ|The dog wagged its tail.
 1|fiber|食物繊維|Beans contain a lot of fiber.
@@ -281,7 +281,7 @@ export const grade2VocabularyRows = `
 1|perfume|香水|She bought a bottle of perfume.
 1|feather|羽|A feather fell from the bird.
 1|tongue|舌|The hot soup burned my tongue.
-2|occasion|服装を整えるような特別な場|We wore suits for the occasion.
+2|occasion|特別な出来事・機会|We wore suits for the occasion.
 2|cancer|がん|The hospital treats cancer patients.
 1|birth|誕生|They celebrated the baby's birth.
 2|loan|銀行などからの借入金|She took out a loan to buy a car.
