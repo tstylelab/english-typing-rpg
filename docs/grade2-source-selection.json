@@ -1,0 +1,4541 @@
+{
+  "note": "User-supplied Grade 2 headings only; repeated example headings are not separate content. Only selected IDs/answers are retained here, not the full source list.",
+  "sourceCount": 1738,
+  "sourceKinds": {
+    "単語編": 1300,
+    "熟語編": 400,
+    "英作文編": 38
+  },
+  "decisionCounts": {
+    "lower-grade-overlap": 617,
+    "reused-existing-meaning": 215,
+    "new-entry": 314,
+    "not-selected": 361,
+    "concretized": 193,
+    "expanded-writing-pattern": 38
+  },
+  "selected": [
+    {
+      "id": 19,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "provide"
+    },
+    {
+      "id": 25,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "disagree"
+    },
+    {
+      "id": 36,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "charge"
+    },
+    {
+      "id": 45,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "brain"
+    },
+    {
+      "id": 54,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "device"
+    },
+    {
+      "id": 58,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "electricity"
+    },
+    {
+      "id": 60,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "stress"
+    },
+    {
+      "id": 69,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "fuel"
+    },
+    {
+      "id": 72,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "benefit"
+    },
+    {
+      "id": 85,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "security"
+    },
+    {
+      "id": 90,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "supplement"
+    },
+    {
+      "id": 100,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "whether"
+    },
+    {
+      "id": 106,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "purchase"
+    },
+    {
+      "id": 117,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "prefer"
+    },
+    {
+      "id": 123,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "attach"
+    },
+    {
+      "id": 142,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "focus"
+    },
+    {
+      "id": 143,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "client"
+    },
+    {
+      "id": 144,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bacteria"
+    },
+    {
+      "id": 145,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "retirement"
+    },
+    {
+      "id": 155,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "farming"
+    },
+    {
+      "id": 156,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "case"
+    },
+    {
+      "id": 160,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "advertisement"
+    },
+    {
+      "id": 161,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "account"
+    },
+    {
+      "id": 162,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "data"
+    },
+    {
+      "id": 163,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "solution"
+    },
+    {
+      "id": 165,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "competition"
+    },
+    {
+      "id": 166,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "industry"
+    },
+    {
+      "id": 167,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "participant"
+    },
+    {
+      "id": 171,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "payment"
+    },
+    {
+      "id": 175,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "resident"
+    },
+    {
+      "id": 178,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "variety"
+    },
+    {
+      "id": 191,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "effective"
+    },
+    {
+      "id": 194,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "social"
+    },
+    {
+      "id": 197,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "moreover"
+    },
+    {
+      "id": 207,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "examine"
+    },
+    {
+      "id": 209,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "affect"
+    },
+    {
+      "id": 210,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "treat"
+    },
+    {
+      "id": 211,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "participate"
+    },
+    {
+      "id": 214,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "graduate"
+    },
+    {
+      "id": 216,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "afford"
+    },
+    {
+      "id": 217,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "donate"
+    },
+    {
+      "id": 220,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "locate"
+    },
+    {
+      "id": 223,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "occur"
+    },
+    {
+      "id": 224,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "employ"
+    },
+    {
+      "id": 225,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "involve"
+    },
+    {
+      "id": 232,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "edit"
+    },
+    {
+      "id": 240,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "decision"
+    },
+    {
+      "id": 242,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "cell"
+    },
+    {
+      "id": 247,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "movement"
+    },
+    {
+      "id": 251,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "economy"
+    },
+    {
+      "id": 254,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "income"
+    },
+    {
+      "id": 255,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "transportation"
+    },
+    {
+      "id": 256,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "communication"
+    },
+    {
+      "id": 260,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "period"
+    },
+    {
+      "id": 265,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "evidence"
+    },
+    {
+      "id": 267,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "appointment"
+    },
+    {
+      "id": 270,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "salary"
+    },
+    {
+      "id": 271,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "creature"
+    },
+    {
+      "id": 274,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "deadline"
+    },
+    {
+      "id": 277,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "society"
+    },
+    {
+      "id": 280,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "experiment"
+    },
+    {
+      "id": 281,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "vitamin"
+    },
+    {
+      "id": 286,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "medical"
+    },
+    {
+      "id": 287,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "original"
+    },
+    {
+      "id": 288,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "economic"
+    },
+    {
+      "id": 291,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "global"
+    },
+    {
+      "id": 292,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "frequent"
+    },
+    {
+      "id": 293,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "surprising"
+    },
+    {
+      "id": 294,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "regularly"
+    },
+    {
+      "id": 297,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "furthermore"
+    },
+    {
+      "id": 300,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "despite"
+    },
+    {
+      "id": 301,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "complain"
+    },
+    {
+      "id": 303,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "preserve"
+    },
+    {
+      "id": 304,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "inform"
+    },
+    {
+      "id": 310,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "estimate"
+    },
+    {
+      "id": 317,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "click"
+    },
+    {
+      "id": 319,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "apply"
+    },
+    {
+      "id": 324,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "transport"
+    },
+    {
+      "id": 330,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "compare"
+    },
+    {
+      "id": 333,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "adopt"
+    },
+    {
+      "id": 334,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "source"
+    },
+    {
+      "id": 343,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "relationship"
+    },
+    {
+      "id": 346,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "object"
+    },
+    {
+      "id": 347,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "software"
+    },
+    {
+      "id": 348,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "air conditioner"
+    },
+    {
+      "id": 353,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "global warming"
+    },
+    {
+      "id": 354,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "law"
+    },
+    {
+      "id": 359,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "muscle"
+    },
+    {
+      "id": 360,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "ingredient"
+    },
+    {
+      "id": 361,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "agent"
+    },
+    {
+      "id": 366,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "development"
+    },
+    {
+      "id": 369,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "exhibition"
+    },
+    {
+      "id": 370,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "region"
+    },
+    {
+      "id": 371,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "facility"
+    },
+    {
+      "id": 372,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "aim"
+    },
+    {
+      "id": 373,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "assignment"
+    },
+    {
+      "id": 374,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "trail"
+    },
+    {
+      "id": 376,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "pressure"
+    },
+    {
+      "id": 377,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "response"
+    },
+    {
+      "id": 378,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "vehicle"
+    },
+    {
+      "id": 379,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "skin"
+    },
+    {
+      "id": 380,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "fossil"
+    },
+    {
+      "id": 382,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "current"
+    },
+    {
+      "id": 383,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "environmental"
+    },
+    {
+      "id": 384,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "rare"
+    },
+    {
+      "id": 385,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "efficient"
+    },
+    {
+      "id": 392,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "casual"
+    },
+    {
+      "id": 395,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "classic"
+    },
+    {
+      "id": 397,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "directly"
+    },
+    {
+      "id": 398,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "frequently"
+    },
+    {
+      "id": 399,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "environmentally"
+    },
+    {
+      "id": 401,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "consume"
+    },
+    {
+      "id": 405,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "rely"
+    },
+    {
+      "id": 406,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "respond"
+    },
+    {
+      "id": 408,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "behave"
+    },
+    {
+      "id": 415,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "upgrade"
+    },
+    {
+      "id": 420,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "register"
+    },
+    {
+      "id": 421,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "expand"
+    },
+    {
+      "id": 422,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "cure"
+    },
+    {
+      "id": 424,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "scan"
+    },
+    {
+      "id": 425,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "promotion"
+    },
+    {
+      "id": 426,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "improvement"
+    },
+    {
+      "id": 431,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "privacy"
+    },
+    {
+      "id": 432,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "healthcare"
+    },
+    {
+      "id": 433,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "term"
+    },
+    {
+      "id": 436,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "blood"
+    },
+    {
+      "id": 437,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "tourism"
+    },
+    {
+      "id": 438,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "construction"
+    },
+    {
+      "id": 440,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "demand"
+    },
+    {
+      "id": 441,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "crop"
+    },
+    {
+      "id": 442,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "campaign"
+    },
+    {
+      "id": 443,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "conference"
+    },
+    {
+      "id": 444,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "poison"
+    },
+    {
+      "id": 446,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "delivery"
+    },
+    {
+      "id": 447,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "slum"
+    },
+    {
+      "id": 448,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "panel"
+    },
+    {
+      "id": 451,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "death"
+    },
+    {
+      "id": 452,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "carbon dioxide"
+    },
+    {
+      "id": 453,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bone"
+    },
+    {
+      "id": 456,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "credit card"
+    },
+    {
+      "id": 457,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "board"
+    },
+    {
+      "id": 458,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "valley"
+    },
+    {
+      "id": 459,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "decade"
+    },
+    {
+      "id": 460,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "recommendation"
+    },
+    {
+      "id": 461,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "organ"
+    },
+    {
+      "id": 465,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "contract"
+    },
+    {
+      "id": 466,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "standard"
+    },
+    {
+      "id": 470,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "positive"
+    },
+    {
+      "id": 471,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "aware"
+    },
+    {
+      "id": 476,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "flexible"
+    },
+    {
+      "id": 477,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "individual"
+    },
+    {
+      "id": 480,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "educational"
+    },
+    {
+      "id": 483,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "physical"
+    },
+    {
+      "id": 484,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "attractive"
+    },
+    {
+      "id": 485,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "portable"
+    },
+    {
+      "id": 486,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "unlikely"
+    },
+    {
+      "id": 487,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "real-estate"
+    },
+    {
+      "id": 488,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "traditionally"
+    },
+    {
+      "id": 490,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "rapidly"
+    },
+    {
+      "id": 491,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "properly"
+    },
+    {
+      "id": 493,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "differently"
+    },
+    {
+      "id": 497,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "dramatically"
+    },
+    {
+      "id": 498,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "overtime"
+    },
+    {
+      "id": 499,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "freely"
+    },
+    {
+      "id": 505,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bend"
+    },
+    {
+      "id": 506,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "prove"
+    },
+    {
+      "id": 508,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "transfer"
+    },
+    {
+      "id": 509,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "impress"
+    },
+    {
+      "id": 510,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "fold"
+    },
+    {
+      "id": 513,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "emphasize"
+    },
+    {
+      "id": 519,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "spin"
+    },
+    {
+      "id": 520,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "process"
+    },
+    {
+      "id": 522,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "rob"
+    },
+    {
+      "id": 523,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "analyze"
+    },
+    {
+      "id": 529,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "consumer"
+    },
+    {
+      "id": 530,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "production"
+    },
+    {
+      "id": 534,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "growth"
+    },
+    {
+      "id": 535,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "range"
+    },
+    {
+      "id": 536,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "impact"
+    },
+    {
+      "id": 539,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "roommate"
+    },
+    {
+      "id": 543,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "expense"
+    },
+    {
+      "id": 544,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "step"
+    },
+    {
+      "id": 545,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "pattern"
+    },
+    {
+      "id": 547,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "jewelry"
+    },
+    {
+      "id": 549,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "pamphlet"
+    },
+    {
+      "id": 553,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "shark"
+    },
+    {
+      "id": 554,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "conclusion"
+    },
+    {
+      "id": 556,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "loss"
+    },
+    {
+      "id": 558,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "shortage"
+    },
+    {
+      "id": 559,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "password"
+    },
+    {
+      "id": 562,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "code"
+    },
+    {
+      "id": 566,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "programmer"
+    },
+    {
+      "id": 568,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "instinct"
+    },
+    {
+      "id": 570,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "route"
+    },
+    {
+      "id": 571,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bubble"
+    },
+    {
+      "id": 572,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "banking"
+    },
+    {
+      "id": 573,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "label"
+    },
+    {
+      "id": 574,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "dinosaur"
+    },
+    {
+      "id": 577,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "due"
+    },
+    {
+      "id": 579,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "high-quality"
+    },
+    {
+      "id": 580,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "tiny"
+    },
+    {
+      "id": 581,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "senior"
+    },
+    {
+      "id": 583,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "mysterious"
+    },
+    {
+      "id": 584,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "unhealthy"
+    },
+    {
+      "id": 586,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "accurate"
+    },
+    {
+      "id": 587,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "poisonous"
+    },
+    {
+      "id": 588,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "mental"
+    },
+    {
+      "id": 591,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "normally"
+    },
+    {
+      "id": 592,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "generally"
+    },
+    {
+      "id": 593,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "nevertheless"
+    },
+    {
+      "id": 594,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "entirely"
+    },
+    {
+      "id": 595,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "efficiently"
+    },
+    {
+      "id": 596,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "meanwhile"
+    },
+    {
+      "id": 597,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "accidentally"
+    },
+    {
+      "id": 598,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "locally"
+    },
+    {
+      "id": 602,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bury"
+    },
+    {
+      "id": 605,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "sort"
+    },
+    {
+      "id": 607,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "update"
+    },
+    {
+      "id": 617,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "obtain"
+    },
+    {
+      "id": 618,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "associate"
+    },
+    {
+      "id": 619,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "advance"
+    },
+    {
+      "id": 620,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "progress"
+    },
+    {
+      "id": 621,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "doubt"
+    },
+    {
+      "id": 622,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "invest"
+    },
+    {
+      "id": 623,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "evolve"
+    },
+    {
+      "id": 624,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "represent"
+    },
+    {
+      "id": 625,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "adapt"
+    },
+    {
+      "id": 627,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "strengthen"
+    },
+    {
+      "id": 629,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "react"
+    },
+    {
+      "id": 630,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "insert"
+    },
+    {
+      "id": 632,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "inconvenience"
+    },
+    {
+      "id": 633,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "poverty"
+    },
+    {
+      "id": 634,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "fund"
+    },
+    {
+      "id": 635,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "aspect"
+    },
+    {
+      "id": 636,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "means"
+    },
+    {
+      "id": 637,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "theory"
+    },
+    {
+      "id": 639,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "collection"
+    },
+    {
+      "id": 641,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "factor"
+    },
+    {
+      "id": 642,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "structure"
+    },
+    {
+      "id": 643,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "destination"
+    },
+    {
+      "id": 644,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "combination"
+    },
+    {
+      "id": 645,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "connection"
+    },
+    {
+      "id": 646,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "link"
+    },
+    {
+      "id": 647,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "council"
+    },
+    {
+      "id": 648,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "vegetarian"
+    },
+    {
+      "id": 649,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "laboratory"
+    },
+    {
+      "id": 650,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "navy"
+    },
+    {
+      "id": 651,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "publisher"
+    },
+    {
+      "id": 652,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "lamp"
+    },
+    {
+      "id": 655,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "insurance"
+    },
+    {
+      "id": 659,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "handwriting"
+    },
+    {
+      "id": 666,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "container"
+    },
+    {
+      "id": 667,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "breath"
+    },
+    {
+      "id": 668,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "entry"
+    },
+    {
+      "id": 670,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "drug"
+    },
+    {
+      "id": 671,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "youth"
+    },
+    {
+      "id": 672,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "mineral"
+    },
+    {
+      "id": 673,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "requirement"
+    },
+    {
+      "id": 674,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "league"
+    },
+    {
+      "id": 675,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "content"
+    },
+    {
+      "id": 676,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "anxiety"
+    },
+    {
+      "id": 677,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "false"
+    },
+    {
+      "id": 678,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "artificial"
+    },
+    {
+      "id": 681,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "long-term"
+    },
+    {
+      "id": 682,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "historic"
+    },
+    {
+      "id": 684,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "actual"
+    },
+    {
+      "id": 685,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "cultural"
+    },
+    {
+      "id": 687,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "constant"
+    },
+    {
+      "id": 690,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "simply"
+    },
+    {
+      "id": 691,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "mainly"
+    },
+    {
+      "id": 693,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "correctly"
+    },
+    {
+      "id": 695,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "afterwards"
+    },
+    {
+      "id": 696,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "currently"
+    },
+    {
+      "id": 698,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "healthily"
+    },
+    {
+      "id": 702,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "recover"
+    },
+    {
+      "id": 703,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "surround"
+    },
+    {
+      "id": 706,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "adjust"
+    },
+    {
+      "id": 707,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "migrate"
+    },
+    {
+      "id": 708,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "digest"
+    },
+    {
+      "id": 709,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "reset"
+    },
+    {
+      "id": 710,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "renew"
+    },
+    {
+      "id": 711,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "maintain"
+    },
+    {
+      "id": 715,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "determine"
+    },
+    {
+      "id": 716,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "struggle"
+    },
+    {
+      "id": 717,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "refund"
+    },
+    {
+      "id": 718,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "qualify"
+    },
+    {
+      "id": 719,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "motivate"
+    },
+    {
+      "id": 720,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "convert"
+    },
+    {
+      "id": 721,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "satisfy"
+    },
+    {
+      "id": 722,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "flood"
+    },
+    {
+      "id": 723,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "calculate"
+    },
+    {
+      "id": 724,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "chase"
+    },
+    {
+      "id": 725,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "stare"
+    },
+    {
+      "id": 727,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "expectation"
+    },
+    {
+      "id": 728,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "layer"
+    },
+    {
+      "id": 729,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "powder"
+    },
+    {
+      "id": 730,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "traveler"
+    },
+    {
+      "id": 731,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "steel"
+    },
+    {
+      "id": 739,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "surgery"
+    },
+    {
+      "id": 740,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "childcare"
+    },
+    {
+      "id": 741,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "threat"
+    },
+    {
+      "id": 742,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "error"
+    },
+    {
+      "id": 743,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "flexibility"
+    },
+    {
+      "id": 744,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "lifetime"
+    },
+    {
+      "id": 745,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "mess"
+    },
+    {
+      "id": 746,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "function"
+    },
+    {
+      "id": 747,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "gender"
+    },
+    {
+      "id": 748,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "household"
+    },
+    {
+      "id": 749,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "vaccine"
+    },
+    {
+      "id": 750,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "calculation"
+    },
+    {
+      "id": 751,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "user"
+    },
+    {
+      "id": 753,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "manufacturer"
+    },
+    {
+      "id": 754,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "satellite"
+    },
+    {
+      "id": 755,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "civilization"
+    },
+    {
+      "id": 756,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "feeling"
+    },
+    {
+      "id": 760,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "graph"
+    },
+    {
+      "id": 761,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "luxury"
+    },
+    {
+      "id": 762,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "newsletter"
+    },
+    {
+      "id": 763,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "ray"
+    },
+    {
+      "id": 765,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "partnership"
+    },
+    {
+      "id": 767,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "session"
+    },
+    {
+      "id": 768,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "cruise"
+    },
+    {
+      "id": 769,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "microscope"
+    },
+    {
+      "id": 770,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "ecotourism"
+    },
+    {
+      "id": 771,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "rude"
+    },
+    {
+      "id": 772,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "urban"
+    },
+    {
+      "id": 774,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "religious"
+    },
+    {
+      "id": 775,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "disabled"
+    },
+    {
+      "id": 776,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "talented"
+    },
+    {
+      "id": 777,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "anxious"
+    },
+    {
+      "id": 778,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "best-selling"
+    },
+    {
+      "id": 779,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "incorrect"
+    },
+    {
+      "id": 780,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "stylish"
+    },
+    {
+      "id": 781,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "financial"
+    },
+    {
+      "id": 782,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "enormous"
+    },
+    {
+      "id": 783,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "temporary"
+    },
+    {
+      "id": 784,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "organic"
+    },
+    {
+      "id": 785,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "blind"
+    },
+    {
+      "id": 786,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "dizzy"
+    },
+    {
+      "id": 787,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "low-income"
+    },
+    {
+      "id": 789,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "increasingly"
+    },
+    {
+      "id": 790,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "particularly"
+    },
+    {
+      "id": 791,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "worldwide"
+    },
+    {
+      "id": 792,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "additionally"
+    },
+    {
+      "id": 793,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "commonly"
+    },
+    {
+      "id": 794,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "closely"
+    },
+    {
+      "id": 795,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "thus"
+    },
+    {
+      "id": 796,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "overnight"
+    },
+    {
+      "id": 797,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "fairly"
+    },
+    {
+      "id": 798,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "relatively"
+    },
+    {
+      "id": 799,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "wherever"
+    },
+    {
+      "id": 801,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "identify"
+    },
+    {
+      "id": 804,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "commit"
+    },
+    {
+      "id": 805,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "threaten"
+    },
+    {
+      "id": 806,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "monitor"
+    },
+    {
+      "id": 807,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "unpack"
+    },
+    {
+      "id": 808,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "enlarge"
+    },
+    {
+      "id": 809,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "stir"
+    },
+    {
+      "id": 810,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "postpone"
+    },
+    {
+      "id": 811,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "witness"
+    },
+    {
+      "id": 812,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "restore"
+    },
+    {
+      "id": 823,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bet"
+    },
+    {
+      "id": 826,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "dive"
+    },
+    {
+      "id": 828,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "indicate"
+    },
+    {
+      "id": 831,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "identity"
+    },
+    {
+      "id": 833,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "contrast"
+    },
+    {
+      "id": 834,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "sunset"
+    },
+    {
+      "id": 835,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "chess"
+    },
+    {
+      "id": 836,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "kindergarten"
+    },
+    {
+      "id": 837,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "length"
+    },
+    {
+      "id": 838,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "contribution"
+    },
+    {
+      "id": 839,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "economics"
+    },
+    {
+      "id": 840,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "gap"
+    },
+    {
+      "id": 841,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "wool"
+    },
+    {
+      "id": 842,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "tail"
+    },
+    {
+      "id": 843,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "fiber"
+    },
+    {
+      "id": 844,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "humidity"
+    },
+    {
+      "id": 845,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "perfume"
+    },
+    {
+      "id": 846,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "feather"
+    },
+    {
+      "id": 852,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "tongue"
+    },
+    {
+      "id": 853,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "occasion"
+    },
+    {
+      "id": 857,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "authority"
+    },
+    {
+      "id": 858,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "cancer"
+    },
+    {
+      "id": 859,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "tribe"
+    },
+    {
+      "id": 860,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "birth"
+    },
+    {
+      "id": 861,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "loan"
+    },
+    {
+      "id": 862,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "historian"
+    },
+    {
+      "id": 863,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "soil"
+    },
+    {
+      "id": 864,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "background"
+    },
+    {
+      "id": 865,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "volcano"
+    },
+    {
+      "id": 867,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "engineering"
+    },
+    {
+      "id": 868,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "prescription"
+    },
+    {
+      "id": 869,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "secretary"
+    },
+    {
+      "id": 870,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "attraction"
+    },
+    {
+      "id": 871,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "reward"
+    },
+    {
+      "id": 872,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "checkup"
+    },
+    {
+      "id": 873,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "database"
+    },
+    {
+      "id": 874,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "bomb"
+    },
+    {
+      "id": 875,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "coal"
+    },
+    {
+      "id": 876,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "nonfiction"
+    },
+    {
+      "id": 877,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "wire"
+    },
+    {
+      "id": 878,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "blog"
+    },
+    {
+      "id": 879,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "lung"
+    },
+    {
+      "id": 880,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "pump"
+    },
+    {
+      "id": 881,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "fingerprint"
+    },
+    {
+      "id": 882,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "poetry"
+    },
+    {
+      "id": 883,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "scar"
+    },
+    {
+      "id": 884,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "stain"
+    },
+    {
+      "id": 885,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "aluminum"
+    },
+    {
+      "id": 886,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "freeway"
+    },
+    {
+      "id": 887,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "influenza"
+    },
+    {
+      "id": 888,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "suburb"
+    },
+    {
+      "id": 889,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "affection"
+    },
+    {
+      "id": 890,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "artwork"
+    },
+    {
+      "id": 891,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "massage"
+    },
+    {
+      "id": 892,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "tip"
+    },
+    {
+      "id": 893,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "newborn"
+    },
+    {
+      "id": 894,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "unexpected"
+    },
+    {
+      "id": 895,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "virtual"
+    },
+    {
+      "id": 896,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "generous"
+    },
+    {
+      "id": 898,
+      "kind": "単語編",
+      "decision": "new-entry",
+      "answer": "academic"
+    },
+    {
+      "id": 899,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "extreme"
+    },
+    {
+      "id": 900,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "permanently"
+    },
+    {
+      "id": 901,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "import"
+    },
+    {
+      "id": 903,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "deserve"
+    },
+    {
+      "id": 905,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "appeal"
+    },
+    {
+      "id": 911,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "tremble"
+    },
+    {
+      "id": 914,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "decline"
+    },
+    {
+      "id": 917,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "oppose"
+    },
+    {
+      "id": 918,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "ban"
+    },
+    {
+      "id": 919,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "alter"
+    },
+    {
+      "id": 921,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "confirm"
+    },
+    {
+      "id": 922,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "defeat"
+    },
+    {
+      "id": 923,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "detect"
+    },
+    {
+      "id": 924,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "absorb"
+    },
+    {
+      "id": 925,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "install"
+    },
+    {
+      "id": 928,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "foundation"
+    },
+    {
+      "id": 930,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "resource"
+    },
+    {
+      "id": 932,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "permission"
+    },
+    {
+      "id": 937,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "candidate"
+    },
+    {
+      "id": 939,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "option"
+    },
+    {
+      "id": 942,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "employment"
+    },
+    {
+      "id": 944,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "consequence"
+    },
+    {
+      "id": 945,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "criminal"
+    },
+    {
+      "id": 953,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "weapon"
+    },
+    {
+      "id": 954,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "procedure"
+    },
+    {
+      "id": 955,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reputation"
+    },
+    {
+      "id": 956,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "species"
+    },
+    {
+      "id": 958,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "status"
+    },
+    {
+      "id": 978,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "leftover"
+    },
+    {
+      "id": 979,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "potential"
+    },
+    {
+      "id": 982,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "overall"
+    },
+    {
+      "id": 983,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "alternative"
+    },
+    {
+      "id": 1002,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "inspire"
+    },
+    {
+      "id": 1003,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "launch"
+    },
+    {
+      "id": 1004,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "define"
+    },
+    {
+      "id": 1006,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "deny"
+    },
+    {
+      "id": 1008,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "dump"
+    },
+    {
+      "id": 1009,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "expire"
+    },
+    {
+      "id": 1022,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "complaint"
+    },
+    {
+      "id": 1027,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "equality"
+    },
+    {
+      "id": 1028,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "quantity"
+    },
+    {
+      "id": 1030,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reduction"
+    },
+    {
+      "id": 1031,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "applicant"
+    },
+    {
+      "id": 1039,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "pioneer"
+    },
+    {
+      "id": 1042,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "wage"
+    },
+    {
+      "id": 1049,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "architect"
+    },
+    {
+      "id": 1057,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "representative"
+    },
+    {
+      "id": 1059,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "widespread"
+    },
+    {
+      "id": 1060,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "beneficial"
+    },
+    {
+      "id": 1062,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "ideal"
+    },
+    {
+      "id": 1065,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "relevant"
+    },
+    {
+      "id": 1066,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "initial"
+    },
+    {
+      "id": 1067,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reasonable"
+    },
+    {
+      "id": 1068,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "appropriate"
+    },
+    {
+      "id": 1069,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "obvious"
+    },
+    {
+      "id": 1070,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "permanent"
+    },
+    {
+      "id": 1076,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reliable"
+    },
+    {
+      "id": 1081,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "vital"
+    },
+    {
+      "id": 1082,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "adequate"
+    },
+    {
+      "id": 1086,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "definitely"
+    },
+    {
+      "id": 1094,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "constantly"
+    },
+    {
+      "id": 1104,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "predict"
+    },
+    {
+      "id": 1106,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "commute"
+    },
+    {
+      "id": 1107,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "resist"
+    },
+    {
+      "id": 1109,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "sacrifice"
+    },
+    {
+      "id": 1110,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "imply"
+    },
+    {
+      "id": 1113,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "impose"
+    },
+    {
+      "id": 1114,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "guarantee"
+    },
+    {
+      "id": 1115,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "substitute"
+    },
+    {
+      "id": 1116,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "collapse"
+    },
+    {
+      "id": 1118,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "interfere"
+    },
+    {
+      "id": 1125,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reminder"
+    },
+    {
+      "id": 1127,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "scholarship"
+    },
+    {
+      "id": 1129,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "sculpture"
+    },
+    {
+      "id": 1132,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "altitude"
+    },
+    {
+      "id": 1133,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "handout"
+    },
+    {
+      "id": 1154,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "duty"
+    },
+    {
+      "id": 1156,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "debt"
+    },
+    {
+      "id": 1157,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "barrier"
+    },
+    {
+      "id": 1162,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "entire"
+    },
+    {
+      "id": 1163,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "capable"
+    },
+    {
+      "id": 1170,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "exclusive"
+    },
+    {
+      "id": 1201,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "construct"
+    },
+    {
+      "id": 1206,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "reject"
+    },
+    {
+      "id": 1207,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "punish"
+    },
+    {
+      "id": 1210,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "stimulate"
+    },
+    {
+      "id": 1211,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "differ"
+    },
+    {
+      "id": 1212,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "accompany"
+    },
+    {
+      "id": 1213,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "confess"
+    },
+    {
+      "id": 1225,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "conclude"
+    },
+    {
+      "id": 1227,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "protest"
+    },
+    {
+      "id": 1228,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "encounter"
+    },
+    {
+      "id": 1236,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "demonstrate"
+    },
+    {
+      "id": 1237,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "propose"
+    },
+    {
+      "id": 1240,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "obey"
+    },
+    {
+      "id": 1241,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "forbid"
+    },
+    {
+      "id": 1242,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "fulfill"
+    },
+    {
+      "id": 1243,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "burst"
+    },
+    {
+      "id": 1248,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "critic"
+    },
+    {
+      "id": 1274,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "corporation"
+    },
+    {
+      "id": 1275,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "argument"
+    },
+    {
+      "id": 1276,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "victim"
+    },
+    {
+      "id": 1277,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "wealth"
+    },
+    {
+      "id": 1278,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "psychology"
+    },
+    {
+      "id": 1279,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "Arctic"
+    },
+    {
+      "id": 1283,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "essential"
+    },
+    {
+      "id": 1289,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "nuclear"
+    },
+    {
+      "id": 1296,
+      "kind": "単語編",
+      "decision": "reused-existing-meaning",
+      "answer": "technically"
+    },
+    {
+      "id": 1301,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "according to the report"
+    },
+    {
+      "id": 1302,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in order to save money"
+    },
+    {
+      "id": 1303,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "a number of students"
+    },
+    {
+      "id": 1305,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "work on a report"
+    },
+    {
+      "id": 1306,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "suffer from a headache"
+    },
+    {
+      "id": 1308,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "ask her for help"
+    },
+    {
+      "id": 1310,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "instead of a car"
+    },
+    {
+      "id": 1311,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "set up a company"
+    },
+    {
+      "id": 1312,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "come up with a plan"
+    },
+    {
+      "id": 1314,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "pick up the package"
+    },
+    {
+      "id": 1315,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "so tired that I slept"
+    },
+    {
+      "id": 1318,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "deal with the problem"
+    },
+    {
+      "id": 1321,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "provide children with books"
+    },
+    {
+      "id": 1324,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "encourage him to try"
+    },
+    {
+      "id": 1325,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "hand in the homework"
+    },
+    {
+      "id": 1327,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "a variety of activities"
+    },
+    {
+      "id": 1328,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be based on facts"
+    },
+    {
+      "id": 1329,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "fill out the form"
+    },
+    {
+      "id": 1330,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take part in the event"
+    },
+    {
+      "id": 1332,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "tea rather than coffee"
+    },
+    {
+      "id": 1333,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be similar to this one"
+    },
+    {
+      "id": 1334,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "bring back a book"
+    },
+    {
+      "id": 1335,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "figure out the answer"
+    },
+    {
+      "id": 1336,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "happen to see her"
+    },
+    {
+      "id": 1339,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "prevent him from leaving"
+    },
+    {
+      "id": 1347,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "make sure that it is safe"
+    },
+    {
+      "id": 1348,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "so that she can study"
+    },
+    {
+      "id": 1350,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "along with my family"
+    },
+    {
+      "id": 1351,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be aware of the danger"
+    },
+    {
+      "id": 1352,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be concerned about costs"
+    },
+    {
+      "id": 1353,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be related to health"
+    },
+    {
+      "id": 1354,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "carry out a survey"
+    },
+    {
+      "id": 1355,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "get used to the noise"
+    },
+    {
+      "id": 1356,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take a look at this"
+    },
+    {
+      "id": 1358,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "live on a small income"
+    },
+    {
+      "id": 1359,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "manage to finish"
+    },
+    {
+      "id": 1360,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "play an important role in health"
+    },
+    {
+      "id": 1361,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "prefer tea to coffee"
+    },
+    {
+      "id": 1362,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "result in a delay"
+    },
+    {
+      "id": 1363,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "throw away the box"
+    },
+    {
+      "id": 1364,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "turn water into ice"
+    },
+    {
+      "id": 1367,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "as long as you need"
+    },
+    {
+      "id": 1368,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be capable of swimming"
+    },
+    {
+      "id": 1369,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be involved in the project"
+    },
+    {
+      "id": 1371,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "by the end of May"
+    },
+    {
+      "id": 1373,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "end up staying home"
+    },
+    {
+      "id": 1374,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "find a way to help"
+    },
+    {
+      "id": 1377,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "look up the word"
+    },
+    {
+      "id": 1378,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "look up to my teacher"
+    },
+    {
+      "id": 1380,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "refer to the chart"
+    },
+    {
+      "id": 1381,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "sell out the tickets"
+    },
+    {
+      "id": 1382,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "stop by the shop"
+    },
+    {
+      "id": 1383,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take notes"
+    },
+    {
+      "id": 1387,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "apply for the job"
+    },
+    {
+      "id": 1388,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "as if he knew me"
+    },
+    {
+      "id": 1390,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be about to leave"
+    },
+    {
+      "id": 1398,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "come across an old photo"
+    },
+    {
+      "id": 1399,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "consist of three parts"
+    },
+    {
+      "id": 1400,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "due to heavy rain"
+    },
+    {
+      "id": 1401,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "except for one student"
+    },
+    {
+      "id": 1403,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "feel like going out"
+    },
+    {
+      "id": 1404,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "for fear of failure"
+    },
+    {
+      "id": 1406,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "give her a hand"
+    },
+    {
+      "id": 1407,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "give in to pressure"
+    },
+    {
+      "id": 1410,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "had better leave now"
+    },
+    {
+      "id": 1412,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in addition to English"
+    },
+    {
+      "id": 1415,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in response to the request"
+    },
+    {
+      "id": 1416,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in return for help"
+    },
+    {
+      "id": 1417,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in trouble"
+    },
+    {
+      "id": 1421,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "out of stock"
+    },
+    {
+      "id": 1422,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "pay attention to the sign"
+    },
+    {
+      "id": 1423,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "persuade him to join"
+    },
+    {
+      "id": 1425,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "rely on her for advice"
+    },
+    {
+      "id": 1426,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "run out of time"
+    },
+    {
+      "id": 1427,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "sign up for the course"
+    },
+    {
+      "id": 1428,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "stick to the plan"
+    },
+    {
+      "id": 1429,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take away the plates"
+    },
+    {
+      "id": 1430,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take health for granted"
+    },
+    {
+      "id": 1431,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "tend to be quiet"
+    },
+    {
+      "id": 1433,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "would rather stay home"
+    },
+    {
+      "id": 1435,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "a wide range of books"
+    },
+    {
+      "id": 1437,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "allow her to enter"
+    },
+    {
+      "id": 1439,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "as follows"
+    },
+    {
+      "id": 1442,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be responsible for safety"
+    },
+    {
+      "id": 1444,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be satisfied with the result"
+    },
+    {
+      "id": 1448,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "catch up with the class"
+    },
+    {
+      "id": 1451,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "compare this with that"
+    },
+    {
+      "id": 1452,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "concentrate on the task"
+    },
+    {
+      "id": 1453,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "count on my friends"
+    },
+    {
+      "id": 1454,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "die out"
+    },
+    {
+      "id": 1456,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "drop in"
+    },
+    {
+      "id": 1458,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "ever since that day"
+    },
+    {
+      "id": 1459,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "find my way home"
+    },
+    {
+      "id": 1464,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "get along with my sister"
+    },
+    {
+      "id": 1467,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in danger of closing"
+    },
+    {
+      "id": 1468,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in demand"
+    },
+    {
+      "id": 1469,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in fashion"
+    },
+    {
+      "id": 1470,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in general"
+    },
+    {
+      "id": 1473,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in terms of cost"
+    },
+    {
+      "id": 1474,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in time for the show"
+    },
+    {
+      "id": 1475,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in vain"
+    },
+    {
+      "id": 1476,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "just in case it rains"
+    },
+    {
+      "id": 1477,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "keep my promise"
+    },
+    {
+      "id": 1479,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "leave my bag behind"
+    },
+    {
+      "id": 1480,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "let my friend down"
+    },
+    {
+      "id": 1481,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "look through the photos"
+    },
+    {
+      "id": 1483,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "meet our needs"
+    },
+    {
+      "id": 1484,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "no matter what happens"
+    },
+    {
+      "id": 1485,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "not only students but also teachers"
+    },
+    {
+      "id": 1487,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "on duty"
+    },
+    {
+      "id": 1489,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "on schedule"
+    },
+    {
+      "id": 1494,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put together the table"
+    },
+    {
+      "id": 1496,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "speak out"
+    },
+    {
+      "id": 1498,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "stare at the screen"
+    },
+    {
+      "id": 1565,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "above all"
+    },
+    {
+      "id": 1566,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "account for half the sales"
+    },
+    {
+      "id": 1568,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "as a general rule"
+    },
+    {
+      "id": 1569,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "as a matter of fact"
+    },
+    {
+      "id": 1570,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "at any cost"
+    },
+    {
+      "id": 1571,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "at random"
+    },
+    {
+      "id": 1573,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "at times"
+    },
+    {
+      "id": 1574,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "back and forth"
+    },
+    {
+      "id": 1577,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be familiar with the rules"
+    },
+    {
+      "id": 1578,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be free from worry"
+    },
+    {
+      "id": 1579,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be independent of her parents"
+    },
+    {
+      "id": 1580,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be likely to rain"
+    },
+    {
+      "id": 1581,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be made up of four teams"
+    },
+    {
+      "id": 1583,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be reluctant to speak"
+    },
+    {
+      "id": 1584,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be sick of the noise"
+    },
+    {
+      "id": 1589,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "be willing to help"
+    },
+    {
+      "id": 1590,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "break into the house"
+    },
+    {
+      "id": 1591,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "break out"
+    },
+    {
+      "id": 1592,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "bring about change"
+    },
+    {
+      "id": 1595,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "by means of a survey"
+    },
+    {
+      "id": 1596,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "by no means"
+    },
+    {
+      "id": 1597,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "call off the meeting"
+    },
+    {
+      "id": 1599,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "care for the patient"
+    },
+    {
+      "id": 1600,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "carry on with the work"
+    },
+    {
+      "id": 1603,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "come to light"
+    },
+    {
+      "id": 1604,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "cope with stress"
+    },
+    {
+      "id": 1605,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "drop out of school"
+    },
+    {
+      "id": 1606,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "enable her to study"
+    },
+    {
+      "id": 1609,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "for good"
+    },
+    {
+      "id": 1610,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "for the time being"
+    },
+    {
+      "id": 1611,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "get by on little money"
+    },
+    {
+      "id": 1613,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "hang up the phone"
+    },
+    {
+      "id": 1614,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "have something in common"
+    },
+    {
+      "id": 1615,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "have second thoughts"
+    },
+    {
+      "id": 1619,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in contrast to the past"
+    },
+    {
+      "id": 1620,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in detail"
+    },
+    {
+      "id": 1622,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in exchange for a ticket"
+    },
+    {
+      "id": 1623,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in favor of the plan"
+    },
+    {
+      "id": 1625,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in person"
+    },
+    {
+      "id": 1626,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in place of my brother"
+    },
+    {
+      "id": 1628,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in progress"
+    },
+    {
+      "id": 1632,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in short"
+    },
+    {
+      "id": 1635,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "in the meantime"
+    },
+    {
+      "id": 1638,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "keep that in mind"
+    },
+    {
+      "id": 1639,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "keep in touch with her"
+    },
+    {
+      "id": 1641,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "keep track of expenses"
+    },
+    {
+      "id": 1644,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "live up to expectations"
+    },
+    {
+      "id": 1647,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "look into the problem"
+    },
+    {
+      "id": 1648,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "major in history"
+    },
+    {
+      "id": 1650,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "make fun of him"
+    },
+    {
+      "id": 1654,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "make use of this tool"
+    },
+    {
+      "id": 1656,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "not to mention the cost"
+    },
+    {
+      "id": 1659,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "on the contrary"
+    },
+    {
+      "id": 1660,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "on the whole"
+    },
+    {
+      "id": 1662,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "one by one"
+    },
+    {
+      "id": 1663,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "out of control"
+    },
+    {
+      "id": 1664,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "owing to the storm"
+    },
+    {
+      "id": 1665,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "pass away"
+    },
+    {
+      "id": 1666,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "prohibit them from entering"
+    },
+    {
+      "id": 1667,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "provided that it is safe"
+    },
+    {
+      "id": 1669,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put an end to the argument"
+    },
+    {
+      "id": 1670,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put aside some money"
+    },
+    {
+      "id": 1672,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put the plan into practice"
+    },
+    {
+      "id": 1673,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put off the trip"
+    },
+    {
+      "id": 1674,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "put up with the noise"
+    },
+    {
+      "id": 1675,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "remind me of home"
+    },
+    {
+      "id": 1677,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "settle down"
+    },
+    {
+      "id": 1678,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "shake hands"
+    },
+    {
+      "id": 1682,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "sooner or later"
+    },
+    {
+      "id": 1686,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "sum up the main points"
+    },
+    {
+      "id": 1687,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take advantage of the chance"
+    },
+    {
+      "id": 1689,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "take over the shop"
+    },
+    {
+      "id": 1692,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "think over the offer"
+    },
+    {
+      "id": 1693,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "to some extent"
+    },
+    {
+      "id": 1695,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "try out the game"
+    },
+    {
+      "id": 1697,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "turn up the volume"
+    },
+    {
+      "id": 1698,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "upside down"
+    },
+    {
+      "id": 1699,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "use up all the paper"
+    },
+    {
+      "id": 1700,
+      "kind": "熟語編",
+      "decision": "concretized",
+      "answer": "wear out my shoes"
+    },
+    {
+      "id": 1701,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1702,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1703,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1704,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1705,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1706,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1707,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1708,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1709,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1710,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1711,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1712,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1713,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1714,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1715,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1716,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1717,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1718,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1719,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1720,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1721,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1722,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1723,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1724,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1725,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1726,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1727,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1728,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1729,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1730,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1731,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1732,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1733,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1734,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1735,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1736,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1737,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    },
+    {
+      "id": 1738,
+      "kind": "英作文編",
+      "decision": "expanded-writing-pattern"
+    }
+  ]
+}
