@@ -25,6 +25,7 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { grade3Curriculum, getGrade3CurriculumLimit } = load('src/data/questionSets/eiken/grade3.ts');
 const { getQuestionGrammarPoint } = load('src/data/questionGrammarPoints.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
+const meaningCorrections = JSON.parse(fs.readFileSync(new URL('../src/data/intermediateMeaningCorrections.json', import.meta.url), 'utf8'));
 const { getQuestionExample } = load('src/data/questionExamples.ts');
 const tuning = load('src/data/grade3Balance.ts');
 const base = '91cff64';
@@ -62,7 +63,8 @@ for (const level of [1, 2, 3]) {
     assert.match(q.text, /^[\x20-\x7e]+$/, 'standard keyboard input only');
     assert.ok(!/[\[\]～]|\b[AB]\b/.test(q.text), `placeholder: ${q.text}`);
     assert.ok(q.translation.length <= (level === 1 ? 26 : 43), q.text + ': long meaning');
-    assert.equal(getQuestionMeaning(q), q.translation, 'unintended legacy override');
+    const meaningCorrection = meaningCorrections.find(c => c.course === 'Eiken3' && c.level === level && c.text === q.text && c.translation === q.translation && (c.exampleEn ?? '') === (q.exampleEn ?? ''));
+    assert.equal(getQuestionMeaning(q, 'Eiken3'), meaningCorrection?.meaning ?? q.translation, 'unexpected meaning: ' + q.text);
     assert.ok(!q.text.endsWith(' '));
     if (level < 3) assert.ok(getQuestionExample('Eiken3', level, q)?.length >= q.text.length);
     if (level === 3) {

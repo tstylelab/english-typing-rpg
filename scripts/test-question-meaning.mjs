@@ -7,6 +7,7 @@ const corrections = JSON.parse(read('src/data/pre1MeaningCorrections.json'));
 const sentenceCorrections = JSON.parse(read('src/data/pre1SentenceMeaningCorrections.json'));
 const grade5Corrections = JSON.parse(read('src/data/grade5MeaningCorrections.json'));
 const grade4Corrections = JSON.parse(read('src/data/grade4MeaningCorrections.json'));
+const intermediateCorrections = JSON.parse(read('src/data/intermediateMeaningCorrections.json'));
 const allCorrections = [...corrections, ...sentenceCorrections, ...grade5Corrections, ...grade4Corrections];
 const source = read('src/data/questionMeaning.ts').replace(
   "import corrections from './pre1MeaningCorrections.json';",
@@ -14,7 +15,9 @@ const source = read('src/data/questionMeaning.ts').replace(
 ).replace("import sentenceCorrections from './pre1SentenceMeaningCorrections.json';", `const sentenceCorrections = ${JSON.stringify(sentenceCorrections)};`);
 const resolved = source.replace("import grade5Corrections from './grade5MeaningCorrections.json';", `const grade5Corrections = ${JSON.stringify(grade5Corrections)};`);
 const resolvedAll = resolved.replace("import grade4Corrections from './grade4MeaningCorrections.json';", `const grade4Corrections = ${JSON.stringify(grade4Corrections)};`);
-const compiled = ts.transpileModule(resolvedAll, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+const withIntermediate = resolvedAll.replace("import intermediateCorrections from './intermediateMeaningCorrections.json';", `const intermediateCorrections = ${JSON.stringify(intermediateCorrections)};`);
+const withAdditional = withIntermediate.replace("import additionalCorrections from './additionalMeaningCorrections.json';", `const additionalCorrections = ${read('src/data/additionalMeaningCorrections.json')};`);
+const compiled = ts.transpileModule(withAdditional, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
 const { getQuestionMeaning } = await import('data:text/javascript;base64,' + Buffer.from(compiled).toString('base64'));
 const files = ['eiken/grade5', 'eiken/grade4', 'eiken/gradepre1-part1', 'eiken/gradepre1-part2', 'conversation/beginner'];
 let audited = 0;
@@ -64,7 +67,7 @@ for (const file of files) {
   }
 }
 assert.equal(audited, 3653);
-assert.deepEqual(grade4Changes, { 1: 21, 2: 12, 3: 15 });
+assert.deepEqual(grade4Changes, { 1: 98, 2: 33, 3: 26 });
 assert.deepEqual(grade5Changes, { 1: 14, 2: 15, 3: 11 });
 assert.deepEqual(changesByLevel, { 1: 85, 2: 82, 3: 40 });
 assert.equal(changed, allCorrections.length);
@@ -78,6 +81,6 @@ for (const q of ['question', 'q', 'currentQuestion', 'gameState.currentQuestion'
   assert.ok(!app.includes(`>{${q}.translation}<`), `old visible meaning: ${q}`);
 }
 assert.ok(app.includes('`${difficulty}:${level}:${question.text}:${question.translation}`'), 'legacy status key changed');
-assert.ok(app.includes('text: getQuestionMeaning(question),'), 'autoplay speech not updated');
+assert.ok(app.includes('text: getQuestionMeaning(question, gameState.selectedDifficulty),'), 'autoplay speech not updated');
 assert.ok(app.includes('meaning: question.translation,'), 'AI history grouping identity must stay unchanged');
 console.log(`PASS: ${audited} Eiken entries, ${changed} corrections (Pre-1 ${JSON.stringify(changesByLevel)}, Grade 5 ${JSON.stringify(grade5Changes)}, Grade 4 ${JSON.stringify(grade4Changes)}); other courses unchanged; legacy identities and saved-question round trips preserved.`);

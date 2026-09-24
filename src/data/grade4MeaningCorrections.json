@@ -8,19 +8,19 @@
   {
     "text": "paint",
     "translation": "絵を描く",
-    "meaning": "絵の具で描く・色をぬる",
+    "meaning": "（絵の具で）描く・色をぬる",
     "level": 1
   },
   {
     "text": "draw",
     "translation": "描く",
-    "meaning": "ペンや鉛筆で絵を描く",
+    "meaning": "（ペンや鉛筆で）絵を描く",
     "level": 1
   },
   {
     "text": "careful",
     "translation": "注意深い、気をつけるべき",
-    "meaning": "注意深い・用心する",
+    "meaning": "注意深い・気をつけている",
     "level": 1
   },
   {
@@ -128,7 +128,7 @@
   {
     "text": "wake up",
     "translation": "目を覚ます、起きる",
-    "meaning": "眠りから目を覚ます",
+    "meaning": "（眠りから）目を覚ます",
     "level": 2
   },
   {
@@ -146,7 +146,7 @@
   {
     "text": "get back",
     "translation": "戻る",
-    "meaning": "元の場所へ戻る",
+    "meaning": "（元の場所へ）戻る（getで始める）",
     "level": 2
   },
   {
@@ -254,7 +254,7 @@
   {
     "text": "How often do you go swimming?",
     "translation": "あなたはどのくらいよく泳ぎに行きますか？",
-    "meaning": "あなたはどのくらいの頻度で泳ぎに行きますか？",
+    "meaning": "どれくらいの間隔で泳ぎに行きますか（週に何回など）。",
     "level": 3
   },
   {
@@ -284,7 +284,661 @@
   {
     "text": "I hope to see you again soon.",
     "translation": "また近いうちに会えるといいですね。",
-    "meaning": "また近いうちにあなたに会いたいと思っています。",
+    "meaning": "また近いうちにあなたに会えたらと思っています。",
+    "level": 3
+  },
+  {
+    "text": "science",
+    "translation": "科学",
+    "meaning": "理科・科学",
+    "level": 1
+  },
+  {
+    "text": "lesson",
+    "translation": "レッスン",
+    "meaning": "授業・レッスン（1回の学習）",
+    "level": 1
+  },
+  {
+    "text": "speech",
+    "translation": "スピーチ、発表",
+    "meaning": "（人前での）スピーチ・演説",
+    "level": 1
+  },
+  {
+    "text": "report",
+    "translation": "レポート、報告",
+    "meaning": "（調べたことの）報告・レポート",
+    "level": 1
+  },
+  {
+    "text": "cafeteria",
+    "translation": "食堂",
+    "meaning": "（セルフサービス式の）食堂",
+    "level": 1
+  },
+  {
+    "text": "course",
+    "translation": "講座、コース",
+    "meaning": "（一連の授業の）講座・コース",
+    "level": 1
+  },
+  {
+    "text": "contest",
+    "translation": "コンテスト",
+    "meaning": "（作品や技能を競う）コンテスト",
+    "level": 1
+  },
+  {
+    "text": "present",
+    "translation": "贈り物、プレゼント",
+    "meaning": "贈り物（pで始まる）",
+    "level": 1
+  },
+  {
+    "text": "gift",
+    "translation": "贈り物",
+    "meaning": "贈り物（gで始まる）",
+    "level": 1
+  },
+  {
+    "text": "program",
+    "translation": "番組",
+    "meaning": "（テレビやラジオの）番組",
+    "level": 1
+  },
+  {
+    "text": "practice",
+    "translation": "練習、練習すること",
+    "meaning": "練習（名詞）",
+    "level": 1
+  },
+  {
+    "text": "musical",
+    "translation": "ミュージカル",
+    "meaning": "歌や踊りのある劇",
+    "level": 1
+  },
+  {
+    "text": "center",
+    "translation": "中心",
+    "meaning": "真ん中・中心",
+    "level": 1
+  },
+  {
+    "text": "sale",
+    "translation": "セール",
+    "meaning": "安売り・特売",
+    "level": 1
+  },
+  {
+    "text": "race",
+    "translation": "競争",
+    "meaning": "（速さを競う）競走",
+    "level": 1
+  },
+  {
+    "text": "bring",
+    "translation": "持ってくる",
+    "meaning": "（こちらへ）持ってくる",
+    "level": 1
+  },
+  {
+    "text": "arrive",
+    "translation": "着く",
+    "meaning": "（目的地に）着く・到着する",
+    "level": 1
+  },
+  {
+    "text": "wear",
+    "translation": "身につけている",
+    "meaning": "（服などを）身につけている",
+    "level": 1
+  },
+  {
+    "text": "change",
+    "translation": "変える",
+    "meaning": "（別のものに）変える・変わる",
+    "level": 1
+  },
+  {
+    "text": "become",
+    "translation": "になる",
+    "meaning": "（状態が変わって）～になる",
+    "level": 1
+  },
+  {
+    "text": "turn",
+    "translation": "曲がる",
+    "meaning": "（向きを変えて）曲がる",
+    "level": 1
+  },
+  {
+    "text": "usually",
+    "translation": "たいてい",
+    "meaning": "ふだんは・たいてい",
+    "level": 1
+  },
+  {
+    "text": "once",
+    "translation": "一度",
+    "meaning": "1回・一度",
+    "level": 1
+  },
+  {
+    "text": "still",
+    "translation": "まだ",
+    "meaning": "（続いていて）まだ・今も",
+    "level": 1
+  },
+  {
+    "text": "photo",
+    "translation": "写真",
+    "meaning": "（カメラで撮った）写真",
+    "level": 1
+  },
+  {
+    "text": "vacation",
+    "translation": "休暇",
+    "meaning": "休暇（夏休みなど）",
+    "level": 1
+  },
+  {
+    "text": "travel",
+    "translation": "旅行すること",
+    "meaning": "旅行すること（旅行全般）",
+    "level": 1
+  },
+  {
+    "text": "painting",
+    "translation": "絵画",
+    "meaning": "（絵の具で描いた）絵・絵画",
+    "level": 1
+  },
+  {
+    "text": "ocean",
+    "translation": "海",
+    "meaning": "大洋・広大な海",
+    "level": 1
+  },
+  {
+    "text": "remember",
+    "translation": "覚えている",
+    "meaning": "覚えている・思い出す",
+    "level": 1
+  },
+  {
+    "text": "enter",
+    "translation": "入る",
+    "meaning": "（建物や部屋などに）入る",
+    "level": 1
+  },
+  {
+    "text": "happen",
+    "translation": "起こる",
+    "meaning": "（出来事が）起こる",
+    "level": 1
+  },
+  {
+    "text": "junior",
+    "translation": "年下の",
+    "meaning": "年下の・下級の",
+    "level": 1
+  },
+  {
+    "text": "shall",
+    "translation": "しましょうか",
+    "meaning": "～しましょうか（申し出・提案）",
+    "level": 1
+  },
+  {
+    "text": "tour",
+    "translation": "ツアー",
+    "meaning": "（各地を巡る）旅行・見学",
+    "level": 1
+  },
+  {
+    "text": "guide",
+    "translation": "ガイド",
+    "meaning": "案内人・ガイド",
+    "level": 1
+  },
+  {
+    "text": "flight",
+    "translation": "フライト",
+    "meaning": "飛行・飛行機の便",
+    "level": 1
+  },
+  {
+    "text": "class",
+    "translation": "授業",
+    "meaning": "授業・学級",
+    "level": 1
+  },
+  {
+    "text": "trip",
+    "translation": "旅行、旅",
+    "meaning": "1回の旅行・お出かけ",
+    "level": 1
+  },
+  {
+    "text": "line",
+    "translation": "列",
+    "meaning": "（人や物が並んだ）列・線",
+    "level": 1
+  },
+  {
+    "text": "front",
+    "translation": "前",
+    "meaning": "前の部分・正面",
+    "level": 1
+  },
+  {
+    "text": "way",
+    "translation": "方法",
+    "meaning": "やり方・方法",
+    "level": 1
+  },
+  {
+    "text": "see",
+    "translation": "見る、会う",
+    "meaning": "（目に入って）見える・見る／会う",
+    "level": 1
+  },
+  {
+    "text": "take",
+    "translation": "取る",
+    "meaning": "（手に）取る・持っていく",
+    "level": 1
+  },
+  {
+    "text": "look",
+    "translation": "見る、目を向ける",
+    "meaning": "（目を向けて）見る",
+    "level": 1
+  },
+  {
+    "text": "meet",
+    "translation": "会う",
+    "meaning": "（人に）会う・出会う",
+    "level": 1
+  },
+  {
+    "text": "talk",
+    "translation": "話す、会話する",
+    "meaning": "会話する・話し合う",
+    "level": 1
+  },
+  {
+    "text": "say",
+    "translation": "言う",
+    "meaning": "（言葉を口に出して）言う",
+    "level": 1
+  },
+  {
+    "text": "tell",
+    "translation": "伝える",
+    "meaning": "（人に）伝える・知らせる",
+    "level": 1
+  },
+  {
+    "text": "speak",
+    "translation": "話す、言葉を話す",
+    "meaning": "（英語などの言葉を）話す",
+    "level": 1
+  },
+  {
+    "text": "listen",
+    "translation": "聞く",
+    "meaning": "（耳をかたむけて）聞く",
+    "level": 1
+  },
+  {
+    "text": "hear",
+    "translation": "聞こえる",
+    "meaning": "（音や声が）聞こえる",
+    "level": 1
+  },
+  {
+    "text": "stay",
+    "translation": "滞在する",
+    "meaning": "（その場所に）とどまる・泊まる",
+    "level": 1
+  },
+  {
+    "text": "live",
+    "translation": "住む",
+    "meaning": "住む・暮らす",
+    "level": 1
+  },
+  {
+    "text": "call",
+    "translation": "電話する",
+    "meaning": "（人に）電話する・呼ぶ",
+    "level": 1
+  },
+  {
+    "text": "ride",
+    "translation": "乗る",
+    "meaning": "（自転車や馬などに）乗る",
+    "level": 1
+  },
+  {
+    "text": "join",
+    "translation": "参加する",
+    "meaning": "（仲間や活動に）加わる",
+    "level": 1
+  },
+  {
+    "text": "learn",
+    "translation": "学ぶ",
+    "meaning": "（学んで）身につける",
+    "level": 1
+  },
+  {
+    "text": "move",
+    "translation": "動く",
+    "meaning": "動く・移動する",
+    "level": 1
+  },
+  {
+    "text": "early",
+    "translation": "早い",
+    "meaning": "（時刻が）早い・早めの",
+    "level": 1
+  },
+  {
+    "text": "soon",
+    "translation": "すぐに",
+    "meaning": "もうすぐ・まもなく",
+    "level": 1
+  },
+  {
+    "text": "off",
+    "translation": "離れて",
+    "meaning": "（接していたものから）離れて・外れて",
+    "level": 1
+  },
+  {
+    "text": "by",
+    "translation": "のそばに",
+    "meaning": "～のそばに／～によって",
+    "level": 1
+  },
+  {
+    "text": "beside",
+    "translation": "のとなりに",
+    "meaning": "～のすぐ横に・となりに",
+    "level": 1
+  },
+  {
+    "text": "before",
+    "translation": "の前に",
+    "meaning": "（時・順序で）～より前に",
+    "level": 1
+  },
+  {
+    "text": "may",
+    "translation": "かもしれない",
+    "meaning": "～かもしれない／～してもよい",
+    "level": 1
+  },
+  {
+    "text": "could",
+    "translation": "できた",
+    "meaning": "（過去の能力として）～できた",
+    "level": 1
+  },
+  {
+    "text": "would",
+    "translation": "〜だろうに、〜でしょう",
+    "meaning": "（もし～なら）～だろうに",
+    "level": 1
+  },
+  {
+    "text": "more",
+    "translation": "もっと多くの",
+    "meaning": "もっと多くの・より多くの",
+    "level": 1
+  },
+  {
+    "text": "than",
+    "translation": "より",
+    "meaning": "（比べるとき）～よりも",
+    "level": 1
+  },
+  {
+    "text": "most",
+    "translation": "ほとんどの",
+    "meaning": "大部分の・ほとんどの",
+    "level": 1
+  },
+  {
+    "text": "problem",
+    "translation": "問題",
+    "meaning": "困ったこと・解くべき問題",
+    "level": 1
+  },
+  {
+    "text": "question",
+    "translation": "質問",
+    "meaning": "答えを求める質問・問い",
+    "level": 1
+  },
+  {
+    "text": "life",
+    "translation": "生活",
+    "meaning": "生活・人生・命",
+    "level": 1
+  },
+  {
+    "text": "leave",
+    "translation": "去る",
+    "meaning": "その場を去る・出発する",
+    "level": 1
+  },
+  {
+    "text": "match",
+    "translation": "試合",
+    "meaning": "（スポーツなどの）試合・対戦",
+    "level": 1
+  },
+  {
+    "text": "ice-skating",
+    "translation": "スケート",
+    "meaning": "（氷の上での）スケート",
+    "level": 1
+  },
+  {
+    "text": "get up",
+    "translation": "起きる",
+    "meaning": "（寝床から）起きる",
+    "level": 2
+  },
+  {
+    "text": "take a trip",
+    "translation": "旅行をする",
+    "meaning": "旅行をする（takeで始める）",
+    "level": 2
+  },
+  {
+    "text": "go on a trip",
+    "translation": "旅行に行く",
+    "meaning": "旅行に出かける（goで始める）",
+    "level": 2
+  },
+  {
+    "text": "speak to my mother",
+    "translation": "自分の母に話しかける",
+    "meaning": "自分の母に話しかける（speak）",
+    "level": 2
+  },
+  {
+    "text": "talk to my mother",
+    "translation": "自分の母に話す",
+    "meaning": "自分の母に話す（talk to）",
+    "level": 2
+  },
+  {
+    "text": "talk with my mother",
+    "translation": "自分の母と話す",
+    "meaning": "自分の母と話す（talk with）",
+    "level": 2
+  },
+  {
+    "text": "speak to my teacher",
+    "translation": "自分の先生に話しかける",
+    "meaning": "自分の先生に話しかける（speak）",
+    "level": 2
+  },
+  {
+    "text": "talk to my friend",
+    "translation": "自分の友達に話す",
+    "meaning": "自分の友達に話す（talk to）",
+    "level": 2
+  },
+  {
+    "text": "talk with my father",
+    "translation": "自分の父と話す",
+    "meaning": "自分の父と話す（talk with）",
+    "level": 2
+  },
+  {
+    "text": "listen to music",
+    "translation": "音楽を聞く",
+    "meaning": "音楽に耳をかたむける",
+    "level": 2
+  },
+  {
+    "text": "get to school",
+    "translation": "学校に着く",
+    "meaning": "学校に着く（getで始める）",
+    "level": 2
+  },
+  {
+    "text": "get to the library",
+    "translation": "図書館に着く",
+    "meaning": "図書館に着く（getで始める）",
+    "level": 2
+  },
+  {
+    "text": "be careful",
+    "translation": "気をつける",
+    "meaning": "注意深くする・気をつける",
+    "level": 2
+  },
+  {
+    "text": "kind of tired",
+    "translation": "なんとなく少し疲れている",
+    "meaning": "ちょっと疲れている（くだけた表現）",
+    "level": 2
+  },
+  {
+    "text": "a lot",
+    "translation": "たくさん・とても",
+    "meaning": "たくさん・とても（勉強する量など）",
+    "level": 2
+  },
+  {
+    "text": "just around the corner",
+    "translation": "すぐそこの角を曲がったところに",
+    "meaning": "角を曲がってすぐの所に",
+    "level": 2
+  },
+  {
+    "text": "care for animals",
+    "translation": "動物の世話をする",
+    "meaning": "動物の世話をする（careで始める）",
+    "level": 2
+  },
+  {
+    "text": "think of my future",
+    "translation": "自分の将来について考える",
+    "meaning": "自分の将来のことを考える（of）",
+    "level": 2
+  },
+  {
+    "text": "think of my family",
+    "translation": "自分の家族のことを思う",
+    "meaning": "自分の家族のことを思う（of）",
+    "level": 2
+  },
+  {
+    "text": "have a fever today",
+    "translation": "今日は熱がある",
+    "meaning": "今日は病気で熱がある",
+    "level": 2
+  },
+  {
+    "text": "work hard at school",
+    "translation": "学校で一生懸命取り組む",
+    "meaning": "学校で一生懸命に勉強・活動する",
+    "level": 2
+  },
+  {
+    "text": "Do you want to come with us?",
+    "translation": "私たちと一緒に来ますか。",
+    "meaning": "私たちと一緒に来たいですか。",
+    "level": 3
+  },
+  {
+    "text": "Will you come to my party?",
+    "translation": "あなたは私のパーティーに来ますか？",
+    "meaning": "私のパーティーに来てくれますか？",
+    "level": 3
+  },
+  {
+    "text": "What time will the movie start?",
+    "translation": "映画は何時に始まりますか。",
+    "meaning": "映画は何時に始まりますか（will）？",
+    "level": 3
+  },
+  {
+    "text": "What will you do after school today?",
+    "translation": "今日、放課後に何をしますか？",
+    "meaning": "今日の放課後、何をしますか（will）？",
+    "level": 3
+  },
+  {
+    "text": "Shall I open the window?",
+    "translation": "窓を開けましょうか。",
+    "meaning": "私が窓を開けましょうか（申し出）。",
+    "level": 3
+  },
+  {
+    "text": "Shall we go out for dinner tomorrow?",
+    "translation": "明日、夕食を食べに行きませんか。",
+    "meaning": "明日、一緒に夕食を食べに出かけませんか（Shall we）？",
+    "level": 3
+  },
+  {
+    "text": "How often do you practice?",
+    "translation": "どのくらいの頻度で練習しますか。",
+    "meaning": "どれくらいの間隔で練習しますか（週に何回など）。",
+    "level": 3
+  },
+  {
+    "text": "How long does it take by bus?",
+    "translation": "バスでどのくらいかかりますか？",
+    "meaning": "バスでどのくらい時間がかかりますか？",
+    "level": 3
+  },
+  {
+    "text": "I know the girl in that picture.",
+    "translation": "私はあの写真の女の子を知っています。",
+    "meaning": "私はあの写真に写っている女の子を知っています。",
+    "level": 3
+  },
+  {
+    "text": "Who is the girl in the red hat?",
+    "translation": "赤い帽子の女の子はだれですか？",
+    "meaning": "赤い帽子をかぶった女の子はだれですか？",
+    "level": 3
+  },
+  {
+    "text": "Could I borrow your umbrella today?",
+    "translation": "今日あなたの傘を借りてもよいですか？",
+    "meaning": "今日あなたの傘をお借りしてもよいですか（Could I）？",
     "level": 3
   }
 ]

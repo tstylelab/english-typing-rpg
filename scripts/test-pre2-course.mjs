@@ -11,6 +11,7 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { pre2Curriculum, getPre2CurriculumLimit } = load('src/data/questionSets/eiken/pre2.ts');
 const { getQuestionGrammarPoint } = load('src/data/questionGrammarPoints.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
+const meaningCorrections = JSON.parse(fs.readFileSync(new URL('../src/data/intermediateMeaningCorrections.json', import.meta.url), 'utf8'));
 const { getQuestionExample } = load('src/data/questionExamples.ts');
 const tuning = load('src/data/pre2Balance.ts');
 const normalize = text => text.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -43,7 +44,8 @@ for (const level of [1,2,3]) {
     assert.ok(q.text && q.translation);
     assert.ok(/^[\x20-\x7e]+$/.test(q.text), q.text);
     assert.ok(!/\.\.\.|\bB\b|\bA (?:to|for|with|into)\b|～|〜/.test(q.text), 'Unexpanded placeholder: '+q.text);
-    assert.equal(getQuestionMeaning(q), q.translation, 'Legacy meaning override: '+q.text);
+    const meaningCorrection = meaningCorrections.find(c => c.course === 'EikenPre2' && c.level === level && c.text === q.text && c.translation === q.translation && (c.exampleEn ?? '') === (q.exampleEn ?? ''));
+    assert.equal(getQuestionMeaning(q, 'EikenPre2'), meaningCorrection?.meaning ?? q.translation, 'unexpected meaning: ' + q.text);
     assert.ok(q.translation.length <= (level === 1 ? 22 : 38), q.text);
     if (level < 3) assert.ok(getQuestionExample('EikenPre2',level,q)?.length >= q.text.length, q.text);
     else {

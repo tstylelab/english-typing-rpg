@@ -6,6 +6,7 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { grade2Curriculum, getGrade2CurriculumLimit } = load('src/data/questionSets/eiken/grade2.ts');
 const { getQuestionGrammarPoint } = load('src/data/questionGrammarPoints.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
+const meaningCorrections = JSON.parse(fs.readFileSync(new URL('../src/data/intermediateMeaningCorrections.json', import.meta.url), 'utf8'));
 const balance = load('src/data/grade2Balance.ts');
 const audit = JSON.parse(fs.readFileSync(new URL('../docs/grade2-source-selection.json', import.meta.url), 'utf8'));
 const norm = text => text.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -27,7 +28,8 @@ for (const level of [1, 2, 3]) {
     assert.ok(/^[\x20-\x7e]+$/.test(q.text), `non-typable answer: ${q.text}`);
     assert.ok(!/\.\.\.|～|〜|［|］|（|）|\bA\b.*\bB\b/.test(q.text), `placeholder: ${q.text}`);
     assert.ok(q.translation.length <= (level === 1 ? 22 : level === 2 ? 38 : 55), `long cue: ${q.text}`);
-    assert.equal(getQuestionMeaning(q), q.translation, `legacy meaning override: ${q.text}`);
+    const meaningCorrection = meaningCorrections.find(c => c.course === 'Eiken2' && c.level === level && c.text === q.text && c.translation === q.translation && (c.exampleEn ?? '') === (q.exampleEn ?? ''));
+    assert.equal(getQuestionMeaning(q, 'Eiken2'), meaningCorrection?.meaning ?? q.translation, 'unexpected meaning: ' + q.text);
     if (level < 3) assert.ok(q.exampleEn && q.exampleEn.length >= q.text.length, `missing example: ${q.text}`);
     else assert.deepEqual(getQuestionGrammarPoint('Eiken2', level, { text: q.text }), q.grammarPoint);
   }

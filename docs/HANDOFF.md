@@ -1,5 +1,14 @@
 # Codex作業引き継ぎ
 
+## 2026-09-24 全英検教材の和訳補足整理（デスクトップ）
+
+- 5級～1級の表示和訳を整理。最終差分は4級116、3級67、準2級73、2級152、5級18、準1級①119・②221、1級①68・②87の計921問。既存補足の半角括弧→全角括弧統一を含む。
+- 「（寝床から）起きる」「（火山が）噴火する」のように、意味の補足と訳語を区別。元の問題text/translation/例文/順序/総数、保存用キー、HP・採点・入力処理は保持。
+- questionMeaning.tsの追加補正はコース別。intermediateMeaningCorrections.json / additionalMeaningCorrections.jsonを使用し、同じ問題を共有する級への意図しない波及を防ぐ。表示変更では元translationを書き換えないこと。
+- 全変更一覧：docs/grade4-meaning-review-2026-09-24.md、docs/meaning-context-review-2026-09-24.md、docs/additional-meaning-context-review-2026-09-24.md。
+- データ・保存互換・バトル代表例・PC/スマホ表示・build検証成功。lint既存警告1/エラー0。既存3級/準2級HPテストの抽出不備などは各レビュー末尾に記載。
+- 本人のcommit/push依頼により先行作業もまとめて送信する。実行結果・コミットIDはObsidian当日セッションへ記録。1級の追加語選定・問題数拡充は本人指示で保留。
+
 ## 2026-09-24 デスクトップ再開・物理キーの二重処理修正
 
 - デスクトップmainは73e3ef3・clean、origin/mainより18コミット遅れ。fetch後に分岐なしを確認しabac86cまでff-onlyで同期。ノートPCの教材・HP・AI相談変更は保持。
