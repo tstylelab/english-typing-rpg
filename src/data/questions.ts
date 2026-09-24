@@ -2,6 +2,7 @@ import eikenGrade4Json from './questionSets/eiken/grade4.json';
 import eikenGrade3 from './questionSets/eiken/grade3';
 import eikenPre2 from './questionSets/eiken/pre2';
 import eikenGrade2 from './questionSets/eiken/grade2';
+import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
 import eikenGrade5Json from './questionSets/eiken/grade5.json';
 import eikenGradePre1Part1Json from './questionSets/eiken/gradepre1-part1.json';
 import eikenGradePre1Part2Json from './questionSets/eiken/gradepre1-part2.json';
@@ -20,7 +21,7 @@ export type Question = {
   grammarPoint?: { label: string; note: string; pattern: string };
 };
 
-export type DifficultyKey = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'Eiken2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
+export type DifficultyKey = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'Eiken2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Eiken1Part1' | 'Eiken1Part2' | 'Conversation';
 export type LevelKey = 1 | 2 | 3;
 export type QuestionSetFile = {
   category: string;
@@ -39,6 +40,8 @@ const questionSetLibrary = {
     grade2: eikenGrade2,
     gradepre1Part1: eikenGradePre1Part1Json as QuestionSetFile,
     gradepre1Part2: eikenGradePre1Part2Json as QuestionSetFile,
+    grade1Part1,
+    grade1Part2,
   },
   toeic: {},
   conversation: {
@@ -64,6 +67,8 @@ export const QUESTIONS: Record<DifficultyKey, Record<LevelKey, Question[]>> = {
   Eiken2: toLevelRecord(questionSetLibrary.eiken.grade2),
   EikenPre1Part1: toLevelRecord(questionSetLibrary.eiken.gradepre1Part1),
   EikenPre1Part2: toLevelRecord(questionSetLibrary.eiken.gradepre1Part2),
+  Eiken1Part1: toLevelRecord(questionSetLibrary.eiken.grade1Part1),
+  Eiken1Part2: toLevelRecord(questionSetLibrary.eiken.grade1Part2),
   Conversation: toLevelRecord(questionSetLibrary.conversation.beginner),
 };
 

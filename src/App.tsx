@@ -20,7 +20,7 @@ import AiStudyReviewPanel from './AiStudyReviewPanel';
 
 // --- Types & Interfaces ---
 
-type Difficulty = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'Eiken2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Conversation';
+type Difficulty = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'Eiken2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Eiken1Part1' | 'Eiken1Part2' | 'Conversation';
 type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
@@ -352,6 +352,8 @@ const DIFFICULTY_HP_MULTIPLIERS: Record<Difficulty, number> = {
   Eiken2: 1,
   EikenPre1Part1: 1.35,
   EikenPre1Part2: 1.35,
+  Eiken1Part1: 1.35,
+  Eiken1Part2: 1.35,
   Conversation: 1,
 };
 
@@ -515,6 +517,8 @@ const getBattleHp = (
 
 // Final displayed HP; Pre-1 parts 1 and 2's ordinary Level 1 battle enemies.
 const PRE1_LEVEL1_BATTLE_HP_CURVE = [500, 600, 700, 800, 900, 980, 1050, 1120, 1180, 1240, 1300, 1360, 1420, 1480, 1540, 1600, 1660, 1720, 1780];
+// Grade 1 headwords are difficult to recall; at ordinary stages, accuracy should matter more than raw typing speed.
+const GRADE1_LEVEL1_BATTLE_HP_CURVE = [420, 480, 540, 600, 660, 720, 770, 820, 860, 900, 940, 975, 1005, 1030, 1050, 1070, 1090, 1110, 1130];
 const PRE1_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
   2: [800, 860, 920, 980, 1040, 1090, 1150, 1210, 1260, 1320, 1370, 1430, 1480, 1530, 1590, 1640, 1690, 1750, 1800],
   3: [1800, 1930, 2070, 2200, 2330, 2470, 2600, 2730, 2870, 3000, 3130, 3270, 3400, 3530, 3670, 3800, 3930, 4070, 4200],
@@ -552,8 +556,10 @@ const getCourseBaseHp = (
   if (difficulty === 'Eiken4' && isEndlessChallengeInputMode(mode, inputMode)) {
     return EIKEN4_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
   }
-  if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2') && isEndlessChallengeInputMode(mode, inputMode)) {
-    const hp = (level === 1 ? PRE1_LEVEL1_BATTLE_HP_CURVE : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level])[stepIndex];
+  if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2' || difficulty === 'Eiken1Part1' || difficulty === 'Eiken1Part2') && isEndlessChallengeInputMode(mode, inputMode)) {
+    const hp = (level === 1
+      ? (difficulty === 'Eiken1Part1' || difficulty === 'Eiken1Part2' ? GRADE1_LEVEL1_BATTLE_HP_CURVE : PRE1_LEVEL1_BATTLE_HP_CURVE)
+      : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level])[stepIndex];
     // Undo the shared difficulty multiplier here so gameplay and previews agree.
     // Final/hidden bosses (indices 19+) retain their existing base HP.
     if (hp !== undefined) return hp / DIFFICULTY_HP_MULTIPLIERS[difficulty];
@@ -1840,7 +1846,8 @@ const SPEECH_VOICE_OPTIONS: { id: SpeechVoiceMode; label: string; description: s
 ];
 const NON_RANDOM_SPEECH_VOICE_MODES: Exclude<SpeechVoiceMode, 'random'>[] = ['us_female', 'us_male', 'uk_female', 'uk_male'];
 const PRE1_DIFFICULTIES: Difficulty[] = ['EikenPre1Part1', 'EikenPre1Part2'];
-const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'Eiken3', 'EikenPre2', 'Eiken2', ...PRE1_DIFFICULTIES];
+const GRADE1_DIFFICULTIES: Difficulty[] = ['Eiken1Part1', 'Eiken1Part2'];
+const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'Eiken3', 'EikenPre2', 'Eiken2', ...PRE1_DIFFICULTIES, ...GRADE1_DIFFICULTIES];
 const DIFFICULTIES: Difficulty[] = [...EIKEN_DIFFICULTIES, 'Conversation'];
 const LEGACY_PRE1_DIFFICULTY = 'EikenPre1';
 const LEVELS: Level[] = [1, 2, 3];
@@ -1852,6 +1859,8 @@ const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken2: '英検2級',
   EikenPre1Part1: '英検準1級①',
   EikenPre1Part2: '英検準1級②',
+  Eiken1Part1: '英検1級①',
+  Eiken1Part2: '英検1級②',
   Conversation: '英会話 はじめて',
 };
 const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
@@ -1862,6 +1871,8 @@ const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
   Eiken2: 'bg-indigo-600 border-indigo-400 text-white',
   EikenPre1Part1: 'bg-emerald-600 border-emerald-400 text-white',
   EikenPre1Part2: 'bg-teal-600 border-teal-400 text-white',
+  Eiken1Part1: 'bg-fuchsia-600 border-fuchsia-400 text-white',
+  Eiken1Part2: 'bg-pink-600 border-pink-400 text-white',
   Conversation: 'bg-cyan-600 border-cyan-400 text-white',
 };
 const isEikenDifficulty = (difficulty: Difficulty) => EIKEN_DIFFICULTIES.includes(difficulty);
@@ -6554,10 +6565,10 @@ export default function App() {
     const charCount = finalInput.length;
     const charsPerSec = charCount / durationSec;
     const baseDamage = charCount * 10;
-    const isGrade3LongTextLearning = (gameState.selectedDifficulty === 'Eiken3' || gameState.selectedDifficulty === 'EikenPre2' || gameState.selectedDifficulty === 'Eiken2')
+    const isHigherLevelLongTextLearning = (gameState.selectedDifficulty === 'Eiken3' || gameState.selectedDifficulty === 'EikenPre2' || gameState.selectedDifficulty === 'Eiken2' || gameState.selectedDifficulty === 'Eiken1Part1' || gameState.selectedDifficulty === 'Eiken1Part2')
       && (gameState.mode === 'guide' || (gameState.mode === 'challenge' && gameState.inputMode === 'voice-text'))
       && gameState.selectedLevel !== 1;
-    const isEikenLongTextGuide = isGrade3LongTextLearning || (
+    const isEikenLongTextGuide = isHigherLevelLongTextLearning || (
       (gameState.selectedDifficulty === 'Eiken5' || gameState.selectedDifficulty === 'Eiken4' || gameState.selectedDifficulty === 'Eiken3')
       && gameState.mode === 'guide'
       && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
@@ -6576,7 +6587,7 @@ export default function App() {
     );
     let finalDamage = Math.floor(baseDamage * speedMultiplier * damageMultiplier);
     const isEiken5LongTextLevel = gameState.selectedDifficulty === 'Eiken5' && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3);
-    const isLengthAdjustedBattle = (gameState.selectedDifficulty === 'Eiken4' || gameState.selectedDifficulty === 'EikenPre1Part1' || gameState.selectedDifficulty === 'EikenPre1Part2')
+    const isLengthAdjustedBattle = (gameState.selectedDifficulty === 'Eiken4' || gameState.selectedDifficulty === 'EikenPre1Part1' || gameState.selectedDifficulty === 'EikenPre1Part2' || gameState.selectedDifficulty === 'Eiken1Part1' || gameState.selectedDifficulty === 'Eiken1Part2')
       && gameState.selectedLevel !== 1 && isEndlessChallengeInputMode(gameState.mode, gameState.inputMode);
     const missDamageMultiplier = isLengthAdjustedBattle
       ? getLongTextBattleMissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
@@ -9623,7 +9634,11 @@ export default function App() {
           2: 'Ask & Answer / 質問・自己表現',
           3: 'Real Scenes / 場面別ミニ会話',
         }
-      : gameState.selectedDifficulty === 'Eiken2' ? {
+      : GRADE1_DIFFICULTIES.includes(gameState.selectedDifficulty) ? {
+          1: '社会・科学の重要語彙',
+          2: '慣用表現・句動詞',
+          3: '時事・意見を伝える英文',
+        } : gameState.selectedDifficulty === 'Eiken2' ? {
           1: '日常から社会へ・単語',
           2: '熟語・使える表現',
           3: '意見を伝える英文と文法',
@@ -9740,7 +9755,7 @@ export default function App() {
                   <p className="mt-2 text-2xl font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
                   <div className="mt-4 grid grid-cols-3 gap-2 text-center">
                     <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-3">
-                      <p className="text-[10px] font-black text-sky-200">{isConversationCourse ? '会話数' : '単語数'}</p>
+                      <p className="text-[10px] font-black text-sky-200">問題数</p>
                       <p className="mt-1 text-xl font-black text-white">{selectedQuestionCount}</p>
                     </div>
                     <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-3">
@@ -9779,7 +9794,7 @@ export default function App() {
                                   </span>
                                 )}
                               </div>
-                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken2' ? '準2級の次へ・語彙／熟語／意見を伝える英文' : diff === 'EikenPre2' ? '3級の次へ・語彙／熟語／会話と文法' : diff === 'Eiken3' ? '4級の次へ・単語／熟語／会話と文法' : `Level ${levelCount}段階`}</p>
+                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken1Part1' ? '準1級の次へ・社会／科学の重要語彙' : diff === 'Eiken1Part2' ? '1級①の次へ・抽象語彙と高度な表現' : diff === 'Eiken2' ? '準2級の次へ・語彙／熟語／意見を伝える英文' : diff === 'EikenPre2' ? '3級の次へ・語彙／熟語／会話と文法' : diff === 'Eiken3' ? '4級の次へ・単語／熟語／会話と文法' : `Level ${levelCount}段階`}</p>
                             </div>
                             {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
                           </div>

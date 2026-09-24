@@ -5,7 +5,7 @@ import ts from 'typescript';
 import { load } from './lib/load-typescript-data.mjs';
 const app = fs.readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
 const region = app.slice(app.indexOf('const DEFAULT_BATTLE_QUESTION_LIMIT'), app.indexOf('const getBattleStageIndices'));
-const ctx = { ...load('src/data/grade3Balance.ts'), ...load('src/data/pre2Balance.ts'), DIFFICULTY_HP_MULTIPLIERS: { Eiken5: 1, Eiken4: 1, Eiken3: 1, EikenPre2: 1, EikenPre1Part1: 1.35, EikenPre1Part2: 1.35 }, getBattleDamageMultiplier: () => 1 };
+const ctx = { ...load('src/data/grade3Balance.ts'), ...load('src/data/pre2Balance.ts'), DIFFICULTY_HP_MULTIPLIERS: { Eiken5: 1, Eiken4: 1, Eiken3: 1, EikenPre2: 1, EikenPre1Part1: 1.35, EikenPre1Part2: 1.35, Eiken1Part1: 1.35, Eiken1Part2: 1.35 }, getBattleDamageMultiplier: () => 1 };
 vm.runInNewContext(ts.transpile(region + '\nglobalThis.tune=getBattleTuning;globalThis.miss=getLongTextBattleMissMultiplier;', { target: ts.ScriptTarget.ES2022 }), ctx);
 const expected = [500,600,700,800,900,980,1050,1120,1180,1240,1300,1360,1420,1480,1540,1600,1660,1720,1780];
 const previous = [420,580,740,900,1040,1200,1260,1267,1273,1280,1287,1293,1300,1307,1313,1320,1327,1333,1340];
@@ -49,6 +49,12 @@ assert.equal(ctx.miss(2,100,10),0.75);
 assert.equal(ctx.miss(3,100,28),0.8);
 assert.equal(ctx.miss(1,1,10),0.5);
 assert.equal(ctx.miss(3,0,28),1);
+const grade1Level1 = [420,480,540,600,660,720,770,820,860,900,940,975,1005,1030,1050,1070,1090,1110,1130];
+for (const course of ['Eiken1Part1', 'Eiken1Part2']) {
+  for (const input of ['voice-only', 'text-only']) grade1Level1.forEach((hp, i) => {
+    assert.equal(ctx.tune(course, 1, 'challenge', input, i, 900, 0).monsterHp, hp);
+  });
+}
 assert.ok(app.includes('const missDamageMultiplier = isLengthAdjustedBattle'));
 for(const level of [1,2,3]) for(const input of ['voice-only','text-only']) {
   const targets=level===1?[350,560,750,930,1100,1250,1340]:level===2?[1000,1220,1430,1650,1870,2080,2300]:[1600,1970,2330,2700,3070,3430,3800];
@@ -88,4 +94,4 @@ for (const course of ['Eiken3','EikenPre2']) {
     assert.equal(ctx.tune(course,level,'challenge',input,i,2000,0).monsterHp,base(level,false,i,2000));
   }
 }
-console.log('PASS: Pre-1, Grade 4, Grade 3 and Pre-2 battle curves, unchanged bosses, training, weakness and other levels.');
+console.log('PASS: Grade 1, Pre-1, Grade 4, Grade 3 and Pre-2 battle curves, unchanged bosses, training, weakness and other levels.');
