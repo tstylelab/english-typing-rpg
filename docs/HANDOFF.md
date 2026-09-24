@@ -1,5 +1,11 @@
 # Codex作業引き継ぎ
 
+## 2026-09-24 デスクトップ再開・物理キーの二重処理修正
+
+- デスクトップmainは73e3ef3・clean、origin/mainより18コミット遅れ。fetch後に分岐なしを確認しabac86cまでff-onlyで同期。ノートPCの教材・HP・AI相談変更は保持。
+- 複数教材で1キーが複数回反応するとの報告。外部キーボードONでkeydownのcodeとkeyupのcodeが異なると、keyupフォールバックが同じ文字を再投入することをテストで再現（ap→app）。既処理の押下があれば異なるIDのkeyupも採点しない。デスクトップのkeyup単独採点を廃止し、Androidの未処理keyupフォールバックは保持。文字キーのrepeat/重複keydownも無視。
+- 新test-physical-input-regression.mjsでPC設定ON/OFF、Android相当、通常英字、IME/全角キー情報、異なるkeyup ID、押しっぱなしと通常入力を確認。合成イベント検証でありWindows IME実機・ユーザー環境のイベント列は未確認。本人症状との同一性を断定しない。学習データ・出題内容・HP変更なし。
+
 ## 2026-09-24 英検1級①・② 初期コース追加（別PC引き継ぎ）
 
 - 正式チェックアウト `english-typing-rpg-tstylelab` のmainで開始し、開始時はclean・origin/mainと一致。作業中のfetch後もorigin/mainとの差分なし。旧チェックアウトには触れていない。

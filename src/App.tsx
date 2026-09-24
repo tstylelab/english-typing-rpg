@@ -6911,6 +6911,15 @@ export default function App() {
       const keyId = event.code || event.key;
       if (phase === 'up') {
         if (handledPhysicalKeyIdsRef.current.delete(keyId)) return;
+        // Some IMEs omit/change code on keyup. A release must not replay an
+        // already consumed press, even when its identifier no longer matches.
+        if (handledPhysicalKeyIdsRef.current.size > 0) {
+          handledPhysicalKeyIdsRef.current.clear();
+          return;
+        }
+        // Keyup-only input is a fallback for Android hardware keyboards, not
+        // another input source on desktop (including after window blur).
+        if (!androidTablet) return;
         if (!externalKeyboardMode && !(gameState.screen === 'battle' && showBattleKeyboardGuide)) return;
       } else if (event.defaultPrevented && !externalKeyboardMode) {
         return;
@@ -6957,6 +6966,7 @@ export default function App() {
       const character = getPhysicalTypingCharacter(event, targetText[currentValue.length] ?? '');
       if (character === null) return;
       event.preventDefault();
+      if (phase === 'down' && (event.repeat || handledPhysicalKeyIdsRef.current.has(keyId))) return;
       updateValue(currentValue + character);
       if (phase === 'down') handledPhysicalKeyIdsRef.current.add(keyId);
     };
