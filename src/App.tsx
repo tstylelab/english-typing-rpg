@@ -444,17 +444,17 @@ const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
   mode === 'challenge' && (inputMode === 'voice-only' || inputMode === 'text-only')
 );
 
-// Grade 5 sentences reward completing the sentence, not its random length.
+// Eiken sentences reward completion; longer answers allow proportionally more typos.
 // Final displayed HP, including the final boss and three hidden bosses.
 const EIKEN5_SENTENCE_BATTLE_HP = [600, 650, 700, 730, 760, 790, 820, 850, 880, 900, 920, 930, 940, 950, 960, 970, 980, 990, 1000, 1650, 2000, 2350, 2680];
-const isEiken5SentenceBattle = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode) => (
-  difficulty === 'Eiken5' && level === 3 && isEndlessChallengeInputMode(mode, inputMode)
+const isEikenSentenceBattle = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode) => (
+  difficulty.startsWith('Eiken') && level === 3 && isEndlessChallengeInputMode(mode, inputMode)
 );
 const getEiken5SentenceSpeedMultiplier = (charsPerSec: number) => (
   1 + Math.min(0.3, Math.max(0, (charsPerSec - 1) * 0.1))
 );
-const getEiken5SentenceDamage = (misses: number, speedMultiplier: number) => (
-  Math.floor(Math.max(40, 200 - 10 * Math.max(0, misses)) * speedMultiplier + 1e-9)
+const getEikenSentenceDamage = (misses: number, speedMultiplier: number, length: number) => (
+  Math.floor(Math.max(40, 200 - 10 * Math.max(0, misses) * 20 / Math.max(20, length)) * speedMultiplier + 1e-9)
 );
 
 const getBossStage = (
@@ -598,7 +598,8 @@ const getBattleTuning = (
   bossStage: BossStage
 ) => {
   const courseBaseHp = getCourseBaseHp(difficulty, level, mode, inputMode, stepIndex, baseHp);
-  const sentenceBattleHp = isEiken5SentenceBattle(difficulty, level, mode, inputMode)
+  const sentenceBattle = isEikenSentenceBattle(difficulty, level, mode, inputMode);
+  const sentenceBattleHp = sentenceBattle
     ? EIKEN5_SENTENCE_BATTLE_HP[stepIndex]
     : undefined;
   const monsterHp = sentenceBattleHp ?? getBattleHp(difficulty, level, courseBaseHp, bossStage);
@@ -606,7 +607,7 @@ const getBattleTuning = (
   return {
     monsterHp,
     damageMultiplier: getBattleDamageMultiplier(mode, inputMode),
-    maxQuestions: getBattleQuestionLimit(difficulty, level, mode, bossStage),
+    maxQuestions: sentenceBattle ? [6, 10, 12, 14, 16][bossStage] : getBattleQuestionLimit(difficulty, level, mode, bossStage),
   };
 };
 
@@ -6591,7 +6592,7 @@ export default function App() {
       && gameState.mode === 'guide'
       && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
     );
-    const isSentenceBattle = isEiken5SentenceBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
+    const isSentenceBattle = isEikenSentenceBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
     const speedMultiplier = isSentenceBattle
       ? getEiken5SentenceSpeedMultiplier(charsPerSec)
       : isEikenLongTextGuide
@@ -6633,7 +6634,8 @@ export default function App() {
                 : 0.7;
     if (isSentenceBattle) {
       // Apply the new miss penalty exactly once; do not reapply legacy boss floors.
-      finalDamage = getEiken5SentenceDamage(gameState.missCount, speedMultiplier);
+      // Preserve the already released Grade 5 trial; scale other grades by actual answer length.
+      finalDamage = getEikenSentenceDamage(gameState.missCount, speedMultiplier, gameState.selectedDifficulty === 'Eiken5' ? 20 : charCount);
     } else if (isEikenLongTextGuide) {
       // 通常モンスターは、10問中5問程度の小さなケアレスミスで詰まらない余白を持たせる。
       // ラスボスは20問中、各文で1回程度の修正なら倒せるが、繰り返しのミスでは届かない。

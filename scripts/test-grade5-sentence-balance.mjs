@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { load } from './lib/load-typescript-data.mjs';
 const app = fs.readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
-const before = execFileSync('git', ['show', '24d178f:src/App.tsx'], { encoding: 'utf8' });
+const before = execFileSync('git', ['show', '21e0599:src/App.tsx'], { encoding: 'utf8' });
 const { QUESTIONS } = load('src/data/questions.ts');
 function evaluate(source) {
   const file = ts.createSourceFile('App.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
@@ -21,16 +21,18 @@ const current = evaluate(app), previous = evaluate(before);
 const hp = [600,650,700,730,760,790,820,850,880,900,920,930,940,950,960,970,980,990,1000,1650,2000,2350,2680];
 const state = (course, level, mode, input, stage, length, speed, misses, maxHp) => ({ selectedDifficulty: course, selectedLevel: level, mode, inputMode: input, bossStage: stage, missCount: misses, startTime: 1000000 - length / speed * 1000, maxMonsterHp: maxHp, maxQuestions: stage ? [0,10,12,14,16][stage] : 6 });
 let checks = 0;
-for (const input of ['text-only', 'voice-only']) for (let i=0;i<23;i++) {
+for (const course of Object.keys(QUESTIONS).filter(course => course.startsWith('Eiken'))) for (const input of ['text-only', 'voice-only']) for (let i=0;i<23;i++) {
   const boss = i < 19 ? 0 : i - 18;
-  const tuning = current.tune('Eiken5',3,'challenge',input,i,4900,boss);
+  const tuning = current.tune(course,3,'challenge',input,i,4900,boss);
   assert.equal(tuning.monsterHp,hp[i]);
   assert.equal(tuning.maxQuestions,boss ? [0,10,12,14,16][boss] : 6);
-  for (const q of QUESTIONS.Eiken5[3]) for (const speed of [.25,.5,1,2,3,4,8]) for (const misses of [0,1,2,3,4,5,20]) {
-    const s = state('Eiken5',3,'challenge',input,boss,q.text.length,speed,misses,hp[i]);
+  for (const q of QUESTIONS[course][3]) for (const speed of [.25,.5,1,2,3,4,8]) for (const misses of [0,1,2,3,4,5,20]) {
+    const s = state(course,3,'challenge',input,boss,q.text.length,speed,misses,hp[i]);
     const actual = current.damage(s,q.text);
-    const expected = Math.floor(Math.max(40,200-10*misses)*(1+Math.min(.3,Math.max(0,(speed-1)*.1)))+1e-9);
+    const length = course === 'Eiken5' ? 20 : Math.max(20,q.text.length);
+    const expected = Math.floor(Math.max(40,200-200*misses/length)*(1+Math.min(.3,Math.max(0,(speed-1)*.1)))+1e-9);
     assert.equal(actual,expected);
+    if(course==='Eiken5') assert.equal(actual,previous.damage(s,q.text));
     if (misses<=3) assert.ok(actual*tuning.maxQuestions>=hp[i]);
     checks++;
   }
@@ -38,7 +40,7 @@ for (const input of ['text-only', 'voice-only']) for (let i=0;i<23;i++) {
 // Same actual damage body and HP tuning on every out-of-scope course/level/mode.
 let regression = 0;
 for (const course of Object.keys(QUESTIONS)) for (const level of [1,2,3]) for (const mode of ['guide','challenge','weakness']) for (const input of ['voice-text','voice-only','text-only']) {
-  if(course==='Eiken5' && level===3 && mode==='challenge' && input!=='voice-text') continue;
+  if(course.startsWith('Eiken') && level===3 && mode==='challenge' && input!=='voice-text') continue;
   for(let i=0;i<23;i++) {
     const boss=i<19?0:i-18;
     assert.equal(JSON.stringify(current.tune(course,level,mode,input,i,4900,boss)),JSON.stringify(previous.tune(course,level,mode,input,i,4900,boss)));
@@ -53,4 +55,16 @@ assert.ok(app.includes('return getBattleTuning(bookDifficulty, bookLevel'));
 assert.ok(app.includes('const nextBattleHp = nextBattleMonster\n      ? getBattleTuning(') || app.includes('const nextBattleHp = nextBattleMonster\r\n      ? getBattleTuning('));
 assert.equal(170*6,1020);
 assert.ok(170*5<hp[18]);
+for(const length of [10,20,30,40,50,60,64]) {
+  const misses=Math.floor(Math.max(20,length)*0.15);
+  for(let i=0;i<23;i++) {
+    const boss=i<19?0:i-18;
+    const s=state('Eiken1Part1',3,'challenge','text-only',boss,length,.5,misses,hp[i]);
+    assert.ok(current.damage(s,'a'.repeat(length))*s.maxQuestions>=hp[i]);
+  }
+}
+for(const [length,misses,expected] of [[20,3,170],[40,6,170],[60,9,170],[20,4,160],[40,8,160],[60,12,160],[60,100,40]]) {
+  const s=state('Eiken1Part1',3,'challenge','text-only',0,length,.5,misses,1000);
+  assert.equal(current.damage(s,'a'.repeat(length)),expected);
+}
 console.log(`PASS ${checks} scoped damage cases; ${regression} out-of-scope damage cases; all 23 HP/limits and preview routing.`);

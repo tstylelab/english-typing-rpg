@@ -20,7 +20,8 @@ for (const input of ['voice-only','text-only']) {
     }
   });
   [3618,5427,7236,9045].forEach((hp,i) => assert.equal(ctx.tune(course,1,'challenge',input,19+i,1340,i+1).monsterHp,hp));
-  for (const level of [2,3]) {
+  // Level 3 is now covered by test-grade5-sentence-balance.mjs for all Eiken courses.
+  for (const level of [2]) {
     const targets = level === 2 ? [800,980,1150,1320,1480,1640,1800] : [1800,2200,2600,3000,3400,3800,4200];
     let last=0;
     for(let i=0;i<19;i++) {
@@ -56,7 +57,7 @@ for (const course of ['Eiken1Part1', 'Eiken1Part2']) {
   });
 }
 assert.ok(app.includes('const missDamageMultiplier = isLengthAdjustedBattle'));
-for(const level of [1,2,3]) for(const input of ['voice-only','text-only']) {
+for(const level of [1,2]) for(const input of ['voice-only','text-only']) {
   const targets=level===1?[350,560,750,930,1100,1250,1340]:level===2?[1000,1220,1430,1650,1870,2080,2300]:[1600,1970,2330,2700,3070,3430,3800];
   let last=0;
   for(let i=0;i<19;i++) {
@@ -89,7 +90,7 @@ for (const course of ['Eiken3','EikenPre2']) {
   for(const mode of ['guide','challenge']) for(let i=0;i<20;i++) {
     assert.equal(ctx.tune(course,1,mode,'voice-text',i,230,0).monsterHp,230);
   }
-  for(const level of [2,3]) for(const input of ['voice-only','text-only']) for(let i=0;i<19;i++) {
+  for(const level of [2]) for(const input of ['voice-only','text-only']) for(let i=0;i<19;i++) {
     const base=course==='Eiken3'?ctx.getGrade3BaseHp:ctx.getPre2BaseHp;
     assert.equal(ctx.tune(course,level,'challenge',input,i,2000,0).monsterHp,base(level,false,i,2000));
   }
