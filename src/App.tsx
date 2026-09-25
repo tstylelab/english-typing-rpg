@@ -444,6 +444,19 @@ const isEndlessChallengeInputMode = (mode: Mode, inputMode: InputMode) => (
   mode === 'challenge' && (inputMode === 'voice-only' || inputMode === 'text-only')
 );
 
+// Grade 5 sentences reward completing the sentence, not its random length.
+// Final displayed HP, including the final boss and three hidden bosses.
+const EIKEN5_SENTENCE_BATTLE_HP = [600, 650, 700, 730, 760, 790, 820, 850, 880, 900, 920, 930, 940, 950, 960, 970, 980, 990, 1000, 1650, 2000, 2350, 2680];
+const isEiken5SentenceBattle = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode) => (
+  difficulty === 'Eiken5' && level === 3 && isEndlessChallengeInputMode(mode, inputMode)
+);
+const getEiken5SentenceSpeedMultiplier = (charsPerSec: number) => (
+  1 + Math.min(0.3, Math.max(0, (charsPerSec - 1) * 0.1))
+);
+const getEiken5SentenceDamage = (misses: number, speedMultiplier: number) => (
+  Math.floor(Math.max(40, 200 - 10 * Math.max(0, misses)) * speedMultiplier + 1e-9)
+);
+
 const getBossStage = (
   mode: Mode,
   inputMode: InputMode,
@@ -585,7 +598,10 @@ const getBattleTuning = (
   bossStage: BossStage
 ) => {
   const courseBaseHp = getCourseBaseHp(difficulty, level, mode, inputMode, stepIndex, baseHp);
-  const monsterHp = getBattleHp(difficulty, level, courseBaseHp, bossStage);
+  const sentenceBattleHp = isEiken5SentenceBattle(difficulty, level, mode, inputMode)
+    ? EIKEN5_SENTENCE_BATTLE_HP[stepIndex]
+    : undefined;
+  const monsterHp = sentenceBattleHp ?? getBattleHp(difficulty, level, courseBaseHp, bossStage);
 
   return {
     monsterHp,
@@ -6575,7 +6591,10 @@ export default function App() {
       && gameState.mode === 'guide'
       && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
     );
-    const speedMultiplier = isEikenLongTextGuide
+    const isSentenceBattle = isEiken5SentenceBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
+    const speedMultiplier = isSentenceBattle
+      ? getEiken5SentenceSpeedMultiplier(charsPerSec)
+      : isEikenLongTextGuide
       ? getEikenLongTextGuideSpeedMultiplier(charsPerSec)
       : getSpeedMultiplier(charsPerSec);
     const damageMultiplier = isEikenLongTextGuide
@@ -6612,7 +6631,10 @@ export default function App() {
               : gameState.missCount === 3
                 ? 0.8
                 : 0.7;
-    if (isEikenLongTextGuide) {
+    if (isSentenceBattle) {
+      // Apply the new miss penalty exactly once; do not reapply legacy boss floors.
+      finalDamage = getEiken5SentenceDamage(gameState.missCount, speedMultiplier);
+    } else if (isEikenLongTextGuide) {
       // 通常モンスターは、10問中5問程度の小さなケアレスミスで詰まらない余白を持たせる。
       // ラスボスは20問中、各文で1回程度の修正なら倒せるが、繰り返しのミスでは届かない。
       const requiredProgressQuestions = gameState.bossStage === 0
@@ -7381,8 +7403,7 @@ export default function App() {
       inputMode: InputMode
     ) => {
       const bossStage = getBossStage(mode, inputMode, monsterIndex, monsters.length);
-      const courseBaseHp = getCourseBaseHp(bookDifficulty, bookLevel, mode, inputMode, monsterIndex, monster.baseHp);
-      return getBattleHp(bookDifficulty, bookLevel, courseBaseHp, bossStage);
+      return getBattleTuning(bookDifficulty, bookLevel, mode, inputMode, monsterIndex, monster.baseHp, bossStage).monsterHp;
     };
     const totalDefeated = guideDefeatedCount + challengeDefeatedCount;
     return (
@@ -9125,12 +9146,15 @@ export default function App() {
     const nextBattleMonster = nextBattleList[nextBattleMonsterIndex] ?? nextBattleList[0];
     const nextBattleBossStage = getBossStage(nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleIndices.length);
     const nextBattleHp = nextBattleMonster
-      ? getBattleHp(
+      ? getBattleTuning(
           gameState.selectedDifficulty,
           gameState.selectedLevel,
-          getCourseBaseHp(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleMonster.baseHp),
+          nextBattleMode,
+          nextBattleInputMode,
+          nextBattleDisplayStep,
+          nextBattleMonster.baseHp,
           nextBattleBossStage
-        )
+        ).monsterHp
       : 0;
     const nextBattleProgress = nextBattleStep >= 0 ? nextBattleStep : nextBattleIndices.length;
     const nextBattleIsComplete = nextBattleStep < 0;
