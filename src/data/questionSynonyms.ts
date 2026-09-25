@@ -1,6 +1,16 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
+import supplementalSynonyms from './supplementalQuestionSynonyms.json';
 
-type QuestionLike = Pick<Question, 'text' | 'synonyms'>;
+type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms'>;
+
+// Match the course and original sense, not just the spelling. Keep progress keys
+// and source questions unchanged; these are optional display-only learning aids.
+const getSenseKey = (difficulty: string, level: number, question: Pick<QuestionLike, 'text' | 'translation'>) => (
+  JSON.stringify([difficulty, level, question.text, question.translation])
+);
+const supplementalSynonymIndex = new Map(
+  supplementalSynonyms.map(row => [getSenseKey(row.difficulty, row.level, row), row.synonyms]),
+);
 
 const EMPTY_SYNONYMS: string[] = [];
 const questionSynonymCache = new Map<string, string[]>();
@@ -19,6 +29,7 @@ const getSynonymCacheKey = (
   difficulty,
   level,
   question.text,
+  question.translation,
   question.synonyms?.join('\u0001') ?? '',
 ].join('\u0000');
 
@@ -2426,6 +2437,13 @@ export const getQuestionSynonyms = (
 
   if (question.synonyms && question.synonyms.length > 0) {
     result = limitSynonyms(question.synonyms);
+    questionSynonymCache.set(cacheKey, result);
+    return result;
+  }
+
+  const supplemental = supplementalSynonymIndex.get(getSenseKey(difficulty, level, question));
+  if (supplemental) {
+    result = limitSynonyms(supplemental);
     questionSynonymCache.set(cacheKey, result);
     return result;
   }
