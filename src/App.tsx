@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
+import { grade4PhraseChanges, migrateGrade4Phrase, migrateGrade4PhraseKey } from './data/grade4PhraseCores';
+import { getNextLongTextLearningState } from './learningProgress';
+import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
@@ -105,6 +108,7 @@ type MonsterVisualStyle = {
 };
 
 interface Question {
+  grade4CoreMigrated?: boolean;
   text: string;
   translation: string;
   basicMeaning?: string;
@@ -138,6 +142,9 @@ type LearningStatusChange = {
 };
 
 type ManualQuestionStatus = {
+  longTextSuccessCount?: number;
+  longTextSpacingRemaining?: number;
+  longTextLastSuccessAt?: number;
   practiceLevel: LearningLevel;
   listeningLevel: LearningLevel;
   battleLevel: LearningLevel;
@@ -2717,6 +2724,9 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
     Object.entries(typeof statuses === 'object' && statuses !== null ? statuses : {}).map(([key, value]) => [
       key,
       withDerivedLearningLevel({
+        longTextSuccessCount: Math.min(2, Math.max(0, Math.floor(Number(value?.longTextSuccessCount) || 0))),
+        longTextSpacingRemaining: Math.min(5, Math.max(0, Math.floor(Number(value?.longTextSpacingRemaining) || 0))),
+        longTextLastSuccessAt: Number.isFinite(value?.longTextLastSuccessAt) ? Math.max(0, Number(value.longTextLastSuccessAt)) : 0,
         practiceLevel: LEARNING_LEVELS.includes(value?.practiceLevel as LearningLevel)
           ? value.practiceLevel as LearningLevel
           : LEARNING_LEVELS.includes(value?.learningLevel as LearningLevel)
@@ -2743,6 +2753,19 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
       if (normalized[legacyKey] && !normalized[nextKey]) {
         normalized[nextKey] = normalized[legacyKey];
       }
+    }
+
+    const migrated = new Map<string, ManualQuestionStatus[]>();
+    for (const [key, status] of Object.entries(normalized)) {
+      const nextKey = migrateGrade4PhraseKey(key);
+      if (key !== nextKey && !normalized[nextKey]) migrated.set(nextKey, [...(migrated.get(nextKey) ?? []), status]);
+    }
+    for (const [key, statuses] of migrated) {
+      const latest = statuses.reduce((a,b) => a.updatedAt >= b.updatedAt ? a : b);
+      normalized[key] = withDerivedLearningLevel({ ...latest,
+        listeningLevel: Math.max(...statuses.map(s => s.listeningLevel)) as LearningLevel,
+        battleLevel: Math.max(...statuses.map(s => s.battleLevel)) as LearningLevel,
+      });
     }
 
     return normalized;
@@ -2776,7 +2799,7 @@ const normalizeSelectedQuestionKeysByScope = (value: unknown) => {
     Object.entries(typeof value === 'object' && value !== null ? value : {}).map(([key, item]) => [
       key,
       Array.isArray(item)
-        ? item.filter((entry): entry is string => typeof entry === 'string')
+        ? Array.from(new Set(item.filter((entry): entry is string => typeof entry === 'string').map(migrateGrade4PhraseKey)))
         : [],
     ])
   ) as Record<string, string[]>;
@@ -2806,7 +2829,7 @@ const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => {
       const id = typeof typedItem.id === 'string' && typedItem.id.length > 0 ? typedItem.id : `${difficulty}:${level}:${Date.now()}`;
       const name = typeof typedItem.name === 'string' && typedItem.name.trim().length > 0 ? typedItem.name.trim() : '保存リスト';
       const questionKeys = Array.isArray(typedItem.questionKeys)
-        ? typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string')
+        ? Array.from(new Set(typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string').map(migrateGrade4PhraseKey)))
         : [];
       const updatedAt = Number.isFinite(typedItem.updatedAt) ? Number(typedItem.updatedAt) : 0;
 
@@ -2885,8 +2908,8 @@ const withDerivedLearningLevel = (status: ManualQuestionStatus): ManualQuestionS
   learningLevel: getEffectiveLearningLevel(status),
 });
 
-const normalizeWeakQuestionStats = (stats: Record<string, WeakQuestionStat>) => (
-  Object.fromEntries(
+const normalizeWeakQuestionStats = (stats: Record<string, WeakQuestionStat>) => {
+  const normalized = Object.fromEntries(
     Object.entries(stats).map(([key, value]) => [
       key,
       {
@@ -2895,10 +2918,22 @@ const normalizeWeakQuestionStats = (stats: Record<string, WeakQuestionStat>) => 
         consecutiveCorrect: Number.isFinite(value?.consecutiveCorrect) ? value.consecutiveCorrect : 0,
       },
     ])
-  ) as Record<string, WeakQuestionStat>
-);
+  ) as Record<string, WeakQuestionStat>;
+  const targets = new Set(grade4PhraseChanges.map(c => c.after.text));
+  for (const target of targets) {
+    if (normalized[target]) continue;
+    const sources = grade4PhraseChanges.filter(c => c.after.text === target).map(c => normalized[c.before.text]).filter(Boolean);
+    if (sources.length) normalized[target] = {
+      missCount: sources.reduce((sum,s) => sum+s.missCount,0),
+      lastMissedAt: Math.max(...sources.map(s => s.lastMissedAt)),
+      consecutiveCorrect: Math.max(...sources.map(s => s.consecutiveCorrect)),
+    };
+  }
+  return normalized;
+};
 
-const normalizeReviewQueue = (entries: ReviewQueueEntry[] | unknown) => (
+const normalizeReviewQueue = (entries: ReviewQueueEntry[] | unknown) => {
+  const normalized = (
   (Array.isArray(entries) ? entries : [])
     .map(entry => {
       if (!entry?.question?.text || !entry?.question?.translation) return null;
@@ -2913,13 +2948,21 @@ const normalizeReviewQueue = (entries: ReviewQueueEntry[] | unknown) => (
       return {
         difficulty: resolvedScope.difficulty,
         level: resolvedScope.level,
-        question: entry.question,
+        question: resolvedScope.difficulty === 'Eiken4' && resolvedScope.level === 2 ? migrateGrade4Phrase(entry.question) : entry.question,
         remainingQuestions: Number.isFinite(entry.remainingQuestions) ? Math.max(0, entry.remainingQuestions) : 0,
         missCount: Number.isFinite(entry.missCount) ? Math.max(1, entry.missCount) : 1,
       };
     })
     .filter((entry): entry is ReviewQueueEntry => entry !== null)
-);
+  );
+  const unique = new Map<string, ReviewQueueEntry>();
+  for (const entry of normalized) {
+    const key = getQuestionStatusKey(entry.difficulty, entry.level, entry.question);
+    const previous = unique.get(key);
+    unique.set(key, previous ? { ...entry, missCount: Math.max(previous.missCount, entry.missCount), remainingQuestions: Math.max(previous.remainingQuestions, entry.remainingQuestions) } : entry);
+  }
+  return [...unique.values()];
+};
 
 const normalizeDailyProgress = (value: unknown): DailyProgress => {
   const todayKey = getTodayKey();
@@ -2962,7 +3005,8 @@ const normalizeDailyActivityHistory = (
   return normalized;
 };
 
-const normalizeQuestionArray = (value: unknown): Question[] => (
+const normalizeQuestionArray = (value: unknown): Question[] => {
+  const entries = (
   Array.isArray(value)
     ? value.flatMap((item) => {
       if (!item || typeof item !== 'object') return [];
@@ -2972,6 +3016,7 @@ const normalizeQuestionArray = (value: unknown): Question[] => (
       const nextQuestion: Question = {
         text: typedItem.text,
         translation: typedItem.translation,
+        ...(typedItem.grade4CoreMigrated ? { grade4CoreMigrated: true } : {}),
       };
 
       if (typeof typedItem.basicMeaning === 'string' && typedItem.basicMeaning.trim()) {
@@ -2994,10 +3039,16 @@ const normalizeQuestionArray = (value: unknown): Question[] => (
         }
       }
 
-      return [nextQuestion];
+      // Legacy weak lists are not course-scoped: retain the old entry for other
+      // courses, and add the new Grade 4 core without rewriting their history.
+      const migrated = migrateGrade4Phrase(nextQuestion);
+      return migrated === nextQuestion || nextQuestion.grade4CoreMigrated
+        ? [nextQuestion] : [{ ...nextQuestion, grade4CoreMigrated: true }, migrated];
     })
     : []
-);
+  );
+  return Array.from(new Map(entries.map(q => [JSON.stringify([q.text, q.translation]), q])).values());
+};
 
 const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
   const typedValue = typeof value === 'object' && value !== null ? value as Partial<PlayerProfileData> : {};
@@ -4091,6 +4142,7 @@ export default function App() {
   const reviewQueueRef = useRef<ReviewQueueEntry[]>([]);
   const activeReviewEntryRef = useRef<ReviewQueueEntry | null>(null);
   const recentReviewAppearanceRef = useRef<boolean[]>([]);
+  const recentLongTextQuestionsRef = useRef<Record<string, string[]>>({});
   const shownBossIntroKeyRef = useRef<string | null>(null);
   const pendingBattleEndTimeoutRef = useRef<number | null>(null);
   const profilesReadyRef = useRef(false);
@@ -4809,12 +4861,14 @@ export default function App() {
   ): LearningStatusChange | null => {
     const track = getAutoLearningTrack(mode, inputMode);
     if (!track) return null;
-    const outcome: AutomaticLearningOutcome = track === 'battle' && EIKEN_DIFFICULTIES.includes(difficulty)
+    const outcome: AutomaticLearningOutcome = EIKEN_DIFFICULTIES.includes(difficulty) && (track === 'battle' || level !== 1)
       ? getBattleLearningOutcome(level, missCount, characterCount)
       : missCount === 0 ? 'success' : 'struggle';
 
     const current = getManualQuestionStatus(difficulty, level, question);
-    const nextAutomaticState = getNextAutomaticLearningState(current, track, outcome);
+    const nextAutomaticState = EIKEN_DIFFICULTIES.includes(difficulty) && level !== 1
+      ? getNextLongTextLearningState(current, track, outcome, getScopedPlayableQuestions(difficulty, level).length < 6)
+      : getNextAutomaticLearningState(current, track, outcome);
     if (nextAutomaticState === current) return null;
     const nextStatus = { ...current, ...nextAutomaticState };
 
@@ -5855,12 +5909,13 @@ export default function App() {
   };
 
   const getReviewDelay = (missCount: number) => {
+    if (EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1) return 10;
     if (missCount <= 1) return REVIEW_REAPPEAR_DELAY;
     if (missCount === 2) return 4;
     return 3;
   };
 
-  const recordWeakQuestionStats = (questionsToRecord: Question[]) => {
+  const recordWeakQuestionStats = (questionsToRecord: Question[], resetSuccessStreak = true) => {
       if (questionsToRecord.length === 0) return;
       const timestamp = Date.now();
       setWeakQuestionStats(prev => {
@@ -5870,7 +5925,7 @@ export default function App() {
           nextStats[question.text] = {
             missCount: current.missCount + 1,
             lastMissedAt: timestamp,
-            consecutiveCorrect: 0,
+            consecutiveCorrect: resetSuccessStreak ? 0 : current.consecutiveCorrect,
           };
         });
         localStorage.setItem(STORAGE_KEYS.weakQuestionStats, JSON.stringify(nextStats));
@@ -5985,7 +6040,18 @@ export default function App() {
           if (result === 'win' && playWinSound) soundEngine.playClear();
           else soundEngine.playFail();
       }
-      saveWeakQuestions(missedQs);
+      if (EIKEN_DIFFICULTIES.includes(diff) && level !== 1 && finalBattleLog) {
+        const needsReview = missedQs.filter(q => {
+          const last = [...finalBattleLog].reverse().find(log => log.question.text === q.text);
+          return last && (last.skipped || getBattleLearningOutcome(level, last.missCount, q.text.length) === 'struggle');
+        });
+        saveWeakQuestions(needsReview);
+        // Keep the mistake ranking honest without making small typing errors
+        // reset a successful review or re-add the phrase to the weak list.
+        recordWeakQuestionStats(missedQs.filter(q => !needsReview.some(item => item.text === q.text)), false);
+      } else {
+        saveWeakQuestions(missedQs);
+      }
       setGameState(prev => ({
         ...prev,
         screen: 'result',
@@ -6369,16 +6435,17 @@ export default function App() {
     persistReviewQueue();
   };
 
-  const getDueReviewQuestion = (diff: Difficulty, level: Level, currentQ: Question | null): ReviewQueueEntry | null => {
+  const getDueReviewQuestion = (diff: Difficulty, level: Level, currentQ: Question | null, eligible?: Question[]): ReviewQueueEntry | null => {
     const reviewScopeKey = getReviewScopeKey(diff, level);
     for (let index = 0; index < reviewQueueRef.current.length; index += 1) {
       const entry = reviewQueueRef.current[index];
       if (getReviewScopeKey(entry.difficulty, entry.level) !== reviewScopeKey) continue;
       if (entry.remainingQuestions > 0) continue;
+      if (eligible && !eligible.some(q => q.text === entry.question.text && q.translation === entry.question.translation)) continue;
       if (isQuestionExcluded(entry.difficulty, entry.level, entry.question)) {
         reviewQueueRef.current.splice(index, 1);
         persistReviewQueue();
-        return getDueReviewQuestion(diff, level, currentQ);
+        return getDueReviewQuestion(diff, level, currentQ, eligible);
       }
       if (currentQ && entry.question.text === currentQ.text && entry.question.translation === currentQ.translation) continue;
 
@@ -6393,7 +6460,8 @@ export default function App() {
   const canServeReviewQuestion = () => {
     const nextWindow = [...recentReviewAppearanceRef.current.slice(-(REVIEW_RATE_WINDOW_SIZE - 1)), true];
     const reviewCount = nextWindow.filter(Boolean).length;
-    return reviewCount <= REVIEW_RATE_MAX_IN_WINDOW;
+    const longText = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1;
+    return reviewCount <= (longText ? 1 : REVIEW_RATE_MAX_IN_WINDOW);
   };
 
   const recordRecentQuestionSource = (wasReviewQuestion: boolean) => {
@@ -6413,7 +6481,12 @@ export default function App() {
     justUpdatedLevel?: LearningLevel,
   ): Question => {
     const playableQuestions = getScopedPlayableQuestions(diff, level);
-    const eligibleQuestions = getEligibleBattleQuestions(diff, level, stageIndex, mode, playableQuestions, inputMode);
+    const initialEligible = getEligibleBattleQuestions(diff, level, stageIndex, mode, playableQuestions, inputMode);
+    const recentScope = JSON.stringify([activePlayerId, diff, level]);
+    const longText = EIKEN_DIFFICULTIES.includes(diff) && level !== 1;
+    const eligibleQuestions = longText
+      ? spaceLongTextQuestions(initialEligible, recentLongTextQuestionsRef.current[recentScope] ?? [], q => getQuestionStatusKey(diff, level, q))
+      : initialEligible;
     const scopeKey = JSON.stringify([activePlayerId, diff, level, mode, inputMode]);
     const state = learningQuestionBalanceRef.current[scopeKey]
       ?? (learningQuestionBalanceRef.current[scopeKey] = createLearningQuestionBalance());
@@ -6431,7 +6504,7 @@ export default function App() {
         : getEffectiveLearningLevel(getManualQuestionStatus(diff, level, question)),
       currentKey,
       chooseDefault: () => {
-        const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ) : null;
+        const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ, eligibleQuestions) : null;
         activeReviewEntryRef.current = reviewEntry;
         return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions);
       },
@@ -6448,6 +6521,30 @@ export default function App() {
     aiStudyRecorder.finish(skipped, gameState.missCount);
     recordDailyActivity(skipped);
     decrementReviewQueueTimers();
+    const isLongText = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1;
+    const learningOutcome = getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
+    const completedSuccessfully = !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
+    if (isLongText) {
+      const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
+      const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
+      recentLongTextQuestionsRef.current[scope] = [...(recentLongTextQuestionsRef.current[scope] ?? []).slice(-5), key];
+      if (!skipped) setManualQuestionStatuses(prev => {
+        const prefix = `${gameState.selectedDifficulty}:${gameState.selectedLevel}:`;
+        const next = { ...prev };
+        for (const [otherKey, status] of Object.entries(prev)) {
+          if (otherKey !== key && otherKey.startsWith(prefix) && (status.longTextSpacingRemaining ?? 0) > 0) {
+            next[otherKey] = { ...status, longTextSpacingRemaining: status.longTextSpacingRemaining! - 1 };
+          }
+        }
+        persistManualQuestionStatuses(next);
+        return next;
+      });
+      // A completed answer with small errors should not stay in an old urgent queue.
+      if (!skipped && learningOutcome !== 'struggle') {
+        reviewQueueRef.current = reviewQueueRef.current.filter(entry => !(entry.difficulty === gameState.selectedDifficulty && entry.level === gameState.selectedLevel && entry.question.text === gameState.currentQuestion.text));
+        persistReviewQueue();
+      }
+    }
 
     const nextHp = skipped ? gameState.monsterHp : Math.max(0, gameState.monsterHp - damage);
     const isMonsterDefeated = !skipped && nextHp <= 0;
@@ -6474,11 +6571,11 @@ export default function App() {
 
     const newMissedQs = [...gameState.currentBattleMissedQuestions];
     if (gameState.missCount > 0 && !newMissedQs.some(q => q.text === gameState.currentQuestion.text)) { newMissedQs.push(gameState.currentQuestion); }
-    if (gameState.mode !== 'weakness' && gameState.missCount > 0) {
+    if (gameState.mode !== 'weakness' && (isLongText ? skipped || learningOutcome === 'struggle' : gameState.missCount > 0)) {
       scheduleQuestionReview(gameState.currentQuestion, activeReviewEntry?.missCount ?? 0);
-    } else if (activeReviewEntry && gameState.missCount === 0) {
+    } else if (activeReviewEntry && completedSuccessfully) {
       masteredCurrentQuestion = recordWeakQuestionSuccess(gameState.currentQuestion);
-      if (!masteredCurrentQuestion) {
+      if (!masteredCurrentQuestion && !isLongText) {
         rescheduleReviewQuestionAfterSuccess(activeReviewEntry);
       }
     }
@@ -6486,7 +6583,7 @@ export default function App() {
     let remainingWeakQuestions = weakQuestions;
     let remainingSessionQuestions = sessionWeakQuestionsRef.current;
     const hadSessionReview = remainingSessionQuestions !== null;
-    if (gameState.missCount === 0) {
+    if (completedSuccessfully) {
         if (!activeReviewEntry && remainingWeakQuestions.some(q => q.text === gameState.currentQuestion.text)) {
             masteredCurrentQuestion = recordWeakQuestionSuccess(gameState.currentQuestion);
         }
@@ -6512,13 +6609,13 @@ export default function App() {
     const activeRemainingQuestions = remainingSessionQuestions
       ?? (gameState.mode === 'weakness' ? remainingWeakQuestions : []);
 
-    if (hadSessionReview && gameState.missCount === 0 && remainingSessionQuestions && remainingSessionQuestions.length === 0) {
+    if (hadSessionReview && completedSuccessfully && remainingSessionQuestions && remainingSessionQuestions.length === 0) {
       handleGameEnd('win', currentScore, newHistory, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, nextKeystrokes, newMissedQs, newBattleLog);
       setGameState(prev => ({ ...prev, monsterHp: 0, score: currentScore, history: newHistory, totalKeystrokes: nextKeystrokes, currentBattleMissedQuestions: newMissedQs, battleLog: newBattleLog }));
       return;
     }
 
-    if (gameState.mode === 'weakness' && gameState.missCount === 0 && activeRemainingQuestions.length === 0) {
+    if (gameState.mode === 'weakness' && completedSuccessfully && activeRemainingQuestions.length === 0) {
       handleGameEnd('win', currentScore, newHistory, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, nextKeystrokes, newMissedQs, newBattleLog);
       setGameState(prev => ({ ...prev, monsterHp: 0, score: currentScore, history: newHistory, totalKeystrokes: nextKeystrokes, currentBattleMissedQuestions: newMissedQs, battleLog: newBattleLog }));
       return;
@@ -6556,7 +6653,9 @@ export default function App() {
 
     let nextQ: Question;
     if (activeRemainingQuestions.length > 0) {
-      nextQ = activeRemainingQuestions[Math.floor(Math.random() * activeRemainingQuestions.length)];
+      const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
+      const spaced = isLongText ? spaceLongTextQuestions(activeRemainingQuestions, recentLongTextQuestionsRef.current[scope] ?? [], q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)) : activeRemainingQuestions;
+      nextQ = spaced[Math.floor(Math.random() * spaced.length)];
     } else {
       nextQ = getNextBattleQuestion(
         gameState.selectedDifficulty,

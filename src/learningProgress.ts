@@ -5,7 +5,14 @@ export type AutomaticLearningOutcome = 'success' | 'neutral' | 'struggle';
 export type AutomaticLearningState = {
   listeningLevel: LearningProgressLevel;
   battleLevel: LearningProgressLevel;
+  longTextSuccessCount?: number;
+  longTextSpacingRemaining?: number;
+  longTextLastSuccessAt?: number;
 };
+
+export const getLongTextMistakeAllowance = (characters: number) => (
+  characters < 10 ? 0 : Math.min(3, Math.max(1, Math.floor(characters / 20)))
+);
 
 export const getAutomaticLearningLevel = (state: AutomaticLearningState): LearningProgressLevel => (
   Math.max(state.battleLevel, Math.min(2, state.listeningLevel)) as LearningProgressLevel
@@ -18,6 +25,7 @@ export const getBattleLearningOutcome = (
 ): AutomaticLearningOutcome => {
   if (missCount === 0) return 'success';
   if (questionLevel === 1) return 'struggle';
+  if (missCount <= getLongTextMistakeAllowance(characterCount)) return 'success';
 
   const accuracy = Math.max(0, 1 - (missCount / Math.max(characterCount, 1)));
   const demotionMissCount = questionLevel === 2 ? 3 : 4;
@@ -25,6 +33,27 @@ export const getBattleLearningOutcome = (
   return missCount >= demotionMissCount && accuracy < 0.85
     ? 'struggle'
     : 'neutral';
+};
+
+// Two successful battle recalls, with five other answers between them.
+// Listening can prepare a question, but does not count as an unaided battle recall.
+export const getNextLongTextLearningState = (
+  state: AutomaticLearningState, source: AutomaticLearningSource, outcome: AutomaticLearningOutcome,
+  smallPool = false, now = Date.now(),
+): AutomaticLearningState => {
+  if (source !== 'battle') return getNextAutomaticLearningState(state, source, outcome);
+  if (outcome === 'neutral') return state;
+  if (outcome === 'struggle') return { ...getNextAutomaticLearningState(state, source, outcome), longTextSuccessCount: 0, longTextSpacingRemaining: 0 };
+  const timeGap = smallPool && now - (state.longTextLastSuccessAt ?? now) >= 120000;
+  if ((state.longTextSuccessCount ?? 0) > 0 && (state.longTextSpacingRemaining ?? 0) > 0 && !timeGap) return state;
+  const successes = Math.min(2, (state.longTextSuccessCount ?? 0) + 1);
+  return {
+    ...state,
+    battleLevel: Math.max(state.battleLevel, successes === 2 ? 3 : 2) as LearningProgressLevel,
+    longTextSuccessCount: successes,
+    longTextSpacingRemaining: 5,
+    longTextLastSuccessAt: now,
+  };
 };
 
 export const getNextAutomaticLearningState = (

@@ -66,6 +66,7 @@ assert.equal(run([], 1, { chooseDefault: () => null }).output[0], null);
 const app = readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
 const adapter = app.slice(app.indexOf('  const getNextBattleQuestion = ('), app.indexOf('  const handleSkip = ('));
 const context = {
+  EIKEN_DIFFICULTIES: ['Eiken5'], recentLongTextQuestionsRef: { current: {} },
   createLearningQuestionBalance, selectLearningBalancedQuestion,
   learningQuestionBalanceRef: { current: {} }, activeReviewEntryRef: { current: null },
   activePlayerId: 'player-a', questions: makeQuestions(500, 495), reviews: [],

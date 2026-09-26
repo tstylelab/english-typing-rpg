@@ -3,7 +3,10 @@ import { createHash } from 'node:crypto';
 import { performance } from 'node:perf_hooks';
 import { load } from './lib/load-typescript-data.mjs';
 
-const { QUESTIONS } = load('src/data/questions.ts');
+const { QUESTIONS: currentQuestions } = load('src/data/questions.ts');
+// Historical synonym contract uses original phrase identities; new cores have
+// their own migration/content test. Keep every other course under this hash.
+const QUESTIONS = { ...currentQuestions, Eiken4: { ...currentQuestions.Eiken4, 2: load('src/data/questionSets/eiken/grade4.json').levels['2'] } };
 const { getQuestionSynonyms } = load('src/data/questionSynonyms.ts');
 const rows = load('src/data/supplementalQuestionSynonyms.json');
 const key = (course, level, q) => JSON.stringify([course, level, q.text, q.translation]);

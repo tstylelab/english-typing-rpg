@@ -1,4 +1,5 @@
 import eikenGrade4Json from './questionSets/eiken/grade4.json';
+import { grade4PhraseQuestions } from './grade4PhraseCores';
 import eikenGrade3 from './questionSets/eiken/grade3';
 import eikenPre2 from './questionSets/eiken/pre2';
 import eikenGrade2 from './questionSets/eiken/grade2';
@@ -61,7 +62,7 @@ const toLevelRecord = (setFile: QuestionSetFile): Record<LevelKey, Question[]> =
 
 export const QUESTIONS: Record<DifficultyKey, Record<LevelKey, Question[]>> = {
   Eiken5: toLevelRecord(questionSetLibrary.eiken.grade5),
-  Eiken4: toLevelRecord(questionSetLibrary.eiken.grade4),
+  Eiken4: { ...toLevelRecord(questionSetLibrary.eiken.grade4), 2: grade4PhraseQuestions },
   Eiken3: toLevelRecord(questionSetLibrary.eiken.grade3),
   EikenPre2: toLevelRecord(questionSetLibrary.eiken.pre2),
   Eiken2: toLevelRecord(questionSetLibrary.eiken.grade2),

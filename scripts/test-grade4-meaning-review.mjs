@@ -2,7 +2,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { load } from './lib/load-typescript-data.mjs';
 
-const { QUESTIONS } = load('src/data/questions.ts');
+const { QUESTIONS: currentQuestions } = load('src/data/questions.ts');
+// Validate the historical report against its preserved source; phrase core
+// replacements and the current UI are tested in test-phrase-learning.mjs.
+const QUESTIONS = { ...currentQuestions, Eiken4: { ...currentQuestions.Eiken4, 2: load('src/data/questionSets/eiken/grade4.json').levels['2'] } };
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
 const corrections = JSON.parse(fs.readFileSync('src/data/grade4MeaningCorrections.json', 'utf8'));
 const report = fs.readFileSync('docs/grade4-meaning-review-2026-09-24.md', 'utf8');

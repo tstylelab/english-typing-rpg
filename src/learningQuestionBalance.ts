@@ -4,6 +4,15 @@ export type LearningQuestionBalance = {
   pendingKeys: string[];
 };
 
+// Prefer five intervening questions; with a small pool use the least recent item.
+export const spaceLongTextQuestions = <T>(questions: T[], recent: string[], getKey: (q: T) => string): T[] => {
+  const window = recent.slice(-6);
+  const fresh = questions.filter(q => !window.includes(getKey(q)));
+  if (fresh.length || !questions.length) return fresh;
+  const oldest = Math.min(...questions.map(q => window.lastIndexOf(getKey(q))));
+  return questions.filter(q => window.lastIndexOf(getKey(q)) === oldest);
+};
+
 export const createLearningQuestionBalance = (): LearningQuestionBalance => ({
   position: 0,
   unfinishedCount: 0,
