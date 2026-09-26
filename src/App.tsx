@@ -485,7 +485,8 @@ const getBossStage = (
   return stepIndex >= Math.max(totalMonsters - 1, 0) ? 1 : 0;
 };
 
-const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => {
+// Keep the previous limits as the HP-scaling baseline, not as active Level 2 limits.
+const getLegacyBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
   if (difficulty === 'Eiken3') return getGrade3QuestionLimit(level, bossStage);
   if (difficulty === 'EikenPre2') return getPre2QuestionLimit(level, bossStage);
@@ -510,6 +511,16 @@ const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode
   }
   return DEFAULT_BATTLE_QUESTION_LIMIT;
 };
+
+const isEikenPhraseBattle = (difficulty: Difficulty, level: Level, mode: Mode) => (
+  // Grade 5 already has approved shorter battles, including its own boss limits.
+  difficulty.startsWith('Eiken') && difficulty !== 'Eiken5' && level === 2 && mode !== 'weakness'
+);
+const getBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => (
+  isEikenPhraseBattle(difficulty, level, mode)
+    ? [8, 16, 24, 32, 40][bossStage]
+    : getLegacyBattleQuestionLimit(difficulty, level, mode, bossStage)
+);
 
 const getBattleHp = (
   difficulty: Difficulty,
@@ -609,12 +620,18 @@ const getBattleTuning = (
   const sentenceBattleHp = sentenceBattle
     ? EIKEN5_SENTENCE_BATTLE_HP[stepIndex]
     : undefined;
-  const monsterHp = sentenceBattleHp ?? getBattleHp(difficulty, level, courseBaseHp, bossStage);
+  const originalHp = sentenceBattleHp ?? getBattleHp(difficulty, level, courseBaseHp, bossStage);
+  const maxQuestions = sentenceBattle ? [6, 10, 12, 14, 16][bossStage] : getBattleQuestionLimit(difficulty, level, mode, bossStage);
+  // Preserve required average damage per answer when shortening/lengthening a battle.
+  // Apply once, here, so gameplay and all HP previews use the same final value.
+  const monsterHp = isEikenPhraseBattle(difficulty, level, mode)
+    ? Math.max(1, Math.round(originalHp * maxQuestions / getLegacyBattleQuestionLimit(difficulty, level, mode, bossStage)))
+    : originalHp;
 
   return {
     monsterHp,
     damageMultiplier: getBattleDamageMultiplier(mode, inputMode),
-    maxQuestions: sentenceBattle ? [6, 10, 12, 14, 16][bossStage] : getBattleQuestionLimit(difficulty, level, mode, bossStage),
+    maxQuestions,
   };
 };
 
