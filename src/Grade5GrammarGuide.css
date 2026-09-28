@@ -1,0 +1,87 @@
+.grammar-guide-link { display:inline-flex; align-items:center; gap:.4rem; max-width:100%; padding:.45rem .65rem; border:1px solid #527b85; border-radius:.5rem; background:#112c38; color:#c7f3f6; font-size:.8rem; font-weight:700; text-align:left; cursor:pointer; }
+.grammar-guide-link:hover { background:#204753; }
+.grammar-guide-link svg { flex-shrink:0; }
+.grammar-guide-link:focus-visible,.grammar-guide button:focus-visible,.grammar-guide summary:focus-visible { outline:3px solid #e9b950; outline-offset:3px; }
+.grammar-guide { width:min(1080px,calc(100% - 32px)); max-width:none; height:calc(100dvh - 40px); max-height:none; margin:auto; padding:0; border:1px solid #b6c9fa; border-radius:16px; background:linear-gradient(135deg,#f0f9ff,#faf5ff 58%,#fff7ed); color:#24324b; box-shadow:0 22px 80px #152b6866; overflow:hidden; }
+.grammar-guide::backdrop { background:#030d20bd; }
+.grammar-guide-bar { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:60px; padding:10px 18px; background:linear-gradient(110deg,#0759b9,#5740c6 65%,#8a2fbb); color:#fff; }
+.grammar-guide-bar>span,.grammar-guide-bar>div,.grammar-guide-bar button { display:flex; align-items:center; gap:7px; }
+.grammar-guide-bar>span { font-size:14px; font-weight:700; }
+.grammar-guide-bar button { min-height:40px; padding:6px 10px; border:1px solid #ffffff80; border-radius:7px; background:#ffffff12; font-size:13px; cursor:pointer; white-space:nowrap; }
+.grammar-guide-bar button:hover { background:#ffffff30; }
+.grammar-guide-content { height:calc(100% - 60px); overflow-y:auto; overscroll-behavior:contain; padding:24px; scrollbar-gutter:stable; }
+.grammar-guide-intro h1 { margin:6px 0 8px; font-size:clamp(23px,4vw,32px); font-weight:800; letter-spacing:.02em; }
+.grammar-guide-intro p { margin:0 0 8px; line-height:1.65; font-size:14px; }
+.grammar-guide-intro .grammar-guide-eyebrow { display:flex; align-items:center; gap:6px; color:#5b35b5; font-size:12px; font-weight:700; }
+.grammar-guide-eyebrow svg { color:#b45309; flex-shrink:0; }
+.grammar-guide-intro .grammar-guide-small { color:#566b70; font-size:12px; }
+.grammar-guide-toc { margin:18px 0 12px; padding:14px; border:1px solid #ccd7f1; border-radius:10px; background:#ffffffd9; box-shadow:0 3px 12px #34448b08; }
+.grammar-guide-toc>div+div { margin-top:12px; }
+.grammar-guide-toc h2 { margin:0 0 6px; font-size:13px; font-weight:800; color:var(--guide-accent); }
+.grammar-guide-toc>div>div { display:flex; flex-wrap:wrap; gap:5px; }
+.grammar-guide-toc button { padding:5px 8px; border:1px solid var(--guide-border); border-radius:6px; background:var(--guide-tint); font-size:12px; color:var(--guide-accent); cursor:pointer; }
+.grammar-guide-toc button:hover { outline:1px solid var(--guide-accent); }
+.grammar-guide-key { font-size:12px; line-height:1.7; color:#566b70; }
+.grammar-guide-section { margin-top:24px; }
+.grammar-guide-section>h2 { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:800; }
+.grammar-guide-section>h2>span { display:inline-grid; place-items:center; width:32px; height:32px; border-radius:10px; color:#fff; background:var(--guide-accent); font-size:14px; box-shadow:0 3px 0 var(--guide-border); }
+.grammar-guide-section-note { margin:5px 0 12px; font-size:13px; color:#50696c; }
+.grammar-guide-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:start; }
+.grammar-guide-card { min-width:0; padding:16px; border:1px solid var(--guide-border); border-top:4px solid var(--guide-accent); border-radius:12px; background:#fff; box-shadow:0 4px 14px #33415508; scroll-margin-top:12px; overflow-wrap:anywhere; }
+.grammar-guide-card.is-selected { border-color:#d98b0d; box-shadow:0 0 0 3px #fbbf2440; background:#fffdf5; }
+.grammar-guide-card:focus { outline:2px solid var(--guide-accent); outline-offset:3px; }
+.grammar-guide-card-heading h3 { font-size:17px; font-weight:800; line-height:1.5; }
+.grammar-guide-card-heading>span { font-size:11px; color:#687a79; }
+.grammar-guide-pattern { display:flex; gap:8px; align-items:baseline; margin:10px 0; padding:8px 10px; border-radius:7px; background:var(--guide-tint); color:var(--guide-accent); font-size:13px; font-weight:700; }
+.grammar-guide-pattern>span { flex-shrink:0; font-size:11px; }
+.grammar-guide-examples>div+div { margin-top:8px; }
+.grammar-guide-examples p[lang] { margin:0; color:#173e77; font-size:16px; font-weight:750; line-height:1.5; }
+.grammar-guide-examples p:not([lang]) { margin:2px 0 0; font-size:12px; color:#53676c; line-height:1.6; }
+.grammar-guide-tip { margin:12px 0 0; padding-top:10px; border-top:1px solid #e4e8dd; font-size:13px; line-height:1.8; }
+.grammar-guide details { margin-top:10px; font-size:12px; color:#476669; line-height:1.8; }
+.grammar-guide summary { cursor:pointer; font-weight:700; }
+.grammar-guide details p { margin-top:6px; }
+.grammar-guide-source { margin-top:8px; font-size:14px; font-weight:700; color:#7b561c; }
+.grammar-guide-source>span { display:block; font-size:10px; }
+.grammar-guide-footer { margin:24px 0 8px; font-size:14px; }
+.grammar-guide-footer a { text-decoration:underline; }
+@media(max-width:640px) {
+  .grammar-guide { width:100%; height:100dvh; border:0; border-radius:0; }
+  .grammar-guide-bar { padding:8px; min-height:60px; }
+  .grammar-guide-bar>span { font-size:11px; gap:4px; }
+  .grammar-guide-bar>span>svg { display:none; }
+  .grammar-guide-bar button { padding:6px 8px; font-size:12px; gap:4px; }
+  .grammar-guide-content { padding:16px 12px; }
+  .grammar-guide-grid { grid-template-columns:minmax(0,1fr); }
+  .grammar-guide-card { padding:14px; }
+  .grammar-guide-toc button { min-height:36px; }
+}
+.grammar-guide-open { overflow:hidden; }
+.grammar-guide-compare { margin:12px 0; border:1px solid var(--guide-border); border-radius:8px; overflow:hidden; font-size:12px; }
+.grammar-guide-compare>div { padding:7px 10px; background:var(--guide-tint); }
+.grammar-guide-compare>div+div { border-top:1px solid var(--guide-border); }
+.grammar-guide-compare dt { color:var(--guide-accent); font-weight:700; }
+.grammar-guide-compare dd { margin:3px 0 0; color:#24334b; overflow-wrap:anywhere; line-height:1.6; }
+.grammar-guide-intro h1:focus { outline:none; }
+.grammar-guide [data-section="0"] { --guide-accent:#0369a1; --guide-tint:#e0f2fe; --guide-border:#a5d9f5; }
+.grammar-guide [data-section="1"] { --guide-accent:#6d28d9; --guide-tint:#f0e8ff; --guide-border:#d8bffa; }
+.grammar-guide [data-section="2"] { --guide-accent:#b45309; --guide-tint:#fff0d5; --guide-border:#f4cf94; }
+.grammar-guide-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+.grammar-guide-card-heading { min-width:0; }
+.grammar-guide-save { display:inline-flex; align-items:center; justify-content:center; gap:4px; flex-shrink:0; min-height:36px; padding:5px 8px; border:1px solid #c5d0e2; border-radius:8px; background:#f8fafc; color:#475569; font-size:12px; font-weight:700; cursor:pointer; }
+.grammar-guide-save[aria-pressed="true"] { border-color:#e7af40; background:#fff1bf; color:#824209; }
+.grammar-guide-save:hover { border-color:#b7791f; background:#fff7de; }
+.grammar-guide-save:disabled { opacity:.5; cursor:wait; }
+.grammar-guide-filters { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px; }
+.grammar-guide-filters button { display:inline-flex; align-items:center; gap:6px; min-height:40px; padding:7px 12px; border:1px solid #becbee; border-radius:999px; background:#fff; color:#374f83; font-size:13px; font-weight:700; cursor:pointer; }
+.grammar-guide-filters button[aria-pressed="true"] { border-color:#5a3cd0; background:#5a3cd0; color:#fff; box-shadow:0 3px 10px #5a3cd020; }
+.grammar-guide-filters button span { display:inline-grid; place-items:center; min-width:23px; padding:0 5px; border-radius:12px; background:#ffffff30; }
+.grammar-guide-storage-note { margin:0; color:#52617d; font-size:11px; line-height:1.7; }
+.grammar-guide-error { margin:10px 0; padding:10px; border:1px solid #ef9b96; border-radius:8px; background:#fff1f2; color:#9f1239; font-size:13px; }
+.grammar-guide-empty { display:flex; flex-direction:column; align-items:center; gap:9px; margin:22px 0; padding:28px 16px; border:2px dashed #c8b5f4; border-radius:14px; background:#ffffffc9; color:#59358c; text-align:center; font-size:13px; }
+.grammar-guide-empty>p:first-of-type { font-size:16px; font-weight:750; }
+.grammar-guide-empty button { padding:8px 12px; border-radius:8px; background:#5a3cd0; color:white; font-weight:700; cursor:pointer; }
+@media(max-width:400px) {
+  .grammar-guide-card-top { flex-wrap:wrap; }
+  .grammar-guide-save { margin-left:auto; min-height:40px; }
+}

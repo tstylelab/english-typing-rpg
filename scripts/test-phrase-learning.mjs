@@ -71,7 +71,7 @@ const source=fs.readFileSync('src/App.tsx','utf8');
 const ast=ts.createSourceFile('App.tsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
 const names=['normalizeManualQuestionStatuses','getEffectiveLearningLevel','withDerivedLearningLevel','normalizeWeakQuestionStats','normalizeQuestionArray','normalizeReviewQueue','normalizeSelectedQuestionKeysByScope','normalizeSavedSelectionLists','getQuestionStatusKey'];
 const selected=ast.statements.filter(s=>ts.isVariableStatement(s)&&s.declarationList.declarations.some(d=>names.includes(d.name.getText(ast)))).map(s=>s.getText(ast)).join('\n');
-const ctx={...core,...progress,LEARNING_LEVELS:[1,2,3],LEVELS:[1,2,3],PRE1_DIFFICULTIES:[],LEGACY_PRE1_DIFFICULTY:'legacy',LEGACY_PRE1_QUESTION_KEY_MAP:new Map(),DIFFICULTIES:Object.keys(QUESTIONS),getAvailableLevels:()=>[1,2,3],getReviewScopeKey:(d,l)=>`${d}:${l}`};
+const ctx={...core,...load('src/data/phraseCoreMigration.ts'),...progress,LEARNING_LEVELS:[1,2,3],LEVELS:[1,2,3],PRE1_DIFFICULTIES:[],LEGACY_PRE1_DIFFICULTY:'legacy',LEGACY_PRE1_QUESTION_KEY_MAP:new Map(),DIFFICULTIES:Object.keys(QUESTIONS),getAvailableLevels:()=>[1,2,3],getReviewScopeKey:(d,l)=>`${d}:${l}`};
 vm.runInNewContext(ts.transpile(selected+'\nObject.assign(globalThis,{'+names.join(',')+'});',{target:ts.ScriptTarget.ES2022}),ctx);
 const oldA=original['2'].find(q=>q.text==='be interested in science');
 const oldB=original['2'].find(q=>q.text==='be interested in music');

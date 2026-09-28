@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
-import { grade4PhraseChanges, migrateGrade4Phrase, migrateGrade4PhraseKey } from './data/grade4PhraseCores';
+import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { getNextLongTextLearningState } from './learningProgress';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
+import { getGrade5GrammarCard } from './data/grade5GrammarGuide';
+import Grade5GrammarGuide from './Grade5GrammarGuide';
 import { getGrade3CurriculumLimit } from './data/questionSets/eiken/grade3';
 import { getPre2CurriculumLimit } from './data/questionSets/eiken/pre2';
 import { getGrade2CurriculumLimit } from './data/questionSets/eiken/grade2';
@@ -109,6 +111,7 @@ type MonsterVisualStyle = {
 
 interface Question {
   grade4CoreMigrated?: boolean;
+  phraseCoreMigrated?: boolean;
   text: string;
   translation: string;
   basicMeaning?: string;
@@ -2774,7 +2777,7 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
 
     const migrated = new Map<string, ManualQuestionStatus[]>();
     for (const [key, status] of Object.entries(normalized)) {
-      const nextKey = migrateGrade4PhraseKey(key);
+      const nextKey = migratePhraseCoreKey(key);
       if (key !== nextKey && !normalized[nextKey]) migrated.set(nextKey, [...(migrated.get(nextKey) ?? []), status]);
     }
     for (const [key, statuses] of migrated) {
@@ -2816,7 +2819,7 @@ const normalizeSelectedQuestionKeysByScope = (value: unknown) => {
     Object.entries(typeof value === 'object' && value !== null ? value : {}).map(([key, item]) => [
       key,
       Array.isArray(item)
-        ? Array.from(new Set(item.filter((entry): entry is string => typeof entry === 'string').map(migrateGrade4PhraseKey)))
+        ? Array.from(new Set(item.filter((entry): entry is string => typeof entry === 'string').map(migratePhraseCoreKey)))
         : [],
     ])
   ) as Record<string, string[]>;
@@ -2846,7 +2849,7 @@ const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => {
       const id = typeof typedItem.id === 'string' && typedItem.id.length > 0 ? typedItem.id : `${difficulty}:${level}:${Date.now()}`;
       const name = typeof typedItem.name === 'string' && typedItem.name.trim().length > 0 ? typedItem.name.trim() : '保存リスト';
       const questionKeys = Array.isArray(typedItem.questionKeys)
-        ? Array.from(new Set(typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string').map(migrateGrade4PhraseKey)))
+        ? Array.from(new Set(typedItem.questionKeys.filter((entry: unknown): entry is string => typeof entry === 'string').map(migratePhraseCoreKey)))
         : [];
       const updatedAt = Number.isFinite(typedItem.updatedAt) ? Number(typedItem.updatedAt) : 0;
 
@@ -2936,10 +2939,12 @@ const normalizeWeakQuestionStats = (stats: Record<string, WeakQuestionStat>) => 
       },
     ])
   ) as Record<string, WeakQuestionStat>;
-  const targets = new Set(grade4PhraseChanges.map(c => c.after.text));
+  const targets = new Set(phraseCoreChanges.map(c => c.after.text));
   for (const target of targets) {
     if (normalized[target]) continue;
-    const sources = grade4PhraseChanges.filter(c => c.after.text === target).map(c => normalized[c.before.text]).filter(Boolean);
+    // Mistake stats are keyed by text, not course: count a shared legacy phrase only once.
+    const sourceTexts = new Set(phraseCoreChanges.filter(c => c.after.text === target).map(c => c.before.text));
+    const sources = [...sourceTexts].map(text => normalized[text]).filter(Boolean);
     if (sources.length) normalized[target] = {
       missCount: sources.reduce((sum,s) => sum+s.missCount,0),
       lastMissedAt: Math.max(...sources.map(s => s.lastMissedAt)),
@@ -2965,7 +2970,7 @@ const normalizeReviewQueue = (entries: ReviewQueueEntry[] | unknown) => {
       return {
         difficulty: resolvedScope.difficulty,
         level: resolvedScope.level,
-        question: resolvedScope.difficulty === 'Eiken4' && resolvedScope.level === 2 ? migrateGrade4Phrase(entry.question) : entry.question,
+        question: migrateScopedPhraseCore(resolvedScope.difficulty, resolvedScope.level, entry.question),
         remainingQuestions: Number.isFinite(entry.remainingQuestions) ? Math.max(0, entry.remainingQuestions) : 0,
         missCount: Number.isFinite(entry.missCount) ? Math.max(1, entry.missCount) : 1,
       };
@@ -3034,6 +3039,7 @@ const normalizeQuestionArray = (value: unknown): Question[] => {
         text: typedItem.text,
         translation: typedItem.translation,
         ...(typedItem.grade4CoreMigrated ? { grade4CoreMigrated: true } : {}),
+        ...(typedItem.phraseCoreMigrated ? { phraseCoreMigrated: true } : {}),
       };
 
       if (typeof typedItem.basicMeaning === 'string' && typedItem.basicMeaning.trim()) {
@@ -3056,11 +3062,10 @@ const normalizeQuestionArray = (value: unknown): Question[] => {
         }
       }
 
-      // Legacy weak lists are not course-scoped: retain the old entry for other
-      // courses, and add the new Grade 4 core without rewriting their history.
-      const migrated = migrateGrade4Phrase(nextQuestion);
-      return migrated === nextQuestion || nextQuestion.grade4CoreMigrated
-        ? [nextQuestion] : [{ ...nextQuestion, grade4CoreMigrated: true }, migrated];
+      // Retain legacy entries for unaffected courses, and never resurrect a completed core.
+      const migrated = getUnscopedPhraseCores(nextQuestion);
+      return !migrated.length || nextQuestion.grade4CoreMigrated || nextQuestion.phraseCoreMigrated
+        ? [nextQuestion] : [{ ...nextQuestion, phraseCoreMigrated: true }, ...migrated];
     })
     : []
   );
@@ -9476,6 +9481,7 @@ export default function App() {
                         <AlertCircle size={18} /> 遊び方
                       </GameButton>
                     </div>
+                    {(gameState.selectedDifficulty === 'Eiken5' || new URLSearchParams(window.location.search).get('guide') === 'eiken5') && <div className="sm:col-span-2"><Grade5GrammarGuide playerId={activePlayerId} initialOpen={new URLSearchParams(window.location.search).get('guide') === 'eiken5'} /></div>}
                   </div>
                 </div>
 
@@ -10672,11 +10678,13 @@ export default function App() {
                   {gameState.battleLog.map((log, idx) => {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const grammarCard = getGrade5GrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                     return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                       <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
                       <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                      {grammarCard && <div className="mt-1 sm:col-span-2"><Grade5GrammarGuide playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
                     </div>;
                   })}
                 </div>

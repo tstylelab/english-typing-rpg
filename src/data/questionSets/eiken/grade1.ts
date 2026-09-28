@@ -1,4 +1,5 @@
 import type { Question, QuestionSetFile } from '../../questions';
+import { reviewUpperPhraseEntries } from '../../upperPhraseCoreRules';
 import { grade1VocabularyRows, grade1AdvancedVocabularyRows } from './grade1Vocabulary';
 import { grade1PhraseRows } from './grade1Phrases';
 import { grade1Grammar, grade1SentenceRows } from './grade1Sentences';
@@ -23,12 +24,16 @@ const order = (entries: RankedQuestion[]) => [...entries].sort((a, b) =>
   a.rank.localeCompare(b.rank) || a.question.text.length - b.question.text.length ||
   (a.sourceId ?? 0) - (b.sourceId ?? 0)
 ).map(entry => entry.question);
+export const legacyGrade1Phrases = {
+  Eiken1Part1: order(phrases.filter(entry => entry.part === 1)),
+  Eiken1Part2: order(phrases.filter(entry => entry.part === 2)),
+};
 const makeCourse = (part: 1 | 2): QuestionSetFile => ({
   category: 'eiken', series: '英検', difficultyKey: part === 1 ? 'Eiken1Part1' : 'Eiken1Part2',
   displayName: `英検1級${part === 1 ? '①' : '②'}`,
   levels: {
     1: order(words.filter(entry => part === 1 ? entry.rank === 'A' : entry.rank !== 'A')),
-    2: order(phrases.filter(entry => entry.part === part)),
+    2: reviewUpperPhraseEntries(legacyGrade1Phrases[part === 1 ? 'Eiken1Part1' : 'Eiken1Part2'].map(question => ({ question }))).map(entry => entry.question),
     3: order(sentences.filter(entry => entry.part === part)),
   },
 });

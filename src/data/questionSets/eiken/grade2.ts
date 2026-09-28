@@ -1,4 +1,5 @@
 import type { Question, QuestionSetFile } from '../../questions';
+import { reviewUpperPhraseEntries } from '../../upperPhraseCoreRules';
 import borrowedVocabulary from './grade2BorrowedVocabulary.json';
 import { grade2VocabularyRows } from './grade2Vocabulary';
 import { grade2PhraseRows } from './grade2Phrases';
@@ -22,7 +23,8 @@ const sentences: Entry[] = lines(grade2SentenceRows).map(([band, sourceId, gramm
   band: Number(band), sourceId: Number(sourceId), question: { text, translation, grammarPoint: grade2Grammar[grammar] },
 }));
 const ordered = (entries: Entry[]) => [...entries].sort((a, b) => a.band - b.band || a.question.text.length - b.question.text.length);
-export const grade2Curriculum = { 1: ordered(vocabulary), 2: ordered(phrases), 3: ordered(sentences) };
+export const legacyGrade2Phrases = ordered(phrases).map(entry => entry.question);
+export const grade2Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered(sentences) };
 export const getGrade2CurriculumLimit = (level: 1 | 2 | 3, stageIndex: number) => {
   const band = stageIndex < 7 ? 1 : stageIndex < 14 ? 2 : 3;
   return grade2Curriculum[level].filter(entry => entry.band <= band).length;

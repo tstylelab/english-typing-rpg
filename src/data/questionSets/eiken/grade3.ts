@@ -1,4 +1,5 @@
 import type { Question, QuestionSetFile } from '../../questions';
+import { reviewUpperPhraseEntries } from '../../upperPhraseCoreRules';
 import { grade3VocabularyRows } from './grade3Vocabulary';
 import { grade3PhraseRows } from './grade3Phrases';
 import { grade3SentenceRows, grade3Grammar } from './grade3Sentences';
@@ -17,7 +18,8 @@ const sentences: Entry[] = lines(grade3SentenceRows).map(([band, sourceId, gramm
 
 // Meaning/grammar bands come first; input length only orders items within a band.
 const ordered = (entries: Entry[]) => [...entries].sort((a, b) => a.band - b.band || a.question.text.length - b.question.text.length);
-export const grade3Curriculum = { 1: ordered(vocabulary), 2: ordered(phrases), 3: ordered(sentences) };
+export const legacyGrade3Phrases = ordered(phrases).map(entry => entry.question);
+export const grade3Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered(sentences) };
 export const getGrade3CurriculumLimit = (level: 1 | 2 | 3, stageIndex: number) => {
   const band = stageIndex < 7 ? 1 : stageIndex < 14 ? 2 : 3;
   return grade3Curriculum[level].filter(entry => entry.band <= band).length;
