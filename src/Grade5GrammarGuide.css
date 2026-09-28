@@ -21,6 +21,17 @@
 .grammar-guide-toc>div>div { display:flex; flex-wrap:wrap; gap:5px; }
 .grammar-guide-toc button { padding:5px 8px; border:1px solid var(--guide-border); border-radius:6px; background:var(--guide-tint); font-size:12px; color:var(--guide-accent); cursor:pointer; }
 .grammar-guide-toc button:hover { outline:1px solid var(--guide-accent); }
+.grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button { min-width:0; min-height:60px; padding:8px 10px; text-align:left; overflow-wrap:anywhere; }
+.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button strong { display:block; font-size:13px; font-weight:750; line-height:1.5; }
+.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button span { display:block; margin-top:3px; font-size:12px; line-height:1.5; color:#475569; }
+.grammar-guide[data-course="Eiken4"] .grammar-guide-card-heading>span { font-size:13px; color:#475569; }
+@media(max-width:800px) {
+  .grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:360px) {
+  .grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { grid-template-columns:minmax(0,1fr); }
+}
 .grammar-guide-key { font-size:12px; line-height:1.7; color:#566b70; }
 .grammar-guide-section { margin-top:24px; }
 .grammar-guide-section>h2 { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:800; }
@@ -41,6 +52,18 @@
 .grammar-guide details { margin-top:10px; font-size:12px; color:#476669; line-height:1.8; }
 .grammar-guide summary { cursor:pointer; font-weight:700; }
 .grammar-guide details p { margin-top:6px; }
+.grammar-guide .grammar-ai-help { padding-top:8px; border-top:1px solid #e2e8f0; }
+.grammar-ai-help>summary { color:var(--guide-accent); }
+.grammar-ai-actions { min-width:0; }
+.grammar-ai-actions .grammar-ai-safety { font-size:11px; color:#53676c; }
+.grammar-ai-actions .grammar-ai-safety>summary { font-weight:400; }
+.grammar-ai-buttons { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+.grammar-ai-buttons button { min-height:38px; padding:6px 9px; border:1px solid var(--guide-border); border-radius:6px; background:var(--guide-tint); color:var(--guide-accent); font-weight:700; cursor:pointer; }
+.grammar-ai-buttons button:disabled { opacity:.6; cursor:wait; }
+.grammar-ai-actions a,.grammar-ai-preview-toggle { text-decoration:underline; }
+.grammar-ai-preview-toggle { display:block; margin:8px 0; cursor:pointer; color:var(--guide-accent); }
+.grammar-ai-actions textarea { display:block; width:100%; min-width:0; padding:8px; border:1px solid #94a3b8; border-radius:6px; background:#fff; color:#24324b; font-size:12px; line-height:1.6; resize:vertical; }
+.grammar-ai-actions [role="status"]:empty { display:none; }
 .grammar-guide-source { margin-top:8px; font-size:14px; font-weight:700; color:#7b561c; }
 .grammar-guide-source>span { display:block; font-size:10px; }
 .grammar-guide-footer { margin:24px 0 8px; font-size:14px; }

@@ -7,8 +7,8 @@ import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
-import { getGrade5GrammarCard } from './data/grade5GrammarGuide';
-import Grade5GrammarGuide from './Grade5GrammarGuide';
+import { getGrammarCard, getGrammarGuideCourse } from './data/grammarGuides';
+import GrammarGuide from './GrammarGuide';
 import { getGrade3CurriculumLimit } from './data/questionSets/eiken/grade3';
 import { getPre2CurriculumLimit } from './data/questionSets/eiken/pre2';
 import { getGrade2CurriculumLimit } from './data/questionSets/eiken/grade2';
@@ -9318,6 +9318,8 @@ export default function App() {
       openTitleAutoPlayManager();
       startAutoPlayForQuestions(titleAutoPlayTargetQuestions);
     };
+    const previewGrammarCourse = getGrammarGuideCourse(new URLSearchParams(window.location.search).get('guide'));
+    const titleGrammarCourse = previewGrammarCourse ?? getGrammarGuideCourse(gameState.selectedDifficulty);
 
     return (
       <ScreenContainer>
@@ -9481,7 +9483,7 @@ export default function App() {
                         <AlertCircle size={18} /> 遊び方
                       </GameButton>
                     </div>
-                    {(gameState.selectedDifficulty === 'Eiken5' || new URLSearchParams(window.location.search).get('guide') === 'eiken5') && <div className="sm:col-span-2"><Grade5GrammarGuide playerId={activePlayerId} initialOpen={new URLSearchParams(window.location.search).get('guide') === 'eiken5'} /></div>}
+                    {titleGrammarCourse && <div className="sm:col-span-2"><GrammarGuide key={titleGrammarCourse} course={titleGrammarCourse} playerId={activePlayerId} initialOpen={!!previewGrammarCourse} /></div>}
                   </div>
                 </div>
 
@@ -10678,13 +10680,13 @@ export default function App() {
                   {gameState.battleLog.map((log, idx) => {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                    const grammarCard = getGrade5GrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                     return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                       <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
                       <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
-                      {grammarCard && <div className="mt-1 sm:col-span-2"><Grade5GrammarGuide playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
+                      {grammarCard && <div className="mt-1 sm:col-span-2"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
                     </div>;
                   })}
                 </div>

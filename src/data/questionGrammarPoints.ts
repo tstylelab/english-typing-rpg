@@ -18,6 +18,16 @@ export type QuestionGrammarPoint = {
 };
 
 const FIXED_EXPRESSIONS: Record<string, QuestionGrammarPoint> = {
+  // New practice has explicit targets, avoiding misleading generic regex labels.
+  'Ken is as tall as Tom.': { label: '同等比較', note: '同じくらいの高さをasとasではさんで伝えます。', pattern: 'as + 形容詞 + as' },
+  'This bag is not as heavy as yours.': { label: '同等比較の否定', note: 'not as … asで「〜ほど…ではない」と比べます。', pattern: 'not as + 形容詞 + as' },
+  'I stayed home because I was sick.': { label: '理由をつなぐ', note: 'becauseの後ろに、理由となる文を続けます。', pattern: '文 + because + 文' },
+  'If it rains, I will stay home.': { label: '条件をつなぐ', note: '未来の条件でも、ifの中は普通は現在形にします。', pattern: 'If + 主語 + 現在形, 主語 + will + 動詞' },
+  'Wash your hands before you eat.': { label: '時をつなぐ', note: 'beforeの後ろの文で「食べる前に」と時を添えます。', pattern: '文 + before + 主語 + 動詞' },
+  'She was not busy yesterday.': { label: '過去のbe動詞の否定', note: 'wasの後ろにnotを置き、過去の状態を否定します。', pattern: '主語 + was/were + not + 説明' },
+  'I was not sleeping then.': { label: '過去進行形の否定', note: 'そのときは動作の途中ではなかったと伝えます。', pattern: '主語 + was/were + not + 動詞ing' },
+  'I will not go out tonight.': { label: 'willの否定', note: 'willの後ろにnotを置き、しないことを伝えます。', pattern: '主語 + will not + 動詞の原形' },
+  'We are not going to swim today.': { label: '予定の否定', note: 'be動詞の後ろにnotを置き、その予定はないと伝えます。', pattern: '主語 + be動詞 + not going to + 動詞' },
   'Can I help you?': { label: '申し出', note: 'Can I＋動詞で「～しましょうか」と申し出ます。', pattern: 'Can I + 動詞の原形?' },
   'Anything else?': { label: '会話表現', note: '「ほかに何かありますか」と追加を尋ねる表現です。', pattern: 'Anything else?' },
   "That's all, thanks.": { label: '会話表現', note: '「それで全部です」と注文などを終える表現です。', pattern: "That's all." },

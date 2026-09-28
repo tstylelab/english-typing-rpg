@@ -3,6 +3,7 @@ import { grade5GrammarAssignments } from './grade5GrammarAssignments';
 
 export type GrammarCard = {
   id: string; section: number; title: string; term: string; pattern: string;
+  subtitle?: string;
   examples: [string, string][]; tip: string; more: string;
   compare?: [string, string][];
   chunks?: [string, string][];
