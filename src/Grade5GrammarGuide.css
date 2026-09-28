@@ -57,6 +57,12 @@
   .grammar-guide-toc button { min-height:36px; }
 }
 .grammar-guide-open { overflow:hidden; }
+.grammar-guide-chunks { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+.grammar-guide-chunks>div { display:flex; flex-direction:column; gap:3px; border:1px solid #93c5fd; border-radius:8px; padding:8px; background:#eff6ff; color:#1e40af; }
+.grammar-guide-chunks [data-part="1"] { border-color:#c4b5fd; background:#f5f3ff; color:#5b21b6; }
+.grammar-guide-chunks [data-part="2"] { border-color:#fcd34d; background:#fffbeb; color:#92400e; }
+.grammar-guide-chunks strong { font-size:18px; }
+.grammar-guide-chunks span { font-size:11px; }
 .grammar-guide-compare { margin:12px 0; border:1px solid var(--guide-border); border-radius:8px; overflow:hidden; font-size:12px; }
 .grammar-guide-compare>div { padding:7px 10px; background:var(--guide-tint); }
 .grammar-guide-compare>div+div { border-top:1px solid var(--guide-border); }

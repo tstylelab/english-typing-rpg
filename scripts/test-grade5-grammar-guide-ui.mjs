@@ -17,21 +17,26 @@ const bounded = async promise => {
 let passed = false;
 try {
   for (const width of [1366, 390, 320]) {
+    const target = width === 1366 ? {text:"I'm a student.",id:'contractions'}
+      : width === 390 ? {text:'These are books.',id:'demonstratives'}
+      : {text:'Yes, I am.',id:'short-answers'};
     const context = await browser.newContext({ viewport:{width,height:900} });
     const page = await context.newPage(); page.setDefaultTimeout(15000);
     const errors = []; page.on('pageerror', e => errors.push(e.message));
-    await page.addInitScript(({questions}) => {
+    await page.addInitScript(({questions, target}) => {
       speechSynthesis.speak = () => {}; Math.random = () => 0;
       localStorage.setItem('etyping_external_keyboard_mode','true');
       localStorage.setItem('etyping_daily_progress',JSON.stringify({date:new Date().toISOString().slice(0,10),questionCount:1}));
       localStorage.setItem('etyping_last_selected_course',JSON.stringify({difficulty:'Eiken5',level:3,resumeMode:'challenge',resumeInputMode:'text-only'}));
-      localStorage.setItem('etyping_manual_question_statuses',JSON.stringify(Object.fromEntries(questions.map(q => [`Eiken5:3:${q.text}:${q.translation}`,{practiceLevel:1,listeningLevel:1,battleLevel:1,manualOverrideLevel:null,excluded:q.text!=='This bag is mine.',updatedAt:1}]))));
-    }, {questions});
+      localStorage.setItem('etyping_manual_question_statuses',JSON.stringify(Object.fromEntries(questions.map(q => [`Eiken5:3:${q.text}:${q.translation}`,{practiceLevel:1,listeningLevel:1,battleLevel:1,manualOverrideLevel:null,excluded:q.text!==target.text,updatedAt:1}]))));
+    }, {questions, target});
     await page.goto(url + '/?guide=eiken5');
     const guide = page.getByRole('dialog');
     try { await guide.waitFor(); } catch (error) { console.log('Guide failure',errors,await page.locator('body').innerText()); throw error; }
     assert.equal(await guide.locator('[data-grammar-card]').count(),grade5GrammarCards.length);
-    for (const id of ['pronouns','articles','negative','modifiers','conjunctions','place','noun','third','be']) {
+    assert.deepEqual(await guide.locator('[data-grammar-card]').evaluateAll(els=>els.slice(0,6).map(el=>el.dataset.grammarCard)),['subjects','word-types','be','word-order','demonstratives','contractions']);
+    assert.equal(await guide.locator('.grammar-guide-chunks>div').count(),3);
+    for (const id of ['subjects','word-types','be','word-order','demonstratives','contractions','short-answers','amounts','pronouns','articles','negative','modifiers','conjunctions','place','noun','third']) {
       const comparison = guide.locator(`[data-grammar-card="${id}"] .grammar-guide-compare`);
       assert.ok(await comparison.locator('dt').count() >= 3);
       assert.ok(await comparison.evaluate(el => el.scrollWidth <= el.clientWidth+1), `${id} comparison fits ${width}px`);
@@ -45,6 +50,9 @@ try {
     assert.ok((await doCard.boundingBox()).y >= 50);
     assert.ok((await doCard.boundingBox()).y < 140);
     if (shots && width === 390) await page.screenshot({path:`${shots}/grade5-grammar-mobile.png`});
+    await guide.locator('[data-grammar-card="word-order"]').scrollIntoViewIfNeeded();
+    assert.ok(await guide.locator('.grammar-guide-chunks').evaluate(el=>el.scrollWidth<=el.clientWidth+1));
+    if (shots && width === 390) await page.screenshot({path:`${shots}/grade5-grammar-beginner-mobile.png`});
     await doCard.locator('summary').click();
     assert.ok(await doCard.locator('details').evaluate(el => el.open));
     await guide.getByRole('button',{name:'目次',exact:true}).click();
@@ -73,19 +81,21 @@ try {
     if (await start.isVisible()) await start.click();
     else await page.getByRole('button',{name:/前回の続きから/}).click();
     await page.locator('.battle-screen').waitFor();
-    await page.keyboard.type('This bag is mine.',{delay:15});
+    await page.keyboard.type(target.text,{delay:15});
     await page.waitForTimeout(1100);
     for (let i=0; i<40 && await page.locator('.battle-screen').isVisible(); i++) {
       await page.getByRole('button',{name:'この問題をスキップ',exact:true}).click();
       await page.waitForTimeout(300);
     }
     await page.locator('.result-today').waitFor();
-    const link = page.getByRole('button',{name:'文のしくみ：「私・私の・私を・私のもの」',exact:true}).first();
+    const title = grade5GrammarCards.find(c=>c.id===target.id).title;
+    const link = page.getByRole('button',{name:`文のしくみ：${title}`,exact:true}).first();
+    assert.ok(await link.locator('..').locator('..').getByText('正確',{exact:true}).count(), `New question completed without mistakes: ${target.text}`);
     await link.scrollIntoViewIfNeeded();
     const before = await page.evaluate(() => ({scroll:scrollY, save:JSON.stringify({...localStorage})}));
     const resultText = await page.locator('#root').innerText();
     await link.click(); await guide.waitFor();
-    const card = guide.locator('[data-grammar-card="pronouns"]');
+    const card = guide.locator(`[data-grammar-card="${target.id}"]`);
     assert.equal(await card.evaluate(el => el === document.activeElement),true);
     assert.ok((await card.boundingBox()).y < 140);
     assert.ok((await card.innerText()).includes('今回の文'));

@@ -109,6 +109,7 @@ function GuideDialog({ playerId, cardId, questionText, fromResult, onClose }: Pr
         <p className="grammar-guide-eyebrow"><Sparkles size={16} aria-hidden="true" />ことばの順番が分かると、英文が見えてくる。</p>
         <h1 id={headingId} ref={heading} tabIndex={-1}>英検5級・文のしくみ</h1>
         <p>全部を一度に覚えなくても大丈夫。気になった型から、例文と見比べてみましょう！</p>
+        <p className="grammar-guide-small">はじめてなら先頭から。「I＝私」→「名詞・動詞って何？」→「I am・You are」→「言葉の順番」→「This is・That is」と進めます。</p>
         <p className="grammar-guide-small">このゲームのLevel 3に対応する早見表です。英検の公式な出題範囲一覧ではありません。</p>
       </div>
       <div className="grammar-guide-filters" role="group" aria-label="カードの表示">
@@ -137,6 +138,7 @@ function GuideDialog({ playerId, cardId, questionText, fromResult, onClose }: Pr
             </div>
             {cardId === card.id && questionText && <p className="grammar-guide-source"><span>今回の文</span>{questionText}</p>}
             <p className="grammar-guide-pattern"><span>型</span>{card.pattern}</p>
+            {card.chunks && <div className="grammar-guide-chunks" aria-label="英文を順番に見てみよう">{card.chunks.map(([en, ja], index) => <div key={en} data-part={index}><strong lang="en">{en}</strong><span>{ja}</span></div>)}</div>}
             <div className="grammar-guide-examples">{card.examples.map(([en, ja]) => <div key={en}><p lang="en">{en}</p><p>{ja}</p></div>)}</div>
             <p className="grammar-guide-tip">{card.tip}</p>
             {card.compare && <dl className="grammar-guide-compare" aria-label="形を比べてみよう">{card.compare.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>}
@@ -154,6 +156,7 @@ function GuideDialog({ playerId, cardId, questionText, fromResult, onClose }: Pr
           {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2-grammar/articles-a-an-the" target="_blank" rel="noreferrer">冠詞（英語・別タブ）</a>
           {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/possessives-pronouns" target="_blank" rel="noreferrer">所有代名詞（英語・別タブ）</a>
           {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/how-often" target="_blank" rel="noreferrer">頻度の副詞（英語・別タブ）</a>
+          {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/present-simple-be" target="_blank" rel="noreferrer">be動詞・短縮形・返事（英語・別タブ）</a>
         </details>
       </footer>
     </div>

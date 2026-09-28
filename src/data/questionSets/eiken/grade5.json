@@ -3184,10 +3184,6 @@
         "translation": "彼はあなたの兄弟ですか？"
       },
       {
-        "text": "Is she your sister?",
-        "translation": "彼女はあなたの姉妹ですか？"
-      },
-      {
         "text": "What do you do after school?",
         "translation": "放課後は何をしますか？"
       },
@@ -3276,10 +3272,6 @@
         "translation": "鳥が2羽います。"
       },
       {
-        "text": "There is an apple.",
-        "translation": "りんごが1個あります。"
-      },
-      {
         "text": "The dog is cute.",
         "translation": "その犬はかわいいです。"
       },
@@ -3322,10 +3314,6 @@
       {
         "text": "I like to swim.",
         "translation": "私は泳ぐことが好きです。"
-      },
-      {
-        "text": "I want to be a teacher.",
-        "translation": "私は先生になりたいです。"
       },
       {
         "text": "It is fun to play.",
@@ -3468,10 +3456,6 @@
         "translation": "あなたはサッカーをしますか？"
       },
       {
-        "text": "Do you like this song?",
-        "translation": "あなたはこの歌が好きですか？"
-      },
-      {
         "text": "Does he have a bike?",
         "translation": "彼は自転車を1台持っていますか？"
       },
@@ -3484,10 +3468,6 @@
         "translation": "駅はどこですか？"
       },
       {
-        "text": "Where is your school?",
-        "translation": "あなたの学校はどこですか？"
-      },
-      {
         "text": "What is your name?",
         "translation": "あなたの名前は何ですか？"
       },
@@ -3496,16 +3476,8 @@
         "translation": "それは何色ですか？"
       },
       {
-        "text": "When is your test?",
-        "translation": "あなたのテストはいつですか？"
-      },
-      {
         "text": "Who is your teacher?",
         "translation": "あなたの先生は誰ですか？"
-      },
-      {
-        "text": "Whose book is this?",
-        "translation": "これは誰の本ですか？"
       },
       {
         "text": "How old are you?",
@@ -3516,10 +3488,6 @@
         "translation": "天気はどうですか？"
       },
       {
-        "text": "Please open your book.",
-        "translation": "あなたの本を開いてください。"
-      },
-      {
         "text": "Please close the window.",
         "translation": "窓を閉めてください。"
       },
@@ -3528,20 +3496,8 @@
         "translation": "入ってください。"
       },
       {
-        "text": "Please sit here.",
-        "translation": "ここに座ってください。"
-      },
-      {
         "text": "Please wait for me.",
         "translation": "私を待ってください。"
-      },
-      {
-        "text": "Look at this picture.",
-        "translation": "この絵を見てください。"
-      },
-      {
-        "text": "Listen to this song.",
-        "translation": "この歌を聞いてください。"
       },
       {
         "text": "Put your bag here.",
@@ -3554,14 +3510,6 @@
       {
         "text": "Let's go to the zoo.",
         "translation": "動物園へ行きましょう（Let'sを使う）。"
-      },
-      {
-        "text": "Let's have lunch now.",
-        "translation": "今、昼食を食べましょう（Let'sを使う）。"
-      },
-      {
-        "text": "It is sunny this morning.",
-        "translation": "今朝は晴れています。"
       },
       {
         "text": "It is rainy today.",
@@ -3684,20 +3632,12 @@
         "translation": "あのりんご（複数）は赤いです。"
       },
       {
-        "text": "I like music very much.",
-        "translation": "私は音楽がとても好きです。"
-      },
-      {
         "text": "My father likes coffee.",
         "translation": "私の父はコーヒーが好きです。"
       },
       {
         "text": "My mother can cook well.",
         "translation": "私の母は上手に料理できます。"
-      },
-      {
-        "text": "We are good friends.",
-        "translation": "私たちは仲のよい友だちです。"
       },
       {
         "text": "They are in the classroom.",
@@ -3718,10 +3658,6 @@
       {
         "text": "Thank you for your help.",
         "translation": "あなたの手助けに感謝します。"
-      },
-      {
-        "text": "You are very welcome.",
-        "translation": "どういたしまして（veryで強調）。"
       },
       {
         "text": "I am sorry I am late.",
@@ -3774,10 +3710,6 @@
       {
         "text": "This is an egg.",
         "translation": "これは卵です。"
-      },
-      {
-        "text": "The egg is white.",
-        "translation": "その卵は白いです。"
       },
       {
         "text": "The children are happy.",
@@ -3842,6 +3774,66 @@
       {
         "text": "These boxes are heavy.",
         "translation": "これらの箱は重いです。"
+      },
+      {
+        "text": "These are books.",
+        "translation": "これらは本です。"
+      },
+      {
+        "text": "Those are birds.",
+        "translation": "あれらは鳥です。"
+      },
+      {
+        "text": "Is that a cat?",
+        "translation": "あれは猫ですか？"
+      },
+      {
+        "text": "I'm a student.",
+        "translation": "私は生徒です（I amの短い形で）。"
+      },
+      {
+        "text": "You're kind.",
+        "translation": "あなたは親切です（You areの短い形で）。"
+      },
+      {
+        "text": "Yes, I am.",
+        "translation": "「あなたは生徒ですか？」に「はい、そうです」。"
+      },
+      {
+        "text": "No, I'm not.",
+        "translation": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。"
+      },
+      {
+        "text": "Yes, she does.",
+        "translation": "「彼女は犬が好きですか？」に「はい、好きです」。"
+      },
+      {
+        "text": "No, he doesn't.",
+        "translation": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。"
+      },
+      {
+        "text": "Yes, I can.",
+        "translation": "「あなたは泳げますか？」に「はい、泳げます」。"
+      },
+      {
+        "text": "No, I can't.",
+        "translation": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。"
+      },
+      {
+        "text": "I don't have any pencils.",
+        "translation": "私はえんぴつを1本も持っていません。"
+      },
+      {
+        "text": "Do you have any brothers?",
+        "translation": "あなたには男のきょうだいがいますか？"
+      },
+      {
+        "text": "It is three o'clock.",
+        "translation": "3時です。"
+      },
+      {
+        "text": "I am ten years old.",
+        "translation": "私は10歳です（years oldを使って）。"
       }
     ]
   }
