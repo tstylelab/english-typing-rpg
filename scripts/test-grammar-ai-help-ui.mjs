@@ -39,6 +39,9 @@ try {
     const text=await help.getByRole('textbox').inputValue();
     assert.ok(text.includes(`英検${course==='eiken4'?'4級':'5級'}に挑戦する学習者`));
     assert.ok(!text.includes('小学生にも分かる'));
+    assert.ok(text.includes('参考書の一節') && text.includes('基本ルールと作り方'));
+    assert.ok(!text.includes('400字') && !text.includes('確認問題を1問'));
+    assert.ok(await help.getByText('この文法を詳しく学ぶ質問文をコピーします。貼り付け・送信はご自身で。',{exact:true}).isVisible());
     assert.ok(text.includes(course==='eiken4'?'must・have to':'be動詞'));
     assert.equal(await page.evaluate(()=>window.copied),'','Preview does not touch clipboard');
     await help.getByRole('button',{name:'質問文を閉じる',exact:true}).click();

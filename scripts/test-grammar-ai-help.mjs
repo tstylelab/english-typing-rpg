@@ -5,9 +5,12 @@ const {buildGrammarQuestion,GRAMMAR_AI_DESTINATIONS}=load('src/grammarAiPrompt.t
 for (const {cards,grade} of Object.values(grammarGuides)) {
   for (const card of cards) {
     const text=buildGrammarQuestion(grade,card);
-    for (const expected of [`英検${grade}`,card.title,card.pattern,card.tip,card.more,...card.examples.flat()])
+    for (const expected of [`英検${grade}`,card.title,card.term,card.pattern,card.tip,card.more,...card.examples.flat(),...(card.compare || []).flat(),...(card.chunks || []).flat()])
       assert.ok(text.includes(expected),card.id+': '+expected);
-    assert.ok(text.includes('確認問題を1問') && text.includes('答えはまだ書かず'));
+    for (const expected of ['参考書の一節','体系的に説明','カードにない前提','複数の項目','全体像と前提','基本ルールと作り方','例文と使い分け','要点のまとめ','まず説明を完結','説明範囲の上限ではありません'])
+      assert.ok(text.includes(expected),card.id+': '+expected);
+    for (const obsolete of ['400字','1〜2組','1つだけ','確認問題を1問','答えはまだ書かず','私の返事を待って'])
+      assert.ok(!text.includes(obsolete),card.id+': no short-answer constraint '+obsolete);
     assert.ok(text.includes(`英検${grade}に挑戦する学習者`));
     assert.ok(text.includes('年齢や学年は決めつけない'));
     assert.ok(!text.includes('小学生にも分かる'));
@@ -24,4 +27,4 @@ for (const grade of ['3級','準2級','2級','準1級','1級']) {
   assert.ok(text.includes(`英検${grade}に挑戦する学習者`));
   assert.ok(!text.includes('英検4級') && !text.includes('小学生'));
 }
-console.log('PASS: 65 single-card prompts, grade/examples/compare context, short explanation and interactive check; no history dependency');
+console.log('PASS: 65 systematic grammar prompts, grade/examples/compare context, no short-answer or reply-wait constraints; no history dependency');

@@ -58,7 +58,7 @@ function QuestionActions({ grade, card, questionText }: Props) {
   };
 
   return <div ref={root} className="grammar-ai-actions">
-    <p>説明と確認問題の質問文をコピーします。貼り付け・送信はご自身で。</p>
+    <p>この文法を詳しく学ぶ質問文をコピーします。貼り付け・送信はご自身で。</p>
     <div className="grammar-ai-buttons">
       <button type="button" disabled={busy} onClick={() => copy()}>{busy ? 'コピー中…' : '質問文をコピー'}</button>
       {(Object.keys(GRAMMAR_AI_DESTINATIONS) as Destination[]).map(target =>

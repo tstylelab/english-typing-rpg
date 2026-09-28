@@ -22,6 +22,7 @@ import HelpScreen from './HelpScreen';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
+import { speakAutoPlayEntry } from './autoPlaySpeech';
 
 // --- Types & Interfaces ---
 
@@ -4151,6 +4152,8 @@ export default function App() {
   const progressTransferSectionRef = useRef<HTMLDivElement>(null);
   const speechPreviewTimeoutRef = useRef<number | null>(null);
   const autoPlayTimeoutRef = useRef<number | null>(null);
+  const autoPlaySpeechCleanupRef = useRef<(() => void) | null>(null);
+  const autoPlayRepeatRef = useRef(autoPlaySettings.repeat);
   const autoPlayRunIdRef = useRef(0);
   const autoPlayNavigateRef = useRef<((direction: -1 | 1) => void) | null>(null);
   const autoPlayWakeLockRef = useRef<WakeLockSentinel | null>(null);
@@ -5006,6 +5009,8 @@ export default function App() {
   }, [gameState.screen, speakWithSettings, versusPlayerIndex, versusQuestionIndex, versusQuestionOrders, versusShowHandoff]);
 
   const clearAutoPlayTimeout = useCallback(() => {
+    autoPlaySpeechCleanupRef.current?.();
+    autoPlaySpeechCleanupRef.current = null;
     if (autoPlayTimeoutRef.current !== null) {
       window.clearTimeout(autoPlayTimeoutRef.current);
       autoPlayTimeoutRef.current = null;
@@ -5111,6 +5116,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(autoPlaySettings));
+    autoPlayRepeatRef.current = autoPlaySettings.repeat;
   }, [autoPlaySettings]);
 
   useEffect(() => {
@@ -7214,7 +7220,7 @@ export default function App() {
       if (autoPlayRunIdRef.current !== runId) return;
 
       if (index >= entries.length) {
-        if (autoPlaySettings.repeat) {
+        if (autoPlayRepeatRef.current) {
           setAutoPlayStatusText('リピート再生を続けています');
           playAt(0);
           return;
@@ -7222,7 +7228,7 @@ export default function App() {
         setIsAutoPlaying(false);
         autoPlayNavigateRef.current = null;
         setAutoPlayNowPlaying(null);
-        setAutoPlayStatusText('再生が完了しました');
+        setAutoPlayStatusText('一巡しました（リピートOFF）');
         releaseAutoPlayWakeLock();
         return;
       }
@@ -7240,11 +7246,11 @@ export default function App() {
         : 0;
       const nextDelaySeconds = Math.max(minGapSeconds, entry.gapAfterSeconds / playbackRate);
 
-      speakText(entry.text, {
+      autoPlaySpeechCleanupRef.current?.();
+      autoPlaySpeechCleanupRef.current = speakAutoPlayEntry(entry.text, {
         voice: entry.voice,
         lang: entry.lang,
         rate: entry.lang.startsWith('ja') ? 1 : autoPlaySettings.playbackRatePercent / 100,
-        interrupt: false,
         onend: () => {
           if (autoPlayRunIdRef.current !== entryRunId) return;
           autoPlayTimeoutRef.current = window.setTimeout(() => {
@@ -7253,13 +7259,13 @@ export default function App() {
             playAt(index + 1);
           }, nextDelaySeconds * 1000);
         },
-        onerror: () => {
+        onretry: () => {
           if (autoPlayRunIdRef.current !== entryRunId) return;
-          autoPlayTimeoutRef.current = window.setTimeout(() => {
-            if (autoPlayRunIdRef.current !== entryRunId) return;
-            autoPlayTimeoutRef.current = null;
-            playAt(index + 1);
-          }, nextDelaySeconds * 1000);
+          setAutoPlayStatusText('音声が中断されたため、同じ項目を再試行しています');
+        },
+        onfailure: () => {
+          if (autoPlayRunIdRef.current !== entryRunId) return;
+          stopAutoPlay('音声を再開できませんでした。画面を表示した状態で「連続再生を開始」を押してください');
         },
       });
     };
@@ -7700,6 +7706,7 @@ export default function App() {
     };
 
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
+      if (key === 'repeat') autoPlayRepeatRef.current = Boolean(value);
       setAutoPlaySettings(prev => ({
         ...prev,
         [key]: value,
@@ -7950,6 +7957,7 @@ export default function App() {
                     <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}語</span>
                   </div>
                   <div className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-400">{autoPlayStatusText}</div>
+                  <div className="mt-1 text-xs text-cyan-200">{autoPlaySettings.repeat ? 'リピートON：一巡後も先頭から再生' : 'リピートOFF：一巡したら終了'}</div>
                 </div>
               </div>
               <div className="mt-5 space-y-4">
@@ -8043,9 +8051,9 @@ export default function App() {
                 <details className="group rounded-xl border border-slate-700 bg-slate-900/50">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 md:px-5">
                     <div>
-                      <p className="font-black text-white">細かい再生設定（必要なとき）</p>
+                      <p className="font-black text-white">速度・間隔の設定</p>
                       <p className="mt-1 text-xs leading-5 text-slate-400">
-                        速度・間隔・リピート・シャッフルを調整できます。現在の速度は {autoPlaySettings.playbackRatePercent / 100}x です。
+                        現在の速度は {autoPlaySettings.playbackRatePercent / 100}x です。再生速度と用語・例文の間隔を調整できます。
                       </p>
                     </div>
                     <span className="flex-none text-sm font-bold text-cyan-200">
@@ -8054,24 +8062,6 @@ export default function App() {
                     </span>
                   </summary>
                   <div className="border-t border-slate-700 p-4 md:p-5">
-                  <label className="mt-3 flex items-center justify-between gap-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-200">
-                    <span className="font-bold text-cyan-100">{'リピート再生'}</span>
-                    <input
-                      type="checkbox"
-                      checked={autoPlaySettings.repeat}
-                      onChange={(e) => updateAutoPlaySetting('repeat', e.target.checked)}
-                      className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
-                    />
-                  </label>
-                  <label className="mt-2 flex items-center justify-between gap-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-2 text-sm text-slate-200">
-                    <span className="font-bold text-cyan-100">{'シャッフル再生'}</span>
-                    <input
-                      type="checkbox"
-                      checked={autoPlaySettings.shuffle}
-                      onChange={(e) => updateAutoPlaySetting('shuffle', e.target.checked)}
-                      className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
-                    />
-                  </label>
                   <div className="mt-3 grid gap-3 sm:grid-cols-2">
                     <label className="rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
                       <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">用語・和訳・例文の間隔</span>
@@ -8225,6 +8215,20 @@ export default function App() {
                     >
                       <Square size={16} className="mr-1" /> 停止
                     </GameButton>
+                  </div>
+                  <div className="mt-3 grid gap-2 sm:grid-cols-2" role="group" aria-label="リピート・シャッフル">
+                    <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-600 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
+                      <input type="checkbox" aria-label="リピート再生" checked={autoPlaySettings.repeat}
+                        onChange={e => updateAutoPlaySetting('repeat', e.target.checked)}
+                        className="h-5 w-5 flex-none accent-cyan-400" />
+                      <span><span className="block font-bold text-cyan-100">リピート再生</span><span className="text-xs text-slate-400">一巡後に先頭へ戻る</span></span>
+                    </label>
+                    <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-600 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
+                      <input type="checkbox" aria-label="シャッフル再生" checked={autoPlaySettings.shuffle}
+                        onChange={e => updateAutoPlaySetting('shuffle', e.target.checked)}
+                        className="h-5 w-5 flex-none accent-cyan-400" />
+                      <span><span className="block font-bold text-cyan-100">シャッフル再生</span><span className="text-xs text-slate-400">順番を混ぜる（次の再生開始から）</span></span>
+                    </label>
                   </div>
                 </div>
                 <details
