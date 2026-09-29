@@ -32,7 +32,7 @@ try {
       if(!single) assert.ok(!sequence.slice(-6).includes(q.text),`Early repeat: ${q.text}`);
       sequence.push(q.text);
       await page.keyboard.type(q.text[0]);
-      if(single) await page.keyboard.type('z');
+      if(single) await page.keyboard.type('zz');
       await page.evaluate(({n,single})=>{window.testNow+=n*(single?500:2000);},{n:q.text.length,single});
       await page.keyboard.type(q.text.slice(1));
       await page.waitForFunction(({text,previous})=>{
@@ -55,7 +55,7 @@ try {
       assert.ok(stats['be interested in'].missCount>0,'Small mistakes remain in historical stats');
     }
     assert.deepEqual(errors,[]);
-    console.log('PASS',single?'1 typo promotes to caution; immediate repeat cannot master; example preserved':'7 distinct phrases across monsters; second spaced success masters',sequence.join(' / '));
+    console.log('PASS',single?'2 typos promote to caution; immediate repeat cannot master; example preserved':'7 distinct phrases across monsters; second spaced success masters',sequence.join(' / '));
     await bounded(context.close());
   }
   passed=true;

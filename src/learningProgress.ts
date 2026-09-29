@@ -11,7 +11,8 @@ export type AutomaticLearningState = {
 };
 
 export const getLongTextMistakeAllowance = (characters: number) => (
-  characters < 10 ? 0 : Math.min(3, Math.max(1, Math.floor(characters / 20)))
+  // English recall, not flawless typing: 10–19 chars allow 2, 20–29 allow 3, etc.
+  characters < 10 ? 0 : Math.floor(characters / 10) + 1
 );
 
 export const getAutomaticLearningLevel = (state: AutomaticLearningState): LearningProgressLevel => (

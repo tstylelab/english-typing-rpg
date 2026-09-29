@@ -28,13 +28,29 @@ assert.equal(qs.filter(q=>q.text==='be interested in').length,1);
 assert.ok(!qs.some(q=>/be interested in (music|science)/.test(q.text)));
 assert.ok(qs.some(q=>q.text==='take a picture'));
 assert.ok(qs.some(q=>q.text==='for example'));
-for(const [length,allowance] of [[9,0],[10,1],[19,1],[20,1],[39,1],[40,2],[59,2],[60,3],[200,3]]) {
+for(const [length,allowance] of [[9,0],[10,2],[19,2],[20,3],[29,3],[30,4],[39,4],[40,5],[49,5],[50,6],[59,6],[60,7],[200,21]]) {
   assert.equal(progress.getLongTextMistakeAllowance(length),allowance);
   for(const level of [2,3]) {
     assert.equal(progress.getBattleLearningOutcome(level,allowance,length),'success');
     assert.notEqual(progress.getBattleLearningOutcome(level,allowance+1,length),'success');
   }
   assert.equal(progress.getBattleLearningOutcome(1,1,length),'struggle');
+}
+// The relaxed allowance wins before demotion; excess errors still use the old rule.
+for(const level of [2,3]) {
+  for(const [length,misses] of [[16,2],[25,3],[35,4],[45,5],[65,7]]) {
+    const outcome=progress.getBattleLearningOutcome(level,misses,length);
+    assert.equal(outcome,'success');
+    const first=progress.getNextLongTextLearningState({listeningLevel:1,battleLevel:1},'battle',outcome);
+    assert.equal(first.battleLevel,2);
+    assert.equal(progress.getNextLongTextLearningState(first,'battle',outcome),first,'No immediate mastery');
+    const mastered=progress.getNextLongTextLearningState({...first,longTextSpacingRemaining:0},'battle',outcome);
+    assert.equal(mastered.battleLevel,3);
+    assert.equal(progress.getNextLongTextLearningState(mastered,'battle',outcome).battleLevel,3,'Allowed typos retain mastery');
+  }
+  assert.equal(progress.getBattleLearningOutcome(level,5,40),'success');
+  assert.equal(progress.getBattleLearningOutcome(level,6,40),'neutral');
+  assert.equal(progress.getBattleLearningOutcome(level,7,40),'struggle');
 }
 let s={listeningLevel:1,battleLevel:1};
 s=progress.getNextLongTextLearningState(s,'battle','success');
