@@ -126,6 +126,7 @@ interface Question {
 }
 
 interface BattleLogItem {
+    audioHintUsed?: boolean;
     question: Question;
     missCount: number;
     skipped: boolean;
@@ -4167,6 +4168,8 @@ export default function App() {
   const learningQuestionBalanceRef = useRef<Record<string, LearningQuestionBalance>>({});
   const reviewQueueRef = useRef<ReviewQueueEntry[]>([]);
   const activeReviewEntryRef = useRef<ReviewQueueEntry | null>(null);
+  const audioHintUsedRef = useRef(false);
+  const [audioHintUsed, setAudioHintUsed] = useState(false);
   const recentReviewAppearanceRef = useRef<boolean[]>([]);
   const recentLongTextQuestionsRef = useRef<Record<string, string[]>>({});
   const shownBossIntroKeyRef = useRef<string | null>(null);
@@ -4884,12 +4887,14 @@ export default function App() {
     characterCount: number,
     mode: Mode,
     inputMode: InputMode,
+    assisted = false,
   ): LearningStatusChange | null => {
     const track = getAutoLearningTrack(mode, inputMode);
     if (!track) return null;
-    const outcome: AutomaticLearningOutcome = EIKEN_DIFFICULTIES.includes(difficulty) && (track === 'battle' || level !== 1)
+    const rawOutcome: AutomaticLearningOutcome = EIKEN_DIFFICULTIES.includes(difficulty) && (track === 'battle' || level !== 1)
       ? getBattleLearningOutcome(level, missCount, characterCount)
       : missCount === 0 ? 'success' : 'struggle';
+    const outcome = assisted && rawOutcome === 'success' ? 'neutral' : rawOutcome;
 
     const current = getManualQuestionStatus(difficulty, level, question);
     const nextAutomaticState = EIKEN_DIFFICULTIES.includes(difficulty) && level !== 1
@@ -5874,12 +5879,17 @@ export default function App() {
 
   const speakCurrentQuestion = useCallback(() => {
       if (!gameState.currentQuestion.text) return;
+      if (gameState.screen !== 'battle' || gameState.monsterHp <= 0) return;
+      if (gameState.mode === 'challenge' && gameState.inputMode === 'text-only' && EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty)) {
+        audioHintUsedRef.current = true;
+        setAudioHintUsed(true);
+      }
       speakBattleQuestion(gameState.currentQuestion, gameState.selectedDifficulty, gameState.mode);
       setTimeout(() => {
         resetBattleImeState();
         (useBattleKeyboardTarget ? battleKeyboardTargetRef.current : inputRef.current)?.focus({ preventScroll: true });
       }, 10);
-  }, [useBattleKeyboardTarget, gameState.currentQuestion, gameState.mode, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
+  }, [useBattleKeyboardTarget, gameState.currentQuestion, gameState.mode, gameState.inputMode, gameState.screen, gameState.monsterHp, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
     setGameState(prev => {
@@ -6189,6 +6199,8 @@ export default function App() {
   });
 
   const initBattle = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, stepIndex: number, indices: number[], monsterList: Monster[], totalMonsters: number, currentScore: number, currentKeystrokes: number) => {
+    audioHintUsedRef.current = false;
+    setAudioHintUsed(false);
     clearPendingBattleEndTimeout();
     setLastSolvedQuestion(null);
     recentReviewAppearanceRef.current = [];
@@ -6547,12 +6559,15 @@ export default function App() {
   };
 
   const advanceGame = (damage: number, speed: number, skipped: boolean, addedChars: number) => {
+    const assisted = audioHintUsedRef.current;
+    audioHintUsedRef.current = false;
+    setAudioHintUsed(false);
     aiStudyRecorder.finish(skipped, gameState.missCount);
     recordDailyActivity(skipped);
     decrementReviewQueueTimers();
     const isLongText = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1;
     const learningOutcome = getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
-    const completedSuccessfully = !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
+    const completedSuccessfully = !assisted && !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
     if (isLongText) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
       const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
@@ -6569,7 +6584,7 @@ export default function App() {
         return next;
       });
       // A completed answer with small errors should not stay in an old urgent queue.
-      if (!skipped && learningOutcome !== 'struggle') {
+      if (!assisted && !skipped && learningOutcome !== 'struggle') {
         reviewQueueRef.current = reviewQueueRef.current.filter(entry => !(entry.difficulty === gameState.selectedDifficulty && entry.level === gameState.selectedLevel && entry.question.text === gameState.currentQuestion.text));
         persistReviewQueue();
       }
@@ -6595,6 +6610,7 @@ export default function App() {
         addedChars,
         gameState.mode,
         gameState.inputMode,
+        assisted,
       )
       : null;
 
@@ -6628,6 +6644,7 @@ export default function App() {
     }
 
     const logItem: BattleLogItem = {
+        audioHintUsed: assisted,
         question: gameState.currentQuestion,
         missCount: skipped ? -1 : gameState.missCount, 
         skipped: skipped,
@@ -6721,7 +6738,7 @@ export default function App() {
       && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
     );
     const isSentenceBattle = isEikenSentenceBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
-    const speedMultiplier = isSentenceBattle
+    const speedMultiplier = audioHintUsedRef.current ? 1 : isSentenceBattle
       ? getEiken5SentenceSpeedMultiplier(charsPerSec)
       : isEikenLongTextGuide
       ? getEikenLongTextGuideSpeedMultiplier(charsPerSec)
@@ -6777,6 +6794,8 @@ export default function App() {
     } else if (perfectClearDamageFloor > 0) {
       finalDamage = Math.max(finalDamage, perfectClearDamageFloor);
     }
+    // Apply after all boss floors and miss adjustments so none can erase the penalty.
+    if (audioHintUsedRef.current) finalDamage = Math.floor(finalDamage * 0.5);
     const willDefeatMonster = gameState.monsterHp - finalDamage <= 0;
     if (!willDefeatMonster) {
       if (speedMultiplier >= 2.0 && gameState.missCount === 0) { soundEngine.playCritical(); } else { soundEngine.playAttack(); }
@@ -10371,12 +10390,12 @@ export default function App() {
                          speakCurrentQuestion();
                          keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                        }}
-                       title="音声をもう一度再生 (Right Ctrl)"
+                       title={gameState.mode === 'challenge' && gameState.inputMode === 'text-only' && EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) ? 'この問題の得点・ダメージ半分／速度ボーナスなし／自力正解には数えません (Right Ctrl)' : '音声をもう一度再生 (Right Ctrl)'}
                        aria-label="音声をもう一度再生"
                         className="battle-replay inline-flex items-center gap-2 rounded-xl border border-blue-400/40 bg-blue-500/10 px-4 py-2.5 text-sm font-black text-blue-100 shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all hover:border-blue-300 hover:bg-blue-500/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                      >
                        <Volume2 size={20} />
-                       <span>もう一回聞く</span>
+                       <span>{gameState.mode === 'challenge' && gameState.inputMode === 'text-only' && EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) ? (audioHintUsed ? '音声ヒント使用中（得点半分）' : '音声ヒント（得点半分）') : 'もう一回聞く'}</span>
                      </button>
                       <div className="battle-shortcut inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-900/80 px-3 py-1.5 text-[11px] font-bold text-slate-200">
                        <span className="text-slate-400">音声:</span>
@@ -10412,6 +10431,9 @@ export default function App() {
                    </button>
                    </div>
                  </div>
+                   {gameState.mode === 'challenge' && gameState.inputMode === 'text-only' && EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && (
+                     <p className="mb-2 text-center text-xs text-amber-200">音声ヒント：この問題の得点・ダメージ½／速度ボーナス・習得への加算なし</p>
+                   )}
                  <div className="battle-translation text-center mb-2 min-h-[24px]">
                    {isConversationBattle ? (
                      <div className="mx-auto max-w-3xl space-y-2">
@@ -10692,7 +10714,7 @@ export default function App() {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                    const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                     return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                       <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
@@ -10762,7 +10784,7 @@ export default function App() {
             <div className="divide-y divide-slate-700">
               {gameState.battleLog.map((log, idx) => {
                 const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                 const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="grid gap-x-3 gap-y-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]">
                   <div className="min-w-0"><span className="font-mono font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-xs text-slate-400"><span className="mr-1 font-bold text-emerald-300">例文</span>{example}</p>}</div>
@@ -10817,7 +10839,7 @@ export default function App() {
             <div className="grid gap-2 lg:grid-cols-3">
               {gameState.battleLog.map((log, idx) => {
                 const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                const resultLabel = log.skipped ? 'スキップ' : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
+                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                 const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="rounded-xl border border-slate-700 bg-slate-800/90 p-3">
                   <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="break-words font-mono text-sm font-black text-cyan-100">{log.question.text}</p><p className="mt-0.5 text-xs font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</p></div><span className={`flex-shrink-0 text-xs font-black ${resultClass}`}>{resultLabel}</span></div>
