@@ -5,6 +5,7 @@ import grade4Corrections from './grade4MeaningCorrections.json';
 import intermediateCorrections from './intermediateMeaningCorrections.json';
 import additionalCorrections from './additionalMeaningCorrections.json';
 import type { DifficultyKey } from './questions';
+import { getGrade4PhraseMeaning } from './grade4PhrasePrompts';
 
 type MeaningQuestion = { text: string; translation: string; exampleEn?: string };
 
@@ -21,6 +22,7 @@ const courseMeanings = new Map([...intermediateCorrections, ...additionalCorrect
 ]));
 
 export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: DifficultyKey): string => (
-  (difficulty ? courseMeanings.get(`${difficulty}:${identity(question)}`) : undefined)
+  getGrade4PhraseMeaning(question, difficulty)
+  ?? (difficulty ? courseMeanings.get(`${difficulty}:${identity(question)}`) : undefined)
   ?? meanings.get(identity(question)) ?? question.translation
 );

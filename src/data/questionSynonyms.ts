@@ -1,5 +1,6 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import supplementalSynonyms from './supplementalQuestionSynonyms.json';
+import { grade4PhraseSynonyms } from './grade4PhrasePrompts';
 
 type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms'>;
 
@@ -220,7 +221,7 @@ const EIKEN5_CORE_HINTS: Record<string, string[]> = {
   'walk to school': ['go to school'],
   'come from': ['be from'],
   'live in': ['reside in'],
-  'like to': ['enjoy to'],
+  'like to': ['enjoy + -ing'],
   'want to': ['wish to'],
   'thank you': ['thanks'],
   'you are welcome': ['no problem'],
@@ -2434,6 +2435,14 @@ export const getQuestionSynonyms = (
   if (cached) return cached;
 
   let result = EMPTY_SYNONYMS;
+
+  const phraseCorrection = difficulty === 'Eiken4' && level === 2
+    ? grade4PhraseSynonyms[question.text] : undefined;
+  if (phraseCorrection !== undefined) {
+    result = limitSynonyms(phraseCorrection);
+    questionSynonymCache.set(cacheKey, result);
+    return result;
+  }
 
   if (question.synonyms && question.synonyms.length > 0) {
     result = limitSynonyms(question.synonyms);

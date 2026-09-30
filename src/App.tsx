@@ -5,6 +5,7 @@ import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUn
 import { getNextLongTextLearningState } from './learningProgress';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
+import { getPhraseAnswerCue } from './data/grade4PhrasePrompts';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getGrammarCard, getGrammarGuideCourse } from './data/grammarGuides';
@@ -10442,6 +10443,12 @@ export default function App() {
                      </div>
                    )}
                  </div>
+                 {gameState.inputMode === 'text-only' && getPhraseAnswerCue(gameState.currentQuestion.text, gameState.selectedDifficulty, gameState.selectedLevel) && (
+                   <p className="battle-answer-cue mb-3 text-center text-sm text-cyan-200">
+                     指定の熟語：<span className="font-mono font-bold">{getPhraseAnswerCue(gameState.currentQuestion.text, gameState.selectedDifficulty, gameState.selectedLevel)}</span>
+                     <span className="ml-2 text-xs text-slate-400">頭文字などの手掛かり</span>
+                   </p>
+                 )}
                  <div
                    ref={battleKeyboardTargetRef}
                    tabIndex={useBattleKeyboardTarget ? 0 : -1}
