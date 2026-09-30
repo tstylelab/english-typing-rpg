@@ -10431,9 +10431,6 @@ export default function App() {
                    </button>
                    </div>
                  </div>
-                   {gameState.mode === 'challenge' && gameState.inputMode === 'text-only' && EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && (
-                     <p className="mb-2 text-center text-xs text-amber-200">音声ヒント：この問題の得点・ダメージ½／速度ボーナス・習得への加算なし</p>
-                   )}
                  <div className="battle-translation text-center mb-2 min-h-[24px]">
                    {isConversationBattle ? (
                      <div className="mx-auto max-w-3xl space-y-2">
@@ -10482,16 +10479,21 @@ export default function App() {
                      keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                    }}
                  >
-                    <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 break-words px-3 md:px-4`}>
-                        {gameState.currentQuestion.text.split('').map((char, index) => {
+                    <div className={`battle-question-text ${questionPresentation.textClass} ${questionPresentation.minHeightClass} font-mono text-center pointer-events-none select-none tracking-[0.08em] text-slate-600 relative z-20 flex flex-wrap items-center justify-center content-center gap-y-1 px-3 md:px-4`}>
+                        {Array.from(gameState.currentQuestion.text.matchAll(/\S+\s*|\s+/g), match => (
+                          <span key={match.index} className="battle-question-word" style={{ fontSize: `min(1em, calc(100cqw / ${Math.max(1, match[0].length) * 0.72}))` }}>
+                          {match[0].split('').map((char, offset) => {
+                            const index = match.index + offset;
                             const isTyped = index < gameState.userInput.length;
                             const isCurrent = index === gameState.userInput.length;
                             const isHint = !isTyped && (index < gameState.userInput.length + gameState.hintLength);
                             const isAlwaysVisible = showGuide;
                             let className = "inline-block min-w-[0.56em] transition-colors duration-100 ";
                             if (isTyped) { className += "text-blue-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]"; } else if (isCurrent) { className += "text-white border-b-4 border-yellow-400 animate-pulse pb-1"; if (char === ' ') className += " bg-yellow-500/30"; } else if (isHint) { className += "text-slate-400/80"; } else if (isAlwaysVisible) { className += "text-slate-300"; } else { className += "opacity-0"; }
-                            return <span key={index} className={className}>{(!isTyped && !isHint && !isAlwaysVisible && isCurrent) ? '_' : (char === ' ' ? '\u00A0' : char)}</span>;
-                        })}
+                            return <span key={index} data-character-index={index} className={className}>{(!isTyped && !isHint && !isAlwaysVisible && isCurrent) ? '_' : (char === ' ' ? '\u00A0' : char)}</span>;
+                          })}
+                          </span>
+                        ))}
                     </div>
                     <input
                       ref={inputRef}

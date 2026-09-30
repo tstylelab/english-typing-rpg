@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Keep a whole word (and its following space) on one line while retaining
+   per-character typing feedback. Only an oversized word shrinks to fit. */
+.battle-question-text { container-type: inline-size; }
+.battle-question-word { display: inline-flex; flex: none; flex-wrap: nowrap; align-items: center; white-space: nowrap; letter-spacing: .08em; }
+.battle-question-word > span { flex: none; }
+
 /* Reuse the HP row instead of a separate full-width exit header. */
 .battle-status-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .75rem; width: 100%; margin-top: .5rem; }
 .battle-navigation { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
