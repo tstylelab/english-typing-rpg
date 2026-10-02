@@ -230,7 +230,7 @@
   {
     "text": "Sounds nice.",
     "translation": "すてきですね。",
-    "meaning": "すてきですね（話を聞いて）。",
+    "meaning": "話を聞いて「よさそうですね」とひと言（Soundsで始める）。",
     "level": 3
   },
   {
@@ -278,7 +278,7 @@
   {
     "text": "You should see a doctor.",
     "translation": "あなたは医者に診てもらうべきです。",
-    "meaning": "あなたは医者に診てもらったほうがよいです。",
+    "meaning": "あなたは医者に診てもらったほうがよいです（should・seeを使う）。",
     "level": 3
   },
   {
@@ -939,6 +939,150 @@
     "text": "Could I borrow your umbrella today?",
     "translation": "今日あなたの傘を借りてもよいですか？",
     "meaning": "今日あなたの傘をお借りしてもよいですか（Could I）？",
+    "level": 3
+  },
+  {
+    "text": "I'd like to see a movie.",
+    "translation": "映画を見たいです（I'd likeを使う）。",
+    "meaning": "映画を見たいです（I'd like to・seeを使う）。",
+    "level": 3
+  },
+  {
+    "text": "Would you like to see a movie tonight?",
+    "translation": "今夜映画を見ませんか。",
+    "meaning": "今夜映画を見ませんか（Would you like to・seeを使う）？",
+    "level": 3
+  },
+  {
+    "text": "I will help you tomorrow.",
+    "translation": "私は明日あなたを手伝います。",
+    "meaning": "私は明日あなたを手伝います（will・helpを使う）。",
+    "level": 3
+  },
+  {
+    "text": "It will be sunny this weekend.",
+    "translation": "今週末は晴れるでしょう。",
+    "meaning": "今週末は晴れるでしょう（willを使う）。",
+    "level": 3
+  },
+  {
+    "text": "We are going to visit Grandma.",
+    "translation": "私たちは祖母を訪ねる予定です。",
+    "meaning": "私たちはおばあちゃんを訪ねる予定です（be going to・Grandmaを使う）。",
+    "level": 3
+  },
+  {
+    "text": "I am going to clean my room.",
+    "translation": "私は自分の部屋を掃除する予定です。",
+    "meaning": "私は自分の部屋を掃除する予定です（be going toを使う）。",
+    "level": 3
+  },
+  {
+    "text": "Are you going to play tennis?",
+    "translation": "あなたはテニスをする予定ですか？",
+    "meaning": "あなたはテニスをする予定ですか（be going toを使う）？",
+    "level": 3
+  },
+  {
+    "text": "You must finish this today.",
+    "translation": "あなたは今日これを終えなければなりません。",
+    "meaning": "あなたは今日これを終えなければなりません（mustを使う）。",
+    "level": 3
+  },
+  {
+    "text": "May I use your dictionary?",
+    "translation": "あなたの辞書を使ってもよいですか？",
+    "meaning": "あなたの辞書を使わせていただいてもよいですか（May Iを使う）？",
+    "level": 3
+  },
+  {
+    "text": "Let me carry your bag.",
+    "translation": "あなたのかばんを私に持たせてください。",
+    "meaning": "あなたのかばんを私に持たせてください（Let me・carryを使う）。",
+    "level": 3
+  },
+  {
+    "text": "She was cooking dinner then.",
+    "translation": "彼女はそのとき夕食を作っていました。",
+    "meaning": "彼女はそのとき夕食を作っている途中でした（過去進行形）。",
+    "level": 3
+  },
+  {
+    "text": "It is important to eat breakfast.",
+    "translation": "朝食を食べることは大切です。",
+    "meaning": "朝食を食べることは大切です（It is ... toの形）。",
+    "level": 3
+  },
+  {
+    "text": "It is easy for me to read this book.",
+    "translation": "私にとってこの本を読むのは簡単です。",
+    "meaning": "私にとってこの本を読むのは簡単です（It is ... for me toの形）。",
+    "level": 3
+  },
+  {
+    "text": "I will call you after dinner.",
+    "translation": "私は夕食の後であなたに電話します。",
+    "meaning": "私は夕食の後であなたに電話します（willを使う）。",
+    "level": 3
+  },
+  {
+    "text": "They will arrive before noon.",
+    "translation": "彼らは正午前に到着します。",
+    "meaning": "彼らは正午前に到着します（willを使う）。",
+    "level": 3
+  },
+  {
+    "text": "I hope you have a nice trip.",
+    "translation": "楽しい旅行になりますように。",
+    "meaning": "あなたが楽しい旅行をすることを願っています（I hope・haveを使う）。",
+    "level": 3
+  },
+  {
+    "text": "My father was cooking dinner at six.",
+    "translation": "私の父は6時に夕食を作っていました。",
+    "meaning": "私の父は6時に夕食を作っている途中でした（過去進行形）。",
+    "level": 3
+  },
+  {
+    "text": "Are you going to visit your grandparents?",
+    "translation": "あなたは自分の祖父母を訪ねる予定ですか？",
+    "meaning": "あなたは自分の祖父母を訪ねる予定ですか（be going toを使う）？",
+    "level": 3
+  },
+  {
+    "text": "We are going to have a picnic on Sunday.",
+    "translation": "私たちは日曜日にピクニックをする予定です。",
+    "meaning": "私たちは日曜日にピクニックをする予定です（be going toを使う）。",
+    "level": 3
+  },
+  {
+    "text": "It will be colder tomorrow than today.",
+    "translation": "明日は今日より寒くなるでしょう。",
+    "meaning": "明日は今日より寒くなるでしょう（willを使う）。",
+    "level": 3
+  },
+  {
+    "text": "It is important to keep your room clean.",
+    "translation": "自分の部屋をきれいにしておくことは大切です。",
+    "meaning": "自分の部屋をきれいにしておくことは大切です（It is ... toの形）。",
+    "level": 3
+  },
+  {
+    "text": "Can you tell me how to use this?",
+    "translation": "私にこれの使い方を教えてくれますか。",
+    "meaning": "これの使い方を私に教えてくれますか（Can you・tell・how toを使う）？",
+    "level": 3
+  },
+  {
+    "text": "You should take a break now.",
+    "translation": "今は休憩したほうがよいです。",
+    "meaning": "あなたは今、休憩したほうがよいです（should・take a breakを使う）。",
+    "level": 3
+  },
+  {
+    "text": "Thank you for showing me the way.",
+    "translation": "私に道を教えてくれてありがとう。",
+    "meaning": "道を案内してくれてありがとう（Thank you for・showを使う）。",
     "level": 3
   }
 ]
