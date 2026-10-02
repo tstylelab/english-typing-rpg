@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
-import { getNextLongTextLearningState } from './learningProgress';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
 import { getPhraseAnswerCue } from './data/grade4PhrasePrompts';
@@ -19,6 +18,8 @@ import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, get
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
+import { getLongTextRecallOutcome, getNextTolerantLongTextLearningState, isFormattingOnlyMistake } from './learningProgress';
+import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
@@ -126,6 +127,7 @@ interface Question {
 }
 
 interface BattleLogItem {
+    recallOutcome?: AutomaticLearningOutcome;
     audioHintUsed?: boolean;
     question: Question;
     missCount: number;
@@ -148,6 +150,7 @@ type LearningStatusChange = {
 };
 
 type ManualQuestionStatus = {
+  longTextPreviousExcess?: boolean;
   longTextSuccessCount?: number;
   longTextSpacingRemaining?: number;
   longTextLastSuccessAt?: number;
@@ -280,6 +283,7 @@ interface GameState {
   defeatedMonsterIds: string[];
   isNewRecord: boolean; 
   missCount: number;
+  formattingMissCount?: number;
   totalKeystrokes: number;
   hintLength: number; 
   currentBattleMissedQuestions: Question[]; 
@@ -2747,6 +2751,7 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
     Object.entries(typeof statuses === 'object' && statuses !== null ? statuses : {}).map(([key, value]) => [
       key,
       withDerivedLearningLevel({
+        longTextPreviousExcess: value?.longTextPreviousExcess === true,
         longTextSuccessCount: Math.min(2, Math.max(0, Math.floor(Number(value?.longTextSuccessCount) || 0))),
         longTextSpacingRemaining: Math.min(5, Math.max(0, Math.floor(Number(value?.longTextSpacingRemaining) || 0))),
         longTextLastSuccessAt: Number.isFinite(value?.longTextLastSuccessAt) ? Math.max(0, Number(value.longTextLastSuccessAt)) : 0,
@@ -4892,13 +4897,15 @@ export default function App() {
     const track = getAutoLearningTrack(mode, inputMode);
     if (!track) return null;
     const rawOutcome: AutomaticLearningOutcome = EIKEN_DIFFICULTIES.includes(difficulty) && (track === 'battle' || level !== 1)
-      ? getBattleLearningOutcome(level, missCount, characterCount)
+      ? level !== 1
+        ? getLongTextRecallOutcome(question.text, Math.max(0, missCount - (gameState.formattingMissCount ?? 0)))
+        : getBattleLearningOutcome(level, missCount, characterCount)
       : missCount === 0 ? 'success' : 'struggle';
     const outcome = assisted && rawOutcome === 'success' ? 'neutral' : rawOutcome;
 
     const current = getManualQuestionStatus(difficulty, level, question);
     const nextAutomaticState = EIKEN_DIFFICULTIES.includes(difficulty) && level !== 1
-      ? getNextLongTextLearningState(current, track, outcome, getScopedPlayableQuestions(difficulty, level).length < 6)
+      ? getNextTolerantLongTextLearningState(current, track, outcome, getScopedPlayableQuestions(difficulty, level).length < 6)
       : getNextAutomaticLearningState(current, track, outcome);
     if (nextAutomaticState === current) return null;
     const nextStatus = { ...current, ...nextAutomaticState };
@@ -6082,7 +6089,7 @@ export default function App() {
       if (EIKEN_DIFFICULTIES.includes(diff) && level !== 1 && finalBattleLog) {
         const needsReview = missedQs.filter(q => {
           const last = [...finalBattleLog].reverse().find(log => log.question.text === q.text);
-          return last && (last.skipped || getBattleLearningOutcome(level, last.missCount, q.text.length) === 'struggle');
+          return last && (last.skipped || last.recallOutcome === 'struggle');
         });
         saveWeakQuestions(needsReview);
         // Keep the mistake ranking honest without making small typing errors
@@ -6247,7 +6254,7 @@ export default function App() {
       currentMonsterIndex: safeStepIndex, currentMonsterList: monsterList, challengeModeIndices: safeIndices,
       monsterHp: startingMonsterHp, maxMonsterHp: startingMonsterHp, score: currentScore, combo: 0,
       currentQuestion: question, userInput: "", startTime: null, history: [], questionCount: 1, maxQuestions,
-      battleResult: null, totalMonstersInStage: totalMonsters, isNewRecord: false, missCount: 0,
+      battleResult: null, totalMonstersInStage: totalMonsters, isNewRecord: false, missCount: 0, formattingMissCount: 0,
       totalKeystrokes: currentKeystrokes, hintLength: 0, currentBattleMissedQuestions: [],
       battleLog: [],
       battleStartScore: currentScore,
@@ -6566,7 +6573,9 @@ export default function App() {
     recordDailyActivity(skipped);
     decrementReviewQueueTimers();
     const isLongText = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1;
-    const learningOutcome = getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
+    const learningOutcome = isLongText
+      ? getLongTextRecallOutcome(gameState.currentQuestion.text, Math.max(0, gameState.missCount - (gameState.formattingMissCount ?? 0)))
+      : getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
     const completedSuccessfully = !assisted && !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
     if (isLongText) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
@@ -6644,6 +6653,7 @@ export default function App() {
     }
 
     const logItem: BattleLogItem = {
+        recallOutcome: learningOutcome,
         audioHintUsed: assisted,
         question: gameState.currentQuestion,
         missCount: skipped ? -1 : gameState.missCount, 
@@ -6717,7 +6727,7 @@ export default function App() {
     aiStudyRecorder.start(getStudyContext(nextQ, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode));
     setGameState(prev => ({
       ...prev, monsterHp: nextHp, score: currentScore, combo: skipped ? 0 : prev.combo + 1, currentQuestion: nextQ, userInput: "",
-      startTime: null, history: newHistory, questionCount: prev.questionCount + 1, missCount: 0, totalKeystrokes: nextKeystrokes, hintLength: 0, currentBattleMissedQuestions: newMissedQs,
+      startTime: null, history: newHistory, questionCount: prev.questionCount + 1, missCount: 0, formattingMissCount: 0, totalKeystrokes: nextKeystrokes, hintLength: 0, currentBattleMissedQuestions: newMissedQs,
       battleLog: newBattleLog
     }));
   };
@@ -6797,9 +6807,17 @@ export default function App() {
     // Apply after all boss floors and miss adjustments so none can erase the penalty.
     if (audioHintUsedRef.current) finalDamage = Math.floor(finalDamage * 0.5);
     const willDefeatMonster = gameState.monsterHp - finalDamage <= 0;
-    if (!willDefeatMonster) {
-      if (speedMultiplier >= 2.0 && gameState.missCount === 0) { soundEngine.playCritical(); } else { soundEngine.playAttack(); }
-    }
+    const answerSound = getBattleAnswerSound({
+      longText: EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1,
+      text: gameState.currentQuestion.text,
+      charsPerSec, speedMultiplier,
+      misses: gameState.missCount,
+      formattingMisses: gameState.formattingMissCount ?? 0,
+      assisted: audioHintUsedRef.current,
+      defeated: willDefeatMonster,
+    });
+    if (answerSound === 'critical') soundEngine.playCritical();
+    else if (answerSound === 'attack') soundEngine.playAttack();
     setMonsterShake(true);
     setTimeout(() => setMonsterShake(false), 400); 
     setLastSolvedQuestion(gameState.currentQuestion);
@@ -6823,7 +6841,8 @@ export default function App() {
     } else {
         soundEngine.playMiss(); setShake(true); setTimeout(() => setShake(false), 300);
         const shouldShowHint = gameState.mode === 'challenge';
-        setGameState(prev => ({ ...prev, missCount: prev.missCount + 1, hintLength: shouldShowHint ? prev.hintLength + 1 : 0 }));
+        const formattingOnly = isFormattingOnlyMistake(normalizedTargetText, normalizedVal);
+        setGameState(prev => ({ ...prev, missCount: prev.missCount + 1, formattingMissCount: (prev.formattingMissCount ?? 0) + (formattingOnly ? 1 : 0), hintLength: shouldShowHint ? prev.hintLength + 1 : 0 }));
     }
   };
 

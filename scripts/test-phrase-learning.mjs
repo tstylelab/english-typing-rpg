@@ -114,3 +114,40 @@ assert.deepEqual(json(selection['Eiken4:2']),[key(newQ)]);
 const lists=ctx.normalizeSavedSelectionLists([{id:'saved',name:'favorites',difficulty:'Eiken4',level:2,questionKeys:[key(oldA),key(oldB)]}]);
 assert.deepEqual(json(lists[0].questionKeys),[key(newQ)]);
 console.log(`PASS: ${core.grade4PhraseChanges.length} phrase revisions, ${qs.length} unique cores, examples, migration/idempotence, typo thresholds, spaced progress and small-pool selection.`);
+
+// New recall policy is independent of scoring and legacy Level 1 outcomes.
+for (const [letters, allowed] of [[0,2],[10,2],[20,3],[30,5],[40,6]]) {
+  assert.equal(progress.getRecallMistakeAllowance(letters), allowed);
+  assert.equal(progress.getLongTextRecallOutcome('a'.repeat(letters), allowed), 'success');
+  assert.equal(progress.getLongTextRecallOutcome('a'.repeat(letters), allowed+1), 'struggle');
+}
+assert.equal(progress.getEnglishLetterCount("It's raining now."),13);
+for (const [target, input] of [['go home','goh'],['home?','home.'],['hello','he '],['Hi, Tom.','HiT']]) {
+  assert.equal(progress.isFormattingOnlyMistake(target,input),true);
+}
+for (const [target, input] of [["we're","were"],["we're","we "],['hello','heq'],['well-known','wellk'],['well-known','well ']]) {
+  assert.equal(progress.isFormattingOnlyMistake(target,input),false);
+}
+const tolerant=progress.getNextTolerantLongTextLearningState;
+const known={listeningLevel:2,battleLevel:3,longTextSuccessCount:2,longTextSpacingRemaining:5};
+const excess=tolerant(known,'battle','struggle');
+assert.equal(excess.battleLevel,3);
+assert.equal(excess.longTextSuccessCount,2);
+assert.equal(excess.longTextPreviousExcess,true);
+assert.equal(tolerant(excess,'battle','neutral'),excess,'Assisted success must not clear previous excess');
+const recovered=tolerant(excess,'battle','success');
+assert.equal(recovered.battleLevel,3);
+assert.equal(recovered.longTextPreviousExcess,false,'Success clears excess even inside spacing window');
+const twice=tolerant(excess,'battle','struggle');
+assert.equal(twice.battleLevel,2);
+assert.equal(twice.longTextSuccessCount,0);
+assert.equal(twice.longTextPreviousExcess,false);
+const restoreKey=key(newQ);
+const restored=ctx.normalizeManualQuestionStatuses({[restoreKey]:{...base,...excess}})[restoreKey];
+assert.equal(restored.longTextPreviousExcess,true);
+assert.equal(tolerant(restored,'battle','struggle').battleLevel,2);
+assert.equal(ctx.normalizeManualQuestionStatuses({[restoreKey]:base})[restoreKey].longTextPreviousExcess,false);
+assert.equal(ctx.normalizeManualQuestionStatuses({[restoreKey]:{...base,longTextPreviousExcess:'true'}})[restoreKey].longTextPreviousExcess,false);
+assert.equal(tolerant({listeningLevel:1,battleLevel:1},'listening','success').listeningLevel,2);
+assert.equal(progress.getBattleLearningOutcome(1,1,40),'struggle');
+console.log('PASS: recall allowance, formatting vs apostrophes, two-excess demotion, recovery and saved-data compatibility.');

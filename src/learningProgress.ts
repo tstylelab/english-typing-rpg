@@ -8,6 +8,37 @@ export type AutomaticLearningState = {
   longTextSuccessCount?: number;
   longTextSpacingRemaining?: number;
   longTextLastSuccessAt?: number;
+  longTextPreviousExcess?: boolean;
+};
+
+// Only learning progress uses this counter; scoring and raw mistake logs stay intact.
+export const getEnglishLetterCount = (text: string) => (text.match(/[a-z]/gi) ?? []).length;
+export const getRecallMistakeAllowance = (letters: number) => Math.max(2, Math.ceil(letters * 0.15));
+export const getLongTextRecallOutcome = (text: string, misses: number): AutomaticLearningOutcome => (
+  misses <= getRecallMistakeAllowance(getEnglishLetterCount(text)) ? 'success' : 'struggle'
+);
+
+export const isFormattingOnlyMistake = (target: string, attempted: string): boolean => {
+  let index = 0;
+  while (index < target.length && target[index] === attempted[index]) index += 1;
+  // Apostrophes/hyphens remain meaningful. Exempt a missed separator or an extra one.
+  if (/^['’-]$/.test(target[index] ?? '')) return false;
+  const formatting = /^[\s.,!?]$/;
+  return formatting.test(target[index] ?? '') || formatting.test(attempted[index] ?? '');
+};
+
+export const getNextTolerantLongTextLearningState = (
+  state: AutomaticLearningState, source: AutomaticLearningSource, outcome: AutomaticLearningOutcome,
+  smallPool = false, now = Date.now(),
+): AutomaticLearningState => {
+  if (source !== 'battle' || outcome === 'neutral') {
+    return getNextLongTextLearningState(state, source, outcome, smallPool, now);
+  }
+  if (outcome === 'struggle' && !state.longTextPreviousExcess) {
+    return { ...state, longTextPreviousExcess: true };
+  }
+  const next = getNextLongTextLearningState(state, source, outcome, smallPool, now);
+  return { ...next, longTextPreviousExcess: false };
 };
 
 export const getLongTextMistakeAllowance = (characters: number) => (

@@ -4,7 +4,7 @@ import {load} from './lib/load-typescript-data.mjs';
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const {QUESTIONS}=load('src/data/questions.ts');
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
-const url='http://127.0.0.1:5178';
+const url=process.env.TEST_BASE_URL || 'http://127.0.0.1:5178';
 const server=await chromium.launchServer({channel:'chrome',headless:true,args:['--mute-audio']});
 const browser=await chromium.connect(server.wsEndpoint());
 let passed=false;
@@ -34,7 +34,16 @@ try {
       await page.keyboard.type(q.text[0]);
       if(single) await page.keyboard.type('zz');
       await page.evaluate(({n,single})=>{window.testNow+=n*(single?500:2000);},{n:q.text.length,single});
-      await page.keyboard.type(q.text.slice(1));
+      if(single && i===0) {
+        // Five attempts at a missing space remain raw mistakes, but must not
+        // block recall progress or enter the urgent review queue.
+        const space=q.text.indexOf(' ');
+        await page.keyboard.type(q.text.slice(1,space));
+        await page.keyboard.type('xxxxx');
+        await page.keyboard.type(q.text.slice(space));
+      } else {
+        await page.keyboard.type(q.text.slice(1));
+      }
       await page.waitForFunction(({text,previous})=>{
         const records=JSON.parse(localStorage.getItem('etyping_manual_question_statuses')||'{}');
         const entry=Object.entries(records).find(([k])=>k.startsWith('Eiken4:2:'+text+':'))?.[1];
