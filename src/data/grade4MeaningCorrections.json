@@ -242,13 +242,13 @@
   {
     "text": "Could you open the door?",
     "translation": "ドアを開けてくれますか？",
-    "meaning": "ドアを開けていただけますか？",
+    "meaning": "ドアを開けていただけますか（Could youで始める）？",
     "level": 3
   },
   {
     "text": "Would you like to join us?",
     "translation": "私たちと一緒に来ませんか？",
-    "meaning": "私たちと一緒に参加しませんか？",
+    "meaning": "私たちに加わりませんか（Would you like toを使う）？",
     "level": 3
   },
   {
@@ -1083,6 +1083,114 @@
     "text": "Thank you for showing me the way.",
     "translation": "私に道を教えてくれてありがとう。",
     "meaning": "道を案内してくれてありがとう（Thank you for・showを使う）。",
+    "level": 3
+  },
+  {
+    "text": "Anything else?",
+    "translation": "ほかに何かありますか。",
+    "meaning": "（注文を聞いた店員が短く）ほかに何か？",
+    "level": 3
+  },
+  {
+    "text": "Can I have some more water?",
+    "translation": "水をもう少しいただけますか。",
+    "meaning": "水をもう少しいただいてもいいですか（Can I haveを使う）？",
+    "level": 3
+  },
+  {
+    "text": "Would you like tea or coffee?",
+    "translation": "紅茶とコーヒーのどちらがよいですか。",
+    "meaning": "紅茶かコーヒーはいかがですか（Would you like）？",
+    "level": 3
+  },
+  {
+    "text": "What happened to you?",
+    "translation": "あなた、どうしたのですか。",
+    "meaning": "あなたの身に何が起こったのですか？",
+    "level": 3
+  },
+  {
+    "text": "I have to go now.",
+    "translation": "もう行かなければなりません。",
+    "meaning": "私はもう行かなければなりません（have toを使う）。",
+    "level": 3
+  },
+  {
+    "text": "Just a moment, please.",
+    "translation": "少々お待ちください。",
+    "meaning": "ほんの少しだけお待ちください（Justで始める）。",
+    "level": 3
+  },
+  {
+    "text": "Why not?",
+    "translation": "いいですね（提案への返事）。",
+    "meaning": "（誘いへの返事）断る理由はないですね。いいですよ。",
+    "level": 3
+  },
+  {
+    "text": "Please show me the way.",
+    "translation": "私に道を教えてください。",
+    "meaning": "私に道を示して案内してください。",
+    "level": 3
+  },
+  {
+    "text": "There is nobody in the room.",
+    "translation": "部屋には誰もいません。",
+    "meaning": "部屋には誰もいません（There isで始め、「誰も」は1語）。",
+    "level": 3
+  },
+  {
+    "text": "Everyone in my class likes music.",
+    "translation": "私のクラスのみんなは音楽が好きです。",
+    "meaning": "私のクラスの全員が音楽を好きです（Everyoneで始める）。",
+    "level": 3
+  },
+  {
+    "text": "Do you know anyone in London?",
+    "translation": "あなたはロンドンに知り合いがいますか？",
+    "meaning": "あなたはロンドンに知り合いがいますか（anyoneを使う）？",
+    "level": 3
+  },
+  {
+    "text": "Please be kind to animals.",
+    "translation": "動物に親切にしてください。",
+    "meaning": "どうか動物に対して親切でいてください。",
+    "level": 3
+  },
+  {
+    "text": "Can you lend me some money?",
+    "translation": "私に少しお金を貸してくれますか？",
+    "meaning": "私に少しお金を貸してくれますか（Can youで始める）？",
+    "level": 3
+  },
+  {
+    "text": "Nobody in my family likes coffee.",
+    "translation": "私の家族にはコーヒーが好きな人はいません。",
+    "meaning": "家族の誰もコーヒーが好きではありません（Nobodyで始める）。",
+    "level": 3
+  },
+  {
+    "text": "Does anyone know the answer?",
+    "translation": "だれか答えを知っていますか？",
+    "meaning": "だれか答えを知っていますか（anyoneを使う）？",
+    "level": 3
+  },
+  {
+    "text": "There was no one at the bus stop.",
+    "translation": "バス停にはだれもいませんでした。",
+    "meaning": "バス停に誰もいませんでした（There was・「誰も」は2語）。",
+    "level": 3
+  },
+  {
+    "text": "May I ask you a question?",
+    "translation": "あなたに質問してもよいですか。",
+    "meaning": "あなたに質問してもよろしいですか（May Iを使う）？",
+    "level": 3
+  },
+  {
+    "text": "I am looking forward to the school festival.",
+    "translation": "私は学園祭を楽しみにしています。",
+    "meaning": "私は学園祭を楽しみにしています（look forward toの形）。",
     "level": 3
   }
 ]

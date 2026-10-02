@@ -7,6 +7,9 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
 const questions = QUESTIONS.Eiken4[3];
 const screenshotCases = [
+  'Anything else?',
+  'Please be kind to animals.',
+  'Why not?',
   'We are going to visit Grandma.',
   'My father was cooking dinner at six.',
   "I'd like to see a movie.",
@@ -29,7 +32,10 @@ const url = process.env.MEANING_TEST_URL || 'http://127.0.0.1:5178';
 assert.ok(['localhost', '127.0.0.1'].includes(new URL(url).hostname));
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
 try {
-  for (const text of ['We are going to visit Grandma.', 'Sounds nice.']) {
+  for (const text of [
+    'Anything else?', 'Please be kind to animals.', 'Why not?',
+    'We are going to visit Grandma.', 'Sounds nice.',
+  ]) {
     const question = questions.find(question => question.text === text);
     const page = await browser.newPage();
     const errors = [];
