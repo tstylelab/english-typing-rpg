@@ -14,11 +14,13 @@ try {
   const scenarios = [
     ...['Eiken5', 'Eiken4'].flatMap(course => [1366, 390].map(width => ({ course, level: course === 'Eiken5' ? 1 : 3, width, height: 800, dpr: 1 }))),
     ...[2, 3].flatMap(level => [1366, 390].map(width => ({ course: 'Eiken5', level, width, height: 800, dpr: 1 }))),
+    ...[1366, 390].map(width => ({ course: 'Eiken4', level: 1, width, height: 800, dpr: 1 })),
     { course: 'Eiken5', level: 1, width: 1920, height: 1080, dpr: 2 },
     { course: 'Eiken5', level: 1, width: 390, height: 640, dpr: 3, reducedMotion: 'reduce' },
     { course: 'Eiken5', level: 1, width: 844, height: 390, dpr: 1 },
   ];
   for (const { course, level, width, height, dpr, reducedMotion = 'no-preference' } of scenarios) {
+      const hasArt = course === 'Eiken5' || (course === 'Eiken4' && level === 1);
       const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion, hasTouch: width < 1024 });
       const page = await context.newPage();
       const errors = [];
@@ -50,10 +52,11 @@ try {
         measuredArtWidths.push(Math.round(artBounds.width));
         if (width >= 1024) assert.ok(artBounds.width > 320, 'Desktop preview should be larger than its previous 320px size');
         if (reducedMotion === 'reduce') assert.equal(await dialog.evaluate(el => getComputedStyle(el).animationName), 'none');
-        if (course === 'Eiken5') {
+        if (hasArt) {
           const image = dialog.locator('img');
           await image.evaluate(img => img.decode());
           assert.ok(await image.evaluate(img => img.naturalWidth === 1024 && img.complete));
+          assert.ok((await image.getAttribute('src')).includes(`/${course.toLowerCase()}-level${level}/1024/`), 'Preview artwork must belong to the selected course');
           assert.ok(artBounds.width * dpr <= 1024 + 1, 'Rendered physical pixels must not exceed the source resolution');
         } else assert.equal(await dialog.locator('.monster-preview-art svg[viewBox]').count(), 1);
         assert.equal(await dialog.locator('[data-monster-preview]').getAttribute('data-monster-preview'), locked ? 'locked' : 'unlocked');
@@ -74,7 +77,7 @@ try {
         const topHeading = await dialog.getByRole('heading').textContent();
         await page.keyboard.press('ArrowRight');
         assert.equal(await dialog.getByRole('heading').textContent(), topHeading);
-        assert.equal(previewUrls().size, before + (course === 'Eiken5' ? 1 : 0), 'Only the opened monster should fetch high-resolution art');
+        assert.equal(previewUrls().size, before + (hasArt ? 1 : 0), 'Only the opened monster should fetch high-resolution art');
         assert.equal(await page.locator('.battle-input').count(), 0, 'Preview must not start a battle');
         await page.screenshot({ path: `${output}/top-${course}-L${level}-${width}.png` });
         await page.keyboard.press('Escape');
@@ -91,7 +94,7 @@ try {
       const beforeKnown = previewUrls().size;
       await known.click();
       await checkDialog();
-      assert.equal(previewUrls().size, beforeKnown + (course === 'Eiken5' ? 1 : 0));
+      assert.equal(previewUrls().size, beforeKnown + (hasArt ? 1 : 0));
       await page.screenshot({ path: `${output}/collection-${course}-L${level}-${width}.png` });
       await dialog.getByRole('button', { name: '拡大表示を閉じる', exact: true }).click();
       await page.locator('dialog').waitFor({ state: 'detached' });
@@ -99,14 +102,14 @@ try {
       assert.equal(await page.evaluate(() => document.body.style.overflow), '');
       await known.click();
       await checkDialog();
-      assert.equal(previewUrls().size, beforeKnown + (course === 'Eiken5' ? 1 : 0), 'Reopening must reuse the same high-resolution asset');
+      assert.equal(previewUrls().size, beforeKnown + (hasArt ? 1 : 0), 'Reopening must reuse the same high-resolution asset');
       await page.keyboard.press('Escape');
       await page.locator('dialog').waitFor({ state: 'detached' });
       const locked = page.getByRole('button', { name: '未撃破のモンスターを拡大表示', exact: true }).first();
       const beforeLocked = previewUrls().size;
       await locked.click();
       await checkDialog(true);
-      assert.equal(previewUrls().size, beforeLocked + (course === 'Eiken5' ? 1 : 0));
+      assert.equal(previewUrls().size, beforeLocked + (hasArt ? 1 : 0));
       await page.mouse.click(3, 3);
       await page.locator('dialog').waitFor({ state: 'detached' });
       const labels = await triggers.evaluateAll(buttons => buttons.map(button => button.getAttribute('aria-label')));
@@ -119,7 +122,7 @@ try {
         const isLocked = labels[expectedIndex] === '未撃破のモンスターを拡大表示';
         assert.equal(await dialog.locator('[data-monster-preview]').getAttribute('data-monster-preview'), isLocked ? 'locked' : 'unlocked');
         assert.equal(await dialog.getByRole('heading').textContent(), isLocked ? '???' : labels[expectedIndex].replace('を拡大表示', ''));
-        if (course === 'Eiken5') {
+        if (hasArt) {
           const currentImage = dialog.locator('.monster-preview-art img');
           await currentImage.evaluate(img => img.decode());
           assert.equal(await currentImage.getAttribute('data-monster-art'), monsterIds[expectedIndex]);
@@ -188,7 +191,7 @@ try {
       assert.equal(await page.evaluate(() => localStorage.getItem('etyping_defeated_monsters')), defeatedBefore);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
       assert.deepEqual(errors, []);
-      if (course !== 'Eiken5') assert.equal(artRequests.length, requestsBeforeCollectionPreview);
+      if (!hasArt) assert.equal(artRequests.length, requestsBeforeCollectionPreview);
       report.push({ course, level, width, height, dpr, reducedMotion, measuredArtWidths, highResolutionAssetsRequested: previewUrls().size, title: width >= 1024, collectionTriggers: 43, galleryButtons: true, galleryKeyboard: true, galleryTouch: width < 1024, boundaries: true, trainingToDanger: true, lockedPreserved: true, closeButton: true, escape: true, backdrop: true, focusRestored: true, defeatedRecordsPreserved: true, errors });
       console.log(`PASS ${course} Level ${level}, ${width}x${height}, DPR ${dpr}`);
       await page.goto('about:blank');

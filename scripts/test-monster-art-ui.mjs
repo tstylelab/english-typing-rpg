@@ -49,9 +49,11 @@ async function closeTestContext(page, context) {
   await bounded(context.close());
 }
 try {
-  for (const level of (process.env.MONSTER_ART_TEST_LEVELS || '1,2,3').split(',').map(Number)) {
+  const cases = (process.env.MONSTER_ART_TEST_CASES || 'Eiken5:1,Eiken5:2,Eiken5:3,Eiken4:1')
+    .split(',').map(value => { const [course, level] = value.split(':'); return { course, level: Number(level) }; });
+  for (const { course, level } of cases) {
   for (const width of [1366, 390]) {
-    const { context, page, errors, artRequests, targetText } = await openCourse('Eiken5', level, width);
+    const { context, page, errors, artRequests, targetText } = await openCourse(course, level, width);
     if (width >= 1024) {
       await loaded(page.locator(`[data-monster-art="c${level}_1"]`).first());
       await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();
@@ -72,8 +74,8 @@ try {
     const inputMs = Date.now() - started;
     await session.send('Emulation.setCPUThrottlingRate', { rate: 1 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), 'Horizontal overflow');
-    await page.screenshot({ path: `${output}/battle-level${level}-${width}.png`, fullPage: true });
-    report.push({ course: 'Eiken5', level, width, battleArtRequests: [...artRequests], twoCharactersCpu4xMs: inputMs });
+    await page.screenshot({ path: `${output}/battle-${course}-level${level}-${width}.png`, fullPage: true });
+    report.push({ course, level, width, battleArtRequests: [...artRequests], twoCharactersCpu4xMs: inputMs });
     await page.keyboard.type(targetText.slice(2));
     await page.waitForFunction(() => !document.querySelector('.battle-input') || document.querySelector('.battle-input').value === '');
     for (let answer = 0; answer < 20 && await page.locator('.battle-input').isVisible(); answer++) {
@@ -84,11 +86,11 @@ try {
     }
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
     await loaded(page.locator(`[data-monster-art="c${level}_1"]`).first());
-    await page.screenshot({ path: `${output}/victory-level${level}-${width}.png`, fullPage: true });
-    console.log(`PASS victory Level ${level} ${width}`);
+    await page.screenshot({ path: `${output}/victory-${course}-level${level}-${width}.png`, fullPage: true });
+    console.log(`PASS victory ${course} Level ${level} ${width}`);
     await page.getByRole('button', { name: /つぎのモンスターへ/ }).click();
     await loaded(page.locator(`.battle-avatar [data-monster-art="c${level}_2"]`));
-    report.push({ level, width, victoryArt: `c${level}_1`, nextBattleArt: `c${level}_2` });
+    report.push({ course, level, width, victoryArt: `c${level}_1`, nextBattleArt: `c${level}_2` });
     await page.getByRole('button', { name: 'トップに戻る', exact: true }).click();
     if (process.env.MONSTER_ART_SKIP_COLLECTION === '1') {
       assert.deepEqual(errors, []);
@@ -97,27 +99,30 @@ try {
     }
     artRequests.clear();
     await page.getByRole('button', { name: '図鑑', exact: true }).click();
+    await page.getByRole('button', { name: course === 'Eiken4' ? '英検4級' : '英検5級', exact: true }).click();
     if (level !== 1) await page.getByRole('button', { name: `レベル ${level}`, exact: true }).click();
     const images = page.locator('[data-monster-art]');
     assert.equal(await images.count(), 43);
     assert.equal(await images.evaluateAll(list => list.filter(image => image.loading === 'lazy').length), 43);
     await page.waitForTimeout(500);
-    const initialRequests = [...artRequests].filter(src => src.includes(`/eiken5-level${level}/`)).length;
+    const folder = `${course.toLowerCase()}-level${level}`;
+    const initialRequests = [...artRequests].filter(src => src.includes(`/${folder}/`)).length;
     assert.ok(initialRequests < 43, `Collection initially fetched all ${initialRequests}`);
     for (let i = 0; i < 43; i++) {
       await images.nth(i).scrollIntoViewIfNeeded();
       await loaded(images.nth(i));
     }
     assert.equal(new Set(await images.evaluateAll(list => list.map(image => image.dataset.monsterArt))).size, 43);
+    assert.ok(await images.evaluateAll((list, folder) => list.every(image => image.src.includes(`/${folder}/`)), folder), 'Artwork must belong to the selected course');
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
-    await page.screenshot({ path: `${output}/collection-level${level}-${width}.png`, fullPage: true });
-    report.push({ level, width, collectionInitialRequests: initialRequests, collectionLoaded: 43 });
-    console.log(`PASS collection Level ${level} ${width}: ${initialRequests} initial requests, 43 images loaded`);
+    await page.screenshot({ path: `${output}/collection-${course}-level${level}-${width}.png`, fullPage: true });
+    report.push({ course, level, width, collectionInitialRequests: initialRequests, collectionLoaded: 43 });
+    console.log(`PASS collection ${course} Level ${level} ${width}: ${initialRequests} initial requests, 43 images loaded`);
     assert.deepEqual(errors, []);
     await closeTestContext(page, context);
   }
   {
-    const { context, page, errors, targetText } = await openCourse('Eiken5', level);
+    const { context, page, errors, targetText } = await openCourse(course, level);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
     await page.getByRole('button', { name: '決定', exact: true }).click();
     await page.getByRole('button', { name: /Basic Training/ }).click();
@@ -125,12 +130,12 @@ try {
     await page.keyboard.type(targetText.slice(0, 2));
     assert.equal(await page.locator('.battle-input').inputValue(), targetText.slice(0, 2));
     assert.deepEqual(errors, []);
-    report.push({ level, trainingArt: `m${level}_1`, typing: targetText.slice(0, 2) });
-    console.log(`PASS training Level ${level}`);
+    report.push({ course, level, trainingArt: `m${level}_1`, typing: targetText.slice(0, 2) });
+    console.log(`PASS training ${course} Level ${level}`);
     await closeTestContext(page, context);
   }
   }
-  for (const [course, level] of [['Eiken4', 1], ['Eiken4', 2], ['Eiken4', 3], ['Eiken3', 1]]) {
+  for (const [course, level] of [['Eiken4', 2], ['Eiken4', 3], ['Eiken3', 1]]) {
     const { context, page, errors, artRequests } = await openCourse(course, level);
     assert.equal(await page.locator('[data-monster-art]').count(), 0);
     await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();
