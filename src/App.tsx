@@ -21,6 +21,7 @@ import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLe
 import { getLongTextRecallOutcome, getNextTolerantLongTextLearningState, isFormattingOnlyMistake } from './learningProgress';
 import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
+import { getMonsterArtUrl, preloadMonsterArt } from './monsterArt';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
@@ -3249,8 +3250,12 @@ const getMonsterVisualStyle = (monster: Monster): MonsterVisualStyle | undefined
   }
 };
 
-// --- Rich Monster Avatar Component (SVG) ---
-const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyle }: { type: MonsterType, color: string, emotion?: 'normal' | 'damage' | 'win', size?: number, visualStyle?: MonsterVisualStyle }) => {
+// --- Monster avatar: released artwork, with SVG for the remaining courses ---
+const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyle, monsterId, difficulty, lazy = false }: { type: MonsterType, color: string, emotion?: 'normal' | 'damage' | 'win', size?: number, visualStyle?: MonsterVisualStyle, monsterId?: string, difficulty?: Difficulty, lazy?: boolean }) => {
+  const artUrl = getMonsterArtUrl(monsterId, difficulty, size);
+  if (artUrl) {
+    return <img src={artUrl} width={size} height={size} alt="" draggable={false} loading={lazy ? 'lazy' : 'eager'} decoding="async" data-monster-art={monsterId} style={{ width: size, height: size, objectFit: 'contain', flexShrink: 0, filter: emotion === 'damage' ? 'brightness(1.15)' : undefined }} />;
+  }
   const mainColor = color;
   const gradientId = `grad-${type}-${color.replace('#', '')}`;
   const accentColor = visualStyle?.accentColor ?? '#F8FAFC';
@@ -5143,6 +5148,14 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(savedSelectionLists));
   }, [savedSelectionLists]);
+
+  useEffect(() => {
+    if (gameState.screen !== 'battle') return;
+    const nextStep = gameState.currentMonsterIndex + 1;
+    if (nextStep >= gameState.totalMonstersInStage) return;
+    const nextIndex = gameState.challengeModeIndices[nextStep] ?? nextStep;
+    preloadMonsterArt(gameState.currentMonsterList[nextIndex]?.id, gameState.selectedDifficulty);
+  }, [gameState.screen, gameState.currentMonsterIndex, gameState.totalMonstersInStage, gameState.challengeModeIndices, gameState.currentMonsterList, gameState.selectedDifficulty]);
 
   useEffect(() => {
     persistActivePlayerProfile();
@@ -7593,7 +7606,7 @@ export default function App() {
                     {visibleGuideMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterAvatar type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-blue-300 mb-1">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-full">{m.theme}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-75 opacity-30 grayscale filter blur-[1px]"><MonsterAvatar type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-blue-300 mb-1">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded-full">{m.theme}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-75 opacity-30 grayscale filter blur-[1px]"><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -7603,7 +7616,7 @@ export default function App() {
                     {visibleChallengeMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterAvatar type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-red-300 mb-1">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="text-xs text-red-200 bg-red-900/50 px-2 py-1 rounded-full">{m.theme}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-90 opacity-30 grayscale filter blur-[1px]"><MonsterAvatar type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-red-300 mb-1">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="text-xs text-red-200 bg-red-900/50 px-2 py-1 rounded-full">{m.theme}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-90 opacity-30 grayscale filter blur-[1px]"><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -9646,7 +9659,7 @@ export default function App() {
                     <div className="flex items-center gap-5">
                       <div className="relative shrink-0">
                         <div className="absolute inset-3 rounded-full bg-cyan-300/20 blur-2xl"></div>
-                        <MonsterAvatar
+                        <MonsterAvatar monsterId={nextBattleMonster.id} difficulty={gameState.selectedDifficulty}
                           type={nextBattleMonster.type}
                           color={nextBattleMonster.color}
                           size={150}
@@ -10156,7 +10169,7 @@ export default function App() {
                 <section className="relative overflow-hidden rounded-lg border border-emerald-400/25 bg-[linear-gradient(145deg,rgba(9,56,55,0.72),rgba(15,23,42,0.78))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.26)]">
                   {trainingMascot && (
                     <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
-                      <MonsterAvatar type={trainingMascot.type} color={trainingMascot.color} size={128} visualStyle={getMonsterVisualStyle(trainingMascot)} />
+                      <MonsterAvatar monsterId={trainingMascot.id} difficulty={gameState.selectedDifficulty} type={trainingMascot.type} color={trainingMascot.color} size={128} visualStyle={getMonsterVisualStyle(trainingMascot)} />
                     </div>
                   )}
                   <div className="mb-4 flex items-center gap-3 border-b border-emerald-300/20 pb-4">
@@ -10202,7 +10215,7 @@ export default function App() {
                 <section className="relative overflow-hidden rounded-lg border border-amber-400/25 bg-[linear-gradient(145deg,rgba(83,34,18,0.68),rgba(24,18,35,0.82))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.28)]">
                   {battleMascot && (
                     <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
-                      <MonsterAvatar type={battleMascot.type} color={battleMascot.color} size={128} visualStyle={getMonsterVisualStyle(battleMascot)} />
+                      <MonsterAvatar monsterId={battleMascot.id} difficulty={gameState.selectedDifficulty} type={battleMascot.type} color={battleMascot.color} size={128} visualStyle={getMonsterVisualStyle(battleMascot)} />
                     </div>
                   )}
                   <div className="absolute right-0 top-0 rounded-bl-lg bg-red-500 px-3 py-1 text-[10px] font-black text-white shadow-lg">本番</div>
@@ -10356,7 +10369,7 @@ export default function App() {
                   </div>
                 )}
                 <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
-                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
                 <div className="battle-status-row">
                   <nav aria-label="バトルから移動" className="battle-navigation">
                     <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
@@ -10724,7 +10737,7 @@ export default function App() {
             <main className="min-w-0 lg:order-2">
               <header className="flex items-center gap-4 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4">
                 {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
-                {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+                {isWin && defeatedMonster && <MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
                 <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p className="mt-1 text-xs font-bold text-slate-400">今回の問題と例文を確認しよう</p></div>
               </header>
 
@@ -10790,7 +10803,7 @@ export default function App() {
         <Box className="w-full max-w-3xl border border-yellow-500/45 bg-slate-800 p-4 text-left md:p-5">
           <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-slate-600 pb-3">
             {isWin ? <Trophy size={38} className="text-yellow-400" /> : <Zap size={38} className="text-slate-500" />}
-            {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={58} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+            {isWin && defeatedMonster && <MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={58} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
             <div className="min-w-[150px] flex-1"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="text-sm font-bold text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p></div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold"><span className="text-emerald-300">正確 {perfectCount}</span><span className="text-yellow-300">修正 {recoveredCount}</span><span className="text-slate-300">スキップ {skippedCount}</span><span className="text-cyan-200">正確さ {perfectRate}%</span></div>
           </header>
@@ -10828,7 +10841,7 @@ export default function App() {
           <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="flex items-center gap-4 rounded-2xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 text-left">
               {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400 drop-shadow-[0_0_12px_rgba(250,204,21,0.55)]" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
-              {isWin && defeatedMonster && <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+              {isWin && defeatedMonster && <MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
               <div className="min-w-0">
                 <p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p>
                 {isWin && defeatedMonster ? <><p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-yellow-300">Defeated</p><p className="truncate text-lg font-black text-white">{defeatedMonster.name}</p></> : <><p className="mt-1 text-sm text-slate-300">あと {remainingHpToWin} HP でクリア</p><p className="text-xs text-slate-400">もう一度挑戦してみよう</p></>}
@@ -10910,7 +10923,7 @@ export default function App() {
                   {defeatedMonster && (
                     <div className="mt-4 rounded-xl border border-yellow-500/40 bg-gradient-to-b from-yellow-900/30 to-slate-900/40 p-4">
                       <div className="flex flex-col items-center gap-2">
-                        <MonsterAvatar type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={110} visualStyle={getMonsterVisualStyle(defeatedMonster)} />
+                        <MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={110} visualStyle={getMonsterVisualStyle(defeatedMonster)} />
                         <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-300">Defeated Monster</p>
                         <p className="text-xl font-black text-white">{defeatedMonster.name}</p>
                       </div>

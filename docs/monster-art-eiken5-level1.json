@@ -1,0 +1,641 @@
+{
+  "scope": "Eiken5 Level1",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "m1_1",
+      "name": "朝ねぼうベルクロック",
+      "group": "training",
+      "design": "寝ぼけた丸目・閉じ目",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_1.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_1.webp"
+      },
+      "bytes": {
+        "256": 19606,
+        "384": 33806
+      }
+    },
+    {
+      "id": "m1_2",
+      "name": "ちらかしノートミミック",
+      "group": "training",
+      "design": "左右が違う丸目・おとぼけ",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_2.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_2.webp"
+      },
+      "bytes": {
+        "256": 20132,
+        "384": 35872
+      }
+    },
+    {
+      "id": "m1_3",
+      "name": "おしゃべりラッパバード",
+      "group": "training",
+      "design": "A comically noisy yellow trumpet-bird: a wide brass trumpet bell forms its beak, feathered cheek tufts, two enormous inflated cheeks, short fat belly and broad wings held as a conductor. It is completely absorbed in its terrible performance. Eyes are two fully closed joyful upward crescents, NO open golden slit eyes. One raised foot stepping to its own beat. Broad flared silhouette. Punchy premium comic illustration: crisp dark navy ink, bold shaped shadows, bright yellow/brass/turquoise, energetic graphic shapes. Not the warm densely painted style of every other creature. Rich intentional material highlights, visually sophisticated, not a generic vector icon.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_3.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_3.webp"
+      },
+      "bytes": {
+        "256": 24126,
+        "384": 43566
+      }
+    },
+    {
+      "id": "m1_4",
+      "name": "つまみぐいスナックオーク",
+      "group": "training",
+      "design": "A hilariously guilty small orange peach-skinned snack orc. Very pear-shaped plump body, tiny head, short feet, huge drooping ears, little harmless lower tusks, oversized apron and empty cookie jar held behind its back; one cookie cheek-bulge and visible crumbs. Big pale oval eyes stare nervously sideways, raised apologetic eyebrows, tiny embarrassed crooked mouth. It has obviously eaten all the snacks. No angry brows, no half-lidded yellow stare. Cute funny opponent, no weapons. Premium children's-storybook gouache illustration. Soft warm matt surfaces, beautifully modeled volume, subtle brush grain INSIDE the character, gentle ink contours, warm orange/cream with a small mint accent. Clear broad shapes and expressive body language; polished fantasy-game asset rather than flat icon or photorealism.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_4.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_4.webp"
+      },
+      "bytes": {
+        "256": 15728,
+        "384": 26938
+      }
+    },
+    {
+      "id": "m1_5",
+      "name": "らくがきスターゴースト",
+      "group": "training",
+      "design": "A mischievous pink star-shaped doodle ghost drawn into life. Its entire asymmetric five-point star body is made of stacked torn pink paper and thick scribbled wax-crayon marks; two tiny mitten arms holding one chunky purple crayon, folded pointed tail. Eye design: two unequal black dot eyes on cream paper patches, NO visible irises, NO narrowed eyelids. Big open triangular laughing mouth. Proudly displaying its own paper-star body, very playful. All markings are abstract scribbles, not letters. High-quality handcrafted paper-collage and wax-crayon children's fantasy illustration, bold navy hand-ink edge, intentional irregular paper layers, matte tactile textures, striking flat-to-shallow-depth silhouette. Maintain production polish and excellent readability, not an unfinished child's drawing; no glossy painted metallic shading.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_5.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_5.webp"
+      },
+      "bytes": {
+        "256": 18400,
+        "384": 34082
+      }
+    },
+    {
+      "id": "m1_6",
+      "name": "まいごの消しゴムナイト",
+      "group": "training",
+      "design": "A lost eraser knight: the large vertical rounded ivory rubber eraser is the actual torso/head, wearing a small blue silver knight helmet tipped crooked, a red pencil-eraser cap like a tiny plume, paper-label belt with NO words, stubby boots. Holding a small wooden ruler as a sword and a pencil-case lid shield. Helmet visor lifted so two HUGE round pale blue eyes and tiny black pupils looking in opposite directions are visible. Soft anxious eyebrows and small worried wavy mouth. Awkwardly turned inward knees, earnest cute lost little hero-opponent, not angry or menacing. Premium stylized clay-and-rubber toy fantasy render translated into a game illustration. Matte rounded eraser texture, soft sculpted edges, restrained blue metallic armor, clear dark edge definition, little warm cel-shaded light. Visibly different tactile art from comic ink, gouache and paper collage. Not photorealism, not glossy plastic, no surrounding scene.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_6.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_6.webp"
+      },
+      "bytes": {
+        "256": 16912,
+        "384": 28314
+      }
+    },
+    {
+      "id": "m1_7",
+      "name": "そうじサボりダストマスク",
+      "group": "training",
+      "design": "A lazy dust-mask ghost, an enormously fluffy oval gray dust bunny with an oversized crooked pale cleaning mask built into its face, loose rag-like ears, two thin noodly arms and tiny dragging slippers. Two gentle drooping BLACK oval eye holes in the pale mask, one eyebrow nearly falling asleep, NO gold irises or sinister slits. A little dusty moustache and tiny yawn visible under the mask. Holding an abandoned small dustpan upside down as a hat. Comically exhausted by the thought of cleaning. Entire fluff has clean contained silhouette, no floating dust particles. Elegant humorous ink-and-soft-watercolor fantasy character, charcoal gray plush tufts and misty lavender shading, warm pale mask, mostly muted limited palette with a tiny muted coral accent. More ragged and airy than the toy or bright comic characters, detailed intentional feathered internal texture, strong readable edge, charming studio-quality illustration.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_7.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_7.webp"
+      },
+      "bytes": {
+        "256": 23130,
+        "384": 43426
+      }
+    },
+    {
+      "id": "m1_extra_1",
+      "name": "朝チャイムスライム",
+      "group": "training",
+      "design": "A sky-blue wobbly translucent jelly shaped like a school chime bell, huge round startled eyes, one small nervous tooth, little ringing clapper tongue. Asymmetric squat jelly silhouette. crisp cel-shaded clear glassy jelly, bright simple shapes",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_1.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_1.webp"
+      },
+      "bytes": {
+        "256": 15134,
+        "384": 25754
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A sky-blue wobbly translucent jelly shaped like a school chime bell, huge round startled eyes, one small nervous tooth, little ringing clapper tongue. Asymmetric squat jelly silhouette.\nVisual treatment: crisp cel-shaded clear glassy jelly, bright simple shapes; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_2",
+      "name": "プリントつむじバード",
+      "group": "training",
+      "design": "A lavender long-neck bird made of fluttering folded cream paper worksheets, spiral tail and paper fan wings; tiny black dot eyes and delighted open beak. No writing. torn paper collage with purposeful hand ink outlines",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_2.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_2.webp"
+      },
+      "bytes": {
+        "256": 21422,
+        "384": 36690
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A lavender long-neck bird made of fluttering folded cream paper worksheets, spiral tail and paper fan wings; tiny black dot eyes and delighted open beak. No writing.\nVisual treatment: torn paper collage with purposeful hand ink outlines; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_3",
+      "name": "えんぴつ番人ゴーレム",
+      "group": "training",
+      "design": "A tall yellow pencil-stack guardian with an enormous hexagonal pencil torso, sharpened wood feet, red eraser shoulder pads. Tiny sleepy rectangular eyes behind massive square glasses and goofy frown. matte carved wood and colored-pencil storybook texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_3.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_3.webp"
+      },
+      "bytes": {
+        "256": 20172,
+        "384": 34262
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A tall yellow pencil-stack guardian with an enormous hexagonal pencil torso, sharpened wood feet, red eraser shoulder pads. Tiny sleepy rectangular eyes behind massive square glasses and goofy frown.\nVisual treatment: matte carved wood and colored-pencil storybook texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_4",
+      "name": "給食列ならびオーク",
+      "group": "training",
+      "design": "A small polite mint-green orc proudly waiting in line with a lunch tray balanced on its head, enormous floppy ears and bean-shaped body. Both eyes closed in happy crescents, tiny tusks and shy smile. soft sculpted clay-toy fantasy illustration",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_4.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_4.webp"
+      },
+      "bytes": {
+        "256": 13472,
+        "384": 22030
+      },
+      "prompt": "Create a single friendly mint-green round fantasy ogre holding an ordinary empty school lunch tray in both hands. Huge floppy ears, tiny harmless tusks, short legs, both eyes closed in a cheerful smile. Warm family-friendly sculpted clay toy illustration, polished and funny. Square image, fully visible with ample margins, genuine transparent background. No text, background, other characters, effects or symbols."
+    },
+    {
+      "id": "m1_8",
+      "name": "給食おかわりキング",
+      "group": "training",
+      "design": "A pompous and comically delighted lunch king monster: enormous rounded golden curry-pot body with the open lid forming a crown, a simple friendly face on the pot front, four tiny feet, thick oven-mitt arms. One large ladle raised like a royal scepter, cream napkin cape and tiny stack of two empty bowls in the other mitt. Eyes are two bright LARGE round black pupils in cream sclera behind absurdly oversized round eyeglasses, happy wide toothless grin and arched pleased brows. He is a living cooking pot monarch, NOT another orc or humanoid holding a pot. Huge wide low silhouette. No text, no floating food. Playful premium cel-shaded animated-film concept illustration, clean sculpted gold/enamel volumes, strong navy contours, big simple shadow masses, royal warm yellow/deep maroon/cream palette, broad expressive cartoon staging. Distinct from storybook grain, crayon collage and ghost ink; keep attractive polished painted highlights rather than flat generic vectors.",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_8.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_8.webp"
+      },
+      "bytes": {
+        "256": 22076,
+        "384": 37436
+      }
+    },
+    {
+      "id": "m1_extra_5",
+      "name": "音読こだまゴースト",
+      "group": "training",
+      "design": "A white-and-coral ghost shaped like an old megaphone, its wide bell is a singing mouth, little ragged ghost tail and mitten hands; mismatched tall oval eyes looking up in surprise. expressive comic ink and restrained watercolor",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_5.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_5.webp"
+      },
+      "bytes": {
+        "256": 15442,
+        "384": 26850
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A white-and-coral ghost shaped like an old megaphone, its wide bell is a singing mouth, little ragged ghost tail and mitten hands; mismatched tall oval eyes looking up in surprise.\nVisual treatment: expressive comic ink and restrained watercolor; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_6",
+      "name": "時間割ロボ",
+      "group": "training",
+      "design": "A boxy teal timetable robot with a chest of simple colored blank rectangular slots, stubby spring feet, huge square digital eye with blue dot pupils and an anxious tiny LED mouth; no letters or numbers. polished playful retro enamel tin toy with clean cel shading",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_6.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_6.webp"
+      },
+      "bytes": {
+        "256": 16768,
+        "384": 28622
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A boxy teal timetable robot with a chest of simple colored blank rectangular slots, stubby spring feet, huge square digital eye with blue dot pupils and an anxious tiny LED mouth; no letters or numbers.\nVisual treatment: polished playful retro enamel tin toy with clean cel shading; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_7",
+      "name": "ノート整理スライム",
+      "group": "training",
+      "design": "A green jelly librarian with a flat rectangular notebook-shaped body, paper edges inside jelly, huge round glasses, one eye winking and toothless sideways smile; holding a single blank neatly folded sheet. handcrafted matte gouache with luminous jelly accents",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_7.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_7.webp"
+      },
+      "bytes": {
+        "256": 19458,
+        "384": 34376
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A green jelly librarian with a flat rectangular notebook-shaped body, paper edges inside jelly, huge round glasses, one eye winking and toothless sideways smile; holding a single blank neatly folded sheet.\nVisual treatment: handcrafted matte gouache with luminous jelly accents; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_8",
+      "name": "小テストフクロウ",
+      "group": "training",
+      "design": "A tiny round orange owl wearing an absurdly large graduation cap and holding a blank quiz roll, enormous startled round eyes one larger than the other, teetering sideways. warm felt plush and fabric storybook texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_8.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_8.webp"
+      },
+      "bytes": {
+        "256": 20182,
+        "384": 36070
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A tiny round orange owl wearing an absurdly large graduation cap and holding a blank quiz roll, enormous startled round eyes one larger than the other, teetering sideways.\nVisual treatment: warm felt plush and fabric storybook texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_9",
+      "name": "しおり守りミミック",
+      "group": "training",
+      "design": "A living tall bookmark tower, long blue fabric ribbon serpent emerging from a closed gold book, tiny polite dot eyes and bashful smile. Huge fabric loop arms, no book-mouth cliché. elegant cut-paper and embroidered-cloth fantasy collage",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_9.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_9.webp"
+      },
+      "bytes": {
+        "256": 15580,
+        "384": 27470
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A living tall bookmark tower, long blue fabric ribbon serpent emerging from a closed gold book, tiny polite dot eyes and bashful smile. Huge fabric loop arms, no book-mouth cliché.\nVisual treatment: elegant cut-paper and embroidered-cloth fantasy collage; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_extra_10",
+      "name": "集中ほのおビースト",
+      "group": "training",
+      "design": "A fluffy round bright coral fire beast with candle-like mane, short ram horns, determined big round brown eyes and pursed focused mouth; squat paws and compact flame tail. Funny intense concentration. premium cel animation character with bold graphic shadow shapes",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_extra_10.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_extra_10.webp"
+      },
+      "bytes": {
+        "256": 18592,
+        "384": 31968
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A fluffy round bright coral fire beast with candle-like mane, short ram horns, determined big round brown eyes and pursed focused mouth; squat paws and compact flame tail. Funny intense concentration.\nVisual treatment: premium cel animation character with bold graphic shadow shapes; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_9",
+      "name": "としょかん禁書ミミック",
+      "group": "training",
+      "design": "An ancient purple chained library book mimic standing vertically like a grumpy librarian; giant single round monocle eye and one tiny closed eye, pages as frilled beard, gold lock and two paper legs. No text. rich dark storybook ink with matte leather and paper textures",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_9.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_9.webp"
+      },
+      "bytes": {
+        "256": 19524,
+        "384": 35314
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: An ancient purple chained library book mimic standing vertically like a grumpy librarian; giant single round monocle eye and one tiny closed eye, pages as frilled beard, gold lock and two paper legs. No text.\nVisual treatment: rich dark storybook ink with matte leather and paper textures; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "m1_10",
+      "name": "ゲーム沼ドラゴン",
+      "group": "training",
+      "design": "A red dragon tangled in a handheld game controller cable, huge wings shaped like arcade joysticks, chunky sneakers, one eye wide open and the other a goofy sideways spiral, cheeky toothy grin. Boss presence but comical procrastinator, controller blank. polished vibrant comic fantasy with bold navy contour and sculpted highlights",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/m1_10.webp",
+        "384": "public/monsters/eiken5-level1/384/m1_10.webp"
+      },
+      "bytes": {
+        "256": 25704,
+        "384": 44590
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A red dragon tangled in a handheld game controller cable, huge wings shaped like arcade joysticks, chunky sneakers, one eye wide open and the other a goofy sideways spiral, cheeky toothy grin. Boss presence but comical procrastinator, controller blank.\nVisual treatment: polished vibrant comic fantasy with bold navy contour and sculpted highlights; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_1",
+      "name": "影ぬいインクコア",
+      "group": "battle",
+      "design": "A dark purple ink monster shaped like an inverted fountain pen nib with rounded squid ink body and four curling ink tentacles. One enormous pale round eye, one tiny dot eye, gleeful toothy smile. No separate floating splashes. high quality black-ink and rich violet watercolor comic",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_1.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_1.webp"
+      },
+      "bytes": {
+        "256": 16282,
+        "384": 29270
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A dark purple ink monster shaped like an inverted fountain pen nib with rounded squid ink body and four curling ink tentacles. One enormous pale round eye, one tiny dot eye, gleeful toothy smile. No separate floating splashes.\nVisual treatment: high quality black-ink and rich violet watercolor comic; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_2",
+      "name": "炎門のケルベロス",
+      "group": "battle",
+      "design": "真剣・興奮・閉じ目笑顔",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_2.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_2.webp"
+      },
+      "bytes": {
+        "256": 21850,
+        "384": 37822
+      }
+    },
+    {
+      "id": "c1_3",
+      "name": "嵐譜のウイングメイジ",
+      "group": "battle",
+      "design": "A teal heron-like wind wizard with long swept wings, a curled sheet-music scroll staff without writing, angular hat and flowing feather cloak. Happy closed crescent eyes, whistling beak. Thin tall silhouette. elegant cel animation with wind-shaped angular graphic masses",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_3.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_3.webp"
+      },
+      "bytes": {
+        "256": 27438,
+        "384": 46918
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A teal heron-like wind wizard with long swept wings, a curled sheet-music scroll staff without writing, angular hat and flowing feather cloak. Happy closed crescent eyes, whistling beak. Thin tall silhouette.\nVisual treatment: elegant cel animation with wind-shaped angular graphic masses; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_4",
+      "name": "呪面ファントム",
+      "group": "battle",
+      "design": "A purple phantom wearing a huge crooked porcelain theatrical mask, split face one laughing round eye and one tear-shaped worried eye, streaming ribbon limbs and curled smoky tail. Darkly funny actor rather than horror. stylized painted porcelain and theatrical watercolor",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_4.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_4.webp"
+      },
+      "bytes": {
+        "256": 31822,
+        "384": 53164
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A purple phantom wearing a huge crooked porcelain theatrical mask, split face one laughing round eye and one tear-shaped worried eye, streaming ribbon limbs and curled smoky tail. Darkly funny actor rather than horror.\nVisual treatment: stylized painted porcelain and theatrical watercolor; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_5",
+      "name": "鉄壁プロトガード",
+      "group": "battle",
+      "design": "A squat slate-blue square shield robot, extremely wide shoulders tiny wheels, huge rectangular face display with friendly pixel dot eyes and crooked smile, riveted armored hands. A tiny antenna bent like a question mark, no text. matte machined metal toy-style stylized 3D illustration",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_5.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_5.webp"
+      },
+      "bytes": {
+        "256": 18098,
+        "384": 31246
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A squat slate-blue square shield robot, extremely wide shoulders tiny wheels, huge rectangular face display with friendly pixel dot eyes and crooked smile, riveted armored hands. A tiny antenna bent like a question mark, no text.\nVisual treatment: matte machined metal toy-style stylized 3D illustration; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_6",
+      "name": "地鳴りルーンゴーレム",
+      "group": "battle",
+      "design": "A broad sandstone golem made from uneven stacked stone blocks, giant flat hands and a ridiculously small head, wide white oval eyes and calm sleepy expression, moss moustache. Geometric non-letter grooves. hand-painted warm stone fantasy with bold textured contours",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_6.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_6.webp"
+      },
+      "bytes": {
+        "256": 24534,
+        "384": 44154
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A broad sandstone golem made from uneven stacked stone blocks, giant flat hands and a ridiculously small head, wide white oval eyes and calm sleepy expression, moss moustache. Geometric non-letter grooves.\nVisual treatment: hand-painted warm stone fantasy with bold textured contours; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_8",
+      "name": "紅牙ブラッドファング",
+      "group": "battle",
+      "design": "A long-legged maroon saber-toothed hound, enormous white fangs, tiny rounded ears, one enthusiastic round eye and one squinting grin, overexcited tongue. Silly proud predator, child-friendly no gore. energetic premium comic with angular red and cream shapes",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_8.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_8.webp"
+      },
+      "bytes": {
+        "256": 18378,
+        "384": 31744
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A long-legged maroon saber-toothed hound, enormous white fangs, tiny rounded ears, one enthusiastic round eye and one squinting grin, overexcited tongue. Silly proud predator, child-friendly no gore.\nVisual treatment: energetic premium comic with angular red and cream shapes; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_1",
+      "name": "黒インクスライム改",
+      "group": "battle",
+      "design": "A midnight-blue ink jelly with a very flat pancake body wearing a fountain-pen cap crown; huge raised eyes on two unequal eyestalks, cheeky round puckered mouth, curling flat ink feet. shiny limited palette cel-shaded lacquer illustration",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_1.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_1.webp"
+      },
+      "bytes": {
+        "256": 13900,
+        "384": 23872
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A midnight-blue ink jelly with a very flat pancake body wearing a fountain-pen cap crown; huge raised eyes on two unequal eyestalks, cheeky round puckered mouth, curling flat ink feet.\nVisual treatment: shiny limited palette cel-shaded lacquer illustration; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_2",
+      "name": "火花の番犬",
+      "group": "battle",
+      "design": "A small angular red-orange fire dachshund with absurdly long body, oversized safety goggles, tiny black dot eyes and joyous tongue, spiky short tail. Visibly NOT a three-head dog. bright gouache comic with warm smoky internal texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_2.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_2.webp"
+      },
+      "bytes": {
+        "256": 21034,
+        "384": 37136
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A small angular red-orange fire dachshund with absurdly long body, oversized safety goggles, tiny black dot eyes and joyous tongue, spiky short tail. Visibly NOT a three-head dog.\nVisual treatment: bright gouache comic with warm smoky internal texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_3",
+      "name": "風読みウィング",
+      "group": "battle",
+      "design": "A pale cyan albatross scout formed from folded map-paper wings, long compass beak and one giant lens monocle; attentive round eye and gentle closed wink, stilt legs. Blank map lines only. high quality layered paper-craft with sharp navy hand ink",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_3.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_3.webp"
+      },
+      "bytes": {
+        "256": 19718,
+        "384": 33858
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A pale cyan albatross scout formed from folded map-paper wings, long compass beak and one giant lens monocle; attentive round eye and gentle closed wink, stilt legs. Blank map lines only.\nVisual treatment: high quality layered paper-craft with sharp navy hand ink; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_4",
+      "name": "仮面の影法師",
+      "group": "battle",
+      "design": "An elongated shadow puppet phantom, huge sideways cream mask with two tiny round eye holes, curved broad laughing mouth, two stick-like bent arms and long accordion tail. Silly mime pose. premium flat-to-shallow puppet collage with fabric and ink texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_4.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_4.webp"
+      },
+      "bytes": {
+        "256": 17444,
+        "384": 29080
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: An elongated shadow puppet phantom, huge sideways cream mask with two tiny round eye holes, curved broad laughing mouth, two stick-like bent arms and long accordion tail. Silly mime pose.\nVisual treatment: premium flat-to-shallow puppet collage with fabric and ink texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_9",
+      "name": "奈落ランタンレイス",
+      "group": "battle",
+      "design": "縦長の驚き目",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_9.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_9.webp"
+      },
+      "bytes": {
+        "256": 18870,
+        "384": 32474
+      }
+    },
+    {
+      "id": "c1_extra_5",
+      "name": "鉄壁ガード改",
+      "group": "battle",
+      "design": "A tall silver single-wheel guard robot, big round shield torso and tiny square head, visor with a huge single circular cyan eye, goofy surprised round mouth. Red rubber bumper hands. clean enamel sci-fi toy render with stylized hand-painted accents",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_5.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_5.webp"
+      },
+      "bytes": {
+        "256": 14696,
+        "384": 25414
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A tall silver single-wheel guard robot, big round shield torso and tiny square head, visor with a huge single circular cyan eye, goofy surprised round mouth. Red rubber bumper hands.\nVisual treatment: clean enamel sci-fi toy render with stylized hand-painted accents; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_6",
+      "name": "石文ルーン像",
+      "group": "battle",
+      "design": "A squat ancient terracotta stone idol with an absurdly wide rectangular face, drooping big oval eyes, peaceful smile and huge folded stone arms. Abstract geometric etched symbols, not text. warm storybook clay sculpture with purposeful weathered texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_6.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_6.webp"
+      },
+      "bytes": {
+        "256": 23728,
+        "384": 42630
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A squat ancient terracotta stone idol with an absurdly wide rectangular face, drooping big oval eyes, peaceful smile and huge folded stone arms. Abstract geometric etched symbols, not text.\nVisual treatment: warm storybook clay sculpture with purposeful weathered texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_7",
+      "name": "紅牙の追跡者",
+      "group": "battle",
+      "design": "A slim burgundy fox detective with a huge magnifying glass as monocle, giant fluffy tail curling over its head, mischievous upward lifted brow and one round wide eye, small smiling snout, two tiny fang tips. elegant angular comic ink, red fabric cape and velvety fur",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_7.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_7.webp"
+      },
+      "bytes": {
+        "256": 14136,
+        "384": 24694
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A slim burgundy fox detective with a huge magnifying glass as monocle, giant fluffy tail curling over its head, mischievous upward lifted brow and one round wide eye, small smiling snout, two tiny fang tips.\nVisual treatment: elegant angular comic ink, red fabric cape and velvety fur; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_8",
+      "name": "奈落の灯火",
+      "group": "battle",
+      "design": "A little midnight-blue candle spirit carrying its own tall melted candle head; big cream oval eyes looking nervously sideways in the orange flame, dripping wax moustache, candle-cup body with tiny legs. No lantern cage. charming warm gouache with glowing contained flame and matte wax",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_8.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_8.webp"
+      },
+      "bytes": {
+        "256": 11636,
+        "384": 19470
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A little midnight-blue candle spirit carrying its own tall melted candle head; big cream oval eyes looking nervously sideways in the orange flame, dripping wax moustache, candle-cup body with tiny legs. No lantern cage.\nVisual treatment: charming warm gouache with glowing contained flame and matte wax; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_9",
+      "name": "獄炎の照準手",
+      "group": "battle",
+      "design": "A scarlet antique cannon crab with three bronze pointed feet, long telescope cannon snout, one huge round spectacle eye and one playful wink, puffed cheeks. Comical determined aim, no projectiles. premium mechanical comic with crisp cel metal shading",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_9.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_9.webp"
+      },
+      "bytes": {
+        "256": 15976,
+        "384": 28866
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A scarlet antique cannon crab with three bronze pointed feet, long telescope cannon snout, one huge round spectacle eye and one playful wink, puffed cheeks. Comical determined aim, no projectiles.\nVisual treatment: premium mechanical comic with crisp cel metal shading; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_extra_10",
+      "name": "魔門の門番",
+      "group": "battle",
+      "design": "A huge round cobalt gate keeper formed from a living arched wooden door, tiny boots and thick door-hinge arms, brass knocker nose, two gentle closed smiling eyes and a massive toothless grin. Child-friendly imposing guardian. polished carved wood storybook illustration with broad clear masses",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_extra_10.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_extra_10.webp"
+      },
+      "bytes": {
+        "256": 20046,
+        "384": 35096
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A huge round cobalt gate keeper formed from a living arched wooden door, tiny boots and thick door-hinge arms, brass knocker nose, two gentle closed smiling eyes and a massive toothless grin. Child-friendly imposing guardian.\nVisual treatment: polished carved wood storybook illustration with broad clear masses; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_10",
+      "name": "獄炎バリスタ・アイ",
+      "group": "battle",
+      "design": "A massive red bronze wheeled ballista monster with ONE enormous sharp white eye inside a circular telescope body, tiny raised angular eyebrow, broad confident mechanical grin. Two curved bow limbs and heavy stubby wheels. Boss-like heavy silhouette, no arrow shot. high quality detailed cel-painted metal fantasy, strong clean silhouette",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_10.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_10.webp"
+      },
+      "bytes": {
+        "256": 22194,
+        "384": 38918
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A massive red bronze wheeled ballista monster with ONE enormous sharp white eye inside a circular telescope body, tiny raised angular eyebrow, broad confident mechanical grin. Two curved bow limbs and heavy stubby wheels. Boss-like heavy silhouette, no arrow shot.\nVisual treatment: high quality detailed cel-painted metal fantasy, strong clean silhouette; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_7",
+      "name": "魔王ドラゴニス",
+      "group": "battle",
+      "design": "A imposing dark green dragon overlord with two huge swept bat wings, crown made of three gold horns, stocky broad chest and long curled tail; serious ROUND dark eyes below firm brows, asymmetric sly but dignified smile. Clear dragon body, not a human demon. luxurious painterly fantasy character art with bold shapes and restrained texture",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_7.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_7.webp"
+      },
+      "bytes": {
+        "256": 25214,
+        "384": 43458
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A imposing dark green dragon overlord with two huge swept bat wings, crown made of three gold horns, stocky broad chest and long curled tail; serious ROUND dark eyes below firm brows, asymmetric sly but dignified smile. Clear dragon body, not a human demon.\nVisual treatment: luxurious painterly fantasy character art with bold shapes and restrained texture; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_11",
+      "name": "裏魔竜ヴォイド",
+      "group": "battle",
+      "design": "A tall purple void wyvern with crescent-shaped swept wings, narrow pale triangular eyes with no round gold irises, elegant confident closed mouth, a clearly hollow crescent arc neck decoration. Child-friendly final guardian, no particles. premium angular graphic fantasy ink with luminous violet internal cel shading",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_11.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_11.webp"
+      },
+      "bytes": {
+        "256": 27694,
+        "384": 47048
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A tall purple void wyvern with crescent-shaped swept wings, narrow pale triangular eyes with no round gold irises, elegant confident closed mouth, a clearly hollow crescent arc neck decoration. Child-friendly final guardian, no particles.\nVisual treatment: premium angular graphic fantasy ink with luminous violet internal cel shading; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_12",
+      "name": "深淵王ネメシス",
+      "group": "battle",
+      "design": "A deep-blue regal manta-ray abyss king, very wide diamond body and royal armored shell, thick curved fin hands, tiny crown and a huge curled ribbon tail; one immense calm round aqua eye and the other fully closed in a knowing smile. Distinct non-humanoid boss. majestic polished painted ceramic and velvet fantasy illustration",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_12.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_12.webp"
+      },
+      "bytes": {
+        "256": 24376,
+        "384": 42142
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A deep-blue regal manta-ray abyss king, very wide diamond body and royal armored shell, thick curved fin hands, tiny crown and a huge curled ribbon tail; one immense calm round aqua eye and the other fully closed in a knowing smile. Distinct non-humanoid boss.\nVisual treatment: majestic polished painted ceramic and velvet fantasy illustration; keep strong game-ready finish, tasteful outlines and material highlights."
+    },
+    {
+      "id": "c1_13",
+      "name": "真冥皇アポカリス",
+      "group": "battle",
+      "design": "A imposing dark crimson griffin emperor with a huge fan of layered wings like a royal cape, broad ivory beak, oversized black paws and a gold hourglass-shaped crown. White diamond-shaped intense eyes, composed firm closed beak; epic child-friendly final boss, no gore or weapon particles. rich premium fantasy cel-painting, bold gold/crimson/ivory masses and strong angular silhouette",
+      "files": {
+        "256": "public/monsters/eiken5-level1/256/c1_13.webp",
+        "384": "public/monsters/eiken5-level1/384/c1_13.webp"
+      },
+      "bytes": {
+        "256": 29484,
+        "384": 50650
+      },
+      "prompt": "Use case: stylized-concept. Produce one finished polished enemy sprite for an English-learning fantasy RPG for children and adults. Genuine transparent alpha background; square format. Center FULL character and ALL held props within canvas, comfortable 8% empty margins on every edge. Readable at 90–140px, purposeful big shapes and clear expressive face. Single character, no lettering, words, numbers, logo, watermark, scenery, ground, floor shadow, checkerboard, surrounding aura, loose particles or sprite sheet. High quality personality, avoid generic blobs and repetitive sinister half-lidded gold eyes. Static idle battle pose, charming and memorable. Do not crop ANY head, crown, feather, wing or foot.\nCharacter: A imposing dark crimson griffin emperor with a huge fan of layered wings like a royal cape, broad ivory beak, oversized black paws and a gold hourglass-shaped crown. White diamond-shaped intense eyes, composed firm closed beak; epic child-friendly final boss, no gore or weapon particles.\nVisual treatment: rich premium fantasy cel-painting, bold gold/crimson/ivory masses and strong angular silhouette; keep strong game-ready finish, tasteful outlines and material highlights."
+    }
+  ]
+}
