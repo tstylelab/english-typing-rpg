@@ -1,0 +1,46 @@
+.monster-preview-dialog {
+  width: min(calc(100vw - 2rem), 760px);
+  max-height: 90dvh;
+}
+
+.monster-preview-art {
+  width: min(100%, 62dvh, 640px, calc(var(--preview-pixels, 1024px) / var(--preview-dpr, 1)));
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+
+.monster-preview-art > *,
+.monster-preview-art svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.monster-preview-dialog::backdrop {
+  background: rgb(2 6 23 / 85%);
+}
+
+.monster-preview-dialog.is-opening {
+  animation: monster-preview-grow 240ms cubic-bezier(.16, 1, .3, 1) backwards;
+}
+
+.monster-preview-dialog.is-opening::backdrop {
+  animation: monster-preview-fade 180ms ease-out backwards;
+}
+
+@keyframes monster-preview-grow {
+  from {
+    transform: translate(var(--preview-from-x, 0), var(--preview-from-y, 0)) scale(var(--preview-from-scale, .15));
+    opacity: 0;
+  }
+  to { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+@keyframes monster-preview-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monster-preview-dialog.is-opening,
+  .monster-preview-dialog.is-opening::backdrop { animation: none; }
+}

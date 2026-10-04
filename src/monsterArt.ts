@@ -13,6 +13,12 @@ export const getMonsterArtUrl = (monsterId: string | undefined, difficulty: stri
     : undefined
 );
 
+// High-resolution art is requested only when the user opens a preview.
+export const MONSTER_PREVIEW_IMAGE_SIZE = 1024;
+export const getMonsterPreviewArtUrl = (monsterId: string | undefined, difficulty: string | undefined) => (
+  getMonsterArtUrl(monsterId, difficulty)?.replace('/384/', `/${MONSTER_PREVIEW_IMAGE_SIZE}/`)
+);
+
 // Only prepare the next encounter, never preload the entire monster collection.
 export const preloadMonsterArt = (monsterId: string | undefined, difficulty: string | undefined) => {
   const src = getMonsterArtUrl(monsterId, difficulty);

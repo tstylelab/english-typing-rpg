@@ -1,21 +1,34 @@
 import { cloneElement, useLayoutEffect, useId, useRef, useState, type ReactElement } from 'react';
 import { X } from 'lucide-react';
+import { MONSTER_PREVIEW_IMAGE_SIZE } from './monsterArt';
+import './MonsterPreview.css';
 
-type AvatarElement = ReactElement<{ size?: number; lazy?: boolean }>;
+type AvatarElement = ReactElement<{ size?: number; lazy?: boolean; enlarged?: boolean }>;
 
-function PreviewDialog({ name, locked, avatar, onClose }: { name: string; locked: boolean; avatar: AvatarElement; onClose: () => void }) {
+function PreviewDialog({ name, locked, avatar, origin, onClose }: { name: string; locked: boolean; avatar: AvatarElement; origin: DOMRect; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   useLayoutEffect(() => {
     const dialog = dialogRef.current!;
     const previousOverflow = document.body.style.overflow;
+    const updateResolution = () => dialog.style.setProperty('--preview-dpr', String(window.devicePixelRatio || 1));
+    updateResolution();
+    dialog.style.setProperty('--preview-pixels', `${MONSTER_PREVIEW_IMAGE_SIZE}px`);
     dialog.showModal();
+    const bounds = dialog.getBoundingClientRect();
+    dialog.style.setProperty('--preview-from-x', `${origin.x + origin.width / 2 - bounds.x - bounds.width / 2}px`);
+    dialog.style.setProperty('--preview-from-y', `${origin.y + origin.height / 2 - bounds.y - bounds.height / 2}px`);
+    dialog.style.setProperty('--preview-from-scale', String(Math.max(0.12, Math.min(1, origin.width / bounds.width))));
+    dialog.classList.add('is-opening');
     document.body.style.overflow = 'hidden';
+    window.addEventListener('resize', updateResolution);
     return () => {
+      window.removeEventListener('resize', updateResolution);
+      dialog.classList.remove('is-opening');
       dialog.close();
       document.body.style.overflow = previousOverflow;
     };
-  }, []);
+  }, [origin]);
 
   return (
     <dialog
@@ -23,7 +36,7 @@ function PreviewDialog({ name, locked, avatar, onClose }: { name: string; locked
       aria-labelledby={titleId}
       onClose={() => { if (!dialogRef.current?.open) onClose(); }}
       onClick={event => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}
-      className="fixed inset-0 m-auto max-h-[calc(100dvh-2rem)] w-[440px] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-2xl border-2 border-cyan-300/60 bg-slate-900 p-0 text-white shadow-2xl backdrop:bg-slate-950/85"
+      className="monster-preview-dialog fixed inset-0 m-auto overflow-y-auto rounded-2xl border-2 border-cyan-300/60 bg-slate-900 p-0 text-white shadow-2xl"
     >
       <div className="p-4 sm:p-6">
         <div className="flex items-start justify-between gap-3">
@@ -33,8 +46,8 @@ function PreviewDialog({ name, locked, avatar, onClose }: { name: string; locked
           </button>
         </div>
         <div className="mt-4 flex justify-center" data-monster-preview={locked ? 'locked' : 'unlocked'}>
-          <div className={`max-w-full [&>div]:max-w-full [&_img]:max-w-full [&_svg]:max-w-full ${locked ? 'opacity-30 grayscale blur-[1px]' : ''}`}>
-            {cloneElement(avatar, { size: 320, lazy: false })}
+          <div className={`monster-preview-art ${locked ? 'opacity-30 grayscale blur-[1px]' : ''}`}>
+            {cloneElement(avatar, { size: 640, lazy: false, enlarged: true })}
           </div>
         </div>
         {locked && <p className="mt-4 text-center text-sm text-slate-300">倒すと、姿がはっきり見られるようになります。</p>}
@@ -44,13 +57,13 @@ function PreviewDialog({ name, locked, avatar, onClose }: { name: string; locked
 }
 
 export default function MonsterPreview({ name, locked = false, children }: { name: string; locked?: boolean; children: AvatarElement }) {
-  const [open, setOpen] = useState(false);
+  const [origin, setOrigin] = useState<DOMRect | null>(null);
   return (
     <>
-      <button type="button" aria-label={`${locked ? '未撃破のモンスター' : name}を拡大表示`} title="クリック・タップで拡大" onClick={() => setOpen(true)} className="relative inline-flex cursor-zoom-in items-center justify-center rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+      <button type="button" aria-label={`${locked ? '未撃破のモンスター' : name}を拡大表示`} title="クリック・タップで拡大" onClick={event => setOrigin(event.currentTarget.getBoundingClientRect())} className="relative inline-flex cursor-zoom-in items-center justify-center rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
         <span aria-hidden="true" className={locked ? 'opacity-30 grayscale blur-[1px]' : undefined}>{children}</span>
       </button>
-      {open && <PreviewDialog name={name} locked={locked} avatar={children} onClose={() => setOpen(false)} />}
+      {origin && <PreviewDialog name={name} locked={locked} avatar={children} origin={origin} onClose={() => setOrigin(null)} />}
     </>
   );
 }

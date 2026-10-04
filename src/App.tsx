@@ -21,7 +21,7 @@ import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLe
 import { getLongTextRecallOutcome, getNextTolerantLongTextLearningState, isFormattingOnlyMistake } from './learningProgress';
 import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
-import { getMonsterArtUrl, preloadMonsterArt } from './monsterArt';
+import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
 import MonsterPreview from './MonsterPreview';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
@@ -3252,8 +3252,8 @@ const getMonsterVisualStyle = (monster: Monster): MonsterVisualStyle | undefined
 };
 
 // --- Monster avatar: released artwork, with SVG for the remaining courses ---
-const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyle, monsterId, difficulty, lazy = false }: { type: MonsterType, color: string, emotion?: 'normal' | 'damage' | 'win', size?: number, visualStyle?: MonsterVisualStyle, monsterId?: string, difficulty?: Difficulty, lazy?: boolean }) => {
-  const artUrl = getMonsterArtUrl(monsterId, difficulty, size);
+const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyle, monsterId, difficulty, lazy = false, enlarged = false }: { type: MonsterType, color: string, emotion?: 'normal' | 'damage' | 'win', size?: number, visualStyle?: MonsterVisualStyle, monsterId?: string, difficulty?: Difficulty, lazy?: boolean, enlarged?: boolean }) => {
+  const artUrl = enlarged ? getMonsterPreviewArtUrl(monsterId, difficulty) : getMonsterArtUrl(monsterId, difficulty, size);
   if (artUrl) {
     return <img src={artUrl} width={size} height={size} alt="" draggable={false} loading={lazy ? 'lazy' : 'eager'} decoding="async" data-monster-art={monsterId} style={{ width: size, height: size, objectFit: 'contain', flexShrink: 0, filter: emotion === 'damage' ? 'brightness(1.15)' : undefined }} />;
   }
