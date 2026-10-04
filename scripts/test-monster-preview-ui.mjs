@@ -16,7 +16,7 @@ try {
     { course: 'Eiken5', level: 1, width: 844, height: 390, dpr: 1 },
   ];
   for (const { course, level, width, height, dpr, reducedMotion = 'no-preference' } of scenarios) {
-      const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion });
+      const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion, hasTouch: width < 1024 });
       const page = await context.newPage();
       const errors = [];
       const artRequests = [];
@@ -26,7 +26,7 @@ try {
       await page.addInitScript(({ course, level }) => {
         speechSynthesis.speak = () => {};
         localStorage.setItem('etyping_last_selected_course', JSON.stringify({ difficulty: course, level, resumeMode: 'challenge', resumeInputMode: 'text-only' }));
-        localStorage.setItem('etyping_defeated_monsters', JSON.stringify([`${course}:${level}:guide:voice-text:m${level}_1`, `${course}:${level}:challenge:text-only:c${level}_1`]));
+        localStorage.setItem('etyping_defeated_monsters', JSON.stringify([`${course}:${level}:guide:voice-text:m${level}_1`, `${course}:${level}:guide:voice-text:m${level}_2`, `${course}:${level}:challenge:text-only:c${level}_1`]));
       }, { course, level });
       await page.goto(url);
       await page.getByRole('button', { name: '図鑑', exact: true }).waitFor();
@@ -52,7 +52,7 @@ try {
           await image.evaluate(img => img.decode());
           assert.ok(await image.evaluate(img => img.naturalWidth === 1024 && img.complete));
           assert.ok(artBounds.width * dpr <= 1024 + 1, 'Rendered physical pixels must not exceed the source resolution');
-        } else assert.equal(await dialog.locator('svg[viewBox]').count(), 2); // avatar and close icon
+        } else assert.equal(await dialog.locator('.monster-preview-art svg[viewBox]').count(), 1);
         assert.equal(await dialog.locator('[data-monster-preview]').getAttribute('data-monster-preview'), locked ? 'locked' : 'unlocked');
         if (locked) {
           assert.equal(await dialog.getByRole('heading').textContent(), '???');
@@ -67,6 +67,10 @@ try {
         const before = previewUrls().size;
         await trigger.click();
         await checkDialog();
+        assert.equal(await dialog.getByRole('navigation').count(), 0, 'Single-monster top preview must not show gallery controls');
+        const topHeading = await dialog.getByRole('heading').textContent();
+        await page.keyboard.press('ArrowRight');
+        assert.equal(await dialog.getByRole('heading').textContent(), topHeading);
         assert.equal(previewUrls().size, before + (course === 'Eiken5' ? 1 : 0), 'Only the opened monster should fetch high-resolution art');
         assert.equal(await page.locator('.battle-input').count(), 0, 'Preview must not start a battle');
         await page.screenshot({ path: `${output}/top-${course}-${width}.png` });
@@ -102,11 +106,87 @@ try {
       assert.equal(previewUrls().size, beforeLocked + (course === 'Eiken5' ? 1 : 0));
       await page.mouse.click(3, 3);
       await page.locator('dialog').waitFor({ state: 'detached' });
+      const labels = await triggers.evaluateAll(buttons => buttons.map(button => button.getAttribute('aria-label')));
+      const monsterIds = await triggers.locator('img[data-monster-art]').evaluateAll(images => images.map(img => img.dataset.monsterArt));
+      const visited = new Set();
+      async function checkGallery(expectedIndex) {
+        assert.equal(await dialog.locator('nav [aria-live]').textContent(), `${expectedIndex + 1} / 43`);
+        assert.equal(await dialog.getByRole('button', { name: '前のモンスター', exact: true }).isDisabled(), expectedIndex === 0);
+        assert.equal(await dialog.getByRole('button', { name: '次のモンスター', exact: true }).isDisabled(), expectedIndex === 42);
+        const isLocked = labels[expectedIndex] === '未撃破のモンスターを拡大表示';
+        assert.equal(await dialog.locator('[data-monster-preview]').getAttribute('data-monster-preview'), isLocked ? 'locked' : 'unlocked');
+        assert.equal(await dialog.getByRole('heading').textContent(), isLocked ? '???' : labels[expectedIndex].replace('を拡大表示', ''));
+        if (course === 'Eiken5') {
+          const currentImage = dialog.locator('.monster-preview-art img');
+          await currentImage.evaluate(img => img.decode());
+          assert.equal(await currentImage.getAttribute('data-monster-art'), monsterIds[expectedIndex]);
+          visited.add(monsterIds[expectedIndex]);
+        }
+        assert.equal(await page.locator('dialog').count(), 1, 'Switching must reuse a single open dialog');
+        assert.equal(await page.evaluate(() => document.body.style.overflow), 'hidden');
+      }
+      const beforeNavigation = previewUrls();
+      await known.click();
+      await checkDialog();
+      await checkGallery(0);
+      await page.keyboard.press('ArrowLeft');
+      await checkGallery(0);
+      await page.keyboard.press('ArrowRight');
+      await checkGallery(1);
+      await dialog.getByRole('button', { name: '次のモンスター', exact: true }).click();
+      await checkGallery(2); // locked after two known monsters
+      await dialog.getByRole('button', { name: '前のモンスター', exact: true }).click();
+      await checkGallery(1);
+      if (width < 1024) {
+        const cdp = await context.newCDPSession(page);
+        async function swipe(dx, dy = 0) {
+          const area = await dialog.locator('[data-monster-preview]').boundingBox();
+          const x = area.x + area.width / 2 - dx / 2;
+          const y = area.y + area.height / 2 - dy / 2;
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+          for (let step = 1; step <= 4; step++) {
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + dx * step / 4, y: y + dy * step / 4 }] });
+          }
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+        }
+        await swipe(-90);
+        await checkGallery(2);
+        await swipe(90);
+        await checkGallery(1);
+        await swipe(8); // a tap / short motion must not switch
+        await checkGallery(1);
+        await swipe(10, 80); // vertical scrolling must not switch
+        await checkGallery(1);
+        await cdp.detach();
+      }
+      await page.screenshot({ path: `${output}/navigation-${course}-${width}.png` });
+      await page.keyboard.press('Escape');
+      await page.locator('dialog').waitFor({ state: 'detached' });
+      await triggers.nth(19).click();
+      await checkGallery(19);
+      await page.keyboard.press('ArrowRight');
+      await checkGallery(20); // training -> danger in the displayed order
+      await page.keyboard.press('Escape');
+      await page.locator('dialog').waitFor({ state: 'detached' });
+      const last = triggers.last();
+      await last.click();
+      await checkGallery(42);
+      await page.keyboard.press('ArrowRight');
+      await checkGallery(42);
+      await page.keyboard.press('ArrowLeft');
+      await checkGallery(41);
+      await dialog.getByRole('button', { name: '拡大表示を閉じる', exact: true }).click();
+      await page.locator('dialog').waitFor({ state: 'detached' });
+      assert.ok(await last.evaluate(el => el === document.activeElement));
+      for (const src of previewUrls()) {
+        if (!beforeNavigation.has(src)) assert.ok(visited.has(src.split('/').pop().replace('.webp', '')), 'Gallery must not load unopened high-resolution images');
+      }
+      assert.equal(await page.evaluate(() => document.body.style.overflow), '');
       assert.equal(await page.evaluate(() => localStorage.getItem('etyping_defeated_monsters')), defeatedBefore);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
       assert.deepEqual(errors, []);
       if (course !== 'Eiken5') assert.equal(artRequests.length, requestsBeforeCollectionPreview);
-      report.push({ course, level, width, height, dpr, reducedMotion, measuredArtWidths, highResolutionAssetsRequested: previewUrls().size, title: width >= 1024, collectionTriggers: 43, lockedPreserved: true, closeButton: true, escape: true, backdrop: true, focusRestored: true, defeatedRecordsPreserved: true, errors });
+      report.push({ course, level, width, height, dpr, reducedMotion, measuredArtWidths, highResolutionAssetsRequested: previewUrls().size, title: width >= 1024, collectionTriggers: 43, galleryButtons: true, galleryKeyboard: true, galleryTouch: width < 1024, boundaries: true, trainingToDanger: true, lockedPreserved: true, closeButton: true, escape: true, backdrop: true, focusRestored: true, defeatedRecordsPreserved: true, errors });
       console.log(`PASS ${course} Level ${level}, ${width}x${height}, DPR ${dpr}`);
       await context.close();
   }

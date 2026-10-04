@@ -9,6 +9,15 @@
   flex-shrink: 0;
 }
 
+.monster-preview-dialog.has-gallery .monster-preview-art {
+  width: min(100%, 62dvh, calc(90dvh - 224px), 640px, calc(var(--preview-pixels, 1024px) / var(--preview-dpr, 1)));
+}
+
+.monster-preview-swipe {
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+
 .monster-preview-art > *,
 .monster-preview-art svg {
   width: 100% !important;
