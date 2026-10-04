@@ -1,15 +1,17 @@
 // Artwork is rolled out course by course. Other courses keep their SVG avatars.
-export const EIKEN5_LEVEL1_ART_IDS = [
-  'm1_1', 'm1_2', 'm1_3', 'm1_4', 'm1_5', 'm1_6', 'm1_7', 'm1_8', 'm1_9', 'm1_10',
-  ...Array.from({ length: 10 }, (_, i) => `m1_extra_${i + 1}`),
-  ...Array.from({ length: 13 }, (_, i) => `c1_${i + 1}`),
-  ...Array.from({ length: 10 }, (_, i) => `c1_extra_${i + 1}`),
+const artIdsForLevel = (level: number) => [
+  ...Array.from({ length: 10 }, (_, i) => `m${level}_${i + 1}`),
+  ...Array.from({ length: 10 }, (_, i) => `m${level}_extra_${i + 1}`),
+  ...Array.from({ length: 13 }, (_, i) => `c${level}_${i + 1}`),
+  ...Array.from({ length: 10 }, (_, i) => `c${level}_extra_${i + 1}`),
 ];
-const artIds = new Set(EIKEN5_LEVEL1_ART_IDS);
+export const EIKEN5_LEVEL1_ART_IDS = artIdsForLevel(1);
+export const EIKEN5_ART_IDS = [1, 2, 3].flatMap(artIdsForLevel);
+const artIds = new Set(EIKEN5_ART_IDS);
 
 export const getMonsterArtUrl = (monsterId: string | undefined, difficulty: string | undefined, size = 384) => (
   difficulty === 'Eiken5' && monsterId && artIds.has(monsterId)
-    ? `${import.meta.env.BASE_URL}monsters/eiken5-level1/${size <= 100 ? 256 : 384}/${monsterId}.webp`
+    ? `${import.meta.env.BASE_URL}monsters/eiken5-level${monsterId[1]}/${size <= 100 ? 256 : 384}/${monsterId}.webp`
     : undefined
 );
 

@@ -1,16 +1,19 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { trackTestBrowser } from './lib/test-browser-cleanup.mjs';
 
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const url = process.env.MONSTER_PREVIEW_TEST_URL || 'http://127.0.0.1:5178';
 const output = process.env.MONSTER_PREVIEW_TEST_OUTPUT || 'design/monster-samples/preview-check';
 mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
+const closeTestBrowser = await trackTestBrowser(browser);
 const report = [];
 try {
   const scenarios = [
     ...['Eiken5', 'Eiken4'].flatMap(course => [1366, 390].map(width => ({ course, level: course === 'Eiken5' ? 1 : 3, width, height: 800, dpr: 1 }))),
+    ...[2, 3].flatMap(level => [1366, 390].map(width => ({ course: 'Eiken5', level, width, height: 800, dpr: 1 }))),
     { course: 'Eiken5', level: 1, width: 1920, height: 1080, dpr: 2 },
     { course: 'Eiken5', level: 1, width: 390, height: 640, dpr: 3, reducedMotion: 'reduce' },
     { course: 'Eiken5', level: 1, width: 844, height: 390, dpr: 1 },
@@ -73,7 +76,7 @@ try {
         assert.equal(await dialog.getByRole('heading').textContent(), topHeading);
         assert.equal(previewUrls().size, before + (course === 'Eiken5' ? 1 : 0), 'Only the opened monster should fetch high-resolution art');
         assert.equal(await page.locator('.battle-input').count(), 0, 'Preview must not start a battle');
-        await page.screenshot({ path: `${output}/top-${course}-${width}.png` });
+        await page.screenshot({ path: `${output}/top-${course}-L${level}-${width}.png` });
         await page.keyboard.press('Escape');
         await page.locator('dialog').waitFor({ state: 'detached' });
         assert.ok(await trigger.evaluate(el => el === document.activeElement), 'Focus restored to the clicked monster');
@@ -89,7 +92,7 @@ try {
       await known.click();
       await checkDialog();
       assert.equal(previewUrls().size, beforeKnown + (course === 'Eiken5' ? 1 : 0));
-      await page.screenshot({ path: `${output}/collection-${course}-${width}.png` });
+      await page.screenshot({ path: `${output}/collection-${course}-L${level}-${width}.png` });
       await dialog.getByRole('button', { name: '拡大表示を閉じる', exact: true }).click();
       await page.locator('dialog').waitFor({ state: 'detached' });
       assert.ok(await known.evaluate(el => el === document.activeElement));
@@ -159,7 +162,7 @@ try {
         await checkGallery(1);
         await cdp.detach();
       }
-      await page.screenshot({ path: `${output}/navigation-${course}-${width}.png` });
+      await page.screenshot({ path: `${output}/navigation-${course}-L${level}-${width}.png` });
       await page.keyboard.press('Escape');
       await page.locator('dialog').waitFor({ state: 'detached' });
       await triggers.nth(19).click();
@@ -188,9 +191,11 @@ try {
       if (course !== 'Eiken5') assert.equal(artRequests.length, requestsBeforeCollectionPreview);
       report.push({ course, level, width, height, dpr, reducedMotion, measuredArtWidths, highResolutionAssetsRequested: previewUrls().size, title: width >= 1024, collectionTriggers: 43, galleryButtons: true, galleryKeyboard: true, galleryTouch: width < 1024, boundaries: true, trainingToDanger: true, lockedPreserved: true, closeButton: true, escape: true, backdrop: true, focusRestored: true, defeatedRecordsPreserved: true, errors });
       console.log(`PASS ${course} Level ${level}, ${width}x${height}, DPR ${dpr}`);
+      await page.goto('about:blank');
       await context.close();
   }
   writeFileSync(`${output}/report.json`, JSON.stringify(report, null, 2));
 } finally {
-  await browser.close();
+  await closeTestBrowser();
 }
+process.exit(0);

@@ -1,0 +1,1552 @@
+{
+  "scope": "Eiken5 Level2 and Level3",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "m2_1",
+      "name": "遅刻コウモリ",
+      "level": 2,
+      "group": "training",
+      "design": "A lavender bat schoolchild arriving late, wings tangled in a tiny backpack strap, one oversized round worried eye and the other shut, panting cheeks, dramatically flying sideways. Broad upside-down triangular silhouette, small harmless fangs, no weapon. Stylish playful comic cel art, lavender/navy/cream, expressive thick navy contour and clear flat shaped shadows.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_1.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_1.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_1.webp"
+      },
+      "bytes": {
+        "256": 15374,
+        "384": 25712,
+        "1024": 93760
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG played by children and adults. Character: A lavender bat schoolchild arriving late, wings tangled in a tiny backpack strap, one oversized round worried eye and the other shut, panting cheeks, dramatically flying sideways. Broad upside-down triangular silhouette, small harmless fangs, no weapon.\nArt direction: Stylish playful comic cel art, lavender/navy/cream, expressive thick navy contour and clear flat shaped shadows.\nPremium expressive illustration, personality recognizable at 140px, bold readable silhouette and separated face features. Whole body fully inside canvas with 7% transparent breathing space. Front or three-quarter view. Child friendly, funny, no gore. Genuine transparent background with alpha; no scene, floor, background, vignette, lettering, logo, caption, extra characters or drop shadow outside the character. Do not homogenize its eye shape into the usual angry yellow slit eyes. Crisp clean cutout edges. One character only."
+    },
+    {
+      "id": "m2_2",
+      "name": "わすれんぼウルフ",
+      "level": 2,
+      "group": "training",
+      "design": "A comically forgetful blue-gray lanky wolf with an oversized empty school bag, holding bag upside down. Unequal dot eyes, worried crooked eyebrows, tiny nervous tongue, disheveled ears. Chunky angular graphic silhouette. Simple mustard scarf. Flat, hand-drawn comic ink illustration with broad solid opaque color fills.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_2.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_2.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_2.webp"
+      },
+      "bytes": {
+        "256": 16252,
+        "384": 28458,
+        "1024": 112900
+      },
+      "prompt": "Use case: illustration-story. Draw one 2D hand-drawn game monster: A comically forgetful blue-gray lanky wolf with an oversized empty school bag, holding bag upside down. Unequal dot eyes, worried crooked eyebrows, tiny nervous tongue, disheveled ears. Chunky angular graphic silhouette. Simple mustard scarf.\nStyle: Flat, hand-drawn comic ink illustration with broad solid opaque color fills.\nThis is a flat illustration with an opaque body and clean silhouette. Transparent PNG alpha background. The empty area outside the drawing must be fully transparent. No ambient lighting, no vignette, no cast shadow, no halo, no mist, no gradients outside character. No photography, no 3D render, no words, no scenery, no framing. Full body with generous padding. Readable at 140px."
+    },
+    {
+      "id": "m2_3",
+      "name": "いじわるフォックス",
+      "level": 2,
+      "group": "training",
+      "design": "A sly orange fox balancing a water balloon behind its back, very long ears, huge fluffy angular tail, narrowed sideways rectangular eyes and an asymmetrical smirk. Small mischievous trickster without violence. Crisp storybook linocut illustration, angular ink shapes, orange/turquoise/black, carved-print texture inside silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_3.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_3.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_3.webp"
+      },
+      "bytes": {
+        "256": 20256,
+        "384": 36846,
+        "1024": 212728
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG played by children and adults. Character: A sly orange fox balancing a water balloon behind its back, very long ears, huge fluffy angular tail, narrowed sideways rectangular eyes and an asymmetrical smirk. Small mischievous trickster without violence.\nArt direction: Crisp storybook linocut illustration, angular ink shapes, orange/turquoise/black, carved-print texture inside silhouette.\nPremium expressive illustration, personality recognizable at 140px, bold readable silhouette and separated face features. Whole body fully inside canvas with 7% transparent breathing space. Front or three-quarter view. Child friendly, funny, no gore. Genuine transparent background with alpha; no scene, floor, background, vignette, lettering, logo, caption, extra characters or drop shadow outside the character. Do not homogenize its eye shape into the usual angry yellow slit eyes. Crisp clean cutout edges. One character only."
+    },
+    {
+      "id": "m2_4",
+      "name": "居眠りベア",
+      "level": 2,
+      "group": "training",
+      "design": "A round chestnut bear deeply asleep upright inside a striped pajama sleeping bag, soft closed horizontal eyes, tiny drool bubble, hugging its own pillow, one slipper falling off. Wide bean-shaped body. Warm picture-book gouache, matt chestnut/cream/soft pink, gentle hand-painted volume and subtle brush grain.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_4.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_4.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_4.webp"
+      },
+      "bytes": {
+        "256": 16852,
+        "384": 29474,
+        "1024": 160282
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG played by children and adults. Character: A round chestnut bear deeply asleep upright inside a striped pajama sleeping bag, soft closed horizontal eyes, tiny drool bubble, hugging its own pillow, one slipper falling off. Wide bean-shaped body.\nArt direction: Warm picture-book gouache, matt chestnut/cream/soft pink, gentle hand-painted volume and subtle brush grain.\nPremium expressive illustration, personality recognizable at 140px, bold readable silhouette and separated face features. Whole body fully inside canvas with 7% transparent breathing space. Front or three-quarter view. Child friendly, funny, no gore. Genuine transparent background with alpha; no scene, floor, background, vignette, lettering, logo, caption, extra characters or drop shadow outside the character. Do not homogenize its eye shape into the usual angry yellow slit eyes. Crisp clean cutout edges. One character only."
+    },
+    {
+      "id": "m2_5",
+      "name": "黒板消しクリーチャー",
+      "level": 2,
+      "group": "training",
+      "design": "An ivory and cobalt school eraser monster with an oversized bent rubber handle, one round eye and one vertical rectangular eye on its pale blue rectangular body, four curly spring legs and a comically wide zigzag grin. Flat bright shapes. Simple crisp cel cartoon sticker with flat opaque ivory, cobalt and coral shapes, navy outline.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_5.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_5.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_5.webp"
+      },
+      "bytes": {
+        "256": 14112,
+        "384": 23220,
+        "1024": 78282
+      },
+      "prompt": "Draw a cute weird chalkboard eraser creature as a flat 2D cartoon sticker. Ivory-and-cobalt rectangular eraser body, big bent rubber handle, mismatched eye shapes, four curly spring feet, very wide zigzag grin. Navy outline, flat solid color fills. Transparent background, clean cutout. No glow or shadow. No texture, no gradients, no realistic lighting, no dust, no background. Entire figure inside frame."
+    },
+    {
+      "id": "m2_6",
+      "name": "リコーダーへび",
+      "level": 2,
+      "group": "training",
+      "design": "ウインク",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_6.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_6.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_6.webp"
+      },
+      "bytes": {
+        "256": 12648,
+        "384": 21084,
+        "1024": 85052
+      }
+    },
+    {
+      "id": "m2_7",
+      "name": "ドッジボールゴーレム",
+      "level": 2,
+      "group": "training",
+      "design": "A squat silver dodgeball golem composed of segmented orange rubber balls and metal elbow rings, enormous catcher's mitt hands, surprised electronic eyes as two different sized cyan squares, mouth small pixel circle. Broad sturdy sporting pose. Retro arcade toy robot rendering, silver and orange enamel, clear plastic/rubber distinction, high quality studio-like game sprite.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_7.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_7.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_7.webp"
+      },
+      "bytes": {
+        "256": 21552,
+        "384": 37828,
+        "1024": 191508
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG played by children and adults. Character: A squat silver dodgeball golem composed of segmented orange rubber balls and metal elbow rings, enormous catcher's mitt hands, surprised electronic eyes as two different sized cyan squares, mouth small pixel circle. Broad sturdy sporting pose.\nArt direction: Retro arcade toy robot rendering, silver and orange enamel, clear plastic/rubber distinction, high quality studio-like game sprite.\nPremium expressive illustration, personality recognizable at 140px, bold readable silhouette and separated face features. Whole body fully inside canvas with 7% transparent breathing space. Front or three-quarter view. Child friendly, funny, no gore. Genuine transparent background with alpha; no scene, floor, background, vignette, lettering, logo, caption, extra characters or drop shadow outside the character. Do not homogenize its eye shape into the usual angry yellow slit eyes. Crisp clean cutout edges. One character only."
+    },
+    {
+      "id": "m2_extra_1",
+      "name": "朝礼コウモリ",
+      "level": 2,
+      "group": "training",
+      "design": "An upright gray-pink bat wearing a neat little bowtie, vast triangular wings folded as a cape, holding a tiny acorn speaking trumpet. Calm CLOSED crescent eyes, serious little pursed lips, dignified but absurd morning-assembly leader. Big ears and slender silhouette. Premium cut-paper collage with layered paper edges and matte folds, dusty pink, graphite, cream and navy.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_1.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_1.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_1.webp"
+      },
+      "bytes": {
+        "256": 14082,
+        "384": 22738,
+        "1024": 101220
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG for children and adults. Character: An upright gray-pink bat wearing a neat little bowtie, vast triangular wings folded as a cape, holding a tiny acorn speaking trumpet. Calm CLOSED crescent eyes, serious little pursed lips, dignified but absurd morning-assembly leader. Big ears and slender silhouette.\nArt direction: Premium cut-paper collage with layered paper edges and matte folds, dusty pink, graphite, cream and navy.\nPersonality readable at 140px, premium illustration, clear separated face features and distinct silhouette. Entire character and props inside canvas with 7% transparent padding, front or three-quarter view. Child friendly and comic, no gore. Transparent background with genuine alpha. No scene, floor, vignette, background decoration, external shadow, text, letters, logo, caption, or extra characters. No generic angry yellow slit eyes. Crisp cutout edges. One character only."
+    },
+    {
+      "id": "m2_extra_2",
+      "name": "忘れ物チェックウルフ",
+      "level": 2,
+      "group": "training",
+      "design": "An organized blue-gray wolf explorer with oversized round wire spectacles, small bright BLUE round eyes clearly visible through lenses, pointing proudly at a blank wooden checklist board, straight long tail and upright posture. No letters on board. Warm colored-pencil and watercolor character, soft slate wool, yellow satchel, visible pencil hatch inside contour.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_2.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_2.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_2.webp"
+      },
+      "bytes": {
+        "256": 19638,
+        "384": 36678,
+        "1024": 207610
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG for children and adults. Character: An organized blue-gray wolf explorer with oversized round wire spectacles, small bright BLUE round eyes clearly visible through lenses, pointing proudly at a blank wooden checklist board, straight long tail and upright posture. No letters on board.\nArt direction: Warm colored-pencil and watercolor character, soft slate wool, yellow satchel, visible pencil hatch inside contour.\nPersonality readable at 140px, premium illustration, clear separated face features and distinct silhouette. Entire character and props inside canvas with 7% transparent padding, front or three-quarter view. Child friendly and comic, no gore. Transparent background with genuine alpha. No scene, floor, vignette, background decoration, external shadow, text, letters, logo, caption, or extra characters. No generic angry yellow slit eyes. Crisp cutout edges. One character only."
+    },
+    {
+      "id": "m2_extra_3",
+      "name": "仲直りフォックス",
+      "level": 2,
+      "group": "training",
+      "design": "A friendly cream-and-orange fox holding a repaired heart-shaped wooden toy, very broad fluffy tail wrapping around feet, soft CLOSED smiling eyes and rosy cheek marks. Short round head, apologetic kind bow. Polished tactile stitched-fabric plush design, creamy linen belly and orange felt, embroidered curved face features.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_3.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_3.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_3.webp"
+      },
+      "bytes": {
+        "256": 15034,
+        "384": 26910,
+        "1024": 160970
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG for children and adults. Character: A friendly cream-and-orange fox holding a repaired heart-shaped wooden toy, very broad fluffy tail wrapping around feet, soft CLOSED smiling eyes and rosy cheek marks. Short round head, apologetic kind bow.\nArt direction: Polished tactile stitched-fabric plush design, creamy linen belly and orange felt, embroidered curved face features.\nPersonality readable at 140px, premium illustration, clear separated face features and distinct silhouette. Entire character and props inside canvas with 7% transparent padding, front or three-quarter view. Child friendly and comic, no gore. Transparent background with genuine alpha. No scene, floor, vignette, background decoration, external shadow, text, letters, logo, caption, or extra characters. No generic angry yellow slit eyes. Crisp cutout edges. One character only."
+    },
+    {
+      "id": "m2_extra_4",
+      "name": "目覚ましベア",
+      "level": 2,
+      "group": "training",
+      "design": "A golden honey bear awake in an absurdly oversized red alarm-clock backpack, one very tall oval excited eye and one blinking squashed eye, arms stretched wide, tiny ears, enthusiastic open grin, springy skinny feet under round body. No clock numbers. Bright premium comic cartoon with punchy geometric shadow shapes, honey yellow/red/mint, clean ink outlines.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_4.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_4.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_4.webp"
+      },
+      "bytes": {
+        "256": 19542,
+        "384": 33826,
+        "1024": 132670
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG for children and adults. Character: A golden honey bear awake in an absurdly oversized red alarm-clock backpack, one very tall oval excited eye and one blinking squashed eye, arms stretched wide, tiny ears, enthusiastic open grin, springy skinny feet under round body. No clock numbers.\nArt direction: Bright premium comic cartoon with punchy geometric shadow shapes, honey yellow/red/mint, clean ink outlines.\nPersonality readable at 140px, premium illustration, clear separated face features and distinct silhouette. Entire character and props inside canvas with 7% transparent padding, front or three-quarter view. Child friendly and comic, no gore. Transparent background with genuine alpha. No scene, floor, vignette, background decoration, external shadow, text, letters, logo, caption, or extra characters. No generic angry yellow slit eyes. Crisp cutout edges. One character only."
+    },
+    {
+      "id": "m2_8",
+      "name": "うわばき隠し",
+      "level": 2,
+      "group": "training",
+      "design": "A sneaky ghost shaped like a pair of white-and-blue school slippers, a stretched shoelace winds its two shoes into a long S-shaped body, two sideways glance eyes floating inside one shoe, innocent puckered mouth in the second shoe, small sheet sleeves. Comic, weird, clean opaque white silhouette. Elegant Japanese-style flat ink and gouache character illustration with crisp opaque blue-white shapes.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_8.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_8.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_8.webp"
+      },
+      "bytes": {
+        "256": 12604,
+        "384": 21966,
+        "1024": 95612
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A sneaky ghost shaped like a pair of white-and-blue school slippers, a stretched shoelace winds its two shoes into a long S-shaped body, two sideways glance eyes floating inside one shoe, innocent puckered mouth in the second shoe, small sheet sleeves. Comic, weird, clean opaque white silhouette.\nArt direction: Elegant Japanese-style flat ink and gouache character illustration with crisp opaque blue-white shapes.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m2_extra_5",
+      "name": "黒板みがき精",
+      "level": 2,
+      "group": "training",
+      "design": "A tiny turquoise polishing sprite shaped like a fan-shaped soft brush, one enormous surprised cyclops eye in its orange handle body, white brush bristles fanning into a haircut, three orange curled spring feet, little green cloth tied like an oversize necktie. Expressive cut-paper comic illustration in turquoise, warm white and orange. Flat layered opaque pieces with crisp outline.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_5.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_5.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_5.webp"
+      },
+      "bytes": {
+        "256": 15296,
+        "384": 27910,
+        "1024": 142406
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A tiny turquoise polishing sprite shaped like a fan-shaped soft brush, one enormous surprised cyclops eye in its orange handle body, white brush bristles fanning into a haircut, three orange curled spring feet, little green cloth tied like an oversize necktie.\nArt direction: Expressive cut-paper comic illustration in turquoise, warm white and orange. Flat layered opaque pieces with crisp outline.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m2_extra_6",
+      "name": "音階へび",
+      "level": 2,
+      "group": "training",
+      "design": "A coiled coral-orange music snake shaped like a loose treble-clef curl, accordion-like belly bands, trumpet-shaped tail, two small bead eyes far apart and goofy zigzag grin, wearing a tiny conductor cap. No letters. Vibrant stylized folded-paper illustration with clean faceted planes, coral, cream and navy, comic expressive body line.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_6.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_6.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_6.webp"
+      },
+      "bytes": {
+        "256": 17826,
+        "384": 29854,
+        "1024": 123042
+      },
+      "prompt": "Create ONE standalone collectible enemy character for an English-learning fantasy RPG for children and adults. Character: A coiled coral-orange music snake shaped like a loose treble-clef curl, accordion-like belly bands, trumpet-shaped tail, two small bead eyes far apart and goofy zigzag grin, wearing a tiny conductor cap. No letters.\nArt direction: Vibrant stylized folded-paper illustration with clean faceted planes, coral, cream and navy, comic expressive body line.\nPersonality readable at 140px, premium illustration, clear separated face features and distinct silhouette. Entire character and props inside canvas with 7% transparent padding, front or three-quarter view. Child friendly and comic, no gore. Transparent background with genuine alpha. No scene, floor, vignette, background decoration, external shadow, text, letters, logo, caption, or extra characters. No generic angry yellow slit eyes. Crisp cutout edges. One character only."
+    },
+    {
+      "id": "m2_extra_7",
+      "name": "キャッチ練習ロボ",
+      "level": 2,
+      "group": "training",
+      "design": "A teal mechanical baseball-catching robot shaped like a huge catcher's glove mounted on a single spring wheel. One mismatched square yellow eye and one circular blue camera eye inside the glove palm. A copper fork-like arm holds an orange ball. Tiny grinning mouth and exaggerated spring antenna. Flat retro comic mechanical character illustration with teal enamel and orange copper textures INSIDE solid opaque shapes.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_7.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_7.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_7.webp"
+      },
+      "bytes": {
+        "256": 18734,
+        "384": 34122,
+        "1024": 174572
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A teal mechanical baseball-catching robot shaped like a huge catcher's glove mounted on a single spring wheel. One mismatched square yellow eye and one circular blue camera eye inside the glove palm. A copper fork-like arm holds an orange ball. Tiny grinning mouth and exaggerated spring antenna.\nArt direction: Flat retro comic mechanical character illustration with teal enamel and orange copper textures INSIDE solid opaque shapes.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m2_extra_8",
+      "name": "上ばき番人",
+      "level": 2,
+      "group": "training",
+      "design": "A proud school-shoe guardian made of one oversized navy and white canvas slipper with arms, a zipper-like smiling mouth and two black shiny BUTTON eyes, enormous striped tongue forms its hat, little matching shoe feet. Holding a tiny wooden shoehorn. Children's crafted stop-motion style, blue canvas stitching, textured rubber sole, warm white, soft modeled volume.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_8.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_8.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_8.webp"
+      },
+      "bytes": {
+        "256": 17090,
+        "384": 30514,
+        "1024": 164886
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A proud school-shoe guardian made of one oversized navy and white canvas slipper with arms, a zipper-like smiling mouth and two black shiny BUTTON eyes, enormous striped tongue forms its hat, little matching shoe feet. Holding a tiny wooden shoehorn.\nArt direction: Children's crafted stop-motion style, blue canvas stitching, textured rubber sole, warm white, soft modeled volume.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m2_extra_9",
+      "name": "静けさトロール",
+      "level": 2,
+      "group": "training",
+      "design": "A sage-green tiny troll with enormous floppy ears, one eye behind a round monocle and one gently closed eye, silly long purple scarf, whispering hands, skinny bent knees and curled feet. Highly comic disproportionate ears. Bright square storybook cartoon sticker, clean simple shapes with colored pencil hatching inside character.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_9.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_9.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_9.webp"
+      },
+      "bytes": {
+        "256": 14720,
+        "384": 24030,
+        "1024": 91760
+      },
+      "prompt": "Square cartoon illustration: very tiny green whispering troll with hilariously huge cream floppy ears, one closed eye, one round monocle, long purple scarf and bouncy small boots. Bright ink cartoon, opaque solid shapes. Full body centered with lots of transparent padding. No background or shadows."
+    },
+    {
+      "id": "m2_extra_10",
+      "name": "テスト前スピリット",
+      "level": 2,
+      "group": "training",
+      "design": "A mint translucent exam-preparation spirit with THREE stacked small round cyan eyes, carrying a big blank parchment roll like a pillow, a pencil-shaped cap, timid rounded open mouth and tiny mitten hands. Triangular tapering floating body. The three eyes are stacked like traffic lights and its tail folds into an absurd paperclip loop. Polished clear-resin toy illustration with internally glowing mint glass, cream paper contrast, adorable unusual three-eye face.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_extra_10.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_extra_10.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_extra_10.webp"
+      },
+      "bytes": {
+        "256": 13024,
+        "384": 20532,
+        "1024": 83324
+      },
+      "prompt": "Square cartoon illustration: mint-green exam spirit with three eyes stacked vertically like traffic lights, pencil-shaped hat, curled paperclip tail, hugging a blank cream scroll. Painted candy-like character with clearly outlined solid surfaces. Full body cutout on transparent background. No lighting effects, background glow or shadows."
+    },
+    {
+      "id": "m2_9",
+      "name": "騒音トロール",
+      "level": 2,
+      "group": "training",
+      "design": "A coral-red noisy troll with huge barrel belly and a very broad square laughing mouth, short white tusks harmless, two tiny pupils inside enormously unequal bulging white eyes, holding an empty tin-can microphone, stomping one broad foot. No letters. Bold editorial comic ink illustration, red/indigo/cream, strong shadow blocks and exaggerated funny proportions.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_9.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_9.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_9.webp"
+      },
+      "bytes": {
+        "256": 19024,
+        "384": 35092,
+        "1024": 180210
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A coral-red noisy troll with huge barrel belly and a very broad square laughing mouth, short white tusks harmless, two tiny pupils inside enormously unequal bulging white eyes, holding an empty tin-can microphone, stomping one broad foot. No letters.\nArt direction: Bold editorial comic ink illustration, red/indigo/cream, strong shadow blocks and exaggerated funny proportions.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m2_10",
+      "name": "テストの悪魔",
+      "level": 2,
+      "group": "training",
+      "design": "A small plum-purple test imp sitting inside a giant red hourglass frame, soft short horns, little bat wings, one angular dark eyebrow over a round pale eye and one irritated CLOSED eye, making an overconfident smug grin while dropping a blank paper scroll. No text. Its hourglass belly is comically wider than its tiny feet; it has a tiny bent pencil horn. Premium storybook fantasy painting with purple velvet, ruby glass, brass detailing, rich but readable toy-like volume.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/m2_10.webp",
+        "384": "public/monsters/eiken5-level2/384/m2_10.webp",
+        "1024": "public/monsters/eiken5-level2/1024/m2_10.webp"
+      },
+      "bytes": {
+        "256": 20682,
+        "384": 37690,
+        "1024": 196504
+      },
+      "prompt": "Square fantasy illustration: a smug plum-purple tiny imp sitting in a ruby hourglass throne. One eye winked shut, one round purple eye, bent pencil-shaped small horn, elegant gold hourglass frame. Luxurious illustrated jewel details confined to the silhouette, full character centered. Transparent background, no haze, shadows or outside glow."
+    },
+    {
+      "id": "c2_1",
+      "name": "ポイズンスライム",
+      "level": 2,
+      "group": "battle",
+      "design": "A purple poisonous jelly snail with a tall lumpy mushroom-like body, a ridiculous oversized green clothespin on its nose, two tiny worried brown bead eyes and puckered mouth, holding its own leaf mask. Oozing folds contained within silhouette. Comic rather than disgusting. Luxurious glossy candy-resin illustration, purple/acid green/cream, rounded transparent volume, clean contour.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_1.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_1.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_1.webp"
+      },
+      "bytes": {
+        "256": 18620,
+        "384": 32774,
+        "1024": 159676
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A purple poisonous jelly snail with a tall lumpy mushroom-like body, a ridiculous oversized green clothespin on its nose, two tiny worried brown bead eyes and puckered mouth, holding its own leaf mask. Oozing folds contained within silhouette. Comic rather than disgusting.\nArt direction: Luxurious glossy candy-resin illustration, purple/acid green/cream, rounded transparent volume, clean contour.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_2",
+      "name": "氷結のオオカミ",
+      "level": 2,
+      "group": "battle",
+      "design": "A tall elegant white arctic wolf with icy crystal shoulder fur, very narrow long snout, cool blue almond eyes with calm alert pupils, curled frost tail and slender legs, wearing a small frozen-cape collar. No breath cloud. Its icy tail is a huge spiral staircase and the icy shoulder fur forms tiny origami rooftops; elegant, strange silhouette. Premium fantasy watercolor and ink, cool ivory/cyan/soft navy, translucent ice facets and delicate pale fur texture.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_2.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_2.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_2.webp"
+      },
+      "bytes": {
+        "256": 24588,
+        "384": 45192,
+        "1024": 243056
+      },
+      "prompt": "Use case: illustration-story. One collectible game monster. Character: A tall elegant white arctic wolf with icy crystal shoulder fur, very narrow long snout, cool blue almond eyes with calm alert pupils, curled frost tail and slender legs, wearing a small frozen-cape collar. No breath cloud. Its icy tail is a huge spiral staircase and the icy shoulder fur forms tiny origami rooftops; elegant, strange silhouette.\nArt direction: Premium fantasy watercolor and ink, cool ivory/cyan/soft navy, translucent ice facets and delicate pale fur texture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_3",
+      "name": "サンダーバード",
+      "level": 2,
+      "group": "battle",
+      "design": "A round golden thunderbird with enormous squared spread wings made of layered lightning-shaped feathers, comically startled black zigzag pupils in round white eyes, tiny clenched beak, stubby boots and fluffy square belly. Wings fully inside frame. Premium bold screen-print comic art, yellow/black/white/cyan, strong graphic planes, deliberately crisp flat shaped shading.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_3.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_3.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_3.webp"
+      },
+      "bytes": {
+        "256": 25980,
+        "384": 43114,
+        "1024": 159056
+      },
+      "prompt": "Square screen-print cartoon: a golden thunderbird with enormous square wings made of lightning-shaped feathers, tiny beak, round white eyes with black zigzag pupils, big soft belly and copper boots. Clean thick black ink outline, opaque yellow/cyan/cream color planes. Transparent background. No halos, gradients or cast shadows."
+    },
+    {
+      "id": "c2_4",
+      "name": "ファントムナイト",
+      "level": 2,
+      "group": "battle",
+      "design": "A floating empty indigo knight helmet and breastplate, pale blue ghost hands emerging from velvet sleeves, ONE big round cyan eye visible inside visor and tiny embarrassed oval mouth, rounded harmless wooden practice sword and small dented buckler. Wide empty-armor silhouette. The empty armor rests on one enormous curled sock instead of legs; one dangling mitten has the wrong direction. Polished stylized medieval toy painting, steel blue/velvet indigo, visible hammered metal and soft spectral body.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_4.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_4.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_4.webp"
+      },
+      "bytes": {
+        "256": 18902,
+        "384": 32982,
+        "1024": 147472
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A floating empty indigo knight helmet and breastplate, pale blue ghost hands emerging from velvet sleeves, ONE big round cyan eye visible inside visor and tiny embarrassed oval mouth, rounded harmless wooden practice sword and small dented buckler. Wide empty-armor silhouette. The empty armor rests on one enormous curled sock instead of legs; one dangling mitten has the wrong direction.\nArt direction: Polished stylized medieval toy painting, steel blue/velvet indigo, visible hammered metal and soft spectral body.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_5",
+      "name": "古代兵器オメガ",
+      "level": 2,
+      "group": "battle",
+      "design": "An ancient bronze beetle-like war automaton with four sturdy stilt legs, carved mosaic armor and giant rounded wing cases, white glowing DOWNWARD CHEVRON eyes on tiny square head, stern straight mouth, old turquoise stone inserts. No guns or lettering. Its four legs are giant antique compass dividers, with an enormous acorn-shaped windup key. High-end archaeological fantasy asset, hand-painted weathered bronze mosaic and turquoise, broad mechanical insect silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_5.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_5.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_5.webp"
+      },
+      "bytes": {
+        "256": 22780,
+        "384": 42250,
+        "1024": 222990
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: An ancient bronze beetle-like war automaton with four sturdy stilt legs, carved mosaic armor and giant rounded wing cases, white glowing DOWNWARD CHEVRON eyes on tiny square head, stern straight mouth, old turquoise stone inserts. No guns or lettering. Its four legs are giant antique compass dividers, with an enormous acorn-shaped windup key.\nArt direction: High-end archaeological fantasy asset, hand-painted weathered bronze mosaic and turquoise, broad mechanical insect silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_6",
+      "name": "デス・スコーピオン",
+      "level": 2,
+      "group": "battle",
+      "design": "A maroon scorpion with overly large cushioned boxing-glove claws, tiny triangular pupils inside pale oval eyes, shy nervous eyebrows and one goofy small smile, stubby segmented legs and curled tail whose tip wears a harmless cork. Child-safe funny creature. One boxing glove claw is ridiculously triple-sized, and its corked tail bends into a question-mark silhouette. Premium clay stop-motion toy look, matte maroon/rust/pink, tactile soft rounded segments, restrained warm highlights.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_6.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_6.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_6.webp"
+      },
+      "bytes": {
+        "256": 17224,
+        "384": 29044,
+        "1024": 142504
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A maroon scorpion with overly large cushioned boxing-glove claws, tiny triangular pupils inside pale oval eyes, shy nervous eyebrows and one goofy small smile, stubby segmented legs and curled tail whose tip wears a harmless cork. Child-safe funny creature. One boxing glove claw is ridiculously triple-sized, and its corked tail bends into a question-mark silhouette.\nArt direction: Premium clay stop-motion toy look, matte maroon/rust/pink, tactile soft rounded segments, restrained warm highlights.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_8",
+      "name": "ブリザードミラー",
+      "level": 2,
+      "group": "battle",
+      "design": "A living icy oval handheld mirror with six tiny crystal feet, face appears as two huge blue round eyes and a surprised small mouth in frosted reflective glass, asymmetrical icicle eyebrows and a snowflake-shaped crown. No reflection of other characters. The mirror handle is a long curled moustache-shaped tail, and its tiny crystal feet wear red socks. Refined cut-glass and silver enamel fantasy illustration, frosty pale aqua and pearl, sharply separated polished facets.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_8.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_8.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_8.webp"
+      },
+      "bytes": {
+        "256": 20002,
+        "384": 38414,
+        "1024": 207754
+      },
+      "prompt": "Square whimsical elegant illustration: a living frosted oval silver hand mirror, two round blue eyes and tiny astonished mouth, icicle eyebrows, long curving handle tail, six tiny crystal feet in red socks. Stylized luminous painted facets INSIDE sharp ink outline. Beautiful pale aqua and silver details, unusual cute character. Transparent background, no glow or reflections outside silhouette."
+    },
+    {
+      "id": "c2_extra_1",
+      "name": "毒霧スライム",
+      "level": 2,
+      "group": "battle",
+      "design": "A very flat magenta vapor-jelly blob wearing an absurdly tall flower-shaped gas-filter nose, two wide spaced white dot eyes, lazy smile and curled green mustache of jelly, broad puddle silhouette with three tiny bubble feet. No surrounding mist. Bold colored-pencil comic collage, magenta/mint/ivory, waxy pencil grain and simple big graphic surfaces.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_1.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_1.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_1.webp"
+      },
+      "bytes": {
+        "256": 15204,
+        "384": 27882,
+        "1024": 167208
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A very flat magenta vapor-jelly blob wearing an absurdly tall flower-shaped gas-filter nose, two wide spaced white dot eyes, lazy smile and curled green mustache of jelly, broad puddle silhouette with three tiny bubble feet. No surrounding mist.\nArt direction: Bold colored-pencil comic collage, magenta/mint/ivory, waxy pencil grain and simple big graphic surfaces.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_2",
+      "name": "氷牙ウルフ",
+      "level": 2,
+      "group": "battle",
+      "design": "A chunky fluffy pale-blue ice wolf pup with snowball paws, very short snout and huge triangular ears, two CLOSED squinting happy eyes, tongue stuck to a small ice cube it is holding, playful embarrassed grin. No breath clouds. Soft tactile plush-toy character, blue felt and white wool, embroidered eyes, comic round chubby proportions.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_2.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_2.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_2.webp"
+      },
+      "bytes": {
+        "256": 18620,
+        "384": 34162,
+        "1024": 187242
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A chunky fluffy pale-blue ice wolf pup with snowball paws, very short snout and huge triangular ears, two CLOSED squinting happy eyes, tongue stuck to a small ice cube it is holding, playful embarrassed grin. No breath clouds.\nArt direction: Soft tactile plush-toy character, blue felt and white wool, embroidered eyes, comic round chubby proportions.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_3",
+      "name": "雷羽バード",
+      "level": 2,
+      "group": "battle",
+      "design": "A lean slate-blue thunder-feather bird with a long kite-shaped tail and pointed copper beak, two small square electric yellow eyes, head tilted inquisitively, wearing a tiny brass lightning-shaped crest. Angular wings folded sharply. Premium origami paper sculpture illustration, slate/copper/lemon yellow, visible layered paper folds, slender vertical silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_3.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_3.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_3.webp"
+      },
+      "bytes": {
+        "256": 10424,
+        "384": 17596,
+        "1024": 77968
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A lean slate-blue thunder-feather bird with a long kite-shaped tail and pointed copper beak, two small square electric yellow eyes, head tilted inquisitively, wearing a tiny brass lightning-shaped crest. Angular wings folded sharply.\nArt direction: Premium origami paper sculpture illustration, slate/copper/lemon yellow, visible layered paper folds, slender vertical silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_4",
+      "name": "幻影ナイト",
+      "level": 2,
+      "group": "battle",
+      "design": "A tall pale-lavender phantom fencing dummy, ribbon-like thin torso and huge white lace cape, two long vertical oval eyes and a tiny smiling mouth hovering in the hollow head, carrying a rounded wooden training foil. No metal weapon. Its head is a tied floating bow instead of a helmet, and one ribbon arm keeps unravelling into curls. Elegant storybook ink wash and translucent silk illustration, lavender/pearl/navy, long flowing curves, clear cutout.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_4.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_4.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_4.webp"
+      },
+      "bytes": {
+        "256": 25442,
+        "384": 45146,
+        "1024": 216674
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tall pale-lavender phantom fencing dummy, ribbon-like thin torso and huge white lace cape, two long vertical oval eyes and a tiny smiling mouth hovering in the hollow head, carrying a rounded wooden training foil. No metal weapon. Its head is a tied floating bow instead of a helmet, and one ribbon arm keeps unravelling into curls.\nArt direction: Elegant storybook ink wash and translucent silk illustration, lavender/pearl/navy, long flowing curves, clear cutout.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_9",
+      "name": "ナイトメアクロウ",
+      "level": 2,
+      "group": "battle",
+      "design": "A dark violet nightmare crow with a ridiculously huge curled sleeping cap, fat triangular beak and two drooping half-lidded pink eyes, feathers sticking out from sleep, holding a tiny pillow under one wing and glaring tiredly. Short squat bird. Expressive hand-painted gouache fantasy cutout, deep purple/plum/pink, matte feather brushes, humorous moody personality.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_9.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_9.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_9.webp"
+      },
+      "bytes": {
+        "256": 21506,
+        "384": 37656,
+        "1024": 205916
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A dark violet nightmare crow with a ridiculously huge curled sleeping cap, fat triangular beak and two drooping half-lidded pink eyes, feathers sticking out from sleep, holding a tiny pillow under one wing and glaring tiredly. Short squat bird.\nArt direction: Expressive hand-painted gouache fantasy cutout, deep purple/plum/pink, matte feather brushes, humorous moody personality.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_5",
+      "name": "古代ギア兵",
+      "level": 2,
+      "group": "battle",
+      "design": "A tiny copper gear soldier composed of stacked square clockwork blocks, extremely long spring mustache, little black dot eyes and a big beaming rectangular mouth, oversize winding key backpack, marching on stubby boot legs. No clock numbers. Its square chest has an enormous cog-shaped belly button and a tiny wooden duck-shaped helmet crest. Premium mechanical wooden-toy style, painted copper/cream/verdigris, visibly carved grain and precise gears.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_5.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_5.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_5.webp"
+      },
+      "bytes": {
+        "256": 20908,
+        "384": 36726,
+        "1024": 189102
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tiny copper gear soldier composed of stacked square clockwork blocks, extremely long spring mustache, little black dot eyes and a big beaming rectangular mouth, oversize winding key backpack, marching on stubby boot legs. No clock numbers. Its square chest has an enormous cog-shaped belly button and a tiny wooden duck-shaped helmet crest.\nArt direction: Premium mechanical wooden-toy style, painted copper/cream/verdigris, visibly carved grain and precise gears.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_6",
+      "name": "砂毒スコーピオン",
+      "level": 2,
+      "group": "battle",
+      "design": "A sandy yellow desert scorpion wearing an oversized sun visor, eyes are two dramatically unequal rounded turquoise glass lenses, smug little pursed mouth, extremely narrow tail loop and broad leaf-shaped claws with smooth safe tips. Stylish desert comic cel illustration, ochre/turquoise/cream/black, angular shadows and clean energetic contour.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_6.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_6.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_6.webp"
+      },
+      "bytes": {
+        "256": 17982,
+        "384": 31724,
+        "1024": 136304
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A sandy yellow desert scorpion wearing an oversized sun visor, eyes are two dramatically unequal rounded turquoise glass lenses, smug little pursed mouth, extremely narrow tail loop and broad leaf-shaped claws with smooth safe tips.\nArt direction: Stylish desert comic cel illustration, ochre/turquoise/cream/black, angular shadows and clean energetic contour.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_7",
+      "name": "氷鏡の番人",
+      "level": 2,
+      "group": "battle",
+      "design": "A tall slim guardian made of a turquoise rectangular mirror framed by curling silver icicles, face has one huge oval black eye and one flat CLOSED curved eye, silly open laughing mouth, two long thin silver legs and mitten-like frosted hands. Premium art nouveau stained-glass cutout, turquoise/ivory/silver, clear luminous panes and elegant decorative curves.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_7.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_7.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_7.webp"
+      },
+      "bytes": {
+        "256": 16108,
+        "384": 28658,
+        "1024": 144698
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tall slim guardian made of a turquoise rectangular mirror framed by curling silver icicles, face has one huge oval black eye and one flat CLOSED curved eye, silly open laughing mouth, two long thin silver legs and mitten-like frosted hands.\nArt direction: Premium art nouveau stained-glass cutout, turquoise/ivory/silver, clear luminous panes and elegant decorative curves.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_8",
+      "name": "悪夢の羽音",
+      "level": 2,
+      "group": "battle",
+      "design": "A tiny black-and-plum moth with extremely broad patchwork wings patterned like sleepy mask faces but no extra real faces, two glowing mint round eyes far apart and little straight mouth, curly antennae and tiny soft boot feet. One moth only. High quality stitched felt collage, velvety black/plum, visible embroidered mint details, flat wide silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_8.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_8.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_8.webp"
+      },
+      "bytes": {
+        "256": 18030,
+        "384": 31974,
+        "1024": 160652
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tiny black-and-plum moth with extremely broad patchwork wings patterned like sleepy mask faces but no extra real faces, two glowing mint round eyes far apart and little straight mouth, curly antennae and tiny soft boot feet. One moth only.\nArt direction: High quality stitched felt collage, velvety black/plum, visible embroidered mint details, flat wide silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_9",
+      "name": "深海の審判官",
+      "level": 2,
+      "group": "battle",
+      "design": "A blue-green sea turtle judge with a tall shell shaped like a judicial wig, tiny round spectacles and sharply raised one eyebrow, small black bead pupils and a serious pursed mouth, holding a plain wooden gavel and blank scroll. Short flipper feet. Its shell wig is five stacked shells, leaning dramatically sideways; it has one ridiculously tiny flipper. Warm sea-fantasy storybook colored pencil, turquoise/brown/ivory, layered shell texture, comic scholarly proportions.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_9.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_9.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_9.webp"
+      },
+      "bytes": {
+        "256": 16966,
+        "384": 30084,
+        "1024": 155038
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A blue-green sea turtle judge with a tall shell shaped like a judicial wig, tiny round spectacles and sharply raised one eyebrow, small black bead pupils and a serious pursed mouth, holding a plain wooden gavel and blank scroll. Short flipper feet. Its shell wig is five stacked shells, leaning dramatically sideways; it has one ridiculously tiny flipper.\nArt direction: Warm sea-fantasy storybook colored pencil, turquoise/brown/ivory, layered shell texture, comic scholarly proportions.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_extra_10",
+      "name": "冥府の門衛",
+      "level": 2,
+      "group": "battle",
+      "design": "A bony but friendly dark navy living iron gate guard, wide barred torso and two small stone wheel feet, face on a rust-red shield has two crescent CLOSED smile eyes, dangling big ring keys held in mitten hands. No skulls, no text. Premium hand-painted wrought-iron toy illustration, navy/rust/brass, broad rectangular silhouette and softly exaggerated fittings.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_extra_10.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_extra_10.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_extra_10.webp"
+      },
+      "bytes": {
+        "256": 24914,
+        "384": 42854,
+        "1024": 220840
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A bony but friendly dark navy living iron gate guard, wide barred torso and two small stone wheel feet, face on a rust-red shield has two crescent CLOSED smile eyes, dangling big ring keys held in mitten hands. No skulls, no text.\nArt direction: Premium hand-painted wrought-iron toy illustration, navy/rust/brass, broad rectangular silhouette and softly exaggerated fittings.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_10",
+      "name": "深海のジャッジ",
+      "level": 2,
+      "group": "battle",
+      "design": "A deep-indigo jellyfish magistrate, broad umbrella bell shaped like an enormous powdered judge wig, two very tall white oval eyes, grumpy little mustache and puckered lips, eight curling robe-like tentacles holding a pearl gavel. No scenery. Luminous underwater clear-resin fantasy illustration, indigo/pearl/soft teal, translucent bell with readable bright face.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_10.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_10.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_10.webp"
+      },
+      "bytes": {
+        "256": 26222,
+        "384": 47132,
+        "1024": 235260
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A deep-indigo jellyfish magistrate, broad umbrella bell shaped like an enormous powdered judge wig, two very tall white oval eyes, grumpy little mustache and puckered lips, eight curling robe-like tentacles holding a pearl gavel. No scenery.\nArt direction: Luminous underwater clear-resin fantasy illustration, indigo/pearl/soft teal, translucent bell with readable bright face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_7",
+      "name": "冥王ハーデス",
+      "level": 2,
+      "group": "battle",
+      "design": "A regal charcoal-black ram lord in a huge purple velvet robe, curling bronze horns, narrow pale lavender serious ROUND pupils under level brows, tall staff with smooth obsidian orb, broad majestic beard and tiny hooves. Strong boss silhouette, non-gory. Premium painterly fantasy boss illustration, black velvet/lavender/bronze, dramatic but clean modeled volume.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_7.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_7.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_7.webp"
+      },
+      "bytes": {
+        "256": 19410,
+        "384": 35154,
+        "1024": 183202
+      },
+      "prompt": "Square game character sticker. A regal charcoal-black ram lord in a huge purple velvet robe, curling bronze horns, narrow pale lavender serious ROUND pupils under level brows, tall staff with smooth obsidian orb, broad majestic beard and tiny hooves. Strong boss silhouette, non-gory.\nStyle: Premium painterly fantasy boss illustration, black velvet/lavender/bronze, dramatic but clean modeled volume.\nDignified powerful boss design, not comic or goofy. Full body isolated on genuine transparent background, crisp cutout, generous blank padding. No external lighting glow, shadows, scenery, text or haze. Character details entirely inside its silhouette."
+    },
+    {
+      "id": "c2_11",
+      "name": "裏冥王レヴナント",
+      "level": 2,
+      "group": "battle",
+      "design": "A tall blue-violet revenant king built from layered folded funeral ribbons and antique blank parchment, face is a pale mask with three stacked horizontal gold EYE BARS, gentle stern straight mouth, two broad sleeve hands, floating curled ribbon base. No skulls or inscriptions. Refined layered-paper collage fantasy boss, deep violet/ivory/muted gold, crisp paper seams and long architectural shape.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_11.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_11.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_11.webp"
+      },
+      "bytes": {
+        "256": 22266,
+        "384": 39192,
+        "1024": 181846
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tall blue-violet revenant king built from layered folded funeral ribbons and antique blank parchment, face is a pale mask with three stacked horizontal gold EYE BARS, gentle stern straight mouth, two broad sleeve hands, floating curled ribbon base. No skulls or inscriptions.\nArt direction: Refined layered-paper collage fantasy boss, deep violet/ivory/muted gold, crisp paper seams and long architectural shape.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_12",
+      "name": "終刻神クロノス",
+      "level": 2,
+      "group": "battle",
+      "design": "A teal clockwork tortoise time god with a huge spherical brass hourglass shell, enormous thoughtful amber round eyes behind tiny rimless spectacles, white curling moustache, tall slow raised forefoot and ornate mechanical tail. No digits or letters. Its shell hourglass leans like a giant snail spiral; one forefoot is a small clock pendulum, no numerals. Premium enamel clockwork toy and fantasy painting hybrid, teal/brass/cream, glass hourglass with sand, broad squat silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_12.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_12.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_12.webp"
+      },
+      "bytes": {
+        "256": 22900,
+        "384": 41866,
+        "1024": 212116
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A teal clockwork tortoise time god with a huge spherical brass hourglass shell, enormous thoughtful amber round eyes behind tiny rimless spectacles, white curling moustache, tall slow raised forefoot and ornate mechanical tail. No digits or letters. Its shell hourglass leans like a giant snail spiral; one forefoot is a small clock pendulum, no numerals.\nArt direction: Premium enamel clockwork toy and fantasy painting hybrid, teal/brass/cream, glass hourglass with sand, broad squat silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c2_13",
+      "name": "真絶望アザゼル",
+      "level": 2,
+      "group": "battle",
+      "design": "A burnt-orange owl-goat emperor with massive folded angular cloak wings, wide horned owl head, eyes are intense WHITE DIAMONDS in dark masks, short stern beak, black fur boots and a stylized bronze sun crown. No gore or fire background. High quality graphic fantasy boss illustration, burnt orange/black/copper/ivory, bold carved ink planes, strong regal silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level2/256/c2_13.webp",
+        "384": "public/monsters/eiken5-level2/384/c2_13.webp",
+        "1024": "public/monsters/eiken5-level2/1024/c2_13.webp"
+      },
+      "bytes": {
+        "256": 21428,
+        "384": 37902,
+        "1024": 184682
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A burnt-orange owl-goat emperor with massive folded angular cloak wings, wide horned owl head, eyes are intense WHITE DIAMONDS in dark masks, short stern beak, black fur boots and a stylized bronze sun crown. No gore or fire background.\nArt direction: High quality graphic fantasy boss illustration, burnt orange/black/copper/ivory, bold carved ink planes, strong regal silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_1",
+      "name": "言い訳ゴースト",
+      "level": 3,
+      "group": "training",
+      "design": "A lilac excuse-making ghost with an absurdly long crooked NOSE pointing sideways, two tiny guilty dot eyes and raised worried brows, hiding a blank school scroll behind its back, small pale mitt hands, wavy drooping sheet body. Comic sheepish liar, no extra characters. Premium watercolor picture-book illustration, lilac/white/soft peach, loose painted grain but clear confident silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_1.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_1.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_1.webp"
+      },
+      "bytes": {
+        "256": 15654,
+        "384": 27384,
+        "1024": 158020
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A lilac excuse-making ghost with an absurdly long crooked NOSE pointing sideways, two tiny guilty dot eyes and raised worried brows, hiding a blank school scroll behind its back, small pale mitt hands, wavy drooping sheet body. Comic sheepish liar, no extra characters.\nArt direction: Premium watercolor picture-book illustration, lilac/white/soft peach, loose painted grain but clear confident silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_2",
+      "name": "よそみロボ",
+      "level": 3,
+      "group": "training",
+      "design": "A cyan distracted robot with its ONE big spherical camera eye on a long flexible neck turned backward, box torso, two uneven piston legs, antenna bending toward something off canvas, mouth on chest an absent-minded tiny rectangle. No extra objects outside figure. Its backward camera eye has a tiny umbrella-shaped metal eyelid and a telescope neck curled like a pretzel. Polished retro tin-toy illustration, cyan/orange/silver enamel, asymmetrical long-neck silhouette and crisp readable joints.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_2.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_2.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_2.webp"
+      },
+      "bytes": {
+        "256": 12970,
+        "384": 22022,
+        "1024": 104864
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A cyan distracted robot with its ONE big spherical camera eye on a long flexible neck turned backward, box torso, two uneven piston legs, antenna bending toward something off canvas, mouth on chest an absent-minded tiny rectangle. No extra objects outside figure. Its backward camera eye has a tiny umbrella-shaped metal eyelid and a telescope neck curled like a pretzel.\nArt direction: Polished retro tin-toy illustration, cyan/orange/silver enamel, asymmetrical long-neck silhouette and crisp readable joints.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_3",
+      "name": "夜更かしフクロウ",
+      "level": 3,
+      "group": "training",
+      "design": "A tall midnight-blue owl wide awake at night, extremely large unequal pale oval eyes with heavy lavender eye bags, thin angular beak, long striped dressing gown and moon-shaped nightcap. It holds a tiny closed blank book under one wing. Its dressing gown sleeves are longer than its entire body and one wing holds them up. Premium soft felt and wool puppet, midnight blue/lavender/cream, tactile stitching, melancholy funny sleep-deprived expression.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_3.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_3.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_3.webp"
+      },
+      "bytes": {
+        "256": 16124,
+        "384": 28332,
+        "1024": 139020
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tall midnight-blue owl wide awake at night, extremely large unequal pale oval eyes with heavy lavender eye bags, thin angular beak, long striped dressing gown and moon-shaped nightcap. It holds a tiny closed blank book under one wing. Its dressing gown sleeves are longer than its entire body and one wing holds them up.\nArt direction: Premium soft felt and wool puppet, midnight blue/lavender/cream, tactile stitching, melancholy funny sleep-deprived expression.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_4",
+      "name": "廊下ダッシュチーター",
+      "level": 3,
+      "group": "training",
+      "design": "A golden cheetah sprinting horizontally with its small backpack trailing behind, very elongated body, dark determined curved eyebrows over small clear round green pupils, long tail making an S, absurdly oversized red sneakers. No speed streaks outside character. Dynamic premium comic cel art, gold/red/black/cream, clean angular contours, graphic action pose wholly in frame.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_4.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_4.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_4.webp"
+      },
+      "bytes": {
+        "256": 14812,
+        "384": 26644,
+        "1024": 111522
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A golden cheetah sprinting horizontally with its small backpack trailing behind, very elongated body, dark determined curved eyebrows over small clear round green pupils, long tail making an S, absurdly oversized red sneakers. No speed streaks outside character.\nArt direction: Dynamic premium comic cel art, gold/red/black/cream, clean angular contours, graphic action pose wholly in frame.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_5",
+      "name": "なまけゴーレム",
+      "level": 3,
+      "group": "training",
+      "design": "A lazy brown stone golem lying curled on its own folded blanket, huge blocky body and tiny wedge head, two half-lidded HEXAGONAL pale eyes, languid open mouth, hand propping head and curled little stone toes. No floor. Its head is an absurdly small pebble balancing on its enormous body, with one giant sleepy finger. Warm chunky clay-sculpture illustration, terracotta/brown/cream, matte stone grain, humorously broad reclining silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_5.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_5.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_5.webp"
+      },
+      "bytes": {
+        "256": 10788,
+        "384": 20572,
+        "1024": 110632
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A lazy brown stone golem lying curled on its own folded blanket, huge blocky body and tiny wedge head, two half-lidded HEXAGONAL pale eyes, languid open mouth, hand propping head and curled little stone toes. No floor. Its head is an absurdly small pebble balancing on its enormous body, with one giant sleepy finger.\nArt direction: Warm chunky clay-sculpture illustration, terracotta/brown/cream, matte stone grain, humorously broad reclining silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_6",
+      "name": "偏食モンスター",
+      "level": 3,
+      "group": "training",
+      "design": "A fussy emerald jelly monster with giant puffed cheeks, uneven round white eyes glaring at a small orange carrot it holds at arm's length, tongue sticking sideways, leafy broccoli-like crest, round squat body and tiny leaf feet. The monster's body is a broccoli-shaped jelly mound and its cheeks become tiny inflatable balloons. Premium candy-resin and children's comic hybrid, emerald/orange/cream, glossy modeled volume and exaggerated readable face.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_6.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_6.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_6.webp"
+      },
+      "bytes": {
+        "256": 19616,
+        "384": 34712,
+        "1024": 166030
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A fussy emerald jelly monster with giant puffed cheeks, uneven round white eyes glaring at a small orange carrot it holds at arm's length, tongue sticking sideways, leafy broccoli-like crest, round squat body and tiny leaf feet. The monster's body is a broccoli-shaped jelly mound and its cheeks become tiny inflatable balloons.\nArt direction: Premium candy-resin and children's comic hybrid, emerald/orange/cream, glossy modeled volume and exaggerated readable face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_7",
+      "name": "迷路マンション",
+      "level": 3,
+      "group": "training",
+      "design": "A living slate-gray labyrinth apartment building on stubby brick feet, crooked stacked floors forming an asymmetrical zigzag tower, pair of wide window eyes with small wandering black pupils, crooked wooden door mouth, maze-like balcony paths. No real letters, people or other faces. One floor folds sideways like an accordion, and the elevator buttons are three tiny blank snail shells. Premium cut-paper architectural illustration, slate/cream/ochre, layered paper shapes and clear simplified small windows.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_7.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_7.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_7.webp"
+      },
+      "bytes": {
+        "256": 16992,
+        "384": 29384,
+        "1024": 153088
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A living slate-gray labyrinth apartment building on stubby brick feet, crooked stacked floors forming an asymmetrical zigzag tower, pair of wide window eyes with small wandering black pupils, crooked wooden door mouth, maze-like balcony paths. No real letters, people or other faces. One floor folds sideways like an accordion, and the elevator buttons are three tiny blank snail shells.\nArt direction: Premium cut-paper architectural illustration, slate/cream/ochre, layered paper shapes and clear simplified small windows.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_1",
+      "name": "正直ゴースト",
+      "level": 3,
+      "group": "training",
+      "design": "A small ivory honest ghost formed from folded paper tissue, two simple large black oval eyes looking straight ahead and tiny confident smile, hands open palms forward, little pink heart pin, neat bell-shaped hovering body with three scalloped points. Elegant folded-paper craft cutout, warm white/rose/soft blue, visible paper layers and gentle matte shadows.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_1.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_1.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_1.webp"
+      },
+      "bytes": {
+        "256": 12120,
+        "384": 19872,
+        "1024": 100780
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A small ivory honest ghost formed from folded paper tissue, two simple large black oval eyes looking straight ahead and tiny confident smile, hands open palms forward, little pink heart pin, neat bell-shaped hovering body with three scalloped points.\nArt direction: Elegant folded-paper craft cutout, warm white/rose/soft blue, visible paper layers and gentle matte shadows.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_2",
+      "name": "集中ロボ改",
+      "level": 3,
+      "group": "training",
+      "design": "A very squat emerald focus robot with a large round black display face, two narrow vertical WHITE LED bar eyes and precise straight smile, tiny antenna, enormous rounded headphone-like side panels, short sturdy feet and arms folded thoughtfully. No text. Its headphones are huge succulent leaves, making a funny plant-mechanical silhouette. Premium glossy retro plastic collectible, emerald/white/black/copper, compact circular silhouette with simple readable lights.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_2.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_2.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_2.webp"
+      },
+      "bytes": {
+        "256": 18520,
+        "384": 31100,
+        "1024": 137670
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A very squat emerald focus robot with a large round black display face, two narrow vertical WHITE LED bar eyes and precise straight smile, tiny antenna, enormous rounded headphone-like side panels, short sturdy feet and arms folded thoughtfully. No text. Its headphones are huge succulent leaves, making a funny plant-mechanical silhouette.\nArt direction: Premium glossy retro plastic collectible, emerald/white/black/copper, compact circular silhouette with simple readable lights.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_3",
+      "name": "早寝フクロウ",
+      "level": 3,
+      "group": "training",
+      "design": "A very round peach owl tucked into an oversized folded blue blanket cape, two CLOSED happy horizontal eyes, tiny orange beak, soft round cheeks and short little slippers, holding a star-shaped pillow. Fully awake enough to smile, no background bed. Premium storybook gouache, peach/powder blue/cream, soft warm matte feathers and painted brush texture.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_3.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_3.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_3.webp"
+      },
+      "bytes": {
+        "256": 19434,
+        "384": 35844,
+        "1024": 182052
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A very round peach owl tucked into an oversized folded blue blanket cape, two CLOSED happy horizontal eyes, tiny orange beak, soft round cheeks and short little slippers, holding a star-shaped pillow. Fully awake enough to smile, no background bed.\nArt direction: Premium storybook gouache, peach/powder blue/cream, soft warm matte feathers and painted brush texture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_4",
+      "name": "廊下ストッパー",
+      "level": 3,
+      "group": "training",
+      "design": "A red brick-colored corridor-stopper crab with body shaped like a tiny traffic cone, two square amber eyes at different stalk heights, stern pursed mouth, flat broad claws holding a blank round safety paddle, short row of school-shoe feet. Its claws are giant foam slippers and its cone-body top bends like a sleepy floppy hat. High quality toy-like illustrated clay illustration, red/amber/cream/navy, chunky comic proportions and clean opaque material.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_4.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_4.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_4.webp"
+      },
+      "bytes": {
+        "256": 18380,
+        "384": 30576,
+        "1024": 143434
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A red brick-colored corridor-stopper crab with body shaped like a tiny traffic cone, two square amber eyes at different stalk heights, stern pursed mouth, flat broad claws holding a blank round safety paddle, short row of school-shoe feet. Its claws are giant foam slippers and its cone-body top bends like a sleepy floppy hat.\nArt direction: High quality toy-like illustrated clay illustration, red/amber/cream/navy, chunky comic proportions and clean opaque material.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_8",
+      "name": "雷おやじ",
+      "level": 3,
+      "group": "training",
+      "design": "An irritable yellow thunder-cloud grandfather with enormous white curling beard and eyebrows, one wide round startled brown eye and one tightly scrunched CLOSED eye, round red nose, tiny cloud arms banging two wooden clappers, long curling cloud tail. No lightning outside figure. Premium lively ink-and-gouache caricature, yellow/white/red/navy, curly graphic shapes, comic elderly face without cruelty.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_8.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_8.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_8.webp"
+      },
+      "bytes": {
+        "256": 17618,
+        "384": 29848,
+        "1024": 138678
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: An irritable yellow thunder-cloud grandfather with enormous white curling beard and eyebrows, one wide round startled brown eye and one tightly scrunched CLOSED eye, round red nose, tiny cloud arms banging two wooden clappers, long curling cloud tail. No lightning outside figure.\nArt direction: Premium lively ink-and-gouache caricature, yellow/white/red/navy, curly graphic shapes, comic elderly face without cruelty.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_5",
+      "name": "運動ゴーレム",
+      "level": 3,
+      "group": "training",
+      "design": "A moss-green exercise golem composed of rounded wooden logs with a broad barrel chest and skinny springy limbs, two cheerful round wooden knot eyes, huge toothless grin, headband and little jump rope held coiled neatly inside frame. Its tree-log limbs bend like gymnastic pretzel branches with one tiny acorn ankle. Premium carved wooden toy illustration, moss green/honey wood/cream, real painted wood grain and wide lively posture.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_5.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_5.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_5.webp"
+      },
+      "bytes": {
+        "256": 20318,
+        "384": 36526,
+        "1024": 180316
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A moss-green exercise golem composed of rounded wooden logs with a broad barrel chest and skinny springy limbs, two cheerful round wooden knot eyes, huge toothless grin, headband and little jump rope held coiled neatly inside frame. Its tree-log limbs bend like gymnastic pretzel branches with one tiny acorn ankle.\nArt direction: Premium carved wooden toy illustration, moss green/honey wood/cream, real painted wood grain and wide lively posture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_6",
+      "name": "野菜スライム",
+      "level": 3,
+      "group": "training",
+      "design": "A friendly lime-green vegetable slime with body formed from stacked plump pea pods, two distant black bead eyes, wide confident smile, red tomato hat and tiny broccoli mitt hands. Pear-shaped body and green leaf feet. Premium stitched-felt and velvet craft design, lime/red/cream, tactile soft rounded pieces and embroidered black face.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_6.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_6.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_6.webp"
+      },
+      "bytes": {
+        "256": 14416,
+        "384": 25736,
+        "1024": 132204
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A friendly lime-green vegetable slime with body formed from stacked plump pea pods, two distant black bead eyes, wide confident smile, red tomato hat and tiny broccoli mitt hands. Pear-shaped body and green leaf feet.\nArt direction: Premium stitched-felt and velvet craft design, lime/red/cream, tactile soft rounded pieces and embroidered black face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_7",
+      "name": "出口案内ミミック",
+      "level": 3,
+      "group": "training",
+      "design": "A living small golden suitcase mimic with an oversized arched wooden door opening on its belly, ONE round blue eye above the door and a long narrow CLOSED eye on the lid, two tiny boot feet, arm pointing helpfully outward. No arrows with letters. Refined picture-book watercolor and ink, ochre/teal/cream, clean wood and leather texture, quirky upright object silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_7.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_7.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_7.webp"
+      },
+      "bytes": {
+        "256": 21948,
+        "384": 40828,
+        "1024": 235908
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A living small golden suitcase mimic with an oversized arched wooden door opening on its belly, ONE round blue eye above the door and a long narrow CLOSED eye on the lid, two tiny boot feet, arm pointing helpfully outward. No arrows with letters.\nArt direction: Refined picture-book watercolor and ink, ochre/teal/cream, clean wood and leather texture, quirky upright object silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_8",
+      "name": "雷雲ゴースト",
+      "level": 3,
+      "group": "training",
+      "design": "A pale lavender rain-cloud ghost shaped like a long comma, two tall vertical blue eyes, tiny surprised mouth, little forked yellow lightning tuft fully connected to head, arms held apologetically around a blank blue umbrella folded closed. Its umbrella forms its single enormous ear, and its comma-tail curls into a neat tiny foot. Premium translucent glass-and-paper fantasy illustration, lavender/sky blue/lemon, long elegant curve and crisp clean alpha edges.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_8.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_8.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_8.webp"
+      },
+      "bytes": {
+        "256": 13940,
+        "384": 23794,
+        "1024": 114422
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A pale lavender rain-cloud ghost shaped like a long comma, two tall vertical blue eyes, tiny surprised mouth, little forked yellow lightning tuft fully connected to head, arms held apologetically around a blank blue umbrella folded closed. Its umbrella forms its single enormous ear, and its comma-tail curls into a neat tiny foot.\nArt direction: Premium translucent glass-and-paper fantasy illustration, lavender/sky blue/lemon, long elegant curve and crisp clean alpha edges.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_9",
+      "name": "宿題衛星コア",
+      "level": 3,
+      "group": "training",
+      "design": "A friendly satellite core with a round silver face and two black square digital eyes, goofy crooked pixel smile, asymmetric blue solar-panel wings and enormous pencil-shaped antenna, two short spring feet. No space scenery. Its two solar wings have different sizes, and its pencil antenna is comically longer than its round body. Premium retro space toy robot illustration, silver/blue/orange enamel, wide mechanical geometry, readable funny face.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_9.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_9.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_9.webp"
+      },
+      "bytes": {
+        "256": 14488,
+        "384": 24918,
+        "1024": 113156
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A friendly satellite core with a round silver face and two black square digital eyes, goofy crooked pixel smile, asymmetric blue solar-panel wings and enormous pencil-shaped antenna, two short spring feet. No space scenery. Its two solar wings have different sizes, and its pencil antenna is comically longer than its round body.\nArt direction: Premium retro space toy robot illustration, silver/blue/orange enamel, wide mechanical geometry, readable funny face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_extra_10",
+      "name": "提出日ガーディアン",
+      "level": 3,
+      "group": "training",
+      "design": "A stern yet comic deadline guardian made of a tall blank cream calendar scroll with teal roller ends, two small oval green eyes beneath a straight pointed brow, large rubber stamp hands, bowtie and tiny thin black legs. No numbers or letters. Premium geometric paper collage, cream/teal/red/navy, crisp folds and stylized dramatic upright silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_extra_10.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_extra_10.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_extra_10.webp"
+      },
+      "bytes": {
+        "256": 13260,
+        "384": 21418,
+        "1024": 87808
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A stern yet comic deadline guardian made of a tall blank cream calendar scroll with teal roller ends, two small oval green eyes beneath a straight pointed brow, large rubber stamp hands, bowtie and tiny thin black legs. No numbers or letters.\nArt direction: Premium geometric paper collage, cream/teal/red/navy, crisp folds and stylized dramatic upright silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "m3_9",
+      "name": "宿題ブラックホール",
+      "level": 3,
+      "group": "training",
+      "design": "角張った鋭い目",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_9.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_9.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_9.webp"
+      },
+      "bytes": {
+        "256": 18466,
+        "384": 31668,
+        "1024": 122584
+      }
+    },
+    {
+      "id": "m3_10",
+      "name": "夏休みの宿題王",
+      "level": 3,
+      "group": "training",
+      "design": "An indigo summer-homework king with enormous stack-of-blank-notebooks crown, two very unequal round pale eyes and a panicked clenched grin, wearing tropical hibiscus-pattern robe, holding a tiny pencil sceptre, round squat body with flip-flop feet. No text or digits. Its stack of notebook crown bends like a surfboard and its sandals resemble tiny blank books. Rich humorous picture-book fantasy illustration, indigo/coral/mint/cream, painted patterned fabric and clear layered paper materials.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/m3_10.webp",
+        "384": "public/monsters/eiken5-level3/384/m3_10.webp",
+        "1024": "public/monsters/eiken5-level3/1024/m3_10.webp"
+      },
+      "bytes": {
+        "256": 19374,
+        "384": 34126,
+        "1024": 159240
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: An indigo summer-homework king with enormous stack-of-blank-notebooks crown, two very unequal round pale eyes and a panicked clenched grin, wearing tropical hibiscus-pattern robe, holding a tiny pencil sceptre, round squat body with flip-flop feet. No text or digits. Its stack of notebook crown bends like a surfboard and its sandals resemble tiny blank books.\nArt direction: Rich humorous picture-book fantasy illustration, indigo/coral/mint/cream, painted patterned fabric and clear layered paper materials.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_1",
+      "name": "カオススライム",
+      "level": 3,
+      "group": "battle",
+      "design": "A bright orange chaos slime twisted into a pretzel knot with THREE very different eyes: one round white, one tiny blue dot and one sideways rectangular eye, huge confused lopsided grin, four unequal jelly feet. Its whole tangled silhouette is one connected creature. High quality glossy candy-game illustration, orange/cobalt/cream, translucent jelly layers with comic boldly defined face.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_1.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_1.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_1.webp"
+      },
+      "bytes": {
+        "256": 22576,
+        "384": 38202,
+        "1024": 162168
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A bright orange chaos slime twisted into a pretzel knot with THREE very different eyes: one round white, one tiny blue dot and one sideways rectangular eye, huge confused lopsided grin, four unequal jelly feet. Its whole tangled silhouette is one connected creature.\nArt direction: High quality glossy candy-game illustration, orange/cobalt/cream, translucent jelly layers with comic boldly defined face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_2",
+      "name": "キメラビースト",
+      "level": 3,
+      "group": "battle",
+      "design": "A golden chimera beast with one broad lion head and two small curled goat horns, mismatched round eyes with one mint pupil and one dark pupil, enormous goofy proud grin, plump striped body and a snake-shaped tail whose tip is a smooth curled ornament rather than a second face. Its front paws are lion paws but its rear feet are ceramic teacups; its mane is an enormous fluffy spiral. Premium warm storybook pencil and gouache, ochre/cream/teal, richly drawn fur, rounded inviting fantasy silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_2.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_2.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_2.webp"
+      },
+      "bytes": {
+        "256": 26336,
+        "384": 47486,
+        "1024": 259894
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A golden chimera beast with one broad lion head and two small curled goat horns, mismatched round eyes with one mint pupil and one dark pupil, enormous goofy proud grin, plump striped body and a snake-shaped tail whose tip is a smooth curled ornament rather than a second face. Its front paws are lion paws but its rear feet are ceramic teacups; its mane is an enormous fluffy spiral.\nArt direction: Premium warm storybook pencil and gouache, ochre/cream/teal, richly drawn fur, rounded inviting fantasy silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_3",
+      "name": "ヴォイドウィング",
+      "level": 3,
+      "group": "battle",
+      "design": "A midnight-blue void butterfly creature with wide crescent-notched wings, very long thin antennae and two enormous VERTICAL pale oval eyes in its tiny silver face, quiet enigmatic smile, short tapering body. Empty holes in wings are alpha transparent, no scene through them. Elegant stylized cut-paper and glass illustration, midnight/silver/violet, crisp broad wing planes and delicate luminous material.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_3.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_3.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_3.webp"
+      },
+      "bytes": {
+        "256": 22786,
+        "384": 39814,
+        "1024": 186494
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A midnight-blue void butterfly creature with wide crescent-notched wings, very long thin antennae and two enormous VERTICAL pale oval eyes in its tiny silver face, quiet enigmatic smile, short tapering body. Empty holes in wings are alpha transparent, no scene through them.\nArt direction: Elegant stylized cut-paper and glass illustration, midnight/silver/violet, crisp broad wing planes and delicate luminous material.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_4",
+      "name": "スペクターロード",
+      "level": 3,
+      "group": "battle",
+      "design": "A white marble specter lord with broad fluffy lace cape, rounded owl-like mask head, two open BLACK circular eyes, small gold button nose and tiny regal smiling mouth, crown shaped like three simple arches, short robe body and pale mitt hands. Premium sculpted porcelain and embroidered fabric illustration, pearl/cream/gold, soft chubby silhouette and clear fine material detail.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_4.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_4.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_4.webp"
+      },
+      "bytes": {
+        "256": 16330,
+        "384": 28462,
+        "1024": 141806
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A white marble specter lord with broad fluffy lace cape, rounded owl-like mask head, two open BLACK circular eyes, small gold button nose and tiny regal smiling mouth, crown shaped like three simple arches, short robe body and pale mitt hands.\nArt direction: Premium sculpted porcelain and embroidered fabric illustration, pearl/cream/gold, soft chubby silhouette and clear fine material detail.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_5",
+      "name": "機神タイタン",
+      "level": 3,
+      "group": "battle",
+      "design": "A towering bronze mechanical titan with tremendously broad armored shoulders, tiny square head tucked deep in collar, two tiny pale blue dot eyes under huge horizontal metal brows, straight grumpy mouth, immense block hands and heavy round gear boots. No guns. Premium industrial fantasy toy painting, bronze/teal/navy, dramatically big body and small head, clean brushed metal panels.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_5.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_5.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_5.webp"
+      },
+      "bytes": {
+        "256": 29428,
+        "384": 51692,
+        "1024": 257340
+      },
+      "prompt": "Square game character sticker. A towering bronze mechanical titan with tremendously broad armored shoulders, tiny square head tucked deep in collar, two tiny pale blue dot eyes under huge horizontal metal brows, straight grumpy mouth, immense block hands and heavy round gear boots. No guns.\nStyle: Premium industrial fantasy toy painting, bronze/teal/navy, dramatically big body and small head, clean brushed metal panels.\nDignified powerful boss design, not comic or goofy. Full body isolated on genuine transparent background, crisp cutout, generous blank padding. No external lighting glow, shadows, scenery, text or haze. Character details entirely inside its silhouette."
+    },
+    {
+      "id": "c3_6",
+      "name": "アビス・ウォーカー",
+      "level": 3,
+      "group": "battle",
+      "design": "A deep-purple abyss walker like a long-legged anglerfish with a tiny glowing pearly lamp on its forehead, round worried white eyes set high above enormous CLOSED zipper-like mouth, six slender feet and a curling long tail. No water or surrounding glow. Its anglerfish lamp stalk ends in a tiny pearl teacup-shaped bulb, and it walks on six umbrella-handle legs. Premium hand-painted ink-wash fantasy creature, purple/ivory/teal, lean elongated silhouette and understated soft scale texture.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_6.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_6.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_6.webp"
+      },
+      "bytes": {
+        "256": 20178,
+        "384": 33750,
+        "1024": 165276
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A deep-purple abyss walker like a long-legged anglerfish with a tiny glowing pearly lamp on its forehead, round worried white eyes set high above enormous CLOSED zipper-like mouth, six slender feet and a curling long tail. No water or surrounding glow. Its anglerfish lamp stalk ends in a tiny pearl teacup-shaped bulb, and it walks on six umbrella-handle legs.\nArt direction: Premium hand-painted ink-wash fantasy creature, purple/ivory/teal, lean elongated silhouette and understated soft scale texture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_8",
+      "name": "断罪のセラフ",
+      "level": 3,
+      "group": "battle",
+      "design": "A dignified cream seraph owl with FOUR broad layered wings, solemn round blue eyes below a simple gold brow, pale beak, small balanced scale held close to chest, soft cream robe and tiny bronze bird feet. Entirely one bird character, no human figure. Refined art nouveau fantasy cutout, cream/gold/soft blue, hand-inked elegant feather lines and restrained translucent layers.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_8.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_8.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_8.webp"
+      },
+      "bytes": {
+        "256": 25918,
+        "384": 45614,
+        "1024": 216270
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A dignified cream seraph owl with FOUR broad layered wings, solemn round blue eyes below a simple gold brow, pale beak, small balanced scale held close to chest, soft cream robe and tiny bronze bird feet. Entirely one bird character, no human figure.\nArt direction: Refined art nouveau fantasy cutout, cream/gold/soft blue, hand-inked elegant feather lines and restrained translucent layers.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_1",
+      "name": "混沌スライム改",
+      "level": 3,
+      "group": "battle",
+      "design": "A flattened coral chaos jelly carrying a tilted checkerboard cube embedded in its belly, two ridiculously tall eye stalks with tiny black bead eyes pointing opposite ways, broad silly puckered lips and three uneven skirt-like feet. No floating cubes. The cube belly protrudes like a picnic basket and its jelly feet are hilariously unequal. Premium clay stop-motion collectible, coral/mint/cream/black, tactile matte geometric belly contrasting soft jelly limbs.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_1.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_1.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_1.webp"
+      },
+      "bytes": {
+        "256": 12702,
+        "384": 20310,
+        "1024": 76310
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A flattened coral chaos jelly carrying a tilted checkerboard cube embedded in its belly, two ridiculously tall eye stalks with tiny black bead eyes pointing opposite ways, broad silly puckered lips and three uneven skirt-like feet. No floating cubes. The cube belly protrudes like a picnic basket and its jelly feet are hilariously unequal.\nArt direction: Premium clay stop-motion collectible, coral/mint/cream/black, tactile matte geometric belly contrasting soft jelly limbs.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_2",
+      "name": "金角キメラ",
+      "level": 3,
+      "group": "battle",
+      "design": "A compact gold horned chimera with rabbit-like enormous side ears, tiny square pupils inside mint oval eyes, closed toothless grin, very broad armored turtle-like back and small feline paws, two spiraling brass horns and long fluffy tail. One head only. Premium layered felt and leather craft art, gold/teal/cream, stitched soft materials, broad low animal silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_2.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_2.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_2.webp"
+      },
+      "bytes": {
+        "256": 22768,
+        "384": 40894,
+        "1024": 214986
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A compact gold horned chimera with rabbit-like enormous side ears, tiny square pupils inside mint oval eyes, closed toothless grin, very broad armored turtle-like back and small feline paws, two spiraling brass horns and long fluffy tail. One head only.\nArt direction: Premium layered felt and leather craft art, gold/teal/cream, stitched soft materials, broad low animal silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_3",
+      "name": "夜空ウィング",
+      "level": 3,
+      "group": "battle",
+      "design": "A lean silver-blue night-sky bird with sharply forked swallow tail, two serene fully CLOSED crescent eyes and an extremely long pointed violet beak, fine crescent crest and wings folded up like two sails. No stars or sky around it. Elegant folded-paper origami illustration, pearl/cobalt/lavender, crisp layered folded feathers, narrow upright silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_3.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_3.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_3.webp"
+      },
+      "bytes": {
+        "256": 11798,
+        "384": 19910,
+        "1024": 83568
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A lean silver-blue night-sky bird with sharply forked swallow tail, two serene fully CLOSED crescent eyes and an extremely long pointed violet beak, fine crescent crest and wings folded up like two sails. No stars or sky around it.\nArt direction: Elegant folded-paper origami illustration, pearl/cobalt/lavender, crisp layered folded feathers, narrow upright silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_4",
+      "name": "白影ロード",
+      "level": 3,
+      "group": "battle",
+      "design": "A tall white ribbon phantom lord with tiny rounded porcelain mask, ONE large round pale gold eye and one small dot eye, a comical curled moustache, giant draped bell sleeves and long tapering zigzag robe. No skeleton body. Its bell sleeves form huge folded fans and its moustache is two floating ivory ribbons. Premium ink and soft pastel fairy-tale illustration, ivory/soft grey/gold, flowing vertical curves and matte cloth texture.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_4.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_4.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_4.webp"
+      },
+      "bytes": {
+        "256": 19412,
+        "384": 33560,
+        "1024": 153308
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A tall white ribbon phantom lord with tiny rounded porcelain mask, ONE large round pale gold eye and one small dot eye, a comical curled moustache, giant draped bell sleeves and long tapering zigzag robe. No skeleton body. Its bell sleeves form huge folded fans and its moustache is two floating ivory ribbons.\nArt direction: Premium ink and soft pastel fairy-tale illustration, ivory/soft grey/gold, flowing vertical curves and matte cloth texture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_9",
+      "name": "虚無のコロッサス",
+      "level": 3,
+      "group": "battle",
+      "design": "A charcoal-grey void colossus built of huge rough basalt blocks, no weapons, very tiny mint rectangular slit eyes with calm flat brows in a tiny central pebble head, giant broad bent arms, squat mountain-shaped body and small uneven rock feet. Not an angry yellow-eyed golem. Premium stylized mineral sculpture illustration, graphite/mint/cream, sharp crystalline facets and monumental broad silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_9.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_9.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_9.webp"
+      },
+      "bytes": {
+        "256": 16370,
+        "384": 28554,
+        "1024": 158746
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A charcoal-grey void colossus built of huge rough basalt blocks, no weapons, very tiny mint rectangular slit eyes with calm flat brows in a tiny central pebble head, giant broad bent arms, squat mountain-shaped body and small uneven rock feet. Not an angry yellow-eyed golem.\nArt direction: Premium stylized mineral sculpture illustration, graphite/mint/cream, sharp crystalline facets and monumental broad silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_5",
+      "name": "機神ガード",
+      "level": 3,
+      "group": "battle",
+      "design": "A bronze mechanical guard whose torso is a spherical polished diving helmet, eyes two large round BLUE portholes with tiny wondering pupils, goofy square open mouth, short rectangular arms and thick cylindrical feet, tiny green antenna flag with no text. Its whole round diving-helmet body is balanced on one tiny wooden-spool wheel, with a ridiculous bendy flag. Premium retro mechanical enamel toy, bronze/sea green/cobalt, compact round head-body shape and precise cute panels.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_5.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_5.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_5.webp"
+      },
+      "bytes": {
+        "256": 16532,
+        "384": 29290,
+        "1024": 150458
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A bronze mechanical guard whose torso is a spherical polished diving helmet, eyes two large round BLUE portholes with tiny wondering pupils, goofy square open mouth, short rectangular arms and thick cylindrical feet, tiny green antenna flag with no text. Its whole round diving-helmet body is balanced on one tiny wooden-spool wheel, with a ridiculous bendy flag.\nArt direction: Premium retro mechanical enamel toy, bronze/sea green/cobalt, compact round head-body shape and precise cute panels.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_6",
+      "name": "深淵ウォーカー改",
+      "level": 3,
+      "group": "battle",
+      "design": "A slate-violet walking deep-sea snail with shell shaped like a tall curling nautilus tower, two enormous pale oval eyes on very long flexible stalks and tiny smug smile, four webbed boot feet. Shell and all stalks inside frame. Its nautilus shell has two broad hinged paper fan panels; the eye stalks tie into a loose bow. High quality colored-pencil and watercolor fantasy cutout, violet/pearl/sea green, visible soft shell bands and amusing elegant curves.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_6.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_6.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_6.webp"
+      },
+      "bytes": {
+        "256": 23430,
+        "384": 41494,
+        "1024": 219416
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A slate-violet walking deep-sea snail with shell shaped like a tall curling nautilus tower, two enormous pale oval eyes on very long flexible stalks and tiny smug smile, four webbed boot feet. Shell and all stalks inside frame. Its nautilus shell has two broad hinged paper fan panels; the eye stalks tie into a loose bow.\nArt direction: High quality colored-pencil and watercolor fantasy cutout, violet/pearl/sea green, visible soft shell bands and amusing elegant curves.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_7",
+      "name": "裁きの羽",
+      "level": 3,
+      "group": "battle",
+      "design": "A small cream-and-gold winged scale creature: one central rounded scale-bowl body with small owl face, two small dot eyes and pursed serious beak, wide feather wings and two hanging balance pans attached by short bronze arms. One creature only. Premium woodcut-like screen-print art, ivory/bronze/cobalt, strongly simplified carved planes and broad clear outline.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_7.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_7.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_7.webp"
+      },
+      "bytes": {
+        "256": 19224,
+        "384": 34838,
+        "1024": 174844
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A small cream-and-gold winged scale creature: one central rounded scale-bowl body with small owl face, two small dot eyes and pursed serious beak, wide feather wings and two hanging balance pans attached by short bronze arms. One creature only.\nArt direction: Premium woodcut-like screen-print art, ivory/bronze/cobalt, strongly simplified carved planes and broad clear outline.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_8",
+      "name": "虚無巨像の影",
+      "level": 3,
+      "group": "battle",
+      "design": "A flat navy silhouette giant formed of stacked translucent glass panels, TWO very large white SQUARE eyes and a tiny blinking rectangular mouth, long spindly bent legs, broad slate shoulder cape and little stone hands. Child-friendly shy posture. Premium tinted glass-paper collage, navy/grey/white, clean broad panes and minimalist expressive geometric face.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_8.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_8.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_8.webp"
+      },
+      "bytes": {
+        "256": 11532,
+        "384": 18936,
+        "1024": 91072
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A flat navy silhouette giant formed of stacked translucent glass panels, TWO very large white SQUARE eyes and a tiny blinking rectangular mouth, long spindly bent legs, broad slate shoulder cape and little stone hands. Child-friendly shy posture.\nArt direction: Premium tinted glass-paper collage, navy/grey/white, clean broad panes and minimalist expressive geometric face.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_9",
+      "name": "深紅キマイラ改",
+      "level": 3,
+      "group": "battle",
+      "design": "A slender crimson chimera with long goat-like neck, round soft pink eyes both squinting CLOSED with laughter, small lion paws, extremely broad burgundy bat ears and a curling feather tail, mischievous playful grin. No gore, one head. Its rear paws wear comically mismatched giant ruby boots, and its feather tail is a huge curved spoon. Rich premium gouache fantasy illustration, crimson/rose/cream, visible painted velvet fur and slender comic posture.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_9.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_9.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_9.webp"
+      },
+      "bytes": {
+        "256": 21314,
+        "384": 36858,
+        "1024": 172826
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A slender crimson chimera with long goat-like neck, round soft pink eyes both squinting CLOSED with laughter, small lion paws, extremely broad burgundy bat ears and a curling feather tail, mischievous playful grin. No gore, one head. Its rear paws wear comically mismatched giant ruby boots, and its feather tail is a huge curved spoon.\nArt direction: Rich premium gouache fantasy illustration, crimson/rose/cream, visible painted velvet fur and slender comic posture.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_extra_10",
+      "name": "終焉門の番人",
+      "level": 3,
+      "group": "battle",
+      "design": "A whimsical smiling tortoise whose upright arched shell resembles a miniature castle gateway. Four large rounded stone feet, a small ivory head with sleepy crescent eyes, a brass door knocker on the shell, charcoal stone blocks with red gemstone inlays. Animal creature, no humanoid anatomy. Whimsical sculpted clay and stone storybook character in charcoal, cream, ruby and brass. Memorable tall arched shell above low broad tortoise body.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_extra_10.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_extra_10.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_extra_10.webp"
+      },
+      "bytes": {
+        "256": 19202,
+        "384": 33684,
+        "1024": 170696
+      },
+      "prompt": "One original fantasy tortoise character sticker. A whimsical smiling tortoise whose upright arched shell resembles a miniature castle gateway. Four large rounded stone feet, a small ivory head with sleepy crescent eyes, a brass door knocker on the shell, charcoal stone blocks with red gemstone inlays. Animal creature, no humanoid anatomy. Whimsical sculpted clay and stone storybook character in charcoal, cream, ruby and brass. Memorable tall arched shell above low broad tortoise body. Complete creature centered with clear padding inside a square canvas, all feet visible. Transparent background. Crisp opaque illustrated character. No text, no scene, no floor, no shadow, no external lighting effects."
+    },
+    {
+      "id": "c3_10",
+      "name": "深紅のキマイラ",
+      "level": 3,
+      "group": "battle",
+      "design": "A majestic crimson chimera with a broad lion face, long graceful antler-like ivory horns and feathered rear legs, two intense pale BLUE round eyes with one raised eyebrow, serious curved mouth, red mane flaring sideways and huge curled tail. One head only. Its mane is layered like giant crimson folding fans and its antlers curve into a wide double spiral. Premium painterly fantasy illustration, crimson/navy/ivory, dignified textured fur and feathers, broad strong silhouette.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_10.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_10.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_10.webp"
+      },
+      "bytes": {
+        "256": 28724,
+        "384": 51648,
+        "1024": 262086
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A majestic crimson chimera with a broad lion face, long graceful antler-like ivory horns and feathered rear legs, two intense pale BLUE round eyes with one raised eyebrow, serious curved mouth, red mane flaring sideways and huge curled tail. One head only. Its mane is layered like giant crimson folding fans and its antlers curve into a wide double spiral.\nArt direction: Premium painterly fantasy illustration, crimson/navy/ivory, dignified textured fur and feathers, broad strong silhouette.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_7",
+      "name": "終焉のドラゴン",
+      "level": 3,
+      "group": "battle",
+      "design": "A deep-red end dragon with enormous rounded barrel body and short heavy limbs, two fierce but very clear white OVAL eyes with sapphire pupils, wide serious closed mouth, huge copper horn crown, black wings folded sharply upward and thick curling tail. Child-safe regal boss. Premium graphic comic fantasy art, ruby/black/copper/cream, very bold contours and angular shaped shadows.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_7.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_7.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_7.webp"
+      },
+      "bytes": {
+        "256": 25334,
+        "384": 44636,
+        "1024": 216950
+      },
+      "prompt": "Square game character sticker. A deep-red end dragon with enormous rounded barrel body and short heavy limbs, two fierce but very clear white OVAL eyes with sapphire pupils, wide serious closed mouth, huge copper horn crown, black wings folded sharply upward and thick curling tail. Child-safe regal boss.\nStyle: Premium graphic comic fantasy art, ruby/black/copper/cream, very bold contours and angular shaped shadows.\nDignified powerful boss design, not comic or goofy. Full body isolated on genuine transparent background, crisp cutout, generous blank padding. No external lighting glow, shadows, scenery, text or haze. Character details entirely inside its silhouette."
+    },
+    {
+      "id": "c3_11",
+      "name": "裏終焉ネビュラス",
+      "level": 3,
+      "group": "battle",
+      "design": "A purple nebula axolotl emperor with three huge fan-shaped external gills on each side, eyes two black shiny ROUND beads with white highlights, serene smile, huge blue velvet star-shaped mantle and small gold crescent crown, wide hovering curled-tail body. No stars in background. Its frilled gills are six huge folded velvet fans; its curled tail has a tiny golden teapot lid. Premium translucent resin and fabric illustration, violet/blue/gold, glossy frilled skin and luxurious matte velvet contrast.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_11.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_11.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_11.webp"
+      },
+      "bytes": {
+        "256": 28794,
+        "384": 52262,
+        "1024": 289514
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A purple nebula axolotl emperor with three huge fan-shaped external gills on each side, eyes two black shiny ROUND beads with white highlights, serene smile, huge blue velvet star-shaped mantle and small gold crescent crown, wide hovering curled-tail body. No stars in background. Its frilled gills are six huge folded velvet fans; its curled tail has a tiny golden teapot lid.\nArt direction: Premium translucent resin and fabric illustration, violet/blue/gold, glossy frilled skin and luxurious matte velvet contrast.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_12",
+      "name": "深黒皇ディザスター",
+      "level": 3,
+      "group": "battle",
+      "design": "A navy-black armored stag emperor, extremely tall branching silver antlers within canvas, eyes luminous WHITE diamonds in a black smooth face, tiny stern mouth, long narrow torso, enormous dark velvet shoulder cape and silver cloven boots. No smoke or atmosphere. Elegant stained-glass and metal fantasy boss illustration, navy/silver/ice blue, long architectural upright silhouette and crisp bright facets.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_12.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_12.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_12.webp"
+      },
+      "bytes": {
+        "256": 17748,
+        "384": 31530,
+        "1024": 157522
+      },
+      "prompt": "Square game character sticker, isolated full body centered, wide clear blank space outside silhouette. Use case: illustration-story. One collectible game monster. Character: A navy-black armored stag emperor, extremely tall branching silver antlers within canvas, eyes luminous WHITE diamonds in a black smooth face, tiny stern mouth, long narrow torso, enormous dark velvet shoulder cape and silver cloven boots. No smoke or atmosphere.\nArt direction: Elegant stained-glass and metal fantasy boss illustration, navy/silver/ice blue, long architectural upright silhouette and crisp bright facets.\nFull body, isolated cutout, readable at 140px, playful memorable unusual character, child friendly. Clean bold silhouette, 7% empty padding. Genuine transparent alpha background; opaque painted character. Material details and shading are inside the character ONLY. No outside glow, no atmosphere, no floor, no cast shadow, no background gradient, no vignette, no backdrop, no checkerboard, no lettering, no text. One character, no gore. Illustrated artwork, not a photograph or studio scene."
+    },
+    {
+      "id": "c3_13",
+      "name": "真終王アポカリプス",
+      "level": 3,
+      "group": "battle",
+      "design": "A grand crimson phoenix-tortoise final king with a huge rounded burgundy shell covered in gold geometric plates, proud cream feather face, one large orange ROUND eye and one calmly CLOSED eye, broad red feather crown, four powerful gold feet and two huge folded red fan wings. One composite fantasy animal. Premium richly hand-painted storybook boss, crimson/gold/cream/teal, broad low majestic silhouette, ornate but readable armor and feathers.",
+      "files": {
+        "256": "public/monsters/eiken5-level3/256/c3_13.webp",
+        "384": "public/monsters/eiken5-level3/384/c3_13.webp",
+        "1024": "public/monsters/eiken5-level3/1024/c3_13.webp"
+      },
+      "bytes": {
+        "256": 30744,
+        "384": 55212,
+        "1024": 288070
+      },
+      "prompt": "Square game character sticker. A grand crimson phoenix-tortoise final king with a huge rounded burgundy shell covered in gold geometric plates, proud cream feather face, one large orange ROUND eye and one calmly CLOSED eye, broad red feather crown, four powerful gold feet and two huge folded red fan wings. One composite fantasy animal.\nStyle: Premium richly hand-painted storybook boss, crimson/gold/cream/teal, broad low majestic silhouette, ornate but readable armor and feathers.\nDignified powerful boss design, not comic or goofy. Full body isolated on genuine transparent background, crisp cutout, generous blank padding. No external lighting glow, shadows, scenery, text or haze. Character details entirely inside its silhouette."
+    }
+  ]
+}
