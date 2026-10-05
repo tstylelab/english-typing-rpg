@@ -1,0 +1,39 @@
+.monster-reveal-target { display: inline-flex; flex-shrink: 0; }
+.monster-reveal-target.is-revealing { visibility: hidden; }
+.monster-battle-reveal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: var(--reveal-size, 140px);
+  height: var(--reveal-size, 140px);
+  margin-left: calc(var(--reveal-size, 140px) / -2);
+  margin-top: calc(var(--reveal-size, 140px) / -2);
+  z-index: 45;
+  pointer-events: none;
+  visibility: hidden;
+}
+.monster-battle-reveal > img,
+.monster-battle-reveal > svg { width: 100% !important; height: 100% !important; }
+.monster-battle-reveal.is-playing {
+  visibility: visible;
+  animation: monster-battle-arrive 500ms cubic-bezier(.22, .65, .3, 1) both;
+}
+.monster-battle-reveal[data-monster-reveal='defeat'].is-playing {
+  animation: monster-battle-defeated 500ms ease-out both;
+}
+@keyframes monster-battle-arrive {
+  0% { transform: scale(.92); opacity: 0; }
+  20% { transform: scale(1); opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translate(var(--reveal-x), var(--reveal-y)) scale(var(--reveal-scale)); opacity: 0; }
+}
+@keyframes monster-battle-defeated {
+  0% { transform: scale(.75); opacity: 0; }
+  25% { transform: scale(1); opacity: 1; }
+  65% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(.95); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .monster-battle-reveal { display: none; }
+  .monster-battle-reveal.is-playing { animation: none; }
+}

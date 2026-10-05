@@ -23,6 +23,7 @@ import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
 import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
 import MonsterPreview from './MonsterPreview';
+import MonsterBattleReveal from './MonsterBattleReveal';
 import { applyMonsterProfile } from './monsterProfiles';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
@@ -10384,7 +10385,7 @@ export default function App() {
                   </div>
                 )}
                 <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
-                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} />{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
                 <div className="battle-status-row">
                   <nav aria-label="バトルから移動" className="battle-navigation">
                     <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
@@ -10752,7 +10753,7 @@ export default function App() {
             <main className="min-w-0 lg:order-2">
               <header className="flex items-center gap-4 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4">
                 {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
-                {isWin && defeatedMonster && <MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} />}
+                {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat"><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
                 <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p className="mt-1 text-xs font-bold text-slate-400">今回の問題と例文を確認しよう</p></div>
               </header>
 
