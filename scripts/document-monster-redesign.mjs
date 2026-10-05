@@ -21,7 +21,8 @@ text += '- 練習20＋バトル23（裏ボス3を含む）＝43キャラ。出�
 text += '- 新しい名称に合わせてbuilt-in image_genで各キャラを個別制作。以前の4級以降の画像を改名して使っていません。\n';
 text += '- 同じprofileから級＋既存IDで名前・タイプ・色・台詞・画像を取得。図鑑・トップ・戦闘・勝利・拡大へ反映。\n';
 text += '- 既存ID・HP・登場順・撃破保存キーを維持。5級の名簿と画像は維持。\n';
-text += '- 目・表情・体形・素材・画風を分散。最新指示の約4体に1体の大きく笑えるデザインを重点枠として制作。笑えるかどうかには個人差があります。\n\n';
+const directions = Object.entries(labels).map(([mood,label]) => `${label}${report.assets.filter(row=>row.mood===mood).length}体`).join('・');
+text += `- 目・表情・体形・素材・画風を分散。設計方向は${directions}。分類の件数は笑えることの保証ではなく、実際の見た印象を一覧で確認します。\n\n`;
 text += '## 画像と読み込み\n\n';
 for (const size of [256,384,1024]) text += `- ${size}px：43枚合計${(report.totalBytes[size]/1024).toFixed(1)}KiB、平均${(report.totalBytes[size]/43/1024).toFixed(1)}KiB。\n`;
 text += '- 静止透過WebP、元画像を拡大せず変換。図鑑は遅延取得、戦闘は次の敵の通常画像だけ先読み、高解像度は拡大表示または登場・撃破する現在の1体だけ取得。追加ライブラリなし。\n';
