@@ -16,23 +16,27 @@ async function captureReveal(page, kind, path) {
     const node = document.querySelector(`[data-monster-reveal="${kind}"]`);
     if (!node) throw new Error('Missing reveal');
     getComputedStyle(node, '::after').animationName;
-    const animations = node.getAnimations({ subtree: true });
+    const backdrop = document.querySelector('[data-monster-reveal-backdrop]');
+    const animations = [...node.getAnimations({ subtree: true }), ...backdrop.getAnimations()];
     const sample = time => {
       for (const animation of animations) { animation.pause(); animation.currentTime = time; }
       return { transform: getComputedStyle(node).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
     };
     const early = sample(230), late = sample(650);
     sample(230);
-    return { early, late, mask: getComputedStyle(node, '::after').maskImage, animations: animations.map(a => a.animationName) };
+    return { early, late, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
   assert.equal(geometry.late.opacity, '1');
   assert.ok(geometry.early.flash > .5, `Missing white flash: ${JSON.stringify(geometry)}`);
   assert.equal(geometry.late.flash, 0, 'Flash did not fade');
+  assert.equal(geometry.mask, 'none', 'Flash should radiate behind the sprite');
+  assert.equal(geometry.backdropPointerEvents, 'none');
   await page.screenshot({ path });
   await page.evaluate(kind => {
     for (const animation of document.querySelector(`[data-monster-reveal="${kind}"]`)?.getAnimations({ subtree: true }) || []) animation.play();
+    for (const animation of document.querySelector('[data-monster-reveal-backdrop]')?.getAnimations() || []) animation.play();
   }, kind);
 }
 const battleIds = JSON.parse(readFileSync('docs/monster-redesign/eiken3-level1.json', 'utf8')).assets.filter(x => x.monsterId.startsWith('c')).map(x => x.monsterId);
@@ -131,6 +135,7 @@ try {
     await page.locator('.battle-input').waitFor();
     await page.getByRole('button', { name: 'トップに戻る', exact: true }).click();
     assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
+    assert.equal(await page.locator('[data-monster-reveal-backdrop]').count(), 0);
     await page.waitForTimeout(1150);
     assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));

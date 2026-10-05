@@ -1,5 +1,23 @@
 .monster-reveal-target { display: inline-flex; flex-shrink: 0; }
 .monster-reveal-target.is-revealing { visibility: hidden; }
+.monster-reveal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 44;
+  pointer-events: none;
+  visibility: hidden;
+  background: rgb(3 7 18 / .72);
+  backdrop-filter: blur(2px);
+}
+.monster-reveal-backdrop.is-playing {
+  visibility: visible;
+  animation: monster-reveal-backdrop 1000ms ease-out both;
+}
+@keyframes monster-reveal-backdrop {
+  0% { opacity: 0; }
+  15%, 70% { opacity: 1; }
+  100% { opacity: 0; }
+}
 .monster-battle-reveal {
   position: fixed;
   left: 50%;
@@ -11,6 +29,7 @@
   z-index: 45;
   pointer-events: none;
   visibility: hidden;
+  isolation: isolate;
 }
 .monster-battle-reveal > img,
 .monster-battle-reveal > svg { width: 100% !important; height: 100% !important; }
@@ -27,19 +46,26 @@
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(ellipse at center, white 20%, rgb(255 255 255 / .85) 45%, transparent 72%);
-  mask-image: var(--reveal-flash-image, none);
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, rgb(255 255 255 / .95) 12%, rgb(255 255 255 / .75) 42%, rgb(255 255 255 / .32) 55%, transparent 72%);
+}
+.monster-battle-reveal[data-monster-reveal='defeat']::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  z-index: -2;
+  border: 1px solid rgb(253 230 138 / .75);
+  border-radius: 24px;
+  background: radial-gradient(ellipse at center, #233e54, #0c1525 75%);
+  box-shadow: 0 0 32px rgb(255 255 255 / .12);
 }
 .monster-battle-reveal.is-playing::after {
   animation: monster-battle-flash 1000ms linear both;
 }
 @keyframes monster-battle-flash {
-  0%, 18% { opacity: 0; }
-  23% { opacity: .72; }
-  34%, 100% { opacity: 0; }
+  0%, 18% { opacity: 0; transform: scale(.65); }
+  23% { opacity: .9; transform: scale(.85); }
+  38%, 100% { opacity: 0; transform: scale(1.2); }
 }
 @keyframes monster-battle-arrive {
   0% { transform: scale(.92); opacity: 0; }
@@ -53,7 +79,9 @@
   100% { transform: scale(.95); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .monster-battle-reveal { display: none; }
+  .monster-battle-reveal,
+  .monster-reveal-backdrop { display: none; }
   .monster-battle-reveal.is-playing,
-  .monster-battle-reveal.is-playing::after { animation: none; }
+  .monster-battle-reveal.is-playing::after,
+  .monster-reveal-backdrop.is-playing { animation: none; }
 }
