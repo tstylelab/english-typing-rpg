@@ -49,7 +49,7 @@ async function closeTestContext(page, context) {
   await bounded(context.close());
 }
 try {
-  const cases = (process.env.MONSTER_ART_TEST_CASES || 'Eiken5:1,Eiken5:2,Eiken5:3,Eiken4:1')
+  const cases = (process.env.MONSTER_ART_TEST_CASES || 'Eiken5:1,Eiken5:2,Eiken5:3,Eiken4:1,Eiken4:2,Eiken4:3,Eiken3:1,Eiken3:2,Eiken3:3')
     .split(',').map(value => { const [course, level] = value.split(':'); return { course, level: Number(level) }; });
   for (const { course, level } of cases) {
   for (const width of [1366, 390]) {
@@ -99,7 +99,7 @@ try {
     }
     artRequests.clear();
     await page.getByRole('button', { name: '図鑑', exact: true }).click();
-    await page.getByRole('button', { name: course === 'Eiken4' ? '英検4級' : '英検5級', exact: true }).click();
+    await page.getByRole('button', { name: { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級' }[course], exact: true }).click();
     if (level !== 1) await page.getByRole('button', { name: `レベル ${level}`, exact: true }).click();
     const images = page.locator('[data-monster-art]');
     assert.equal(await images.count(), 43);
@@ -135,7 +135,7 @@ try {
     await closeTestContext(page, context);
   }
   }
-  for (const [course, level] of [['Eiken4', 2], ['Eiken4', 3], ['Eiken3', 1]]) {
+  for (const [course, level] of [['EikenPre2', 1]]) {
     const { context, page, errors, artRequests } = await openCourse(course, level);
     assert.equal(await page.locator('[data-monster-art]').count(), 0);
     await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();

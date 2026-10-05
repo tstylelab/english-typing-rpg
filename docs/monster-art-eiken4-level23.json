@@ -1,0 +1,2262 @@
+{
+  "course": "Eiken4",
+  "levels": [
+    2,
+    3
+  ],
+  "date": "2026-10-05",
+  "generationMethod": "built-in image_gen",
+  "count": 86,
+  "moodCounts": {
+    "funny": 38,
+    "cute": 9,
+    "cool": 24,
+    "beautiful": 15
+  },
+  "sourcePreservation": "Original PNGs retained in local design/monster-samples/eiken4-level23-originals and CODEX_HOME/generated_images; not shipped to players.",
+  "assets": [
+    {
+      "id": "m2_1",
+      "name": "遅刻コウモリ",
+      "level": 2,
+      "order": 1,
+      "lane": "training",
+      "monsterId": "m2_1",
+      "mood": "funny",
+      "subject": "A skinny violet bat with enormous jacket-like wings, a tiny school bag dangling from one foot, wide crossed oval eyes and panic-open mouth, wearing one crooked sneaker, awkward rushing stance.",
+      "style": "expressive ink comic with satin wings",
+      "designNote": "片足の靴と大きな翼で慌てるコウモリ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A skinny violet bat with enormous jacket-like wings, a tiny school bag dangling from one foot, wide crossed oval eyes and panic-open mouth, wearing one crooked sneaker, awkward rushing stance.\nVisual treatment: expressive ink comic with satin wings. Premium finished game art, large clear shapes.",
+      "sourceHash": "7721144ac795",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19706,
+      "384Bytes": 34072,
+      "1024Bytes": 159528,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_1.webp",
+        "384": "monsters/eiken4-level2/384/m2_1.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_1.webp"
+      }
+    },
+    {
+      "id": "m2_2",
+      "name": "わすれんぼウルフ",
+      "level": 2,
+      "order": 2,
+      "lane": "training",
+      "monsterId": "m2_2",
+      "mood": "funny",
+      "subject": "A shaggy teal wolf with huge empty backpack worn on its chest, tiny puzzled pin eyes beneath enormous bushy brows, floppy ears, one paw scratching head, tail tied into a knot.",
+      "style": "tactile felt puppet with soft painted fur",
+      "designNote": "胸に空のかばんを背負ったわすれんぼ狼",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A shaggy teal wolf with huge empty backpack worn on its chest, tiny puzzled pin eyes beneath enormous bushy brows, floppy ears, one paw scratching head, tail tied into a knot.\nVisual treatment: tactile felt puppet with soft painted fur. Premium finished game art, large clear shapes.",
+      "sourceHash": "661ef6e81b0b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19844,
+      "384Bytes": 35482,
+      "1024Bytes": 183058,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_2.webp",
+        "384": "monsters/eiken4-level2/384/m2_2.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_2.webp"
+      }
+    },
+    {
+      "id": "m2_3",
+      "name": "いじわるフォックス",
+      "level": 2,
+      "order": 3,
+      "lane": "training",
+      "monsterId": "m2_3",
+      "mood": "funny",
+      "subject": "A narrow orange fox magician with oversized triangular ears, enormous curled moustache, one smug slanted eye and one raised brow, tiny bowtie, hiding a rubber chicken behind its back.",
+      "style": "vintage rubber-hose cartoon in warm gouache",
+      "designNote": "おもちゃを後ろに隠すひげのキツネ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A narrow orange fox magician with oversized triangular ears, enormous curled moustache, one smug slanted eye and one raised brow, tiny bowtie, hiding a rubber chicken behind its back.\nVisual treatment: vintage rubber-hose cartoon in warm gouache. Premium finished game art, large clear shapes.",
+      "sourceHash": "c4c49c4257ca",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16370,
+      "384Bytes": 27352,
+      "1024Bytes": 123848,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_3.webp",
+        "384": "monsters/eiken4-level2/384/m2_3.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_3.webp"
+      }
+    },
+    {
+      "id": "m2_4",
+      "name": "居眠りベア",
+      "level": 2,
+      "order": 4,
+      "lane": "training",
+      "monsterId": "m2_4",
+      "mood": "cute",
+      "subject": "A round lavender sleeping bear folded inside its own crescent-shaped oversized ears like a hammock, closed drooping eyes, small open yawn, little paws tucked beneath chin.",
+      "style": "soft chalk pastel and plush velvet",
+      "designNote": "耳のハンモックで眠るクマ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A round lavender sleeping bear folded inside its own crescent-shaped oversized ears like a hammock, closed drooping eyes, small open yawn, little paws tucked beneath chin.\nVisual treatment: soft chalk pastel and plush velvet. Premium finished game art, large clear shapes.",
+      "sourceHash": "6e03f45fe8af",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16842,
+      "384Bytes": 28882,
+      "1024Bytes": 153542,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_4.webp",
+        "384": "monsters/eiken4-level2/384/m2_4.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_4.webp"
+      }
+    },
+    {
+      "id": "m2_5",
+      "name": "黒板消しクリーチャー",
+      "level": 2,
+      "order": 5,
+      "lane": "training",
+      "monsterId": "m2_5",
+      "mood": "funny",
+      "subject": "A blue chalkboard eraser creature with a broad rectangular sponge nose, tufts of dusty fur resembling a ridiculous pompadour, two tiny black eyes squeezed by cheeks, four short bristly feet.",
+      "style": "hand-painted worn wooden toy",
+      "designNote": "リーゼントの毛を持つ黒板消し",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A blue chalkboard eraser creature with a broad rectangular sponge nose, tufts of dusty fur resembling a ridiculous pompadour, two tiny black eyes squeezed by cheeks, four short bristly feet.\nVisual treatment: hand-painted worn wooden toy. Premium finished game art, large clear shapes.",
+      "sourceHash": "c68a58a632a2",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21140,
+      "384Bytes": 41030,
+      "1024Bytes": 266716,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_5.webp",
+        "384": "monsters/eiken4-level2/384/m2_5.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_5.webp"
+      }
+    },
+    {
+      "id": "m2_6",
+      "name": "リコーダーへび",
+      "level": 2,
+      "order": 6,
+      "lane": "training",
+      "monsterId": "m2_6",
+      "mood": "funny",
+      "subject": "A long green snake whose upright body is a woodwind recorder, finger holes form oval spots, cheeks hugely puffed, squinting eyes, orange tongue curled like a treble spiral, tail neatly coiled.",
+      "style": "bright sculptural lacquer illustration",
+      "designNote": "ほおを膨らませるリコーダー蛇",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A long green snake whose upright body is a woodwind recorder, finger holes form oval spots, cheeks hugely puffed, squinting eyes, orange tongue curled like a treble spiral, tail neatly coiled.\nVisual treatment: bright sculptural lacquer illustration. Premium finished game art, large clear shapes.",
+      "sourceHash": "c7e7af8822b9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 13962,
+      "384Bytes": 23460,
+      "1024Bytes": 104812,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_6.webp",
+        "384": "monsters/eiken4-level2/384/m2_6.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_6.webp"
+      }
+    },
+    {
+      "id": "m2_7",
+      "name": "ドッジボールゴーレム",
+      "level": 2,
+      "order": 7,
+      "lane": "training",
+      "monsterId": "m2_7",
+      "mood": "cool",
+      "subject": "A compact orange spherical sports robot. Its round body is a segmented soft rubber ball, with a single bright blue curved visor showing two friendly square eyes. Short steel arms, huge blue sneakers and a small whistle hanging at its side. Proud confident pose, a tiny square smile below the visor. Entire robot clearly visible.",
+      "style": "clean graphic toy-design illustration with broad cel shading, sculpted rubber and brushed steel accents",
+      "designNote": "大きな青い靴を履いた丸いスポーツロボット",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A compact orange spherical sports robot. Its round body is a segmented soft rubber ball, with a single bright blue curved visor showing two friendly square eyes. Short steel arms, huge blue sneakers and a small whistle hanging at its side. Proud confident pose, a tiny square smile below the visor. Entire robot clearly visible.\nVisual treatment: clean graphic toy-design illustration with broad cel shading, sculpted rubber and brushed steel accents. Polished finished game illustration.",
+      "previousPrompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A sturdy dodgeball golem shaped like an orange segmented armadillo, broad rubber armor plates and four planted feet, two steady horizontal black eye slots, stern small muzzle, ball-shaped tail.\nVisual treatment: sporty graphic cel painting with rubber texture. Premium finished game art, large clear shapes.",
+      "previousPrompts": [
+        "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A sturdy dodgeball golem shaped like an orange segmented armadillo, broad rubber armor plates and four planted feet, two steady horizontal black eye slots, stern small muzzle, ball-shaped tail.\nVisual treatment: sporty graphic cel painting with rubber texture. Premium finished game art, large clear shapes.",
+        "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A friendly orange rubber armadillo mascot with large rounded ball-panel shell, four chunky planted feet, two steady oval black eyes and a proud little closed smile. Silver-blue shoulder pads and a curled short ball tail.\nVisual treatment: bold graphic cel painting with sculpted rubber texture. Polished finished game illustration."
+      ],
+      "sourceHash": "3f4dd18213d4",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18106,
+      "384Bytes": 30908,
+      "1024Bytes": 133240,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_7.webp",
+        "384": "monsters/eiken4-level2/384/m2_7.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_7.webp"
+      }
+    },
+    {
+      "id": "m2_extra_1",
+      "name": "朝礼コウモリ",
+      "level": 2,
+      "order": 8,
+      "lane": "training",
+      "monsterId": "m2_extra_1",
+      "mood": "funny",
+      "subject": "A triangular white bat conductor whose folded wings form an enormous megaphone collar, two tiny startled dot eyes, mouth shaped like a surprised O, standing proudly on one absurdly thin leg.",
+      "style": "cut-paper theater puppet with colored ink",
+      "designNote": "メガホンの襟で朝礼するコウモリ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A triangular white bat conductor whose folded wings form an enormous megaphone collar, two tiny startled dot eyes, mouth shaped like a surprised O, standing proudly on one absurdly thin leg.\nVisual treatment: cut-paper theater puppet with colored ink. Premium finished game art, large clear shapes.",
+      "sourceHash": "ecb522b28187",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 14266,
+      "384Bytes": 23866,
+      "1024Bytes": 109518,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_1.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_1.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_1.webp"
+      }
+    },
+    {
+      "id": "m2_extra_2",
+      "name": "忘れ物チェックウルフ",
+      "level": 2,
+      "order": 9,
+      "lane": "training",
+      "monsterId": "m2_extra_2",
+      "mood": "cute",
+      "subject": "A little cinnamon wolf puppy with broad oval glasses, a giant attached checklist scroll with colored blank squares, attentive round eyes, small tongue peeking out, tail curled around neat backpack.",
+      "style": "gentle storybook watercolor",
+      "designNote": "大きなチェック紙を持つ子狼",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A little cinnamon wolf puppy with broad oval glasses, a giant attached checklist scroll with colored blank squares, attentive round eyes, small tongue peeking out, tail curled around neat backpack.\nVisual treatment: gentle storybook watercolor. Premium finished game art, large clear shapes.",
+      "sourceHash": "a0a74af99733",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20768,
+      "384Bytes": 37054,
+      "1024Bytes": 184368,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_2.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_2.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_2.webp"
+      }
+    },
+    {
+      "id": "m2_extra_3",
+      "name": "仲直りフォックス",
+      "level": 2,
+      "order": 10,
+      "lane": "training",
+      "monsterId": "m2_extra_3",
+      "mood": "cute",
+      "subject": "A cream fennec fox with two enormous peach heart-shaped ears, warm closed crescent eyes, bashful small smile, offering a single folded paper flower held between two tiny paws.",
+      "style": "delicate folded-paper and gouache art",
+      "designNote": "紙の花を差し出す仲直りフェネック",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A cream fennec fox with two enormous peach heart-shaped ears, warm closed crescent eyes, bashful small smile, offering a single folded paper flower held between two tiny paws.\nVisual treatment: delicate folded-paper and gouache art. Premium finished game art, large clear shapes.",
+      "sourceHash": "ee7621834e92",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 15400,
+      "384Bytes": 25532,
+      "1024Bytes": 118602,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_3.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_3.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_3.webp"
+      }
+    },
+    {
+      "id": "m2_extra_4",
+      "name": "目覚ましベア",
+      "level": 2,
+      "order": 11,
+      "lane": "training",
+      "monsterId": "m2_extra_4",
+      "mood": "funny",
+      "subject": "A lanky brown bear with a large bronze bicycle bell as belly, flailing little paws covering its own ears, one bulging round eye and one shut eye, crooked open snout, vibrating pose without motion lines.",
+      "style": "comic carved wood and enamel",
+      "designNote": "お腹のベルに驚く細長いクマ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A lanky brown bear with a large bronze bicycle bell as belly, flailing little paws covering its own ears, one bulging round eye and one shut eye, crooked open snout, vibrating pose without motion lines.\nVisual treatment: comic carved wood and enamel. Premium finished game art, large clear shapes.",
+      "sourceHash": "ecc67ff5273c",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16424,
+      "384Bytes": 29050,
+      "1024Bytes": 155278,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_4.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_4.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_4.webp"
+      }
+    },
+    {
+      "id": "m2_8",
+      "name": "うわばき隠し",
+      "level": 2,
+      "order": 12,
+      "lane": "training",
+      "monsterId": "m2_8",
+      "mood": "funny",
+      "subject": "A sneaky purple shoe goblin shaped like a giant school slipper, floppy shoe tongue forms a smug face, tiny bead eyes and long crooked grin, two sock arms hide one tiny shoe under its heel.",
+      "style": "playful stitched-fabric illustration",
+      "designNote": "上ばきそのものになった靴隠し",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A sneaky purple shoe goblin shaped like a giant school slipper, floppy shoe tongue forms a smug face, tiny bead eyes and long crooked grin, two sock arms hide one tiny shoe under its heel.\nVisual treatment: playful stitched-fabric illustration. Premium finished game art, large clear shapes.",
+      "sourceHash": "e4f10c5a65ae",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 15266,
+      "384Bytes": 27446,
+      "1024Bytes": 146372,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_8.webp",
+        "384": "monsters/eiken4-level2/384/m2_8.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_8.webp"
+      }
+    },
+    {
+      "id": "m2_extra_5",
+      "name": "黒板みがき精",
+      "level": 2,
+      "order": 13,
+      "lane": "training",
+      "monsterId": "m2_extra_5",
+      "mood": "beautiful",
+      "subject": "A graceful small polishing spirit with a peacock-shaped blue sponge body, tail fan composed of three curved glossy chalkboard plates, peaceful almond eyes, soft pearl beak, tucked little feet.",
+      "style": "refined mosaic ceramic and pearl glaze",
+      "designNote": "青いスポンジと黒板の尾の精霊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A graceful small polishing spirit with a peacock-shaped blue sponge body, tail fan composed of three curved glossy chalkboard plates, peaceful almond eyes, soft pearl beak, tucked little feet.\nVisual treatment: refined mosaic ceramic and pearl glaze. Premium finished game art, large clear shapes.",
+      "sourceHash": "b8d20369c64e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20742,
+      "384Bytes": 36108,
+      "1024Bytes": 176540,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_5.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_5.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_5.webp"
+      }
+    },
+    {
+      "id": "m2_extra_6",
+      "name": "音階へび",
+      "level": 2,
+      "order": 14,
+      "lane": "training",
+      "monsterId": "m2_extra_6",
+      "mood": "beautiful",
+      "subject": "An elegant ivory snake with a body of overlapping mother-of-pearl woodwind keys, a broad curled tail shaped like a harp loop, tiny serene dark eye, sapphire crest, no separate instrument.",
+      "style": "art nouveau engraved ivory and sapphire",
+      "designNote": "真珠の鍵盤をまとった音階蛇",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An elegant ivory snake with a body of overlapping mother-of-pearl woodwind keys, a broad curled tail shaped like a harp loop, tiny serene dark eye, sapphire crest, no separate instrument.\nVisual treatment: art nouveau engraved ivory and sapphire. Premium finished game art, large clear shapes.",
+      "sourceHash": "05a09ab5ff95",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22326,
+      "384Bytes": 40656,
+      "1024Bytes": 203052,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_6.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_6.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_6.webp"
+      }
+    },
+    {
+      "id": "m2_extra_7",
+      "name": "キャッチ練習ロボ",
+      "level": 2,
+      "order": 15,
+      "lane": "training",
+      "monsterId": "m2_extra_7",
+      "mood": "funny",
+      "subject": "A tiny catching robot whose two enormously oversized baseball mitt hands are bigger than its round red body, telescoping little legs, mismatched square lens eyes and worried crooked smile.",
+      "style": "bright retro enamel tin toy",
+      "designNote": "手袋だけ巨大なキャッチロボ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A tiny catching robot whose two enormously oversized baseball mitt hands are bigger than its round red body, telescoping little legs, mismatched square lens eyes and worried crooked smile.\nVisual treatment: bright retro enamel tin toy. Premium finished game art, large clear shapes.",
+      "sourceHash": "c2bbf844eae7",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17788,
+      "384Bytes": 31636,
+      "1024Bytes": 147616,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_7.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_7.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_7.webp"
+      }
+    },
+    {
+      "id": "m2_extra_8",
+      "name": "上ばき番人",
+      "level": 2,
+      "order": 16,
+      "lane": "training",
+      "monsterId": "m2_extra_8",
+      "mood": "cool",
+      "subject": "A compact silver shoe guardian shaped like a beetle, broad polished slipper shell with burgundy trim, four armored feet, two quiet diamond eyes beneath a heavy visor, proud planted stance.",
+      "style": "precise fantasy steel and leather painting",
+      "designNote": "上ばきの甲羅を持つ銀の甲虫",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A compact silver shoe guardian shaped like a beetle, broad polished slipper shell with burgundy trim, four armored feet, two quiet diamond eyes beneath a heavy visor, proud planted stance.\nVisual treatment: precise fantasy steel and leather painting. Premium finished game art, large clear shapes.",
+      "sourceHash": "f70d0c722cef",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17988,
+      "384Bytes": 31752,
+      "1024Bytes": 149546,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_8.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_8.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_8.webp"
+      }
+    },
+    {
+      "id": "m2_extra_9",
+      "name": "静けさトロール",
+      "level": 2,
+      "order": 17,
+      "lane": "training",
+      "monsterId": "m2_extra_9",
+      "mood": "funny",
+      "subject": "A tall mossy troll wearing huge padded ear protectors, square head almost hidden in fluffy beard, pin-sized stern eyes and very pursed lips, a disproportionately tiny finger held to its mouth.",
+      "style": "textured claymation with dry-brush finish",
+      "designNote": "耳当てと小さな指で静かにするトロール",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A tall mossy troll wearing huge padded ear protectors, square head almost hidden in fluffy beard, pin-sized stern eyes and very pursed lips, a disproportionately tiny finger held to its mouth.\nVisual treatment: textured claymation with dry-brush finish. Premium finished game art, large clear shapes.",
+      "sourceHash": "118d79c89f6d",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22858,
+      "384Bytes": 42940,
+      "1024Bytes": 249590,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_9.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_9.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_9.webp"
+      }
+    },
+    {
+      "id": "m2_extra_10",
+      "name": "テスト前スピリット",
+      "level": 2,
+      "order": 18,
+      "lane": "training",
+      "monsterId": "m2_extra_10",
+      "mood": "beautiful",
+      "subject": "A poised floating exam spirit shaped like a translucent sea butterfly, lilac blank paper wings folded into four graceful fins, serene crescent eyes, tiny ivory face, soft mint body.",
+      "style": "luminous silk watercolor contained inside outline",
+      "designNote": "薄紙の翼を持つ試験前の精霊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A poised floating exam spirit shaped like a translucent sea butterfly, lilac blank paper wings folded into four graceful fins, serene crescent eyes, tiny ivory face, soft mint body.\nVisual treatment: luminous silk watercolor contained inside outline. Premium finished game art, large clear shapes.",
+      "sourceHash": "798676af4558",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21406,
+      "384Bytes": 36312,
+      "1024Bytes": 167528,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_extra_10.webp",
+        "384": "monsters/eiken4-level2/384/m2_extra_10.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_extra_10.webp"
+      }
+    },
+    {
+      "id": "m2_9",
+      "name": "騒音トロール",
+      "level": 2,
+      "order": 19,
+      "lane": "training",
+      "monsterId": "m2_9",
+      "mood": "funny",
+      "subject": "A stocky lime troll with a giant attached brass tuba-shaped curled nose, huge inflated cheeks, two little eyes staring in opposite directions, striped belly, bare feet planted wide.",
+      "style": "bold carnival comic and sculpted bronze",
+      "designNote": "チューバの鼻を持つ騒音トロール",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A stocky lime troll with a giant attached brass tuba-shaped curled nose, huge inflated cheeks, two little eyes staring in opposite directions, striped belly, bare feet planted wide.\nVisual treatment: bold carnival comic and sculpted bronze. Premium finished game art, large clear shapes.",
+      "sourceHash": "aeb5a0114939",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23158,
+      "384Bytes": 41146,
+      "1024Bytes": 220554,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_9.webp",
+        "384": "monsters/eiken4-level2/384/m2_9.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_9.webp"
+      }
+    },
+    {
+      "id": "m2_10",
+      "name": "テストの悪魔",
+      "level": 2,
+      "order": 20,
+      "lane": "training",
+      "monsterId": "m2_10",
+      "mood": "cool",
+      "subject": "A maroon exam devil shaped like an imposing long-eared hare in a folded black academic cloak, two calm oval ivory eyes, proud closed mouth, horn-shaped paper quills and large feather tail.",
+      "style": "dark velvet storybook fantasy, gold ink edges",
+      "designNote": "学者の衣をまとう角ウサギの悪魔",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A maroon exam devil shaped like an imposing long-eared hare in a folded black academic cloak, two calm oval ivory eyes, proud closed mouth, horn-shaped paper quills and large feather tail.\nVisual treatment: dark velvet storybook fantasy, gold ink edges. Premium finished game art, large clear shapes.",
+      "sourceHash": "026949049d6c",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19202,
+      "384Bytes": 33488,
+      "1024Bytes": 164306,
+      "files": {
+        "256": "monsters/eiken4-level2/256/m2_10.webp",
+        "384": "monsters/eiken4-level2/384/m2_10.webp",
+        "1024": "monsters/eiken4-level2/1024/m2_10.webp"
+      }
+    },
+    {
+      "id": "c2_1",
+      "name": "ポイズンスライム",
+      "level": 2,
+      "order": 21,
+      "lane": "battle",
+      "monsterId": "c2_1",
+      "mood": "funny",
+      "subject": "A purple poison jelly creature shaped like an upside-down flower bulb, absurdly swollen cheeks and tiny spiral eyes, four stubby root feet, green leaf eyebrows, queasy bucktooth grin.",
+      "style": "saturated glossy candy comic",
+      "designNote": "顔がむくんだ紫の毒球根",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A purple poison jelly creature shaped like an upside-down flower bulb, absurdly swollen cheeks and tiny spiral eyes, four stubby root feet, green leaf eyebrows, queasy bucktooth grin.\nVisual treatment: saturated glossy candy comic. Premium finished game art, large clear shapes.",
+      "sourceHash": "3af953f8b09f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18320,
+      "384Bytes": 31384,
+      "1024Bytes": 132250,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_1.webp",
+        "384": "monsters/eiken4-level2/384/c2_1.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_1.webp"
+      }
+    },
+    {
+      "id": "c2_2",
+      "name": "氷結のオオカミ",
+      "level": 2,
+      "order": 22,
+      "lane": "battle",
+      "monsterId": "c2_2",
+      "mood": "beautiful",
+      "subject": "A graceful frost wolf with tall swept-back crystal ear fins, a flowing mane of folded icy ribbons, tranquil wide blue eyes, closed muzzle, slender four-leg stance and broad curling tail.",
+      "style": "premium translucent ice sculpture illustration",
+      "designNote": "氷のリボンのたてがみを持つ狼",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A graceful frost wolf with tall swept-back crystal ear fins, a flowing mane of folded icy ribbons, tranquil wide blue eyes, closed muzzle, slender four-leg stance and broad curling tail.\nVisual treatment: premium translucent ice sculpture illustration. Premium finished game art, large clear shapes.",
+      "sourceHash": "6cb9a1db7bb1",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 26272,
+      "384Bytes": 46954,
+      "1024Bytes": 238688,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_2.webp",
+        "384": "monsters/eiken4-level2/384/c2_2.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_2.webp"
+      }
+    },
+    {
+      "id": "c2_3",
+      "name": "サンダーバード",
+      "level": 2,
+      "order": 23,
+      "lane": "battle",
+      "monsterId": "c2_3",
+      "mood": "cool",
+      "subject": "A majestic thunderbird shaped like a compact golden kingfisher, enormous angular lightning-bolt beak and cobalt armored wings, single determined hexagonal eye, stout talons, wings half folded.",
+      "style": "bold heraldic metal painting",
+      "designNote": "稲妻のくちばしを持つ金のカワセミ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A majestic thunderbird shaped like a compact golden kingfisher, enormous angular lightning-bolt beak and cobalt armored wings, single determined hexagonal eye, stout talons, wings half folded.\nVisual treatment: bold heraldic metal painting. Premium finished game art, large clear shapes.",
+      "sourceHash": "5e563c6313f5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21972,
+      "384Bytes": 38088,
+      "1024Bytes": 172004,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_3.webp",
+        "384": "monsters/eiken4-level2/384/c2_3.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_3.webp"
+      }
+    },
+    {
+      "id": "c2_4",
+      "name": "ファントムナイト",
+      "level": 2,
+      "order": 24,
+      "lane": "battle",
+      "monsterId": "c2_4",
+      "mood": "funny",
+      "subject": "A hollow phantom knight made of empty violet armor, its huge helmet faces backward while two startled oval eyes peer through the back, tiny sheet legs, holding a shield upside down.",
+      "style": "playful pewter miniature and comic velvet",
+      "designNote": "兜を後ろ向きにかぶった空の騎士",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A hollow phantom knight made of empty violet armor, its huge helmet faces backward while two startled oval eyes peer through the back, tiny sheet legs, holding a shield upside down.\nVisual treatment: playful pewter miniature and comic velvet. Premium finished game art, large clear shapes.",
+      "sourceHash": "b3901047ffec",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19446,
+      "384Bytes": 33934,
+      "1024Bytes": 154762,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_4.webp",
+        "384": "monsters/eiken4-level2/384/c2_4.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_4.webp"
+      }
+    },
+    {
+      "id": "c2_5",
+      "name": "古代兵器オメガ",
+      "level": 2,
+      "order": 25,
+      "lane": "battle",
+      "monsterId": "c2_5",
+      "mood": "cool",
+      "subject": "An ancient omega war machine shaped like a massive mechanical nautilus, concentric bronze gear shell, one glowing cyan circular lens, three broad articulated feet and heavy folded pincers.",
+      "style": "opulent steampunk bronze and obsidian painting",
+      "designNote": "渦巻く歯車のオウムガイ兵器",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An ancient omega war machine shaped like a massive mechanical nautilus, concentric bronze gear shell, one glowing cyan circular lens, three broad articulated feet and heavy folded pincers.\nVisual treatment: opulent steampunk bronze and obsidian painting. Premium finished game art, large clear shapes.",
+      "sourceHash": "d0e897e624d8",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25858,
+      "384Bytes": 47454,
+      "1024Bytes": 257214,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_5.webp",
+        "384": "monsters/eiken4-level2/384/c2_5.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_5.webp"
+      }
+    },
+    {
+      "id": "c2_6",
+      "name": "デス・スコーピオン",
+      "level": 2,
+      "order": 26,
+      "lane": "battle",
+      "monsterId": "c2_6",
+      "mood": "cool",
+      "subject": "A compact black-and-ivory scorpion with a broad skull-shaped armored shell, tiny focused ruby diamond eyes, enormous shield-like pincers, segmented tail curled close above body, no dripping poison.",
+      "style": "graphic bone armor fantasy illustration",
+      "designNote": "骨の装甲とはさみを持つサソリ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A compact black-and-ivory scorpion with a broad skull-shaped armored shell, tiny focused ruby diamond eyes, enormous shield-like pincers, segmented tail curled close above body, no dripping poison.\nVisual treatment: graphic bone armor fantasy illustration. Premium finished game art, large clear shapes.",
+      "sourceHash": "f8fd89f87835",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20270,
+      "384Bytes": 34300,
+      "1024Bytes": 159720,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_6.webp",
+        "384": "monsters/eiken4-level2/384/c2_6.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_6.webp"
+      }
+    },
+    {
+      "id": "c2_8",
+      "name": "ブリザードミラー",
+      "level": 2,
+      "order": 27,
+      "lane": "battle",
+      "monsterId": "c2_8",
+      "mood": "beautiful",
+      "subject": "A living blizzard mirror shaped like a faceted crystal stingray, broad symmetrical pale blue wings, tiny peaceful oval eyes in silver central oval frame, neatly curled reflective ribbon tail.",
+      "style": "delicate cut-glass and silver engraving",
+      "designNote": "鏡のひれを広げる氷のエイ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A living blizzard mirror shaped like a faceted crystal stingray, broad symmetrical pale blue wings, tiny peaceful oval eyes in silver central oval frame, neatly curled reflective ribbon tail.\nVisual treatment: delicate cut-glass and silver engraving. Premium finished game art, large clear shapes.",
+      "sourceHash": "38398d6a15db",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18214,
+      "384Bytes": 32482,
+      "1024Bytes": 159778,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_8.webp",
+        "384": "monsters/eiken4-level2/384/c2_8.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_8.webp"
+      }
+    },
+    {
+      "id": "c2_extra_1",
+      "name": "毒霧スライム",
+      "level": 2,
+      "order": 28,
+      "lane": "battle",
+      "monsterId": "c2_extra_1",
+      "mood": "funny",
+      "subject": "A squat violet slime wearing its own mushroom-like enormous green cloud cap, two huge bleary white eyes peek beneath brim, rubbery lips blowing a tiny attached cheek bubble, bent root feet.",
+      "style": "chunky gouache with frosted jelly texture",
+      "designNote": "雲の帽子からぼんやりのぞく毒霧スライム",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A squat violet slime wearing its own mushroom-like enormous green cloud cap, two huge bleary white eyes peek beneath brim, rubbery lips blowing a tiny attached cheek bubble, bent root feet.\nVisual treatment: chunky gouache with frosted jelly texture. Premium finished game art, large clear shapes.",
+      "sourceHash": "5755ceec6e70",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21144,
+      "384Bytes": 38094,
+      "1024Bytes": 201770,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_1.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_1.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_1.webp"
+      }
+    },
+    {
+      "id": "c2_extra_2",
+      "name": "氷牙ウルフ",
+      "level": 2,
+      "order": 29,
+      "lane": "battle",
+      "monsterId": "c2_extra_2",
+      "mood": "cool",
+      "subject": "A compact arctic wolf whose broad lower jaw is two interlocking ice axes, crystalline white mane and armored paws, wide determined black oval eyes, calm closed mouth, triangular tail.",
+      "style": "sculpted alabaster and steel blue comic shadows",
+      "designNote": "氷のあごと白い装甲の狼",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A compact arctic wolf whose broad lower jaw is two interlocking ice axes, crystalline white mane and armored paws, wide determined black oval eyes, calm closed mouth, triangular tail.\nVisual treatment: sculpted alabaster and steel blue comic shadows. Premium finished game art, large clear shapes.",
+      "sourceHash": "7b1a921d0168",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23308,
+      "384Bytes": 40844,
+      "1024Bytes": 199610,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_2.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_2.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_2.webp"
+      }
+    },
+    {
+      "id": "c2_extra_3",
+      "name": "雷羽バード",
+      "level": 2,
+      "order": 30,
+      "lane": "battle",
+      "monsterId": "c2_extra_3",
+      "mood": "funny",
+      "subject": "A round mustard thunder sparrow with a ridiculously long curled antenna feather, standing with chest inflated and wings crossed, two unequal startled eyes and pouty tiny beak, dark zigzag belly.",
+      "style": "felt plush puppet with crisp cel shadows",
+      "designNote": "アンテナ羽とふくれ顔の雷スズメ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A round mustard thunder sparrow with a ridiculously long curled antenna feather, standing with chest inflated and wings crossed, two unequal startled eyes and pouty tiny beak, dark zigzag belly.\nVisual treatment: felt plush puppet with crisp cel shadows. Premium finished game art, large clear shapes.",
+      "sourceHash": "d3975111833a",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18164,
+      "384Bytes": 31162,
+      "1024Bytes": 144864,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_3.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_3.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_3.webp"
+      }
+    },
+    {
+      "id": "c2_extra_4",
+      "name": "幻影ナイト",
+      "level": 2,
+      "order": 31,
+      "lane": "battle",
+      "monsterId": "c2_extra_4",
+      "mood": "beautiful",
+      "subject": "A ghostly ivory knight shaped like a folded origami mantis, long elegant silver forearms folded in greeting, narrow peaceful jade eyes, four slim paper legs and layered cloak wings.",
+      "style": "refined embossed paper and silver leaf",
+      "designNote": "銀の折り紙カマキリ騎士",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A ghostly ivory knight shaped like a folded origami mantis, long elegant silver forearms folded in greeting, narrow peaceful jade eyes, four slim paper legs and layered cloak wings.\nVisual treatment: refined embossed paper and silver leaf. Premium finished game art, large clear shapes.",
+      "sourceHash": "2af8e5227c27",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17724,
+      "384Bytes": 30840,
+      "1024Bytes": 145474,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_4.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_4.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_4.webp"
+      }
+    },
+    {
+      "id": "c2_9",
+      "name": "ナイトメアクロウ",
+      "level": 2,
+      "order": 32,
+      "lane": "battle",
+      "monsterId": "c2_9",
+      "mood": "funny",
+      "subject": "A midnight crow with a gigantic red sleeping cap covering one eye, other round eye bulging worriedly, long crumpled tail feathers, crooked toothless beak, hugging a small blank pillow.",
+      "style": "inky storybook brushwork and soft fabric",
+      "designNote": "寝帽子と枕を抱える悪夢カラス",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A midnight crow with a gigantic red sleeping cap covering one eye, other round eye bulging worriedly, long crumpled tail feathers, crooked toothless beak, hugging a small blank pillow.\nVisual treatment: inky storybook brushwork and soft fabric. Premium finished game art, large clear shapes.",
+      "sourceHash": "7dc404e89f16",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20514,
+      "384Bytes": 35550,
+      "1024Bytes": 181676,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_9.webp",
+        "384": "monsters/eiken4-level2/384/c2_9.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_9.webp"
+      }
+    },
+    {
+      "id": "c2_extra_5",
+      "name": "古代ギア兵",
+      "level": 2,
+      "order": 33,
+      "lane": "battle",
+      "monsterId": "c2_extra_5",
+      "mood": "funny",
+      "subject": "A clockwork gear soldier shaped like a squat brass penguin, one enormous gear monocle and one tiny round eye, deeply serious little beak, absurdly oversized key wound into its back, short stiff flippers.",
+      "style": "antique tin toy with scratched enamel",
+      "designNote": "大きな歯車眼鏡のペンギン兵",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A clockwork gear soldier shaped like a squat brass penguin, one enormous gear monocle and one tiny round eye, deeply serious little beak, absurdly oversized key wound into its back, short stiff flippers.\nVisual treatment: antique tin toy with scratched enamel. Premium finished game art, large clear shapes.",
+      "sourceHash": "ddb97648f319",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21666,
+      "384Bytes": 39134,
+      "1024Bytes": 212758,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_5.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_5.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_5.webp"
+      }
+    },
+    {
+      "id": "c2_extra_6",
+      "name": "砂毒スコーピオン",
+      "level": 2,
+      "order": 34,
+      "lane": "battle",
+      "monsterId": "c2_extra_6",
+      "mood": "cute",
+      "subject": "A plump peach desert scorpion with soft rounded terracotta shell, cheerful crescent eyes, two mitten-like pincers clutching a tiny water flask, short tail curled into a heartlike loop.",
+      "style": "warm pottery clay and gentle pastel",
+      "designNote": "水筒を持つ丸い砂サソリ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A plump peach desert scorpion with soft rounded terracotta shell, cheerful crescent eyes, two mitten-like pincers clutching a tiny water flask, short tail curled into a heartlike loop.\nVisual treatment: warm pottery clay and gentle pastel. Premium finished game art, large clear shapes.",
+      "sourceHash": "1dd5f96372ce",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16878,
+      "384Bytes": 28148,
+      "1024Bytes": 114982,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_6.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_6.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_6.webp"
+      }
+    },
+    {
+      "id": "c2_extra_7",
+      "name": "氷鏡の番人",
+      "level": 2,
+      "order": 35,
+      "lane": "battle",
+      "monsterId": "c2_extra_7",
+      "mood": "cool",
+      "subject": "An imposing icy mirror guardian shaped like an armored polar bear with broad flat reflective chest, curved silver ear shields and thick blue paws, steady small white eye slots, dignified still stance.",
+      "style": "majestic carved crystal and matte steel",
+      "designNote": "鏡の胸当てを持つ氷のシロクマ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An imposing icy mirror guardian shaped like an armored polar bear with broad flat reflective chest, curved silver ear shields and thick blue paws, steady small white eye slots, dignified still stance.\nVisual treatment: majestic carved crystal and matte steel. Premium finished game art, large clear shapes.",
+      "sourceHash": "263523fde2da",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21916,
+      "384Bytes": 39170,
+      "1024Bytes": 191748,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_7.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_7.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_7.webp"
+      }
+    },
+    {
+      "id": "c2_extra_8",
+      "name": "悪夢の羽音",
+      "level": 2,
+      "order": 36,
+      "lane": "battle",
+      "monsterId": "c2_extra_8",
+      "mood": "beautiful",
+      "subject": "A delicate midnight moth whose four folded wings resemble deep indigo velvet curtains with embroidered lilac teardrops, one small closed serene eye, silver antennae, slender tucked legs.",
+      "style": "luxurious embroidery and watercolor silk",
+      "designNote": "しずく模様の刺繍をまとった夜の蛾",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A delicate midnight moth whose four folded wings resemble deep indigo velvet curtains with embroidered lilac teardrops, one small closed serene eye, silver antennae, slender tucked legs.\nVisual treatment: luxurious embroidery and watercolor silk. Premium finished game art, large clear shapes.",
+      "sourceHash": "b953a902e7b7",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17504,
+      "384Bytes": 30954,
+      "1024Bytes": 167642,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_8.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_8.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_8.webp"
+      }
+    },
+    {
+      "id": "c2_extra_9",
+      "name": "深海の審判官",
+      "level": 2,
+      "order": 37,
+      "lane": "battle",
+      "monsterId": "c2_extra_9",
+      "mood": "funny",
+      "subject": "A deep-sea pufferfish magistrate wearing a huge ivory wig of curled coral, two tiny suspicious dot eyes and massively puffed cheeks, tiny fins clutch a wooden gavel close to body.",
+      "style": "expressive glazed ceramic caricature",
+      "designNote": "サンゴのかつらをかぶるフグ審判",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A deep-sea pufferfish magistrate wearing a huge ivory wig of curled coral, two tiny suspicious dot eyes and massively puffed cheeks, tiny fins clutch a wooden gavel close to body.\nVisual treatment: expressive glazed ceramic caricature. Premium finished game art, large clear shapes.",
+      "sourceHash": "a03bf7aa7131",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20482,
+      "384Bytes": 36024,
+      "1024Bytes": 168226,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_9.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_9.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_9.webp"
+      }
+    },
+    {
+      "id": "c2_extra_10",
+      "name": "冥府の門衛",
+      "level": 2,
+      "order": 38,
+      "lane": "battle",
+      "monsterId": "c2_extra_10",
+      "mood": "cool",
+      "subject": "A tall underworld gate guard shaped like an armored stag beetle, enormous upward curling antler pincers form a gate arch, black jade plates, two narrow mint lens eyes, four sturdy feet.",
+      "style": "bold sculptural jade and iron fantasy",
+      "designNote": "門の角を持つ黒いクワガタ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A tall underworld gate guard shaped like an armored stag beetle, enormous upward curling antler pincers form a gate arch, black jade plates, two narrow mint lens eyes, four sturdy feet.\nVisual treatment: bold sculptural jade and iron fantasy. Premium finished game art, large clear shapes.",
+      "sourceHash": "d4645b2d99d4",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23658,
+      "384Bytes": 41642,
+      "1024Bytes": 194454,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_extra_10.webp",
+        "384": "monsters/eiken4-level2/384/c2_extra_10.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_extra_10.webp"
+      }
+    },
+    {
+      "id": "c2_10",
+      "name": "深海のジャッジ",
+      "level": 2,
+      "order": 39,
+      "lane": "battle",
+      "monsterId": "c2_10",
+      "mood": "funny",
+      "subject": "A dignified navy octopus judge with an enormous pale curled beard, one half-closed oval eye and one raised brow, two front tentacles crossed sternly, round polished bell attached as belly.",
+      "style": "darkly playful velvet gouache and brass",
+      "designNote": "巻きひげとベルのお腹のタコ裁判長",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A dignified navy octopus judge with an enormous pale curled beard, one half-closed oval eye and one raised brow, two front tentacles crossed sternly, round polished bell attached as belly.\nVisual treatment: darkly playful velvet gouache and brass. Premium finished game art, large clear shapes.",
+      "sourceHash": "b9bee1852269",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23426,
+      "384Bytes": 40568,
+      "1024Bytes": 187376,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_10.webp",
+        "384": "monsters/eiken4-level2/384/c2_10.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_10.webp"
+      }
+    },
+    {
+      "id": "c2_7",
+      "name": "冥王ハーデス",
+      "level": 2,
+      "order": 40,
+      "lane": "battle",
+      "monsterId": "c2_7",
+      "mood": "cool",
+      "subject": "A regal underworld king shaped like a black volcanic ram, massive curling turquoise horn crown, broad layered basalt shoulders and planted hooves, solemn almond ivory eyes, proud sealed mouth.",
+      "style": "premium painterly obsidian and oxidized copper",
+      "designNote": "青緑の角冠を持つ黒い冥王の羊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A regal underworld king shaped like a black volcanic ram, massive curling turquoise horn crown, broad layered basalt shoulders and planted hooves, solemn almond ivory eyes, proud sealed mouth.\nVisual treatment: premium painterly obsidian and oxidized copper. Premium finished game art, large clear shapes.",
+      "sourceHash": "7ad481a2238f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20810,
+      "384Bytes": 37674,
+      "1024Bytes": 202452,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_7.webp",
+        "384": "monsters/eiken4-level2/384/c2_7.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_7.webp"
+      }
+    },
+    {
+      "id": "c2_11",
+      "name": "裏冥王レヴナント",
+      "level": 2,
+      "order": 41,
+      "lane": "battle",
+      "monsterId": "c2_11",
+      "mood": "beautiful",
+      "subject": "An imposing revenant emperor shaped like an ornate ivory skeletal seahorse, broad fan-shaped lavender rib wings, crown of three amethyst fins, one calm round blue eye, coiled tail.",
+      "style": "refined carved bone and amethyst art",
+      "designNote": "アメジストのひれを持つ骨のタツノオトシゴ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An imposing revenant emperor shaped like an ornate ivory skeletal seahorse, broad fan-shaped lavender rib wings, crown of three amethyst fins, one calm round blue eye, coiled tail.\nVisual treatment: refined carved bone and amethyst art. Premium finished game art, large clear shapes.",
+      "sourceHash": "7ae4a8585668",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22454,
+      "384Bytes": 39216,
+      "1024Bytes": 175590,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_11.webp",
+        "384": "monsters/eiken4-level2/384/c2_11.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_11.webp"
+      }
+    },
+    {
+      "id": "c2_12",
+      "name": "終刻神クロノス",
+      "level": 2,
+      "order": 42,
+      "lane": "battle",
+      "monsterId": "c2_12",
+      "mood": "cool",
+      "subject": "A powerful time god shaped like an ancient bronze tortoise with a enormous vertical sundial shell, simple unnumbered engraved ticks, four heavy ivory clockwork feet, two resolute square teal eyes.",
+      "style": "luxurious patinated bronze and carved ivory",
+      "designNote": "日時計の甲羅を背負う時のカメ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A powerful time god shaped like an ancient bronze tortoise with a enormous vertical sundial shell, simple unnumbered engraved ticks, four heavy ivory clockwork feet, two resolute square teal eyes.\nVisual treatment: luxurious patinated bronze and carved ivory. Premium finished game art, large clear shapes.",
+      "sourceHash": "583599f55ea0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25180,
+      "384Bytes": 46262,
+      "1024Bytes": 240826,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_12.webp",
+        "384": "monsters/eiken4-level2/384/c2_12.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_12.webp"
+      }
+    },
+    {
+      "id": "c2_13",
+      "name": "真絶望アザゼル",
+      "level": 2,
+      "order": 43,
+      "lane": "battle",
+      "monsterId": "c2_13",
+      "mood": "cool",
+      "subject": "A towering burnt-orange lion emperor with vast fan mane made of interlocking black shield plates, ivory ram horns, focused round pale eyes, closed mouth, four broad armored paws.",
+      "style": "heroic matte iron and rich painterly fur",
+      "designNote": "黒い盾のたてがみを持つ獅子皇帝",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A towering burnt-orange lion emperor with vast fan mane made of interlocking black shield plates, ivory ram horns, focused round pale eyes, closed mouth, four broad armored paws.\nVisual treatment: heroic matte iron and rich painterly fur. Premium finished game art, large clear shapes.",
+      "sourceHash": "ea77ed7ed9e2",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19842,
+      "384Bytes": 35372,
+      "1024Bytes": 158314,
+      "files": {
+        "256": "monsters/eiken4-level2/256/c2_13.webp",
+        "384": "monsters/eiken4-level2/384/c2_13.webp",
+        "1024": "monsters/eiken4-level2/1024/c2_13.webp"
+      },
+      "reframePrompt": "Use case: stylized-concept. Reframe this exact illustrated monster, preserving its character, face, expression, colors, materials, pose, attached props and fine details. Restore the tiny tip at the very top if it touches the source edge. Show the WHOLE character centered and slightly smaller on a true transparent square canvas, with generous clearly empty 12% transparent margins on every side. Nothing may touch the canvas edge. Do not crop any crown, armor, fur, horn or foot. Keep crisp opaque painted details inside the silhouette. No backdrop, ground, cast shadow, new objects, text or particles."
+    },
+    {
+      "id": "m3_1",
+      "name": "言い訳ゴースト",
+      "level": 3,
+      "order": 1,
+      "lane": "training",
+      "monsterId": "m3_1",
+      "mood": "funny",
+      "subject": "A pale yellow excuse ghost whose long floppy sheet nose ties itself into a knot, two nervous tiny oval eyes looking sideways, embarrassed zigzag mouth, short fabric arms shrugging.",
+      "style": "witty pen ink and warm watercolor",
+      "designNote": "鼻を結んで言い訳する黄色い幽霊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A pale yellow excuse ghost whose long floppy sheet nose ties itself into a knot, two nervous tiny oval eyes looking sideways, embarrassed zigzag mouth, short fabric arms shrugging.\nVisual treatment: witty pen ink and warm watercolor. Premium finished game art, large clear shapes.",
+      "sourceHash": "b37b96982831",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 13056,
+      "384Bytes": 22820,
+      "1024Bytes": 108644,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_1.webp",
+        "384": "monsters/eiken4-level3/384/m3_1.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_1.webp"
+      }
+    },
+    {
+      "id": "m3_2",
+      "name": "よそみロボ",
+      "level": 3,
+      "order": 2,
+      "lane": "training",
+      "monsterId": "m3_2",
+      "mood": "funny",
+      "subject": "A turquoise distracted robot with two lens eyes on long flexible stalks looking opposite ways, cubic torso and comically short orange feet, tiny puzzled square mouth, one antenna curled.",
+      "style": "cheerful enamel toy and chunky cel shading",
+      "designNote": "左右別々を見る目のよそみロボ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A turquoise distracted robot with two lens eyes on long flexible stalks looking opposite ways, cubic torso and comically short orange feet, tiny puzzled square mouth, one antenna curled.\nVisual treatment: cheerful enamel toy and chunky cel shading. Premium finished game art, large clear shapes.",
+      "sourceHash": "d7ae009d676e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18378,
+      "384Bytes": 31138,
+      "1024Bytes": 134176,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_2.webp",
+        "384": "monsters/eiken4-level3/384/m3_2.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_2.webp"
+      }
+    },
+    {
+      "id": "m3_3",
+      "name": "夜更かしフクロウ",
+      "level": 3,
+      "order": 3,
+      "lane": "training",
+      "monsterId": "m3_3",
+      "mood": "funny",
+      "subject": "A plum night owl with enormous drooping spectacles slipping down its beak, sagging feather eyebrows, bloodshot oval eyes, wearing a tiny crescent nightcap, wings hugging blank closed book.",
+      "style": "charcoal storybook and soft felt feathers",
+      "designNote": "眼鏡がずり落ちた夜更かしフクロウ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A plum night owl with enormous drooping spectacles slipping down its beak, sagging feather eyebrows, bloodshot oval eyes, wearing a tiny crescent nightcap, wings hugging blank closed book.\nVisual treatment: charcoal storybook and soft felt feathers. Premium finished game art, large clear shapes.",
+      "sourceHash": "416c1756324f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19044,
+      "384Bytes": 34328,
+      "1024Bytes": 189344,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_3.webp",
+        "384": "monsters/eiken4-level3/384/m3_3.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_3.webp"
+      }
+    },
+    {
+      "id": "m3_4",
+      "name": "廊下ダッシュチーター",
+      "level": 3,
+      "order": 4,
+      "lane": "training",
+      "monsterId": "m3_4",
+      "mood": "cool",
+      "subject": "A streamlined orange cheetah courier with long blue scarf curled closely around body, sleek silver shoe armor, one determined oval green eye, poised crouch with tail curled near feet.",
+      "style": "dynamic graphic sports comic with brushed fur",
+      "designNote": "青いマフラーと銀の靴のチーター",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A streamlined orange cheetah courier with long blue scarf curled closely around body, sleek silver shoe armor, one determined oval green eye, poised crouch with tail curled near feet.\nVisual treatment: dynamic graphic sports comic with brushed fur. Premium finished game art, large clear shapes.",
+      "sourceHash": "8f53dfc7c84e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 32428,
+      "384Bytes": 56212,
+      "1024Bytes": 266980,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_4.webp",
+        "384": "monsters/eiken4-level3/384/m3_4.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_4.webp"
+      }
+    },
+    {
+      "id": "m3_5",
+      "name": "なまけゴーレム",
+      "level": 3,
+      "order": 5,
+      "lane": "training",
+      "monsterId": "m3_5",
+      "mood": "funny",
+      "subject": "A squat sandstone golem so lazy its broad chest rests on its own gigantic chin, two tiny sleepy oval eyes and crooked closed smile, short block feet, moss arranged like messy hair.",
+      "style": "textured sculpted clay and gouache",
+      "designNote": "大きなあごに寄りかかる石のゴーレム",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A squat sandstone golem so lazy its broad chest rests on its own gigantic chin, two tiny sleepy oval eyes and crooked closed smile, short block feet, moss arranged like messy hair.\nVisual treatment: textured sculpted clay and gouache. Premium finished game art, large clear shapes.",
+      "sourceHash": "97e2b81ebba0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18620,
+      "384Bytes": 34286,
+      "1024Bytes": 193684,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_5.webp",
+        "384": "monsters/eiken4-level3/384/m3_5.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_5.webp"
+      }
+    },
+    {
+      "id": "m3_6",
+      "name": "偏食モンスター",
+      "level": 3,
+      "order": 6,
+      "lane": "training",
+      "monsterId": "m3_6",
+      "mood": "funny",
+      "subject": "A pink picky eater monster shaped like a pear with an enormous folded napkin collar, crossed tiny eyes staring at one green pea in a spoon, lips pursed in exaggerated disgust, thin legs.",
+      "style": "glazed ceramic cartoon with bright ink lines",
+      "designNote": "スプーンの豆をにらむ洋梨モンスター",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A pink picky eater monster shaped like a pear with an enormous folded napkin collar, crossed tiny eyes staring at one green pea in a spoon, lips pursed in exaggerated disgust, thin legs.\nVisual treatment: glazed ceramic cartoon with bright ink lines. Premium finished game art, large clear shapes.",
+      "sourceHash": "b61fa513c526",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 13222,
+      "384Bytes": 22814,
+      "1024Bytes": 99082,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_6.webp",
+        "384": "monsters/eiken4-level3/384/m3_6.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_6.webp"
+      }
+    },
+    {
+      "id": "m3_7",
+      "name": "迷路マンション",
+      "level": 3,
+      "order": 7,
+      "lane": "training",
+      "monsterId": "m3_7",
+      "mood": "funny",
+      "subject": "A walking turquoise maze apartment building with zigzag folding balconies, two confused window eyes at different heights, crooked doorway mouth, four tiny slipper feet, no letters or numerals.",
+      "style": "whimsical cut-cardboard architectural miniature",
+      "designNote": "窓の目がずれた歩く迷路マンション",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A walking turquoise maze apartment building with zigzag folding balconies, two confused window eyes at different heights, crooked doorway mouth, four tiny slipper feet, no letters or numerals.\nVisual treatment: whimsical cut-cardboard architectural miniature. Premium finished game art, large clear shapes.",
+      "sourceHash": "fe679b57eef3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17996,
+      "384Bytes": 31734,
+      "1024Bytes": 150280,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_7.webp",
+        "384": "monsters/eiken4-level3/384/m3_7.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_7.webp"
+      }
+    },
+    {
+      "id": "m3_extra_1",
+      "name": "正直ゴースト",
+      "level": 3,
+      "order": 8,
+      "lane": "training",
+      "monsterId": "m3_extra_1",
+      "mood": "cute",
+      "subject": "A small mint ghost made of a neatly folded handkerchief, two open warm oval brown eyes and shy honest smile, little arms holding one plain heart-shaped wooden button.",
+      "style": "gentle embroidered fabric and pastel gouache",
+      "designNote": "ハートのボタンを持つハンカチ幽霊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A small mint ghost made of a neatly folded handkerchief, two open warm oval brown eyes and shy honest smile, little arms holding one plain heart-shaped wooden button.\nVisual treatment: gentle embroidered fabric and pastel gouache. Premium finished game art, large clear shapes.",
+      "sourceHash": "19b7f9e48ed5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 12678,
+      "384Bytes": 21684,
+      "1024Bytes": 114224,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_1.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_1.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_1.webp"
+      }
+    },
+    {
+      "id": "m3_extra_2",
+      "name": "集中ロボ改",
+      "level": 3,
+      "order": 9,
+      "lane": "training",
+      "monsterId": "m3_extra_2",
+      "mood": "cool",
+      "subject": "A focused orange robot shaped like a low robotic crab, broad single blue visor eye, two huge folded articulated clamps, compact triangular chest and six silver legs, firm poised stance.",
+      "style": "clean industrial cel art with matte enamel",
+      "designNote": "一つのバイザーで集中するカニロボ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A focused orange robot shaped like a low robotic crab, broad single blue visor eye, two huge folded articulated clamps, compact triangular chest and six silver legs, firm poised stance.\nVisual treatment: clean industrial cel art with matte enamel. Premium finished game art, large clear shapes.",
+      "sourceHash": "91a70865df89",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23826,
+      "384Bytes": 40130,
+      "1024Bytes": 174460,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_2.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_2.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_2.webp"
+      }
+    },
+    {
+      "id": "m3_extra_3",
+      "name": "早寝フクロウ",
+      "level": 3,
+      "order": 10,
+      "lane": "training",
+      "monsterId": "m3_extra_3",
+      "mood": "cute",
+      "subject": "A tiny cream owl tucked in a large blue crescent sleeping-bag tail, happy closed arc eyes, soft orange beak, two small slipper-shaped feet peeking beneath folded wings.",
+      "style": "soft pastel chalk and quilted velvet",
+      "designNote": "月形の寝袋に入った早寝フクロウ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A tiny cream owl tucked in a large blue crescent sleeping-bag tail, happy closed arc eyes, soft orange beak, two small slipper-shaped feet peeking beneath folded wings.\nVisual treatment: soft pastel chalk and quilted velvet. Premium finished game art, large clear shapes.",
+      "sourceHash": "58ac12e5aca0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 18392,
+      "384Bytes": 32892,
+      "1024Bytes": 165886,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_3.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_3.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_3.webp"
+      }
+    },
+    {
+      "id": "m3_extra_4",
+      "name": "廊下ストッパー",
+      "level": 3,
+      "order": 11,
+      "lane": "training",
+      "monsterId": "m3_extra_4",
+      "mood": "funny",
+      "subject": "A serious little tortoise hallway stopper with its shell shaped like a giant orange stop paddle without symbols, two tiny narrowed black eyes, wide stern pout, disproportionately short legs.",
+      "style": "painted wooden classroom toy",
+      "designNote": "止まれ板の甲羅を背負う小さなカメ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A serious little tortoise hallway stopper with its shell shaped like a giant orange stop paddle without symbols, two tiny narrowed black eyes, wide stern pout, disproportionately short legs.\nVisual treatment: painted wooden classroom toy. Premium finished game art, large clear shapes.",
+      "sourceHash": "e23624151e75",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 13778,
+      "384Bytes": 24428,
+      "1024Bytes": 134770,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_4.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_4.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_4.webp"
+      }
+    },
+    {
+      "id": "m3_8",
+      "name": "雷おやじ",
+      "level": 3,
+      "order": 12,
+      "lane": "training",
+      "monsterId": "m3_8",
+      "mood": "funny",
+      "subject": "A grumpy red thunder dad shaped like a plump cloud with enormous handlebar lightning moustache, giant round eyebrows above tiny stern dot eyes, two little sandal feet and folded arms.",
+      "style": "bold vintage comic with plush storm texture",
+      "designNote": "稲妻ひげとサンダルの雷おやじ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A grumpy red thunder dad shaped like a plump cloud with enormous handlebar lightning moustache, giant round eyebrows above tiny stern dot eyes, two little sandal feet and folded arms.\nVisual treatment: bold vintage comic with plush storm texture. Premium finished game art, large clear shapes.",
+      "sourceHash": "7171d7a9916e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21532,
+      "384Bytes": 36918,
+      "1024Bytes": 173524,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_8.webp",
+        "384": "monsters/eiken4-level3/384/m3_8.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_8.webp"
+      }
+    },
+    {
+      "id": "m3_extra_5",
+      "name": "運動ゴーレム",
+      "level": 3,
+      "order": 13,
+      "lane": "training",
+      "monsterId": "m3_extra_5",
+      "mood": "funny",
+      "subject": "A lanky moss golem built from three stacked pebble spheres, enormous sweatband around tiny head, two proud round eyes, strained smiling mouth, holding one absurdly tiny dumbbell close to torso.",
+      "style": "playful sandstone clay figure",
+      "designNote": "小さすぎるダンベルを持つ石の運動家",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A lanky moss golem built from three stacked pebble spheres, enormous sweatband around tiny head, two proud round eyes, strained smiling mouth, holding one absurdly tiny dumbbell close to torso.\nVisual treatment: playful sandstone clay figure. Premium finished game art, large clear shapes.",
+      "sourceHash": "5afd31d99d12",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 14780,
+      "384Bytes": 25830,
+      "1024Bytes": 126344,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_5.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_5.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_5.webp"
+      }
+    },
+    {
+      "id": "m3_extra_6",
+      "name": "野菜スライム",
+      "level": 3,
+      "order": 14,
+      "lane": "training",
+      "monsterId": "m3_extra_6",
+      "mood": "cute",
+      "subject": "A gentle broccoli slime with a huge curly green crown and pear-shaped yellow body, cheerful bead eyes and small bucktooth smile, two soft leafy mittens and short carrot-colored feet.",
+      "style": "rich gouache and velvety food textures",
+      "designNote": "葉っぱの手を持つブロッコリースライム",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A gentle broccoli slime with a huge curly green crown and pear-shaped yellow body, cheerful bead eyes and small bucktooth smile, two soft leafy mittens and short carrot-colored feet.\nVisual treatment: rich gouache and velvety food textures. Premium finished game art, large clear shapes.",
+      "sourceHash": "b8a5de9a733a",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22694,
+      "384Bytes": 40792,
+      "1024Bytes": 200412,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_6.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_6.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_6.webp"
+      }
+    },
+    {
+      "id": "m3_extra_7",
+      "name": "出口案内ミミック",
+      "level": 3,
+      "order": 15,
+      "lane": "training",
+      "monsterId": "m3_extra_7",
+      "mood": "funny",
+      "subject": "A map mimic shaped like an accordion-folded blank peach map, massive directional arrow-shaped nose, two crossed oval eyes struggling to look around it, long paper hands and little compass feet.",
+      "style": "tactile folded-paper cartoon",
+      "designNote": "大きな矢印鼻の折り畳み地図ミミック",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A map mimic shaped like an accordion-folded blank peach map, massive directional arrow-shaped nose, two crossed oval eyes struggling to look around it, long paper hands and little compass feet.\nVisual treatment: tactile folded-paper cartoon. Premium finished game art, large clear shapes.",
+      "sourceHash": "f8f3de3e1890",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20032,
+      "384Bytes": 34636,
+      "1024Bytes": 144738,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_7.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_7.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_7.webp"
+      }
+    },
+    {
+      "id": "m3_extra_8",
+      "name": "雷雲ゴースト",
+      "level": 3,
+      "order": 16,
+      "lane": "training",
+      "monsterId": "m3_extra_8",
+      "mood": "beautiful",
+      "subject": "An elegant silver storm ghost shaped like a curled blue rain ribbon around one pale cloud face, relaxed crescent eyes, violet crescent collar and attached tapering ribbon tail.",
+      "style": "silk watercolor and silver brushwork",
+      "designNote": "雨のリボンをまとった銀の雲幽霊",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An elegant silver storm ghost shaped like a curled blue rain ribbon around one pale cloud face, relaxed crescent eyes, violet crescent collar and attached tapering ribbon tail.\nVisual treatment: silk watercolor and silver brushwork. Premium finished game art, large clear shapes.",
+      "sourceHash": "191b13f4bdab",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19376,
+      "384Bytes": 34190,
+      "1024Bytes": 168658,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_8.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_8.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_8.webp"
+      }
+    },
+    {
+      "id": "m3_extra_9",
+      "name": "宿題衛星コア",
+      "level": 3,
+      "order": 17,
+      "lane": "training",
+      "monsterId": "m3_extra_9",
+      "mood": "funny",
+      "subject": "A miniature homework satellite with a round gold hamster face, enormous blank notebook solar-panel ears, one wide oval eye and one winking eye, crooked grin, tiny antenna nose and rocket feet.",
+      "style": "retro space tin toy with clean comic contours",
+      "designNote": "ノートの太陽電池耳を持つハムスター衛星",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A miniature homework satellite with a round gold hamster face, enormous blank notebook solar-panel ears, one wide oval eye and one winking eye, crooked grin, tiny antenna nose and rocket feet.\nVisual treatment: retro space tin toy with clean comic contours. Premium finished game art, large clear shapes.",
+      "sourceHash": "15e87c4253f4",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19960,
+      "384Bytes": 34454,
+      "1024Bytes": 161800,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_9.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_9.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_9.webp"
+      }
+    },
+    {
+      "id": "m3_extra_10",
+      "name": "提出日ガーディアン",
+      "level": 3,
+      "order": 18,
+      "lane": "training",
+      "monsterId": "m3_extra_10",
+      "mood": "cool",
+      "subject": "A disciplined deadline guardian shaped like a chunky scarlet armored rooster, huge folded blank envelope chest plate, stern rectangular silver eye lenses, gold crest and strong three-toed feet.",
+      "style": "heraldic lacquer sculpture and cel shadows",
+      "designNote": "封筒の胸当てを持つ提出日の雄鶏",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A disciplined deadline guardian shaped like a chunky scarlet armored rooster, huge folded blank envelope chest plate, stern rectangular silver eye lenses, gold crest and strong three-toed feet.\nVisual treatment: heraldic lacquer sculpture and cel shadows. Premium finished game art, large clear shapes.",
+      "sourceHash": "80cc57670bb1",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19722,
+      "384Bytes": 33690,
+      "1024Bytes": 151246,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_extra_10.webp",
+        "384": "monsters/eiken4-level3/384/m3_extra_10.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_extra_10.webp"
+      }
+    },
+    {
+      "id": "m3_9",
+      "name": "宿題ブラックホール",
+      "level": 3,
+      "order": 19,
+      "lane": "training",
+      "monsterId": "m3_9",
+      "mood": "funny",
+      "subject": "A black-hole monster shaped like a round charcoal donut with enormous lips around its hollow center, two tiny anxious white eyes above, swallowed blank paper tongue neatly tucked inside, short gloved arms.",
+      "style": "high-contrast rubber-hose cartoon and charcoal texture",
+      "designNote": "紙をくわえたドーナツ型ブラックホール",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A black-hole monster shaped like a round charcoal donut with enormous lips around its hollow center, two tiny anxious white eyes above, swallowed blank paper tongue neatly tucked inside, short gloved arms.\nVisual treatment: high-contrast rubber-hose cartoon and charcoal texture. Premium finished game art, large clear shapes.",
+      "sourceHash": "417ce2bf4225",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 14538,
+      "384Bytes": 26164,
+      "1024Bytes": 140130,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_9.webp",
+        "384": "monsters/eiken4-level3/384/m3_9.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_9.webp"
+      }
+    },
+    {
+      "id": "m3_10",
+      "name": "夏休みの宿題王",
+      "level": 3,
+      "order": 20,
+      "lane": "training",
+      "monsterId": "m3_10",
+      "mood": "funny",
+      "subject": "A pompous summer homework king shaped like a gigantic blank notebook stack on tiny sandals, enormous watermelon-colored paper crown, small stern oval eyes and extravagant curled bookmark moustache.",
+      "style": "colorful illustrated book sculpture and cut-paper shading",
+      "designNote": "小さなサンダルで歩くノートの宿題王",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A pompous summer homework king shaped like a gigantic blank notebook stack on tiny sandals, enormous watermelon-colored paper crown, small stern oval eyes and extravagant curled bookmark moustache.\nVisual treatment: colorful illustrated book sculpture and cut-paper shading. Premium finished game art, large clear shapes.",
+      "sourceHash": "33aea5b4c5b9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22822,
+      "384Bytes": 39390,
+      "1024Bytes": 174662,
+      "files": {
+        "256": "monsters/eiken4-level3/256/m3_10.webp",
+        "384": "monsters/eiken4-level3/384/m3_10.webp",
+        "1024": "monsters/eiken4-level3/1024/m3_10.webp"
+      }
+    },
+    {
+      "id": "c3_1",
+      "name": "カオススライム",
+      "level": 3,
+      "order": 21,
+      "lane": "battle",
+      "monsterId": "c3_1",
+      "mood": "funny",
+      "subject": "A chaotic cyan jelly shaped like a tangled pretzel, three uneven oval eyes each looking differently, astonished open mouth on central knot, four short twisted ribbon feet, magenta inner folds.",
+      "style": "glossy hard-candy comic with crisp outlines",
+      "designNote": "三つの目を持つプレッツェルスライム",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A chaotic cyan jelly shaped like a tangled pretzel, three uneven oval eyes each looking differently, astonished open mouth on central knot, four short twisted ribbon feet, magenta inner folds.\nVisual treatment: glossy hard-candy comic with crisp outlines. Premium finished game art, large clear shapes.",
+      "sourceHash": "ff2c65b350bb",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 21738,
+      "384Bytes": 36930,
+      "1024Bytes": 165472,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_1.webp",
+        "384": "monsters/eiken4-level3/384/c3_1.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_1.webp"
+      }
+    },
+    {
+      "id": "c3_2",
+      "name": "キメラビースト",
+      "level": 3,
+      "order": 22,
+      "lane": "battle",
+      "monsterId": "c3_2",
+      "mood": "cool",
+      "subject": "A majestic compact chimera with muscular sable tapir body, ivory owl face and enormous emerald beetle armor wings, two broad solemn gold eyes, curled ram horns, four planted paws.",
+      "style": "premium painterly fur and carved emerald armor",
+      "designNote": "フクロウの顔と甲虫の翼のキメラ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A majestic compact chimera with muscular sable tapir body, ivory owl face and enormous emerald beetle armor wings, two broad solemn gold eyes, curled ram horns, four planted paws.\nVisual treatment: premium painterly fur and carved emerald armor. Premium finished game art, large clear shapes.",
+      "sourceHash": "09407f3f6077",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 22726,
+      "384Bytes": 41304,
+      "1024Bytes": 218854,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_2.webp",
+        "384": "monsters/eiken4-level3/384/c3_2.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_2.webp"
+      }
+    },
+    {
+      "id": "c3_3",
+      "name": "ヴォイドウィング",
+      "level": 3,
+      "order": 23,
+      "lane": "battle",
+      "monsterId": "c3_3",
+      "mood": "beautiful",
+      "subject": "A graceful void wing monster shaped like a dark violet manta with two huge curled wings resembling velvet calla lilies, one quiet moon-white oval eye, short fin tail and gold-edged folds.",
+      "style": "luxurious floral art nouveau and silk painting",
+      "designNote": "黒い花の翼を持つ虚空のマンタ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A graceful void wing monster shaped like a dark violet manta with two huge curled wings resembling velvet calla lilies, one quiet moon-white oval eye, short fin tail and gold-edged folds.\nVisual treatment: luxurious floral art nouveau and silk painting. Premium finished game art, large clear shapes.",
+      "sourceHash": "aed77efadfe1",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20538,
+      "384Bytes": 35270,
+      "1024Bytes": 159060,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_3.webp",
+        "384": "monsters/eiken4-level3/384/c3_3.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_3.webp"
+      }
+    },
+    {
+      "id": "c3_4",
+      "name": "スペクターロード",
+      "level": 3,
+      "order": 24,
+      "lane": "battle",
+      "monsterId": "c3_4",
+      "mood": "funny",
+      "subject": "A spectral lord with an enormous hollow ivory top hat forming its whole body, two suspicious tiny dot eyes beneath brim, flowing maroon scarf moustache, tiny sheet hands and absurdly long thin feet.",
+      "style": "theatrical vintage ink and velvet cut-paper",
+      "designNote": "シルクハットそのものになった幽霊王",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A spectral lord with an enormous hollow ivory top hat forming its whole body, two suspicious tiny dot eyes beneath brim, flowing maroon scarf moustache, tiny sheet hands and absurdly long thin feet.\nVisual treatment: theatrical vintage ink and velvet cut-paper. Premium finished game art, large clear shapes.",
+      "sourceHash": "79c75b3c03a1",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 19076,
+      "384Bytes": 32854,
+      "1024Bytes": 165694,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_4.webp",
+        "384": "monsters/eiken4-level3/384/c3_4.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_4.webp"
+      }
+    },
+    {
+      "id": "c3_5",
+      "name": "機神タイタン",
+      "level": 3,
+      "order": 25,
+      "lane": "battle",
+      "monsterId": "c3_5",
+      "mood": "cool",
+      "subject": "A giant machine titan shaped like a heavily armored bronze gorilla, broad rectangular shoulders, single horizontal blue visor, barrel forearms and thick folded fingers, dignified crouched stance.",
+      "style": "bold industrial steel sculpture with cel lighting",
+      "designNote": "青いバイザーの重装ゴリラ機神",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A giant machine titan shaped like a heavily armored bronze gorilla, broad rectangular shoulders, single horizontal blue visor, barrel forearms and thick folded fingers, dignified crouched stance.\nVisual treatment: bold industrial steel sculpture with cel lighting. Premium finished game art, large clear shapes.",
+      "sourceHash": "a3da5067320e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25178,
+      "384Bytes": 44270,
+      "1024Bytes": 222874,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_5.webp",
+        "384": "monsters/eiken4-level3/384/c3_5.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_5.webp"
+      }
+    },
+    {
+      "id": "c3_6",
+      "name": "アビス・ウォーカー",
+      "level": 3,
+      "order": 26,
+      "lane": "battle",
+      "monsterId": "c3_6",
+      "mood": "beautiful",
+      "subject": "An elegant abyss walker shaped like a pale long-legged deep-sea shrimp, pearl segmented armor and two broad fan antennae, gentle closed almond eyes, curved violet tail, legs tucked within compact silhouette.",
+      "style": "delicate mother-of-pearl and watercolor",
+      "designNote": "真珠の甲殻と扇の触角の深海エビ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An elegant abyss walker shaped like a pale long-legged deep-sea shrimp, pearl segmented armor and two broad fan antennae, gentle closed almond eyes, curved violet tail, legs tucked within compact silhouette.\nVisual treatment: delicate mother-of-pearl and watercolor. Premium finished game art, large clear shapes.",
+      "sourceHash": "1b4c30c772fd",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25400,
+      "384Bytes": 45218,
+      "1024Bytes": 220140,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_6.webp",
+        "384": "monsters/eiken4-level3/384/c3_6.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_6.webp"
+      }
+    },
+    {
+      "id": "c3_8",
+      "name": "断罪のセラフ",
+      "level": 3,
+      "order": 27,
+      "lane": "battle",
+      "monsterId": "c3_8",
+      "mood": "beautiful",
+      "subject": "A radiant judge seraph shaped like a white six-winged swan with nested feather fans, small calm oval jade eyes, closed gold beak, delicate silver crown and thick curled tail, no halo.",
+      "style": "refined porcelain and embossed feather painting",
+      "designNote": "六枚の翼を重ねた白鳥セラフ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A radiant judge seraph shaped like a white six-winged swan with nested feather fans, small calm oval jade eyes, closed gold beak, delicate silver crown and thick curled tail, no halo.\nVisual treatment: refined porcelain and embossed feather painting. Premium finished game art, large clear shapes.",
+      "sourceHash": "68b299fa2fdf",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25928,
+      "384Bytes": 46478,
+      "1024Bytes": 228312,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_8.webp",
+        "384": "monsters/eiken4-level3/384/c3_8.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_8.webp"
+      }
+    },
+    {
+      "id": "c3_extra_1",
+      "name": "混沌スライム改",
+      "level": 3,
+      "order": 28,
+      "lane": "battle",
+      "monsterId": "c3_extra_1",
+      "mood": "funny",
+      "subject": "A magenta chaotic slime shaped like a juggler's oversized mismatched sock, huge stretched heel cheek, two crossed square eyes and gleeful toothless grin, floppy toe hat and four tiny jelly feet.",
+      "style": "playful knitted textile and glossy cartoon",
+      "designNote": "ちぐはぐな靴下姿の混沌スライム",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A magenta chaotic slime shaped like a juggler's oversized mismatched sock, huge stretched heel cheek, two crossed square eyes and gleeful toothless grin, floppy toe hat and four tiny jelly feet.\nVisual treatment: playful knitted textile and glossy cartoon. Premium finished game art, large clear shapes.",
+      "sourceHash": "bd7e463bb94e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17176,
+      "384Bytes": 30972,
+      "1024Bytes": 142788,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_1.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_1.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_1.webp"
+      }
+    },
+    {
+      "id": "c3_extra_2",
+      "name": "金角キメラ",
+      "level": 3,
+      "order": 29,
+      "lane": "battle",
+      "monsterId": "c3_extra_2",
+      "mood": "cool",
+      "subject": "A powerful gold-horned chimera shaped like a armored bison with broad blue peacock mane and dark reptile forelegs, massive spiral brass horns, determined wide dark eyes and squared closed muzzle.",
+      "style": "majestic embossed bronze and textured velvet fur",
+      "designNote": "金の角とクジャクのたてがみのバイソン",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A powerful gold-horned chimera shaped like a armored bison with broad blue peacock mane and dark reptile forelegs, massive spiral brass horns, determined wide dark eyes and squared closed muzzle.\nVisual treatment: majestic embossed bronze and textured velvet fur. Premium finished game art, large clear shapes.",
+      "sourceHash": "6a554cb58475",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 25956,
+      "384Bytes": 47688,
+      "1024Bytes": 251672,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_2.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_2.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_2.webp"
+      }
+    },
+    {
+      "id": "c3_extra_3",
+      "name": "夜空ウィング",
+      "level": 3,
+      "order": 30,
+      "lane": "battle",
+      "monsterId": "c3_extra_3",
+      "mood": "beautiful",
+      "subject": "An elegant midnight butterfly dragon with wings shaped like nested blue crescent shells, one serene pale pink eye, long silver neck and neat curled tail, four tiny tucked legs, no stars.",
+      "style": "iridescent abalone shell and silk watercolor",
+      "designNote": "貝殻の月翼を持つ蝶ドラゴン",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An elegant midnight butterfly dragon with wings shaped like nested blue crescent shells, one serene pale pink eye, long silver neck and neat curled tail, four tiny tucked legs, no stars.\nVisual treatment: iridescent abalone shell and silk watercolor. Premium finished game art, large clear shapes.",
+      "sourceHash": "550f7eb1f621",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 30558,
+      "384Bytes": 56438,
+      "1024Bytes": 294056,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_3.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_3.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_3.webp"
+      }
+    },
+    {
+      "id": "c3_extra_4",
+      "name": "白影ロード",
+      "level": 3,
+      "order": 31,
+      "lane": "battle",
+      "monsterId": "c3_extra_4",
+      "mood": "cute",
+      "subject": "A little white ghost lord whose fluffy ermine cloak is far too big, enormous soft crown folded over one round brown eye, bashful smile and two small gloved paws holding cloak closed.",
+      "style": "gentle velvet puppet and pastel ink",
+      "designNote": "ぶかぶかの王冠とマントの白影王",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A little white ghost lord whose fluffy ermine cloak is far too big, enormous soft crown folded over one round brown eye, bashful smile and two small gloved paws holding cloak closed.\nVisual treatment: gentle velvet puppet and pastel ink. Premium finished game art, large clear shapes.",
+      "sourceHash": "6472d7434774",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16876,
+      "384Bytes": 28752,
+      "1024Bytes": 133012,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_4.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_4.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_4.webp"
+      }
+    },
+    {
+      "id": "c3_9",
+      "name": "虚無のコロッサス",
+      "level": 3,
+      "order": 32,
+      "lane": "battle",
+      "monsterId": "c3_9",
+      "mood": "cool",
+      "subject": "A colossal dark-blue guardian shaped like a monumental stone rhinoceros, enormous hollow arch chest and broad triangular horn, two tiny steady ivory eye slits, four gigantic stepped feet.",
+      "style": "heroic carved basalt with jade inlay",
+      "designNote": "空洞の胸と太い脚の石のサイ巨像",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A colossal dark-blue guardian shaped like a monumental stone rhinoceros, enormous hollow arch chest and broad triangular horn, two tiny steady ivory eye slits, four gigantic stepped feet.\nVisual treatment: heroic carved basalt with jade inlay. Premium finished game art, large clear shapes.",
+      "sourceHash": "7e8db612fbf0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 24048,
+      "384Bytes": 43448,
+      "1024Bytes": 240940,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_9.webp",
+        "384": "monsters/eiken4-level3/384/c3_9.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_9.webp"
+      }
+    },
+    {
+      "id": "c3_extra_5",
+      "name": "機神ガード",
+      "level": 3,
+      "order": 33,
+      "lane": "battle",
+      "monsterId": "c3_extra_5",
+      "mood": "funny",
+      "subject": "A squat machine guard shaped like a red armored vacuum cleaner with a huge corrugated trunk hose, two worried round lens eyes and little crooked metal smile, broad shield hands and caster feet.",
+      "style": "expressive enamel robot toy with comic steel shading",
+      "designNote": "長いホース鼻の掃除機ガード",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A squat machine guard shaped like a red armored vacuum cleaner with a huge corrugated trunk hose, two worried round lens eyes and little crooked metal smile, broad shield hands and caster feet.\nVisual treatment: expressive enamel robot toy with comic steel shading. Premium finished game art, large clear shapes.",
+      "sourceHash": "3852936ec6de",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20344,
+      "384Bytes": 35732,
+      "1024Bytes": 171988,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_5.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_5.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_5.webp"
+      }
+    },
+    {
+      "id": "c3_extra_6",
+      "name": "深淵ウォーカー改",
+      "level": 3,
+      "order": 34,
+      "lane": "battle",
+      "monsterId": "c3_extra_6",
+      "mood": "cute",
+      "subject": "A chubby navy abyss axolotl with fluffy lilac feather gills, four mitten feet and broad crescent tail, bright curious round white eyes and a tiny soft smile, pearlescent belly.",
+      "style": "soft felt plush illustration and pearly gouache",
+      "designNote": "羽のえらを持つ深海ウーパールーパー",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A chubby navy abyss axolotl with fluffy lilac feather gills, four mitten feet and broad crescent tail, bright curious round white eyes and a tiny soft smile, pearlescent belly.\nVisual treatment: soft felt plush illustration and pearly gouache. Premium finished game art, large clear shapes.",
+      "sourceHash": "aed027aa8617",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20958,
+      "384Bytes": 37580,
+      "1024Bytes": 207054,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_6.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_6.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_6.webp"
+      }
+    },
+    {
+      "id": "c3_extra_7",
+      "name": "裁きの羽",
+      "level": 3,
+      "order": 35,
+      "lane": "battle",
+      "monsterId": "c3_extra_7",
+      "mood": "beautiful",
+      "subject": "A compact wing guardian shaped like a single enormous white feather curled into a crane, two small silver wings tucked into central quill, peaceful downward almond eye and pearl beak.",
+      "style": "intricate paper quilling and restrained watercolor",
+      "designNote": "一枚の羽が折れ曲がった鶴の守護者",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A compact wing guardian shaped like a single enormous white feather curled into a crane, two small silver wings tucked into central quill, peaceful downward almond eye and pearl beak.\nVisual treatment: intricate paper quilling and restrained watercolor. Premium finished game art, large clear shapes.",
+      "sourceHash": "8f2d63079788",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 17040,
+      "384Bytes": 29840,
+      "1024Bytes": 142134,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_7.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_7.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_7.webp"
+      }
+    },
+    {
+      "id": "c3_extra_8",
+      "name": "虚無巨像の影",
+      "level": 3,
+      "order": 36,
+      "lane": "battle",
+      "monsterId": "c3_extra_8",
+      "mood": "funny",
+      "subject": "A shadow colossus shaped like a very tall charcoal chess rook with comically tiny round head sticking out of top, huge worried oval eyes, two enormous glove hands and short little boots.",
+      "style": "playful carved wooden silhouette with ink highlights",
+      "designNote": "小さな頭と大きな手のルーク巨像",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A shadow colossus shaped like a very tall charcoal chess rook with comically tiny round head sticking out of top, huge worried oval eyes, two enormous glove hands and short little boots.\nVisual treatment: playful carved wooden silhouette with ink highlights. Premium finished game art, large clear shapes.",
+      "sourceHash": "0ef83adbc1ce",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 14908,
+      "384Bytes": 25788,
+      "1024Bytes": 133304,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_8.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_8.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_8.webp"
+      }
+    },
+    {
+      "id": "c3_extra_9",
+      "name": "深紅キマイラ改",
+      "level": 3,
+      "order": 37,
+      "lane": "battle",
+      "monsterId": "c3_extra_9",
+      "mood": "cool",
+      "subject": "A scarlet chimera shaped like a proud long-necked antelope with huge black bat ear-wings and silver crocodile back plates, two alert wide amber eyes, spiraling ivory horns, planted four-hoof stance.",
+      "style": "luxurious lacquer armor and painterly fur",
+      "designNote": "蝙蝠の耳とワニ装甲の深紅アンテロープ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A scarlet chimera shaped like a proud long-necked antelope with huge black bat ear-wings and silver crocodile back plates, two alert wide amber eyes, spiraling ivory horns, planted four-hoof stance.\nVisual treatment: luxurious lacquer armor and painterly fur. Premium finished game art, large clear shapes.",
+      "sourceHash": "f62f9bf6f6aa",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 20152,
+      "384Bytes": 34970,
+      "1024Bytes": 162062,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_9.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_9.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_9.webp"
+      }
+    },
+    {
+      "id": "c3_extra_10",
+      "name": "終焉門の番人",
+      "level": 3,
+      "order": 38,
+      "lane": "battle",
+      "monsterId": "c3_extra_10",
+      "mood": "cool",
+      "subject": "A heavy end-gate guardian shaped like a midnight blue armored lobster, enormous gate-door pincers and gold hinged shell, two narrow rectangular cyan eyes, powerful squat four-leg stance.",
+      "style": "opulent hammered steel and antique gold",
+      "designNote": "門の扉のはさみを持つ重装ロブスター",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A heavy end-gate guardian shaped like a midnight blue armored lobster, enormous gate-door pincers and gold hinged shell, two narrow rectangular cyan eyes, powerful squat four-leg stance.\nVisual treatment: opulent hammered steel and antique gold. Premium finished game art, large clear shapes.",
+      "sourceHash": "8aeae1949644",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 23902,
+      "384Bytes": 42714,
+      "1024Bytes": 202994,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_extra_10.webp",
+        "384": "monsters/eiken4-level3/384/c3_extra_10.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_extra_10.webp"
+      }
+    },
+    {
+      "id": "c3_10",
+      "name": "深紅のキマイラ",
+      "level": 3,
+      "order": 39,
+      "lane": "battle",
+      "monsterId": "c3_10",
+      "mood": "funny",
+      "subject": "A crimson chimera like a regal fat seal with a magnificent curled lion mane, enormous goat horns and tiny dragon wings, solemn little dot eyes, absurd long whiskers, proud tiny flipper stance.",
+      "style": "charismatic velvet fur caricature and gouache",
+      "designNote": "獅子のたてがみと角の威厳あるアザラシ",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A crimson chimera like a regal fat seal with a magnificent curled lion mane, enormous goat horns and tiny dragon wings, solemn little dot eyes, absurd long whiskers, proud tiny flipper stance.\nVisual treatment: charismatic velvet fur caricature and gouache. Premium finished game art, large clear shapes.",
+      "sourceHash": "e6818fa824cc",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 24372,
+      "384Bytes": 44038,
+      "1024Bytes": 231864,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_10.webp",
+        "384": "monsters/eiken4-level3/384/c3_10.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_10.webp"
+      }
+    },
+    {
+      "id": "c3_7",
+      "name": "終焉のドラゴン",
+      "level": 3,
+      "order": 40,
+      "lane": "battle",
+      "monsterId": "c3_7",
+      "mood": "cool",
+      "subject": "A magnificent final dragon shaped like a broad white armored swordfish, immense swept wings like curved silver shields, red curling fins and four massive talons, one focused cobalt oval eye.",
+      "style": "heroic painterly pearl armor and crimson lacquer",
+      "designNote": "白い盾の翼を広げるカジキドラゴン",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A magnificent final dragon shaped like a broad white armored swordfish, immense swept wings like curved silver shields, red curling fins and four massive talons, one focused cobalt oval eye.\nVisual treatment: heroic painterly pearl armor and crimson lacquer. Premium finished game art, large clear shapes.",
+      "sourceHash": "4717dcf9a2d0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 30966,
+      "384Bytes": 53692,
+      "1024Bytes": 250210,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_7.webp",
+        "384": "monsters/eiken4-level3/384/c3_7.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_7.webp"
+      }
+    },
+    {
+      "id": "c3_11",
+      "name": "裏終焉ネビュラス",
+      "level": 3,
+      "order": 41,
+      "lane": "battle",
+      "monsterId": "c3_11",
+      "mood": "beautiful",
+      "subject": "A regal nebula monarch shaped like an enormous indigo orchid mantis, layered amethyst petal wings and gold branching crown, calm wide opal eyes, slender folded forearms and curled violet abdomen.",
+      "style": "jewel-toned botanical fantasy with cut-glass petals",
+      "designNote": "蘭とアメジストの翼のネビュラス",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A regal nebula monarch shaped like an enormous indigo orchid mantis, layered amethyst petal wings and gold branching crown, calm wide opal eyes, slender folded forearms and curled violet abdomen.\nVisual treatment: jewel-toned botanical fantasy with cut-glass petals. Premium finished game art, large clear shapes.",
+      "sourceHash": "e2d4ad381464",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 27892,
+      "384Bytes": 50982,
+      "1024Bytes": 258056,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_11.webp",
+        "384": "monsters/eiken4-level3/384/c3_11.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_11.webp"
+      }
+    },
+    {
+      "id": "c3_12",
+      "name": "深黒皇ディザスター",
+      "level": 3,
+      "order": 42,
+      "lane": "battle",
+      "monsterId": "c3_12",
+      "mood": "cool",
+      "subject": "An imposing deep-black emperor shaped like a monumental obsidian hippopotamus with broad gold ear shields, towering carved crown, huge squared muzzle and two calm small white eyes, four planted armor feet.",
+      "style": "premium carved obsidian and polished brass",
+      "designNote": "黒曜石と金の装甲を持つカバ皇帝",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: An imposing deep-black emperor shaped like a monumental obsidian hippopotamus with broad gold ear shields, towering carved crown, huge squared muzzle and two calm small white eyes, four planted armor feet.\nVisual treatment: premium carved obsidian and polished brass. Premium finished game art, large clear shapes.",
+      "sourceHash": "cd27d0dd58a3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 16194,
+      "384Bytes": 28554,
+      "1024Bytes": 125354,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_12.webp",
+        "384": "monsters/eiken4-level3/384/c3_12.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_12.webp"
+      },
+      "reframePrompt": "Use case: stylized-concept. Reframe this exact illustrated monster, preserving its character, face, expression, colors, materials, pose, attached props and fine details. Restore the tiny tip at the very top if it touches the source edge. Show the WHOLE character centered and slightly smaller on a true transparent square canvas, with generous clearly empty 12% transparent margins on every side. Nothing may touch the canvas edge. Do not crop any crown, armor, fur, horn or foot. Keep crisp opaque painted details inside the silhouette. No backdrop, ground, cast shadow, new objects, text or particles."
+    },
+    {
+      "id": "c3_13",
+      "name": "真終王アポカリプス",
+      "level": 3,
+      "order": 43,
+      "lane": "battle",
+      "monsterId": "c3_13",
+      "mood": "cool",
+      "subject": "A glorious final king shaped like a massive scarlet phoenix with a broad golden fan tail folded into a throne-like back, layered ivory feather armor and dark blue crown, one resolute round eye, thick gold talons.",
+      "style": "opulent painted enamel and heroic feather sculpture",
+      "designNote": "玉座の尾と白い羽鎧を持つ不死鳥の終王",
+      "prompt": "Use case: stylized-concept. One polished fantasy RPG monster sticker for children and adults. TRUE transparent alpha background, square canvas. COMPLETE character and attached props, centered with 10% empty padding on ALL edges. Strong silhouette and personality readable at 90px, detailed at 1024px. Full-body idle pose, crisp opaque painted detail INSIDE silhouette. No text, numbers, logos, floor, shadow, background, aura, detached particles, checkerboard, cropping or sprite sheet. Respect distinctive eye shape and expression; child-friendly.\nCharacter: A glorious final king shaped like a massive scarlet phoenix with a broad golden fan tail folded into a throne-like back, layered ivory feather armor and dark blue crown, one resolute round eye, thick gold talons.\nVisual treatment: opulent painted enamel and heroic feather sculpture. Premium finished game art, large clear shapes.",
+      "sourceHash": "cc596b21a9b8",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "256Bytes": 29004,
+      "384Bytes": 51522,
+      "1024Bytes": 260842,
+      "files": {
+        "256": "monsters/eiken4-level3/256/c3_13.webp",
+        "384": "monsters/eiken4-level3/384/c3_13.webp",
+        "1024": "monsters/eiken4-level3/1024/c3_13.webp"
+      }
+    }
+  ]
+}

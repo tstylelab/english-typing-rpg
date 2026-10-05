@@ -11,16 +11,17 @@ const browser = await chromium.launch({ channel: 'chrome', headless: true, args:
 const closeTestBrowser = await trackTestBrowser(browser);
 const report = [];
 try {
+  const courseLevels = (process.env.MONSTER_PREVIEW_TEST_CASES || 'Eiken5:1,Eiken5:2,Eiken5:3,Eiken4:1,Eiken4:2,Eiken4:3,Eiken3:1,Eiken3:2,Eiken3:3')
+    .split(',').map(value => { const [course, level] = value.split(':'); return { course, level: Number(level) }; });
   const scenarios = [
-    ...['Eiken5', 'Eiken4'].flatMap(course => [1366, 390].map(width => ({ course, level: course === 'Eiken5' ? 1 : 3, width, height: 800, dpr: 1 }))),
-    ...[2, 3].flatMap(level => [1366, 390].map(width => ({ course: 'Eiken5', level, width, height: 800, dpr: 1 }))),
-    ...[1366, 390].map(width => ({ course: 'Eiken4', level: 1, width, height: 800, dpr: 1 })),
+    ...courseLevels.flatMap(({ course, level }) => [1366, 390].map(width => ({ course, level, width, height: 800, dpr: 1 }))),
+    ...[1366, 390].map(width => ({ course: 'EikenPre2', level: 1, width, height: 800, dpr: 1 })),
     { course: 'Eiken5', level: 1, width: 1920, height: 1080, dpr: 2 },
     { course: 'Eiken5', level: 1, width: 390, height: 640, dpr: 3, reducedMotion: 'reduce' },
     { course: 'Eiken5', level: 1, width: 844, height: 390, dpr: 1 },
   ];
   for (const { course, level, width, height, dpr, reducedMotion = 'no-preference' } of scenarios) {
-      const hasArt = course === 'Eiken5' || (course === 'Eiken4' && level === 1);
+      const hasArt = ['Eiken5', 'Eiken4', 'Eiken3'].includes(course);
       const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion, hasTouch: width < 1024 });
       const page = await context.newPage();
       const errors = [];
@@ -85,7 +86,7 @@ try {
         assert.ok(await trigger.evaluate(el => el === document.activeElement), 'Focus restored to the clicked monster');
       }
       await page.getByRole('button', { name: '図鑑', exact: true }).click();
-      if (course === 'Eiken4') await page.getByRole('button', { name: '英検4級', exact: true }).click();
+      await page.getByRole('button', { name: { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級', EikenPre2: '英検準2級' }[course], exact: true }).click();
       if (level !== 1) await page.getByRole('button', { name: `レベル ${level}`, exact: true }).click();
       const triggers = page.locator('button[title="クリック・タップで拡大"]');
       assert.equal(await triggers.count(), 43);

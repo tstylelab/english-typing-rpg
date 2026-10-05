@@ -8,19 +8,13 @@ const artIdsForLevel = (level: number) => [
 export const EIKEN5_LEVEL1_ART_IDS = artIdsForLevel(1);
 export const EIKEN5_ART_IDS = [1, 2, 3].flatMap(artIdsForLevel);
 export const EIKEN4_LEVEL1_ART_IDS = artIdsForLevel(1);
-const eiken5ArtIds = new Set(EIKEN5_ART_IDS);
-const eiken4Level1ArtIds = new Set(EIKEN4_LEVEL1_ART_IDS);
+const illustratedCourses = new Set(['Eiken5', 'Eiken4', 'Eiken3']);
+const illustratedMonsterIds = new Set(EIKEN5_ART_IDS);
 
 export const getMonsterArtUrl = (monsterId: string | undefined, difficulty: string | undefined, size = 384) => {
-  if (!monsterId) return undefined;
-  const folder = difficulty === 'Eiken5' && eiken5ArtIds.has(monsterId)
-    ? `eiken5-level${monsterId[1]}`
-    : difficulty === 'Eiken4' && eiken4Level1ArtIds.has(monsterId)
-      ? 'eiken4-level1'
-      : undefined;
-  return folder
-    ? `${import.meta.env.BASE_URL}monsters/${folder}/${size <= 100 ? 256 : 384}/${monsterId}.webp`
-    : undefined;
+  if (!monsterId || !difficulty || !illustratedCourses.has(difficulty) || !illustratedMonsterIds.has(monsterId)) return undefined;
+  const folder = `${difficulty.toLowerCase()}-level${monsterId[1]}`;
+  return `${import.meta.env.BASE_URL}monsters/${folder}/${size <= 100 ? 256 : 384}/${monsterId}.webp`;
 };
 
 // High-resolution art is requested only when the user opens a preview.
