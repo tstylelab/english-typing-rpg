@@ -73,4 +73,4 @@ assert.ok(app.includes('getCourseMonsters(bookDifficulty, bookLevel)'));
 assert.ok(app.includes('getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel)'));
 const keySource = source => /const getUniqueKey[\s\S]+?};/.exec(source)?.[0].replace(/\r/g,'');
 assert.equal(keySource(app),keySource(baseline), 'Progress/save key must not change');
-console.log('PASS: 43 assignments; accepted names; Eiken5 roster/HP/IDs/order and save identity preserved; scoped profiles and files');
+console.log(`PASS: 43 Level 1 plan assignments; ${profiles.length} activated profiles checked; accepted names; Eiken5 roster/HP/IDs/order and save identity preserved; scoped profiles and files`);
