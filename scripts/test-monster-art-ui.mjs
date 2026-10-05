@@ -29,7 +29,8 @@ async function openCourse(course, level, width = 1366) {
   page.on('pageerror', error => errors.push(error.message));
   page.on('request', request => { if (request.url().includes('/monsters/')) artRequests.add(request.url()); });
   const questions = QUESTIONS[course][level];
-  const targetText = questions.find(q => q.text === 'apple')?.text || questions.find(q => /^[\x20-\x7E]+$/.test(q.text)).text;
+  // Keep the first two test keystrokes incomplete even when a course starts with "ID".
+  const targetText = questions.find(q => q.text === 'apple')?.text || questions.find(q => q.text.length > 2 && /^[\x20-\x7E]+$/.test(q.text)).text;
   await page.addInitScript(({ course, level, questions, targetText }) => {
     speechSynthesis.speak = () => {};
     localStorage.setItem('etyping_external_keyboard_mode', 'true');
@@ -71,7 +72,10 @@ try {
     await loaded(page.locator(`.battle-avatar [data-monster-art="c${level}_1"]`));
     if (nameFor(course, `c${level}_1`)) await page.getByText(nameFor(course, `c${level}_1`), { exact: true }).first().waitFor();
     await page.waitForTimeout(250);
-    assert.ok(artRequests.size <= 3, `Battle downloaded ${artRequests.size} art URLs`);
+    const normalArtRequests = [...artRequests].filter(url => !url.includes('/1024/'));
+    const revealArtRequests = [...artRequests].filter(url => url.includes('/1024/'));
+    assert.ok(normalArtRequests.length <= 3, `Battle downloaded ${normalArtRequests.length} normal art URLs`);
+    assert.ok(revealArtRequests.length <= 1 && revealArtRequests.every(url => url.endsWith(`/c${level}_1.webp`)), 'Only the current battle monster may download reveal art');
     const session = await context.newCDPSession(page);
     await session.send('Emulation.setCPUThrottlingRate', { rate: 4 });
     const started = Date.now();
