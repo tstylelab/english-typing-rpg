@@ -16,24 +16,44 @@
 .monster-battle-reveal > svg { width: 100% !important; height: 100% !important; }
 .monster-battle-reveal.is-playing {
   visibility: visible;
-  animation: monster-battle-arrive 500ms cubic-bezier(.22, .65, .3, 1) both;
+  animation: monster-battle-arrive 1000ms cubic-bezier(.22, .65, .3, 1) both;
 }
 .monster-battle-reveal[data-monster-reveal='defeat'].is-playing {
-  animation: monster-battle-defeated 500ms ease-out both;
+  animation: monster-battle-defeated 1000ms ease-out both;
+}
+.monster-battle-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, white 20%, rgb(255 255 255 / .85) 45%, transparent 72%);
+  mask-image: var(--reveal-flash-image, none);
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+.monster-battle-reveal.is-playing::after {
+  animation: monster-battle-flash 1000ms linear both;
+}
+@keyframes monster-battle-flash {
+  0%, 18% { opacity: 0; }
+  23% { opacity: .72; }
+  34%, 100% { opacity: 0; }
 }
 @keyframes monster-battle-arrive {
   0% { transform: scale(.92); opacity: 0; }
-  20% { transform: scale(1); opacity: 1; }
+  15%, 70% { transform: translate(0, 0) scale(1); opacity: 1; }
   85% { opacity: 1; }
   100% { transform: translate(var(--reveal-x), var(--reveal-y)) scale(var(--reveal-scale)); opacity: 0; }
 }
 @keyframes monster-battle-defeated {
   0% { transform: scale(.75); opacity: 0; }
-  25% { transform: scale(1); opacity: 1; }
-  65% { transform: scale(1); opacity: 1; }
+  15%, 75% { transform: scale(1); opacity: 1; }
   100% { transform: scale(.95); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .monster-battle-reveal { display: none; }
-  .monster-battle-reveal.is-playing { animation: none; }
+  .monster-battle-reveal.is-playing,
+  .monster-battle-reveal.is-playing::after { animation: none; }
 }

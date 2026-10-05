@@ -11,6 +11,30 @@ mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
 const closeBrowser = await trackTestBrowser(browser);
 const reports = [];
+async function captureReveal(page, kind, path) {
+  const geometry = await page.evaluate(kind => {
+    const node = document.querySelector(`[data-monster-reveal="${kind}"]`);
+    if (!node) throw new Error('Missing reveal');
+    getComputedStyle(node, '::after').animationName;
+    const animations = node.getAnimations({ subtree: true });
+    const sample = time => {
+      for (const animation of animations) { animation.pause(); animation.currentTime = time; }
+      return { transform: getComputedStyle(node).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
+    };
+    const early = sample(230), late = sample(650);
+    sample(230);
+    return { early, late, mask: getComputedStyle(node, '::after').maskImage, animations: animations.map(a => a.animationName) };
+  }, kind);
+  assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
+  assert.equal(geometry.early.opacity, '1');
+  assert.equal(geometry.late.opacity, '1');
+  assert.ok(geometry.early.flash > .5, `Missing white flash: ${JSON.stringify(geometry)}`);
+  assert.equal(geometry.late.flash, 0, 'Flash did not fade');
+  await page.screenshot({ path });
+  await page.evaluate(kind => {
+    for (const animation of document.querySelector(`[data-monster-reveal="${kind}"]`)?.getAnimations({ subtree: true }) || []) animation.play();
+  }, kind);
+}
 const battleIds = JSON.parse(readFileSync('docs/monster-redesign/eiken3-level1.json', 'utf8')).assets.filter(x => x.monsterId.startsWith('c')).map(x => x.monsterId);
 try {
   for (const scenario of [
@@ -43,6 +67,7 @@ try {
       // Record real animation geometry without changing its timing.
       window.revealObservations = [];
       document.addEventListener('animationstart', e => {
+        if (e.pseudoElement) return;
         const node = e.target;
         if (!(node instanceof HTMLElement) || !node.dataset.monsterReveal) return;
         const image = node.querySelector('img');
@@ -59,7 +84,7 @@ try {
       await page.getByText('WARNING', { exact: true }).waitFor();
       await page.getByText('WARNING', { exact: true }).waitFor({ state: 'hidden' });
       await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'entry'));
-      await page.waitForTimeout(650);
+      await page.waitForTimeout(1150);
       assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
       assert.equal((await page.evaluate(() => window.revealObservations)).filter(x => x.kind === 'entry').length, 1);
       await page.getByRole('button', { name: 'トップに戻る', exact: true }).click();
@@ -74,12 +99,7 @@ try {
     }
     if (!reduced && !broken && !(dpr === 3)) {
       await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'entry'));
-      await page.evaluate(() => {
-        const animation = document.querySelector('[data-monster-reveal]')?.getAnimations()[0];
-        if (animation) { animation.pause(); animation.currentTime = 100; }
-      });
-      await page.screenshot({ path: `${output}/entry-${course}-${width}-${slow ? 'slow' : 'normal'}.png` });
-      await page.evaluate(() => document.querySelector('[data-monster-reveal]')?.getAnimations()[0]?.play());
+      await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${slow ? 'slow' : 'normal'}.png`);
     }
     // Typing remains enabled while the entrance is running or loading.
     await page.keyboard.type(answer.slice(0, 1));
@@ -93,16 +113,11 @@ try {
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
     if (!reduced && !broken) await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'defeat'));
     if (!reduced && !broken) {
-      await page.evaluate(() => {
-        const animation = document.querySelector('[data-monster-reveal="defeat"]')?.getAnimations()[0];
-        if (animation) { animation.pause(); animation.currentTime = 150; }
-      });
-      await page.screenshot({ path: `${output}/defeat-${course}-${width}-${dpr}-${slow ? 'slow' : 'normal'}.png` });
-      await page.evaluate(() => document.querySelector('[data-monster-reveal="defeat"]')?.getAnimations()[0]?.play());
+      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${slow ? 'slow' : 'normal'}.png`);
     }
     const observations = await page.evaluate(() => window.revealObservations);
     for (const item of observations) {
-      assert.equal(item.duration, '0.5s');
+      assert.equal(item.duration, '1s');
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
       if (item.sourcePixels) assert.ok(item.width * dpr <= item.sourcePixels + 1, 'Raster upscaled');
@@ -116,7 +131,7 @@ try {
     await page.locator('.battle-input').waitFor();
     await page.getByRole('button', { name: 'トップに戻る', exact: true }).click();
     assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
-    await page.waitForTimeout(750);
+    await page.waitForTimeout(1150);
     assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     assert.deepEqual(errors, []);

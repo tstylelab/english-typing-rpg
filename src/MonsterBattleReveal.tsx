@@ -34,6 +34,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       overlay.style.setProperty('--reveal-x', `${bounds.x + bounds.width / 2 - window.innerWidth / 2}px`);
       overlay.style.setProperty('--reveal-y', `${bounds.y + bounds.height / 2 - window.innerHeight / 2}px`);
       overlay.style.setProperty('--reveal-scale', String(bounds.width / size));
+      if (image) overlay.style.setProperty('--reveal-flash-image', `url(${JSON.stringify(image.currentSrc || image.src)})`);
       frame = requestAnimationFrame(() => {
         if (!disposed) {
           target.classList.add('is-revealing');
@@ -61,7 +62,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
     <span ref={targetRef} className="monster-reveal-target">{children}</span>
     {visible && enabled && createPortal(
       <div ref={overlayRef} aria-hidden="true" data-monster-reveal={kind} className="monster-battle-reveal" onAnimationEnd={event => {
-        if (event.target === event.currentTarget) {
+        if (event.target === event.currentTarget && !event.pseudoElement) {
           targetRef.current?.classList.remove('is-revealing');
           setVisible(false);
         }
