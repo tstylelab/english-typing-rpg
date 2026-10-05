@@ -1,0 +1,189 @@
+{
+  "course": "Eiken3",
+  "intent": "強い意外性を狙う11体/43体。かわいい・かっこいい・きれいなキャラも混ぜる。笑いの感じ方は個人差がある。",
+  "levels": [
+    {
+      "level": 1,
+      "total": 43,
+      "strongComicFocus": [
+        {
+          "position": 1,
+          "monsterId": "m1_1",
+          "name": "あくびトースター"
+        },
+        {
+          "position": 6,
+          "monsterId": "m1_6",
+          "name": "くしゃくしゃ新聞じい"
+        },
+        {
+          "position": 8,
+          "monsterId": "m1_extra_1",
+          "name": "ころびんぼうスケート靴"
+        },
+        {
+          "position": 10,
+          "monsterId": "m1_extra_3",
+          "name": "つまさき歩きの長ぐつ"
+        },
+        {
+          "position": 16,
+          "monsterId": "m1_extra_8",
+          "name": "食パン耳のコロギ"
+        },
+        {
+          "position": 20,
+          "monsterId": "m1_10",
+          "name": "こたつ番長ヌクヌク"
+        },
+        {
+          "position": 22,
+          "monsterId": "c1_2",
+          "name": "くしゃみ粉袋パッフン"
+        },
+        {
+          "position": 24,
+          "monsterId": "c1_4",
+          "name": "ほうきレーサーびゅん丸"
+        },
+        {
+          "position": 32,
+          "monsterId": "c1_9",
+          "name": "竹馬あしのノッポン"
+        },
+        {
+          "position": 36,
+          "monsterId": "c1_extra_8",
+          "name": "ケチャップ銃のポテト兵"
+        },
+        {
+          "position": 43,
+          "monsterId": "c1_13",
+          "name": "もちもち大王コネコネ"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "total": 43,
+      "strongComicFocus": [
+        {
+          "position": 3,
+          "monsterId": "m2_3",
+          "name": "毛玉だらけのコート"
+        },
+        {
+          "position": 6,
+          "monsterId": "m2_6",
+          "name": "ひしゃく顔のミズクミ"
+        },
+        {
+          "position": 8,
+          "monsterId": "m2_extra_1",
+          "name": "ぷんぷん掃除機"
+        },
+        {
+          "position": 9,
+          "monsterId": "m2_extra_2",
+          "name": "ふらふらラジオ体操ロボ"
+        },
+        {
+          "position": 12,
+          "monsterId": "m2_8",
+          "name": "ぽよよんゴムボール"
+        },
+        {
+          "position": 16,
+          "monsterId": "m2_extra_8",
+          "name": "わらい上戸のごま団子"
+        },
+        {
+          "position": 20,
+          "monsterId": "m2_10",
+          "name": "ドタバタ仕立て屋ミシン"
+        },
+        {
+          "position": 24,
+          "monsterId": "c2_4",
+          "name": "しゃっくり大砲ヒック"
+        },
+        {
+          "position": 31,
+          "monsterId": "c2_extra_4",
+          "name": "かみつきサンドイッチ"
+        },
+        {
+          "position": 35,
+          "monsterId": "c2_extra_7",
+          "name": "大口のトンネルもぐら"
+        },
+        {
+          "position": 43,
+          "monsterId": "c2_13",
+          "name": "ぐうたら総帥ソファラ"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "total": 43,
+      "strongComicFocus": [
+        {
+          "position": 1,
+          "monsterId": "m3_1",
+          "name": "ねぐせブラシ仙人"
+        },
+        {
+          "position": 2,
+          "monsterId": "m3_2",
+          "name": "まゆ毛ふさふさアボカド"
+        },
+        {
+          "position": 6,
+          "monsterId": "m3_6",
+          "name": "くるくるメジャーへび"
+        },
+        {
+          "position": 10,
+          "monsterId": "m3_extra_3",
+          "name": "おっとっとブックエンド"
+        },
+        {
+          "position": 12,
+          "monsterId": "m3_8",
+          "name": "タピオカほっぺのプック"
+        },
+        {
+          "position": 14,
+          "monsterId": "m3_extra_6",
+          "name": "あわわ泡立て器"
+        },
+        {
+          "position": 17,
+          "monsterId": "m3_extra_9",
+          "name": "歯みがきカバのピカリン"
+        },
+        {
+          "position": 22,
+          "monsterId": "c3_2",
+          "name": "だだっこトランポリン"
+        },
+        {
+          "position": 24,
+          "monsterId": "c3_4",
+          "name": "じたばたエビフライ"
+        },
+        {
+          "position": 30,
+          "monsterId": "c3_extra_3",
+          "name": "はっけよい湯のみ山"
+        },
+        {
+          "position": 43,
+          "monsterId": "c3_13",
+          "name": "巨大プリン王プルモンド"
+        }
+      ]
+    }
+  ]
+}

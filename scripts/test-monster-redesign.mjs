@@ -18,12 +18,20 @@ function roster(source) {
 }
 const base = roster(app);
 assert.deepEqual(base,roster(baseline),'Shared roster/HP/order/IDs must remain unchanged');
-const plan = JSON.parse(readFileSync('design/monster-samples/eiken4-redesign-level1-plan.json','utf8'));
 const proposals = JSON.parse(readFileSync('docs/monster-name-proposals-2026-10-05/names.json','utf8'));
-const planned = proposals.entries.filter(e => e.course === 'Eiken4' && e.level === 1);
-assert.equal(plan.assets.length,43);
-assert.deepEqual(plan.assets.map(e=>[e.key,e.name]),planned.map(e=>[e.key,e.name]));
-assert.deepEqual(plan.assets.map(e=>e.monsterId),[...base[1].guide,...base[1].challenge].map(e=>e.id));
+let checkedPlans = 0;
+for (const course of new Set(proposals.entries.map(e=>e.course))) for (const level of [1,2,3]) {
+  const path = `design/monster-samples/${course.toLowerCase()}-redesign-level${level}-plan.json`;
+  if (!existsSync(path)) continue;
+  const plan = JSON.parse(readFileSync(path,'utf8'));
+  const planned = proposals.entries.filter(e=>e.course===course && e.level===level);
+  assert.equal(plan.assets.length,43);
+  assert.deepEqual(plan.assets.map(e=>[e.key,e.name]),planned.map(e=>[e.key,e.name]),`${course} Level ${level} accepted names`);
+  assert.deepEqual(plan.assets.map(e=>e.monsterId),[...base[level].guide,...base[level].challenge].map(e=>e.id));
+  assert.equal(plan.oldArtworkReused,false);
+  checkedPlans++;
+}
+assert.ok(checkedPlans > 0);
 const {applyMonsterProfile,getMonsterProfile} = load('src/monsterProfiles.ts');
 const profiles = JSON.parse(readFileSync('src/monsterProfiles.json','utf8'));
 if (!process.argv.includes('--plan-only')) {
@@ -73,4 +81,4 @@ assert.ok(app.includes('getCourseMonsters(bookDifficulty, bookLevel)'));
 assert.ok(app.includes('getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel)'));
 const keySource = source => /const getUniqueKey[\s\S]+?};/.exec(source)?.[0].replace(/\r/g,'');
 assert.equal(keySource(app),keySource(baseline), 'Progress/save key must not change');
-console.log(`PASS: 43 Level 1 plan assignments; ${profiles.length} activated profiles checked; accepted names; Eiken5 roster/HP/IDs/order and save identity preserved; scoped profiles and files`);
+console.log(`PASS: ${checkedPlans} complete 43-character plans; ${profiles.length} activated profiles checked; accepted names; Eiken5 roster/HP/IDs/order and save identity preserved; scoped profiles and files`);
