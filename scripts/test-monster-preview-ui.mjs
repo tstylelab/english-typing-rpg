@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { trackTestBrowser } from './lib/test-browser-cleanup.mjs';
 
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -10,18 +10,21 @@ mkdirSync(output, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
 const closeTestBrowser = await trackTestBrowser(browser);
 const report = [];
+const profiles = JSON.parse(readFileSync('src/monsterProfiles.json', 'utf8'));
+const folderFor = (course,level) => profiles.find(p => p.course === course && p.monsterId === `m${level}_1`)?.artFolder ?? `${course.toLowerCase()}-level${level}`;
+const courseLabels = { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級', EikenPre2: '英検準2級', Eiken2: '英検2級', EikenPre1Part1: '英検準1級①', EikenPre1Part2: '英検準1級②', Eiken1Part1: '英検1級①', Eiken1Part2: '英検1級②', Conversation: '英会話 はじめて' };
 try {
   const courseLevels = (process.env.MONSTER_PREVIEW_TEST_CASES || 'Eiken5:1,Eiken5:2,Eiken5:3,Eiken4:1,Eiken4:2,Eiken4:3,Eiken3:1,Eiken3:2,Eiken3:3')
     .split(',').map(value => { const [course, level] = value.split(':'); return { course, level: Number(level) }; });
   const scenarios = [
     ...courseLevels.flatMap(({ course, level }) => [1366, 390].map(width => ({ course, level, width, height: 800, dpr: 1 }))),
-    ...[1366, 390].map(width => ({ course: 'EikenPre2', level: 1, width, height: 800, dpr: 1 })),
+    ...[1366, 390].map(width => ({ course: 'Conversation', level: 1, width, height: 800, dpr: 1 })),
     { course: 'Eiken5', level: 1, width: 1920, height: 1080, dpr: 2 },
     { course: 'Eiken5', level: 1, width: 390, height: 640, dpr: 3, reducedMotion: 'reduce' },
     { course: 'Eiken5', level: 1, width: 844, height: 390, dpr: 1 },
   ];
   for (const { course, level, width, height, dpr, reducedMotion = 'no-preference' } of scenarios) {
-      const hasArt = ['Eiken5', 'Eiken4', 'Eiken3'].includes(course);
+      const hasArt = course !== 'Conversation';
       const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion, hasTouch: width < 1024 });
       const page = await context.newPage();
       const errors = [];
@@ -57,7 +60,7 @@ try {
           const image = dialog.locator('img');
           await image.evaluate(img => img.decode());
           assert.ok(await image.evaluate(img => img.naturalWidth === 1024 && img.complete));
-          assert.ok((await image.getAttribute('src')).includes(`/${course.toLowerCase()}-level${level}/1024/`), 'Preview artwork must belong to the selected course');
+          assert.ok((await image.getAttribute('src')).includes(`/${folderFor(course,level)}/1024/`), 'Preview artwork must belong to the selected course');
           assert.ok(artBounds.width * dpr <= 1024 + 1, 'Rendered physical pixels must not exceed the source resolution');
         } else assert.equal(await dialog.locator('.monster-preview-art svg[viewBox]').count(), 1);
         assert.equal(await dialog.locator('[data-monster-preview]').getAttribute('data-monster-preview'), locked ? 'locked' : 'unlocked');
@@ -86,7 +89,7 @@ try {
         assert.ok(await trigger.evaluate(el => el === document.activeElement), 'Focus restored to the clicked monster');
       }
       await page.getByRole('button', { name: '図鑑', exact: true }).click();
-      await page.getByRole('button', { name: { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級', EikenPre2: '英検準2級' }[course], exact: true }).click();
+      await page.getByRole('button', { name: courseLabels[course], exact: true }).click();
       if (level !== 1) await page.getByRole('button', { name: `レベル ${level}`, exact: true }).click();
       const triggers = page.locator('button[title="クリック・タップで拡大"]');
       assert.equal(await triggers.count(), 43);

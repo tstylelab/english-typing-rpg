@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { load } from './lib/load-typescript-data.mjs';
 import { trackTestBrowser } from './lib/test-browser-cleanup.mjs';
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -16,6 +16,10 @@ async function bounded(promise) {
   finally { clearTimeout(timer); }
 }
 const report = [];
+const profiles = JSON.parse(readFileSync('src/monsterProfiles.json', 'utf8'));
+const folderFor = (course, level) => profiles.find(p => p.course === course && p.monsterId === `m${level}_1`)?.artFolder ?? `${course.toLowerCase()}-level${level}`;
+const nameFor = (course, id) => profiles.find(p => p.course === course && p.monsterId === id)?.name;
+const courseLabels = { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級', EikenPre2: '英検準2級', Eiken2: '英検2級', EikenPre1Part1: '英検準1級①', EikenPre1Part2: '英検準1級②', Eiken1Part1: '英検1級①', Eiken1Part2: '英検1級②', Conversation: '英会話 はじめて' };
 async function openCourse(course, level, width = 1366) {
   const context = await browser.newContext({ viewport: { width, height: 900 } });
   const page = await context.newPage();
@@ -56,6 +60,7 @@ try {
     const { context, page, errors, artRequests, targetText } = await openCourse(course, level, width);
     if (width >= 1024) {
       await loaded(page.locator(`[data-monster-art="c${level}_1"]`).first());
+      if (nameFor(course, `c${level}_1`)) await page.getByRole('heading', { name: nameFor(course, `c${level}_1`), exact: true }).waitFor();
       await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();
     } else {
       await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
@@ -64,6 +69,7 @@ try {
     }
     await page.locator('.battle-input').waitFor();
     await loaded(page.locator(`.battle-avatar [data-monster-art="c${level}_1"]`));
+    if (nameFor(course, `c${level}_1`)) await page.getByText(nameFor(course, `c${level}_1`), { exact: true }).first().waitFor();
     await page.waitForTimeout(250);
     assert.ok(artRequests.size <= 3, `Battle downloaded ${artRequests.size} art URLs`);
     const session = await context.newCDPSession(page);
@@ -85,6 +91,7 @@ try {
       await page.waitForFunction(() => !document.querySelector('.battle-input') || document.querySelector('.battle-input').value === '');
     }
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
+    if (nameFor(course, `c${level}_1`)) await page.getByText(nameFor(course, `c${level}_1`), { exact: true }).first().waitFor();
     await loaded(page.locator(`[data-monster-art="c${level}_1"]`).first());
     await page.screenshot({ path: `${output}/victory-${course}-level${level}-${width}.png`, fullPage: true });
     console.log(`PASS victory ${course} Level ${level} ${width}`);
@@ -98,19 +105,40 @@ try {
       continue;
     }
     artRequests.clear();
+    if (profiles.some(p => p.course === course)) {
+      // Unlock this isolated test collection to verify every actual displayed
+      // name, rather than only checking hidden silhouettes and image IDs.
+      await page.evaluate(({ course, level, profiles }) => {
+        const keys = JSON.parse(localStorage.getItem('etyping_defeated_monsters') || '[]');
+        for (const p of profiles.filter(p => p.course === course && p.monsterId[1] === String(level))) {
+          keys.push(`${course}:${level}:${p.monsterId.startsWith('m') ? 'guide:voice-text' : 'challenge:text-only'}:${p.monsterId}`);
+        }
+        const defeated = [...new Set(keys)];
+        localStorage.setItem('etyping_defeated_monsters', JSON.stringify(defeated));
+        const activeId = localStorage.getItem('etyping_active_player_id');
+        const players = JSON.parse(localStorage.getItem('etyping_player_profiles') || '[]');
+        for (const player of players) if (player.id === activeId) player.data.defeatedMonsterIds = defeated;
+        localStorage.setItem('etyping_player_profiles', JSON.stringify(players));
+      }, { course, level, profiles });
+      await page.reload();
+      await page.getByRole('button', { name: '図鑑', exact: true }).waitFor();
+      artRequests.clear();
+    }
     await page.getByRole('button', { name: '図鑑', exact: true }).click();
-    await page.getByRole('button', { name: { Eiken5: '英検5級', Eiken4: '英検4級', Eiken3: '英検3級' }[course], exact: true }).click();
+    await page.getByRole('button', { name: courseLabels[course], exact: true }).click();
     if (level !== 1) await page.getByRole('button', { name: `レベル ${level}`, exact: true }).click();
     const images = page.locator('[data-monster-art]');
     assert.equal(await images.count(), 43);
     assert.equal(await images.evaluateAll(list => list.filter(image => image.loading === 'lazy').length), 43);
     await page.waitForTimeout(500);
-    const folder = `${course.toLowerCase()}-level${level}`;
+    const folder = folderFor(course, level);
     const initialRequests = [...artRequests].filter(src => src.includes(`/${folder}/`)).length;
     assert.ok(initialRequests < 43, `Collection initially fetched all ${initialRequests}`);
     for (let i = 0; i < 43; i++) {
       await images.nth(i).scrollIntoViewIfNeeded();
       await loaded(images.nth(i));
+      const id = await images.nth(i).getAttribute('data-monster-art');
+      if (nameFor(course,id)) await page.getByText(nameFor(course,id), {exact:true}).first().waitFor();
     }
     assert.equal(new Set(await images.evaluateAll(list => list.map(image => image.dataset.monsterArt))).size, 43);
     assert.ok(await images.evaluateAll((list, folder) => list.every(image => image.src.includes(`/${folder}/`)), folder), 'Artwork must belong to the selected course');
@@ -127,6 +155,7 @@ try {
     await page.getByRole('button', { name: '決定', exact: true }).click();
     await page.getByRole('button', { name: /Basic Training/ }).click();
     await loaded(page.locator(`.battle-avatar [data-monster-art="m${level}_1"]`));
+    if (nameFor(course, `m${level}_1`)) await page.getByText(nameFor(course, `m${level}_1`), { exact: true }).first().waitFor();
     await page.keyboard.type(targetText.slice(0, 2));
     assert.equal(await page.locator('.battle-input').inputValue(), targetText.slice(0, 2));
     assert.deepEqual(errors, []);
@@ -135,7 +164,7 @@ try {
     await closeTestContext(page, context);
   }
   }
-  for (const [course, level] of [['EikenPre2', 1]]) {
+  for (const [course, level] of [['Conversation', 1]]) {
     const { context, page, errors, artRequests } = await openCourse(course, level);
     assert.equal(await page.locator('[data-monster-art]').count(), 0);
     await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();

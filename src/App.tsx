@@ -23,6 +23,7 @@ import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
 import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
 import MonsterPreview from './MonsterPreview';
+import { applyMonsterProfile } from './monsterProfiles';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
@@ -89,6 +90,7 @@ interface Monster {
   dialogueStart: string;
   dialogueDefeat: string;
   battleDialogues?: Partial<Record<MonsterDialogueState, string[]>>;
+  courseProfile?: boolean;
   theme: string;
 }
 
@@ -3204,7 +3206,7 @@ const MONSTER_VISUALS: Partial<Record<string, MonsterVisualStyle>> = {
 
 const getMonsterVisualStyle = (monster: Monster): MonsterVisualStyle | undefined => {
   const presetStyle = MONSTER_VISUALS[monster.id];
-  if (presetStyle) return presetStyle;
+  if (presetStyle && !monster.courseProfile) return presetStyle;
 
   const theme = monster.theme.toLowerCase();
   const name = monster.name;
@@ -3636,6 +3638,10 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
 };
 
 // --- Components ---
+const getCourseMonsters = (difficulty: Difficulty, level: Level) => ({
+  guide: MONSTERS[level].guide.map(monster => applyMonsterProfile(difficulty, monster)),
+  challenge: MONSTERS[level].challenge.map(monster => applyMonsterProfile(difficulty, monster)),
+});
 type GameButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'outline' | 'ghost';
 type GameButtonSize = 'sm' | 'md' | 'lg';
 
@@ -6134,7 +6140,7 @@ export default function App() {
   };
 
   const startGame = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, reviewQuestions?: Question[] | null) => {
-    const monstersObj = MONSTERS[level];
+    const monstersObj = getCourseMonsters(diff, level);
     const guideTargetCount = getGuideTargetCount(diff, level);
     const listeningTargetCount = getListeningTargetCount(diff, level);
     let selectedList: Monster[] = [];
@@ -7553,7 +7559,7 @@ export default function App() {
   }
 
   if (gameState.screen === 'monster-book') {
-    const monstersObj = MONSTERS[bookLevel];
+    const monstersObj = getCourseMonsters(bookDifficulty, bookLevel);
     const visibleGuideMonsters = monstersObj.guide.slice(0, getGuideTargetCount(bookDifficulty, bookLevel));
     const visibleChallengeMonsterIndices = getBattleStageIndices(monstersObj.challenge, HARD_TARGET_COUNT, 'challenge', 'text-only');
     const visibleChallengeMonsters = visibleChallengeMonsterIndices.map(index => monstersObj.challenge[index]).filter(Boolean);
@@ -7603,7 +7609,7 @@ export default function App() {
            <Box title={`Monster Collection - ${DIFFICULTY_LABELS[bookDifficulty]} - Level ${bookLevel}`} className="w-full">
                <div className="mb-4 flex flex-wrap justify-center gap-3">{DIFFICULTIES.map((diff) => (<button key={diff} onClick={() => updateBookDifficulty(diff)} className={`px-5 py-2 rounded-full font-bold transition-all border-2 ${bookDifficulty === diff ? 'bg-blue-600 border-blue-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-300 hover:bg-slate-600'}`}>{DIFFICULTY_LABELS[diff]}</button>))}</div>
                <div className="mb-4 rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-center text-xs text-slate-300">
-                 モンスターの種類はレベルごとに共通です。ここでは <span className="font-bold text-blue-200">{DIFFICULTY_LABELS[bookDifficulty]}</span> の進行状況を表示しています。
+                 ここでは <span className="font-bold text-blue-200">{DIFFICULTY_LABELS[bookDifficulty]}</span> の進行状況を表示しています。同じ級・レベルのキャラクターは、出題方法が違っても共通です。
                  <p className="mt-2 text-cyan-200">モンスターをクリック・タップすると拡大できます。</p>
                </div>
                <div className="flex justify-center gap-4 mb-8">{availableBookLevels.map((lvl) => (<button key={lvl} onClick={() => setBookLevel(lvl as Level)} className={`px-6 py-2 rounded-full font-bold transition-all border-2 ${bookLevel === lvl ? 'bg-emerald-600 border-emerald-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-400 hover:bg-slate-600'}`}>レベル {lvl}</button>))}</div>
@@ -9300,8 +9306,8 @@ export default function App() {
     const nextBattleMode: Extract<Mode, 'guide' | 'challenge'> = resumeMode;
     const nextBattleInputMode = resumeInputMode;
     const nextBattleList = nextBattleMode === 'guide' || nextBattleInputMode === 'voice-text'
-      ? MONSTERS[gameState.selectedLevel].guide
-      : MONSTERS[gameState.selectedLevel].challenge;
+      ? getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel).guide
+      : getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel).challenge;
     const nextBattleTargetCount = nextBattleMode === 'guide'
       ? getGuideTargetCount(gameState.selectedDifficulty, gameState.selectedLevel)
       : nextBattleInputMode === 'voice-text'
@@ -10086,7 +10092,7 @@ export default function App() {
 
   if (gameState.screen === 'mode-select') {
     const isConversationCourse = gameState.selectedDifficulty === 'Conversation';
-    const monstersObj = MONSTERS[gameState.selectedLevel];
+    const monstersObj = getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel);
     const learningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const guideTargetCount = getGuideTargetCount(gameState.selectedDifficulty, gameState.selectedLevel);
     const listeningTargetCount = getListeningTargetCount(gameState.selectedDifficulty, gameState.selectedLevel);

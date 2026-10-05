@@ -1,3 +1,5 @@
+import { getMonsterProfile } from './monsterProfiles';
+
 // Artwork is rolled out course by course. Other courses keep their SVG avatars.
 const artIdsForLevel = (level: number) => [
   ...Array.from({ length: 10 }, (_, i) => `m${level}_${i + 1}`),
@@ -12,6 +14,8 @@ const illustratedCourses = new Set(['Eiken5', 'Eiken4', 'Eiken3']);
 const illustratedMonsterIds = new Set(EIKEN5_ART_IDS);
 
 export const getMonsterArtUrl = (monsterId: string | undefined, difficulty: string | undefined, size = 384) => {
+  const profile = getMonsterProfile(difficulty, monsterId);
+  if (profile) return `${import.meta.env.BASE_URL}monsters/${profile.artFolder}/${size <= 100 ? 256 : 384}/${monsterId}.webp`;
   if (!monsterId || !difficulty || !illustratedCourses.has(difficulty) || !illustratedMonsterIds.has(monsterId)) return undefined;
   const folder = `${difficulty.toLowerCase()}-level${monsterId[1]}`;
   return `${import.meta.env.BASE_URL}monsters/${folder}/${size <= 100 ? 256 : 384}/${monsterId}.webp`;

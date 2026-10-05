@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-05",
+  "status": "passed",
+  "newNameCount": 1032,
+  "retainedEiken5NameCount": 129,
+  "combinedUniqueNameCount": 1161,
+  "exactOrFormattingDuplicateCount": 0,
+  "kanaOrLongVowelDuplicateCount": 0,
+  "duplicateAssignmentCount": 0,
+  "sourceAppSha256": "63b426933a015a9d553f9f855e2866229a9a1c00f119e5a1570130119d17d7a7",
+  "sourceHashes": {
+    "eiken4": "a24b05fff8d56e26aa57d8a598f937e0ef8090d223342014ddddf162b269bdb6",
+    "eiken3": "3cf0168c9ffa25720a121a3aeb1509000e20048353d3709504b86e076ca402cd",
+    "eikenpre2": "3f8cb149b9e8b7e572472c4b0172c9c8ca94e8367c4e5d8b6f7082ed893abc88",
+    "eiken2": "b77849aaabf27aa48cd145b2d15e319d50d8e561869d3318f5f56d83caa9aa0b",
+    "eikenpre1part1": "b43ae8af090384033d1796a9c59d2bb03142a58cb1739ee6f375ce79c108ea8f",
+    "eikenpre1part2": "21dfad50a9295029cc334ff37aac3d779b12ef4bc8b3f3b1f45cc3262fbe71ca",
+    "eiken1part1": "19f5356e535dc6b5d3d313cbb4533b831ac8e54f6c9732919e74c29c68774952",
+    "eiken1part2": "2f09a6ff33e106c0e64640288423e74c30d08654070190fd32cd6833608b6432"
+  },
+  "counts": [
+    {
+      "course": "Eiken4",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "Eiken3",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "EikenPre2",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "Eiken2",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part1",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part1",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part2",
+      "total": 129,
+      "levels": [
+        {
+          "level": 1,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 2,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        },
+        {
+          "level": 3,
+          "training": 20,
+          "battle": 23,
+          "total": 43
+        }
+      ]
+    }
+  ]
+}
