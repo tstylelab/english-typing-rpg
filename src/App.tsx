@@ -644,7 +644,11 @@ const getBattleTuning = (
     : originalHp;
 
   return {
-    monsterHp,
+    // Let learners advance through phrases before mastering every remaining item.
+    // Apply once after all course, question-count and boss HP adjustments.
+    monsterHp: difficulty.startsWith('Eiken') && level === 2
+      ? Math.max(1, Math.round(monsterHp * 0.88))
+      : monsterHp,
     damageMultiplier: getBattleDamageMultiplier(mode, inputMode),
     maxQuestions,
   };

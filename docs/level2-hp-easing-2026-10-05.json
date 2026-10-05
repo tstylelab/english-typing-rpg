@@ -1,0 +1,2007 @@
+{
+  "baseline": "001078b",
+  "reductionPercent": 12,
+  "scope": "All Eiken Level 2 modes and boss stages",
+  "easedCases": 7452,
+  "unchangedCases": 17388,
+  "rows": [
+    {
+      "course": "Eiken5",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 260,
+          "after": 229
+        },
+        {
+          "id": "m2_2",
+          "before": 290,
+          "after": 255
+        },
+        {
+          "id": "m2_3",
+          "before": 320,
+          "after": 282
+        },
+        {
+          "id": "m2_4",
+          "before": 350,
+          "after": 308
+        },
+        {
+          "id": "m2_5",
+          "before": 380,
+          "after": 334
+        },
+        {
+          "id": "m2_6",
+          "before": 400,
+          "after": 352
+        },
+        {
+          "id": "m2_7",
+          "before": 415,
+          "after": 365
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 430,
+          "after": 378
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 440,
+          "after": 387
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 450,
+          "after": 396
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 460,
+          "after": 405
+        },
+        {
+          "id": "m2_8",
+          "before": 470,
+          "after": 414
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 480,
+          "after": 422
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 490,
+          "after": 431
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 500,
+          "after": 440
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 505,
+          "after": 444
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 510,
+          "after": 449
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 515,
+          "after": 453
+        },
+        {
+          "id": "m2_9",
+          "before": 520,
+          "after": 458
+        },
+        {
+          "id": "m2_10",
+          "before": 780,
+          "after": 686
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 1050,
+          "after": 924
+        },
+        {
+          "id": "c2_2",
+          "before": 1220,
+          "after": 1074
+        },
+        {
+          "id": "c2_3",
+          "before": 1380,
+          "after": 1214
+        },
+        {
+          "id": "c2_4",
+          "before": 1530,
+          "after": 1346
+        },
+        {
+          "id": "c2_5",
+          "before": 1650,
+          "after": 1452
+        },
+        {
+          "id": "c2_6",
+          "before": 1680,
+          "after": 1478
+        },
+        {
+          "id": "c2_8",
+          "before": 1700,
+          "after": 1496
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 1710,
+          "after": 1505
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1720,
+          "after": 1514
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1730,
+          "after": 1522
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1740,
+          "after": 1531
+        },
+        {
+          "id": "c2_9",
+          "before": 1750,
+          "after": 1540
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1760,
+          "after": 1549
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1770,
+          "after": 1558
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1780,
+          "after": 1566
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1790,
+          "after": 1575
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1800,
+          "after": 1584
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1810,
+          "after": 1593
+        },
+        {
+          "id": "c2_10",
+          "before": 1820,
+          "after": 1602
+        },
+        {
+          "id": "c2_7",
+          "before": 2730,
+          "after": 2402
+        },
+        {
+          "id": "c2_11",
+          "before": 3640,
+          "after": 3203
+        },
+        {
+          "id": "c2_12",
+          "before": 4095,
+          "after": 3604
+        },
+        {
+          "id": "c2_13",
+          "before": 4550,
+          "after": 4004
+        }
+      ]
+    },
+    {
+      "course": "Eiken4",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 240,
+          "after": 211
+        },
+        {
+          "id": "m2_2",
+          "before": 280,
+          "after": 246
+        },
+        {
+          "id": "m2_3",
+          "before": 320,
+          "after": 282
+        },
+        {
+          "id": "m2_4",
+          "before": 360,
+          "after": 317
+        },
+        {
+          "id": "m2_5",
+          "before": 400,
+          "after": 352
+        },
+        {
+          "id": "m2_6",
+          "before": 440,
+          "after": 387
+        },
+        {
+          "id": "m2_7",
+          "before": 480,
+          "after": 422
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 486,
+          "after": 428
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 493,
+          "after": 434
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 499,
+          "after": 439
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 506,
+          "after": 445
+        },
+        {
+          "id": "m2_8",
+          "before": 512,
+          "after": 451
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 518,
+          "after": 456
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 525,
+          "after": 462
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 531,
+          "after": 467
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 538,
+          "after": 473
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 544,
+          "after": 479
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 552,
+          "after": 486
+        },
+        {
+          "id": "m2_9",
+          "before": 560,
+          "after": 493
+        },
+        {
+          "id": "m2_10",
+          "before": 1120,
+          "after": 986
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 800,
+          "after": 704
+        },
+        {
+          "id": "c2_2",
+          "before": 856,
+          "after": 753
+        },
+        {
+          "id": "c2_3",
+          "before": 912,
+          "after": 803
+        },
+        {
+          "id": "c2_4",
+          "before": 976,
+          "after": 859
+        },
+        {
+          "id": "c2_5",
+          "before": 1032,
+          "after": 908
+        },
+        {
+          "id": "c2_6",
+          "before": 1088,
+          "after": 957
+        },
+        {
+          "id": "c2_8",
+          "before": 1144,
+          "after": 1007
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 1208,
+          "after": 1063
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1264,
+          "after": 1112
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1320,
+          "after": 1162
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1376,
+          "after": 1211
+        },
+        {
+          "id": "c2_9",
+          "before": 1432,
+          "after": 1260
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1496,
+          "after": 1316
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1552,
+          "after": 1366
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1608,
+          "after": 1415
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1664,
+          "after": 1464
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1728,
+          "after": 1521
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1784,
+          "after": 1570
+        },
+        {
+          "id": "c2_10",
+          "before": 1840,
+          "after": 1619
+        },
+        {
+          "id": "c2_7",
+          "before": 4736,
+          "after": 4168
+        },
+        {
+          "id": "c2_11",
+          "before": 7104,
+          "after": 6252
+        },
+        {
+          "id": "c2_12",
+          "before": 9472,
+          "after": 8335
+        },
+        {
+          "id": "c2_13",
+          "before": 11840,
+          "after": 10419
+        }
+      ]
+    },
+    {
+      "course": "Eiken3",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 240,
+          "after": 211
+        },
+        {
+          "id": "m2_2",
+          "before": 256,
+          "after": 225
+        },
+        {
+          "id": "m2_3",
+          "before": 264,
+          "after": 232
+        },
+        {
+          "id": "m2_4",
+          "before": 280,
+          "after": 246
+        },
+        {
+          "id": "m2_5",
+          "before": 288,
+          "after": 253
+        },
+        {
+          "id": "m2_6",
+          "before": 304,
+          "after": 268
+        },
+        {
+          "id": "m2_7",
+          "before": 312,
+          "after": 275
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 328,
+          "after": 289
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 344,
+          "after": 303
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 352,
+          "after": 310
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 368,
+          "after": 324
+        },
+        {
+          "id": "m2_8",
+          "before": 376,
+          "after": 331
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 392,
+          "after": 345
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 408,
+          "after": 359
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 416,
+          "after": 366
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 440,
+          "after": 387
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 456,
+          "after": 401
+        },
+        {
+          "id": "m2_9",
+          "before": 464,
+          "after": 408
+        },
+        {
+          "id": "m2_10",
+          "before": 900,
+          "after": 792
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 960,
+          "after": 845
+        },
+        {
+          "id": "c2_2",
+          "before": 984,
+          "after": 866
+        },
+        {
+          "id": "c2_3",
+          "before": 1000,
+          "after": 880
+        },
+        {
+          "id": "c2_4",
+          "before": 1024,
+          "after": 901
+        },
+        {
+          "id": "c2_5",
+          "before": 1048,
+          "after": 922
+        },
+        {
+          "id": "c2_6",
+          "before": 1064,
+          "after": 936
+        },
+        {
+          "id": "c2_8",
+          "before": 1088,
+          "after": 957
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 1104,
+          "after": 972
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1128,
+          "after": 993
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1152,
+          "after": 1014
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1168,
+          "after": 1028
+        },
+        {
+          "id": "c2_9",
+          "before": 1192,
+          "after": 1049
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1216,
+          "after": 1070
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1232,
+          "after": 1084
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1256,
+          "after": 1105
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1296,
+          "after": 1140
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1320,
+          "after": 1162
+        },
+        {
+          "id": "c2_10",
+          "before": 1336,
+          "after": 1176
+        },
+        {
+          "id": "c2_7",
+          "before": 2550,
+          "after": 2244
+        },
+        {
+          "id": "c2_11",
+          "before": 4692,
+          "after": 4129
+        },
+        {
+          "id": "c2_12",
+          "before": 7027,
+          "after": 6184
+        },
+        {
+          "id": "c2_13",
+          "before": 9714,
+          "after": 8548
+        }
+      ]
+    },
+    {
+      "course": "EikenPre2",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 240,
+          "after": 211
+        },
+        {
+          "id": "m2_2",
+          "before": 256,
+          "after": 225
+        },
+        {
+          "id": "m2_3",
+          "before": 264,
+          "after": 232
+        },
+        {
+          "id": "m2_4",
+          "before": 280,
+          "after": 246
+        },
+        {
+          "id": "m2_5",
+          "before": 288,
+          "after": 253
+        },
+        {
+          "id": "m2_6",
+          "before": 304,
+          "after": 268
+        },
+        {
+          "id": "m2_7",
+          "before": 312,
+          "after": 275
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 328,
+          "after": 289
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 344,
+          "after": 303
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 352,
+          "after": 310
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 368,
+          "after": 324
+        },
+        {
+          "id": "m2_8",
+          "before": 376,
+          "after": 331
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 392,
+          "after": 345
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 408,
+          "after": 359
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 416,
+          "after": 366
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 440,
+          "after": 387
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 456,
+          "after": 401
+        },
+        {
+          "id": "m2_9",
+          "before": 464,
+          "after": 408
+        },
+        {
+          "id": "m2_10",
+          "before": 900,
+          "after": 792
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 960,
+          "after": 845
+        },
+        {
+          "id": "c2_2",
+          "before": 984,
+          "after": 866
+        },
+        {
+          "id": "c2_3",
+          "before": 1000,
+          "after": 880
+        },
+        {
+          "id": "c2_4",
+          "before": 1024,
+          "after": 901
+        },
+        {
+          "id": "c2_5",
+          "before": 1048,
+          "after": 922
+        },
+        {
+          "id": "c2_6",
+          "before": 1064,
+          "after": 936
+        },
+        {
+          "id": "c2_8",
+          "before": 1088,
+          "after": 957
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 1104,
+          "after": 972
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1128,
+          "after": 993
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1152,
+          "after": 1014
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1168,
+          "after": 1028
+        },
+        {
+          "id": "c2_9",
+          "before": 1192,
+          "after": 1049
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1216,
+          "after": 1070
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1232,
+          "after": 1084
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1256,
+          "after": 1105
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1296,
+          "after": 1140
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1320,
+          "after": 1162
+        },
+        {
+          "id": "c2_10",
+          "before": 1336,
+          "after": 1176
+        },
+        {
+          "id": "c2_7",
+          "before": 2550,
+          "after": 2244
+        },
+        {
+          "id": "c2_11",
+          "before": 4692,
+          "after": 4129
+        },
+        {
+          "id": "c2_12",
+          "before": 7027,
+          "after": 6184
+        },
+        {
+          "id": "c2_13",
+          "before": 9714,
+          "after": 8548
+        }
+      ]
+    },
+    {
+      "course": "Eiken2",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 240,
+          "after": 211
+        },
+        {
+          "id": "m2_2",
+          "before": 256,
+          "after": 225
+        },
+        {
+          "id": "m2_3",
+          "before": 264,
+          "after": 232
+        },
+        {
+          "id": "m2_4",
+          "before": 280,
+          "after": 246
+        },
+        {
+          "id": "m2_5",
+          "before": 288,
+          "after": 253
+        },
+        {
+          "id": "m2_6",
+          "before": 304,
+          "after": 268
+        },
+        {
+          "id": "m2_7",
+          "before": 312,
+          "after": 275
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 328,
+          "after": 289
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 344,
+          "after": 303
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 352,
+          "after": 310
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 368,
+          "after": 324
+        },
+        {
+          "id": "m2_8",
+          "before": 376,
+          "after": 331
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 392,
+          "after": 345
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 408,
+          "after": 359
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 416,
+          "after": 366
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 440,
+          "after": 387
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 456,
+          "after": 401
+        },
+        {
+          "id": "m2_9",
+          "before": 464,
+          "after": 408
+        },
+        {
+          "id": "m2_10",
+          "before": 900,
+          "after": 792
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 960,
+          "after": 845
+        },
+        {
+          "id": "c2_2",
+          "before": 984,
+          "after": 866
+        },
+        {
+          "id": "c2_3",
+          "before": 1000,
+          "after": 880
+        },
+        {
+          "id": "c2_4",
+          "before": 1024,
+          "after": 901
+        },
+        {
+          "id": "c2_5",
+          "before": 1048,
+          "after": 922
+        },
+        {
+          "id": "c2_6",
+          "before": 1064,
+          "after": 936
+        },
+        {
+          "id": "c2_8",
+          "before": 1088,
+          "after": 957
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 1104,
+          "after": 972
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1128,
+          "after": 993
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1152,
+          "after": 1014
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1168,
+          "after": 1028
+        },
+        {
+          "id": "c2_9",
+          "before": 1192,
+          "after": 1049
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1216,
+          "after": 1070
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1232,
+          "after": 1084
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1256,
+          "after": 1105
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1296,
+          "after": 1140
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1320,
+          "after": 1162
+        },
+        {
+          "id": "c2_10",
+          "before": 1336,
+          "after": 1176
+        },
+        {
+          "id": "c2_7",
+          "before": 2550,
+          "after": 2244
+        },
+        {
+          "id": "c2_11",
+          "before": 4692,
+          "after": 4129
+        },
+        {
+          "id": "c2_12",
+          "before": 7027,
+          "after": 6184
+        },
+        {
+          "id": "c2_13",
+          "before": 9714,
+          "after": 8548
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part1",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 324,
+          "after": 285
+        },
+        {
+          "id": "m2_2",
+          "before": 378,
+          "after": 333
+        },
+        {
+          "id": "m2_3",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_4",
+          "before": 486,
+          "after": 428
+        },
+        {
+          "id": "m2_5",
+          "before": 540,
+          "after": 475
+        },
+        {
+          "id": "m2_6",
+          "before": 594,
+          "after": 523
+        },
+        {
+          "id": "m2_7",
+          "before": 648,
+          "after": 570
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 657,
+          "after": 578
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 666,
+          "after": 586
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 674,
+          "after": 593
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 682,
+          "after": 600
+        },
+        {
+          "id": "m2_8",
+          "before": 691,
+          "after": 608
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 700,
+          "after": 616
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 709,
+          "after": 624
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 717,
+          "after": 631
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 726,
+          "after": 639
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 734,
+          "after": 646
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 746,
+          "after": 656
+        },
+        {
+          "id": "m2_9",
+          "before": 756,
+          "after": 665
+        },
+        {
+          "id": "m2_10",
+          "before": 1512,
+          "after": 1331
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 640,
+          "after": 563
+        },
+        {
+          "id": "c2_2",
+          "before": 688,
+          "after": 605
+        },
+        {
+          "id": "c2_3",
+          "before": 736,
+          "after": 648
+        },
+        {
+          "id": "c2_4",
+          "before": 784,
+          "after": 690
+        },
+        {
+          "id": "c2_5",
+          "before": 832,
+          "after": 732
+        },
+        {
+          "id": "c2_6",
+          "before": 872,
+          "after": 767
+        },
+        {
+          "id": "c2_8",
+          "before": 920,
+          "after": 810
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 968,
+          "after": 852
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1008,
+          "after": 887
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1056,
+          "after": 929
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1096,
+          "after": 964
+        },
+        {
+          "id": "c2_9",
+          "before": 1144,
+          "after": 1007
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1184,
+          "after": 1042
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1224,
+          "after": 1077
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1312,
+          "after": 1155
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1352,
+          "after": 1190
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1400,
+          "after": 1232
+        },
+        {
+          "id": "c2_10",
+          "before": 1440,
+          "after": 1267
+        },
+        {
+          "id": "c2_7",
+          "before": 6394,
+          "after": 5627
+        },
+        {
+          "id": "c2_11",
+          "before": 9590,
+          "after": 8439
+        },
+        {
+          "id": "c2_12",
+          "before": 12787,
+          "after": 11253
+        },
+        {
+          "id": "c2_13",
+          "before": 15984,
+          "after": 14066
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 324,
+          "after": 285
+        },
+        {
+          "id": "m2_2",
+          "before": 378,
+          "after": 333
+        },
+        {
+          "id": "m2_3",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_4",
+          "before": 486,
+          "after": 428
+        },
+        {
+          "id": "m2_5",
+          "before": 540,
+          "after": 475
+        },
+        {
+          "id": "m2_6",
+          "before": 594,
+          "after": 523
+        },
+        {
+          "id": "m2_7",
+          "before": 648,
+          "after": 570
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 657,
+          "after": 578
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 666,
+          "after": 586
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 674,
+          "after": 593
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 682,
+          "after": 600
+        },
+        {
+          "id": "m2_8",
+          "before": 691,
+          "after": 608
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 700,
+          "after": 616
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 709,
+          "after": 624
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 717,
+          "after": 631
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 726,
+          "after": 639
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 734,
+          "after": 646
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 746,
+          "after": 656
+        },
+        {
+          "id": "m2_9",
+          "before": 756,
+          "after": 665
+        },
+        {
+          "id": "m2_10",
+          "before": 1512,
+          "after": 1331
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 640,
+          "after": 563
+        },
+        {
+          "id": "c2_2",
+          "before": 688,
+          "after": 605
+        },
+        {
+          "id": "c2_3",
+          "before": 736,
+          "after": 648
+        },
+        {
+          "id": "c2_4",
+          "before": 784,
+          "after": 690
+        },
+        {
+          "id": "c2_5",
+          "before": 832,
+          "after": 732
+        },
+        {
+          "id": "c2_6",
+          "before": 872,
+          "after": 767
+        },
+        {
+          "id": "c2_8",
+          "before": 920,
+          "after": 810
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 968,
+          "after": 852
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1008,
+          "after": 887
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1056,
+          "after": 929
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1096,
+          "after": 964
+        },
+        {
+          "id": "c2_9",
+          "before": 1144,
+          "after": 1007
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1184,
+          "after": 1042
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1224,
+          "after": 1077
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1312,
+          "after": 1155
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1352,
+          "after": 1190
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1400,
+          "after": 1232
+        },
+        {
+          "id": "c2_10",
+          "before": 1440,
+          "after": 1267
+        },
+        {
+          "id": "c2_7",
+          "before": 6394,
+          "after": 5627
+        },
+        {
+          "id": "c2_11",
+          "before": 9590,
+          "after": 8439
+        },
+        {
+          "id": "c2_12",
+          "before": 12787,
+          "after": 11253
+        },
+        {
+          "id": "c2_13",
+          "before": 15984,
+          "after": 14066
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part1",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 324,
+          "after": 285
+        },
+        {
+          "id": "m2_2",
+          "before": 378,
+          "after": 333
+        },
+        {
+          "id": "m2_3",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_4",
+          "before": 486,
+          "after": 428
+        },
+        {
+          "id": "m2_5",
+          "before": 540,
+          "after": 475
+        },
+        {
+          "id": "m2_6",
+          "before": 594,
+          "after": 523
+        },
+        {
+          "id": "m2_7",
+          "before": 648,
+          "after": 570
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 657,
+          "after": 578
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 666,
+          "after": 586
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 674,
+          "after": 593
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 682,
+          "after": 600
+        },
+        {
+          "id": "m2_8",
+          "before": 691,
+          "after": 608
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 700,
+          "after": 616
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 709,
+          "after": 624
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 717,
+          "after": 631
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 726,
+          "after": 639
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 734,
+          "after": 646
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 746,
+          "after": 656
+        },
+        {
+          "id": "m2_9",
+          "before": 756,
+          "after": 665
+        },
+        {
+          "id": "m2_10",
+          "before": 1512,
+          "after": 1331
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 640,
+          "after": 563
+        },
+        {
+          "id": "c2_2",
+          "before": 688,
+          "after": 605
+        },
+        {
+          "id": "c2_3",
+          "before": 736,
+          "after": 648
+        },
+        {
+          "id": "c2_4",
+          "before": 784,
+          "after": 690
+        },
+        {
+          "id": "c2_5",
+          "before": 832,
+          "after": 732
+        },
+        {
+          "id": "c2_6",
+          "before": 872,
+          "after": 767
+        },
+        {
+          "id": "c2_8",
+          "before": 920,
+          "after": 810
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 968,
+          "after": 852
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1008,
+          "after": 887
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1056,
+          "after": 929
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1096,
+          "after": 964
+        },
+        {
+          "id": "c2_9",
+          "before": 1144,
+          "after": 1007
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1184,
+          "after": 1042
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1224,
+          "after": 1077
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1312,
+          "after": 1155
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1352,
+          "after": 1190
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1400,
+          "after": 1232
+        },
+        {
+          "id": "c2_10",
+          "before": 1440,
+          "after": 1267
+        },
+        {
+          "id": "c2_7",
+          "before": 6394,
+          "after": 5627
+        },
+        {
+          "id": "c2_11",
+          "before": 9590,
+          "after": 8439
+        },
+        {
+          "id": "c2_12",
+          "before": 12787,
+          "after": 11253
+        },
+        {
+          "id": "c2_13",
+          "before": 15984,
+          "after": 14066
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part2",
+      "training": [
+        {
+          "id": "m2_1",
+          "before": 324,
+          "after": 285
+        },
+        {
+          "id": "m2_2",
+          "before": 378,
+          "after": 333
+        },
+        {
+          "id": "m2_3",
+          "before": 432,
+          "after": 380
+        },
+        {
+          "id": "m2_4",
+          "before": 486,
+          "after": 428
+        },
+        {
+          "id": "m2_5",
+          "before": 540,
+          "after": 475
+        },
+        {
+          "id": "m2_6",
+          "before": 594,
+          "after": 523
+        },
+        {
+          "id": "m2_7",
+          "before": 648,
+          "after": 570
+        },
+        {
+          "id": "m2_extra_1",
+          "before": 657,
+          "after": 578
+        },
+        {
+          "id": "m2_extra_2",
+          "before": 666,
+          "after": 586
+        },
+        {
+          "id": "m2_extra_3",
+          "before": 674,
+          "after": 593
+        },
+        {
+          "id": "m2_extra_4",
+          "before": 682,
+          "after": 600
+        },
+        {
+          "id": "m2_8",
+          "before": 691,
+          "after": 608
+        },
+        {
+          "id": "m2_extra_5",
+          "before": 700,
+          "after": 616
+        },
+        {
+          "id": "m2_extra_6",
+          "before": 709,
+          "after": 624
+        },
+        {
+          "id": "m2_extra_7",
+          "before": 717,
+          "after": 631
+        },
+        {
+          "id": "m2_extra_8",
+          "before": 726,
+          "after": 639
+        },
+        {
+          "id": "m2_extra_9",
+          "before": 734,
+          "after": 646
+        },
+        {
+          "id": "m2_extra_10",
+          "before": 746,
+          "after": 656
+        },
+        {
+          "id": "m2_9",
+          "before": 756,
+          "after": 665
+        },
+        {
+          "id": "m2_10",
+          "before": 1512,
+          "after": 1331
+        }
+      ],
+      "battle": [
+        {
+          "id": "c2_1",
+          "before": 640,
+          "after": 563
+        },
+        {
+          "id": "c2_2",
+          "before": 688,
+          "after": 605
+        },
+        {
+          "id": "c2_3",
+          "before": 736,
+          "after": 648
+        },
+        {
+          "id": "c2_4",
+          "before": 784,
+          "after": 690
+        },
+        {
+          "id": "c2_5",
+          "before": 832,
+          "after": 732
+        },
+        {
+          "id": "c2_6",
+          "before": 872,
+          "after": 767
+        },
+        {
+          "id": "c2_8",
+          "before": 920,
+          "after": 810
+        },
+        {
+          "id": "c2_extra_1",
+          "before": 968,
+          "after": 852
+        },
+        {
+          "id": "c2_extra_2",
+          "before": 1008,
+          "after": 887
+        },
+        {
+          "id": "c2_extra_3",
+          "before": 1056,
+          "after": 929
+        },
+        {
+          "id": "c2_extra_4",
+          "before": 1096,
+          "after": 964
+        },
+        {
+          "id": "c2_9",
+          "before": 1144,
+          "after": 1007
+        },
+        {
+          "id": "c2_extra_5",
+          "before": 1184,
+          "after": 1042
+        },
+        {
+          "id": "c2_extra_6",
+          "before": 1224,
+          "after": 1077
+        },
+        {
+          "id": "c2_extra_7",
+          "before": 1272,
+          "after": 1119
+        },
+        {
+          "id": "c2_extra_8",
+          "before": 1312,
+          "after": 1155
+        },
+        {
+          "id": "c2_extra_9",
+          "before": 1352,
+          "after": 1190
+        },
+        {
+          "id": "c2_extra_10",
+          "before": 1400,
+          "after": 1232
+        },
+        {
+          "id": "c2_10",
+          "before": 1440,
+          "after": 1267
+        },
+        {
+          "id": "c2_7",
+          "before": 6394,
+          "after": 5627
+        },
+        {
+          "id": "c2_11",
+          "before": 9590,
+          "after": 8439
+        },
+        {
+          "id": "c2_12",
+          "before": 12787,
+          "after": 11253
+        },
+        {
+          "id": "c2_13",
+          "before": 15984,
+          "after": 14066
+        }
+      ]
+    }
+  ]
+}

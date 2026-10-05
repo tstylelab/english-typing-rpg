@@ -44,7 +44,7 @@ for (const course of Object.keys(QUESTIONS)) for (const level of [1,2,3]) for (c
   for(let i=0;i<23;i++) {
     const boss=i<19?0:i-18;
     // Level 2 HP/limits now have their own proportional-scaling regression test.
-    if (!(course.startsWith('Eiken') && course!=='Eiken5' && level===2 && mode!=='weakness')) {
+    if (!(course.startsWith('Eiken') && level===2)) {
       assert.equal(JSON.stringify(current.tune(course,level,mode,input,i,4900,boss)),JSON.stringify(previous.tune(course,level,mode,input,i,4900,boss)));
     }
     for(const misses of [0,1,3,8]) for(const speed of [.5,2,4]) {

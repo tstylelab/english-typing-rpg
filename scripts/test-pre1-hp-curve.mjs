@@ -9,6 +9,7 @@ const ctx = { ...load('src/data/grade3Balance.ts'), ...load('src/data/pre2Balanc
 vm.runInNewContext(ts.transpile(region + '\nglobalThis.tune=getBattleTuning;globalThis.miss=getLongTextBattleMissMultiplier;', { target: ts.ScriptTarget.ES2022 }), ctx);
 const expected = [500,600,700,800,900,980,1050,1120,1180,1240,1300,1360,1420,1480,1540,1600,1660,1720,1780];
 const previous = [420,580,740,900,1040,1200,1260,1267,1273,1280,1287,1293,1300,1307,1313,1320,1327,1333,1340];
+const eased = hp => Math.max(1, Math.round(hp * 0.88));
 for (const course of ['EikenPre1Part1','EikenPre1Part2']) {
 for (const input of ['voice-only','text-only']) {
   expected.forEach((hp, i) => {
@@ -28,14 +29,14 @@ for (const input of ['voice-only','text-only']) {
       const tuned=ctx.tune(course,level,'challenge',input,i,2000,0);
       assert.ok(tuned.monsterHp>last);last=tuned.monsterHp;
       assert.equal(tuned.maxQuestions,8);
-      if(i%3===0) assert.equal(tuned.monsterHp,Math.round(targets[i/3]*0.8));
-      assert.equal(ctx.tune(course,level,'guide','voice-text',i,2000,0).monsterHp,2160);
-      assert.equal(ctx.tune(course,level,'challenge','voice-text',i,2000,0).monsterHp,2160);
+      if(i%3===0) assert.equal(tuned.monsterHp,eased(Math.round(targets[i/3]*0.8)));
+      assert.equal(ctx.tune(course,level,'guide','voice-text',i,2000,0).monsterHp,eased(2160));
+      assert.equal(ctx.tune(course,level,'challenge','voice-text',i,2000,0).monsterHp,eased(2160));
     }
     for(let boss=1;boss<=4;boss++) {
       const base=level===2?2960:4900;
       const tuned=ctx.tune(course,level,'challenge',input,18+boss,base,boss);
-      assert.equal(tuned.monsterHp,Math.round(Math.round(base*1.35*(boss+1))*0.8));
+      assert.equal(tuned.monsterHp,eased(Math.round(Math.round(base*1.35*(boss+1))*0.8)));
       assert.equal(tuned.maxQuestions,(boss+1)*8);
     }
   }
@@ -64,13 +65,13 @@ for(const level of [1,2]) for(const input of ['voice-only','text-only']) {
     const t=ctx.tune('Eiken4',level,'challenge',input,i,2000,0);
     assert.ok(t.monsterHp>last);last=t.monsterHp;
     assert.equal(t.maxQuestions,level===2?8:10);
-    if(i%3===0) assert.equal(t.monsterHp,Math.round(targets[i/3]*(level===2?0.8:1)));
-    for(const mode of ['guide','challenge']) assert.equal(ctx.tune('Eiken4',level,mode,'voice-text',i,2000,0).monsterHp,level===2?1600:2000);
+    if(i%3===0) assert.equal(t.monsterHp,level===2?eased(Math.round(targets[i/3]*0.8)):targets[i/3]);
+    for(const mode of ['guide','challenge']) assert.equal(ctx.tune('Eiken4',level,mode,'voice-text',i,2000,0).monsterHp,level===2?eased(1600):2000);
   }
   for(let boss=1;boss<=4;boss++) {
     const base=level===1?1340:level===2?2960:4900;
     const t=ctx.tune('Eiken4',level,'challenge',input,18+boss,base,boss);
-    assert.equal(t.monsterHp,Math.round(base*(boss+1)*(level===2?0.8:1)));
+    assert.equal(t.monsterHp,level===2?eased(Math.round(base*(boss+1)*0.8)):base*(boss+1));
     assert.equal(t.maxQuestions,(boss+1)*(level===2?8:10));
   }
 }
@@ -92,7 +93,7 @@ for (const course of ['Eiken3','EikenPre2']) {
   }
   for(const level of [2]) for(const input of ['voice-only','text-only']) for(let i=0;i<19;i++) {
     const base=course==='Eiken3'?ctx.getGrade3BaseHp:ctx.getPre2BaseHp;
-    assert.equal(ctx.tune(course,level,'challenge',input,i,2000,0).monsterHp,Math.round(base(level,false,i,2000)*0.8));
+    assert.equal(ctx.tune(course,level,'challenge',input,i,2000,0).monsterHp,eased(Math.round(base(level,false,i,2000)*0.8)));
   }
 }
-console.log('PASS: Grade 1, Pre-1, Grade 4, Grade 3 and Pre-2 battle curves, unchanged bosses, training, weakness and other levels.');
+console.log('PASS: Grade 1, Pre-1, Grade 4, Grade 3 and Pre-2 curves; Level 2 easing and unchanged Level 1/3 behavior.');

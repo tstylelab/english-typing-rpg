@@ -26,8 +26,13 @@ for (const course of courses) for (const level of [1,2,3]) for (const mode of ['
     const before = previous(...args), after = current(...args);
     if (course.startsWith('Eiken') && course!=='Eiken5' && level===2 && mode!=='weakness') {
       assert.equal(after.maxQuestions, [8,16,24,32,40][boss]);
-      assert.equal(after.monsterHp, Math.max(1,Math.round(before.monsterHp*after.maxQuestions/before.maxQuestions)), JSON.stringify(args));
-      assert.ok(Math.abs(after.monsterHp/after.maxQuestions-before.monsterHp/before.maxQuestions)<=0.5/after.maxQuestions+1e-9);
+      const proportionalHp = Math.max(1,Math.round(before.monsterHp*after.maxQuestions/before.maxQuestions));
+      assert.equal(after.monsterHp, Math.max(1,Math.round(proportionalHp*0.88)), JSON.stringify(args));
+      assert.equal(after.damageMultiplier,before.damageMultiplier);
+      scoped++;
+    } else if (course.startsWith('Eiken') && level===2) {
+      assert.equal(after.monsterHp, Math.max(1,Math.round(before.monsterHp*0.88)), JSON.stringify(args));
+      assert.equal(after.maxQuestions,before.maxQuestions);
       assert.equal(after.damageMultiplier,before.damageMultiplier);
       scoped++;
     } else {
@@ -39,4 +44,4 @@ for (const course of courses) for (const level of [1,2,3]) for (const mode of ['
 // The battle start, next-enemy preview and bestiary share this same tuning function.
 assert.ok(app.includes('const battleTuning = getBattleTuning('));
 assert.ok(app.includes('return getBattleTuning(bookDifficulty, bookLevel'));
-console.log(`PASS: ${scoped} Level 2 HP/limit cases; ${unchanged} unchanged cases (Grade 5, Levels 1/3, Conversation, weakness).`);
+console.log(`PASS: ${scoped} Level 2 HP/limit cases; ${unchanged} unchanged cases (Levels 1/3 and Conversation).`);
