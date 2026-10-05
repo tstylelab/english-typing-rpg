@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Keep the course action visible while the choices scroll, including small phones. */
+.course-select-content { padding-bottom: 132px !important; }
+.course-select-action { position: fixed; inset: auto 0 0; z-index: 30; padding: 8px 12px max(8px, env(safe-area-inset-bottom)); background: #0b1425; border-top: 1px solid #475569; box-shadow: 0 -8px 24px #02061766; }
+.course-select-action-inner { display: flex; flex-direction: column; gap: 8px; max-width: 1120px; margin: 0 auto; }
+.course-select-action-inner > button { width: 100%; }
+@media (min-width: 640px) {
+  .course-select-content { padding-bottom: 96px !important; }
+  .course-select-action { padding: 10px 20px max(10px, env(safe-area-inset-bottom)); }
+  .course-select-action-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  .course-select-action-inner > button { width: auto; }
+}
+
 /* Keep a whole word (and its following space) on one line while retaining
    per-character typing feedback. Only an oversized word shrinks to fit. */
 .battle-question-text { container-type: inline-size; }

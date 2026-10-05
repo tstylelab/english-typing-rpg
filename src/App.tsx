@@ -9897,7 +9897,7 @@ export default function App() {
     };
 
     return (
-      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950">
+      <ScreenContainer className="course-select-screen items-center justify-center overflow-hidden bg-slate-950">
         <img
           src={COURSE_SELECT_ILLUSTRATION_IMAGE}
           alt=""
@@ -9906,10 +9906,10 @@ export default function App() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.7)_38%,rgba(2,6,23,0.56)_100%),radial-gradient(circle_at_18%_22%,rgba(251,191,36,0.22),transparent_32%),radial-gradient(circle_at_86%_78%,rgba(56,189,248,0.24),transparent_36%)]"></div>
         <div
-          className="relative z-10 w-full max-w-6xl p-4"
+          className="course-select-content relative z-10 w-full max-w-6xl p-3 sm:p-4"
           style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
         >
-          <div className="mb-4 flex items-center justify-between">
+          <div className="mb-2 flex items-center justify-between gap-2">
             <GameButton
               size="sm"
               variant="ghost"
@@ -9918,54 +9918,55 @@ export default function App() {
             >
               <Home size={16} /> ホームへ
             </GameButton>
-            <div className="rounded-full border border-cyan-300/30 bg-cyan-950/35 px-4 py-2 text-sm font-black text-cyan-100">
+            <div className="rounded-full border border-cyan-300/30 bg-cyan-950/35 px-3 py-1.5 text-xs font-black text-cyan-100">
               現在: {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
             </div>
           </div>
 
           <div className="overflow-hidden rounded-lg border border-slate-500/45 bg-slate-950/74 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md">
-            <div className="relative overflow-hidden border-b border-slate-600/50 bg-[linear-gradient(135deg,rgba(15,23,42,0.9),rgba(8,47,73,0.74),rgba(120,53,15,0.28))] px-5 py-5">
+            <div className="relative overflow-hidden border-b border-slate-600/50 bg-[linear-gradient(135deg,rgba(15,23,42,0.9),rgba(8,47,73,0.74),rgba(120,53,15,0.28))] px-4 py-3">
               <div className="pointer-events-none absolute -right-4 bottom-[-70px] hidden h-56 w-56 rounded-full border border-cyan-200/20 bg-cyan-300/10 blur-2xl md:block"></div>
               <div className="relative max-w-2xl">
                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-amber-200">Course Select</p>
-                <h2 className="mt-1 text-3xl font-black text-white md:text-4xl">教材を選ぶ</h2>
-                <p className="mt-2 text-sm font-bold leading-relaxed text-slate-300">
-                  ふだん使う教材とLevelをここで選びます。決定すると、4つの学習モードを選ぶ画面に進みます。
+                <h2 className="mt-1 text-2xl font-black text-white">教材を選ぶ</h2>
+                <p className="mt-1 text-xs font-bold leading-relaxed text-slate-300">
+                  教材・級・Levelを選んで「この教材で始める」へ。次に学習方法を選びます。
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-5 p-5 lg:grid-cols-[0.85fr_1.15fr]">
-              <section className="space-y-4">
+            <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[0.7fr_1.3fr]">
+              <section className="space-y-3">
                 <div>
                   <p className="mb-2 text-sm font-black text-cyan-200">1. 教材</p>
-                  <div className="grid gap-3">
+                  <div className="grid gap-2">
                     <button
                       type="button"
                       onClick={() => {
                         if (isConversationCourse) updateSelectedDifficulty('Eiken4');
                       }}
-                      className={`relative overflow-hidden rounded-lg border-2 p-4 text-left transition-all ${!isConversationCourse ? 'border-cyan-300 bg-cyan-500/16 shadow-[0_0_24px_rgba(34,211,238,0.14)]' : 'border-slate-700 bg-slate-900/64 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
+                      aria-pressed={!isConversationCourse}
+                      className={`relative min-h-[44px] overflow-hidden rounded-lg border-2 px-3 py-2 text-left transition-colors ${!isConversationCourse ? 'border-cyan-300 bg-cyan-500/16 shadow-[0_0_24px_rgba(34,211,238,0.14)]' : 'border-slate-700 bg-slate-900/64 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
                     >
                       <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-amber-300/18"></div>
-                      <div className="pointer-events-none absolute bottom-2 right-3 text-4xl opacity-90">ABC</div>
                       <div className="flex items-center justify-between gap-3">
                         <div>
-                          <p className="text-xl font-black text-white">英検</p>
-                          <p className="mt-1 text-sm font-bold text-cyan-100">級ごとに単語・熟語・文章を練習</p>
+                          <p className="text-base font-black text-white">英検</p>
+                          <p className="text-xs font-bold text-cyan-100">級ごとに単語・熟語・文章を練習</p>
                         </div>
                         {!isConversationCourse && <CheckCircle2 className="text-cyan-200" size={24} />}
                       </div>
                     </button>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-lg border border-slate-700 bg-slate-900/60 p-4 opacity-60">
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 opacity-60">
                         <p className="text-base font-black text-slate-200">TOEIC</p>
                         <p className="mt-1 text-xs font-bold text-slate-500">準備中</p>
                       </div>
                       <button
                         type="button"
                         onClick={() => updateSelectedDifficulty('Conversation')}
-                        className={`rounded-lg border-2 p-4 text-left transition-all ${isConversationCourse ? 'border-emerald-300 bg-emerald-500/16 text-white shadow-[0_0_24px_rgba(52,211,153,0.16)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/20'}`}
+                        aria-pressed={isConversationCourse}
+                        className={`min-h-[44px] rounded-lg border-2 px-3 py-2 text-left transition-colors ${isConversationCourse ? 'border-emerald-300 bg-emerald-500/16 text-white shadow-[0_0_24px_rgba(52,211,153,0.16)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/20'}`}
                       >
                         <div className="flex items-center justify-between gap-2">
                           <div>
@@ -9984,20 +9985,20 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-slate-900/62 p-4">
+                <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-slate-900/62 p-3">
                   <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-400/12"></div>
                   <p className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Selected Course</p>
-                  <p className="mt-2 text-2xl font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
-                  <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-3">
+                  <p className="mt-1 text-lg font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
+                  <div className="mt-2 grid grid-cols-3 gap-2 text-center">
+                    <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-1.5">
                       <p className="text-[10px] font-black text-sky-200">問題数</p>
                       <p className="mt-1 text-xl font-black text-white">{selectedQuestionCount}</p>
                     </div>
-                    <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-3">
+                    <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-1.5">
                       <p className="text-[10px] font-black text-violet-200">覚えた</p>
                       <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.masteredCount}</p>
                     </div>
-                    <div className="rounded-lg border border-amber-400/25 bg-amber-500/10 px-2 py-3">
+                    <div className="rounded-lg border border-amber-400/25 bg-amber-500/10 px-2 py-1.5">
                       <p className="text-[10px] font-black text-amber-200">学習中</p>
                       <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.learningCount}</p>
                     </div>
@@ -10005,10 +10006,10 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="space-y-5">
+              <section className="min-w-0 space-y-3">
                 <div>
                   <p className="mb-2 text-sm font-black text-cyan-200">2. {isConversationCourse ? 'コース' : '級'}</p>
-                  <div className={`grid grid-cols-1 gap-3 ${isConversationCourse ? '' : 'sm:grid-cols-2'}`}>
+                  <div className={`grid gap-2 ${isConversationCourse ? 'grid-cols-1' : 'grid-cols-2 sm:grid-cols-3'}`}>
                     {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
                       const isSelected = gameState.selectedDifficulty === diff;
                       const levelCount = getAvailableLevels(diff).length;
@@ -10017,21 +10018,22 @@ export default function App() {
                           key={diff}
                           type="button"
                           onClick={() => updateSelectedDifficulty(diff)}
-                          className={`min-h-[112px] rounded-lg border-2 p-4 text-left transition-all ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
+                          aria-pressed={isSelected}
+                          className={`course-grade-button min-h-[64px] min-w-0 rounded-lg border-2 px-2.5 py-2 text-left transition-colors ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
                         >
                           <div className="flex items-start justify-between gap-2">
-                            <div>
+                            <div className="min-w-0">
                               <div className="flex flex-wrap items-center gap-2">
-                                <p className="text-xl font-black">{DIFFICULTY_LABELS[diff]}</p>
+                                <p className="text-sm font-black sm:text-base">{DIFFICULTY_LABELS[diff]}</p>
                                 {diff === 'Conversation' && (
                                   <span className="rounded-full border border-amber-300/60 bg-amber-400/15 px-2 py-0.5 text-[10px] font-black tracking-wide text-amber-200">
                                     ベータ版
                                   </span>
                                 )}
                               </div>
-                              <p className="mt-2 text-xs font-bold text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken1Part1' ? '準1級の次へ・社会／科学の重要語彙' : diff === 'Eiken1Part2' ? '1級①の次へ・抽象語彙と高度な表現' : diff === 'Eiken2' ? '準2級の次へ・語彙／熟語／意見を伝える英文' : diff === 'EikenPre2' ? '3級の次へ・語彙／熟語／会話と文法' : diff === 'Eiken3' ? '4級の次へ・単語／熟語／会話と文法' : `Level ${levelCount}段階`}</p>
+                              <p className="mt-1 text-[11px] font-bold leading-snug text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken1Part1' ? '社会・科学の語彙' : diff === 'Eiken1Part2' ? '抽象語彙・高度な表現' : diff === 'Eiken2' ? '語彙・熟語・意見表現' : diff === 'EikenPre2' ? '語彙・熟語・会話・文法' : diff === 'Eiken3' ? '単語・熟語・会話・文法' : `Level ${levelCount}段階`}</p>
                             </div>
-                            {isSelected && <CheckCircle2 className="text-amber-200" size={22} />}
+                            {isSelected && <CheckCircle2 className="shrink-0 text-amber-200" size={18} />}
                           </div>
                         </button>
                       );
@@ -10041,7 +10043,7 @@ export default function App() {
 
                 <div>
                   <p className="mb-2 text-sm font-black text-cyan-200">3. Level</p>
-                  <div className={`grid grid-cols-1 gap-3 ${availableLevels.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+                  <div className={`grid gap-2 ${availableLevels.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                     {availableLevels.map(lvl => {
                       const isSelected = gameState.selectedLevel === lvl;
                       return (
@@ -10049,15 +10051,16 @@ export default function App() {
                           key={lvl}
                           type="button"
                           onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl }))}
-                          className={`rounded-lg border-2 p-4 text-left transition-all ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
+                          aria-pressed={isSelected}
+                          className={`course-level-button min-h-[56px] min-w-0 rounded-lg border-2 px-2 py-2 text-left transition-colors ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
                         >
-                          <div className="flex items-center gap-3">
-                            <div className={`flex h-12 w-12 items-center justify-center rounded-lg border ${isSelected ? 'border-cyan-200 bg-cyan-400/20 text-cyan-100' : 'border-slate-700 bg-slate-950/60 text-slate-400'}`}>
+                          <div className="flex items-center gap-2">
+                            <div className={`hidden h-8 w-8 shrink-0 items-center justify-center rounded-lg border sm:flex ${isSelected ? 'border-cyan-200 bg-cyan-400/20 text-cyan-100' : 'border-slate-700 bg-slate-950/60 text-slate-400'}`}>
                               {levelIcons[lvl]}
                             </div>
                             <div>
-                              <p className="text-xl font-black">Level {lvl}</p>
-                              <p className="mt-1 text-xs font-bold text-slate-400">{levelDescriptions[lvl]}</p>
+                              <p className="whitespace-nowrap text-sm font-black sm:text-base">Level {lvl}</p>
+                              <p className="mt-0.5 text-[11px] font-bold leading-snug text-slate-400">{levelDescriptions[lvl].split(' / ').at(-1)}</p>
                             </div>
                           </div>
                         </button>
@@ -10066,24 +10069,22 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 rounded-lg border border-slate-700 bg-slate-900/62 p-4 md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <p className="text-sm font-black text-white">この教材で始めます</p>
-                    <p className="mt-1 text-xs font-bold text-slate-400">
-                      {isConversationCourse
-                        ? '次の画面で、会話の型・聞いて返す練習・実戦バトルを選べます。'
-                        : '次の画面で、基礎練習・リスニング練習・音声バトル・和訳バトルを選べます。'}
-                    </p>
-                  </div>
-                  <GameButton
-                    onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
-                    className="min-h-[54px] whitespace-nowrap border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 text-lg hover:from-cyan-500 hover:to-blue-500"
-                    size="md"
-                  >
-                    決定 <ArrowRight size={20} />
-                  </GameButton>
-                </div>
               </section>
+            </div>
+          </div>
+          <div className="course-select-action">
+            <div className="course-select-action-inner">
+              <div className="min-w-0">
+                <p className="text-sm font-black text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
+                <p className="mt-0.5 text-xs font-bold text-slate-300">次に学習方法を選びます</p>
+              </div>
+              <GameButton
+                onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
+                className="min-h-[44px] shrink-0 whitespace-nowrap border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500"
+                size="sm"
+              >
+                <span className="inline-flex items-center justify-center gap-2">この教材で始める <ArrowRight size={18} /></span>
+              </GameButton>
             </div>
           </div>
         </div>

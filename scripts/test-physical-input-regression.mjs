@@ -14,7 +14,7 @@ try {
  },{questions,config});
  await page.goto('http://127.0.0.1:5178');
  await page.getByRole('button',{name:'教材を選んではじめる',exact:true}).click();
- await page.getByRole('button',{name:'決定',exact:true}).click();
+ await page.getByRole('button',{name:'この教材で始める',exact:true}).click();
  await page.getByRole('button',{name:/Basic Training/}).click();
  await page.locator('.battle-input').waitFor();
  await page.keyboard.press('a');

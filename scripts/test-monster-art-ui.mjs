@@ -65,7 +65,7 @@ try {
       await page.getByRole('button', { name: 'この敵に挑む', exact: true }).click();
     } else {
       await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
-      await page.getByRole('button', { name: '決定', exact: true }).click();
+      await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
       await page.getByRole('button', { name: /Translation Battle/ }).click();
     }
     await page.locator('.battle-input').waitFor();
@@ -156,7 +156,7 @@ try {
   {
     const { context, page, errors, targetText } = await openCourse(course, level);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
-    await page.getByRole('button', { name: '決定', exact: true }).click();
+    await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
     await page.getByRole('button', { name: /Basic Training/ }).click();
     await loaded(page.locator(`.battle-avatar [data-monster-art="m${level}_1"]`));
     if (nameFor(course, `m${level}_1`)) await page.getByText(nameFor(course, `m${level}_1`), { exact: true }).first().waitFor();

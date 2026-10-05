@@ -11,7 +11,7 @@ try {
   await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
   await page.getByRole('button', { name: /^英検2級/ }).click();
   await page.getByRole('button', { name: /^Level 3/ }).click();
-  await page.getByRole('button', { name: /^決定/ }).click();
+  await page.getByRole('button', { name: /^この教材で始める/ }).click();
   await page.getByRole('button', { name: /Basic Training/ }).click();
   await page.locator('.battle-question-text').waitFor();
   for (let i = 0; i < 10 && await page.locator('.battle-screen').count(); i++) {

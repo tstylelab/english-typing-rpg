@@ -16,7 +16,7 @@ try {
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
   }
   await page.setViewportSize({ width: 1366, height: 900 });
-  await page.getByRole('button', { name: /^決定/ }).click();
+  await page.getByRole('button', { name: /^この教材で始める/ }).click();
   await page.getByRole('button', { name: /Basic Training/ }).click();
   await page.locator('.battle-question-text').waitFor();
   const answer = (await page.locator('.battle-question-text').textContent()).replaceAll('\u00a0', ' ').trim();

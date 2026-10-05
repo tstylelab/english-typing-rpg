@@ -16,7 +16,7 @@ try {
       assert.ok((await page.locator('body').innerText()).includes('問題数'));
     }
   }
-  await page.getByRole('button', { name: /^決定/ }).click();
+  await page.getByRole('button', { name: /^この教材で始める/ }).click();
   await page.getByRole('button', { name: /Basic Training/ }).click();
   await page.locator('.battle-question-text').waitFor();
   for (let i = 0; i < 10 && await page.locator('.battle-screen').count(); i++) {

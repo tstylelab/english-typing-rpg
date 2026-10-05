@@ -22,7 +22,7 @@ try {
   }, questions);
   await page.goto(url);
   await page.getByRole('button', { name: '教材を選んではじめる', exact: true }).click();
-  await page.getByRole('button', { name: '決定', exact: true }).click();
+  await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
   await page.getByRole('button', { name: /Basic Training/ }).click();
   const input = page.locator('.battle-input');
   const copy = page.getByRole('button', { name: '相談文を作ってコピー', exact: true });

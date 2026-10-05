@@ -85,7 +85,7 @@ try {
     }, { course, questions, answer, boss, battleIds });
     await page.goto(url);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
-    await page.getByRole('button', { name: '決定', exact: true }).click();
+    await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
     await page.getByRole('button', { name: course === 'Conversation' ? /Scene Battle/ : /Translation Battle/ }).click();
     await page.locator('.battle-input').waitFor();
     if (boss) {
