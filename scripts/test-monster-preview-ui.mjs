@@ -29,9 +29,11 @@ try {
       const page = await context.newPage();
       const errors = [];
       const artRequests = [];
+      const backgroundRequests = [];
       page.setDefaultTimeout(12000);
       page.on('pageerror', error => errors.push(error.message));
       page.on('request', request => { if (request.url().includes('/monsters/')) artRequests.push(request.url()); });
+      page.on('request', request => { if (request.url().includes('monster-gallery-background')) backgroundRequests.push(request.url()); });
       await page.addInitScript(({ course, level }) => {
         speechSynthesis.speak = () => {};
         localStorage.setItem('etyping_last_selected_course', JSON.stringify({ difficulty: course, level, resumeMode: 'challenge', resumeInputMode: 'text-only' }));
@@ -48,6 +50,18 @@ try {
         await dialog.evaluate(async el => { await Promise.all(el.getAnimations().map(animation => animation.finished)); });
         assert.equal(await page.evaluate(() => document.body.style.overflow), 'hidden');
         const bounds = await dialog.boundingBox();
+        const decoration = await dialog.evaluate(el => ({
+          font: getComputedStyle(el.querySelector('h2')).fontFamily,
+          titleWidth: el.querySelector('h2').getBoundingClientRect().width,
+          background: getComputedStyle(el, '::before').backgroundImage,
+          filter: getComputedStyle(el, '::before').filter,
+          backdropFilter: getComputedStyle(el, '::before').backdropFilter,
+        }));
+        assert.ok(decoration.font.includes('Mincho'), 'Use the device serif font stack for the character title');
+        assert.ok(decoration.background.includes('monster-gallery-background'), 'Use the shared gallery background');
+        assert.equal(decoration.filter, 'none', 'The pre-blurred backdrop needs no live filter');
+        assert.equal(decoration.backdropFilter, 'none', 'No live backdrop blur');
+        assert.ok(decoration.titleWidth <= bounds.width, 'Character title must fit the dialog');
         assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1);
         assert.ok(bounds.y >= 0 && bounds.y + bounds.height <= height + 1);
         assert.ok(bounds.width < width && bounds.height < height, 'Preview must leave screen margins');
@@ -72,6 +86,7 @@ try {
         assert.ok(await dialog.isVisible(), 'Clicking the image must keep the dialog open');
       }
       assert.equal(previewUrls().size, 0, 'High-resolution art must not be fetched before a preview is opened');
+      assert.equal(backgroundRequests.length, 0, 'The showcase background must not be fetched until opening a preview');
       if (width >= 1024) {
         const trigger = page.locator('button[title="クリック・タップで拡大"]').first();
         const before = previewUrls().size;

@@ -58,9 +58,9 @@ function PreviewDialog({ initialItem, gallery, origin, onClose }: { initialItem:
       }}
       className={`monster-preview-dialog ${hasNavigation ? 'has-gallery' : ''} fixed inset-0 m-auto overflow-y-auto rounded-2xl border-2 border-cyan-300/60 bg-slate-900 p-0 text-white shadow-2xl`}
     >
-      <div className="p-4 sm:p-6">
+      <div className="monster-preview-content p-4 sm:p-6">
         <div className="flex items-start justify-between gap-3">
-          <h2 id={titleId} className="pt-1 text-xl font-black text-cyan-100">{locked ? '???' : name}</h2>
+          <h2 id={titleId} className="monster-preview-title pt-1">{locked ? '???' : name}</h2>
           <button type="button" autoFocus onClick={() => dialogRef.current?.close()} aria-label="拡大表示を閉じる" className="shrink-0 rounded-lg border border-slate-600 p-2 text-slate-200 hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-cyan-300">
             <X size={24} />
           </button>
