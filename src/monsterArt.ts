@@ -21,7 +21,7 @@ export const getMonsterArtUrl = (monsterId: string | undefined, difficulty: stri
   return `${import.meta.env.BASE_URL}monsters/${folder}/${size <= 100 ? 256 : 384}/${monsterId}.webp`;
 };
 
-// High-resolution art is requested only when the user opens a preview.
+// High-resolution art is requested only for a preview or the current battle reveal.
 export const MONSTER_PREVIEW_IMAGE_SIZE = 1024;
 export const getMonsterPreviewArtUrl = (monsterId: string | undefined, difficulty: string | undefined) => (
   getMonsterArtUrl(monsterId, difficulty)?.replace('/384/', `/${MONSTER_PREVIEW_IMAGE_SIZE}/`)

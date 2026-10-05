@@ -20,15 +20,18 @@ async function captureReveal(page, kind, path) {
     const animations = [...node.getAnimations({ subtree: true }), ...backdrop.getAnimations()];
     const sample = time => {
       for (const animation of animations) { animation.pause(); animation.currentTime = time; }
-      return { transform: getComputedStyle(node).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
+      return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
     };
-    const early = sample(230), late = sample(650);
+    const fading = sample(90), early = sample(230), late = sample(650);
     sample(230);
-    return { early, late, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
+    return { fading, early, late, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
   assert.equal(geometry.late.opacity, '1');
+  assert.notEqual(geometry.early.spriteTransform, geometry.late.spriteTransform, 'Missing brief settle after fade-in');
+  assert.equal(geometry.fading.spriteTransform, geometry.late.spriteTransform, 'Shake should stop during the central hold');
+  assert.ok(Number(geometry.fading.opacity) > .1 && Number(geometry.fading.opacity) < .9, 'Monster should visibly fade in');
   assert.ok(geometry.early.flash > .5, `Missing white flash: ${JSON.stringify(geometry)}`);
   assert.equal(geometry.late.flash, 0, 'Flash did not fade');
   assert.equal(geometry.mask, 'none', 'Flash should radiate behind the sprite');
@@ -43,13 +46,14 @@ const battleIds = JSON.parse(readFileSync('docs/monster-redesign/eiken3-level1.j
 try {
   for (const scenario of [
     { width: 1366, dpr: 1 }, { width: 390, dpr: 1 },
+    { width: 1920, height: 1080, dpr: 1 }, { width: 1024, height: 768, dpr: 2 },
     { width: 390, dpr: 3 }, { width: 1366, dpr: 1, reduced: true },
     { width: 1366, dpr: 1, slow: true }, { width: 1366, dpr: 1, broken: true },
     { width: 390, dpr: 1, course: 'Conversation' },
     { width: 1366, dpr: 1, boss: true },
   ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
-    const { width, dpr, reduced = false, slow = false, broken = false, boss = false, course = 'Eiken3' } = scenario;
-    const context = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference' });
+    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, course = 'Eiken3' } = scenario;
+    const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference' });
     const page = await context.newPage();
     page.setDefaultTimeout(12000);
     const errors = [], requests = new Set();
@@ -76,7 +80,7 @@ try {
         if (!(node instanceof HTMLElement) || !node.dataset.monsterReveal) return;
         const image = node.querySelector('img');
         const style = getComputedStyle(node);
-        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.offsetWidth, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
+        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
       }, true);
     }, { course, questions, answer, boss, battleIds });
     await page.goto(url);
@@ -101,7 +105,7 @@ try {
       await context.close();
       continue;
     }
-    if (!reduced && !broken && !(dpr === 3)) {
+    if (!reduced && !broken) {
       await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'entry'));
       await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${slow ? 'slow' : 'normal'}.png`);
     }
@@ -110,9 +114,15 @@ try {
     assert.equal(await page.locator('.battle-input').inputValue(), answer.slice(0, 1));
     await page.keyboard.type(answer.slice(1));
     await page.waitForFunction(() => !document.querySelector('.battle-input') || document.querySelector('.battle-input').value === '');
-    for (let n = 0; n < 25 && await page.locator('.battle-input').isVisible(); n++) {
+    for (let n = 0; n < 50 && await page.locator('.battle-input').isVisible(); n++) {
+      // Allow the completed answer's React update to commit before another answer.
+      await page.waitForTimeout(50);
       await page.keyboard.type(answer);
       await page.waitForFunction(() => !document.querySelector('.battle-input') || document.querySelector('.battle-input').value === '');
+    }
+    if (await page.locator('.battle-input').isVisible()) {
+      await page.screenshot({ path: `${output}/unfinished-${width}-${dpr}.png` });
+      throw new Error(`Battle did not finish: ${await page.locator('body').innerText()}`);
     }
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
     if (!reduced && !broken) await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'defeat'));
@@ -125,9 +135,14 @@ try {
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
       if (item.sourcePixels) assert.ok(item.width * dpr <= item.sourcePixels + 1, 'Raster upscaled');
+      const expected = Math.min(width * .9 - 36, height * .84 - 36, (item.sourcePixels || Infinity) / dpr);
+      assert.ok(item.width >= expected * .97 && item.width <= expected + 1, 'Reveal should fill the available viewport within source resolution');
     }
     if (reduced || broken) assert.deepEqual(observations, []);
-    assert.ok([...requests].every(r => !r.includes('/1024/')), 'Unexpected high-res request');
+    const highRes = [...requests].filter(r => r.includes('/1024/'));
+    assert.ok(highRes.every(r => r.endsWith('/c1_1.webp')), 'Only the current encounter should request high-res art');
+    if (reduced || course === 'Conversation') assert.deepEqual(highRes, []);
+    else assert.equal(highRes.length, 1, 'Entry and defeat should reuse the same high-res URL');
     const defeated = await page.evaluate(() => localStorage.getItem('etyping_defeated_monsters'));
     assert.ok(defeated.includes(`${course}:1:challenge:text-only:c1_1`));
     // Immediately leave victory, then leave the next entrance: no stale portal.

@@ -2,16 +2,16 @@ import { cloneElement, useLayoutEffect, useRef, useState, type ReactElement } fr
 import { createPortal } from 'react-dom';
 import './MonsterBattleReveal.css';
 
-// Reuse the normal sprite URL; no high-resolution downloads or game timers.
+// Load only this encounter's existing preview art; never delay game progress.
 export default function MonsterBattleReveal({ children, kind, enabled = true }: {
-  children: ReactElement<{ size: number }>;
+  children: ReactElement<{ size: number; enlarged?: boolean }>;
   kind: 'entry' | 'defeat';
   enabled?: boolean;
 }) {
   const targetRef = useRef<HTMLSpanElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   useLayoutEffect(() => {
     const overlay = overlayRef.current;
     const target = targetRef.current;
@@ -30,7 +30,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       if (motion.matches || (image && !image.naturalWidth)) { finish(); return; }
       const bounds = target.getBoundingClientRect();
       const pixels = image ? image.naturalWidth / (window.devicePixelRatio || 1) : Infinity;
-      const size = Math.min(window.innerWidth * .8, window.innerHeight * .62, pixels, kind === 'entry' ? 480 : 360);
+      const size = Math.min(window.innerWidth * .9 - 36, window.innerHeight * .84 - 36, pixels);
       if (size <= bounds.width * 1.05) { finish(); return; }
       overlay.style.setProperty('--reveal-size', `${size}px`);
       overlay.style.setProperty('--reveal-x', `${bounds.x + bounds.width / 2 - window.innerWidth / 2}px`);
@@ -72,7 +72,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
             setVisible(false);
           }
         }}>
-          {cloneElement(children)}
+          {cloneElement(children, { enlarged: true })}
         </div>
       </>, document.body,
     )}
