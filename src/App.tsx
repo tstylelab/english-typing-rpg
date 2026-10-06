@@ -10389,8 +10389,10 @@ export default function App() {
                     {comboLabel} x{gameState.combo}
                   </div>
                 )}
-                <div className={`battle-dialogue transition-all duration-300 ${flash ? 'scale-110' : ''} mb-2`}><div className="inline-block bg-white text-slate-900 px-4 py-1.5 rounded-xl shadow-lg border-2 border-slate-200 font-bold relative text-xs">{monsterDialogue}<div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-b-2 border-r-2 border-slate-200"></div></div></div>
-                <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                <div className="battle-character-row">
+                  <div className="battle-dialogue">{monsterDialogue}</div>
+                  <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                </div>
                 <div className="battle-status-row">
                   <nav aria-label="バトルから移動" className="battle-navigation">
                     <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
@@ -10686,10 +10688,6 @@ export default function App() {
                   .battle-screen .battle-main { margin-top: 0.35rem; padding: 2rem 0.75rem 1rem; }
                   .battle-screen .battle-monster-area { margin-bottom: 0.35rem; }
                   .battle-screen .battle-combo { display: none; }
-                  .battle-screen .battle-dialogue { display: block; position: absolute; top: 0.25rem; left: calc(50% + 3.5rem); z-index: 20; max-width: min(17rem, calc(50vw - 4.5rem)); margin: 0; }
-                  .battle-screen .battle-dialogue > div { padding: 0.4rem 0.6rem; font-size: 10px; line-height: 1.35; }
-                  .battle-screen .battle-dialogue > div > div { left: 1.25rem; transform: rotate(45deg); }
-                  .battle-screen .battle-avatar { transform: scale(0.72); transform-origin: center; height: 104px; margin: -18px 0 -14px; }
                   .battle-screen .battle-hp { width: 220px; margin-top: 0; padding: 0.4rem; }
                   .battle-screen .battle-hp .h-3 { height: 0.5rem; }
                   .battle-screen .battle-card { margin-top: 0.4rem; padding: 0.75rem; }
