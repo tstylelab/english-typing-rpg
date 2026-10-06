@@ -51,6 +51,8 @@
 /* Keep dialogue beside the character on wide screens, with a compact stack on phones. */
 .battle-character-row { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; width: 100%; max-width: 28rem; padding: .35rem 0; }
 .battle-character-row .battle-avatar { flex: none; }
+.battle-screen:not(.battle-with-keyboard) .battle-avatar .monster-reveal-target > img,
+.battle-screen:not(.battle-with-keyboard) .battle-avatar .monster-reveal-target > svg { width: 154px !important; height: 154px !important; }
 .battle-dialogue {
   position: relative;
   max-width: min(100%, 20rem);
@@ -61,7 +63,7 @@
   background: linear-gradient(135deg, #1d354b, #102238);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 7%), 0 5px 14px rgb(2 6 23 / 25%);
   color: #ecf8ff;
-  font-size: .75rem;
+  font-size: .8125rem;
   font-weight: 600;
   line-height: 1.6;
   text-align: left;
@@ -71,16 +73,16 @@
 @media (min-width: 768px) {
   .battle-character-row { flex-direction: row; gap: 1.25rem; padding: .75rem 0; }
   .battle-character-row .battle-avatar { order: -1; }
-  .battle-dialogue { width: 16.5rem; max-width: calc(100% - 160px); padding: .8rem 1rem; font-size: .875rem; }
+  .battle-dialogue { width: 16.5rem; max-width: calc(100% - 174px); padding: .8rem 1rem; font-size: .9375rem; }
   .battle-dialogue::after { bottom: auto; top: calc(50% - 5px); left: -5px; border-right: 0; border-left: 1px solid rgb(103 212 241 / 45%); }
 }
 .battle-with-keyboard .battle-character-row { flex-direction: column; gap: .65rem; padding: .25rem 0; }
 .battle-with-keyboard .battle-character-row .battle-avatar { order: 0; }
-.battle-screen.battle-with-keyboard .battle-dialogue { width: auto; max-width: 100%; margin: 0; padding: .6rem .7rem; font-size: .75rem; }
+.battle-screen.battle-with-keyboard .battle-dialogue { width: auto; max-width: 100%; margin: 0; padding: .6rem .7rem; font-size: .8125rem; }
 .battle-with-keyboard .battle-dialogue::after { top: auto; bottom: -5px; left: calc(50% - 5px); border-left: 0; border-right: 1px solid rgb(103 212 241 / 45%); }
 @media (min-width: 961px) and (max-width: 1366px) and (orientation: landscape) {
   .battle-screen:not(.battle-with-keyboard) .battle-avatar .monster-reveal-target > img,
-  .battle-screen:not(.battle-with-keyboard) .battle-avatar .monster-reveal-target > svg { width: 112px !important; height: 112px !important; }
+  .battle-screen:not(.battle-with-keyboard) .battle-avatar .monster-reveal-target > svg { width: 124px !important; height: 124px !important; }
 }
 .battle-status-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .75rem; width: 100%; margin-top: .5rem; }
 .battle-navigation { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
