@@ -20,8 +20,8 @@
 }
 .monster-battle-reveal {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: var(--reveal-center-x, 50%);
+  top: var(--reveal-center-y, 50%);
   width: var(--reveal-size, 140px);
   height: var(--reveal-size, 140px);
   margin-left: calc(var(--reveal-size, 140px) / -2);

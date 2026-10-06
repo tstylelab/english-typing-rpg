@@ -23,8 +23,11 @@ async function captureReveal(page, kind, path) {
       return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
     };
     const fading = sample(90), early = sample(230), late = sample(650);
+    const rect = node.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const visibleBounds = { left: viewport?.offsetLeft || 0, top: viewport?.offsetTop || 0, width: viewport?.width || innerWidth, height: viewport?.height || innerHeight };
     sample(230);
-    return { fading, early, late, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
+    return { fading, early, late, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
@@ -36,6 +39,10 @@ async function captureReveal(page, kind, path) {
   assert.equal(geometry.late.flash, 0, 'Flash did not fade');
   assert.equal(geometry.mask, 'none', 'Flash should radiate behind the sprite');
   assert.equal(geometry.backdropPointerEvents, 'none');
+  const { rect, visibleBounds: v } = geometry;
+  const margin = kind === 'defeat' ? 18 : 0;
+  assert.ok(rect.left - margin >= v.left - 1 && rect.top - margin >= v.top - 1 && rect.right + margin <= v.left + v.width + 1 && rect.bottom + margin <= v.top + v.height + 1, 'Held monster/panel clipped by the visible viewport');
+  assert.ok(Math.abs(rect.left + rect.width / 2 - v.left - v.width / 2) < 1 && Math.abs(rect.top + rect.height / 2 - v.top - v.height / 2) < 1, 'Monster is not centered in the visible area');
   await page.screenshot({ path });
   await page.evaluate(kind => {
     for (const animation of document.querySelector(`[data-monster-reveal="${kind}"]`)?.getAnimations({ subtree: true }) || []) animation.play();
@@ -53,8 +60,10 @@ try {
     { width: 1366, dpr: 1, boss: true },
     { width: 390, height: 844, dpr: 3, mobile: true, resize: true },
     { width: 1024, height: 768, dpr: 2, mobile: true, resize: true },
-  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
-    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, course = 'Eiken3' } = scenario;
+    { width: 390, height: 844, dpr: 3, mobile: true, visual: true },
+    { width: 1024, height: 768, dpr: 2, mobile: true, visual: true },
+  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'visual' ? s.visual : process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
+    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, visual = false, course = 'Eiken3' } = scenario;
     const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference', isMobile: mobile, hasTouch: mobile });
     const page = await context.newPage();
     page.setDefaultTimeout(12000);
@@ -66,13 +75,23 @@ try {
       await new Promise(resolve => setTimeout(resolve, 700));
       await route.continue();
     });
-    if (resize) await page.route('**/monsters/**/1024/**', async route => {
+    if (resize || visual) await page.route('**/monsters/**/1024/**', async route => {
       await new Promise(resolve => setTimeout(resolve, 600));
       await route.continue();
     });
     const questions = QUESTIONS[course][1];
     const answer = questions.find(q => /^[\x20-\x7E]+$/.test(q.text)).text;
-    await page.addInitScript(({ course, questions, answer, boss, battleIds, mobile }) => {
+    await page.addInitScript(({ course, questions, answer, boss, battleIds, mobile, visual, width, height }) => {
+      if (visual) {
+        // Model keyboard pan/shrink independently of layout dimensions. This
+        // is a geometry regression, not an emulation of native Android Gboard.
+        const viewport = Object.assign(new EventTarget(), { width, height, offsetLeft: 0, offsetTop: 0, scale: 1 });
+        Object.defineProperty(window, 'visualViewport', { configurable: true, value: viewport });
+        window.setTestVisualViewport = (changes, events = ['resize', 'scroll']) => {
+          Object.assign(viewport, changes);
+          for (const event of events) viewport.dispatchEvent(new Event(event));
+        };
+      }
       speechSynthesis.speak = () => {};
       localStorage.setItem('etyping_external_keyboard_mode', String(!mobile));
       localStorage.setItem('etyping_last_selected_course', JSON.stringify({ difficulty: course, level: 1, resumeMode: 'challenge', resumeInputMode: 'text-only' }));
@@ -86,14 +105,19 @@ try {
         if (!(node instanceof HTMLElement) || !node.dataset.monsterReveal) return;
         const image = node.querySelector('img');
         const style = getComputedStyle(node);
-        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, viewportWidth: innerWidth, viewportHeight: innerHeight, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
+        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, viewportWidth: visualViewport?.width || innerWidth, viewportHeight: visualViewport?.height || innerHeight, viewportScale: visualViewport?.scale || 1, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
       }, true);
-    }, { course, questions, answer, boss, battleIds, mobile });
+    }, { course, questions, answer, boss, battleIds, mobile, visual, width, height });
     await page.goto(url);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
     await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
     await page.getByRole('button', { name: course === 'Conversation' ? /Scene Battle/ : /Translation Battle/ }).click();
     await page.locator('.battle-input').waitFor();
+    if (visual) {
+      await page.locator('[data-monster-reveal="entry"]').waitFor({ state: 'attached' });
+      await page.evaluate(({ width, height }) => window.setTestVisualViewport({ width, height: height * .48, offsetTop: height * .42 }), { width, height });
+      assert.equal(await page.evaluate(() => innerHeight), height, 'Keyboard simulation must leave layout height unchanged');
+    }
     if (resize) {
       await page.locator('[data-monster-reveal="entry"]').waitFor({ state: 'attached' });
       // Real viewport resize while the high-resolution image is still loading.
@@ -118,7 +142,7 @@ try {
     }
     if (!reduced && !broken) {
       await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'entry'));
-      await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
+      await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${visual ? 'visual' : resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
     }
     // Typing remains enabled while the entrance is running or loading.
     await page.keyboard.type(answer.slice(0, 1));
@@ -137,6 +161,22 @@ try {
     }
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
     if (!reduced && !broken) await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'defeat'));
+    if (visual) {
+      // Pause the same animation while the keyboard closes, then pans again.
+      await page.evaluate(() => {
+        for (const node of document.querySelectorAll('[data-monster-reveal], [data-monster-reveal-backdrop]')) for (const animation of node.getAnimations({ subtree: true })) animation.pause();
+        window.setTestVisualViewport({ height: innerHeight, offsetTop: 0 });
+      });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-keyboard-closed.png`);
+      await page.evaluate(() => {
+        for (const node of document.querySelectorAll('[data-monster-reveal], [data-monster-reveal-backdrop]')) for (const animation of node.getAnimations({ subtree: true })) animation.pause();
+        window.setTestVisualViewport({ height: innerHeight * .48, offsetTop: innerHeight * .30 });
+      });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      await page.evaluate(() => window.setTestVisualViewport({ offsetTop: innerHeight * .42 }, ['scroll']));
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    }
     if (resize) {
       // Resize again during playback. The same one-second animation must remain.
       await page.setViewportSize({ width, height });
@@ -146,19 +186,19 @@ try {
       assert.ok(Math.abs(measured.size - Math.min(width * .9 - 36, height * .84 - 36, measured.pixels / dpr)) < 1, 'Viewport geometry not refreshed');
     }
     if (!reduced && !broken) {
-      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
+      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${visual ? 'visual' : resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
     }
     const observations = await page.evaluate(() => window.revealObservations);
     for (const item of observations) {
       assert.equal(item.duration, '1s');
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
-      if (item.sourcePixels) assert.ok(item.width * dpr <= item.sourcePixels + 1, 'Raster upscaled');
-      const expected = Math.min(item.viewportWidth * .9 - 36, item.viewportHeight * .84 - 36, (item.sourcePixels || Infinity) / dpr);
+      if (item.sourcePixels) assert.ok(item.width * dpr * item.viewportScale <= item.sourcePixels + 1, 'Raster upscaled');
+      const expected = Math.min(item.viewportWidth * .9 - 36, item.viewportHeight * .84 - 36, (item.sourcePixels || Infinity) / (dpr * item.viewportScale));
       assert.ok(item.width >= expected * .97 && item.width <= expected + 1, 'Reveal should fill the available viewport within source resolution');
     }
     if (reduced || broken) assert.deepEqual(observations, []);
-    if (resize) {
+    if (resize || visual) {
       assert.equal(observations.filter(item => item.kind === 'entry').length, 1, 'Entry restarted after resize');
       assert.equal(observations.filter(item => item.kind === 'defeat').length, 1, 'Defeat restarted after resize');
     }

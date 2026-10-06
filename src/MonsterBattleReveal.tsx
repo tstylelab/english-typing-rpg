@@ -26,15 +26,23 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
     let resizeFrame = 0;
     let disposed = false;
     let playing = false;
+    const viewport = window.visualViewport;
     const image = overlay.querySelector('img');
     const updateGeometry = () => {
       const bounds = target.getBoundingClientRect();
-      const pixels = image ? image.naturalWidth / (window.devicePixelRatio || 1) : Infinity;
-      const size = Math.min(window.innerWidth * .9 - 36, window.innerHeight * .84 - 36, pixels);
+      // The keyboard can pan/shrink the visible area without resizing the page.
+      const width = viewport?.width ?? window.innerWidth;
+      const height = viewport?.height ?? window.innerHeight;
+      const centerX = (viewport?.offsetLeft ?? 0) + width / 2;
+      const centerY = (viewport?.offsetTop ?? 0) + height / 2;
+      const pixels = image ? image.naturalWidth / ((window.devicePixelRatio || 1) * (viewport?.scale || 1)) : Infinity;
+      const size = Math.min(width * .9 - 36, height * .84 - 36, pixels);
       if (size <= bounds.width * 1.05) return false;
+      overlay.style.setProperty('--reveal-center-x', `${centerX}px`);
+      overlay.style.setProperty('--reveal-center-y', `${centerY}px`);
       overlay.style.setProperty('--reveal-size', `${size}px`);
-      overlay.style.setProperty('--reveal-x', `${bounds.x + bounds.width / 2 - window.innerWidth / 2}px`);
-      overlay.style.setProperty('--reveal-y', `${bounds.y + bounds.height / 2 - window.innerHeight / 2}px`);
+      overlay.style.setProperty('--reveal-x', `${bounds.x + bounds.width / 2 - centerX}px`);
+      overlay.style.setProperty('--reveal-y', `${bounds.y + bounds.height / 2 - centerY}px`);
       overlay.style.setProperty('--reveal-scale', String(bounds.width / size));
       return true;
     };
@@ -65,6 +73,8 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
     else start();
     image?.addEventListener('error', finish, { once: true });
     window.addEventListener('resize', resize);
+    viewport?.addEventListener('resize', resize);
+    viewport?.addEventListener('scroll', resize);
     motion.addEventListener('change', finish);
     return () => {
       disposed = true;
@@ -73,6 +83,8 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       image?.removeEventListener('load', start);
       image?.removeEventListener('error', finish);
       window.removeEventListener('resize', resize);
+      viewport?.removeEventListener('resize', resize);
+      viewport?.removeEventListener('scroll', resize);
       motion.removeEventListener('change', finish);
       overlay.classList.remove('is-playing');
       backdrop?.classList.remove('is-playing');
