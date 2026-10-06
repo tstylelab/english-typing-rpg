@@ -60,7 +60,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       });
     };
     // Mobile browser chrome / keyboards may resize while art is loading.
-    // Loading uses the latest viewport at start; playback keeps its one-second
+    // Loading uses the latest viewport at start; playback keeps its own
     // timeline and only updates geometry, without restarting the animation.
     const resize = () => {
       if (!playing || disposed || resizeFrame) return;

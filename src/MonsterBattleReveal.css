@@ -13,6 +13,14 @@
   visibility: visible;
   animation: monster-reveal-backdrop 1000ms ease-out both;
 }
+.monster-reveal-backdrop[data-monster-reveal-backdrop='defeat'].is-playing {
+  animation: monster-victory-backdrop 2000ms ease-out both;
+}
+@keyframes monster-victory-backdrop {
+  0% { opacity: 0; }
+  9%, 89% { opacity: 1; }
+  100% { opacity: 0; }
+}
 @keyframes monster-reveal-backdrop {
   0% { opacity: 0; }
   18%, 73% { opacity: 1; }
@@ -49,7 +57,7 @@
   animation: monster-battle-arrive 1000ms linear both;
 }
 .monster-battle-reveal[data-monster-reveal='defeat'].is-playing {
-  animation: monster-battle-defeated 1000ms linear both;
+  animation: monster-battle-defeated 2000ms linear both;
 }
 .monster-battle-reveal::after {
   content: '';
@@ -87,7 +95,7 @@
 }
 @keyframes monster-battle-defeated {
   0% { transform: scale(.98); opacity: 0; }
-  18%, 78% { transform: scale(1); opacity: 1; }
+  9%, 89% { transform: scale(1); opacity: 1; }
   100% { transform: scale(.95); opacity: 0; }
 }
 .monster-reveal-clear {
@@ -113,12 +121,12 @@
   text-shadow: 0 3px 0 #9c570c, 0 5px 1px #301506, 0 0 16px rgb(255 218 94 / 75%);
 }
 .monster-battle-reveal.is-playing .monster-reveal-clear {
-  animation: monster-victory-title 1000ms linear both;
+  animation: monster-victory-title 2000ms linear both;
 }
 @keyframes monster-victory-title {
-  0%, 18% { opacity: 0; transform: scale(.78); }
-  23% { opacity: 1; transform: scale(1.08); }
-  34%, 78% { opacity: 1; transform: scale(1); }
+  0%, 9% { opacity: 0; transform: scale(.78); }
+  11.5% { opacity: 1; transform: scale(1.08); }
+  17%, 89% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.02); }
 }
 @media (prefers-reduced-motion: reduce) {

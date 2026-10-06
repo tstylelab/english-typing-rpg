@@ -21,7 +21,7 @@ async function captureReveal(page, kind, path) {
     const sample = time => {
       for (const animation of animations) { animation.pause(); animation.currentTime = time; }
       const clear = node.querySelector('.monster-reveal-clear');
-      return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity), clearOpacity: clear ? Number(getComputedStyle(clear).opacity) : null };
+      return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, backdropOpacity: Number(getComputedStyle(backdrop).opacity), flash: Number(getComputedStyle(node, '::after').opacity), clearOpacity: clear ? Number(getComputedStyle(clear).opacity) : null };
     };
     const fading = sample(90), early = sample(230), late = sample(650);
     const rect = node.getBoundingClientRect();
@@ -30,8 +30,10 @@ async function captureReveal(page, kind, path) {
     const title = node.querySelector('.monster-reveal-clear > span');
     const titleBounds = title?.getBoundingClientRect();
     const clear = title ? { text: title.textContent, bounds: { left: titleBounds.left, top: titleBounds.top, right: titleBounds.right, bottom: titleBounds.bottom } } : null;
+    const extended = kind === 'defeat' ? sample(1500) : null;
+    const ending = kind === 'defeat' ? sample(1900) : null;
     sample(230);
-    return { fading, early, late, clear, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
+    return { fading, early, late, extended, ending, clear, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
@@ -52,6 +54,12 @@ async function captureReveal(page, kind, path) {
     assert.equal(geometry.fading.clearOpacity, 0);
     assert.ok(geometry.early.clearOpacity > .7, 'Victory title must appear after fade-in');
     assert.equal(geometry.late.clearOpacity, 1, 'Victory title should remain readable during the hold');
+    assert.equal(geometry.extended.opacity, '1', 'Defeated monster should still be fully visible at 1.5 seconds');
+    assert.equal(geometry.extended.clearOpacity, 1);
+    assert.equal(geometry.extended.backdropOpacity, 1);
+    assert.equal(geometry.extended.transform, geometry.late.transform, 'Extended victory hold should stay still');
+    assert.equal(geometry.extended.flash, 0, 'Extended hold must not repeat the flash');
+    assert.ok(Number(geometry.ending.opacity) > 0 && Number(geometry.ending.opacity) < 1, 'Defeat should fade out near two seconds');
     const title = geometry.clear.bounds;
     assert.ok(title.left >= v.left && title.top >= v.top && title.right <= v.left + v.width && title.bottom <= v.top + v.height, 'Victory title clipped by the visible area');
   } else assert.equal(geometry.clear, null, 'Entry must not show a victory title');
@@ -190,7 +198,7 @@ try {
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     }
     if (resize) {
-      // Resize again during playback. The same one-second animation must remain.
+      // Resize again during playback. The same animation must remain.
       await page.setViewportSize({ width, height });
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       assert.equal(await page.locator('[data-monster-reveal="defeat"].is-playing').count(), 1);
@@ -202,7 +210,7 @@ try {
     }
     const observations = await page.evaluate(() => window.revealObservations);
     for (const item of observations) {
-      assert.equal(item.duration, '1s');
+      assert.equal(item.duration, item.kind === 'defeat' ? '2s' : '1s');
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
       if (item.sourcePixels) assert.ok(item.width * dpr * item.viewportScale <= item.sourcePixels + 1, 'Raster upscaled');
@@ -220,6 +228,13 @@ try {
     else assert.equal(highRes.length, 1, 'Entry and defeat should reuse the same high-res URL');
     const defeated = await page.evaluate(() => localStorage.getItem('etyping_defeated_monsters'));
     assert.ok(defeated.includes(`${course}:1:challenge:text-only:c1_1`));
+    if (width === 1366 && !reduced && !broken && !slow) {
+      // Child flash/shake ends at one second must not dismiss the two-second reveal.
+      await page.waitForTimeout(1000);
+      assert.equal(await page.locator('[data-monster-reveal="defeat"]').count(), 1);
+      await page.locator('[data-monster-reveal="defeat"]').waitFor({ state: 'detached' });
+      assert.equal(await page.locator('[data-monster-reveal-backdrop]').count(), 0);
+    }
     // Immediately leave victory, then leave the next entrance: no stale portal.
     await page.getByRole('button', { name: /つぎのモンスターへ/ }).click();
     await page.locator('.battle-input').waitFor();
