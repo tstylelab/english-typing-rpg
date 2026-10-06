@@ -90,6 +90,37 @@
   18%, 78% { transform: scale(1); opacity: 1; }
   100% { transform: scale(.95); opacity: 0; }
 }
+.monster-reveal-clear {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 6%;
+  z-index: 2;
+  text-align: center;
+  font-family: Impact, 'Arial Black', Arial, sans-serif;
+  font-size: clamp(2rem, calc(var(--reveal-size, 140px) * .17), 8rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: .055em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.monster-reveal-clear > span {
+  color: #fff1a6;
+  -webkit-text-stroke: 1px #643806;
+  text-shadow: 0 3px 0 #9c570c, 0 5px 1px #301506, 0 0 16px rgb(255 218 94 / 75%);
+}
+.monster-battle-reveal.is-playing .monster-reveal-clear {
+  animation: monster-victory-title 1000ms linear both;
+}
+@keyframes monster-victory-title {
+  0%, 18% { opacity: 0; transform: scale(.78); }
+  23% { opacity: 1; transform: scale(1.08); }
+  34%, 78% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.02); }
+}
 @media (prefers-reduced-motion: reduce) {
   .monster-battle-reveal,
   .monster-reveal-backdrop { display: none; }
@@ -97,5 +128,6 @@
   .monster-battle-reveal.is-playing > img,
   .monster-battle-reveal.is-playing > svg,
   .monster-battle-reveal.is-playing::after,
+  .monster-battle-reveal.is-playing .monster-reveal-clear,
   .monster-reveal-backdrop.is-playing { animation: none; }
 }

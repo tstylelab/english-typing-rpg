@@ -103,6 +103,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
           }
         }}>
           {cloneElement(children, { enlarged: true })}
+          {kind === 'defeat' && <div className="monster-reveal-clear"><span>CLEAR!</span></div>}
         </div>
       </>, document.body,
     )}

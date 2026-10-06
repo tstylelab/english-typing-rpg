@@ -20,14 +20,18 @@ async function captureReveal(page, kind, path) {
     const animations = [...node.getAnimations({ subtree: true }), ...backdrop.getAnimations()];
     const sample = time => {
       for (const animation of animations) { animation.pause(); animation.currentTime = time; }
-      return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity) };
+      const clear = node.querySelector('.monster-reveal-clear');
+      return { transform: getComputedStyle(node).transform, spriteTransform: getComputedStyle(node.querySelector('img, svg')).transform, opacity: getComputedStyle(node).opacity, flash: Number(getComputedStyle(node, '::after').opacity), clearOpacity: clear ? Number(getComputedStyle(clear).opacity) : null };
     };
     const fading = sample(90), early = sample(230), late = sample(650);
     const rect = node.getBoundingClientRect();
     const viewport = window.visualViewport;
     const visibleBounds = { left: viewport?.offsetLeft || 0, top: viewport?.offsetTop || 0, width: viewport?.width || innerWidth, height: viewport?.height || innerHeight };
+    const title = node.querySelector('.monster-reveal-clear > span');
+    const titleBounds = title?.getBoundingClientRect();
+    const clear = title ? { text: title.textContent, bounds: { left: titleBounds.left, top: titleBounds.top, right: titleBounds.right, bottom: titleBounds.bottom } } : null;
     sample(230);
-    return { fading, early, late, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
+    return { fading, early, late, clear, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
@@ -43,6 +47,14 @@ async function captureReveal(page, kind, path) {
   const margin = kind === 'defeat' ? 18 : 0;
   assert.ok(rect.left - margin >= v.left - 1 && rect.top - margin >= v.top - 1 && rect.right + margin <= v.left + v.width + 1 && rect.bottom + margin <= v.top + v.height + 1, 'Held monster/panel clipped by the visible viewport');
   assert.ok(Math.abs(rect.left + rect.width / 2 - v.left - v.width / 2) < 1 && Math.abs(rect.top + rect.height / 2 - v.top - v.height / 2) < 1, 'Monster is not centered in the visible area');
+  if (kind === 'defeat') {
+    assert.equal(geometry.clear?.text, 'CLEAR!');
+    assert.equal(geometry.fading.clearOpacity, 0);
+    assert.ok(geometry.early.clearOpacity > .7, 'Victory title must appear after fade-in');
+    assert.equal(geometry.late.clearOpacity, 1, 'Victory title should remain readable during the hold');
+    const title = geometry.clear.bounds;
+    assert.ok(title.left >= v.left && title.top >= v.top && title.right <= v.left + v.width && title.bottom <= v.top + v.height, 'Victory title clipped by the visible area');
+  } else assert.equal(geometry.clear, null, 'Entry must not show a victory title');
   await page.screenshot({ path });
   await page.evaluate(kind => {
     for (const animation of document.querySelector(`[data-monster-reveal="${kind}"]`)?.getAnimations({ subtree: true }) || []) animation.play();
@@ -62,7 +74,7 @@ try {
     { width: 1024, height: 768, dpr: 2, mobile: true, resize: true },
     { width: 390, height: 844, dpr: 3, mobile: true, visual: true },
     { width: 1024, height: 768, dpr: 2, mobile: true, visual: true },
-  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'visual' ? s.visual : process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
+  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'clear' ? s.visual || (s.width === 1366 && !s.reduced && !s.slow && !s.broken && !s.boss) || s.course === 'Conversation' : process.env.MONSTER_REVEAL_TEST_ONLY === 'visual' ? s.visual : process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
     const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, visual = false, course = 'Eiken3' } = scenario;
     const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference', isMobile: mobile, hasTouch: mobile });
     const page = await context.newPage();

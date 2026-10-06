@@ -63,3 +63,11 @@ VisualViewportのresizeとscrollを演出中だけ購読し、requestAnimationFr
 13・14はVisualViewport寸法とoffsetの変更をモデル化する回帰検査であり、AndroidのOSキーボード自体を再現してはいない。ページ高さ不変で、画像読み込み中の可視領域縮小・パン、撃破中のキーボード閉鎖相当・再縮小・scrollだけのoffset移動を検査し、登場・撃破の中央保持中に本体と撃破枠の四辺が可視領域内であること、再開始なし、入力・勝利記録・即時移動を確認する。本人のスマホ/Pixel Tablet実機での再確認は必要。
 
 仕様参照：[Chromeのキーボード表示時のviewport変更](https://developer.chrome.com/blog/viewport-resize-behavior)、[MDN VisualViewport](https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport)。
+
+## 2026-10-06 撃破時に光るCLEAR!を追加
+
+本人がスマホで演出が表示されることを確認。撃破時に登場時と異なる達成感を出す依頼に合わせ、倒したモンスターの手前・下部に金色の「CLEAR!」を重ねる。太い斜体、縁取り、静止した光の影で文字を見せ、約0.2秒後に少し大きく現れてから静止し、既存の1秒の演出とともに消える。登場時には表示しない。
+
+端末の既存フォントを使い、画像・外部フォント・ライブラリ・ゲーム進行用タイマーは追加しない。新しい文字の動きはopacityとtransformだけ。可視領域・画像解像度上限・入力・勝利記録・即時移動・演出後の解除を維持する。
+
+今回の確認は `MONSTER_REVEAL_TEST_ONLY=clear` の4条件（PC1366px、英会話のSVGとスマホ幅390px、スマホ390×844/DPR3の可視領域変更、タブレット1024×768/DPR2の可視領域変更）。撃破時だけ文字が存在すること、現れる前・途中・停止中の透過、可視領域内に文字全体が収まること、入力・記録・演出終了・即時移動を確認。ローカル4条件PASS・exit0、build成功、lintは既存Hook警告1件のみ。PCとスマホ相当の画像で明るい金色の文字を目視確認。実際のAndroid端末での字体・処理速度は未測定。
