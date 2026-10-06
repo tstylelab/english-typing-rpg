@@ -1,41 +1,33 @@
 @import "tailwindcss";
 
-/* A quiet nameplate for collection cards; use installed fonts and static paint. */
-.monster-book-name {
-  position: relative;
+/* Leave enough room to read each name as one phrase, without narrow columns. */
+.monster-book-grid {
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1rem;
+}
+.monster-book-name {
   width: 100%;
   min-width: 0;
-  min-height: calc(3.1em + .8rem + 2px);
-  margin: .35rem 0 .65rem;
-  padding: .4rem .2rem;
-  border-block: 1px solid rgb(230 196 126 / 25%);
-  background: linear-gradient(90deg, transparent, rgb(230 196 126 / 7%), transparent);
-  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Noto Serif CJK JP', 'MS PMincho', serif;
-  font-size: clamp(.94rem, 1.3vw, 1.05rem);
-  font-weight: 800;
-  line-height: 1.55;
-  letter-spacing: .025em;
-  color: #fff0c5;
-  text-shadow: 0 2px 2px rgb(0 0 0 / 65%);
-  overflow-wrap: anywhere;
-  text-wrap: balance;
-}
-.monster-book-name::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: calc(50% - 2.5px);
-  width: 5px;
-  height: 5px;
-  background: #d3b679;
-  transform: rotate(45deg);
-  pointer-events: none;
+  margin: .25rem 0 .55rem;
+  padding: .4rem .25rem;
+  border-left: 3px solid #67d4f1;
+  border-bottom: 1px solid rgb(103 212 241 / 32%);
+  border-radius: 3px;
+  background: linear-gradient(100deg, rgb(5 16 31 / 70%), rgb(5 16 31 / 28%));
+  font-family: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  font-size: .94rem;
+  font-weight: 900;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #eefbff;
+  text-shadow: 0 1px 2px #020617;
+  white-space: nowrap;
 }
 .monster-book-name--battle {
-  color: #ffe3a4;
-  border-color: rgb(238 182 91 / 35%);
+  color: #fff4dc;
+  border-color: #e6b75c;
+  border-bottom-color: rgb(230 183 92 / 32%);
 }
 
 /* Keep the course action visible while the choices scroll, including small phones. */

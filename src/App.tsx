@@ -7620,7 +7620,7 @@ export default function App() {
                <div className="flex justify-center gap-4 mb-8">{availableBookLevels.map((lvl) => (<button key={lvl} onClick={() => setBookLevel(lvl as Level)} className={`px-6 py-2 rounded-full font-bold transition-all border-2 ${bookLevel === lvl ? 'bg-emerald-600 border-emerald-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-400 hover:bg-slate-600'}`}>レベル {lvl}</button>))}</div>
                <div className="mb-8">
                  <h3 className="text-blue-300 font-bold mb-4 flex items-center gap-2 text-xl"><Shield size={20} /> 練習エリア (Training Zone)</h3>
-                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                 <div className="monster-book-grid">
                     {visibleGuideMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
@@ -7630,7 +7630,7 @@ export default function App() {
                </div>
                <div>
                  <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2 text-xl"><Skull size={20} /> 危険エリア (Danger Zone)</h3>
-                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                 <div className="monster-book-grid">
                     {visibleChallengeMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
