@@ -1,5 +1,43 @@
 @import "tailwindcss";
 
+/* A quiet nameplate for collection cards; use installed fonts and static paint. */
+.monster-book-name {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: calc(3.1em + .8rem + 2px);
+  margin: .35rem 0 .65rem;
+  padding: .4rem .2rem;
+  border-block: 1px solid rgb(230 196 126 / 25%);
+  background: linear-gradient(90deg, transparent, rgb(230 196 126 / 7%), transparent);
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Noto Serif CJK JP', 'MS PMincho', serif;
+  font-size: clamp(.94rem, 1.3vw, 1.05rem);
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: .025em;
+  color: #fff0c5;
+  text-shadow: 0 2px 2px rgb(0 0 0 / 65%);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.monster-book-name::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: calc(50% - 2.5px);
+  width: 5px;
+  height: 5px;
+  background: #d3b679;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.monster-book-name--battle {
+  color: #ffe3a4;
+  border-color: rgb(238 182 91 / 35%);
+}
+
 /* Keep the course action visible while the choices scroll, including small phones. */
 .course-select-content { padding-bottom: 132px !important; }
 .course-select-action { position: fixed; inset: auto 0 0; z-index: 30; padding: 8px 12px max(8px, env(safe-area-inset-bottom)); background: #0b1425; border-top: 1px solid #475569; box-shadow: 0 -8px 24px #02061766; }
