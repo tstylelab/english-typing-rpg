@@ -23,38 +23,56 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       setVisible(false);
     };
     let frame = 0;
+    let resizeFrame = 0;
     let disposed = false;
+    let playing = false;
     const image = overlay.querySelector('img');
-    const start = () => {
-      if (disposed) return;
-      if (motion.matches || (image && !image.naturalWidth)) { finish(); return; }
+    const updateGeometry = () => {
       const bounds = target.getBoundingClientRect();
       const pixels = image ? image.naturalWidth / (window.devicePixelRatio || 1) : Infinity;
       const size = Math.min(window.innerWidth * .9 - 36, window.innerHeight * .84 - 36, pixels);
-      if (size <= bounds.width * 1.05) { finish(); return; }
+      if (size <= bounds.width * 1.05) return false;
       overlay.style.setProperty('--reveal-size', `${size}px`);
       overlay.style.setProperty('--reveal-x', `${bounds.x + bounds.width / 2 - window.innerWidth / 2}px`);
       overlay.style.setProperty('--reveal-y', `${bounds.y + bounds.height / 2 - window.innerHeight / 2}px`);
       overlay.style.setProperty('--reveal-scale', String(bounds.width / size));
+      return true;
+    };
+    const start = () => {
+      if (disposed) return;
+      if (motion.matches || (image && !image.naturalWidth)) { finish(); return; }
       frame = requestAnimationFrame(() => {
         if (!disposed) {
+          if (!updateGeometry()) { finish(); return; }
+          playing = true;
           target.classList.add('is-revealing');
           overlay.classList.add('is-playing');
           backdrop?.classList.add('is-playing');
         }
       });
     };
+    // Mobile browser chrome / keyboards may resize while art is loading.
+    // Loading uses the latest viewport at start; playback keeps its one-second
+    // timeline and only updates geometry, without restarting the animation.
+    const resize = () => {
+      if (!playing || disposed || resizeFrame) return;
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = 0;
+        if (!disposed && !updateGeometry()) finish();
+      });
+    };
     if (image && !image.complete) image.addEventListener('load', start, { once: true });
     else start();
     image?.addEventListener('error', finish, { once: true });
-    window.addEventListener('resize', finish, { once: true });
+    window.addEventListener('resize', resize);
     motion.addEventListener('change', finish);
     return () => {
       disposed = true;
       cancelAnimationFrame(frame);
+      cancelAnimationFrame(resizeFrame);
       image?.removeEventListener('load', start);
       image?.removeEventListener('error', finish);
-      window.removeEventListener('resize', finish);
+      window.removeEventListener('resize', resize);
       motion.removeEventListener('change', finish);
       overlay.classList.remove('is-playing');
       backdrop?.classList.remove('is-playing');

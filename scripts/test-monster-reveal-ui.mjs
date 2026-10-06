@@ -51,9 +51,11 @@ try {
     { width: 1366, dpr: 1, slow: true }, { width: 1366, dpr: 1, broken: true },
     { width: 390, dpr: 1, course: 'Conversation' },
     { width: 1366, dpr: 1, boss: true },
-  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
-    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, course = 'Eiken3' } = scenario;
-    const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference' });
+    { width: 390, height: 844, dpr: 3, mobile: true, resize: true },
+    { width: 1024, height: 768, dpr: 2, mobile: true, resize: true },
+  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
+    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, course = 'Eiken3' } = scenario;
+    const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference', isMobile: mobile, hasTouch: mobile });
     const page = await context.newPage();
     page.setDefaultTimeout(12000);
     const errors = [], requests = new Set();
@@ -64,11 +66,15 @@ try {
       await new Promise(resolve => setTimeout(resolve, 700));
       await route.continue();
     });
+    if (resize) await page.route('**/monsters/**/1024/**', async route => {
+      await new Promise(resolve => setTimeout(resolve, 600));
+      await route.continue();
+    });
     const questions = QUESTIONS[course][1];
     const answer = questions.find(q => /^[\x20-\x7E]+$/.test(q.text)).text;
-    await page.addInitScript(({ course, questions, answer, boss, battleIds }) => {
+    await page.addInitScript(({ course, questions, answer, boss, battleIds, mobile }) => {
       speechSynthesis.speak = () => {};
-      localStorage.setItem('etyping_external_keyboard_mode', 'true');
+      localStorage.setItem('etyping_external_keyboard_mode', String(!mobile));
       localStorage.setItem('etyping_last_selected_course', JSON.stringify({ difficulty: course, level: 1, resumeMode: 'challenge', resumeInputMode: 'text-only' }));
       if (boss) localStorage.setItem('etyping_defeated_monsters', JSON.stringify(battleIds.slice(0, 19).map(id => `${course}:1:challenge:text-only:${id}`)));
       localStorage.setItem('etyping_manual_question_statuses', JSON.stringify(Object.fromEntries(questions.map(q => [`${course}:1:${q.text}:${q.translation}`, { practiceLevel: 1, listeningLevel: 1, battleLevel: 1, manualOverrideLevel: null, excluded: q.text !== answer, updatedAt: 0 }]))));
@@ -80,14 +86,19 @@ try {
         if (!(node instanceof HTMLElement) || !node.dataset.monsterReveal) return;
         const image = node.querySelector('img');
         const style = getComputedStyle(node);
-        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
+        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, viewportWidth: innerWidth, viewportHeight: innerHeight, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
       }, true);
-    }, { course, questions, answer, boss, battleIds });
+    }, { course, questions, answer, boss, battleIds, mobile });
     await page.goto(url);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
     await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
     await page.getByRole('button', { name: course === 'Conversation' ? /Scene Battle/ : /Translation Battle/ }).click();
     await page.locator('.battle-input').waitFor();
+    if (resize) {
+      await page.locator('[data-monster-reveal="entry"]').waitFor({ state: 'attached' });
+      // Real viewport resize while the high-resolution image is still loading.
+      await page.setViewportSize({ width, height: height - 260 });
+    }
     if (boss) {
       await page.getByText('WARNING', { exact: true }).waitFor();
       await page.getByText('WARNING', { exact: true }).waitFor({ state: 'hidden' });
@@ -107,7 +118,7 @@ try {
     }
     if (!reduced && !broken) {
       await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'entry'));
-      await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${slow ? 'slow' : 'normal'}.png`);
+      await captureReveal(page, 'entry', `${output}/entry-${course}-${width}-${resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
     }
     // Typing remains enabled while the entrance is running or loading.
     await page.keyboard.type(answer.slice(0, 1));
@@ -126,8 +137,16 @@ try {
     }
     await page.getByText('CLEAR!', { exact: true }).first().waitFor();
     if (!reduced && !broken) await page.waitForFunction(() => window.revealObservations.some(x => x.kind === 'defeat'));
+    if (resize) {
+      // Resize again during playback. The same one-second animation must remain.
+      await page.setViewportSize({ width, height });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      assert.equal(await page.locator('[data-monster-reveal="defeat"].is-playing').count(), 1);
+      const measured = await page.locator('[data-monster-reveal="defeat"]').evaluate(el => ({ size: parseFloat(el.style.getPropertyValue('--reveal-size')), pixels: el.querySelector('img').naturalWidth }));
+      assert.ok(Math.abs(measured.size - Math.min(width * .9 - 36, height * .84 - 36, measured.pixels / dpr)) < 1, 'Viewport geometry not refreshed');
+    }
     if (!reduced && !broken) {
-      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${slow ? 'slow' : 'normal'}.png`);
+      await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
     }
     const observations = await page.evaluate(() => window.revealObservations);
     for (const item of observations) {
@@ -135,10 +154,14 @@ try {
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
       if (item.sourcePixels) assert.ok(item.width * dpr <= item.sourcePixels + 1, 'Raster upscaled');
-      const expected = Math.min(width * .9 - 36, height * .84 - 36, (item.sourcePixels || Infinity) / dpr);
+      const expected = Math.min(item.viewportWidth * .9 - 36, item.viewportHeight * .84 - 36, (item.sourcePixels || Infinity) / dpr);
       assert.ok(item.width >= expected * .97 && item.width <= expected + 1, 'Reveal should fill the available viewport within source resolution');
     }
     if (reduced || broken) assert.deepEqual(observations, []);
+    if (resize) {
+      assert.equal(observations.filter(item => item.kind === 'entry').length, 1, 'Entry restarted after resize');
+      assert.equal(observations.filter(item => item.kind === 'defeat').length, 1, 'Defeat restarted after resize');
+    }
     const highRes = [...requests].filter(r => r.includes('/1024/'));
     assert.ok(highRes.every(r => r.endsWith('/c1_1.webp')), 'Only the current encounter should request high-res art');
     if (reduced || course === 'Conversation') assert.deepEqual(highRes, []);
