@@ -3655,11 +3655,12 @@ type GameButtonSize = 'sm' | 'md' | 'lg';
 type GameButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: GameButtonVariant;
   size?: GameButtonSize;
+  autoFocusPreventScroll?: boolean;
 };
 
 const PLAYER_NAME_MAX_LENGTH = 30;
 
-const GameButton = ({ onClick, children, className = "", variant = "primary", disabled = false, size = "md", autoFocus = false, type = "button", ...buttonProps }: GameButtonProps) => {
+const GameButton = ({ onClick, children, className = "", variant = "primary", disabled = false, size = "md", autoFocus = false, autoFocusPreventScroll = false, type = "button", ...buttonProps }: GameButtonProps) => {
   const baseStyle = "relative font-bold transition-all transform active:scale-95 flex items-center justify-center gap-2 overflow-hidden border-2 rounded-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300";
   const sizes: Record<GameButtonSize, string> = { sm: "px-4 py-2 text-sm", md: "px-6 py-3", lg: "px-10 py-4 text-xl" };
   const variants: Record<GameButtonVariant, string> = {
@@ -3676,9 +3677,9 @@ const GameButton = ({ onClick, children, className = "", variant = "primary", di
   
   useEffect(() => {
     if (autoFocus && btnRef.current) {
-        btnRef.current.focus();
+        btnRef.current.focus({ preventScroll: autoFocusPreventScroll });
     }
-  }, [autoFocus]);
+  }, [autoFocus, autoFocusPreventScroll]);
 
   return (
     <button {...buttonProps} ref={btnRef} type={type} onClick={onClick} disabled={disabled} className={`${baseStyle} ${sizes[size]} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}>
@@ -10753,6 +10754,11 @@ export default function App() {
       setQuestionListFilter('weak');
       setGameState(prev => ({ ...prev, screen: 'question-list' }));
     };
+    const handleOpenCourseWordList = () => {
+      setQuestionListFilter('all');
+      setWordListToolsOpen(false);
+      setGameState(prev => ({ ...prev, screen: 'question-list' }));
+    };
     const handleStartWeaknessFromResult = () => openWeakReviewHub();
     const handleStartBattleReview = () => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'weakness', 'text-only', gameState.currentBattleMissedQuestions);
 
@@ -10763,14 +10769,17 @@ export default function App() {
         <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5">
           <div className="grid gap-4 lg:grid-cols-[minmax(340px,0.85fr)_minmax(0,1.35fr)]">
             <main className="min-w-0 lg:order-2">
-              <header className="flex items-center gap-4 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4">
-                {isWin ? <Trophy size={48} className="flex-shrink-0 text-yellow-400" /> : <Zap size={48} className="flex-shrink-0 text-slate-500" />}
+              <header className="flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
+                {isWin ? <Trophy size={48} className="h-8 w-8 flex-shrink-0 text-yellow-400 sm:h-12 sm:w-12" /> : <Zap size={48} className="h-8 w-8 flex-shrink-0 text-slate-500 sm:h-12 sm:w-12" />}
                 {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat"><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
-                <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p className="mt-1 text-xs font-bold text-slate-400">今回の問題と例文を確認しよう</p></div>
+                <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
               </header>
 
               <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
-                <div className="flex items-center justify-between border-b border-slate-600 bg-slate-900/70 px-4 py-3"><h3 className="font-black text-white">今回の問題と結果</h3><span className="text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></div>
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-600 bg-slate-900/70 px-3 py-2 sm:px-4">
+                  <h3 className="text-sm font-black text-white sm:text-base">今回の問題と結果 <span className="ml-1 text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></h3>
+                  <button type="button" onClick={handleOpenCourseWordList} aria-label="この教材の単語リストを開く" className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-cyan-400/40 bg-cyan-950/50 px-2.5 text-sm font-bold text-cyan-100 transition-colors hover:bg-cyan-900/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"><BookOpen size={16} aria-hidden="true" />単語リスト</button>
+                </div>
                 <div className="divide-y divide-slate-700">
                   {gameState.battleLog.map((log, idx) => {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
@@ -10812,7 +10821,7 @@ export default function App() {
                 </section>
               )}
 
-              {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+              {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
 
               <section className="rounded-xl border border-slate-600 bg-slate-950/35 p-2"><p className="px-1 pb-2 text-xs font-black text-slate-200">移動・メニュー</p><div className="grid grid-cols-2 gap-2"><GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton><GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="outline">ホームへ</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="outline"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton></div></section>
 
