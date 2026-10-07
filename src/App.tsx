@@ -29,6 +29,8 @@ import { createLearningQuestionBalance, selectLearningBalancedQuestion, type Lea
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
+import BackupReminder from './BackupReminder';
+import { acknowledgeBackupReminder } from './dailyBackupReminder';
 
 // --- Types & Interfaces ---
 
@@ -5706,9 +5708,15 @@ export default function App() {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
       setProgressTransferStatus(`学習データを書き出しました: ${payload.player?.name ?? 'Player'}`);
+      const exportDate = getTodayKey();
+      const answered = dailyActivityHistory[exportDate]?.answered
+        ?? (dailyProgress.date === exportDate ? dailyProgress.questionCount : 0);
+      if (answered > 200) acknowledgeBackupReminder(activePlayerId, exportDate);
+      return true;
     } catch (error) {
       console.error('Failed to export progress data:', error);
       setProgressTransferStatus('学習データの書き出しに失敗しました。');
+      return false;
     }
   };
 
@@ -10751,6 +10759,7 @@ export default function App() {
     // Desktop result layout: every result and every action remains visible in two columns.
     return (
       <ScreenContainer className="items-center justify-center p-4">
+        <BackupReminder key={`${activePlayerId}:${todayKey}`} playerId={activePlayerId} date={todayKey} answered={todayQuestionCount} onExport={downloadProgressSnapshot} />
         <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5">
           <div className="grid gap-4 lg:grid-cols-[minmax(340px,0.85fr)_minmax(0,1.35fr)]">
             <main className="min-w-0 lg:order-2">
