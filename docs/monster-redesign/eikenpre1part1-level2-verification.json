@@ -1,0 +1,319 @@
+{
+  "course": "EikenPre1Part1",
+  "level": 2,
+  "newCharacters": 43,
+  "totalActiveRedesignedCharacters": 516,
+  "uniqueNames": 516,
+  "uniqueSourceImages": 516,
+  "previouslyPublishedProfilesUnchanged": 473,
+  "oldArtworkReused": false,
+  "retainedEiken5Characters": 129,
+  "totalCompletedEikenCharacterImages": 645,
+  "designDirections": {
+    "comic": 24,
+    "cool": 7,
+    "beautiful": 10,
+    "cute": 2
+  },
+  "varietyPolicy": "design-variety-policy-2026-10-05.md",
+  "directionCountsAreNotHumorGuarantees": true,
+  "priorityRequest": "Prioritize EikenPre1Part1 Levels 2 and 3 before other unfinished courses",
+  "totalBytes": {
+    "256": 723620,
+    "384": 1285774,
+    "1024": 6415556
+  },
+  "completedOn": "2026-10-07",
+  "validation": {
+    "sourceExport": "43 images; true alpha; complete edges; static WebP; no source upscaling",
+    "localUi": [
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 1366,
+        "battleArtRequests": [
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/384/c2_1.webp",
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/1024/c2_1.webp",
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/384/c2_2.webp"
+        ],
+        "twoCharactersCpu4xMs": 510
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 1366,
+        "victoryArt": "c2_1",
+        "nextBattleArt": "c2_2"
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 1366,
+        "collectionInitialRequests": 28,
+        "collectionLoaded": 43
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 390,
+        "battleArtRequests": [
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/384/c2_1.webp",
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/384/m2_1.webp",
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/1024/c2_1.webp",
+          "http://127.0.0.1:5178/monsters/eikenpre1part1-v2-level2/384/c2_2.webp"
+        ],
+        "twoCharactersCpu4xMs": 491
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 390,
+        "victoryArt": "c2_1",
+        "nextBattleArt": "c2_2"
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 390,
+        "collectionInitialRequests": 6,
+        "collectionLoaded": 43
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "trainingArt": "m2_1",
+        "typing": "ac"
+      },
+      {
+        "course": "Conversation",
+        "level": 1,
+        "retainsSvg": true
+      }
+    ],
+    "localPreview": [
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 1366,
+        "height": 800,
+        "dpr": 1,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          496,
+          496,
+          496,
+          496,
+          496
+        ],
+        "highResolutionAssetsRequested": 8,
+        "title": true,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": false,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "EikenPre1Part1",
+        "level": 2,
+        "width": 390,
+        "height": 800,
+        "dpr": 1,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          316,
+          316,
+          316,
+          316
+        ],
+        "highResolutionAssetsRequested": 7,
+        "title": false,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": true,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "Conversation",
+        "level": 1,
+        "width": 1366,
+        "height": 800,
+        "dpr": 1,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          496,
+          496,
+          496,
+          496,
+          496
+        ],
+        "highResolutionAssetsRequested": 0,
+        "title": true,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": false,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "Conversation",
+        "level": 1,
+        "width": 390,
+        "height": 800,
+        "dpr": 1,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          316,
+          316,
+          316,
+          316
+        ],
+        "highResolutionAssetsRequested": 0,
+        "title": false,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": true,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "Eiken5",
+        "level": 1,
+        "width": 1920,
+        "height": 1080,
+        "dpr": 2,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "highResolutionAssetsRequested": 8,
+        "title": true,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": false,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "Eiken5",
+        "level": 1,
+        "width": 390,
+        "height": 640,
+        "dpr": 3,
+        "reducedMotion": "reduce",
+        "measuredArtWidths": [
+          316,
+          316,
+          316,
+          316
+        ],
+        "highResolutionAssetsRequested": 7,
+        "title": false,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": true,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      },
+      {
+        "course": "Eiken5",
+        "level": 1,
+        "width": 844,
+        "height": 390,
+        "dpr": 1,
+        "reducedMotion": "no-preference",
+        "measuredArtWidths": [
+          127,
+          127,
+          127,
+          127
+        ],
+        "highResolutionAssetsRequested": 7,
+        "title": false,
+        "collectionTriggers": 43,
+        "galleryButtons": true,
+        "galleryKeyboard": true,
+        "galleryTouch": true,
+        "boundaries": true,
+        "trainingToDanger": true,
+        "lockedPreserved": true,
+        "closeButton": true,
+        "escape": true,
+        "backdrop": true,
+        "focusRestored": true,
+        "defeatedRecordsPreserved": true,
+        "errors": [
+          "Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+        ]
+      }
+    ],
+    "build": "passed",
+    "lint": "0 errors; 1 existing react-hooks warning",
+    "realDeviceLatencyMeasured": false
+  }
+}
