@@ -1,0 +1,5080 @@
+{
+  "baselineRevision": "d87b37a",
+  "reductionPercent": 8,
+  "rounding": "Round to nearest integer, minimum HP 1",
+  "scope": "All courses and levels using text-only input, including reviews and all boss stages",
+  "reducedCases": 8280,
+  "unchangedCases": 16560,
+  "rows": [
+    {
+      "course": "Eiken5",
+      "level": 1,
+      "averageHpBefore": 1762.608695652174,
+      "averageHpAfter": 1621.608695652174,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 420,
+          "after": 386
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 580,
+          "after": 534
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 740,
+          "after": 681
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 1040,
+          "after": 957
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 1200,
+          "after": 1104
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 1260,
+          "after": 1159
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 1273,
+          "after": 1171
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1280,
+          "after": 1178
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1287,
+          "after": 1184
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1293,
+          "after": 1190
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1300,
+          "after": 1196
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1307,
+          "after": 1202
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1313,
+          "after": 1208
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1320,
+          "after": 1214
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1327,
+          "after": 1221
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1333,
+          "after": 1226
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "Eiken5",
+      "level": 2,
+      "averageHpBefore": 1775.4782608695652,
+      "averageHpAfter": 1633.5217391304348,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 924,
+          "after": 850
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 1074,
+          "after": 988
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 1214,
+          "after": 1117
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 1346,
+          "after": 1238
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 1452,
+          "after": 1336
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 1478,
+          "after": 1360
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 1496,
+          "after": 1376
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 1505,
+          "after": 1385
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 1514,
+          "after": 1393
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 1522,
+          "after": 1400
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 1531,
+          "after": 1409
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1540,
+          "after": 1417
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1549,
+          "after": 1425
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1558,
+          "after": 1433
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1566,
+          "after": 1441
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1575,
+          "after": 1449
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1584,
+          "after": 1457
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1593,
+          "after": 1466
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1602,
+          "after": 1474
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 2402,
+          "after": 2210
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 3203,
+          "after": 2947
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 3604,
+          "after": 3316
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 4004,
+          "after": 3684
+        }
+      ]
+    },
+    {
+      "course": "Eiken5",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Eiken4",
+      "level": 1,
+      "averageHpBefore": 1563.0434782608695,
+      "averageHpAfter": 1438,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 350,
+          "after": 322
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 420,
+          "after": 386
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 490,
+          "after": 451
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 560,
+          "after": 515
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 630,
+          "after": 580
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 690,
+          "after": 635
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 750,
+          "after": 690
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 810,
+          "after": 745
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 870,
+          "after": 800
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1100,
+          "after": 1012
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1150,
+          "after": 1058
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1200,
+          "after": 1104
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1250,
+          "after": 1150
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1290,
+          "after": 1187
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1320,
+          "after": 1214
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "Eiken4",
+      "level": 2,
+      "averageHpBefore": 2228,
+      "averageHpAfter": 2049.695652173913,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 704,
+          "after": 648
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 753,
+          "after": 693
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 803,
+          "after": 739
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 859,
+          "after": 790
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 908,
+          "after": 835
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 957,
+          "after": 880
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 1007,
+          "after": 926
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 1063,
+          "after": 978
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 1112,
+          "after": 1023
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 1162,
+          "after": 1069
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 1211,
+          "after": 1114
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1260,
+          "after": 1159
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1316,
+          "after": 1211
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1366,
+          "after": 1257
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1415,
+          "after": 1302
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1464,
+          "after": 1347
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1521,
+          "after": 1399
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1570,
+          "after": 1444
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1619,
+          "after": 1489
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 4168,
+          "after": 3835
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 6252,
+          "after": 5752
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 8335,
+          "after": 7668
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 10419,
+          "after": 9585
+        }
+      ]
+    },
+    {
+      "course": "Eiken4",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Eiken3",
+      "level": 1,
+      "averageHpBefore": 1573.0434782608695,
+      "averageHpAfter": 1447.2173913043478,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 380,
+          "after": 350
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 450,
+          "after": 414
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 520,
+          "after": 478
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 590,
+          "after": 543
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 660,
+          "after": 607
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 800,
+          "after": 736
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1100,
+          "after": 1012
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1140,
+          "after": 1049
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1180,
+          "after": 1086
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1220,
+          "after": 1122
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1260,
+          "after": 1159
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1300,
+          "after": 1196
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "Eiken3",
+      "level": 2,
+      "averageHpBefore": 1753.2173913043478,
+      "averageHpAfter": 1612.9130434782608,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 845,
+          "after": 777
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 866,
+          "after": 797
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 901,
+          "after": 829
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 922,
+          "after": 848
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 936,
+          "after": 861
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 957,
+          "after": 880
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 972,
+          "after": 894
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 993,
+          "after": 914
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 1014,
+          "after": 933
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 1028,
+          "after": 946
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1049,
+          "after": 965
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1070,
+          "after": 984
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1084,
+          "after": 997
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1105,
+          "after": 1017
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1140,
+          "after": 1049
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1162,
+          "after": 1069
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1176,
+          "after": 1082
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 2244,
+          "after": 2064
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 4129,
+          "after": 3799
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 6184,
+          "after": 5689
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 8548,
+          "after": 7864
+        }
+      ]
+    },
+    {
+      "course": "Eiken3",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "EikenPre2",
+      "level": 1,
+      "averageHpBefore": 1600,
+      "averageHpAfter": 1472.0434782608695,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 400,
+          "after": 368
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 480,
+          "after": 442
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 560,
+          "after": 515
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 640,
+          "after": 589
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 710,
+          "after": 653
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 780,
+          "after": 718
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1040,
+          "after": 957
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1080,
+          "after": 994
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1120,
+          "after": 1030
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1160,
+          "after": 1067
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1200,
+          "after": 1104
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1240,
+          "after": 1141
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1280,
+          "after": 1178
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1310,
+          "after": 1205
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "EikenPre2",
+      "level": 2,
+      "averageHpBefore": 1753.2173913043478,
+      "averageHpAfter": 1612.9130434782608,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 845,
+          "after": 777
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 866,
+          "after": 797
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 901,
+          "after": 829
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 922,
+          "after": 848
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 936,
+          "after": 861
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 957,
+          "after": 880
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 972,
+          "after": 894
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 993,
+          "after": 914
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 1014,
+          "after": 933
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 1028,
+          "after": 946
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1049,
+          "after": 965
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1070,
+          "after": 984
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1084,
+          "after": 997
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1105,
+          "after": 1017
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1140,
+          "after": 1049
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1162,
+          "after": 1069
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1176,
+          "after": 1082
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 2244,
+          "after": 2064
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 4129,
+          "after": 3799
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 6184,
+          "after": 5689
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 8548,
+          "after": 7864
+        }
+      ]
+    },
+    {
+      "course": "EikenPre2",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Eiken2",
+      "level": 1,
+      "averageHpBefore": 1600,
+      "averageHpAfter": 1472.0434782608695,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 400,
+          "after": 368
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 480,
+          "after": 442
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 560,
+          "after": 515
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 640,
+          "after": 589
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 710,
+          "after": 653
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 780,
+          "after": 718
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1040,
+          "after": 957
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1080,
+          "after": 994
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1120,
+          "after": 1030
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1160,
+          "after": 1067
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1200,
+          "after": 1104
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1240,
+          "after": 1141
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1280,
+          "after": 1178
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1310,
+          "after": 1205
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "Eiken2",
+      "level": 2,
+      "averageHpBefore": 1753.2173913043478,
+      "averageHpAfter": 1612.9130434782608,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 845,
+          "after": 777
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 866,
+          "after": 797
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 901,
+          "after": 829
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 922,
+          "after": 848
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 936,
+          "after": 861
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 957,
+          "after": 880
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 972,
+          "after": 894
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 993,
+          "after": 914
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 1014,
+          "after": 933
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 1028,
+          "after": 946
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1049,
+          "after": 965
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1070,
+          "after": 984
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1084,
+          "after": 997
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1105,
+          "after": 1017
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1140,
+          "after": 1049
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1162,
+          "after": 1069
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1176,
+          "after": 1082
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 2244,
+          "after": 2064
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 4129,
+          "after": 3799
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 6184,
+          "after": 5689
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 8548,
+          "after": 7864
+        }
+      ]
+    },
+    {
+      "course": "Eiken2",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part1",
+      "level": 1,
+      "averageHpBefore": 2098.086956521739,
+      "averageHpAfter": 1930.2608695652175,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 500,
+          "after": 460
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 800,
+          "after": 736
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 1120,
+          "after": 1030
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 1180,
+          "after": 1086
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1240,
+          "after": 1141
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1300,
+          "after": 1196
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1360,
+          "after": 1251
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1420,
+          "after": 1306
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1480,
+          "after": 1362
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1540,
+          "after": 1417
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1600,
+          "after": 1472
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1660,
+          "after": 1527
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1720,
+          "after": 1582
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1780,
+          "after": 1638
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 3618,
+          "after": 3329
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 5427,
+          "after": 4993
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 7236,
+          "after": 6657
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 9045,
+          "after": 8321
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part1",
+      "level": 2,
+      "averageHpBefore": 2474.8260869565215,
+      "averageHpAfter": 2276.913043478261,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 563,
+          "after": 518
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 605,
+          "after": 557
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 648,
+          "after": 596
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 690,
+          "after": 635
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 732,
+          "after": 673
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 767,
+          "after": 706
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 810,
+          "after": 745
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 852,
+          "after": 784
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 887,
+          "after": 816
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 929,
+          "after": 855
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 964,
+          "after": 887
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1007,
+          "after": 926
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1042,
+          "after": 959
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1077,
+          "after": 991
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1155,
+          "after": 1063
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1190,
+          "after": 1095
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1232,
+          "after": 1133
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 5627,
+          "after": 5177
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 8439,
+          "after": 7764
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 11253,
+          "after": 10353
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 14066,
+          "after": 12941
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part1",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "level": 1,
+      "averageHpBefore": 2098.086956521739,
+      "averageHpAfter": 1930.2608695652175,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 500,
+          "after": 460
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 800,
+          "after": 736
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 1120,
+          "after": 1030
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 1180,
+          "after": 1086
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1240,
+          "after": 1141
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1300,
+          "after": 1196
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1360,
+          "after": 1251
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1420,
+          "after": 1306
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1480,
+          "after": 1362
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1540,
+          "after": 1417
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1600,
+          "after": 1472
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1660,
+          "after": 1527
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1720,
+          "after": 1582
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1780,
+          "after": 1638
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 3618,
+          "after": 3329
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 5427,
+          "after": 4993
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 7236,
+          "after": 6657
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 9045,
+          "after": 8321
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "level": 2,
+      "averageHpBefore": 2474.8260869565215,
+      "averageHpAfter": 2276.913043478261,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 563,
+          "after": 518
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 605,
+          "after": 557
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 648,
+          "after": 596
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 690,
+          "after": 635
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 732,
+          "after": 673
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 767,
+          "after": 706
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 810,
+          "after": 745
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 852,
+          "after": 784
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 887,
+          "after": 816
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 929,
+          "after": 855
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 964,
+          "after": 887
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1007,
+          "after": 926
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1042,
+          "after": 959
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1077,
+          "after": 991
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1155,
+          "after": 1063
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1190,
+          "after": 1095
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1232,
+          "after": 1133
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 5627,
+          "after": 5177
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 8439,
+          "after": 7764
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 11253,
+          "after": 10353
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 14066,
+          "after": 12941
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part1",
+      "level": 1,
+      "averageHpBefore": 1804.1739130434783,
+      "averageHpAfter": 1659.8260869565217,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 420,
+          "after": 386
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 480,
+          "after": 442
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 540,
+          "after": 497
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 660,
+          "after": 607
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 720,
+          "after": 662
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 770,
+          "after": 708
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 860,
+          "after": 791
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 975,
+          "after": 897
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1005,
+          "after": 925
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1030,
+          "after": 948
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1070,
+          "after": 984
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1090,
+          "after": 1003
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1110,
+          "after": 1021
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1130,
+          "after": 1040
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 3618,
+          "after": 3329
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 5427,
+          "after": 4993
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 7236,
+          "after": 6657
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 9045,
+          "after": 8321
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part1",
+      "level": 2,
+      "averageHpBefore": 2474.8260869565215,
+      "averageHpAfter": 2276.913043478261,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 563,
+          "after": 518
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 605,
+          "after": 557
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 648,
+          "after": 596
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 690,
+          "after": 635
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 732,
+          "after": 673
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 767,
+          "after": 706
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 810,
+          "after": 745
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 852,
+          "after": 784
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 887,
+          "after": 816
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 929,
+          "after": 855
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 964,
+          "after": 887
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1007,
+          "after": 926
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1042,
+          "after": 959
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1077,
+          "after": 991
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1155,
+          "after": 1063
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1190,
+          "after": 1095
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1232,
+          "after": 1133
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 5627,
+          "after": 5177
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 8439,
+          "after": 7764
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 11253,
+          "after": 10353
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 14066,
+          "after": 12941
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part1",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part2",
+      "level": 1,
+      "averageHpBefore": 1804.1739130434783,
+      "averageHpAfter": 1659.8260869565217,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 420,
+          "after": 386
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 480,
+          "after": 442
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 540,
+          "after": 497
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 660,
+          "after": 607
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 720,
+          "after": 662
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 770,
+          "after": 708
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 860,
+          "after": 791
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 975,
+          "after": 897
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1005,
+          "after": 925
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1030,
+          "after": 948
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1050,
+          "after": 966
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1070,
+          "after": 984
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1090,
+          "after": 1003
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1110,
+          "after": 1021
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1130,
+          "after": 1040
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 3618,
+          "after": 3329
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 5427,
+          "after": 4993
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 7236,
+          "after": 6657
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 9045,
+          "after": 8321
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part2",
+      "level": 2,
+      "averageHpBefore": 2474.8260869565215,
+      "averageHpAfter": 2276.913043478261,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 563,
+          "after": 518
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 605,
+          "after": 557
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 648,
+          "after": 596
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 690,
+          "after": 635
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 732,
+          "after": 673
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 767,
+          "after": 706
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 810,
+          "after": 745
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 852,
+          "after": 784
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 887,
+          "after": 816
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 929,
+          "after": 855
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 964,
+          "after": 887
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 1007,
+          "after": 926
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 1042,
+          "after": 959
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 1077,
+          "after": 991
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 1119,
+          "after": 1029
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 1155,
+          "after": 1063
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 1190,
+          "after": 1095
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 1232,
+          "after": 1133
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 5627,
+          "after": 5177
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 8439,
+          "after": 7764
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 11253,
+          "after": 10353
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 14066,
+          "after": 12941
+        }
+      ]
+    },
+    {
+      "course": "Eiken1Part2",
+      "level": 3,
+      "averageHpBefore": 1086.9565217391305,
+      "averageHpAfter": 1000.0434782608696,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 600,
+          "after": 552
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 650,
+          "after": 598
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 700,
+          "after": 644
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 730,
+          "after": 672
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 760,
+          "after": 699
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 790,
+          "after": 727
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 820,
+          "after": 754
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 850,
+          "after": 782
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 880,
+          "after": 810
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 920,
+          "after": 846
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 930,
+          "after": 856
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 940,
+          "after": 865
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 950,
+          "after": 874
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 960,
+          "after": 883
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 970,
+          "after": 892
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 980,
+          "after": 902
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 990,
+          "after": 911
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 1000,
+          "after": 920
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 1650,
+          "after": 1518
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 2350,
+          "after": 2162
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 2680,
+          "after": 2466
+        }
+      ]
+    },
+    {
+      "course": "Conversation",
+      "level": 1,
+      "averageHpBefore": 1762.608695652174,
+      "averageHpAfter": 1621.608695652174,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c1_1",
+          "bossStage": 0,
+          "before": 420,
+          "after": 386
+        },
+        {
+          "stage": 2,
+          "monsterId": "c1_2",
+          "bossStage": 0,
+          "before": 580,
+          "after": 534
+        },
+        {
+          "stage": 3,
+          "monsterId": "c1_3",
+          "bossStage": 0,
+          "before": 740,
+          "after": 681
+        },
+        {
+          "stage": 4,
+          "monsterId": "c1_4",
+          "bossStage": 0,
+          "before": 900,
+          "after": 828
+        },
+        {
+          "stage": 5,
+          "monsterId": "c1_5",
+          "bossStage": 0,
+          "before": 1040,
+          "after": 957
+        },
+        {
+          "stage": 6,
+          "monsterId": "c1_6",
+          "bossStage": 0,
+          "before": 1200,
+          "after": 1104
+        },
+        {
+          "stage": 7,
+          "monsterId": "c1_8",
+          "bossStage": 0,
+          "before": 1260,
+          "after": 1159
+        },
+        {
+          "stage": 8,
+          "monsterId": "c1_extra_1",
+          "bossStage": 0,
+          "before": 1267,
+          "after": 1166
+        },
+        {
+          "stage": 9,
+          "monsterId": "c1_extra_2",
+          "bossStage": 0,
+          "before": 1273,
+          "after": 1171
+        },
+        {
+          "stage": 10,
+          "monsterId": "c1_extra_3",
+          "bossStage": 0,
+          "before": 1280,
+          "after": 1178
+        },
+        {
+          "stage": 11,
+          "monsterId": "c1_extra_4",
+          "bossStage": 0,
+          "before": 1287,
+          "after": 1184
+        },
+        {
+          "stage": 12,
+          "monsterId": "c1_9",
+          "bossStage": 0,
+          "before": 1293,
+          "after": 1190
+        },
+        {
+          "stage": 13,
+          "monsterId": "c1_extra_5",
+          "bossStage": 0,
+          "before": 1300,
+          "after": 1196
+        },
+        {
+          "stage": 14,
+          "monsterId": "c1_extra_6",
+          "bossStage": 0,
+          "before": 1307,
+          "after": 1202
+        },
+        {
+          "stage": 15,
+          "monsterId": "c1_extra_7",
+          "bossStage": 0,
+          "before": 1313,
+          "after": 1208
+        },
+        {
+          "stage": 16,
+          "monsterId": "c1_extra_8",
+          "bossStage": 0,
+          "before": 1320,
+          "after": 1214
+        },
+        {
+          "stage": 17,
+          "monsterId": "c1_extra_9",
+          "bossStage": 0,
+          "before": 1327,
+          "after": 1221
+        },
+        {
+          "stage": 18,
+          "monsterId": "c1_extra_10",
+          "bossStage": 0,
+          "before": 1333,
+          "after": 1226
+        },
+        {
+          "stage": 19,
+          "monsterId": "c1_10",
+          "bossStage": 0,
+          "before": 1340,
+          "after": 1233
+        },
+        {
+          "stage": 20,
+          "monsterId": "c1_7",
+          "bossStage": 1,
+          "before": 2680,
+          "after": 2466
+        },
+        {
+          "stage": 21,
+          "monsterId": "c1_11",
+          "bossStage": 2,
+          "before": 4020,
+          "after": 3698
+        },
+        {
+          "stage": 22,
+          "monsterId": "c1_12",
+          "bossStage": 3,
+          "before": 5360,
+          "after": 4931
+        },
+        {
+          "stage": 23,
+          "monsterId": "c1_13",
+          "bossStage": 4,
+          "before": 6700,
+          "after": 6164
+        }
+      ]
+    },
+    {
+      "course": "Conversation",
+      "level": 2,
+      "averageHpBefore": 4002.1739130434785,
+      "averageHpAfter": 3682,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c2_1",
+          "bossStage": 0,
+          "before": 1500,
+          "after": 1380
+        },
+        {
+          "stage": 2,
+          "monsterId": "c2_2",
+          "bossStage": 0,
+          "before": 1800,
+          "after": 1656
+        },
+        {
+          "stage": 3,
+          "monsterId": "c2_3",
+          "bossStage": 0,
+          "before": 2000,
+          "after": 1840
+        },
+        {
+          "stage": 4,
+          "monsterId": "c2_4",
+          "bossStage": 0,
+          "before": 2200,
+          "after": 2024
+        },
+        {
+          "stage": 5,
+          "monsterId": "c2_5",
+          "bossStage": 0,
+          "before": 2500,
+          "after": 2300
+        },
+        {
+          "stage": 6,
+          "monsterId": "c2_6",
+          "bossStage": 0,
+          "before": 2800,
+          "after": 2576
+        },
+        {
+          "stage": 7,
+          "monsterId": "c2_8",
+          "bossStage": 0,
+          "before": 2860,
+          "after": 2631
+        },
+        {
+          "stage": 8,
+          "monsterId": "c2_extra_1",
+          "bossStage": 0,
+          "before": 2868,
+          "after": 2639
+        },
+        {
+          "stage": 9,
+          "monsterId": "c2_extra_2",
+          "bossStage": 0,
+          "before": 2876,
+          "after": 2646
+        },
+        {
+          "stage": 10,
+          "monsterId": "c2_extra_3",
+          "bossStage": 0,
+          "before": 2884,
+          "after": 2653
+        },
+        {
+          "stage": 11,
+          "monsterId": "c2_extra_4",
+          "bossStage": 0,
+          "before": 2892,
+          "after": 2661
+        },
+        {
+          "stage": 12,
+          "monsterId": "c2_9",
+          "bossStage": 0,
+          "before": 2900,
+          "after": 2668
+        },
+        {
+          "stage": 13,
+          "monsterId": "c2_extra_5",
+          "bossStage": 0,
+          "before": 2908,
+          "after": 2675
+        },
+        {
+          "stage": 14,
+          "monsterId": "c2_extra_6",
+          "bossStage": 0,
+          "before": 2916,
+          "after": 2683
+        },
+        {
+          "stage": 15,
+          "monsterId": "c2_extra_7",
+          "bossStage": 0,
+          "before": 2924,
+          "after": 2690
+        },
+        {
+          "stage": 16,
+          "monsterId": "c2_extra_8",
+          "bossStage": 0,
+          "before": 2932,
+          "after": 2697
+        },
+        {
+          "stage": 17,
+          "monsterId": "c2_extra_9",
+          "bossStage": 0,
+          "before": 2940,
+          "after": 2705
+        },
+        {
+          "stage": 18,
+          "monsterId": "c2_extra_10",
+          "bossStage": 0,
+          "before": 2950,
+          "after": 2714
+        },
+        {
+          "stage": 19,
+          "monsterId": "c2_10",
+          "bossStage": 0,
+          "before": 2960,
+          "after": 2723
+        },
+        {
+          "stage": 20,
+          "monsterId": "c2_7",
+          "bossStage": 1,
+          "before": 5920,
+          "after": 5446
+        },
+        {
+          "stage": 21,
+          "monsterId": "c2_11",
+          "bossStage": 2,
+          "before": 8880,
+          "after": 8170
+        },
+        {
+          "stage": 22,
+          "monsterId": "c2_12",
+          "bossStage": 3,
+          "before": 11840,
+          "after": 10893
+        },
+        {
+          "stage": 23,
+          "monsterId": "c2_13",
+          "bossStage": 4,
+          "before": 14800,
+          "after": 13616
+        }
+      ]
+    },
+    {
+      "course": "Conversation",
+      "level": 3,
+      "averageHpBefore": 6561.95652173913,
+      "averageHpAfter": 6037,
+      "stages": [
+        {
+          "stage": 1,
+          "monsterId": "c3_1",
+          "bossStage": 0,
+          "before": 2500,
+          "after": 2300
+        },
+        {
+          "stage": 2,
+          "monsterId": "c3_2",
+          "bossStage": 0,
+          "before": 2800,
+          "after": 2576
+        },
+        {
+          "stage": 3,
+          "monsterId": "c3_3",
+          "bossStage": 0,
+          "before": 3000,
+          "after": 2760
+        },
+        {
+          "stage": 4,
+          "monsterId": "c3_4",
+          "bossStage": 0,
+          "before": 3500,
+          "after": 3220
+        },
+        {
+          "stage": 5,
+          "monsterId": "c3_5",
+          "bossStage": 0,
+          "before": 4000,
+          "after": 3680
+        },
+        {
+          "stage": 6,
+          "monsterId": "c3_6",
+          "bossStage": 0,
+          "before": 4500,
+          "after": 4140
+        },
+        {
+          "stage": 7,
+          "monsterId": "c3_8",
+          "bossStage": 0,
+          "before": 4650,
+          "after": 4278
+        },
+        {
+          "stage": 8,
+          "monsterId": "c3_extra_1",
+          "bossStage": 0,
+          "before": 4670,
+          "after": 4296
+        },
+        {
+          "stage": 9,
+          "monsterId": "c3_extra_2",
+          "bossStage": 0,
+          "before": 4690,
+          "after": 4315
+        },
+        {
+          "stage": 10,
+          "monsterId": "c3_extra_3",
+          "bossStage": 0,
+          "before": 4710,
+          "after": 4333
+        },
+        {
+          "stage": 11,
+          "monsterId": "c3_extra_4",
+          "bossStage": 0,
+          "before": 4730,
+          "after": 4352
+        },
+        {
+          "stage": 12,
+          "monsterId": "c3_9",
+          "bossStage": 0,
+          "before": 4750,
+          "after": 4370
+        },
+        {
+          "stage": 13,
+          "monsterId": "c3_extra_5",
+          "bossStage": 0,
+          "before": 4770,
+          "after": 4388
+        },
+        {
+          "stage": 14,
+          "monsterId": "c3_extra_6",
+          "bossStage": 0,
+          "before": 4790,
+          "after": 4407
+        },
+        {
+          "stage": 15,
+          "monsterId": "c3_extra_7",
+          "bossStage": 0,
+          "before": 4810,
+          "after": 4425
+        },
+        {
+          "stage": 16,
+          "monsterId": "c3_extra_8",
+          "bossStage": 0,
+          "before": 4830,
+          "after": 4444
+        },
+        {
+          "stage": 17,
+          "monsterId": "c3_extra_9",
+          "bossStage": 0,
+          "before": 4850,
+          "after": 4462
+        },
+        {
+          "stage": 18,
+          "monsterId": "c3_extra_10",
+          "bossStage": 0,
+          "before": 4875,
+          "after": 4485
+        },
+        {
+          "stage": 19,
+          "monsterId": "c3_10",
+          "bossStage": 0,
+          "before": 4900,
+          "after": 4508
+        },
+        {
+          "stage": 20,
+          "monsterId": "c3_7",
+          "bossStage": 1,
+          "before": 9800,
+          "after": 9016
+        },
+        {
+          "stage": 21,
+          "monsterId": "c3_11",
+          "bossStage": 2,
+          "before": 14700,
+          "after": 13524
+        },
+        {
+          "stage": 22,
+          "monsterId": "c3_12",
+          "bossStage": 3,
+          "before": 19600,
+          "after": 18032
+        },
+        {
+          "stage": 23,
+          "monsterId": "c3_13",
+          "bossStage": 4,
+          "before": 24500,
+          "after": 22540
+        }
+      ]
+    }
+  ]
+}

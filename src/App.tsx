@@ -645,13 +645,17 @@ const getBattleTuning = (
   const monsterHp = isEikenPhraseBattle(difficulty, level, mode)
     ? Math.max(1, Math.round(originalHp * maxQuestions / getLegacyBattleQuestionLimit(difficulty, level, mode, bossStage)))
     : originalHp;
+  // Preserve the released Level 2 easing before applying mode-specific tuning.
+  const levelAdjustedHp = difficulty.startsWith('Eiken') && level === 2
+    ? Math.max(1, Math.round(monsterHp * 0.88))
+    : monsterHp;
 
   return {
-    // Let learners advance through phrases before mastering every remaining item.
-    // Apply once after all course, question-count and boss HP adjustments.
-    monsterHp: difficulty.startsWith('Eiken') && level === 2
-      ? Math.max(1, Math.round(monsterHp * 0.88))
-      : monsterHp,
+    // Translation battles, including reviews and all bosses, need less typing.
+    // Calculate once from base HP so starting/replaying cannot compound the cut.
+    monsterHp: inputMode === 'text-only'
+      ? Math.max(1, Math.round(levelAdjustedHp * 0.92))
+      : levelAdjustedHp,
     damageMultiplier: getBattleDamageMultiplier(mode, inputMode),
     maxQuestions,
   };
