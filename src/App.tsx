@@ -10721,6 +10721,7 @@ export default function App() {
 
   if (gameState.screen === 'result') {
     const isWin = gameState.battleResult === 'win';
+    const resultMarkedQuestionKeys = new Set(markedQuestionKeysByScope[getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel)] ?? []);
     const learningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const actualMonsterId = gameState.challengeModeIndices[gameState.currentMonsterIndex];
     const defeatedMonster = gameState.currentMonsterList[actualMonsterId];
@@ -10794,9 +10795,20 @@ export default function App() {
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                 const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
-                    return <div key={idx} className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
+                    const isMarkedForReview = resultMarkedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, log.question));
+                    return <div key={idx} data-result-question className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                       <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
-                      <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                      <div className="flex flex-col items-start gap-1 sm:items-end">
+                        <span data-result-status className={`text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                        <button
+                          type="button"
+                          onClick={() => toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}
+                          aria-label={`${log.question.text} を${isMarkedForReview ? '復習リストから外す' : 'あとで復習に追加'}`}
+                          aria-pressed={isMarkedForReview}
+                          title={isMarkedForReview ? '押すと復習リストから外します' : 'この用語をあとで復習する'}
+                          className={`inline-flex min-h-8 items-center gap-1 whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 ${isMarkedForReview ? 'border-yellow-300/60 bg-yellow-500/20 text-yellow-100 hover:bg-yellow-500/30' : 'border-yellow-500/35 bg-yellow-950/20 text-yellow-200 hover:bg-yellow-900/35'}`}
+                        ><Bookmark size={12} aria-hidden="true" fill={isMarkedForReview ? 'currentColor' : 'none'} />{isMarkedForReview ? '追加済み' : 'あとで復習'}</button>
+                      </div>
                       {grammarCard && <div className="mt-1 sm:col-span-2"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
                     </div>;
                   })}
