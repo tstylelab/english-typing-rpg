@@ -53,7 +53,11 @@ try {
     await page.locator('.battle-input').waitFor();
     if (win) await page.locator('.battle-input').fill('!'); // Include a corrected answer in the result.
     for (let i = 0; i < 60 && await page.locator('.battle-input').count(); i++) {
-      if (win) await page.locator('.battle-input').fill(q.text);
+      if (win) {
+        await page.locator('.battle-input').fill(q.text);
+        // Wait for answer resolution (including the final reveal) before another fill.
+        await page.waitForFunction(() => !document.querySelector('.battle-input') || document.querySelector('.battle-input').value === '');
+      }
       else await page.getByRole('button', { name: 'この問題をスキップ', exact: true }).click();
       await page.waitForTimeout(180);
     }
