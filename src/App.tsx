@@ -3700,6 +3700,14 @@ const CourseCompletionStar = () => (
   </span>
 );
 
+const GradeCompletionStars = ({ count }: { count: number }) => (
+  <span role="img" aria-label={`${count}つのLevelでバトル2方式を全クリア`} title={`${count}つのLevelでバトル2方式を全クリア`} data-course-completion-star data-completed-level-count={count} className="pointer-events-none absolute right-1 -top-3 flex h-[18px] items-center justify-center gap-0.5 rounded-full border border-amber-200/70 bg-slate-900 px-1 text-amber-300 shadow-sm">
+    {Array.from({ length: count }, (_, index) => (
+      <Star key={index} size={14} fill="currentColor" strokeWidth={1.5} aria-hidden="true" />
+    ))}
+  </span>
+);
+
 type GameButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'outline' | 'ghost';
 type GameButtonSize = 'sm' | 'md' | 'lg';
 
@@ -10127,7 +10135,8 @@ export default function App() {
                     {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
                       const isSelected = gameState.selectedDifficulty === diff;
                       const levelCount = getAvailableLevels(diff).length;
-                      const isComplete = completedLevelsByDifficulty.get(diff)!.size === levelCount;
+                      const completedLevelCount = completedLevelsByDifficulty.get(diff)!.size;
+                      const isComplete = completedLevelCount === levelCount;
                       return (
                         <button
                           key={diff}
@@ -10151,7 +10160,7 @@ export default function App() {
                             </div>
                             {isSelected && <CheckCircle2 className="shrink-0 text-amber-200" size={18} />}
                           </div>
-                          {isComplete && <CourseCompletionStar />}
+                          {completedLevelCount > 0 && <GradeCompletionStars count={completedLevelCount} />}
                         </button>
                       );
                     })}

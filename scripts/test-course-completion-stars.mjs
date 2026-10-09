@@ -30,7 +30,7 @@ console.log(`PASS all courses/levels, ${missingChecks} individual missing wins i
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const cleanup=await trackTestBrowser(browser);
 const output='node_modules/.tmp/course-completion';mkdirSync(output,{recursive:true});
-const completeKeys=[...[1,2,3].flatMap(level=>keysFor('Eiken5',level)),...keysFor('Eiken4',1),...keysFor('Eiken4',2).filter(k=>k.includes(':voice-only:')),...keysFor('Eiken4',3).slice(0,-1)];
+const completeKeys=[...[1,2,3].flatMap(level=>keysFor('Eiken5',level)),...keysFor('Eiken4',1),...keysFor('Eiken4',2).filter(k=>k.includes(':voice-only:')),...keysFor('Eiken4',3).slice(0,-1),...[2,3].flatMap(level=>keysFor('Eiken3',level))];
 try{
  for(const width of [1366,390,320]){
   let baseline;
@@ -48,7 +48,8 @@ try{
    if(!full){baseline={heights,levelHeights};assert.equal(await page.locator('[data-course-completion-star]').count(),0);}
    else{
     assert.deepEqual(heights,baseline.heights,'Grade stars must not increase button height');assert.deepEqual(levelHeights,baseline.levelHeights,'Level stars must not increase button height');
-    assert.equal(await grades.nth(0).locator('[data-course-completion-star]').count(),1);assert.equal(await grades.nth(1).locator('[data-course-completion-star]').count(),0);
+    for(const [index,count] of [[0,3],[1,1],[2,2]]) assert.equal(await grades.nth(index).locator('[data-course-completion-star] svg').count(),count);
+    assert.equal(await grades.nth(3).locator('[data-course-completion-star]').count(),0);
     assert.equal(await levels.locator('[data-course-completion-star]').count(),3);
     const collisions=await page.locator('[data-course-completion-star]').evaluateAll(stars=>stars.some(star=>{
       const badge=star.getBoundingClientRect(),button=star.closest('button');
@@ -57,8 +58,9 @@ try{
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     await page.screenshot({path:`${output}/complete-${width}.png`,fullPage:true});
     const saved=await page.evaluate(()=>localStorage.getItem('etyping_defeated_monsters'));
+    await grades.nth(2).click();assert.equal(await levels.nth(0).locator('[data-course-completion-star]').count(),0);assert.equal(await levels.nth(1).locator('[data-course-completion-star]').count(),1);assert.equal(await levels.nth(2).locator('[data-course-completion-star]').count(),1);
     await grades.nth(1).click();assert.equal(await levels.nth(0).locator('[data-course-completion-star]').count(),1);assert.equal(await levels.nth(1).locator('[data-course-completion-star]').count(),0);assert.equal(await levels.nth(2).locator('[data-course-completion-star]').count(),0);
-    await levels.nth(2).click();assert.equal(await grades.nth(1).locator('[data-course-completion-star]').count(),0);
+    await levels.nth(2).click();assert.equal(await grades.nth(1).locator('[data-course-completion-star] svg').count(),1);
     assert.equal(await page.evaluate(()=>localStorage.getItem('etyping_defeated_monsters')),saved,'Viewing stars must not modify defeats');
     await page.getByRole('button',{name:'この教材で始める',exact:true}).click();await page.getByText('Translation Battle / 和訳バトル',{exact:true}).waitFor();
    }
