@@ -10442,7 +10442,7 @@ export default function App() {
     const isPreviousQuestionMarked = previousQuestionKey
       ? (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(previousQuestionKey)
       : false;
-    const monsterDialogue = getBattleBubbleDialogue(currentMonster, {
+    const selectedMonsterDialogue = getBattleBubbleDialogue(currentMonster, {
       isDefeated: gameState.monsterHp <= 0,
       isDamaged: flash,
       hpRate: hpPercent,
@@ -10450,6 +10450,9 @@ export default function App() {
       missCount: gameState.missCount,
       seedKey: `${gameState.currentMonsterIndex}:${gameState.questionCount}:${gameState.monsterHp}:${gameState.combo}:${gameState.missCount}`,
     });
+    const monsterDialogue = selectedMonsterDialogue.startsWith(`${currentMonster.name}「`)
+      ? selectedMonsterDialogue.slice(currentMonster.name.length)
+      : selectedMonsterDialogue;
 
     return (
       <ScreenContainer className={`battle-screen ${showBattleKeyboardGuide ? 'battle-with-keyboard' : ''} ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
