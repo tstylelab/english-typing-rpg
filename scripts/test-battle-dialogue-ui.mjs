@@ -44,11 +44,16 @@ try {
       measurements.push(await page.evaluate(() => {
         const rect = selector => {const r=document.querySelector(selector).getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
         const bubble=document.querySelector('.battle-dialogue');
-        return {row:rect('.battle-character-row'),bubble:rect('.battle-dialogue'),avatar:rect('.battle-avatar'),card:rect('.battle-card'),font:parseFloat(getComputedStyle(bubble).fontSize),overflow:bubble.scrollWidth> bubble.clientWidth+1,pageOverflow:document.documentElement.scrollWidth>innerWidth+1,guide:!!document.querySelector('.battle-with-keyboard')};
+        const hp=rect('.battle-hp');
+        const hpParts=['.battle-hp-name','.battle-hp-level','.battle-hp-value','.battle-hp-remaining'].map(selector=>({...rect(selector),font:parseFloat(getComputedStyle(document.querySelector(selector)).fontSize)}));
+        return {hp,hpParts,row:rect('.battle-character-row'),bubble:rect('.battle-dialogue'),avatar:rect('.battle-avatar'),card:rect('.battle-card'),font:parseFloat(getComputedStyle(bubble).fontSize),overflow:bubble.scrollWidth> bubble.clientWidth+1,pageOverflow:document.documentElement.scrollWidth>innerWidth+1,guide:!!document.querySelector('.battle-with-keyboard')};
       }));
     }
     for (const m of measurements) {
       assert.equal(m.pageOverflow,false);
+      assert.ok(m.hpParts.every(p=>p.left>=m.hp.left && p.right<=m.hp.right && p.top>=m.hp.top && p.bottom<=m.hp.bottom),'HP text must stay inside the panel, including narrow guide columns');
+      assert.ok(m.hpParts[0].font>=14 && m.hpParts[2].font>=13 && m.hpParts[3].font>=11,'HP text must remain readable');
+      if (!guide) assert.ok(m.hp.height<=84,'HP panel should remain compact');
       assert.equal(m.overflow,false);
       assert.ok(m.bubble.left>=0 && m.bubble.right<=width,`Bubble must stay inside horizontal bounds: ${JSON.stringify(m)}`);
       assert.ok(m.card.top>=Math.max(m.bubble.bottom,m.avatar.bottom) || m.card.left>=Math.max(m.bubble.right,m.avatar.right),'Dialogue must not overlap input card');

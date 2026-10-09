@@ -10477,22 +10477,23 @@ export default function App() {
                 )}
                 <div className="battle-character-row">
                   <div className="battle-dialogue">{monsterDialogue}</div>
-                  <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                  <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" name={currentMonster.name} enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
                 </div>
                 <div className="battle-status-row">
                   <nav aria-label="バトルから移動" className="battle-navigation">
                     <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
                     <button type="button" onClick={() => leaveBattle('mode-select')}><LayoutGrid size={16} />コース選択に戻る</button>
                   </nav>
-                <div className="battle-hp w-72 max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
-                  <div className="mb-1 flex items-center justify-between gap-2 px-1 text-[10px] font-bold text-slate-300">
-                    <span className="flex min-w-0 items-center gap-2"><span className="truncate">{currentMonster.name}</span><span className="flex-shrink-0 rounded bg-slate-700 px-1 text-slate-400">Lv.{gameState.currentMonsterIndex + 1}</span></span>
-                    <span className="flex-shrink-0">{gameState.monsterHp} / {gameState.maxMonsterHp}</span>
+                <div className="battle-hp max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
+                  <div className="battle-hp-heading mb-1 flex items-center justify-between gap-2 px-1">
+                    <span className="battle-hp-name monster-display-name">{currentMonster.name}</span>
+                    <span className="battle-hp-level flex-shrink-0 rounded bg-slate-700 px-1.5 py-0.5 font-bold text-slate-200">Lv.{gameState.currentMonsterIndex + 1}</span>
                   </div>
                   <div className="h-3 overflow-hidden rounded-full bg-slate-900 shadow-inner"><div className={`relative h-full overflow-hidden transition-all duration-300 ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div>
-                  <div className="mt-1.5 flex justify-end px-1">
+                  <div className="battle-hp-footer mt-1 flex items-center justify-between gap-2 px-1">
+                    <span className="battle-hp-value font-bold text-slate-100">{gameState.monsterHp} / {gameState.maxMonsterHp}</span>
                     <span
-                      className="rounded-full border border-slate-600/80 bg-slate-900/55 px-2 py-0.5 text-[9px] font-bold tracking-wide text-slate-400"
+                      className="battle-hp-remaining rounded-full border border-slate-600/80 bg-slate-900/55 px-2 py-0.5 font-bold text-slate-300"
                       aria-label={`このコースは全${stageMonsterTotal}体中、現在のモンスターを含めて残り${remainingMonsterCount}体`}
                       title="現在のモンスターを含む残り数"
                     >
@@ -10780,7 +10781,7 @@ export default function App() {
                   .battle-screen .battle-main { margin-top: 0.35rem; padding: 2rem 0.75rem 1rem; }
                   .battle-screen .battle-monster-area { margin-bottom: 0.35rem; }
                   .battle-screen .battle-combo { display: none; }
-                  .battle-screen .battle-hp { width: 220px; margin-top: 0; padding: 0.4rem; }
+                  .battle-screen .battle-hp { width: min(440px, 45vw); margin-top: 0; padding: 0.4rem; }
                   .battle-screen .battle-hp .h-3 { height: 0.5rem; }
                   .battle-screen .battle-card { margin-top: 0.4rem; padding: 0.75rem; }
                   .battle-screen .battle-controls { margin-bottom: 0.45rem; gap: 0.45rem; }
@@ -10850,13 +10851,13 @@ export default function App() {
     return (
       <ScreenContainer className="items-center justify-center p-4">
         <BackupReminder key={`${activePlayerId}:${todayKey}`} playerId={activePlayerId} date={todayKey} answered={todayQuestionCount} onExport={downloadProgressSnapshot} />
-        <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5">
+        <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5" contentClassName="p-0">
           <div className="grid gap-4 lg:grid-cols-[minmax(340px,0.85fr)_minmax(0,1.35fr)]">
             <main className="min-w-0 lg:order-2">
-              <header className="flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
+              <header className="result-monster-header flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
                 {isWin ? <Trophy size={48} className="h-8 w-8 flex-shrink-0 text-yellow-400 sm:h-12 sm:w-12" /> : <Zap size={48} className="h-8 w-8 flex-shrink-0 text-slate-500 sm:h-12 sm:w-12" />}
-                {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat"><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
-                <div className="min-w-0"><p className={`text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className="mt-1 break-words text-lg font-black text-white">{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
+                {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat" name={defeatedMonster.name}><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
+                <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
               </header>
 
               <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">

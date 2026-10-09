@@ -30,10 +30,14 @@ async function captureReveal(page, kind, path) {
     const title = node.querySelector('.monster-reveal-clear > span');
     const titleBounds = title?.getBoundingClientRect();
     const clear = title ? { text: title.textContent, bounds: { left: titleBounds.left, top: titleBounds.top, right: titleBounds.right, bottom: titleBounds.bottom } } : null;
+    const caption = node.querySelector('.monster-reveal-name');
+    const nameBounds = caption.getBoundingClientRect();
+    const name = { text: caption.textContent, expected: document.querySelector(kind === 'entry' ? '.battle-hp-name' : '.result-monster-name').textContent, font: parseFloat(getComputedStyle(caption).fontSize), bounds: { left: nameBounds.left, top: nameBounds.top, right: nameBounds.right, bottom: nameBounds.bottom }, overflow: caption.scrollWidth > caption.clientWidth + 1 };
+    const nameSpace = parseFloat(node.style.getPropertyValue('--reveal-name-space'));
     const extended = kind === 'defeat' ? sample(1500) : null;
     const ending = kind === 'defeat' ? sample(1900) : null;
-    sample(230);
-    return { fading, early, late, extended, ending, clear, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
+    sample(650);
+    return { name, nameSpace, fading, early, late, extended, ending, clear, rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height }, visibleBounds, mask: getComputedStyle(node, '::after').maskImage, backdropPointerEvents: getComputedStyle(backdrop).pointerEvents, animations: animations.map(a => a.animationName) };
   }, kind);
   assert.equal(geometry.early.transform, geometry.late.transform, 'Monster moves during central hold');
   assert.equal(geometry.early.opacity, '1');
@@ -47,8 +51,13 @@ async function captureReveal(page, kind, path) {
   assert.equal(geometry.backdropPointerEvents, 'none');
   const { rect, visibleBounds: v } = geometry;
   const margin = kind === 'defeat' ? 18 : 0;
-  assert.ok(rect.left - margin >= v.left - 1 && rect.top - margin >= v.top - 1 && rect.right + margin <= v.left + v.width + 1 && rect.bottom + margin <= v.top + v.height + 1, 'Held monster/panel clipped by the visible viewport');
-  assert.ok(Math.abs(rect.left + rect.width / 2 - v.left - v.width / 2) < 1 && Math.abs(rect.top + rect.height / 2 - v.top - v.height / 2) < 1, 'Monster is not centered in the visible area');
+  assert.ok(rect.left - margin >= v.left - 1 && rect.top - margin >= v.top - 1 && rect.right + margin <= v.left + v.width + 1 && rect.bottom + geometry.nameSpace + margin <= v.top + v.height + 1, 'Held monster/panel clipped by the visible viewport');
+  assert.ok(Math.abs(rect.left + rect.width / 2 - v.left - v.width / 2) < 1 && Math.abs(rect.top + (rect.height + geometry.nameSpace) / 2 - v.top - v.height / 2) < 1, 'Monster and name are not centered in the visible area');
+  assert.equal(geometry.name.text, geometry.name.expected, 'Reveal must name the current encounter');
+  assert.ok(geometry.name.font >= 18, 'Reveal name should be readable');
+  assert.equal(geometry.name.overflow, false, 'Reveal name should not overflow');
+  const caption = geometry.name.bounds;
+  assert.ok(caption.top >= rect.bottom && caption.bottom <= v.top + v.height && caption.left >= v.left && caption.right <= v.left + v.width, 'Name must sit below the artwork and inside the visible area');
   if (kind === 'defeat') {
     assert.equal(geometry.clear?.text, 'CLEAR!');
     assert.equal(geometry.fading.clearOpacity, 0);
@@ -61,6 +70,7 @@ async function captureReveal(page, kind, path) {
     assert.equal(geometry.extended.flash, 0, 'Extended hold must not repeat the flash');
     assert.ok(Number(geometry.ending.opacity) > 0 && Number(geometry.ending.opacity) < 1, 'Defeat should fade out near two seconds');
     const title = geometry.clear.bounds;
+    assert.ok(title.bottom < caption.top, 'Victory title must not overlap the name');
     assert.ok(title.left >= v.left && title.top >= v.top && title.right <= v.left + v.width && title.bottom <= v.top + v.height, 'Victory title clipped by the visible area');
   } else assert.equal(geometry.clear, null, 'Entry must not show a victory title');
   await page.screenshot({ path });
@@ -68,11 +78,13 @@ async function captureReveal(page, kind, path) {
     for (const animation of document.querySelector(`[data-monster-reveal="${kind}"]`)?.getAnimations({ subtree: true }) || []) animation.play();
     for (const animation of document.querySelector('[data-monster-reveal-backdrop]')?.getAnimations() || []) animation.play();
   }, kind);
+  return geometry;
 }
 const battleIds = JSON.parse(readFileSync('docs/monster-redesign/eiken3-level1.json', 'utf8')).assets.filter(x => x.monsterId.startsWith('c')).map(x => x.monsterId);
 try {
   for (const scenario of [
     { width: 1366, dpr: 1 }, { width: 390, dpr: 1 },
+    { width: 320, height: 740, dpr: 1, enemyIndex: 3 },
     { width: 1920, height: 1080, dpr: 1 }, { width: 1024, height: 768, dpr: 2 },
     { width: 390, dpr: 3 }, { width: 1366, dpr: 1, reduced: true },
     { width: 1366, dpr: 1, slow: true }, { width: 1366, dpr: 1, broken: true },
@@ -82,8 +94,8 @@ try {
     { width: 1024, height: 768, dpr: 2, mobile: true, resize: true },
     { width: 390, height: 844, dpr: 3, mobile: true, visual: true },
     { width: 1024, height: 768, dpr: 2, mobile: true, visual: true },
-  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'clear' ? s.visual || (s.width === 1366 && !s.reduced && !s.slow && !s.broken && !s.boss) || s.course === 'Conversation' : process.env.MONSTER_REVEAL_TEST_ONLY === 'visual' ? s.visual : process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
-    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, visual = false, course = 'Eiken3' } = scenario;
+  ].filter(s => !process.env.MONSTER_REVEAL_TEST_ONLY || (process.env.MONSTER_REVEAL_TEST_ONLY === 'names' ? s.visual || s.width === 320 || s.width === 1920 || (s.width === 1024 && !s.resize) || s.course === 'Conversation' : process.env.MONSTER_REVEAL_TEST_ONLY === 'clear' ? s.visual || (s.width === 1366 && !s.reduced && !s.slow && !s.broken && !s.boss) || s.course === 'Conversation' : process.env.MONSTER_REVEAL_TEST_ONLY === 'visual' ? s.visual : process.env.MONSTER_REVEAL_TEST_ONLY === 'resize' ? s.resize : process.env.MONSTER_REVEAL_TEST_ONLY === 'boss' ? s.boss : s.course === process.env.MONSTER_REVEAL_TEST_ONLY))) {
+    const { width, height = 900, dpr, reduced = false, slow = false, broken = false, boss = false, mobile = false, resize = false, visual = false, enemyIndex = 0, course = 'Eiken3' } = scenario;
     const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, reducedMotion: reduced ? 'reduce' : 'no-preference', isMobile: mobile, hasTouch: mobile });
     const page = await context.newPage();
     page.setDefaultTimeout(12000);
@@ -101,7 +113,7 @@ try {
     });
     const questions = QUESTIONS[course][1];
     const answer = questions.find(q => /^[\x20-\x7E]+$/.test(q.text)).text;
-    await page.addInitScript(({ course, questions, answer, boss, battleIds, mobile, visual, width, height }) => {
+    await page.addInitScript(({ course, questions, answer, boss, enemyIndex, battleIds, mobile, visual, width, height }) => {
       if (visual) {
         // Model keyboard pan/shrink independently of layout dimensions. This
         // is a geometry regression, not an emulation of native Android Gboard.
@@ -115,7 +127,7 @@ try {
       speechSynthesis.speak = () => {};
       localStorage.setItem('etyping_external_keyboard_mode', String(!mobile));
       localStorage.setItem('etyping_last_selected_course', JSON.stringify({ difficulty: course, level: 1, resumeMode: 'challenge', resumeInputMode: 'text-only' }));
-      if (boss) localStorage.setItem('etyping_defeated_monsters', JSON.stringify(battleIds.slice(0, 19).map(id => `${course}:1:challenge:text-only:${id}`)));
+      if (boss || enemyIndex) localStorage.setItem('etyping_defeated_monsters', JSON.stringify(battleIds.slice(0, boss ? 19 : enemyIndex).map(id => `${course}:1:challenge:text-only:${id}`)));
       localStorage.setItem('etyping_manual_question_statuses', JSON.stringify(Object.fromEntries(questions.map(q => [`${course}:1:${q.text}:${q.translation}`, { practiceLevel: 1, listeningLevel: 1, battleLevel: 1, manualOverrideLevel: null, excluded: q.text !== answer, updatedAt: 0 }]))));
       // Record real animation geometry without changing its timing.
       window.revealObservations = [];
@@ -125,14 +137,26 @@ try {
         if (!(node instanceof HTMLElement) || !node.dataset.monsterReveal) return;
         const image = node.querySelector('img');
         const style = getComputedStyle(node);
-        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, viewportWidth: visualViewport?.width || innerWidth, viewportHeight: visualViewport?.height || innerHeight, viewportScale: visualViewport?.scale || 1, sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
+        window.revealObservations.push({ kind: node.dataset.monsterReveal, duration: style.animationDuration, width: node.getBoundingClientRect().width, viewportWidth: visualViewport?.width || innerWidth, viewportHeight: visualViewport?.height || innerHeight, viewportScale: visualViewport?.scale || 1, nameSpace: parseFloat(node.style.getPropertyValue('--reveal-name-space')), sourcePixels: image?.naturalWidth, pointerEvents: style.pointerEvents, filter: style.filter });
       }, true);
-    }, { course, questions, answer, boss, battleIds, mobile, visual, width, height });
+    }, { course, questions, answer, boss, enemyIndex, battleIds, mobile, visual, width, height });
     await page.goto(url);
     await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
     await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
     await page.getByRole('button', { name: course === 'Conversation' ? /Scene Battle/ : /Translation Battle/ }).click();
     await page.locator('.battle-input').waitFor();
+    const status = await page.locator('.battle-hp').evaluate(el => {
+      const measure = selector => { const node = el.querySelector(selector), bounds = node.getBoundingClientRect(); return { text: node.textContent, font: parseFloat(getComputedStyle(node).fontSize), left: bounds.left, right: bounds.right, top: bounds.top, bottom: bounds.bottom, overflow: node.scrollWidth > node.clientWidth + 1 }; };
+      const bounds = el.getBoundingClientRect();
+      return { left: bounds.left, right: bounds.right, height: bounds.height, width: bounds.width, name: measure('.battle-hp-name'), level: measure('.battle-hp-level'), hp: measure('.battle-hp-value'), remaining: measure('.battle-hp-remaining') };
+    });
+    assert.ok(status.height <= 84, 'Larger text should retain a compact HP panel');
+    assert.ok(status.left >= 0 && status.right <= width + 1);
+    assert.ok(status.name.font >= 14 && status.hp.font >= 13 && status.remaining.font >= 11);
+    assert.ok(status.name.right <= status.level.left, 'Monster name must not overlap level');
+    assert.ok(status.hp.right <= status.remaining.left, 'HP value must not overlap remaining enemies');
+    for (const value of [status.name, status.level, status.hp, status.remaining]) assert.equal(value.overflow, false);
+    if (width >= 768) assert.ok(status.width >= 400, 'Wide screens should use more horizontal space');
     if (visual) {
       await page.locator('[data-monster-reveal="entry"]').waitFor({ state: 'attached' });
       await page.evaluate(({ width, height }) => window.setTestVisualViewport({ width, height: height * .48, offsetTop: height * .42 }), { width, height });
@@ -202,8 +226,8 @@ try {
       await page.setViewportSize({ width, height });
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       assert.equal(await page.locator('[data-monster-reveal="defeat"].is-playing').count(), 1);
-      const measured = await page.locator('[data-monster-reveal="defeat"]').evaluate(el => ({ size: parseFloat(el.style.getPropertyValue('--reveal-size')), pixels: el.querySelector('img').naturalWidth }));
-      assert.ok(Math.abs(measured.size - Math.min(width * .9 - 36, height * .84 - 36, measured.pixels / dpr)) < 1, 'Viewport geometry not refreshed');
+      const measured = await page.locator('[data-monster-reveal="defeat"]').evaluate(el => ({ size: parseFloat(el.style.getPropertyValue('--reveal-size')), pixels: el.querySelector('img').naturalWidth, nameSpace: parseFloat(el.style.getPropertyValue('--reveal-name-space')) }));
+      assert.ok(Math.abs(measured.size - Math.min(width * .9 - 36, height * .84 - 36, height - measured.nameSpace - 36, measured.pixels / dpr)) < 1, 'Viewport geometry not refreshed');
     }
     if (!reduced && !broken) {
       await captureReveal(page, 'defeat', `${output}/defeat-${course}-${width}-${dpr}-${visual ? 'visual' : resize ? 'resize' : slow ? 'slow' : 'normal'}.png`);
@@ -214,7 +238,7 @@ try {
       assert.equal(item.pointerEvents, 'none');
       assert.equal(item.filter, 'none');
       if (item.sourcePixels) assert.ok(item.width * dpr * item.viewportScale <= item.sourcePixels + 1, 'Raster upscaled');
-      const expected = Math.min(item.viewportWidth * .9 - 36, item.viewportHeight * .84 - 36, (item.sourcePixels || Infinity) / (dpr * item.viewportScale));
+      const expected = Math.min(item.viewportWidth * .9 - 36, item.viewportHeight * .84 - 36, item.viewportHeight - item.nameSpace - 36, (item.sourcePixels || Infinity) / (dpr * item.viewportScale));
       assert.ok(item.width >= expected * .97 && item.width <= expected + 1, 'Reveal should fill the available viewport within source resolution');
     }
     if (reduced || broken) assert.deepEqual(observations, []);
@@ -223,11 +247,11 @@ try {
       assert.equal(observations.filter(item => item.kind === 'defeat').length, 1, 'Defeat restarted after resize');
     }
     const highRes = [...requests].filter(r => r.includes('/1024/'));
-    assert.ok(highRes.every(r => r.endsWith('/c1_1.webp')), 'Only the current encounter should request high-res art');
+    assert.ok(highRes.every(r => r.endsWith('/' + (enemyIndex ? battleIds[enemyIndex] : 'c1_1') + '.webp')), 'Only the current encounter should request high-res art');
     if (reduced || course === 'Conversation') assert.deepEqual(highRes, []);
     else assert.equal(highRes.length, 1, 'Entry and defeat should reuse the same high-res URL');
     const defeated = await page.evaluate(() => localStorage.getItem('etyping_defeated_monsters'));
-    assert.ok(defeated.includes(`${course}:1:challenge:text-only:c1_1`));
+    assert.ok(defeated.includes(`${course}:1:challenge:text-only:${enemyIndex ? battleIds[enemyIndex] : 'c1_1'}`));
     if (width === 1366 && !reduced && !broken && !slow) {
       // Child flash/shake ends at one second must not dismiss the two-second reveal.
       await page.waitForTimeout(1000);
@@ -235,6 +259,18 @@ try {
       await page.locator('[data-monster-reveal="defeat"]').waitFor({ state: 'detached' });
       assert.equal(await page.locator('[data-monster-reveal-backdrop]').count(), 0);
     }
+    const result = await page.locator('.result-monster-header').evaluate(el => {
+      const name = el.querySelector('.result-monster-name'), bounds = name.getBoundingClientRect(), header = el.getBoundingClientRect();
+      return { text: name.textContent, font: parseFloat(getComputedStyle(name).fontSize), left: bounds.left, right: bounds.right, top: bounds.top, bottom: bounds.bottom, headerBottom: header.bottom, height: header.height, overflow: name.scrollWidth > name.clientWidth + 1, pageOverflow: document.documentElement.scrollWidth > innerWidth + 1 };
+    });
+    assert.equal(result.text, status.name.text, 'Result header should name the defeated encounter');
+    assert.ok(result.font >= 19);
+    assert.ok(result.left >= 0 && result.right <= width && result.bottom <= result.headerBottom && result.height <= 170, `Result name should fit a compact header: ${JSON.stringify(result)}`);
+    assert.equal(result.overflow, false);
+    assert.equal(result.pageOverflow, false);
+    if (!reduced && !broken) await page.locator('[data-monster-reveal="defeat"]').waitFor({ state: 'detached' });
+    await page.locator('.result-monster-header').evaluate(el => el.scrollIntoView({ block: 'start' }));
+    await page.screenshot({ path: `${output}/result-${width}-${dpr}-${visual ? 'visual' : 'normal'}.png` });
     // Immediately leave victory, then leave the next entrance: no stale portal.
     await page.getByRole('button', { name: /つぎのモンスターへ/ }).click();
     await page.locator('.battle-input').waitFor();
@@ -245,7 +281,7 @@ try {
     assert.equal(await page.locator('[data-monster-reveal]').count(), 0);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     assert.deepEqual(errors, []);
-    reports.push({ ...scenario, observations, imageRequests: [...requests], victoryRecorded: true, rapidExitClean: true });
+    reports.push({ ...scenario, status, result, observations, imageRequests: [...requests], victoryRecorded: true, rapidExitClean: true });
     writeFileSync(`${output}/report.json`, JSON.stringify(reports, null, 2));
     console.log(`PASS reveal ${JSON.stringify(scenario)}`);
     await page.goto('about:blank');

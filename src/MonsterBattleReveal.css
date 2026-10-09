@@ -71,7 +71,7 @@
 .monster-battle-reveal[data-monster-reveal='defeat']::before {
   content: '';
   position: absolute;
-  inset: -18px;
+  inset: -18px -18px calc(-18px - var(--reveal-name-space, 0px));
   z-index: -2;
   border: 1px solid rgb(253 230 138 / .75);
   border-radius: 24px;
@@ -138,4 +138,21 @@
   .monster-battle-reveal.is-playing::after,
   .monster-battle-reveal.is-playing .monster-reveal-clear,
   .monster-reveal-backdrop.is-playing { animation: none; }
+}
+
+/* A compact nameplate beneath the artwork keeps faces and the CLEAR title visible. */
+.monster-reveal-name {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  border-bottom: 1px solid rgb(230 183 92 / 65%);
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, rgb(8 17 31 / 94%) 18%, rgb(8 17 31 / 94%) 82%, transparent);
+  font-size: clamp(18px, 2.2vw, 30px);
+  line-height: 1.35;
+  text-align: center;
+  overflow-wrap: anywhere;
 }

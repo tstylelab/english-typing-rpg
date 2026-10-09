@@ -3,9 +3,10 @@ import { createPortal } from 'react-dom';
 import './MonsterBattleReveal.css';
 
 // Load only this encounter's existing preview art; never delay game progress.
-export default function MonsterBattleReveal({ children, kind, enabled = true }: {
+export default function MonsterBattleReveal({ children, kind, name, enabled = true }: {
   children: ReactElement<{ size: number; enlarged?: boolean }>;
   kind: 'entry' | 'defeat';
+  name: string;
   enabled?: boolean;
 }) {
   const targetRef = useRef<HTMLSpanElement>(null);
@@ -34,9 +35,21 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       const width = viewport?.width ?? window.innerWidth;
       const height = viewport?.height ?? window.innerHeight;
       const centerX = (viewport?.offsetLeft ?? 0) + width / 2;
-      const centerY = (viewport?.offsetTop ?? 0) + height / 2;
+      const viewportCenterY = (viewport?.offsetTop ?? 0) + height / 2;
       const pixels = image ? image.naturalWidth / ((window.devicePixelRatio || 1) * (viewport?.scale || 1)) : Infinity;
-      const size = Math.min(width * .9 - 36, height * .84 - 36, pixels);
+      let size = Math.min(width * .9 - 36, height * .84 - 36, pixels);
+      overlay.style.setProperty('--reveal-size', `${size}px`);
+      const caption = overlay.querySelector<HTMLElement>('.monster-reveal-name');
+      let nameSpace = (caption?.offsetHeight ?? 0) + 8;
+      // Center the artwork and name together inside the keyboard-adjusted viewport.
+      // The existing resolution and size caps still apply to the artwork.
+      for (let pass = 0; pass < 2; pass++) {
+        size = Math.min(size, height - nameSpace - 36);
+        overlay.style.setProperty('--reveal-size', `${size}px`);
+        nameSpace = (caption?.offsetHeight ?? 0) + 8;
+      }
+      const centerY = viewportCenterY - nameSpace / 2;
+      overlay.style.setProperty('--reveal-name-space', `${nameSpace}px`);
       if (size <= bounds.width * 1.05) return false;
       overlay.style.setProperty('--reveal-center-x', `${centerX}px`);
       overlay.style.setProperty('--reveal-center-y', `${centerY}px`);
@@ -90,7 +103,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
       backdrop?.classList.remove('is-playing');
       target.classList.remove('is-revealing');
     };
-  }, [enabled, kind, visible]);
+  }, [enabled, kind, name, visible]);
   return <>
     <span ref={targetRef} className="monster-reveal-target">{children}</span>
     {visible && enabled && createPortal(
@@ -103,6 +116,7 @@ export default function MonsterBattleReveal({ children, kind, enabled = true }: 
           }
         }}>
           {cloneElement(children, { enlarged: true })}
+          <div className="monster-reveal-name monster-display-name">{name}</div>
           {kind === 'defeat' && <div className="monster-reveal-clear"><span>CLEAR!</span></div>}
         </div>
       </>, document.body,
