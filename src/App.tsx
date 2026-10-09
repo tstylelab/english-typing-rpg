@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Star, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
+import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
@@ -24,6 +24,7 @@ import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
 import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
 import MonsterPreview from './MonsterPreview';
+import MonsterBookStars from './MonsterBookStars';
 import MonsterBattleReveal from './MonsterBattleReveal';
 import { applyMonsterProfile } from './monsterProfiles';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
@@ -185,7 +186,18 @@ type ReviewQueueEntry = {
   missCount: number;
 };
 
-type AutoPlaySource = 'all' | 'weak' | 'marked' | 'selected';
+type LearningStatusFilter = 'learning' | 'caution' | 'mastered';
+type QuestionListFilter = 'all' | 'weak' | 'marked' | 'miss-ranking' | LearningStatusFilter;
+type AutoPlaySource = 'all' | 'weak' | 'marked' | 'selected' | LearningStatusFilter;
+
+const getLearningFilterLevel = (source: QuestionListFilter | AutoPlaySource): LearningLevel | undefined => {
+  switch (source) {
+    case 'learning': return 1;
+    case 'caution': return 2;
+    case 'mastered': return 3;
+    default: return undefined;
+  }
+};
 type AutoPlaySequenceMode = 'normal' | 'exampleFirst' | 'exampleTextExample';
 
 type AutoPlaySettings = {
@@ -720,6 +732,22 @@ const isMonsterDefeatedForBook = (
     matchesDefeatedMonster(defeatedMonsterIds, difficulty, level, mode, inputMode, monsterId)
   ))
 );
+
+const hasClearedBothMonsterBookModes = (
+  defeatedMonsterIds: string[],
+  difficulty: Difficulty,
+  level: Level,
+  zone: 'training' | 'battle',
+  monsterId: string
+) => {
+  // Listening Training uses challenge + voice-text on the training monsters.
+  const requiredModes: Array<[Mode, InputMode]> = zone === 'training'
+    ? [['guide', 'voice-text'], ['challenge', 'voice-text']]
+    : [['challenge', 'voice-only'], ['challenge', 'text-only']];
+  return requiredModes.every(([mode, inputMode]) => (
+    matchesDefeatedMonster(defeatedMonsterIds, difficulty, level, mode, inputMode, monsterId)
+  ));
+};
 
 const countDefeatedMonstersForBook = (
   monsters: Monster[],
@@ -2916,7 +2944,7 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
   const defaults = getDefaultAutoPlaySettings();
   if (!value || typeof value !== 'object') return defaults;
   const typedValue = value as Partial<AutoPlaySettings> & Record<string, unknown>;
-  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'marked' || typedValue.source === 'selected'
+  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'marked' || typedValue.source === 'selected' || typedValue.source === 'learning' || typedValue.source === 'caution' || typedValue.source === 'mastered'
     ? typedValue.source
     : defaults.source;
   const normalizedSequenceMode: AutoPlaySequenceMode = typedValue.sequenceMode === 'normal' || typedValue.sequenceMode === 'exampleFirst' || typedValue.sequenceMode === 'exampleTextExample'
@@ -4135,7 +4163,7 @@ export default function App() {
   const [flash, setFlash] = useState(false);
   const [monsterShake, setMonsterShake] = useState(false); 
   const [scoreViewDiff, setScoreViewDiff] = useState<Difficulty>('Eiken5');
-  const [questionListFilter, setQuestionListFilter] = useState<'all' | 'weak' | 'marked' | 'miss-ranking'>('all');
+  const [questionListFilter, setQuestionListFilter] = useState<QuestionListFilter>('all');
   const [weakListSort, setWeakListSort] = useState<'recent' | 'frequent'>('recent');
   const [questionListRenderLimit, setQuestionListRenderLimit] = useState(DEFAULT_QUESTION_LIST_RENDER_LIMIT);
   const [wordListToolsOpen, setWordListToolsOpen] = useState(false);
@@ -5321,6 +5349,7 @@ export default function App() {
       gameState.selectedLevel,
       questionListFilter,
       weakListSort,
+      autoPlaySettings.source,
     ].join('|');
     const previousCriteria = autoPlayListCriteriaRef.current;
     autoPlayListCriteriaRef.current = nextCriteria;
@@ -5336,6 +5365,7 @@ export default function App() {
     gameState.selectedDifficulty,
     gameState.selectedLevel,
     questionListFilter,
+    autoPlaySettings.source,
     stopAutoPlay,
     weakListSort,
   ]);
@@ -7637,8 +7667,9 @@ export default function App() {
                  <div className="monster-book-grid">
                     {visibleGuideMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
+                      const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'training', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -7647,8 +7678,9 @@ export default function App() {
                  <div className="monster-book-grid">
                     {visibleChallengeMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
+                      const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'battle', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-yellow-400"><Star size={16} fill="currentColor" /></div></>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -7695,13 +7727,20 @@ export default function App() {
       .filter(question => (weakQuestionStats[question.text]?.missCount ?? 0) > 0)
       .sort((a, b) => ((weakQuestionStats[b.text]?.missCount ?? 0) - (weakQuestionStats[a.text]?.missCount ?? 0)) || ((weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0)) || a.text.localeCompare(b.text))
       .slice(0, 30);
-    const visibleQuestions = questionListFilter === 'weak'
-      ? sortedWeakQuestions
-      : questionListFilter === 'marked'
-        ? markedQuestionsInView
-        : questionListFilter === 'miss-ranking'
-          ? missRankingQuestions
-          : questions;
+    const questionsByLearningLevel = (level: LearningLevel) => playableQuestions.filter(q => (
+      getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q)) === level
+    ));
+    const listLearningLevel = getLearningFilterLevel(questionListFilter);
+    const autoPlayLearningLevel = getLearningFilterLevel(autoPlaySettings.source);
+    const visibleQuestions = listLearningLevel !== undefined
+      ? questionsByLearningLevel(listLearningLevel)
+      : questionListFilter === 'weak'
+        ? sortedWeakQuestions
+        : questionListFilter === 'marked'
+          ? markedQuestionsInView
+          : questionListFilter === 'miss-ranking'
+            ? missRankingQuestions
+            : questions;
     const visiblePlayableQuestions = visibleQuestions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const recentWeakSamples = [...weakQuestionsInView]
       .sort((a, b) => (weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0))
@@ -7720,13 +7759,15 @@ export default function App() {
         ? markedQuestionsInView
         : weakQuestionsInView;
     const autoPlayTargetQuestions = wordListToolsOpen
-      ? autoPlaySettings.source === 'all'
-        ? visiblePlayableQuestions
-        : autoPlaySettings.source === 'weak'
-          ? weakQuestionsInView
-          : autoPlaySettings.source === 'marked'
-            ? markedQuestionsInView
-            : selectedQuestionsInView
+      ? autoPlayLearningLevel !== undefined
+        ? questionsByLearningLevel(autoPlayLearningLevel)
+        : autoPlaySettings.source === 'all'
+          ? visiblePlayableQuestions
+          : autoPlaySettings.source === 'weak'
+            ? weakQuestionsInView
+            : autoPlaySettings.source === 'marked'
+              ? markedQuestionsInView
+              : selectedQuestionsInView
       : [];
     const autoPlayPlayableQuestionCount = wordListToolsOpen
       ? autoPlayTargetQuestions.filter(q => {
@@ -7756,13 +7797,15 @@ export default function App() {
       },
     ] : [];
     const manualReviewSamples = wordListToolsOpen ? manualReviewQuestions.slice(0, 5).map(q => q.text).join(' / ') : '';
-    const emptyListTitle = questionListFilter === 'marked'
-      ? 'あとで復習に追加した用語はまだありません'
-      : questionListFilter === 'weak'
-        ? 'この一覧に苦手語はまだありません'
-        : questionListFilter === 'miss-ranking'
-          ? 'まだミスの記録がありません'
-          : '表示できる用語がありません';
+    const emptyListTitle = listLearningLevel !== undefined
+      ? `「${LEARNING_LEVEL_LABELS[listLearningLevel]}」の用語はありません`
+      : questionListFilter === 'marked'
+        ? 'あとで復習に追加した用語はまだありません'
+        : questionListFilter === 'weak'
+          ? 'この一覧に苦手語はまだありません'
+          : questionListFilter === 'miss-ranking'
+            ? 'まだミスの記録がありません'
+            : '表示できる用語がありません';
     const emptyListDescription = questionListFilter === 'marked'
       ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
       : questionListFilter === 'miss-ranking'
@@ -7832,6 +7875,27 @@ export default function App() {
         count: selectedQuestionsInView.length,
         note: '下の選択ツールで作ったリストを再生',
         activeClassName: 'border-cyan-300 bg-cyan-500/15 text-cyan-50',
+      },
+      {
+        key: 'learning',
+        label: '学習中だけ',
+        count: learningSummary.learningCount,
+        note: '学習状態が「学習中」のものだけ',
+        activeClassName: 'border-sky-300 bg-sky-500/15 text-sky-50',
+      },
+      {
+        key: 'caution',
+        label: 'もう少しだけ',
+        count: learningSummary.cautionCount,
+        note: '学習状態が「もう少し」のものだけ',
+        activeClassName: 'border-emerald-300 bg-emerald-500/15 text-emerald-50',
+      },
+      {
+        key: 'mastered',
+        label: '覚えただけ',
+        count: learningSummary.masteredCount,
+        note: '学習状態が「覚えた」のものだけ',
+        activeClassName: 'border-violet-300 bg-violet-500/15 text-violet-50',
       },
     ];
     const selectedAutoPlaySource = autoPlaySourceOptions.find(option => option.key === autoPlaySettings.source) ?? autoPlaySourceOptions[0];
@@ -7949,11 +8013,14 @@ export default function App() {
            </div>
             <div className="mb-4 flex-shrink-0">
               <div className="flex flex-wrap gap-3">
-                <div className="flex bg-slate-800 p-1 rounded-lg self-start">
+                <div role="group" aria-label="問題リストの絞り込み" className="flex flex-wrap bg-slate-800 p-1 rounded-lg self-start">
                 <button onClick={() => setQuestionListFilter('all')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'all' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>すべて</button>
                 <button onClick={() => setQuestionListFilter('weak')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'weak' ? 'bg-orange-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>苦手だけ</button>
                 <button onClick={() => setQuestionListFilter('miss-ranking')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'miss-ranking' ? 'bg-amber-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>ミスランキング</button>
                 <button onClick={() => setQuestionListFilter('marked')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
+                <button aria-pressed={questionListFilter === 'learning'} onClick={() => setQuestionListFilter('learning')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'learning' ? 'bg-sky-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>学習中</button>
+                <button aria-pressed={questionListFilter === 'caution'} onClick={() => setQuestionListFilter('caution')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'caution' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>もう少し</button>
+                <button aria-pressed={questionListFilter === 'mastered'} onClick={() => setQuestionListFilter('mastered')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'mastered' ? 'bg-violet-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>覚えた</button>
                 </div>
                 {questionListFilter === 'weak' && (
                   <div className="flex bg-slate-800 p-1 rounded-lg self-start">
@@ -9389,13 +9456,18 @@ export default function App() {
     const titleSelectedQuestions = titlePlayableQuestions.filter(question => (
       titleSelectedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
     ));
-    const titleAutoPlayTargetQuestions = autoPlaySettings.source === 'all'
-      ? titlePlayableQuestions
-      : autoPlaySettings.source === 'weak'
-        ? titleWeakQuestions
-        : autoPlaySettings.source === 'marked'
-          ? titleMarkedQuestions
-          : titleSelectedQuestions;
+    const titleAutoPlayLearningLevel = getLearningFilterLevel(autoPlaySettings.source);
+    const titleAutoPlayTargetQuestions = titleAutoPlayLearningLevel !== undefined
+      ? titlePlayableQuestions.filter(question => (
+        getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, question)) === titleAutoPlayLearningLevel
+      ))
+      : autoPlaySettings.source === 'all'
+        ? titlePlayableQuestions
+        : autoPlaySettings.source === 'weak'
+          ? titleWeakQuestions
+          : autoPlaySettings.source === 'marked'
+            ? titleMarkedQuestions
+            : titleSelectedQuestions;
     const openTitleAutoPlayManager = () => {
       autoPlayScrollRequestedRef.current = true;
       setQuestionListFilter('all');
