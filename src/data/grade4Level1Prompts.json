@@ -1,0 +1,744 @@
+[
+  {
+    "text": "paper",
+    "translation": "紙",
+    "previousMeaning": "紙",
+    "meaning": "（素材としての）紙",
+    "synonyms": []
+  },
+  {
+    "text": "word",
+    "translation": "単語",
+    "previousMeaning": "単語",
+    "meaning": "（個々の）単語",
+    "synonyms": []
+  },
+  {
+    "text": "seat",
+    "translation": "席",
+    "previousMeaning": "席",
+    "meaning": "（人が座る）席・座席",
+    "synonyms": []
+  },
+  {
+    "text": "size",
+    "translation": "大きさ",
+    "previousMeaning": "大きさ",
+    "meaning": "大きさ・サイズ（名詞）",
+    "synonyms": []
+  },
+  {
+    "text": "low",
+    "translation": "低い",
+    "previousMeaning": "低い",
+    "meaning": "（高さ・位置・程度が）低い",
+    "synonyms": []
+  },
+  {
+    "text": "at",
+    "translation": "で",
+    "previousMeaning": "～で・～に（場所や時刻）",
+    "meaning": "（地点・時刻）～で・～に",
+    "synonyms": []
+  },
+  {
+    "text": "present",
+    "translation": "贈り物、プレゼント",
+    "previousMeaning": "贈り物（pで始まる）",
+    "meaning": "贈り物",
+    "synonyms": [
+      {
+        "text": "gift",
+        "note": "同じ意味"
+      }
+    ]
+  },
+  {
+    "text": "gift",
+    "translation": "贈り物",
+    "previousMeaning": "贈り物（gで始まる）",
+    "meaning": "贈り物",
+    "synonyms": [
+      {
+        "text": "present",
+        "note": "同じ意味"
+      }
+    ]
+  },
+  {
+    "text": "bike",
+    "translation": "自転車",
+    "previousMeaning": "自転車",
+    "meaning": "自転車",
+    "synonyms": [
+      {
+        "text": "bicycle",
+        "note": "略さない言い方"
+      }
+    ]
+  },
+  {
+    "text": "fall",
+    "translation": "秋",
+    "previousMeaning": "秋",
+    "meaning": "秋",
+    "synonyms": [
+      {
+        "text": "autumn",
+        "note": "英国でよく使う"
+      }
+    ]
+  },
+  {
+    "text": "autumn",
+    "translation": "秋",
+    "previousMeaning": "秋（イギリス英語でよく使う）",
+    "meaning": "秋（イギリス英語でよく使う）",
+    "synonyms": [
+      {
+        "text": "fall",
+        "note": "米国でよく使う"
+      }
+    ]
+  },
+  {
+    "text": "store",
+    "translation": "店",
+    "previousMeaning": "店",
+    "meaning": "店",
+    "synonyms": [
+      {
+        "text": "shop",
+        "note": "同じ「店」の意味"
+      }
+    ]
+  },
+  {
+    "text": "movie",
+    "translation": "映画",
+    "previousMeaning": "映画",
+    "meaning": "映画",
+    "synonyms": [
+      {
+        "text": "film",
+        "note": "映画の意味"
+      }
+    ]
+  },
+  {
+    "text": "garbage",
+    "translation": "ゴミ",
+    "previousMeaning": "ゴミ",
+    "meaning": "ゴミ",
+    "synonyms": [
+      {
+        "text": "trash",
+        "note": "ごみ"
+      },
+      {
+        "text": "rubbish",
+        "note": "英国でよく使う"
+      }
+    ]
+  },
+  {
+    "text": "clothes",
+    "translation": "服",
+    "previousMeaning": "服",
+    "meaning": "服",
+    "synonyms": [
+      {
+        "text": "clothing",
+        "note": "衣類全般"
+      }
+    ]
+  },
+  {
+    "text": "math",
+    "translation": "数学",
+    "previousMeaning": "数学",
+    "meaning": "数学",
+    "synonyms": [
+      {
+        "text": "mathematics",
+        "note": "略さない言い方"
+      },
+      {
+        "text": "maths",
+        "note": "英国の略し方"
+      }
+    ]
+  },
+  {
+    "text": "test",
+    "translation": "テスト",
+    "previousMeaning": "テスト",
+    "meaning": "試験・検査",
+    "synonyms": [
+      {
+        "text": "exam",
+        "note": "試験"
+      }
+    ]
+  },
+  {
+    "text": "prize",
+    "translation": "賞",
+    "previousMeaning": "賞",
+    "meaning": "（競争などで得る）賞・賞品",
+    "synonyms": [
+      {
+        "text": "award",
+        "note": "賞・表彰"
+      }
+    ]
+  },
+  {
+    "text": "picture",
+    "translation": "絵、写真",
+    "previousMeaning": "絵、写真",
+    "meaning": "絵、写真",
+    "synonyms": [
+      {
+        "text": "drawing",
+        "note": "線などで描いた絵"
+      },
+      {
+        "text": "painting",
+        "note": "絵の具で描いた絵"
+      },
+      {
+        "text": "photo",
+        "note": "写真"
+      }
+    ]
+  },
+  {
+    "text": "photo",
+    "translation": "写真",
+    "previousMeaning": "（カメラで撮った）写真",
+    "meaning": "（カメラで撮った）写真",
+    "synonyms": [
+      {
+        "text": "picture",
+        "note": "絵・写真を広く指す"
+      }
+    ]
+  },
+  {
+    "text": "painting",
+    "translation": "絵画",
+    "previousMeaning": "（絵の具で描いた）絵・絵画",
+    "meaning": "（絵の具で描いた）絵・絵画",
+    "synonyms": [
+      {
+        "text": "picture",
+        "note": "絵・写真を広く指す"
+      }
+    ]
+  },
+  {
+    "text": "idea",
+    "translation": "考え",
+    "previousMeaning": "考え",
+    "meaning": "考え・アイデア",
+    "synonyms": [
+      {
+        "text": "thought",
+        "note": "考え"
+      }
+    ]
+  },
+  {
+    "text": "part",
+    "translation": "部分",
+    "previousMeaning": "部分",
+    "meaning": "部分・一部",
+    "synonyms": [
+      {
+        "text": "piece",
+        "note": "ひとかけら・部分"
+      },
+      {
+        "text": "section",
+        "note": "区分・部分"
+      }
+    ]
+  },
+  {
+    "text": "match",
+    "translation": "試合",
+    "previousMeaning": "（スポーツなどの）試合・対戦",
+    "meaning": "（スポーツなどの）試合・対戦",
+    "synonyms": [
+      {
+        "text": "game",
+        "note": "競技・試合"
+      }
+    ]
+  },
+  {
+    "text": "lesson",
+    "translation": "レッスン",
+    "previousMeaning": "授業・レッスン（1回の学習）",
+    "meaning": "授業・レッスン（1回の学習）",
+    "synonyms": [
+      {
+        "text": "class",
+        "note": "授業・学級"
+      }
+    ]
+  },
+  {
+    "text": "class",
+    "translation": "授業",
+    "previousMeaning": "授業・学級",
+    "meaning": "授業・学級",
+    "synonyms": [
+      {
+        "text": "lesson",
+        "note": "1回の授業"
+      }
+    ]
+  },
+  {
+    "text": "begin",
+    "translation": "始める",
+    "previousMeaning": "始める",
+    "meaning": "始める",
+    "synonyms": [
+      {
+        "text": "start",
+        "note": "同じ「始める」の意味"
+      }
+    ]
+  },
+  {
+    "text": "finish",
+    "translation": "終える",
+    "previousMeaning": "終える",
+    "meaning": "終える",
+    "synonyms": [
+      {
+        "text": "end",
+        "note": "終える"
+      },
+      {
+        "text": "complete",
+        "note": "完成させる"
+      }
+    ]
+  },
+  {
+    "text": "make",
+    "translation": "作る",
+    "previousMeaning": "作る",
+    "meaning": "作る",
+    "synonyms": [
+      {
+        "text": "create",
+        "note": "生み出す"
+      },
+      {
+        "text": "produce",
+        "note": "生産する"
+      }
+    ]
+  },
+  {
+    "text": "get",
+    "translation": "手に入れる",
+    "previousMeaning": "手に入れる",
+    "meaning": "手に入れる・受け取る",
+    "synonyms": [
+      {
+        "text": "obtain",
+        "note": "手に入れる"
+      },
+      {
+        "text": "receive",
+        "note": "受け取る"
+      }
+    ]
+  },
+  {
+    "text": "try",
+    "translation": "試す",
+    "previousMeaning": "試す",
+    "meaning": "試す・試みる",
+    "synonyms": [
+      {
+        "text": "test",
+        "note": "試験・検査する"
+      },
+      {
+        "text": "attempt",
+        "note": "試みる"
+      }
+    ]
+  },
+  {
+    "text": "check",
+    "translation": "確かめる",
+    "previousMeaning": "確かめる",
+    "meaning": "確認する・点検する",
+    "synonyms": [
+      {
+        "text": "confirm",
+        "note": "確認する"
+      },
+      {
+        "text": "inspect",
+        "note": "点検・検査する"
+      }
+    ]
+  },
+  {
+    "text": "ask",
+    "translation": "尋ねる",
+    "previousMeaning": "尋ねる",
+    "meaning": "尋ねる",
+    "synonyms": [
+      {
+        "text": "inquire",
+        "note": "尋ねる"
+      }
+    ]
+  },
+  {
+    "text": "understand",
+    "translation": "理解する",
+    "previousMeaning": "理解する",
+    "meaning": "理解する",
+    "synonyms": [
+      {
+        "text": "comprehend",
+        "note": "理解する"
+      }
+    ]
+  },
+  {
+    "text": "learn",
+    "translation": "学ぶ",
+    "previousMeaning": "（学んで）身につける",
+    "meaning": "（学んで）身につける",
+    "synonyms": [
+      {
+        "text": "acquire",
+        "note": "知識・技能などを得る"
+      }
+    ]
+  },
+  {
+    "text": "everyone",
+    "translation": "みんな",
+    "previousMeaning": "みんな",
+    "meaning": "みんな",
+    "synonyms": [
+      {
+        "text": "everybody",
+        "note": "同じ「みんな」の意味"
+      }
+    ]
+  },
+  {
+    "text": "maybe",
+    "translation": "たぶん",
+    "previousMeaning": "たぶん",
+    "meaning": "たぶん",
+    "synonyms": [
+      {
+        "text": "perhaps",
+        "note": "同じ「たぶん」の意味"
+      },
+      {
+        "text": "probably",
+        "note": "可能性が高い「たぶん」"
+      }
+    ]
+  },
+  {
+    "text": "difficult",
+    "translation": "難しい",
+    "previousMeaning": "難しい",
+    "meaning": "難しい",
+    "synonyms": [
+      {
+        "text": "hard",
+        "note": "難しいの意味"
+      }
+    ]
+  },
+  {
+    "text": "delicious",
+    "translation": "おいしい",
+    "previousMeaning": "おいしい",
+    "meaning": "おいしい",
+    "synonyms": [
+      {
+        "text": "tasty",
+        "note": "おいしい"
+      }
+    ]
+  },
+  {
+    "text": "beautiful",
+    "translation": "美しい",
+    "previousMeaning": "美しい",
+    "meaning": "美しい",
+    "synonyms": [
+      {
+        "text": "pretty",
+        "note": "見た目がきれい"
+      },
+      {
+        "text": "lovely",
+        "note": "魅力的な・すてきな"
+      }
+    ]
+  },
+  {
+    "text": "cute",
+    "translation": "かわいい",
+    "previousMeaning": "かわいい",
+    "meaning": "かわいい",
+    "synonyms": [
+      {
+        "text": "adorable",
+        "note": "とてもかわいい"
+      }
+    ]
+  },
+  {
+    "text": "quick",
+    "translation": "すばやい",
+    "previousMeaning": "すばやい",
+    "meaning": "すばやい",
+    "synonyms": [
+      {
+        "text": "fast",
+        "note": "速度が速い"
+      },
+      {
+        "text": "rapid",
+        "note": "動作・変化が速い"
+      }
+    ]
+  },
+  {
+    "text": "useful",
+    "translation": "役に立つ",
+    "previousMeaning": "役に立つ",
+    "meaning": "役に立つ",
+    "synonyms": [
+      {
+        "text": "helpful",
+        "note": "助けになる"
+      }
+    ]
+  },
+  {
+    "text": "expensive",
+    "translation": "高価な",
+    "previousMeaning": "高価な",
+    "meaning": "高価な",
+    "synonyms": [
+      {
+        "text": "costly",
+        "note": "費用がかかる"
+      }
+    ]
+  },
+  {
+    "text": "close",
+    "translation": "近い",
+    "previousMeaning": "（距離・関係が）近い",
+    "meaning": "（距離・関係が）近い",
+    "synonyms": [
+      {
+        "text": "near",
+        "note": "距離が近い"
+      }
+    ]
+  },
+  {
+    "text": "plane",
+    "translation": "飛行機",
+    "previousMeaning": "飛行機",
+    "meaning": "飛行機（短い言い方）",
+    "synonyms": [
+      {
+        "text": "airplane",
+        "note": "長い言い方"
+      }
+    ]
+  },
+  {
+    "text": "airplane",
+    "translation": "飛行機",
+    "previousMeaning": "飛行機（略さない言い方）",
+    "meaning": "飛行機（略さない言い方）",
+    "synonyms": [
+      {
+        "text": "plane",
+        "note": "短い言い方"
+      }
+    ]
+  },
+  {
+    "text": "college",
+    "translation": "大学（college）",
+    "previousMeaning": "大学・大学内の学部",
+    "meaning": "大学・大学内の学部",
+    "synonyms": [
+      {
+        "text": "university",
+        "note": "総合大学"
+      }
+    ]
+  },
+  {
+    "text": "university",
+    "translation": "総合大学",
+    "previousMeaning": "総合大学",
+    "meaning": "総合大学",
+    "synonyms": [
+      {
+        "text": "college",
+        "note": "大学・大学内の学部"
+      }
+    ]
+  },
+  {
+    "text": "holiday",
+    "translation": "休日",
+    "previousMeaning": "休日",
+    "meaning": "休日・休暇",
+    "synonyms": [
+      {
+        "text": "vacation",
+        "note": "まとまった休暇"
+      }
+    ]
+  },
+  {
+    "text": "vacation",
+    "translation": "休暇",
+    "previousMeaning": "休暇（夏休みなど）",
+    "meaning": "休暇（夏休みなど）",
+    "synonyms": [
+      {
+        "text": "holiday",
+        "note": "英国では休暇の意味もある"
+      }
+    ]
+  },
+  {
+    "text": "see",
+    "translation": "見る、会う",
+    "previousMeaning": "（目に入って）見える・見る／会う",
+    "meaning": "（目に入って）見える・見る／会う",
+    "synonyms": [
+      {
+        "text": "look",
+        "note": "目を向ける"
+      },
+      {
+        "text": "meet",
+        "note": "人に会う"
+      }
+    ]
+  },
+  {
+    "text": "meet",
+    "translation": "会う",
+    "previousMeaning": "（人に）会う・出会う",
+    "meaning": "（人に）会う・出会う",
+    "synonyms": [
+      {
+        "text": "see",
+        "note": "人に会う意味もある"
+      }
+    ]
+  },
+  {
+    "text": "hope",
+    "translation": "望む",
+    "previousMeaning": "望む",
+    "meaning": "（実現を期待して）望む・願う",
+    "synonyms": [
+      {
+        "text": "wish",
+        "note": "願う"
+      },
+      {
+        "text": "want",
+        "note": "欲する・したい"
+      }
+    ]
+  },
+  {
+    "text": "thing",
+    "translation": "もの",
+    "previousMeaning": "もの",
+    "meaning": "物・事柄",
+    "synonyms": [
+      {
+        "text": "object",
+        "note": "具体的な物"
+      },
+      {
+        "text": "item",
+        "note": "個々の品目"
+      },
+      {
+        "text": "matter",
+        "note": "事柄"
+      }
+    ]
+  },
+  {
+    "text": "something",
+    "translation": "何か",
+    "previousMeaning": "何か",
+    "meaning": "何か（肯定文でよく使う）",
+    "synonyms": [
+      {
+        "text": "anything",
+        "note": "疑問文・否定文でよく使う"
+      }
+    ]
+  },
+  {
+    "text": "anything",
+    "translation": "何でも",
+    "previousMeaning": "何か（疑問文）／何でも",
+    "meaning": "何か・何でも",
+    "synonyms": [
+      {
+        "text": "something",
+        "note": "肯定文でよく使う"
+      }
+    ]
+  },
+  {
+    "text": "carry",
+    "translation": "運ぶ",
+    "previousMeaning": "運ぶ",
+    "meaning": "（持って）運ぶ",
+    "synonyms": [
+      {
+        "text": "bring",
+        "note": "こちらへ持ってくる"
+      },
+      {
+        "text": "take",
+        "note": "向こうへ持っていく"
+      },
+      {
+        "text": "transport",
+        "note": "輸送する"
+      }
+    ]
+  }
+]
