@@ -1,11 +1,10 @@
+import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
-import { getPhraseAnswerCue } from './data/grade4PhrasePrompts';
-import { getGrade3VocabularyAnswerCue } from './data/grade3VocabularyPrompts';
 import { getGrade4VocabularySynonyms } from './data/grade4VocabularyPrompts';
 import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
@@ -10471,9 +10470,11 @@ export default function App() {
     const monsterEmotion = gameState.monsterHp <= 0 ? 'win' : flash ? 'damage' : 'normal';
     const comboLabel = getComboLabel(gameState.combo);
     const questionPresentation = getBattleQuestionPresentation(gameState.currentQuestion.text);
-    const vocabularySynonyms = gameState.inputMode === 'text-only'
+    const reviewedTranslationPrompt = gameState.inputMode === 'text-only'
+      ? getTranslationBattlePrompt(gameState.currentQuestion, gameState.selectedDifficulty, gameState.selectedLevel) : undefined;
+    const vocabularySynonyms = reviewedTranslationPrompt?.alternatives ?? (gameState.inputMode === 'text-only'
       ? getGrade4VocabularySynonyms(gameState.currentQuestion, gameState.selectedDifficulty, gameState.selectedLevel)
-      : [];
+      : []);
     const currentQuestionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
     const currentScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
     const isCurrentQuestionMarked = (markedQuestionKeysByScope[currentScopeKey] ?? []).includes(currentQuestionKey);
@@ -10650,26 +10651,23 @@ export default function App() {
                    )}
                  </div>
                  {vocabularySynonyms.length > 0 && (
-                   <div className="battle-vocabulary-synonyms mb-3 rounded-lg border border-cyan-300/20 bg-cyan-950/20 px-3 py-2 text-center text-sm leading-relaxed text-slate-300">
-                     <p><span className="font-bold text-cyan-200">類義語・別表現：</span>{vocabularySynonyms.map((synonym, index) => (
+                   <div className="battle-vocabulary-synonyms mb-2 px-1 text-center text-sm leading-relaxed text-slate-300">
+                     <p><span className="font-bold text-cyan-200">{gameState.selectedLevel === 3 ? '別表現：' : '類義語：'}</span>{vocabularySynonyms.map((synonym, index) => (
                        <React.Fragment key={synonym.text}>
                          {index > 0 && <span className="mx-1 text-slate-500">／</span>}
                          <span className="inline-block max-w-full align-top"><span className="font-mono font-bold text-cyan-100">{synonym.text}</span><span className="text-xs">（{synonym.note}）</span></span>
                        </React.Fragment>
                      ))}</p>
-                     <p className="mt-0.5 text-xs text-slate-400">表示した語以外で答えよう</p>
                    </div>
                  )}
-                 {gameState.inputMode === 'text-only' && getPhraseAnswerCue(gameState.currentQuestion.text, gameState.selectedDifficulty, gameState.selectedLevel) && (
-                   <p className="battle-answer-cue mb-3 text-center text-sm text-cyan-200">
-                     指定の熟語：<span className="font-mono font-bold">{getPhraseAnswerCue(gameState.currentQuestion.text, gameState.selectedDifficulty, gameState.selectedLevel)}</span>
-                     <span className="ml-2 text-xs text-slate-400">頭文字などの手掛かり</span>
-                   </p>
+                 {reviewedTranslationPrompt?.formNote && (
+                   <p className="battle-translation-form mb-2 text-center text-xs font-bold text-sky-200">表現の形：{reviewedTranslationPrompt.formNote}</p>
                  )}
-                 {gameState.inputMode === 'text-only' && getGrade3VocabularyAnswerCue(gameState.currentQuestion, gameState.selectedDifficulty, gameState.selectedLevel) && (
-                   <p className="battle-answer-cue mb-3 text-center text-sm text-cyan-200">
-                     指定の単語：<span className="font-mono font-bold">{getGrade3VocabularyAnswerCue(gameState.currentQuestion, gameState.selectedDifficulty, gameState.selectedLevel)}</span>
-                     <span className="ml-2 text-xs text-slate-400">頭文字・文字数の手掛かり</span>
+                 {reviewedTranslationPrompt && reviewedTranslationPrompt.contrasts.length > 0 && (
+                   <p className="battle-translation-contrasts mb-3 text-center text-sm leading-relaxed text-slate-300">
+                     <span className="font-bold text-sky-200">意味の違い：</span>{reviewedTranslationPrompt.contrasts.map((expression, index) => (
+                       <React.Fragment key={expression.text}>{index > 0 && ' ／ '}<span className="inline-block"><span className="font-mono font-bold">{expression.text}</span>（{expression.note}）</span></React.Fragment>
+                     ))}
                    </p>
                  )}
                  <div

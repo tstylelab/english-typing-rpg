@@ -7,7 +7,7 @@ import { trackTestBrowser } from './lib/test-browser-cleanup.mjs';
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const { QUESTIONS } = load('src/data/questions.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
-const { getGrade3VocabularyAnswerCue } = load('src/data/grade3VocabularyPrompts.ts');
+const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.ts');
 const questions = QUESTIONS.Eiken3[1];
 const url = process.env.GRADE3_PROMPT_TEST_URL || 'http://127.0.0.1:5178';
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
@@ -71,10 +71,9 @@ try {
     const q = questions.find(q => q.text === word);
     await start(page);
     await page.getByText(getQuestionMeaning(q, 'Eiken3'), { exact: true }).waitFor();
-    assert.equal(await page.locator('.battle-answer-cue .font-mono').innerText(), getGrade3VocabularyAnswerCue(q, 'Eiken3', 1));
-    const cueBox = await page.locator('.battle-answer-cue').boundingBox();
-    assert.ok(cueBox.x >= 0 && cueBox.x + cueBox.width <= width + 1);
-    assert.equal(await page.locator('.battle-answer-cue').evaluate(el => el.scrollWidth > el.clientWidth), false);
+    assert.equal(await page.locator('.battle-answer-cue').count(),0);
+    const prompt=getTranslationBattlePrompt(q,'Eiken3',1);
+    if(prompt?.alternatives.length){const panel=page.locator('.battle-vocabulary-synonyms');for(const t of prompt.alternatives)assert.ok((await panel.innerText()).includes(t.text+'（'+t.note+'）'));assert.equal(await panel.evaluate(el=>el.scrollWidth>el.clientWidth),false);}
     const visibleCharacters = await page.locator('.battle-question-text [data-character-index]').evaluateAll(chars => chars.filter(el => getComputedStyle(el).opacity !== '0').map(el => el.textContent).join(''));
     assert.equal(visibleCharacters, '_', 'Only the input cursor is visible before typing; answer characters remain transparent');
     if (word === 'fix') await page.screenshot({ path: 'node_modules/.tmp/grade3-prompts-ui/desktop-battle.png' });

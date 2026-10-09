@@ -1,3 +1,4 @@
+import { getReviewedTranslationMeaning } from './translationBattlePrompts';
 import corrections from './pre1MeaningCorrections.json';
 import sentenceCorrections from './pre1SentenceMeaningCorrections.json';
 import grade5Corrections from './grade5MeaningCorrections.json';
@@ -24,7 +25,8 @@ const courseMeanings = new Map([...intermediateCorrections, ...additionalCorrect
 ]));
 
 export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: DifficultyKey): string => (
-  getGrade3VocabularyMeaning(question, difficulty)
+  getReviewedTranslationMeaning(question, difficulty)
+  ?? getGrade3VocabularyMeaning(question, difficulty)
   ?? getGrade4VocabularyMeaning(question, difficulty)
   ?? getGrade4PhraseMeaning(question, difficulty)
   ?? (difficulty ? courseMeanings.get(`${difficulty}:${identity(question)}`) : undefined)

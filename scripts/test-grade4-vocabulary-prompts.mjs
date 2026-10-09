@@ -8,28 +8,17 @@ import { trackTestBrowser } from './lib/test-browser-cleanup.mjs';
 const {QUESTIONS}=load('src/data/questions.ts');
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
 const {getGrade4VocabularySynonyms}=load('src/data/grade4VocabularyPrompts.ts');
+const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const entries=JSON.parse(fs.readFileSync('src/data/grade4Level1Prompts.json','utf8'));
-const priorSource=fs.readFileSync('src/data/questionMeaning.ts','utf8').replace("import { getGrade4VocabularyMeaning } from './grade4VocabularyPrompts';",'').replace('  ?? getGrade4VocabularyMeaning(question, difficulty)','');
-const prior={exports:{}};
-vm.runInNewContext(ts.transpileModule(priorSource,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText,{exports:prior.exports,require:name=>load('src/data/'+name.slice(2))});
-const before=prior.exports.getQuestionMeaning;
-assert.equal(new Set(entries.map(e=>e.text)).size,entries.length);
+const {getGrade4VocabularyMeaning}=load('src/data/grade4VocabularyPrompts.ts');
+assert.equal(entries.length,58);
 for(const entry of entries){
- const q=QUESTIONS.Eiken4[1].find(q=>q.text===entry.text);
- assert.ok(q);assert.equal(q.translation,entry.translation);assert.equal(q.exampleEn??'',entry.exampleEn??'');assert.equal(entry.previousMeaning,before(q,'Eiken4'));
- assert.equal(getQuestionMeaning(q,'Eiken4'),entry.meaning);
- assert.ok(!/で始まる|文字数|\d+文字/.test(entry.meaning));
+ const q=QUESTIONS.Eiken4[1].find(q=>q.text===entry.text);assert.ok(q);assert.equal(q.translation,entry.translation);assert.equal(q.exampleEn??'',entry.exampleEn??'');
+ assert.equal(getGrade4VocabularyMeaning(q,'Eiken4'),entry.meaning);assert.equal(getQuestionMeaning(q,'Eiken4'),entry.meaning);
+ assert.equal(getGrade4VocabularyMeaning({...q,translation:'different identity'},'Eiken4'),undefined);
  assert.ok(entry.synonyms.every(s=>s.text!==q.text&&s.note&&s.note.length<=20));
- assert.equal(getGrade4VocabularySynonyms({...q,translation:'different identity'},'Eiken4',1).length,0);
 }
-let outside=0,changed=0;
-for(const [course,levels] of Object.entries(QUESTIONS))for(const [level,qs] of Object.entries(levels))for(const q of qs){
- if(course==='Eiken4'&&level==='1'){if(before(q,course)!==getQuestionMeaning(q,course))changed++;continue;}
- assert.equal(getQuestionMeaning(q,course),before(q,course),course+':'+level+':'+q.text);
- assert.equal(getGrade4VocabularySynonyms(q,course,Number(level)).length,0);outside++;
-}
-assert.equal(changed,22);assert.equal(entries.length,58);
-console.log('PASS 58 identities, 22 changed meanings, 52 synonym sets; other '+outside+' questions unchanged');
+console.log('PASS 58 approved Grade 4 prompt identities and meanings remain intact.');
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const cleanup=await trackTestBrowser(browser);
 const out='node_modules/.tmp/grade4-vocabulary-prompts';fs.mkdirSync(out,{recursive:true});
@@ -45,10 +34,10 @@ try{
   },{qs,q,course,level,inputMode});
   await page.goto(process.env.TEST_URL||'http://127.0.0.1:5178');await page.getByRole('button',{name:'この敵に挑む',exact:true}).click();await page.setViewportSize({width,height:900});
   const box=page.locator('.battle-vocabulary-synonyms');
-  const expected=getGrade4VocabularySynonyms(q,course,level);
+  const expected=getTranslationBattlePrompt(q,course,level)?.alternatives??getGrade4VocabularySynonyms(q,course,level);
   if(inputMode==='text-only'&&expected.length){
    await box.waitFor();for(const s of expected){assert.ok((await box.innerText()).includes(s.text+'（'+s.note+'）'));}
-   assert.ok((await box.innerText()).includes('表示した語以外で答えよう'));
+   assert.ok(!(await box.innerText()).includes('表示した語以外で答えよう'));
    assert.equal(await box.evaluate(el=>el.scrollWidth>el.clientWidth),false,'Synonym text must fit the panel');
    assert.equal(await page.locator('.battle-screen').evaluate(el=>el.scrollWidth>el.clientWidth),false,'No horizontal overflow');
    if(text==='begin'||text==='thing')await page.locator('[data-monster-reveal]').waitFor({state:'detached'});

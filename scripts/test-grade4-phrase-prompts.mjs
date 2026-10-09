@@ -9,7 +9,7 @@ assert.equal(phrases.length,149);
 for(const q of phrases) {
   const before=JSON.stringify(q);
   const cue=getPhraseAnswerCue(q.text,'Eiken4',2);
-  assert.ok(cue.endsWith(`（${q.text.trim().split(/\s+/).length}語）`));
+  assert.equal(cue,undefined);
   assert.equal(getPhraseAnswerCue(q.text,'Eiken4',1),undefined);
   assert.equal(getPhraseAnswerCue(q.text,'Eiken4',3),undefined);
   assert.equal(getPhraseAnswerCue(q.text,'Eiken3',2),undefined);
@@ -27,12 +27,10 @@ for(const text of ['on foot','go around','talk with','talk to','speak to','like 
 const like=phrases.find(q=>q.text==='like to');
 assert.ok(getQuestionSynonyms('Eiken4',2,like).includes('enjoy + -ing'));
 assert.ok(!getQuestionSynonyms('Eiken5',2,like).includes('enjoy to'));
-console.log('PASS: 149 cues, 8 meanings, synonym grammar, scope and immutable identities');
+console.log('PASS: 149 retired spelling cues, 8 meanings, synonym grammar, scope and immutable identities');
 for(const q of phrases) {
   assert.ok(!/(?:を使う|で始める|の後に)/.test(getQuestionMeaning(q,'Eiken4')),q.text);
 }
-assert.notEqual(getPhraseAnswerCue('go back','Eiken4',2),getPhraseAnswerCue('get back','Eiken4',2));
-assert.equal(getPhraseAnswerCue('take A to B','Eiken4',2),'t… A t… B（4語）');
 const checks={
   'kind of':['somewhat','a little'],'after work':['after finishing work'],
   'post office':[],'come home':['return home'],'go home':['return home'],

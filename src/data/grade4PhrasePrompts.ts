@@ -50,16 +50,5 @@ export const getGrade4PhraseMeaning = (
 ): string | undefined => difficulty === 'Eiken4'
   ? meanings.get(`${question.text}|${question.translation}`) : undefined;
 
-// Japanese alone cannot distinguish synonymous phrases. Show the requested
-// form, not a claim that other natural English answers are wrong.
-export const getPhraseAnswerCue = (text: string, difficulty: DifficultyKey, level: number): string | undefined => {
-  if (difficulty !== 'Eiken4' || level !== 2) return undefined;
-  const words = text.trim().split(/\s+/);
-  const cue = words.map((word, index) => {
-    // Keep substitution markers literal; reveal only the ambiguous first verb.
-    if (/^[AB]$/.test(word)) return word;
-    if (index === 0 && (text === 'go back' || text === 'get back')) return word;
-    return `${word[0]}…`;
-  }).join(' ');
-  return `${cue}（${words.length}語）`;
-};
+// Retired: no initial-letter or word-count hints.
+export const getPhraseAnswerCue = (): undefined => undefined;
