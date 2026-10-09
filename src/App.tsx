@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun } from 'lucide-react';
+import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
@@ -3682,6 +3682,24 @@ const getCourseMonsters = (difficulty: Difficulty, level: Level) => ({
   guide: MONSTERS[level].guide.map(monster => applyMonsterProfile(difficulty, monster)),
   challenge: MONSTERS[level].challenge.map(monster => applyMonsterProfile(difficulty, monster)),
 });
+// Use each battle's actual stage list, including the final and all hidden bosses.
+const hasClearedBattleLevel = (defeatedKeys: ReadonlySet<string>, difficulty: Difficulty, level: Level) => {
+  const monsters = MONSTERS[level].challenge;
+  const requiredModes: Array<[InputMode, number]> = [['voice-only', NORMAL_TARGET_COUNT], ['text-only', HARD_TARGET_COUNT]];
+  return requiredModes.every(([inputMode, count]) => {
+    const indices = getBattleStageIndices(monsters, count, 'challenge', inputMode);
+    return indices.length > 0 && indices.every(index => (
+      defeatedKeys.has(getUniqueKey(difficulty, level, 'challenge', inputMode, monsters[index].id))
+    ));
+  });
+};
+
+const CourseCompletionStar = () => (
+  <span role="img" aria-label="バトル2方式を全クリア" title="バトル2方式を全クリア" data-course-completion-star className="pointer-events-none absolute -right-2 -top-1 flex h-[18px] w-[18px] items-center justify-center rounded-full border border-amber-200/70 bg-slate-900 text-amber-300 shadow-sm">
+    <Star size={14} fill="currentColor" strokeWidth={1.5} aria-hidden="true" />
+  </span>
+);
+
 type GameButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'outline' | 'ghost';
 type GameButtonSize = 'sm' | 'md' | 'lg';
 
@@ -9951,6 +9969,12 @@ export default function App() {
   if (gameState.screen === 'level-select') {
     const isConversationCourse = gameState.selectedDifficulty === 'Conversation';
     const availableLevels = getAvailableLevels(gameState.selectedDifficulty);
+    const defeatedKeys = new Set(gameState.defeatedMonsterIds);
+    const completedLevelsByDifficulty = new Map(DIFFICULTIES.map(difficulty => [
+      difficulty,
+      new Set(getAvailableLevels(difficulty).filter(level => hasClearedBattleLevel(defeatedKeys, difficulty, level))),
+    ]));
+    const selectedCompletedLevels = completedLevelsByDifficulty.get(gameState.selectedDifficulty)!;
     const selectedQuestionCount = QUESTIONS[gameState.selectedDifficulty]?.[gameState.selectedLevel]?.length ?? 0;
     const selectedLearningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const levelDescriptions: Record<Level, string> = isConversationCourse
@@ -10103,13 +10127,15 @@ export default function App() {
                     {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
                       const isSelected = gameState.selectedDifficulty === diff;
                       const levelCount = getAvailableLevels(diff).length;
+                      const isComplete = completedLevelsByDifficulty.get(diff)!.size === levelCount;
                       return (
                         <button
                           key={diff}
                           type="button"
                           onClick={() => updateSelectedDifficulty(diff)}
                           aria-pressed={isSelected}
-                          className={`course-grade-button min-h-[64px] min-w-0 rounded-lg border-2 px-2.5 py-2 text-left transition-colors ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
+                          data-course-complete={isComplete}
+                          className={`course-grade-button relative min-h-[64px] min-w-0 rounded-lg border-2 px-2.5 py-2 text-left transition-colors ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div className="min-w-0">
@@ -10125,6 +10151,7 @@ export default function App() {
                             </div>
                             {isSelected && <CheckCircle2 className="shrink-0 text-amber-200" size={18} />}
                           </div>
+                          {isComplete && <CourseCompletionStar />}
                         </button>
                       );
                     })}
@@ -10142,7 +10169,8 @@ export default function App() {
                           type="button"
                           onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl }))}
                           aria-pressed={isSelected}
-                          className={`course-level-button min-h-[56px] min-w-0 rounded-lg border-2 px-2 py-2 text-left transition-colors ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
+                          data-course-complete={selectedCompletedLevels.has(lvl)}
+                          className={`course-level-button relative min-h-[56px] min-w-0 rounded-lg border-2 px-2 py-2 text-left transition-colors ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
                         >
                           <div className="flex items-center gap-2">
                             <div className={`hidden h-8 w-8 shrink-0 items-center justify-center rounded-lg border sm:flex ${isSelected ? 'border-cyan-200 bg-cyan-400/20 text-cyan-100' : 'border-slate-700 bg-slate-950/60 text-slate-400'}`}>
@@ -10153,6 +10181,7 @@ export default function App() {
                               <p className="mt-0.5 text-[11px] font-bold leading-snug text-slate-400">{levelDescriptions[lvl].split(' / ').at(-1)}</p>
                             </div>
                           </div>
+                          {selectedCompletedLevels.has(lvl) && <CourseCompletionStar />}
                         </button>
                       );
                     })}
