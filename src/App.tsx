@@ -2,6 +2,7 @@ import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
+import { alignTypingCase } from './typingInput';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
 import { getQuestionMeaning } from './data/questionMeaning';
@@ -4837,8 +4838,8 @@ export default function App() {
     const currentVersusQuestion = versusQuestionOrders[versusPlayerIndex]?.[versusQuestionIndex];
     if (!currentVersusQuestion) return;
     const currentQuestion = currentVersusQuestion.question;
-    const normalizedValue = normalizeTypingText(value);
     const normalizedAnswer = normalizeTypingText(currentQuestion.text);
+    const normalizedValue = alignTypingCase(normalizeTypingText(value), normalizedAnswer);
     if (normalizedValue.length > versusInput.length) soundEngine.playType();
     if (!normalizedAnswer.startsWith(normalizedValue)) {
       soundEngine.playMiss();
@@ -6924,8 +6925,8 @@ export default function App() {
 
   const handleBattleInputValue = (value: string) => {
     const targetText = gameState.currentQuestion.text;
-    const normalizedVal = normalizeTypingText(value);
     const normalizedTargetText = normalizeTypingText(targetText);
+    const normalizedVal = alignTypingCase(normalizeTypingText(value), normalizedTargetText);
     aiStudyRecorder.observe(normalizedTargetText, gameState.userInput, normalizedVal, gameState.hintLength > 0);
     if (normalizedVal.length > gameState.userInput.length) soundEngine.playType();
     if (!gameState.startTime && normalizedVal.length > 0) setGameState(prev => ({ ...prev, startTime: Date.now() }));
@@ -6973,6 +6974,11 @@ export default function App() {
   };
 
   const handleVersusInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // A cancelled/interrupted IME session may omit compositionend. A new
+    // explicitly non-composing ASCII input is safe to accept again.
+    if ((event.nativeEvent as InputEvent).isComposing === false && /^[\x20-\x7E]*$/.test(normalizeTypingText(event.target.value))) {
+      versusImeComposingRef.current = false;
+    }
     if (versusImeComposingRef.current || versusIgnoreCompositionCommitRef.current || (event.nativeEvent as InputEvent).isComposing) {
       event.target.value = versusInput;
       return;
@@ -6999,6 +7005,9 @@ export default function App() {
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if ((e.nativeEvent as InputEvent).isComposing === false && /^[\x20-\x7E]*$/.test(normalizeTypingText(e.target.value))) {
+      battleImeComposingRef.current = false;
+    }
     if (battleImeComposingRef.current || battleIgnoreCompositionCommitRef.current || (e.nativeEvent as InputEvent).isComposing) {
       e.target.value = gameState.userInput;
       return;
@@ -7194,7 +7203,6 @@ export default function App() {
 
   useEffect(() => {
     const handlePhysicalTypingKey = (event: KeyboardEvent, phase: 'down' | 'up') => {
-      if (event.ctrlKey || event.metaKey || event.altKey) return;
       const keyId = event.code || event.key;
       if (phase === 'up') {
         if (handledPhysicalKeyIdsRef.current.delete(keyId)) return;
@@ -7211,6 +7219,9 @@ export default function App() {
       } else if (event.defaultPrevented && !externalKeyboardMode) {
         return;
       }
+      // Even releases with Ctrl/Alt held must clear consumed key presses.
+      // Modifier shortcuts themselves must never become typing input.
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
 
       let currentValue = '';
       let targetText = '';
@@ -7253,7 +7264,13 @@ export default function App() {
       const character = getPhysicalTypingCharacter(event, targetText[currentValue.length] ?? '');
       if (character === null) return;
       event.preventDefault();
-      if (phase === 'down' && (event.repeat || handledPhysicalKeyIdsRef.current.has(keyId))) return;
+      // The set only prevents a keyup from replaying a consumed press. Do not
+      // use it to reject a fresh keydown: browsers/IMEs can lose a keyup.
+      if (phase === 'down' && event.repeat) return;
+      if (!event.isComposing) {
+        if (gameState.screen === 'battle') resetBattleImeState();
+        if (gameState.screen === 'versus-play') resetVersusImeState();
+      }
       updateValue(currentValue + character);
       if (phase === 'down') handledPhysicalKeyIdsRef.current.add(keyId);
     };

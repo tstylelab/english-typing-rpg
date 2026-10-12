@@ -1,5 +1,15 @@
 # Codex作業引き継ぎ
 
+## 2026-10-13 入力停止からの復帰・スマホの大小文字判定（ノートPC）
+
+- 本人報告はWindows 11 / Chrome / 通常モンスターバトル / 英検3級Level 3。文の途中で入力不能、半角/全角でも戻らず不明なタイミングで復帰。画像はUSBキーボード設定OFF。実機の発生時イベントログはないため、単一原因を断定しない。
+- デスクトップの最新 `f14a0cd` へfast-forward。直前の47コミットで対象の入力処理は変わっていなかった。開始時の10/4保留音声修正6ファイルは、名前 `hold-20261004-audio-fixes-before-input-repair-20261013`、stash commit `3de80d6807c53261e2b657aa45eef6be1b486d84` に未追跡ファイル込みで保全。このstashはノートPCローカルのみで、今回の公開には含めない。再開時はstashを確認し、承認なく適用/削除しない。
+- keyup欠落時にSetへ残ったキーが次の新規keydownを拒否する経路を修正。長押しは引き続き `event.repeat` で抑制し、Setはkeyup二重処理防止に限定。Ctrl/Altを押しながら離しても処理済みキーを解放する。ブラウザのショートカットは奪わない。
+- compositionend欠落後でも、明示的に非変換中のASCII入力または通常の物理英字入力で古いIME状態から復帰する。変換途中の日本語は引き続き解答扱いしない。OSのIME設定・input type・パスワード属性・翻訳設定は変更しない。
+- 通常バトルと英語タイピングバトルの判定入口で英字の大小文字を統一。スマホのinput/composition経由もPC同様に採点し、表示・記録は教材の綴りに合わせる。別の文字・空白・句読点のミスは従来どおり。教材/HP/得点倍率/保存形式は不変。
+- `test-typing-input.mjs`、新規UIテスト（通常3級Level 3と対戦 × PC USB OFF/ON・Android tablet/phone相当の4条件）、既存 `test-physical-input-regression.mjs` の3条件が成功。音声ボタン後・次問題・キー解放欠落・変換終了欠落・大小文字・誤字・連打/長押しを確認。Chromeは隔離保存領域で無音実行。Android実機IMEの動作確認ではない。
+- build成功。lintはエラー0・既存 `beginVersusTurn` のHook依存警告1件。`git diff --check` 成功。最初のsandbox内build/Chrome起動はWindowsプロセス制限で失敗し、権限付き再実行は成功。公開後のcommit番号・デプロイ結果はObsidianの当日記録を参照。
+
 ## 2026-10-02 英検4級Level 3の出題和訳を再点検
 
 - 現在の209問すべてについて、画面に出る和訳から別の自然な英文が浮かびやすい箇所を点検。会話場面、丁寧な依頼、同義語など20問の表示用和訳を修正した。全変更前後と理由は `docs/grade4-level3-prompt-audit-2026-10-02.md`。

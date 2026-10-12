@@ -12,8 +12,8 @@ try {
    localStorage.setItem('etyping_external_keyboard_mode',String(config.external));
    localStorage.setItem('etyping_manual_question_statuses',JSON.stringify(Object.fromEntries(questions.map(q=>[`Eiken5:1:${q.text}:${q.translation}`,{practiceLevel:1,listeningLevel:1,battleLevel:1,manualOverrideLevel:null,excluded:q.text!=='apple',updatedAt:0}]))));
  },{questions,config});
- await page.goto('http://127.0.0.1:5178');
- await page.getByRole('button',{name:'教材を選んではじめる',exact:true}).click();
+ await page.goto(process.env.TEST_BASE_URL || 'http://127.0.0.1:5178');
+ await page.getByRole('button',{name:'教材を選ぶ',exact:true}).click();
  await page.getByRole('button',{name:'この教材で始める',exact:true}).click();
  await page.getByRole('button',{name:/Basic Training/}).click();
  await page.locator('.battle-input').waitFor();
