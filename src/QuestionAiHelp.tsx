@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { MessageCircle, X } from 'lucide-react';
 import { GRAMMAR_AI_DESTINATIONS } from './grammarAiPrompt';
 import { buildQuestionAiPrompt, type QuestionAiContext } from './questionAiPrompt';
+import { useBackdropDismiss } from './useBackdropDismiss';
 
 type Destination = keyof typeof GRAMMAR_AI_DESTINATIONS;
 const actionClass = 'min-h-10 rounded-lg border border-violet-400/40 bg-violet-950/30 px-3 py-2 text-sm font-bold text-violet-100 hover:bg-violet-900/50 focus-visible:outline-2 focus-visible:outline-violet-300 disabled:opacity-50';
@@ -47,6 +48,7 @@ function QuestionDialog({ onClose, ...context }: QuestionAiContext & { onClose: 
     dialog.current?.close();
     onClose();
   };
+  const backdrop = useBackdropDismiss<HTMLDialogElement>(close);
   const copy = async (target?: Destination) => {
     if (copying.current) return;
     copying.current = true;
@@ -70,7 +72,7 @@ function QuestionDialog({ onClose, ...context }: QuestionAiContext & { onClose: 
       if (active.current) setBusy(false);
     }
   };
-  return <dialog ref={dialog} aria-labelledby={headingId} onCancel={event => { event.preventDefault(); close(); }} onKeyDown={event => event.stopPropagation()} className="fixed inset-0 m-auto max-h-[85dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-xl border border-violet-400/50 bg-slate-900 p-4 text-slate-100 shadow-2xl backdrop:bg-slate-950/70">
+  return <dialog ref={dialog} {...backdrop} aria-labelledby={headingId} onCancel={event => { event.preventDefault(); close(); }} onKeyDown={event => event.stopPropagation()} className="fixed inset-0 m-auto max-h-[85dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-xl border border-violet-400/50 bg-slate-900 p-4 text-slate-100 shadow-2xl backdrop:bg-slate-950/70">
     <div className="flex items-center justify-between gap-3">
       <h2 id={headingId} className="font-bold text-violet-100">この問題をAIに相談</h2>
       <button type="button" autoFocus onClick={close} aria-label="相談を閉じて結果に戻る" className="flex min-h-10 min-w-10 items-center justify-center rounded-lg hover:bg-slate-700"><X size={20} /></button>

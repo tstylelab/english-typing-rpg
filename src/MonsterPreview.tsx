@@ -2,6 +2,7 @@ import { cloneElement, useLayoutEffect, useId, useRef, useState, type ReactEleme
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { MONSTER_PREVIEW_IMAGE_SIZE } from './monsterArt';
 import './MonsterPreview.css';
+import { useBackdropDismiss } from './useBackdropDismiss';
 
 type AvatarElement = ReactElement<{ size?: number; lazy?: boolean; enlarged?: boolean }>;
 type PreviewItem = { name: string; locked?: boolean; avatar: AvatarElement };
@@ -9,6 +10,7 @@ type PreviewGallery = { items: PreviewItem[]; index: number };
 
 function PreviewDialog({ initialItem, gallery, origin, onClose }: { initialItem: PreviewItem; gallery?: PreviewGallery; origin: DOMRect; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const backdrop = useBackdropDismiss<HTMLDialogElement>(() => dialogRef.current?.close());
   const swipeRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
   const [index, setIndex] = useState(gallery?.index ?? 0);
   const { name, locked, avatar } = gallery?.items[index] ?? initialItem;
@@ -45,9 +47,9 @@ function PreviewDialog({ initialItem, gallery, origin, onClose }: { initialItem:
   return (
     <dialog
       ref={dialogRef}
+      {...backdrop}
       aria-labelledby={titleId}
       onClose={() => { if (!dialogRef.current?.open) onClose(); }}
-      onClick={event => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}
       onKeyDown={event => {
         if (!hasNavigation || event.altKey || event.ctrlKey || event.metaKey) return;
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {

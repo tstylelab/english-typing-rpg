@@ -5,6 +5,7 @@ import { grammarGuides, type GrammarCourse } from './data/grammarGuides';
 import { grammarBookmarkKey, readGrammarBookmarks, toggleGrammarBookmark } from './grammarBookmarks';
 import './Grade5GrammarGuide.css';
 import GrammarCardAiHelp from './GrammarCardAiHelp';
+import { useBackdropDismiss } from './useBackdropDismiss';
 
 type Props = { playerId: string; course?: GrammarCourse; cardId?: string; questionText?: string; label?: string; fromResult?: boolean; initialOpen?: boolean };
 
@@ -23,6 +24,7 @@ export default function GrammarGuide({ playerId, course = 'Eiken5', cardId, ques
 function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromResult, onClose }: Props & { onClose: () => void }) {
   const { cards, sections, grade, intro } = grammarGuides[course];
   const dialog = useRef<HTMLDialogElement>(null);
+  const backdrop = useBackdropDismiss<HTMLDialogElement>(onClose);
   const heading = useRef<HTMLHeadingElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const headingId = useId();
@@ -88,7 +90,7 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
     };
   }, [cardId]);
 
-  return <dialog ref={dialog} className="grammar-guide" data-course={course} aria-labelledby={headingId} onClose={event => { if (!event.currentTarget.open) onClose(); }}
+  return <dialog ref={dialog} {...backdrop} className="grammar-guide" data-course={course} aria-labelledby={headingId} onClose={event => { if (!event.currentTarget.open) onClose(); }}
     onCancel={event => { event.preventDefault(); onClose(); }} onKeyDown={event => {
       event.stopPropagation();
       if (event.key !== 'Tab') return;

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Download, ShieldCheck } from 'lucide-react';
 import { acknowledgeBackupReminder, needsBackupReminder } from './dailyBackupReminder';
+import { useBackdropDismiss } from './useBackdropDismiss';
 
 export default function BackupReminder({ playerId, date, answered, onExport }: {
   playerId: string;
@@ -13,6 +14,11 @@ export default function BackupReminder({ playerId, date, answered, onExport }: {
   const [error, setError] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const laterRef = useRef<HTMLButtonElement>(null);
+  const dismiss = () => {
+    acknowledgeBackupReminder(playerId, date);
+    setVisible(false);
+  };
+  const backdrop = useBackdropDismiss<HTMLDivElement>(dismiss);
 
   useEffect(() => {
     if (!needsBackupReminder(playerId, date, answered)) return;
@@ -56,12 +62,8 @@ export default function BackupReminder({ playerId, date, answered, onExport }: {
   }, [visible]);
 
   if (!visible) return null;
-  const dismiss = () => {
-    acknowledgeBackupReminder(playerId, date);
-    setVisible(false);
-  };
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-slate-950/85 p-4">
+    <div {...backdrop} className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-slate-950/85 p-4">
       <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="backup-reminder-title" aria-describedby="backup-reminder-description" className="w-full max-w-md rounded-2xl border border-cyan-300/50 bg-slate-900 p-5 shadow-xl sm:p-6">
         <ShieldCheck size={32} className="mb-3 text-cyan-300" aria-hidden="true" />
         <h2 id="backup-reminder-title" className="text-xl font-black text-white">そろそろデータを書き出しませんか？</h2>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AiStudyRecorder, buildAiStudyReport, type ReviewPeriod } from './aiStudyReview';
+import { useBackdropDismiss } from './useBackdropDismiss';
 
 type Props = { recorder: AiStudyRecorder; courseLabels: Record<string, string>; result?: boolean };
 const AI_DESTINATIONS = {
@@ -25,6 +26,7 @@ export default function AiStudyReviewPanel(props: Props) {
 
 function ReviewDialog({ recorder, courseLabels, result, inline = false, period, setPeriod, onClose }: Props & { inline?: boolean; period: ReviewPeriod; setPeriod: (value: ReviewPeriod) => void; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const backdrop = useBackdropDismiss<HTMLDialogElement>(() => dialog.current?.close());
   const mounted = useRef(false);
   const [enabled, setEnabled] = useState(recorder.enabled);
   const [report, setReport] = useState('');
@@ -122,5 +124,5 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
       </details>}
     </div>
   </>;
-  return inline ? <div className="text-sm">{content}</div> : <dialog ref={dialog} onClose={onClose} aria-labelledby="ai-review-title" className="fixed inset-0 m-auto max-h-[85dvh] w-[min(36rem,calc(100%-2rem))] overflow-y-auto overscroll-contain rounded-xl border border-violet-400/40 bg-slate-900 p-4 text-sm text-slate-200 shadow-xl backdrop:bg-black/60">{content}</dialog>;
+  return inline ? <div className="text-sm">{content}</div> : <dialog ref={dialog} {...backdrop} onClose={onClose} aria-labelledby="ai-review-title" className="fixed inset-0 m-auto max-h-[85dvh] w-[min(36rem,calc(100%-2rem))] overflow-y-auto overscroll-contain rounded-xl border border-violet-400/40 bg-slate-900 p-4 text-sm text-slate-200 shadow-xl backdrop:bg-black/60">{content}</dialog>;
 }

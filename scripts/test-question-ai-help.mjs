@@ -85,7 +85,8 @@ try {
     assert.ok((await dialog.getByRole('textbox').inputValue()).includes(expectedText));
     await page.evaluate(() => { window.copyMode = 'defer'; });
     await dialog.getByRole('button', { name: 'ChatGPTで相談' }).click();
-    await dialog.getByRole('button', { name: '相談を閉じて結果に戻る' }).click();
+    await page.mouse.click(2, 2);
+    await dialog.waitFor({ state: 'detached' });
     await page.evaluate(() => window.finishCopy());
     assert.equal(await page.evaluate(() => window.opened.length), 2, 'Closed dialogs must not open delayed tabs');
     assert.deepEqual(errors, []);

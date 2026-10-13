@@ -32,6 +32,7 @@ import { createLearningQuestionBalance, selectLearningBalancedQuestion, selectLo
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
 import QuestionAiHelp from './QuestionAiHelp';
+import { useBackdropDismiss } from './useBackdropDismiss';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
 import BackupReminder from './BackupReminder';
 import { acknowledgeBackupReminder } from './dailyBackupReminder';
@@ -4200,6 +4201,10 @@ export default function App() {
   const [weakReviewPanelOpen, setWeakReviewPanelOpen] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const resetBackdrop = useBackdropDismiss<HTMLDivElement>(() => setShowResetConfirm(false));
+  const helpBackdrop = useBackdropDismiss<HTMLDivElement>(() => setShowHelp(false));
+  const monthlyBackdrop = useBackdropDismiss<HTMLDivElement>(() => setShowMonthlyActivity(false));
+  const firstPlayBackdrop = useBackdropDismiss<HTMLDivElement>(() => setShowFirstPlayGuide(false));
   const [lastSolvedQuestion, setLastSolvedQuestion] = useState<Question | null>(null);
   const [showBossIntro, setShowBossIntro] = useState(false);
   const [progressTransferStatus, setProgressTransferStatus] = useState('');
@@ -9089,8 +9094,8 @@ export default function App() {
           </Box>
           </div>
           {showResetConfirm && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-              <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
+            <div {...resetBackdrop} className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="pointer-events-none absolute inset-0 bg-black/60"></div>
               <div className="relative w-full max-w-xl rounded-xl border-2 border-red-700/60 bg-slate-900 p-6 shadow-2xl">
                 <h3 className="mb-4 text-2xl font-black text-red-300">履歴をリセット</h3>
                 <div className="space-y-2 text-slate-200">
@@ -9792,9 +9797,7 @@ export default function App() {
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="first-play-guide-title"
-                    onMouseDown={(event) => {
-                      if (event.target === event.currentTarget) setShowFirstPlayGuide(false);
-                    }}
+                    {...firstPlayBackdrop}
                   >
                     <div className="my-auto max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-2xl border-2 border-emerald-300/55 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
                       <div className="border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.62),rgba(15,23,42,0.96))] px-5 py-5 text-center sm:px-7">
@@ -9953,9 +9956,7 @@ export default function App() {
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="monthly-activity-title"
-                        onMouseDown={(event) => {
-                          if (event.target === event.currentTarget) setShowMonthlyActivity(false);
-                        }}
+                        {...monthlyBackdrop}
                       >
                         <div className="my-auto w-full max-w-xl overflow-hidden rounded-2xl border-2 border-emerald-300/50 bg-slate-900 shadow-[0_28px_90px_rgba(0,0,0,0.72)]">
                           <div className="flex items-start justify-between gap-4 border-b border-slate-700 bg-[linear-gradient(135deg,rgba(6,78,59,0.68),rgba(15,23,42,0.98))] px-5 py-4 sm:px-6">
@@ -10046,8 +10047,8 @@ export default function App() {
                       </div>
                     )}
                     {showResetConfirm && (
-                      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                        <div className="absolute inset-0 bg-black/60" onClick={() => setShowResetConfirm(false)}></div>
+                      <div {...resetBackdrop} className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <div className="pointer-events-none absolute inset-0 bg-black/60"></div>
                         <div className="relative w-full max-w-xl rounded-xl border-2 border-red-700/60 bg-slate-900 p-6 shadow-2xl">
                           <h3 className="mb-4 text-2xl font-black text-red-300">履歴をリセット</h3>
                           <div className="space-y-2 text-slate-200">
@@ -10062,8 +10063,8 @@ export default function App() {
                       </div>
                     )}
                     {showHelp && (
-                      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                        <div className="absolute inset-0 bg-black/60" onClick={() => setShowHelp(false)}></div>
+                      <div {...helpBackdrop} className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <div className="pointer-events-none absolute inset-0 bg-black/60"></div>
                         <div className="relative w-full max-w-xl rounded-xl border-2 border-slate-500 bg-slate-900 p-6 shadow-2xl">
                           <h3 className="mb-4 text-2xl font-black text-blue-300">遊び方 (How to Play)</h3>
                           <div className="space-y-2 text-slate-200">
