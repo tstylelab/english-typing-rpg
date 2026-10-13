@@ -13,7 +13,13 @@ export type AutomaticLearningState = {
 
 // Only learning progress uses this counter; scoring and raw mistake logs stay intact.
 export const getEnglishLetterCount = (text: string) => (text.match(/[a-z]/gi) ?? []).length;
-export const getRecallMistakeAllowance = (letters: number) => Math.max(2, Math.ceil(letters * 0.20));
+export const getRecallMistakeAllowance = (letters: number) => {
+  // Halfway between the released 20% / minimum 2 and proposed 30% / minimum 4.
+  // Average the integer allowances, rounding a half attempt upward.
+  const previous = Math.max(2, Math.ceil(letters * 0.20));
+  const proposed = Math.max(4, Math.ceil(letters * 0.30));
+  return Math.ceil((previous + proposed) / 2);
+};
 export const getLongTextRecallOutcome = (text: string, misses: number): AutomaticLearningOutcome => (
   misses <= getRecallMistakeAllowance(getEnglishLetterCount(text)) ? 'success' : 'struggle'
 );

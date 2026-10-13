@@ -32,7 +32,7 @@ try {
       if(!single) assert.ok(!sequence.slice(-3).includes(q.text),`Early repeat: ${q.text}`);
       sequence.push(q.text);
       await page.keyboard.type(q.text[0]);
-      if(single) await page.keyboard.type('zz');
+      if(single) await page.keyboard.type('zzzz');
       await page.evaluate(({n,single})=>{window.testNow+=n*(single?500:2000);},{n:q.text.length,single});
       if(single && i===0) {
         // Five attempts at a missing space remain raw mistakes, but must not
@@ -57,6 +57,14 @@ try {
       await page.waitForTimeout(1100);
     }
     if(single) {
+      // More raw typos still reduce battle damage, so four answers need not end a battle.
+      for(let i=0;i<10 && await page.locator('.battle-screen').isVisible();i++) {
+        await page.keyboard.type('b');
+        await page.evaluate(()=>{window.testNow+=30000;});
+        await page.keyboard.type('e interested in');
+        await page.waitForTimeout(1100);
+      }
+      await page.locator('[data-result-question]').first().waitFor();
       assert.ok((await page.locator('body').innerText()).includes('science'));
       const weak=await page.evaluate(()=>JSON.parse(localStorage.getItem('etyping_weak_questions')||'[]'));
       assert.ok(!weak.some(q=>q.text==='be interested in'),'Battle end must not re-add small-error questions');
@@ -64,7 +72,7 @@ try {
       assert.ok(stats['be interested in'].missCount>0,'Small mistakes remain in historical stats');
     }
     assert.deepEqual(errors,[]);
-    console.log('PASS',single?'2 typos advance to mastery in a single-question pool; example preserved':'Three-question spacing across monsters; second successful recall masters',sequence.join(' / '));
+    console.log('PASS',single?'4 typos advance to mastery in a single-question pool; example preserved':'Three-question spacing across monsters; second successful recall masters',sequence.join(' / '));
     await bounded(context.close());
   }
   passed=true;

@@ -116,7 +116,7 @@ assert.deepEqual(json(lists[0].questionKeys),[key(newQ)]);
 console.log(`PASS: ${core.grade4PhraseChanges.length} phrase revisions, ${qs.length} unique cores, examples, migration/idempotence, typo thresholds, spaced progress and small-pool selection.`);
 
 // New recall policy is independent of scoring and legacy Level 1 outcomes.
-for (const [letters, allowed] of [[0,2],[10,2],[20,4],[30,6],[40,8]]) {
+for (const [letters, allowed] of [[0,3],[7,3],[10,3],[14,4],[20,5],[24,7],[30,8],[40,10]]) {
   assert.equal(progress.getRecallMistakeAllowance(letters), allowed);
   assert.equal(progress.getLongTextRecallOutcome('a'.repeat(letters), allowed), 'success');
   assert.equal(progress.getLongTextRecallOutcome('a'.repeat(letters), allowed+1), 'struggle');

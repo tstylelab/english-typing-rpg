@@ -35,9 +35,17 @@ for (const manual of [1, 2]) {
   assert.equal(saved.manualOverrideLevel, manual, 'No mutation of saved input');
 }
 assert.equal(advance({ ...initial(), manualOverrideLevel: 3 }, 'battle', 'success', 1).manualOverrideLevel, 3);
-assert.equal(getRecallMistakeAllowance(20), 4);
-assert.equal(getLongTextRecallOutcome('a'.repeat(20), 4), 'success');
-assert.equal(getLongTextRecallOutcome('a'.repeat(20), 5), 'struggle');
+assert.equal(getRecallMistakeAllowance(20), 5);
+assert.equal(getLongTextRecallOutcome('a'.repeat(20), 5), 'success');
+assert.equal(getLongTextRecallOutcome('a'.repeat(20), 6), 'struggle');
+for (let letters = 0; letters <= 300; letters++) {
+  const previous = Math.max(2, Math.ceil(letters * 0.20));
+  const proposed = Math.max(4, Math.ceil(letters * 0.30));
+  const allowed = getRecallMistakeAllowance(letters);
+  assert.equal(allowed, Math.ceil((previous + proposed) / 2));
+  assert.equal(getLongTextRecallOutcome('a'.repeat(letters), allowed), 'success');
+  assert.equal(getLongTextRecallOutcome('a'.repeat(letters), allowed + 1), 'struggle');
+}
 assert.equal(getBattleLearningOutcome(1, 1, 100), 'struggle', 'Level 1 is unchanged');
 // An old five-question countdown must also adapt when only one item remains.
 assert.equal(level(advance({ ...initial(), battleLevel: 2, longTextSpacingRemaining: 5 }, 'battle', 'success', 1)), 3);
