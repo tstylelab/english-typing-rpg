@@ -4,14 +4,56 @@ export type LearningQuestionBalance = {
   pendingKeys: string[];
 };
 
-// Prefer five intervening questions; with a small pool use the least recent item.
-export const spaceLongTextQuestions = <T>(questions: T[], recent: string[], getKey: (q: T) => string): T[] => {
-  const window = recent.slice(-6);
+// Avoid the recent window; with a small pool use the least recent item.
+export const spaceLongTextQuestions = <T>(questions: T[], recent: string[], getKey: (q: T) => string, distance = 6): T[] => {
+  const window = recent.slice(-distance);
   const fresh = questions.filter(q => !window.includes(getKey(q)));
   if (fresh.length || !questions.length) return fresh;
   const oldest = Math.min(...questions.map(q => window.lastIndexOf(getKey(q))));
   return questions.filter(q => window.lastIndexOf(getKey(q)) === oldest);
 };
+
+// Long answers: make steady progress, then revisit a prepared answer after spacing.
+// The bag is retained against the whole eligible course, not just today's recent filter.
+export function selectLongTextLearningQuestion<T>(options: {
+  state: LearningQuestionBalance;
+  playableQuestions: T[];
+  eligibleQuestions: T[];
+  getKey: (question: T) => string;
+  getLevel: (question: T) => number;
+  isReady: (question: T) => boolean;
+  targetLevel: number;
+  chooseDefault: () => T;
+  random?: () => number;
+}): T {
+  const { state, playableQuestions, eligibleQuestions, getKey, getLevel, isReady, targetLevel, chooseDefault } = options;
+  const unfinished = playableQuestions.filter(q => getLevel(q) < targetLevel);
+  const unfinishedKeys = new Set(unfinished.map(getKey));
+  state.pendingKeys = state.pendingKeys.filter(key => unfinishedKeys.has(key));
+  const candidates = eligibleQuestions.filter(q => unfinishedKeys.has(getKey(q)));
+  const random = options.random ?? Math.random;
+  // Every fifth slot keeps the usual review/weighted selection available.
+  const preferProgress = state.position % 5 !== 4;
+  state.position = (state.position + 1) % 5;
+  if (!preferProgress || candidates.length === 0) return chooseDefault();
+  const ready = candidates.filter(q => getLevel(q) === 2 && isReady(q));
+  const pool = ready.length ? ready : candidates;
+  let question = pool.find(q => state.pendingKeys.includes(getKey(q)));
+  if (!question) {
+    const keys = unfinished.map(getKey);
+    for (let i = keys.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(random() * (i + 1));
+      [keys[i], keys[j]] = [keys[j], keys[i]];
+    }
+    // Preserve the next-in-line items while appending a fresh cycle.
+    state.pendingKeys = [...new Set([...state.pendingKeys, ...keys])];
+  }
+  const byKey = new Map(pool.map(q => [getKey(q), q]));
+  const key = state.pendingKeys.find(candidate => byKey.has(candidate));
+  question = byKey.get(key!)!;
+  state.pendingKeys = state.pendingKeys.filter(candidate => candidate !== key);
+  return question;
+}
 
 export const createLearningQuestionBalance = (): LearningQuestionBalance => ({
   position: 0,

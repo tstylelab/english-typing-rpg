@@ -4,7 +4,7 @@ const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE ||
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});
 const url=process.env.TEST_URL || 'http://127.0.0.1:5178';
 try {
-  for (const course of ['eiken4','eiken5']) for (const width of [1366,390,320]) {
+  for (const course of ['eiken3','eiken4','eiken5']) for (const width of [1366,390,320]) {
     const context=await browser.newContext({viewport:{width,height:900}});
     const page=await context.newPage();
     const errors=[]; page.on('pageerror',e=>errors.push(e.message));
@@ -16,7 +16,7 @@ try {
     });
     await page.goto(url+'/?guide='+course);
     const guide=page.getByRole('dialog');await guide.waitFor();
-    const id=course==='eiken4'?'must':'be';
+    const id=course==='eiken3'?'indirect-question':course==='eiken4'?'must':'be';
     const card=guide.locator(`[data-grammar-card="${id}"]`);
     await guide.locator(`[data-grammar-target="${id}"]`).click();
     const initialSave=await page.evaluate(()=>JSON.stringify({...localStorage}));
@@ -37,12 +37,12 @@ try {
     assert.equal(await help.getByRole('textbox').count(),0,'No prompt generation on expansion');
     await help.getByRole('button',{name:'質問文を確認する',exact:true}).click();
     const text=await help.getByRole('textbox').inputValue();
-    assert.ok(text.includes(`英検${course==='eiken4'?'4級':'5級'}に挑戦する学習者`));
+    assert.ok(text.includes(`英検${course==='eiken3'?'3級':course==='eiken4'?'4級':'5級'}に挑戦する学習者`));
     assert.ok(!text.includes('小学生にも分かる'));
     assert.ok(text.includes('参考書の一節') && text.includes('基本ルールと作り方'));
     assert.ok(!text.includes('400字') && !text.includes('確認問題を1問'));
     assert.ok(await help.getByText('この文法を詳しく学ぶ質問文をコピーします。貼り付け・送信はご自身で。',{exact:true}).isVisible());
-    assert.ok(text.includes(course==='eiken4'?'must・have to':'be動詞'));
+    assert.ok(text.includes(course==='eiken3'?'間接疑問':course==='eiken4'?'must・have to':'be動詞'));
     assert.equal(await page.evaluate(()=>window.copied),'','Preview does not touch clipboard');
     await help.getByRole('button',{name:'質問文を閉じる',exact:true}).click();
     await help.getByRole('button',{name:'質問文をコピー',exact:true}).click();

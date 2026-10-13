@@ -13,7 +13,7 @@ export type AutomaticLearningState = {
 
 // Only learning progress uses this counter; scoring and raw mistake logs stay intact.
 export const getEnglishLetterCount = (text: string) => (text.match(/[a-z]/gi) ?? []).length;
-export const getRecallMistakeAllowance = (letters: number) => Math.max(2, Math.ceil(letters * 0.15));
+export const getRecallMistakeAllowance = (letters: number) => Math.max(2, Math.ceil(letters * 0.20));
 export const getLongTextRecallOutcome = (text: string, misses: number): AutomaticLearningOutcome => (
   misses <= getRecallMistakeAllowance(getEnglishLetterCount(text)) ? 'success' : 'struggle'
 );
@@ -29,16 +29,45 @@ export const isFormattingOnlyMistake = (target: string, attempted: string): bool
 
 export const getNextTolerantLongTextLearningState = (
   state: AutomaticLearningState, source: AutomaticLearningSource, outcome: AutomaticLearningOutcome,
-  smallPool = false, now = Date.now(),
+  poolSize = Infinity, now = Date.now(),
 ): AutomaticLearningState => {
   if (source !== 'battle' || outcome === 'neutral') {
-    return getNextLongTextLearningState(state, source, outcome, smallPool, now);
+    return getNextAutomaticLearningState(state, source, outcome);
   }
   if (outcome === 'struggle' && !state.longTextPreviousExcess) {
     return { ...state, longTextPreviousExcess: true };
   }
-  const next = getNextLongTextLearningState(state, source, outcome, smallPool, now);
-  return { ...next, longTextPreviousExcess: false };
+  if (outcome === 'struggle') {
+    return { ...getNextAutomaticLearningState(state, source, outcome), longTextSuccessCount: 0, longTextSpacingRemaining: 0, longTextPreviousExcess: false };
+  }
+  // Adapt to the actual practice pool, including a single selected question.
+  const interval = Math.min(3, Math.max(0, poolSize - 1));
+  const waiting = Math.min(state.longTextSpacingRemaining ?? 0, interval) > 0;
+  const currentLevel = getAutomaticLearningLevel(state);
+  const nextLevel = currentLevel === 1 ? 2 : waiting ? currentLevel : 3;
+  return {
+    ...state,
+    battleLevel: nextLevel,
+    longTextSuccessCount: nextLevel === 3 ? 2 : 1,
+    longTextSpacingRemaining: currentLevel === 1 ? interval : Math.min(state.longTextSpacingRemaining ?? 0, interval),
+    longTextLastSuccessAt: now,
+    longTextPreviousExcess: false,
+  };
+};
+
+// A manual return to learning/caution is a review request, not a permanent lock.
+// Do not change existing saved records until the learner actually succeeds.
+export const getNextLongTextStudyState = <T extends AutomaticLearningState & { manualOverrideLevel: LearningProgressLevel | null }>(
+  state: T, source: AutomaticLearningSource, outcome: AutomaticLearningOutcome, poolSize: number,
+): T => {
+  const reviewLevel = state.manualOverrideLevel;
+  if (reviewLevel !== null && reviewLevel < 3) {
+    if (outcome !== 'success') return state;
+    const baseline = { ...state, listeningLevel: reviewLevel, battleLevel: reviewLevel, longTextSuccessCount: 0, longTextSpacingRemaining: 0, longTextPreviousExcess: false };
+    return { ...baseline, ...getNextTolerantLongTextLearningState(baseline, source, outcome, poolSize), manualOverrideLevel: null };
+  }
+  const next = getNextTolerantLongTextLearningState(state, source, outcome, poolSize);
+  return next === state ? state : { ...state, ...next };
 };
 
 export const getLongTextMistakeAllowance = (characters: number) => (

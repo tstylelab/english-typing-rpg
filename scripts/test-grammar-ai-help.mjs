@@ -27,4 +27,4 @@ for (const grade of ['3級','準2級','2級','準1級','1級']) {
   assert.ok(text.includes(`英検${grade}に挑戦する学習者`));
   assert.ok(!text.includes('英検4級') && !text.includes('小学生'));
 }
-console.log('PASS: 65 systematic grammar prompts, grade/examples/compare context, no short-answer or reply-wait constraints; no history dependency');
+console.log('PASS: all registered systematic grammar prompts, grade/examples/compare context, no short-answer or reply-wait constraints; no history dependency');

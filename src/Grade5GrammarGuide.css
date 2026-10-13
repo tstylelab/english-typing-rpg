@@ -21,16 +21,16 @@
 .grammar-guide-toc>div>div { display:flex; flex-wrap:wrap; gap:5px; }
 .grammar-guide-toc button { padding:5px 8px; border:1px solid var(--guide-border); border-radius:6px; background:var(--guide-tint); font-size:12px; color:var(--guide-accent); cursor:pointer; }
 .grammar-guide-toc button:hover { outline:1px solid var(--guide-accent); }
-.grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
-.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button { min-width:0; min-height:60px; padding:8px 10px; text-align:left; overflow-wrap:anywhere; }
-.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button strong { display:block; font-size:13px; font-weight:750; line-height:1.5; }
-.grammar-guide[data-course="Eiken4"] .grammar-guide-toc button span { display:block; margin-top:3px; font-size:12px; line-height:1.5; color:#475569; }
-.grammar-guide[data-course="Eiken4"] .grammar-guide-card-heading>span { font-size:13px; color:#475569; }
+.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button { min-width:0; min-height:60px; padding:8px 10px; text-align:left; overflow-wrap:anywhere; }
+.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button strong { display:block; font-size:13px; font-weight:750; line-height:1.5; }
+.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button span { display:block; margin-top:3px; font-size:12px; line-height:1.5; color:#475569; }
+.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-card-heading>span { font-size:13px; color:#475569; }
 @media(max-width:800px) {
-  .grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:360px) {
-  .grammar-guide[data-course="Eiken4"] .grammar-guide-toc>div>div { grid-template-columns:minmax(0,1fr); }
+  .grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { grid-template-columns:minmax(0,1fr); }
 }
 .grammar-guide-key { font-size:12px; line-height:1.7; color:#566b70; }
 .grammar-guide-section { margin-top:24px; }

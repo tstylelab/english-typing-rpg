@@ -4,16 +4,17 @@ import { load } from './lib/load-typescript-data.mjs';
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const { QUESTIONS } = load('src/data/questions.ts');
 const course = process.env.TEST_GRAMMAR_COURSE || 'Eiken5';
-assert.ok(['Eiken5','Eiken4'].includes(course));
+assert.ok(['Eiken5','Eiken4','Eiken3'].includes(course));
 const questions = QUESTIONS[course][3];
 const {grammarGuides} = load('src/data/grammarGuides.ts');
 const {cards,grade} = grammarGuides[course];
 const is4 = course === 'Eiken4';
+const is3 = course === 'Eiken3';
 const slug = course.toLowerCase();
-const savedId = is4 ? 'past-be' : 'be';
-const secondSavedId = is4 ? 'future-will' : 'verb';
-const questionId = is4 ? 'questions' : 'do-question';
-const firstIds = is4 ? ['foundation','questions','noun-phrases','present-progressive','past-be','past-verb'] : ['subjects','word-types','be','word-order','demonstratives','contractions'];
+const savedId = is3 ? 'perfect-duration' : is4 ? 'past-be' : 'be';
+const secondSavedId = is3 ? 'relative-object' : is4 ? 'future-will' : 'verb';
+const questionId = is3 ? 'indirect-question' : is4 ? 'questions' : 'do-question';
+const firstIds = is3 ? ['foundation','questions','tenses','modals','perfect-experience','perfect-result'] : is4 ? ['foundation','questions','noun-phrases','present-progressive','past-be','past-verb'] : ['subjects','word-types','be','word-order','demonstratives','contractions'];
 const url = process.env.TEST_URL || 'http://127.0.0.1:5178';
 const shots = process.env.GRAMMAR_SCREENSHOT_DIR;
 const server = await chromium.launchServer({ channel:'chrome', headless:true, args:['--mute-audio'] });
@@ -26,7 +27,7 @@ const bounded = async promise => {
 let passed = false;
 try {
   for (const width of [1366, 390, 320]) {
-    const target = is4 ? (width === 1366 ? {text:'Ken is as tall as Tom.',id:'as'}
+    const target = is3 ? (width === 1366 ? {text:'The cake she made was delicious.',id:'relative-object'} : width === 390 ? {text:'I have lived here for three years.',id:'perfect-duration'} : {text:'He stopped to talk.',id:'stop-remember'}) : is4 ? (width === 1366 ? {text:'Ken is as tall as Tom.',id:'as'}
       : width === 390 ? {text:'I stayed home because I was sick.',id:'connectors'}
       : {text:'You must not use your phone here.',id:'must'}) : width === 1366 ? {text:"I'm a student.",id:'contractions'}
       : width === 390 ? {text:'These are books.',id:'demonstratives'}
@@ -46,8 +47,8 @@ try {
     try { await guide.waitFor(); } catch (error) { console.log('Guide failure',errors,await page.locator('body').innerText()); throw error; }
     assert.equal(await guide.locator('[data-grammar-card]').count(),cards.length);
     assert.deepEqual(await guide.locator('[data-grammar-card]').evaluateAll(els=>els.slice(0,6).map(el=>el.dataset.grammarCard)),firstIds);
-    assert.equal(await guide.locator('.grammar-guide-chunks>div').count(),is4 ? 6 : 3);
-    for (const id of is4 ? ['foundation','questions','noun-phrases','past-be','past-verb','must'] : ['subjects','word-types','be','word-order','demonstratives','contractions','short-answers','amounts','pronouns','articles','negative','modifiers','conjunctions','place','noun','third']) {
+    assert.equal(await guide.locator('.grammar-guide-chunks>div').count(),cards.reduce((sum,card)=>sum+(card.chunks?.length || 0),0));
+    for (const id of is3 ? ['foundation','questions','perfect-experience','perfect-result','perfect-duration','relative-object','indirect-question','responses'] : is4 ? ['foundation','questions','noun-phrases','past-be','past-verb','must'] : ['subjects','word-types','be','word-order','demonstratives','contractions','short-answers','amounts','pronouns','articles','negative','modifiers','conjunctions','place','noun','third']) {
       const comparison = guide.locator(`[data-grammar-card="${id}"] .grammar-guide-compare`);
       assert.ok(await comparison.locator('dt').count() >= 3);
       assert.ok(await comparison.evaluate(el => el.scrollWidth <= el.clientWidth+1), `${id} comparison fits ${width}px`);
@@ -56,9 +57,9 @@ try {
     assert.ok(await guide.evaluate(el => el.scrollWidth <= el.clientWidth + 1));
     const toc = guide.locator('.grammar-guide-toc');
     assert.equal(await guide.getAttribute('data-course'),course);
-    if (is4) {
-      assert.equal(await toc.locator('button strong').count(),33);
-      assert.equal(await toc.locator('button span').count(),33);
+    if (is4 || is3) {
+      assert.equal(await toc.locator('button strong').count(),cards.length);
+      assert.equal(await toc.locator('button span').count(),cards.length);
       for (const item of cards) {
         const button = toc.locator(`[data-grammar-target="${item.id}"]`);
         assert.equal(await button.locator('strong').innerText(),item.title);
@@ -70,8 +71,9 @@ try {
       assert.ok(await toc.locator('button').evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth+1)),'All headings fit');
       const widths = await toc.locator('button').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().width));
       assert.ok(Math.max(...widths)-Math.min(...widths)<1,'Equal-width navigation buttons');
-      await toc.locator('[data-grammar-target="must"]').click();
-      assert.equal(await guide.locator('[data-grammar-card="must"]').evaluate(el=>el===document.activeElement),true);
+      const jumpId = is3 ? 'relative-object' : 'must';
+      await toc.locator(`[data-grammar-target="${jumpId}"]`).click();
+      assert.equal(await guide.locator(`[data-grammar-card="${jumpId}"]`).evaluate(el=>el===document.activeElement),true);
       await guide.getByRole('button',{name:'目次',exact:true}).click();
     } else {
       assert.equal(await toc.locator('button strong').count(),0,'Grade 5 retains original headings');
@@ -87,7 +89,7 @@ try {
     assert.ok((await doCard.boundingBox()).y >= 50);
     assert.ok((await doCard.boundingBox()).y < 140);
     if (shots && width === 390) await page.screenshot({path:`${shots}/${slug}-grammar-mobile.png`});
-    await guide.locator(`[data-grammar-card="${is4?'foundation':'word-order'}"]`).scrollIntoViewIfNeeded();
+    await guide.locator(`[data-grammar-card="${is4||is3?'foundation':'word-order'}"]`).scrollIntoViewIfNeeded();
     assert.ok(await guide.locator('.grammar-guide-chunks').evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth+1)));
     if (shots && width === 390) await page.screenshot({path:`${shots}/${slug}-grammar-beginner-mobile.png`});
     await doCard.getByText('もうひとつヒント',{exact:true}).click();
@@ -137,6 +139,17 @@ try {
     assert.ok((await card.boundingBox()).y < 140);
     assert.ok((await card.innerText()).includes('今回の文'));
     if (shots && width === 1366) await page.screenshot({path:`${shots}/${slug}-grammar-result-link.png`});
+    if (is3) {
+      const help = card.locator('.grammar-ai-help');
+      await help.locator(':scope > summary').click();
+      await help.getByRole('button',{name:'質問文を確認する',exact:true}).click();
+      const prompt = await help.getByRole('textbox').inputValue();
+      assert.ok(prompt.includes('英検3級に挑戦する学習者'));
+      assert.ok(prompt.includes('ゲームで出た文：'+target.text));
+      assert.ok(prompt.includes('基本ルールと作り方'));
+      assert.ok(!prompt.includes('英検4級') && !prompt.includes('英検5級'));
+      await help.locator(':scope > summary').click();
+    }
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('.battle-screen').count(),0,'Enter inside reference must not retry');
     for (let i=0;i<25;i++) {

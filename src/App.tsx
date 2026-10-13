@@ -20,7 +20,7 @@ import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, get
 import { getQuestionSynonyms } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
-import { getLongTextRecallOutcome, getNextTolerantLongTextLearningState, isFormattingOnlyMistake } from './learningProgress';
+import { getLongTextRecallOutcome, getNextLongTextStudyState, isFormattingOnlyMistake } from './learningProgress';
 import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
 import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
@@ -28,7 +28,7 @@ import MonsterPreview from './MonsterPreview';
 import MonsterBookStars from './MonsterBookStars';
 import MonsterBattleReveal from './MonsterBattleReveal';
 import { applyMonsterProfile } from './monsterProfiles';
-import { createLearningQuestionBalance, selectLearningBalancedQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
+import { createLearningQuestionBalance, selectLearningBalancedQuestion, selectLongTextLearningQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
@@ -3990,7 +3990,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
                 {learningLabel}
               </span>
               {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
-              {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動優先</span>}
+              {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動設定</span>}
               {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
               {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
               {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
@@ -4090,6 +4090,7 @@ export default function App() {
   const [typingPracticeIndex, setTypingPracticeIndex] = useState(0);
   const [typingPracticeInput, setTypingPracticeInput] = useState('');
   const [typingPracticeMisses, setTypingPracticeMisses] = useState(0);
+  const [typingPracticeResolving, setTypingPracticeResolving] = useState(false);
   const [showFirstPlayGuide, setShowFirstPlayGuide] = useState(false);
   const [beginnerBattleIndex, setBeginnerBattleIndex] = useState(0);
   const [beginnerBattleInput, setBeginnerBattleInput] = useState('');
@@ -4229,6 +4230,9 @@ export default function App() {
   const versusIgnoreCompositionCommitRef = useRef(false);
   const handledPhysicalKeyIdsRef = useRef(new Set<string>());
   const typingPracticeInputRef = useRef<HTMLInputElement>(null);
+  const typingPracticeResolvingRef = useRef(false);
+  const typingPracticeSpeechTimeoutRef = useRef<number | null>(null);
+  const typingPracticeSpeechRunIdRef = useRef(0);
   const beginnerBattleInputRef = useRef<HTMLInputElement>(null);
   const beginnerBattleAdvanceTimeoutRef = useRef<number | null>(null);
   const beginnerBattleSpeechTimeoutRef = useRef<number | null>(null);
@@ -4984,8 +4988,11 @@ export default function App() {
     const outcome = assisted && rawOutcome === 'success' ? 'neutral' : rawOutcome;
 
     const current = getManualQuestionStatus(difficulty, level, question);
+    const reviewPool = sessionWeakQuestionsRef.current
+      ?? (mode === 'weakness' ? getScopedWeakQuestions(difficulty, level) : null);
+    const poolSize = (reviewPool ?? getEligibleBattleQuestions(difficulty, level, gameState.currentMonsterIndex, mode, getScopedPlayableQuestions(difficulty, level), inputMode)).length;
     const nextAutomaticState = EIKEN_DIFFICULTIES.includes(difficulty) && level !== 1
-      ? getNextTolerantLongTextLearningState(current, track, outcome, getScopedPlayableQuestions(difficulty, level).length < 6)
+      ? getNextLongTextStudyState(current, track, outcome, poolSize)
       : getNextAutomaticLearningState(current, track, outcome);
     if (nextAutomaticState === current) return null;
     const nextStatus = { ...current, ...nextAutomaticState };
@@ -5029,6 +5036,51 @@ export default function App() {
           rate: speechRatePercent / 100,
       });
   }, [speechRatePercent, speechVoiceMode, speechVoices]);
+
+  const cancelTypingPracticeSpeech = useCallback(() => {
+    // Invalidate callbacks before cancel(), which may synchronously emit an error.
+    typingPracticeSpeechRunIdRef.current += 1;
+    if (typingPracticeSpeechTimeoutRef.current !== null) {
+      window.clearTimeout(typingPracticeSpeechTimeoutRef.current);
+      typingPracticeSpeechTimeoutRef.current = null;
+    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }, []);
+
+  const speakTypingPracticeLetter = useCallback((letter: string, onFinish?: () => void) => {
+    cancelTypingPracticeSpeech();
+    const runId = typingPracticeSpeechRunIdRef.current;
+    let finished = false;
+    const finish = (stopSpeech = false) => {
+      if (finished || typingPracticeSpeechRunIdRef.current !== runId) return;
+      finished = true;
+      if (typingPracticeSpeechTimeoutRef.current !== null) {
+        window.clearTimeout(typingPracticeSpeechTimeoutRef.current);
+        typingPracticeSpeechTimeoutRef.current = null;
+      }
+      if (stopSpeech && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+      onFinish?.();
+    };
+    if (!letter || !('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+      typingPracticeSpeechTimeoutRef.current = window.setTimeout(() => finish(), 0);
+      return;
+    }
+    const speechConfig = resolveSpeechConfig(speechVoices, speechVoiceMode);
+    // A missing end/error event must not leave the practice locked forever.
+    typingPracticeSpeechTimeoutRef.current = window.setTimeout(() => finish(true), 10000);
+    try {
+      speakText(letter.toUpperCase(), {
+        voice: speechConfig.voice,
+        lang: speechConfig.lang,
+        rate: speechRatePercent / 100,
+        interrupt: false,
+        onend: () => finish(),
+        onerror: () => finish(),
+      });
+    } catch {
+      finish(true);
+    }
+  }, [cancelTypingPracticeSpeech, speechRatePercent, speechVoiceMode, speechVoices]);
 
   const clearBeginnerBattleSpeechTimeout = useCallback(() => {
     if (beginnerBattleSpeechTimeoutRef.current !== null) {
@@ -5168,11 +5220,11 @@ export default function App() {
     }
   }, []);
 
-  const stopAutoPlay = useCallback((statusText: string = '停止しました') => {
+  const stopAutoPlay = useCallback((statusText: string = '停止しました', interruptSpeech = true) => {
     autoPlayRunIdRef.current += 1;
     autoPlayNavigateRef.current = null;
     clearAutoPlayTimeout();
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    if (interruptSpeech && typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
     setIsAutoPlaying(false);
@@ -5316,6 +5368,10 @@ export default function App() {
       if (speechPreviewTimeoutRef.current !== null) {
         window.clearTimeout(speechPreviewTimeoutRef.current);
       }
+      typingPracticeSpeechRunIdRef.current += 1;
+      if (typingPracticeSpeechTimeoutRef.current !== null) {
+        window.clearTimeout(typingPracticeSpeechTimeoutRef.current);
+      }
       if (beginnerBattleAdvanceTimeoutRef.current !== null) {
         window.clearTimeout(beginnerBattleAdvanceTimeoutRef.current);
       }
@@ -5333,7 +5389,8 @@ export default function App() {
   useEffect(() => {
     if (gameState.screen === 'settings' || gameState.screen === 'question-list') return;
     clearSpeechPreviewTimeout();
-    stopAutoPlay('停止しました');
+    // Practice starts speech in the click handler; do not cancel that first letter.
+    stopAutoPlay('停止しました', gameState.screen !== 'typing-practice');
     soundEngine.stopBattleMusicPreview();
   }, [clearSpeechPreviewTimeout, gameState.screen, stopAutoPlay]);
 
@@ -6308,7 +6365,7 @@ export default function App() {
     setLastSolvedQuestion(null);
     recentReviewAppearanceRef.current = [];
     const learningBalance = learningQuestionBalanceRef.current[JSON.stringify([activePlayerId, diff, level, mode, inputMode])];
-    if (learningBalance) {
+    if (learningBalance && !(EIKEN_DIFFICULTIES.includes(diff) && level !== 1 && getAutoLearningTrack(mode, inputMode))) {
       // Each monster/retry gets its own ten-question minimum; keep the word rotation.
       learningBalance.position = 0;
       learningBalance.unfinishedCount = 0;
@@ -6629,7 +6686,7 @@ export default function App() {
     const recentScope = JSON.stringify([activePlayerId, diff, level]);
     const longText = EIKEN_DIFFICULTIES.includes(diff) && level !== 1;
     const eligibleQuestions = longText
-      ? spaceLongTextQuestions(initialEligible, recentLongTextQuestionsRef.current[recentScope] ?? [], q => getQuestionStatusKey(diff, level, q))
+      ? spaceLongTextQuestions(initialEligible, recentLongTextQuestionsRef.current[recentScope] ?? [], q => getQuestionStatusKey(diff, level, q), 3)
       : initialEligible;
     const scopeKey = JSON.stringify([activePlayerId, diff, level, mode, inputMode]);
     const state = learningQuestionBalanceRef.current[scopeKey]
@@ -6637,22 +6694,22 @@ export default function App() {
     const getKey = (question: Question) => getQuestionStatusKey(diff, level, question);
     const currentKey = currentQ ? getKey(currentQ) : undefined;
     activeReviewEntryRef.current = null;
-    return selectLearningBalancedQuestion({
-      state,
-      playableQuestions,
-      eligibleQuestions,
-      getKey,
-      // React hasn't rendered the just-completed answer's promotion/demotion yet.
-      getLevel: question => justUpdatedLevel !== undefined && getKey(question) === currentKey
-        ? justUpdatedLevel
-        : getEffectiveLearningLevel(getManualQuestionStatus(diff, level, question)),
-      currentKey,
-      chooseDefault: () => {
-        const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ, eligibleQuestions) : null;
-        activeReviewEntryRef.current = reviewEntry;
-        return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions);
-      },
+    const getLevel = (question: Question) => justUpdatedLevel !== undefined && getKey(question) === currentKey
+      ? justUpdatedLevel
+      : getEffectiveLearningLevel(getManualQuestionStatus(diff, level, question));
+    const chooseDefault = () => {
+      const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ, eligibleQuestions) : null;
+      activeReviewEntryRef.current = reviewEntry;
+      return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions);
+    };
+    const track = longText ? getAutoLearningTrack(mode, inputMode) : null;
+    if (longText && track) return selectLongTextLearningQuestion({
+      state, playableQuestions: initialEligible, eligibleQuestions, getKey, getLevel, chooseDefault,
+      targetLevel: track === 'listening' ? 2 : 3,
+      // Other questions' countdowns are decremented in the same React update.
+      isReady: question => (getManualQuestionStatus(diff, level, question).longTextSpacingRemaining ?? 0) <= (currentQ ? 1 : 0),
     });
+    return selectLearningBalancedQuestion({ state, playableQuestions, eligibleQuestions, getKey, getLevel, currentKey, chooseDefault });
   };
 
   const handleSkip = () => {
@@ -6682,7 +6739,7 @@ export default function App() {
         const next = { ...prev };
         for (const [otherKey, status] of Object.entries(prev)) {
           if (otherKey !== key && otherKey.startsWith(prefix) && (status.longTextSpacingRemaining ?? 0) > 0) {
-            next[otherKey] = { ...status, longTextSpacingRemaining: status.longTextSpacingRemaining! - 1 };
+            next[otherKey] = { ...status, longTextSpacingRemaining: Math.min(3, status.longTextSpacingRemaining!) - 1 };
           }
         }
         persistManualQuestionStatuses(next);
@@ -6806,7 +6863,7 @@ export default function App() {
     let nextQ: Question;
     if (activeRemainingQuestions.length > 0) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
-      const spaced = isLongText ? spaceLongTextQuestions(activeRemainingQuestions, recentLongTextQuestionsRef.current[scope] ?? [], q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)) : activeRemainingQuestions;
+      const spaced = isLongText ? spaceLongTextQuestions(activeRemainingQuestions, recentLongTextQuestionsRef.current[scope] ?? [], q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q), 3) : activeRemainingQuestions;
       nextQ = spaced[Math.floor(Math.random() * spaced.length)];
     } else {
       nextQ = getNextBattleQuestion(
@@ -6948,21 +7005,59 @@ export default function App() {
     }
   }, [gameState.currentQuestion, gameState.screen, gameState.inputMode, gameState.mode, gameState.monsterHp, gameState.selectedDifficulty, speakBattleQuestion]);
 
+  const startTypingPractice = () => {
+    stopAutoPlay('停止しました');
+    typingPracticeResolvingRef.current = false;
+    setTypingPracticeResolving(false);
+    setTypingPracticeIndex(0);
+    setTypingPracticeInput('');
+    setTypingPracticeMisses(0);
+    setGameState(prev => ({ ...prev, screen: 'typing-practice' }));
+    // Start from the user's click so mobile browsers can allow speech.
+    speakTypingPracticeLetter(TYPING_PRACTICE_STEPS[0][0]);
+  };
+
+  const leaveTypingPractice = () => {
+    cancelTypingPracticeSpeech();
+    typingPracticeResolvingRef.current = false;
+    setTypingPracticeResolving(false);
+    setGameState(prev => ({ ...prev, screen: 'title' }));
+  };
+
   const handleTypingPracticeInput = (value: string) => {
-    const target = TYPING_PRACTICE_STEPS[typingPracticeIndex] ?? '';
+    if (typingPracticeResolvingRef.current) return;
+    const target = TYPING_PRACTICE_STEPS[typingPracticeIndex];
+    if (!target) return;
     const normalizedValue = normalizeTypingText(value).toLowerCase();
-    if (!target.startsWith(normalizedValue)) {
-      soundEngine.playMiss();
-      setTypingPracticeMisses(count => count + 1);
-      window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
+    if (normalizedValue === typingPracticeInput) return;
+    if (normalizedValue.length < typingPracticeInput.length && target.startsWith(normalizedValue)) {
+      setTypingPracticeInput(normalizedValue);
+      speakTypingPracticeLetter(target[normalizedValue.length]);
       return;
     }
-    if (normalizedValue.length > typingPracticeInput.length) soundEngine.playType();
-    setTypingPracticeInput(normalizedValue);
-    if (normalizedValue === target) {
-      setTypingPracticeIndex(index => Math.min(index + 1, TYPING_PRACTICE_STEPS.length));
-      setTypingPracticeInput('');
+    const isCorrect = target.startsWith(normalizedValue);
+    const answeredLetter = normalizedValue.at(-1) ?? '';
+    typingPracticeResolvingRef.current = true;
+    setTypingPracticeResolving(true);
+    if (isCorrect) {
+      soundEngine.playType();
+      setTypingPracticeInput(normalizedValue);
+    } else {
+      soundEngine.playMiss();
+      setTypingPracticeMisses(count => count + 1);
     }
+    speakTypingPracticeLetter(answeredLetter, () => {
+      const isComplete = isCorrect && normalizedValue === target;
+      const nextIndex = isComplete ? typingPracticeIndex + 1 : typingPracticeIndex;
+      const nextInput = isComplete ? '' : isCorrect ? normalizedValue : typingPracticeInput;
+      setTypingPracticeIndex(nextIndex);
+      setTypingPracticeInput(nextInput);
+      typingPracticeResolvingRef.current = false;
+      setTypingPracticeResolving(false);
+      const nextLetter = TYPING_PRACTICE_STEPS[nextIndex]?.[nextInput.length];
+      if (nextLetter) speakTypingPracticeLetter(nextLetter);
+      window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
+    });
     window.setTimeout(() => typingPracticeInputRef.current?.focus(), 0);
   };
 
@@ -8690,7 +8785,7 @@ export default function App() {
                                  {learningLabel}
                                </span>
                                 {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
-                                {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">{'\u624b\u52d5\u512a\u5148'}</span>}
+                                {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">{'手動設定'}</span>}
                                 {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">{'\u9664\u5916\u4e2d'}</span>}
                                {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
                                {isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
@@ -9259,10 +9354,10 @@ export default function App() {
       <ScreenContainer className="items-center justify-center px-3 py-6">
         <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
           <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。半角／全角は切り替えなくてOKです。</p>
-          {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><div className="mt-6 grid gap-3 sm:grid-cols-2"><GameButton variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton><GameButton variant="success" onClick={startBeginnerBattle}><Sword size={19} /> つぎは はじめてバトルへ</GameButton></div></div> : <>
-            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="typing practice input" /></div>
-            <div className="mt-5"><GuidedKeyboard nextLetter={nextLetter} onPress={letter => handleTypingPracticeInput(typingPracticeInput + letter)} /></div>
-            <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>やめる</GameButton></div>
+          {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><div className="mt-6 grid gap-3 sm:grid-cols-2"><GameButton variant="outline" onClick={leaveTypingPractice}>タイトルへ戻る</GameButton><GameButton variant="success" onClick={startBeginnerBattle}><Sword size={19} /> つぎは はじめてバトルへ</GameButton></div></div> : <>
+            <div className="mt-6 rounded-xl border border-cyan-300/35 bg-slate-950/70 p-5 text-center"><p className="text-xs font-black tracking-widest text-cyan-200">{practicePhase} ・ STEP {typingPracticeIndex + 1} / {TYPING_PRACTICE_STEPS.length}</p>{typingPracticeIndex < 2 && <p className="mt-3 rounded-lg bg-amber-400/10 px-3 py-2 text-sm font-bold text-amber-100">F と J はキーボードのまんなかの目印です。パソコンでは、この2つに小さな出っ張りがあります。</p>}<div className="mt-3 rounded-lg border border-sky-300/30 bg-sky-400/10 px-3 py-2 text-sm font-bold text-sky-100"><p>{fingerGuide ? <>{fingerGuide.finger}で <span className="text-lg text-white">{nextLetter.toUpperCase()}</span> を押そう</> : '光っている文字を押そう'}</p>{fingerGuide && <p className="mt-1 text-xs font-medium text-sky-200">打ったら指を {fingerGuide.homeKey} の位置に戻そう</p>}</div><p className="mt-3 text-sm text-slate-300">キーの色は、使う指のグループです。まずは正しい指をゆっくり覚えよう。</p><p className="mt-2 text-5xl font-black tracking-[0.22em] text-white">{target}</p><input ref={typingPracticeInputRef} autoFocus readOnly={typingPracticeResolving} value={typingPracticeInput} onChange={event => handleTypingPracticeInput(event.target.value.toLowerCase())} className="sr-only" lang="en" inputMode="text" autoCapitalize="none" autoCorrect="off" spellCheck={false} aria-label="typing practice input" /></div>
+            <div className="mt-5"><GuidedKeyboard nextLetter={nextLetter} disabled={typingPracticeResolving} onPress={letter => handleTypingPracticeInput(typingPracticeInput + letter)} /></div>
+            <div className="mt-4 flex justify-between text-sm font-bold text-slate-300"><span>まちがい {typingPracticeMisses} 回</span><GameButton size="sm" variant="outline" onClick={leaveTypingPractice}>やめる</GameButton></div>
           </>}
         </Box>
       </ScreenContainer>
@@ -9644,7 +9739,7 @@ export default function App() {
                     </GameButton>
 
                     <GameButton
-                      onClick={() => { setTypingPracticeIndex(0); setTypingPracticeInput(''); setTypingPracticeMisses(0); setGameState(prev => ({ ...prev, screen: 'typing-practice' })); }}
+                      onClick={startTypingPractice}
                       variant="outline"
                       className="w-full min-h-[64px] border-emerald-300/55 bg-emerald-950/25 text-base text-emerald-100 hover:border-emerald-200 hover:bg-emerald-900/35"
                       size="md"
@@ -9712,10 +9807,7 @@ export default function App() {
                           type="button"
                           onClick={() => {
                             setShowFirstPlayGuide(false);
-                            setTypingPracticeIndex(0);
-                            setTypingPracticeInput('');
-                            setTypingPracticeMisses(0);
-                            setGameState(prev => ({ ...prev, screen: 'typing-practice' }));
+                            startTypingPractice();
                           }}
                           className="rounded-xl border-2 border-emerald-400/55 bg-emerald-950/42 p-5 text-left transition hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-900/48 focus:outline-none focus:ring-4 focus:ring-emerald-300/40"
                         >
@@ -10941,8 +11033,9 @@ export default function App() {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
-                    const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                    const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
+                    const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;
+                    const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 || learningOk ? 'text-emerald-300' : 'text-yellow-300';
                     const isMarkedForReview = resultMarkedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, log.question));
                     return <div key={idx} data-result-question className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                       <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
@@ -11022,8 +11115,9 @@ export default function App() {
             <div className="divide-y divide-slate-700">
               {gameState.battleLog.map((log, idx) => {
                 const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
-                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
+                    const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;
+                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 || learningOk ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="grid gap-x-3 gap-y-1 px-3 py-2 sm:grid-cols-[minmax(0,1fr)_auto]">
                   <div className="min-w-0"><span className="font-mono font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-xs text-slate-400"><span className="mr-1 font-bold text-emerald-300">例文</span>{example}</p>}</div>
                   <span className={`self-start text-sm font-black ${resultClass}`}>{resultLabel}</span>
@@ -11077,8 +11171,9 @@ export default function App() {
             <div className="grid gap-2 lg:grid-cols-3">
               {gameState.battleLog.map((log, idx) => {
                 const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : `ミス ${log.missCount}`;
-                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 ? 'text-emerald-300' : 'text-yellow-300';
+                const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
+                    const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;
+                const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 || learningOk ? 'text-emerald-300' : 'text-yellow-300';
                 return <div key={idx} className="rounded-xl border border-slate-700 bg-slate-800/90 p-3">
                   <div className="flex items-start justify-between gap-2"><div className="min-w-0"><p className="break-words font-mono text-sm font-black text-cyan-100">{log.question.text}</p><p className="mt-0.5 text-xs font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</p></div><span className={`flex-shrink-0 text-xs font-black ${resultClass}`}>{resultLabel}</span></div>
                   {example && <p className="mt-2 border-t border-slate-700 pt-2 text-xs leading-relaxed text-slate-300"><span className="mr-1 font-black text-emerald-300">例文:</span>{example}</p>}

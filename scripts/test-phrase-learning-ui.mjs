@@ -29,7 +29,7 @@ try {
       await page.locator('.battle-screen').waitFor();
       const meaning=(await page.locator('.battle-translation').innerText()).trim();
       const q=QUESTIONS.Eiken4[2].find(q=>getQuestionMeaning(q,'Eiken4')===meaning);assert.ok(q,meaning);
-      if(!single) assert.ok(!sequence.slice(-6).includes(q.text),`Early repeat: ${q.text}`);
+      if(!single) assert.ok(!sequence.slice(-3).includes(q.text),`Early repeat: ${q.text}`);
       sequence.push(q.text);
       await page.keyboard.type(q.text[0]);
       if(single) await page.keyboard.type('zz');
@@ -50,7 +50,7 @@ try {
         return entry?.longTextSuccessCount>0 && entry.updatedAt>previous;
       },{text:q.text,previous:1000000});
       const status=await page.evaluate(key=>JSON.parse(localStorage.getItem('etyping_manual_question_statuses'))[key],`Eiken4:2:${q.text}:${q.translation}`);
-      assert.equal(status.battleLevel,single||i<7?2:3);
+      assert.equal(status.battleLevel,sequence.filter(text=>text===q.text).length===1?2:3);
       const queue=await page.evaluate(()=>JSON.parse(localStorage.getItem('etyping_review_queue')||'[]'));
       assert.ok(!queue.some(e=>e.question.text===q.text),'Small mistakes must not enter urgent review');
       // Allow the battle transition and its focus effect to finish without audio.
@@ -64,7 +64,7 @@ try {
       assert.ok(stats['be interested in'].missCount>0,'Small mistakes remain in historical stats');
     }
     assert.deepEqual(errors,[]);
-    console.log('PASS',single?'2 typos promote to caution; immediate repeat cannot master; example preserved':'7 distinct phrases across monsters; second spaced success masters',sequence.join(' / '));
+    console.log('PASS',single?'2 typos advance to mastery in a single-question pool; example preserved':'Three-question spacing across monsters; second successful recall masters',sequence.join(' / '));
     await bounded(context.close());
   }
   passed=true;
