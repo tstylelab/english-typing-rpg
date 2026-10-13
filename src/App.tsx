@@ -31,6 +31,7 @@ import { applyMonsterProfile } from './monsterProfiles';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, selectLongTextLearningQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
+import QuestionAiHelp from './QuestionAiHelp';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
 import BackupReminder from './BackupReminder';
 import { acknowledgeBackupReminder } from './dailyBackupReminder';
@@ -11050,7 +11051,10 @@ export default function App() {
                           className={`inline-flex min-h-8 items-center gap-1 whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 ${isMarkedForReview ? 'border-yellow-300/60 bg-yellow-500/20 text-yellow-100 hover:bg-yellow-500/30' : 'border-yellow-500/35 bg-yellow-950/20 text-yellow-200 hover:bg-yellow-900/35'}`}
                         ><Bookmark size={12} aria-hidden="true" fill={isMarkedForReview ? 'currentColor' : 'none'} />{isMarkedForReview ? '追加済み' : 'あとで復習'}</button>
                       </div>
-                      {grammarCard && <div className="mt-1 sm:col-span-2"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
+                      <div className="mt-1 flex flex-wrap items-center gap-2 sm:col-span-2">
+                        {grammarCard && <GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult />}
+                        <QuestionAiHelp course={DIFFICULTY_LABELS[gameState.selectedDifficulty]} level={gameState.selectedLevel} text={log.question.text} meaning={getQuestionMeaning(log.question, gameState.selectedDifficulty)} example={example || undefined} exampleJa={log.question.exampleJa} />
+                      </div>
                     </div>;
                   })}
                 </div>
