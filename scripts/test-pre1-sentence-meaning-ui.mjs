@@ -26,7 +26,7 @@ try {
     await page.setViewportSize({ width, height: 900 });
     // Reload exercises persistence too, in an isolated browser profile.
     await page.reload();
-    await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+    await page.getByRole('button', { name: '問題リスト', exact: true }).click();
     for (const part of [1, 2]) {
       await page.getByRole('button', { name: `英検準1級${part === 1 ? '①' : '②'}`, exact: true }).click();
       for (const level of [2, 3]) {

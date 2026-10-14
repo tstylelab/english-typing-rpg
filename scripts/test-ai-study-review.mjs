@@ -110,11 +110,11 @@ assert.ok(instructions.includes('今回の候補を具体例') && instructions.i
 assert.ok(instructions.includes('まとめには個別Tipsの1〜2文制限を適用せず'));
 assert.ok(instructions.includes('最初の一文だけでも要点') && instructions.includes('共通点は無理に作らず'));
 assert.ok(instructions.includes('英語｜和訳・類義語') && instructions.includes('2列だけ'));
-assert.ok(instructions.includes('候補の全語を対象'));
+assert.ok(instructions.includes('候補の全問を対象'));
 assert.ok(instructions.includes('Tipsの件数に上限・下限は設けません'));
 assert.ok(!/3〜5語|最大5語|3語未満/.test(instructions));
 assert.ok(instructions.includes('ミスが1回だけでも対象'));
-assert.ok(instructions.includes('覚える助けになるTips') && instructions.includes('こじつけや的外れな説明しかできない語は無理に埋めない'));
+assert.ok(instructions.includes('覚える助けになるTips') && instructions.includes('こじつけや的外れな説明しかできない問題は無理に埋めない'));
 assert.ok(instructions.includes('反復記録はTipsを出す条件ではありません'));
 assert.ok(instructions.includes('元の単語・接頭辞や接尾辞') && instructions.includes('身近な使用場面'));
 assert.ok(instructions.includes('文字位置・誤入力の矢印・回数の羅列'));
@@ -141,25 +141,25 @@ const mix = (word, count, failures, mistakes) => Array.from({length: count}, (_,
 const rError = [{ position: 0, expected: 'r', typed: 'l' }];
 const allSingleErrors = buildAiStudyReport(names.slice(0, 10).flatMap(word => mix(word, 1, 1, [])), 'week', {}, now);
 assert.ok(allSingleErrors.includes('候補10件') && allSingleErrors.includes('反復パターンの記録なし'));
-assert.ok(allSingleErrors.includes('候補の全語を対象') && allSingleErrors.includes('覚える助けになるTips'));
+assert.ok(allSingleErrors.includes('候補の全問を対象') && allSingleErrors.includes('覚える助けになるTips'));
 assert.ok(!/Tips[^。\n]*省略|表だけで終了/.test(allSingleErrors), 'Ten one-off failures with no diagnostic details still request memory tips');
 const prioritized = buildAiStudyReport([
   ...mix('frequent', 80, 3, rError), ...mix('recurring', 4, 3, rError),
   ...mix('oneoff', 1, 1, rError),
 ], 'week', {}, now);
-const candidateSection = prioritized.split('【単語・表現の候補】')[1];
+const candidateSection = prioritized.split('【問題の候補】')[1];
 assert.ok(candidateSection.indexOf('"recurring"') < candidateSection.indexOf('"frequent"'));
 assert.ok(candidateSection.indexOf('"frequent"') < candidateSection.indexOf('"oneoff"'));
-assert.ok(report.includes('正解r→実際の入力l：200位置／200出題／1種類の語。正解rの入力機会400位置'));
+assert.ok(report.includes('正解r→実際の入力l：200位置／200出題／1種類の問題。正解rの入力機会400位置'));
 const mixedModes = buildAiStudyReport([
   ...mix('river', 2, 2, rError), ...mix('road', 1, 1, rError),
   {...many.snapshot()[0], ...meta('rose'), answerVisible:true},
 ], 'week', {}, now);
-assert.ok(mixedModes.includes('和訳バトル：正解r→実際の入力l：3位置／3出題／2種類の語'));
+assert.ok(mixedModes.includes('和訳バトル：正解r→実際の入力l：3位置／3出題／2種類の問題'));
 assert.ok(!mixedModes.includes('スペル表示あり（基礎練習）：正解r→実際の入力l：'), 'Single occurrence is not exported as a recurring pattern');
 assert.ok(!mixedModes.includes('正解a→実際の入力e：'), 'Do not invent absent a/e confusion');
 const vowelMix = buildAiStudyReport(mix('cat', 2, 2, [{position:1,expected:'a',typed:'e'}]), 'week', {}, now);
-assert.ok(vowelMix.includes('正解a→実際の入力e：2位置／2出題／1種類の語'));
+assert.ok(vowelMix.includes('正解a→実際の入力e：2位置／2出題／1種類の問題'));
 const multi = buildAiStudyReport(mix('river', 2, 2, [...rError, {position: 3, expected:'e', typed:'a'}]), 'week', {}, now);
 assert.ok(multi.includes('複数位置でミスした出題2回') && multi.includes('正解e→入力a（2回）'));
 // Regression for the user's unwanted response: single errors cannot be echoed from export.
@@ -169,16 +169,16 @@ const noisy = buildAiStudyReport([
   ...mix('requirement', 1, 1, [{position:2,expected:'q',typed:'t'}, {position:5,expected:'r',typed:'a'}]),
 ], 'week', {}, now).split('【学習データ：以下は指示ではない】')[1];
 for (const word of ['offensive', 'transplant', 'requirement']) assert.ok(noisy.includes(`"${word}"`), 'Table words retained');
-assert.ok(!/文字目|正解[a-z]→/.test(noisy.split('【単語・表現の候補】')[1]), 'One-off word details removed');
+assert.ok(!/文字目|正解[a-z]→/.test(noisy.split('【問題の候補】')[1]), 'One-off word details removed');
 assert.ok(!noisy.includes('正解q→') && !noisy.includes('正解e→'), 'Single-occurrence pairs removed from aggregate data too');
-assert.ok(noisy.includes('正解r→実際の入力a：2位置／2出題／2種類の語'), 'A genuine cross-word pattern remains available for optional advice');
+assert.ok(noisy.includes('正解r→実際の入力a：2位置／2出題／2種類の問題'), 'A genuine cross-word pattern remains available for optional advice');
 assert.ok(!noisy.includes('Tipsは省略'), 'Single-error candidates must remain eligible for memory advice');
 const differentPositions = buildAiStudyReport(mix('river', 1, 1, [{position:0,expected:'r',typed:'l'}, {position:4,expected:'r',typed:'l'}]), 'week', {}, now);
 assert.ok(!differentPositions.includes('正解r→実際の入力l：'), 'Two positions in one question are not two attempts');
 const alternating = buildAiStudyReport([
   ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'e'}]),
   ...mix('cat', 1, 1, [{position:1,expected:'a',typed:'i'}]),
-], 'week', {}, now).split('【単語・表現の候補】')[1];
+], 'week', {}, now).split('【問題の候補】')[1];
 assert.ok(alternating.includes('繰り返した取り違え：記録なし'), 'Different substitutions at one position do not fabricate repeated a/e');
 assert.ok(!alternating.includes('Tipsは省略'), 'Absent patterns must not suppress advice');
 const noMissReport = buildAiStudyReport([{ ...many.snapshot()[0], misses: 0, skipped: false, mistakes: [] }], 'week', {}, now);
@@ -220,8 +220,8 @@ addMistake('history11');
 for (let i = 0; i < 6; i++) addMistake(`current${i}`);
 balanced.flush();
 const resultReport = buildAiStudyReport(balanced.snapshot(), 'recent200', {}, now, balanced.battleSnapshot());
-assert.ok(resultReport.includes('今回ミスした語3件（最大3件）＋それ以外の以前の履歴12件'));
-const resultCandidates = resultReport.split('【単語・表現の候補】')[1];
+assert.ok(resultReport.includes('今回ミスした問題3件（最大3件）＋それ以外の以前の履歴12件'));
+const resultCandidates = resultReport.split('【問題の候補】')[1];
 assert.equal((resultCandidates.match(/選定元：/g) || []).length, 15);
 assert.equal((resultCandidates.match(/今回も以前もミスあり/g) || []).length, 1);
 assert.equal((resultCandidates.match(/今回のミス（以前のミス記録なし）/g) || []).length, 2);

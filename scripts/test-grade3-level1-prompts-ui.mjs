@@ -42,7 +42,7 @@ async function start(page, inputMode = 'text-only') {
 try {
   for (const width of [1366, 390]) {
     const { page, context } = await setup(width, 'fix');
-    await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+    await page.getByRole('button', { name: '問題リスト', exact: true }).click();
     // Inspect every row in the actual UI, including the remaining render batches.
     while (await page.getByRole('button', { name: 'さらに表示', exact: true }).count()) await page.getByRole('button', { name: 'さらに表示', exact: true }).click();
     const displayed = await page.locator('.question-list-row').evaluateAll(rows => rows.map(row => ({ text: row.querySelector('.word-list-term').textContent, meaning: row.querySelector('.word-list-meaning').textContent.trim() })));
@@ -57,7 +57,7 @@ try {
       assert.equal(await sample.evaluate(row => row.scrollWidth > row.clientWidth), false, `Visible row overflow: ${word}`);
     }
     await page.reload();
-    await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+    await page.getByRole('button', { name: '問題リスト', exact: true }).click();
     const row = page.locator('.question-list-row').filter({ has: page.getByText('fix', { exact: true }) });
     await row.scrollIntoViewIfNeeded();
     assert.match(await row.innerText(), /覚えた/);

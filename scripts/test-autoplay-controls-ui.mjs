@@ -35,7 +35,7 @@ try {
     await repeat.check();await shuffle.check();
     assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('etyping_auto_play_settings')).repeat),true);
     const previous=await page.evaluate(()=>window.spoken.length);
-    await page.getByRole('button',{name:'次の用語 →',exact:true}).click();
+    await page.getByRole('button',{name:'次の問題 →',exact:true}).click();
     assert.equal(await page.evaluate(()=>window.spoken.length),previous+1);
     await page.getByRole('button',{name:'停止',exact:true}).click();
     assert.equal(await start.isEnabled(),true);

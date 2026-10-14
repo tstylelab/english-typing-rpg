@@ -33,7 +33,7 @@ try {
       }, { difficulty, level, key });
       await page.goto(url);
       await page.reload();
-      await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+      await page.getByRole('button', { name: '問題リスト', exact: true }).click();
       const row = page.locator('.question-list-row').filter({ has: page.getByText(word, { exact: true }) });
       await row.scrollIntoViewIfNeeded();
       await row.getByText(getQuestionMeaning(question, difficulty), { exact: true }).waitFor();

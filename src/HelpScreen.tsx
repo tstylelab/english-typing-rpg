@@ -22,7 +22,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
               <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">How To Play</p>
               <h1 className="mt-2 text-2xl font-black md:text-3xl">遊び方を覚えて、そのまま学べるゲームです</h1>
               <p className="mt-3 text-sm leading-7 text-slate-200 md:text-base">
-                英単語や表現を見て、聞いて、打って覚える学習RPGです。1問ごとに練習しながら進められるので、
+                単語・熟語・英文を見て、聞いて、打って覚える学習RPGです。1問ごとに練習しながら進められるので、
                 タイピングに慣れていない場合でも少しずつ力をつけられます。
               </p>
             </div>
@@ -47,7 +47,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                   <h2 className="text-lg font-black text-white">学習の基本</h2>
                 </div>
                 <div className="mt-3 space-y-2 text-sm leading-7 text-slate-200">
-                  <p>単語を正しく打てると敵にダメージを与えられます。</p>
+                  <p>英語を正しく打てると敵にダメージを与えられます。</p>
                   <p>ミスが多い問題はあとで復習しやすく残ります。</p>
                   <p>ボス戦では限られた問題数の中で勝ち切れるかが大切です。</p>
                   <p>Challenge Mode の後半は、スピードと正確さの両方が試されます。</p>
@@ -63,7 +63,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl border border-slate-700 bg-slate-950/70 p-4 text-sm text-slate-200">
                   <p className="font-bold text-white">Basic Training</p>
-                  <p className="mt-1">まず単語を見て意味を確認したいときの基本モードです。</p>
+                  <p className="mt-1">まず英語を見て意味を確認したいときの基本モードです。</p>
                 </div>
                 <div className="rounded-xl border border-slate-700 bg-slate-950/70 p-4 text-sm text-slate-200">
                   <p className="font-bold text-white">Listening Training</p>
@@ -75,7 +75,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                 </div>
                 <div className="rounded-xl border border-slate-700 bg-slate-950/70 p-4 text-sm text-slate-200">
                   <p className="font-bold text-white">Translation Battle</p>
-                  <p className="mt-1">日本語の意味を見て英単語を思い出す実戦型モードです。</p>
+                  <p className="mt-1">日本語の意味を見て英語を思い出す実戦型モードです。</p>
                 </div>
               </div>
             </div>
@@ -86,13 +86,13 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                 <h2 className="text-lg font-black text-white">連続再生で耳から復習する</h2>
               </div>
               <p className="mt-3 text-sm leading-7 text-slate-200">
-                トップ画面の「連続再生」を押すと、現在選んでいる教材を、最後に使った設定のまま自動で読み上げます。
-                初めて使うときは「苦手語だけ・通常順」が選ばれています。
+                トップ画面の「連続再生」を押すと、最後に選んだ再生範囲・設定で自動で読み上げます。
+                初めて使うときは「苦手だけ・通常順」が選ばれています。
               </p>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl border border-cyan-500/25 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
                   <p className="font-black text-cyan-100">連続再生</p>
-                  <p className="mt-1">保存されている設定ですぐに再生を始めます。再生中の単語・和訳・例文を確認でき、途中で停止することもできます。対応端末では、連続再生中だけ画面の自動ロックを防ぎます。</p>
+                  <p className="mt-1">保存されている設定ですぐに再生を始めます。再生中の英語・和訳・例文を確認でき、途中で停止することもできます。対応端末では、連続再生中だけ画面の自動ロックを防ぎます。</p>
                 </div>
                 <div className="rounded-xl border border-slate-600 bg-slate-950/70 p-4 text-sm leading-7 text-slate-200">
                   <p className="font-black text-white">再生設定</p>
@@ -100,7 +100,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                 </div>
               </div>
               <p className="mt-4 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-sm leading-7 text-amber-50">
-                苦手語がまだ0件のときは再生されません。「再生設定」を開き、「このレベル全部」など別の再生元を選んでください。
+                苦手な問題がまだ0問のときは再生されません。「再生設定」を開き、「すべての問題」など別の再生元を選んでください。
               </p>
             </div>
 
@@ -112,7 +112,7 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                 </div>
                 <div className="mt-3 space-y-2 text-sm leading-7 text-slate-100">
                   <p>読めなかった問題は、あとで反復練習すると定着しやすくなります。</p>
-                  <p>Word List で意味を確認して、苦手なものは Weakness で集中練習できます。</p>
+                  <p>問題リストで意味を確認して、苦手なものは Weakness で集中練習できます。</p>
                   <p>Learning Progress を見ながら、覚えた数が増えていく感覚をつかんでください。</p>
                   <p>英検Level 2・3の学習判定は、英字7文字なら3回、14文字なら4回、20文字なら5回、30文字なら8回、40文字なら10回までの修正を許容します。「英字数の20％・最低2回」と「30％・最低4回」でそれぞれ端数を切り上げた許容回数の中間を使い、中間の0.5回も切り上げます。空白・ピリオド・カンマ・!・? の入力ミスは、この回数に含めません。アポストロフィとハイフンは含めます。自動文字ヒントは従来どおりです。ミスの記録・得点計算・敵のHPは変更しません。</p>
                   <p>和訳・音声バトルでは「学習中」から1回の成功で「もう少し」へ進み、ほかの3問を完成させた後、もう一度成功すると「覚えた」になります。復習対象が4問未満なら間隔を短くし、1問だけなら次の成功で進めます。リスニングトレーニングで「もう少し」になった問題も、バトルで成功すれば「覚えた」に進めます。音声ヒントを使った回答やスキップでは進みません。許容回数を超えても1回では下がらず、2回続いた場合に1段階戻ります。</p>
@@ -129,8 +129,8 @@ export default function HelpScreen({ onBack }: HelpScreenProps) {
                 </div>
                 <div className="mt-3 space-y-2 text-sm leading-7 text-slate-200">
                   <p>図鑑: 倒したモンスターを確認できます。</p>
-                  <p>単語リスト: 収録語の確認、復習、連続再生の管理ができます。</p>
-                  <p>AIに学習相談（試用版）: 単語リストから、最近のミスと相談文をコピーできます。お使いのAIへ貼り付けるときは、スペルの覚え方や練習の工夫を相談してみてください。実際の発音と暗記用の語呂は区別しましょう。</p>
+                  <p>問題リスト: 収録されている問題の確認、復習、連続再生の管理ができます。</p>
+                  <p>AIに学習相談（試用版）: 問題リストから、最近のミスと相談文をコピーできます。お使いのAIへ貼り付けるときは、意味・文法や覚え方、練習の工夫を相談してみてください。実際の発音と暗記用の語呂は区別しましょう。</p>
                   <p>設定: 音声や表示、学習データを管理できます。</p>
                   <p>プレイヤー管理: プレイヤーごとの進捗を分けて保存できます。</p>
                 </div>

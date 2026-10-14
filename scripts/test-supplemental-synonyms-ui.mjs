@@ -51,7 +51,7 @@ try {
     for (const width of [1366, 390]) {
       const { context, page, errors, q } = await prepare(difficulty, level, word, width);
       try {
-        await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+        await page.getByRole('button', { name: '問題リスト', exact: true }).click();
         const row = page.locator('.question-list-row').filter({ has: page.getByText(word, { exact: true }) });
         await row.scrollIntoViewIfNeeded();
         const expected = getQuestionSynonyms(difficulty, level, q).join(' / ');

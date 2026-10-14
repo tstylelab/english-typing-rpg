@@ -8,7 +8,7 @@ try {
  const errors = []; page.on('pageerror', e => errors.push(e.message));
  await page.addInitScript(() => { speechSynthesis.speak = () => {}; });
  await page.goto('http://127.0.0.1:5178');
- await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+ await page.getByRole('button', { name: '問題リスト', exact: true }).click();
  await page.getByRole('button', { name: '英検準1級①', exact: true }).click();
  const row = page.locator('.question-list-row').first();
  for (const width of [1366, 1180, 1024, 820, 768, 640, 390, 320]) {

@@ -82,9 +82,9 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
       <button type="button" autoFocus={!inline} onClick={() => inline ? onClose() : dialog.current?.close()} className="rounded-lg border border-slate-600 px-3 py-2">{inline ? '設定' : '閉じる'}</button>
     </div>
     <div className="space-y-3">
-      {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3語＋それ以外の履歴から、あわせて最大15語（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
+      {result && !inline && <p className="text-xs text-slate-300">今回のミスから最大3問＋それ以外の履歴から、あわせて最大15問（{period === 'week' ? '過去7日間' : '直近200問'}）を選びます。</p>}
       {!inline && <>
-      <p><strong>苦手な英語を覚えるアイデア</strong>を相談します。復習表は最大15件。候補全体から役立つTipsを件数制限なしで相談し、最後にほかの単語にも使える覚え方をまとめてもらいます。無理なこじつけやミス一覧は求めません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
+      <p><strong>苦手な英語を覚えるアイデア</strong>を相談します。復習表は最大15件。候補全体から役立つTipsを件数制限なしで相談し、最後にほかの問題にも使える覚え方をまとめてもらいます。無理なこじつけやミス一覧は求めません。コピーした相談文をお使いのAIへ貼り付けてください。自動送信はしません。</p>
       <div className="flex flex-wrap items-center gap-3">
         <label className="flex items-center gap-2">
           <input type="checkbox" checked={enabled} onChange={e => {
@@ -118,7 +118,7 @@ function ReviewDialog({ recorder, courseLabels, result, inline = false, period, 
         <summary className="cursor-pointer">記録の範囲・削除について</summary>
         <p className="mt-2">現在のプレイヤーの全教材・Levelが対象。通常の練習・バトルを記録し、対戦・はじめてバトル・連続再生は含みません。この端末に直近30日・最大1,000問（容量上限あり）を保存します。過去のミスランキングからは復元せず、成績の転送にも含みません。保存はバトル終了・画面移動などの区切りで行い、中断した問題は含みません。</p>
         <button type="button" disabled={copying} className="mt-2 py-2 underline" onClick={() => {
-          if (!window.confirm('このプレイヤーのAI相談用の記録だけを削除します。成績・苦手語は残ります。削除しますか？')) return;
+          if (!window.confirm('このプレイヤーのAI相談用の記録だけを削除します。成績・苦手な問題は残ります。削除しますか？')) return;
           recorder.clear(); setCount(0); setReport(''); setPreview(false); setDestination(null); setStatus(recorder.warning ? 'この画面の記録は消去しましたが、保存先を更新できませんでした。' : '相談用の記録を削除しました。');
         }}>相談用の記録を削除</button>
       </details>}

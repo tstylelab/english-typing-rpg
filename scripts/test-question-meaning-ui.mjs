@@ -27,7 +27,7 @@ try {
   }, q);
   await page.goto(url);
   const openList = async () => {
-    await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+    await page.getByRole('button', { name: '問題リスト', exact: true }).click();
     await page.getByRole('button', { name: '英検準1級①', exact: true }).click();
     const more = page.getByRole('button', { name: 'さらに表示', exact: true });
     while (await more.count()) await more.click();

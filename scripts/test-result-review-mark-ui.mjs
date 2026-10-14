@@ -93,7 +93,7 @@ try {
     assert.deepEqual(otherPlayer.data.markedQuestionKeysByScope, { [scope]: [] }, 'Other players are unchanged');
     await page.screenshot({ path: `node_modules/.tmp/result-review/${difficulty}-${width}.png` });
     await page.reload();
-    await page.getByRole('button', { name: '単語リスト', exact: true }).click();
+    await page.getByRole('button', { name: '問題リスト', exact: true }).click();
     await page.getByRole('button', { name: 'あとで復習', exact: true }).first().click(); // Filter precedes row actions.
     const markedRows = page.locator('.question-list-row');
     assert.equal(await markedRows.count(), 1);

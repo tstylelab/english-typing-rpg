@@ -39,7 +39,7 @@ try {
     localStorage.setItem('etyping_auto_play_settings',JSON.stringify({source:'learning',playText:true,playTranslation:false,playExample:false,repeat:false,shuffle:false,itemGapSeconds:0,questionGapSeconds:0}));
   },{questions,sample});
   await page.goto(process.env.TEST_URL || 'http://127.0.0.1:5178');
-  await page.getByRole('button',{name:'単語リスト',exact:true}).click();
+  await page.getByRole('button',{name:'問題リスト',exact:true}).click();
   const filters=page.getByRole('group',{name:'問題リストの絞り込み',exact:true});
   const rows=page.locator('.question-list-row');
   const expected=[['学習中','learning',[sample[0],sample[1]]],['もう少し','caution',[sample[2],sample[3]]],['覚えた','mastered',[sample[4]]]];
@@ -59,7 +59,7 @@ try {
     await page.getByRole('button',{name:'連続再生の設定',exact:true}).click();
     const choice=page.getByRole('button',{name:new RegExp(`^${label}だけ`)});
     await choice.click();
-    assert.ok((await choice.innerText()).includes(`${items.length}語`));
+    assert.ok((await choice.innerText()).includes(`${items.length}問`));
     assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('etyping_auto_play_settings')).source),source);
     await filters.getByRole('button',{name:label==='学習中'?'覚えた':'学習中',exact:true}).click();
     await page.evaluate(()=>{window.spoken=[];});
@@ -67,11 +67,11 @@ try {
     await page.waitForFunction(()=>window.spoken.length>0);
     assert.equal(await page.evaluate(()=>window.spoken[0]),items[0].text);
     if(items.length>1) {
-      await page.getByRole('button',{name:'次の用語 →',exact:true}).click();
+      await page.getByRole('button',{name:'次の問題 →',exact:true}).click();
       assert.equal(await page.evaluate(()=>window.spoken.at(-1)),items[1].text);
     }
     // Switching a source stops the old sequence instead of silently mixing groups.
-    await page.getByRole('button',{name:/^自分で選んだ語/}).click();
+    await page.getByRole('button',{name:/^自分で選んだ問題/}).click();
     assert.ok(await page.getByRole('button',{name:'この設定で連続再生を開始',exact:true}).isDisabled());
     await choice.click();
     await page.getByRole('button',{name:/タイトルへ/}).click();
@@ -86,11 +86,11 @@ try {
     await page.getByRole('button',{name:'停止',exact:true}).click();
     await page.getByRole('button',{name:/タイトルへ/}).click();
   }
-  await page.getByRole('button',{name:'単語リスト',exact:true}).click();
+  await page.getByRole('button',{name:'問題リスト',exact:true}).click();
   await filters.getByRole('button',{name:'覚えた',exact:true}).click();
   await rows.first().getByRole('button',{name:'学習中',exact:true}).click();
   await verifyRows([]);
-  assert.ok(await page.getByText('「覚えた」の用語はありません', {exact:true}).isVisible());
+  assert.ok(await page.getByText('「覚えた」の問題はありません', {exact:true}).isVisible());
   await page.getByRole('button',{name:'Level 2',exact:true}).click();
   await verifyRows([]);
   await filters.getByRole('button',{name:'学習中',exact:true}).click();

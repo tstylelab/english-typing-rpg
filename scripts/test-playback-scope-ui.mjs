@@ -10,7 +10,7 @@ const items = grades.map((difficulty, i) => ({ difficulty, level: i + 1, questio
 const excluded = { difficulty: 'Eiken4', level: 2, question: QUESTIONS.Eiken4[2][1] };
 const key = item => `${item.difficulty}:${item.level}:${item.question.text}:${item.question.translation}`;
 const all = Object.entries(QUESTIONS).flatMap(([difficulty, levels]) => Object.entries(levels).flatMap(([level, questions]) => questions.map(question => ({ difficulty, level: Number(level), question }))));
-const labels = { all: 'すべての問題', weak: '苦手語だけ', marked: 'あとで復習', selected: '自分で選んだ語', learning: '学習中だけ', caution: 'もう少しだけ', mastered: '覚えただけ' };
+const labels = { all: 'すべての問題', weak: '苦手だけ', marked: 'あとで復習', selected: '自分で選んだ問題', learning: '学習中だけ', caution: 'もう少しだけ', mastered: '覚えただけ' };
 const weakTexts = new Set(items.map(item => item.question.text));
 function expected(source, scope) {
   return all.filter(item => {
@@ -64,15 +64,15 @@ try {
       await scopeControls.getByRole('button', { name: button, exact: true }).click();
       for (const [source, label] of Object.entries(labels)) {
         const target = expected(source, scope);
-        const sourceButton = page.getByRole('button', { name: new RegExp(`^${label} \\d+語`) });
-        assert.match(await sourceButton.innerText(), new RegExp(`\\b${target.length}語`), `${source}/${scope} count`);
+        const sourceButton = page.getByRole('button', { name: new RegExp(`^${label} \\d+問`) });
+        assert.match(await sourceButton.innerText(), new RegExp(`\\b${target.length}問`), `${source}/${scope} count`);
         await sourceButton.click();
         if (!target.length) { assert.ok(await start.isDisabled()); continue; }
         await start.click();
         assert.equal(await page.evaluate(() => window.spoken.at(-1)), target[0].question.text, `${source}/${scope} first item`);
         if (source === 'selected' || source === 'marked') {
           for (const item of target.slice(1)) {
-            await page.getByRole('button', { name: '次の用語 →', exact: true }).click();
+            await page.getByRole('button', { name: '次の問題 →', exact: true }).click();
             assert.equal(await page.evaluate(() => window.spoken.at(-1)), item.question.text);
             assert.match(await page.locator('[data-autoplay-course]').innerText(), new RegExp(`Level ${item.level}`));
           }
@@ -80,7 +80,7 @@ try {
         await stop.click();
       }
     }
-    await page.getByRole('button', { name: /^自分で選んだ語 \d+語/ }).click();
+    await page.getByRole('button', { name: /^自分で選んだ問題 \d+問/ }).click();
     await page.reload();
     await page.getByRole('button', { name: '連続再生', exact: true }).click();
     assert.equal(await page.evaluate(() => window.spoken.at(-1)), items[1].question.text, 'Title reuses multi-grade selected words');
@@ -88,7 +88,7 @@ try {
     await choose.getByRole('checkbox', { name: /英検4級/ }).uncheck();
     await choose.getByRole('checkbox', { name: /英検3級/ }).uncheck();
     for (const label of Object.values(labels)) {
-      await page.getByRole('button', { name: new RegExp(`^${label} 0語`) }).click();
+      await page.getByRole('button', { name: new RegExp(`^${label} 0問`) }).click();
       assert.ok(await start.isDisabled(), `${label}: empty grade selection never falls back`);
     }
     await scopeControls.scrollIntoViewIfNeeded();

@@ -21,7 +21,7 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
     window.open=(...args)=>{window.openCalls.push({args,copied:window.copied});return null;};
    });
    await page.goto(url);
-   await page.getByRole('button',{name:'単語リスト',exact:true}).click();
+   await page.getByRole('button',{name:'問題リスト',exact:true}).click();
    await page.getByRole('button',{name:/AIに学習相談/}).click();
    await page.getByRole('button',{name:'コピーしてChatGPTを開く',exact:true}).click();
    assert.equal(await page.evaluate(()=>window.openCalls.length),0,'No data: no external tab');
@@ -36,7 +36,7 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
      r.finish(false,2);
     }r.flush();
    },{count,terms});
-   await page.reload();await page.getByRole('button',{name:'単語リスト',exact:true}).click();
+   await page.reload();await page.getByRole('button',{name:'問題リスト',exact:true}).click();
    await page.getByRole('button',{name:'英検準1級①',exact:true}).click();
    await page.evaluate(()=>{window.writes=0;const set=Storage.prototype.setItem;Storage.prototype.setItem=function(...args){window.writes++;return set.apply(this,args);};});
    const opener=page.getByRole('button',{name:/AIに学習相談/});
@@ -54,7 +54,7 @@ if (!['127.0.0.1', 'localhost'].includes(new URL(url).hostname)) throw new Error
    const report=await dialog.getByRole('textbox',{name:'AIへの相談文'}).inputValue();
    assert.equal(report,await page.evaluate(()=>window.copied));
    assert.ok(report.includes('候補15件') && report.includes('過去7日間') && report.includes('英語｜和訳・類義語') && report.includes('Tipsの件数に上限・下限は設けません'));
-   assert.ok(report.includes('【3. まとめ：次の単語にも使える覚え方】'));
+   assert.ok(report.includes('【3. まとめ：次の問題にも使える覚え方】'));
    assert.ok(report.length<9000, 'Twenty distinct terms yield bounded candidates and five patterns');
    for(const [name,target] of [['ChatGPT','https://chatgpt.com/'],['Gemini','https://gemini.google.com/app']]) {
     await dialog.getByRole('button',{name:`コピーして${name}を開く`,exact:true}).click();

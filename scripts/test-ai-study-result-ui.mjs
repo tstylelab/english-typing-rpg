@@ -52,7 +52,7 @@ try {
   await page.setViewportSize({ width: 1366, height: 900 });
   await copy.focus(); await page.keyboard.press('Enter');
   await page.getByRole('status').filter({ hasText: 'コピーしました' }).waitFor();
-  assert.ok((await page.evaluate(() => window.copied)).includes('今回ミスした語1件'));
+  assert.ok((await page.evaluate(() => window.copied)).includes('今回ミスした問題1件'));
   assert.equal(await input.count(), 0, 'Enter on consultation must not start next battle');
   for (const name of ['ChatGPT', 'Gemini']) {
     await page.getByRole('button', { name: `コピーして${name}を開く`, exact: true }).click();
@@ -65,7 +65,7 @@ try {
   await page.getByRole('button', { name: '設定', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: 'AIに学習相談' });
   await dialog.waitFor();
-  assert.ok(await dialog.getByText(/今回のミスから最大3語/).isVisible(), 'Explanation available in settings');
+  assert.ok(await dialog.getByText(/今回のミスから最大3問/).isVisible(), 'Explanation available in settings');
   await dialog.getByRole('combobox').selectOption('week');
   await page.keyboard.press('Escape'); await dialog.waitFor({ state: 'detached' });
   await copy.click();

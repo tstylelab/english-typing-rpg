@@ -45,7 +45,7 @@ try {
     assert.equal(await scope.getByRole('button', { name: 'このLevel', exact: true }).getAttribute('aria-pressed'), 'true');
     const start = page.getByRole('button', { name: 'この設定で連続再生を開始', exact: true });
     const stop = page.getByRole('button', { name: '停止', exact: true });
-    await page.getByRole('button', { name: /全級のあとで復習を再生 4語/ }).click();
+    await page.getByRole('button', { name: /全級のあとで復習を再生 4問/ }).click();
     assert.equal(await scope.getByRole('button', { name: 'すべての級・Level', exact: true }).getAttribute('aria-pressed'), 'true');
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
@@ -57,7 +57,7 @@ try {
         await page.waitForFunction(n => window.spoken.length > n, n);
         assert.equal(await page.evaluate(() => window.spoken.at(-1)), text, 'Meaning/example must belong to the originating course');
       }
-      await page.getByRole('button', { name: '次の用語 →', exact: true }).click();
+      await page.getByRole('button', { name: '次の問題 →', exact: true }).click();
     }
     assert.ok(await start.isEnabled(), 'One complete pass ends without repeating');
     await scope.getByRole('button', { name: '級を選ぶ', exact: true }).click();
@@ -67,9 +67,9 @@ try {
     await grades.getByRole('checkbox', { name: /英検3級/ }).check();
     await start.click();
     assert.equal(await page.locator('[data-autoplay-course]').innerText(), '英検4級 · Level 1');
-    await page.getByRole('button', { name: '次の用語 →', exact: true }).click();
+    await page.getByRole('button', { name: '次の問題 →', exact: true }).click();
     assert.equal(await page.locator('[data-autoplay-course]').innerText(), '英検3級 · Level 2');
-    await page.getByRole('button', { name: '次の用語 →', exact: true }).click();
+    await page.getByRole('button', { name: '次の問題 →', exact: true }).click();
     assert.equal(await page.locator('[data-autoplay-course]').innerText(), '英検3級 · Level 3');
     await grades.getByRole('checkbox', { name: /英検3級/ }).uncheck();
     await page.locator('[data-autoplay-course]').waitFor({ state: 'detached' });

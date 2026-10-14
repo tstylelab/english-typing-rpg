@@ -23,6 +23,7 @@ import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLe
 import { getLongTextRecallOutcome, getNextLongTextStudyState, isFormattingOnlyMistake } from './learningProgress';
 import { getBattleAnswerSound } from './battleAnswerSound';
 import HelpScreen from './HelpScreen';
+import { getLearningContentLabel, formatLearningProgress } from './learningContent';
 import { getMonsterArtUrl, getMonsterPreviewArtUrl, preloadMonsterArt } from './monsterArt';
 import MonsterPreview from './MonsterPreview';
 import MonsterBookStars from './MonsterBookStars';
@@ -1076,7 +1077,7 @@ const NORMAL_MONSTER_DIALOGUES: Record<MonsterDialogueState, string[]> = {
   start: [
     'ここから先は通さないよ！',
     '今日の練習、ちょっとだけ邪魔しちゃうぞ。',
-    'その単語、ちゃんと聞き取れるかな？',
+    'その英語、ちゃんと聞き取れるかな？',
     'ゆっくりでもいいから、正確に来てみな！',
     'ぼくを倒すには集中力が必要だよ。',
     '準備はできた？ こっちはできてるよ。',
@@ -1699,7 +1700,7 @@ const TITLE_MONSTER_TAUNTS = [
   '挑発しているようで、実は緊張をほぐしています。敵なりの配慮です。',
   '今日の作戦は、きみの油断待ちです。受け身の戦略です。',
   'ここは通行止めです。英語ができる人だけ、なぜか通れます。',
-  'ぼくを倒しても世界は救えません。でも単語は少し覚えます。',
+  'ぼくを倒しても世界は救えません。でも英語は少し覚えます。',
   '次の敵はぼくです。名前だけでも覚えて帰ってください。',
   'きみのミスを待っています。言い方を変えると、かなり他力本願です。',
   '勝つ気はあります。勝てる気配は、まだ確認中です。',
@@ -6371,7 +6372,7 @@ export default function App() {
       totalStageMonsters = indices.length;
     } else if (mode === 'weakness') {
         const activeWeakQuestions = sessionWeakQuestionsRef.current ?? getScopedWeakQuestions(diff, level);
-        if (activeWeakQuestions.length === 0) { alert("まだ苦手な単語がありません！"); return; }
+        if (activeWeakQuestions.length === 0) { alert("まだ苦手な問題がありません！"); return; }
         selectedList = monstersObj.guide; 
         const count = Math.min(activeWeakQuestions.length, 10);
         indices = Array.from({length: count}, (_, i) => i % selectedList.length);
@@ -7738,7 +7739,7 @@ export default function App() {
       if (autoPlaySettings.playText) {
         const speechConfig = getEnglishAutoPlaySpeechConfig();
         pushEntry({
-          label: `単語: ${question.text}`,
+          label: `英語: ${question.text}`,
           text: question.text,
           lang: speechConfig.lang,
           voice: speechConfig.voice,
@@ -8050,18 +8051,18 @@ export default function App() {
     ] : [];
     const manualReviewSamples = wordListToolsOpen ? manualReviewQuestions.slice(0, 5).map(q => q.text).join(' / ') : '';
     const emptyListTitle = listLearningLevel !== undefined
-      ? `「${LEARNING_LEVEL_LABELS[listLearningLevel]}」の用語はありません`
+      ? `「${LEARNING_LEVEL_LABELS[listLearningLevel]}」の問題はありません`
       : questionListFilter === 'marked'
-        ? 'あとで復習に追加した用語はまだありません'
+        ? 'あとで復習に追加した問題はまだありません'
         : questionListFilter === 'weak'
-          ? 'この一覧に苦手語はまだありません'
+          ? 'この一覧に苦手な問題はまだありません'
           : questionListFilter === 'miss-ranking'
             ? 'まだミスの記録がありません'
-            : '表示できる用語がありません';
+            : '表示できる問題がありません';
     const emptyListDescription = questionListFilter === 'marked'
       ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
       : questionListFilter === 'miss-ranking'
-        ? 'この教材・レベルでつまずいた単語が、ここへ回数順に表示されます。'
+        ? 'この教材・レベルでつまずいた問題が、ここへ回数順に表示されます。'
         : '通常の一覧に戻して、出題できる問題を確認できます。';
 
     const startReviewFromList = (mode: Mode, inputMode: InputMode) => {
@@ -8110,9 +8111,9 @@ export default function App() {
       },
       {
         key: 'weak',
-        label: '苦手語だけ',
+        label: '苦手だけ',
         count: scopedPlaybackPools.weak.length,
-        note: 'ミスして苦手語に残っているものだけ',
+        note: '苦手として記録されている問題だけ',
         activeClassName: 'border-orange-300 bg-orange-500/15 text-orange-50',
       },
       {
@@ -8124,7 +8125,7 @@ export default function App() {
       },
       {
         key: 'selected',
-        label: '自分で選んだ語',
+        label: '自分で選んだ問題',
         count: scopedPlaybackPools.selected.length,
         note: '各級・Levelの選択ツールで選んだもの',
         activeClassName: 'border-cyan-300 bg-cyan-500/15 text-cyan-50',
@@ -8195,7 +8196,7 @@ export default function App() {
         <div className="word-list-page max-w-6xl min-w-0 w-full p-2 sm:p-4 h-full flex flex-col">
            <div className="flex justify-between items-center mb-6 flex-shrink-0">
               <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
-              <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><ClipboardList /> 問題リスト (Word List)</h2>
+              <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><ClipboardList /> 問題リスト</h2>
            </div>
            <div className="flex flex-col md:flex-row gap-4 mb-6 flex-shrink-0">
                <div className="flex flex-wrap bg-slate-800 p-1 rounded-lg">{DIFFICULTIES.map(d => (<button key={d} onClick={() => updateSelectedDifficulty(d)} className={`px-4 py-2 rounded-md font-bold transition-colors ${gameState.selectedDifficulty === d ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>{DIFFICULTY_LABELS[d]}</button>))}</div>
@@ -8205,12 +8206,12 @@ export default function App() {
            <div className="mb-4 flex-shrink-0 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.14),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.96),rgba(12,18,32,0.92))] p-4 shadow-[0_0_30px_rgba(34,211,238,0.08)]">
              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                <div>
-                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Word Progress</p>
-                 <h3 className="mt-1 text-xl font-black text-white">{'\u5b66\u7fd2\u306e\u9032\u307f\u5177\u5408'}</h3>
+                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Learning Progress</p>
+                 <h3 className="mt-1 text-xl font-black text-white">学習の進み具合</h3>
                </div>
                <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-900/30 px-4 py-2 text-sm font-bold text-orange-200">
                  <AlertCircle size={16} className="text-orange-300" />
-                 {'\u82e6\u624b'} {weakCountInView}{'\u4ef6'}
+                 {'\u82e6\u624b'} {weakCountInView}問
                </div>
              </div>
              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto]">
@@ -8247,20 +8248,20 @@ export default function App() {
            <div className="mb-4 hidden flex-shrink-0">
              <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-900/30 px-4 py-2 text-sm font-bold text-orange-200">
                <AlertCircle size={16} className="text-orange-300" />
-               この一覧の苦手語: {weakCountInView}件
+               この一覧の苦手な問題: {weakCountInView}問
              </div>
              <div className="mt-3 flex flex-wrap gap-3">
                <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-950/20 px-4 py-2 text-sm font-bold text-sky-200">
                  <BookOpen size={16} className="text-sky-300" />
-                 学習中 {manualStudyCount}件
+                 学習中 {manualStudyCount}問
                </div>
                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-4 py-2 text-sm font-bold text-emerald-200">
                  <CheckCircle2 size={16} className="text-emerald-300" />
-                 もう少し {manualCautionCount}件
+                 もう少し {manualCautionCount}問
                </div>
                <div className="inline-flex items-center gap-2 rounded-full border border-slate-500/40 bg-slate-800/80 px-4 py-2 text-sm font-bold text-slate-300">
                  <Shield size={16} className="text-slate-400" />
-                 除外 {excludedQuestions.length}件
+                 除外 {excludedQuestions.length}問
                </div>
              </div>
            </div>
@@ -8281,7 +8282,7 @@ export default function App() {
                   setWordListToolsOpen(true);
                   requestAnimationFrame(() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
                   startAutoPlayForQuestions(allMarkedPlaybackQuestions);
-                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ 全級のあとで復習を再生 <span className="text-xs">{allMarkedPlaybackQuestions.length}語</span></button>
+                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ 全級のあとで復習を再生 <span className="text-xs">{allMarkedPlaybackQuestions.length}問</span></button>
                 {questionListFilter === 'weak' && (
                   <div className="flex bg-slate-800 p-1 rounded-lg self-start">
                     <button onClick={() => setWeakListSort('recent')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${weakListSort === 'recent' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>最近ミス順</button>
@@ -8297,7 +8298,7 @@ export default function App() {
               >
                 <div>
                   <p className="text-sm font-bold text-cyan-200">選択・自動再生ツール</p>
-                  <p className="mt-1 text-xs text-slate-400">任意選択、25語まとめ選択、自動再生を必要なときだけ開けます。</p>
+                  <p className="mt-1 text-xs text-slate-400">任意選択、25問まとめ選択、自動再生を必要なときだけ開けます。</p>
                 </div>
                 <span className="text-sm font-bold text-cyan-100">{wordListToolsOpen ? '閉じる ▲' : '開く ▼'}</span>
               </button>
@@ -8308,7 +8309,7 @@ export default function App() {
               <div className="mb-3 hidden flex-col gap-2 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-sm font-bold text-sky-200">自分で決めた学習メモから復習する</p>
-                  <p className="mt-1 text-xs text-slate-400">学習中と「もう少し」にした単語をまとめて復習できます。苦手判定はこれまで通りゲーム側でも続き、除外した単語だけここから外れます。</p>
+                  <p className="mt-1 text-xs text-slate-400">学習中と「もう少し」にした問題をまとめて復習できます。苦手判定はこれまで通りゲーム側でも続き、除外した問題だけここから外れます。</p>
                 </div>
                 <div className="text-xs text-slate-300">
                   {manualReviewQuestions.length > 0 ? manualReviewSamples : 'まだありません'}
@@ -8316,8 +8317,8 @@ export default function App() {
               </div>
               <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="text-sm font-bold text-sky-200">{'\u624b\u52d5\u8a2d\u5b9a\u306e\u5358\u8a9e\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2'}</p>
-                  <p className="mt-1 text-xs text-slate-400">{'\u300c\u5b66\u7fd2\u4e2d\u300d\u3068\u300c\u3082\u3046\u5c11\u3057\u300d\u306b\u3057\u305f\u5358\u8a9e\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2\u3067\u304d\u307e\u3059\u3002\u82e6\u624b\u5224\u5b9a\u306f\u3053\u308c\u307e\u3067\u901a\u308a\u30b2\u30fc\u30e0\u5074\u3067\u3082\u7d9a\u304d\u3001\u9664\u5916\u3057\u305f\u5358\u8a9e\u3060\u3051\u3053\u3053\u304b\u3089\u5916\u308c\u307e\u3059\u3002'}</p>
+                  <p className="text-sm font-bold text-sky-200">{'\u624b\u52d5\u8a2d\u5b9a\u306e\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2'}</p>
+                  <p className="mt-1 text-xs text-slate-400">{'\u300c\u5b66\u7fd2\u4e2d\u300d\u3068\u300c\u3082\u3046\u5c11\u3057\u300d\u306b\u3057\u305f\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2\u3067\u304d\u307e\u3059\u3002\u82e6\u624b\u5224\u5b9a\u306f\u3053\u308c\u307e\u3067\u901a\u308a\u30b2\u30fc\u30e0\u5074\u3067\u3082\u7d9a\u304d\u3001\u9664\u5916\u3057\u305f\u554f\u984c\u3060\u3051\u3053\u3053\u304b\u3089\u5916\u308c\u307e\u3059\u3002'}</p>
                 </div>
                 <div className="text-xs text-slate-300">
                   {manualReviewQuestions.length > 0 ? manualReviewSamples : '\u307e\u3060\u3042\u308a\u307e\u305b\u3093'}
@@ -8357,16 +8358,16 @@ export default function App() {
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Auto Play</p>
                   <h3 className="mt-1 text-xl font-black text-white">連続再生の設定</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">上から順に「再生する単語」「読み上げる内容」「再生順」を選び、最後に再生ボタンを押してください。</p>
-                  <p className="mt-2 text-xs font-bold text-cyan-200">迷ったときは「苦手語だけ・用語＋和訳＋例文・通常順」がおすすめです。</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">上から順に「再生する問題」「読み上げる内容」「再生順」を選び、最後に再生ボタンを押してください。</p>
+                  <p className="mt-2 text-xs font-bold text-cyan-200">迷ったときは「苦手だけ・英語＋和訳＋例文・通常順」がおすすめです。</p>
                 </div>
                 <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
                   <div className="text-xs font-bold text-slate-400">現在の設定</div>
                   <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
                   <p className="mt-1 max-w-xs text-xs text-yellow-100">{playbackScopeLabel}</p>
                   <div className="mt-2 flex items-center justify-between gap-4 text-xs">
-                    <span>対象 {autoPlayTargetQuestions.length}語</span>
-                    <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}語</span>
+                    <span>対象 {autoPlayTargetQuestions.length}問</span>
+                    <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}問</span>
                   </div>
                   <div className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-400">{autoPlayStatusText}</div>
                   <div className="mt-1 text-xs text-cyan-200">{autoPlaySettings.repeat ? 'リピートON：一巡後も先頭から再生' : 'リピートOFF：一巡したら終了'}</div>
@@ -8377,7 +8378,7 @@ export default function App() {
                   <div className="flex items-start gap-3">
                     <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">1</span>
                     <div>
-                      <p className="font-black text-white">再生する単語を選ぶ</p>
+                      <p className="font-black text-white">再生する問題を選ぶ</p>
                       <p className="mt-1 text-xs text-slate-400">対象範囲と、再生する問題のグループを選びます。</p>
                     </div>
                   </div>
@@ -8393,7 +8394,7 @@ export default function App() {
                         const count = playbackPools[autoPlaySettings.source].filter(item => item.difficulty === difficulty).length;
                         return <label key={difficulty} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-md border border-slate-600 px-2 py-1 text-sm text-slate-200">
                           <input type="checkbox" checked={autoPlaySettings.playbackDifficulties.includes(difficulty)} onChange={event => updateAutoPlaySetting('playbackDifficulties', event.target.checked ? [...autoPlaySettings.playbackDifficulties, difficulty] : autoPlaySettings.playbackDifficulties.filter(d => d !== difficulty))} />
-                          {DIFFICULTY_LABELS[difficulty]} <span className="text-xs text-slate-400">{count}語</span>
+                          {DIFFICULTY_LABELS[difficulty]} <span className="text-xs text-slate-400">{count}問</span>
                         </label>;
                       })}
                     </div>}
@@ -8413,7 +8414,7 @@ export default function App() {
                       >
                         <span className="flex items-center justify-between gap-2">
                           <span className="text-sm font-black">{option.label}</span>
-                          <span className="rounded-full bg-black/25 px-2 py-0.5 text-xs font-black">{option.count}語</span>
+                          <span className="rounded-full bg-black/25 px-2 py-0.5 text-xs font-black">{option.count}問</span>
                         </span>
                         <span className="mt-2 block text-xs leading-5 text-slate-400">{option.note}</span>
                       </button>
@@ -8421,7 +8422,7 @@ export default function App() {
                   </div>
                   {autoPlayTargetQuestions.length === 0 && (
                     <p className="mt-4 rounded-lg border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs leading-5 text-amber-100">
-                      この再生範囲には対象語がありません。再生範囲やグループを変更してください。
+                      この再生範囲には対象の問題がありません。再生範囲やグループを変更してください。
                     </p>
                   )}
                 </div>
@@ -8436,7 +8437,7 @@ export default function App() {
                     </div>
                   <div className="mt-3 grid gap-2 sm:grid-cols-3">
                     {[
-                      { key: 'playText', label: '用語', note: '英単語・英語表現', checked: autoPlaySettings.playText },
+                      { key: 'playText', label: '英語', note: '単語・熟語・英文', checked: autoPlaySettings.playText },
                       { key: 'playTranslation', label: '和訳', note: '日本語の意味', checked: autoPlaySettings.playTranslation },
                       { key: 'playExample', label: '例文', note: '使い方が分かる英文', checked: autoPlaySettings.playExample },
                     ].map(item => (
@@ -8462,9 +8463,9 @@ export default function App() {
                     </div>
                   <div className="mt-3 grid gap-2 sm:grid-cols-3">
                     {[
-                      { key: 'normal', label: '通常順', note: '用語→和訳→例文' },
-                      { key: 'exampleFirst', label: '例文を先に', note: '例文→用語→和訳' },
-                      { key: 'exampleTextExample', label: '例文で挟む', note: '例文→用語→例文' },
+                      { key: 'normal', label: '通常順', note: '英語→和訳→例文' },
+                      { key: 'exampleFirst', label: '例文を先に', note: '例文→英語→和訳' },
+                      { key: 'exampleTextExample', label: '例文で挟む', note: '例文→英語→例文' },
                     ].map(option => (
                       <button
                         key={option.key}
@@ -8483,7 +8484,7 @@ export default function App() {
                     <div>
                       <p className="font-black text-white">速度・間隔の設定</p>
                       <p className="mt-1 text-xs leading-5 text-slate-400">
-                        現在の速度は {autoPlaySettings.playbackRatePercent / 100}x です。再生速度と用語・例文の間隔を調整できます。
+                        現在の速度は {autoPlaySettings.playbackRatePercent / 100}x です。再生速度と英語・例文の間隔を調整できます。
                       </p>
                     </div>
                     <span className="flex-none text-sm font-bold text-cyan-200">
@@ -8494,7 +8495,7 @@ export default function App() {
                   <div className="border-t border-slate-700 p-4 md:p-5">
                   <div className="mt-3 grid gap-3 sm:grid-cols-2">
                     <label className="rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
-                      <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">用語・和訳・例文の間隔</span>
+                      <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">英語・和訳・例文の間隔</span>
                       <input
                         type="number"
                         min={0}
@@ -8506,7 +8507,7 @@ export default function App() {
                       />
                     </label>
                     <label className="rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
-                      <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">次の用語までの間隔</span>
+                      <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">次の問題までの間隔</span>
                       <input
                         type="number"
                         min={0}
@@ -8547,7 +8548,7 @@ export default function App() {
                       </div>
                     </div>
                     <div className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-100">
-                      {selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}語
+                      {selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}問
                     </div>
                   </div>
                   <div
@@ -8579,31 +8580,31 @@ export default function App() {
                       <span className="text-sm font-bold text-cyan-200">現在再生中</span>
                       <span className="text-xs font-bold text-slate-400">{isAutoPlaying ? '再生中' : '待機中'}</span>
                     </div>
-                    <div className="mt-2 flex gap-2" role="group" aria-label="用語単位で移動">
+                    <div className="mt-2 flex gap-2" role="group" aria-label="問題単位で移動">
                       <button
                         type="button"
                         onClick={() => autoPlayNavigateRef.current?.(-1)}
                         disabled={!isAutoPlaying}
-                        title="ひとつ前の用語を最初から再生（最初の用語では聞き直し）"
+                        title="ひとつ前の問題を最初から再生（最初の問題では聞き直し）"
                         className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                       >
-                        ← 前の用語
+                        ← 前の問題
                       </button>
                       <button
                         type="button"
                         onClick={() => autoPlayNavigateRef.current?.(1)}
                         disabled={!isAutoPlaying}
-                        title="今の用語をスキップして次の用語を再生"
+                        title="今の問題をスキップして次の問題を再生"
                         className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                       >
-                        次の用語 →
+                        次の問題 →
                       </button>
                     </div>
                     {autoPlayNowPlaying ? (
                       <div className="mt-3 space-y-2">
                         <p data-autoplay-course className="text-xs font-bold text-cyan-200">{autoPlayNowPlaying.courseLabel}</p>
                         <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'text' ? 'border-cyan-300 bg-cyan-500/15 text-cyan-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
-                          <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">用語</div>
+                          <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">英語</div>
                           <div className="mt-1 break-words font-semibold">{autoPlayNowPlaying.questionText}</div>
                         </div>
                         <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'translation' ? 'border-emerald-300 bg-emerald-500/15 text-emerald-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
@@ -8624,7 +8625,7 @@ export default function App() {
                       </div>
                     ) : (
                       <div className="mt-3 rounded-lg border border-dashed border-slate-700 bg-slate-900/50 px-3 py-4 text-sm text-slate-400">
-                        再生を開始すると、ここに用語・和訳・例文を表示します。
+                        再生を開始すると、ここに英語・和訳・例文を表示します。
                       </div>
                     )}
                   </div>
@@ -8669,11 +8670,11 @@ export default function App() {
                 >
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 md:px-5">
                     <div>
-                      <p className="font-black text-white">自分で単語を選ぶ・リストを保存</p>
-                      <p className="mt-1 text-xs leading-5 text-slate-400">「自分で選んだ語」を使う人向けの詳細ツールです。</p>
+                      <p className="font-black text-white">自分で問題を選ぶ・リストを保存</p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">「自分で選んだ問題」を使う人向けの詳細ツールです。</p>
                     </div>
                     <div className="flex flex-none items-center gap-3">
-                      <span className="rounded-full bg-slate-950/70 px-3 py-1 text-xs font-bold text-slate-300">現在 {selectedQuestionsInView.length}語</span>
+                      <span className="rounded-full bg-slate-950/70 px-3 py-1 text-xs font-bold text-slate-300">現在 {selectedQuestionsInView.length}問</span>
                       <span className="text-sm font-bold text-cyan-200">
                         <span className="group-open:hidden">開く ▼</span>
                         <span className="hidden group-open:inline">閉じる ▲</span>
@@ -8681,7 +8682,7 @@ export default function App() {
                     </div>
                   </summary>
                   <div className="border-t border-slate-700 p-4 md:p-5">
-                    <p className="text-xs leading-5 text-slate-400">この難易度・レベルで選んだ単語は自動保存されます。さらに名前を付けて複数保存できます。</p>
+                    <p className="text-xs leading-5 text-slate-400">この難易度・レベルで選んだ問題は自動保存されます。さらに名前を付けて複数保存できます。</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <GameButton
                       onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty, gameState.selectedLevel, weakQuestionsInView.map(q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))}
@@ -8689,7 +8690,7 @@ export default function App() {
                       variant="outline"
                       className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20"
                     >
-                      苦手語を全部選択
+                      苦手な問題を全部選択
                     </GameButton>
                     <GameButton
                       onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty, gameState.selectedLevel, markedQuestionsInView.map(q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))}
@@ -8754,7 +8755,7 @@ export default function App() {
                       <div key={list.id} className="flex flex-col gap-3 rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-3 md:flex-row md:items-center md:justify-between">
                         <div>
                           <div className="font-bold text-white">{list.name}</div>
-                          <div className="mt-1 text-xs text-slate-400">{list.questionKeys.length}語 / 更新 {new Date(list.updatedAt).toLocaleString('ja-JP')}</div>
+                          <div className="mt-1 text-xs text-slate-400">{list.questionKeys.length}問 / 更新 {new Date(list.updatedAt).toLocaleString('ja-JP')}</div>
                         </div>
                         <div className="flex flex-wrap gap-2">
                           <GameButton onClick={() => applySavedSelectionList(list)} size="sm" variant="outline" className="border-cyan-500/40 text-cyan-200 hover:bg-cyan-900/20">
@@ -8779,12 +8780,12 @@ export default function App() {
               <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/35 bg-amber-950/20 p-4">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-amber-200"><Trophy size={18} /><p className="text-sm font-black">累計ミスランキング・上位30語</p></div>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-400">現在の教材・レベルで、一度以上つまずいた単語を回数順に表示します。克服済みの単語も含み、除外中の単語は表示しません。</p>
-                    <p className="mt-1 text-[11px] text-slate-500">「つまずき1回」は、その単語で一度以上ミスしたバトルが1回あったという記録です。</p>
+                    <div className="flex items-center gap-2 text-amber-200"><Trophy size={18} /><p className="text-sm font-black">累計ミスランキング・上位30問</p></div>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">現在の教材・レベルで、一度以上つまずいた問題を回数順に表示します。克服済みの問題も含み、除外中の問題は表示しません。</p>
+                    <p className="mt-1 text-[11px] text-slate-500">「つまずき1回」は、その問題で一度以上ミスしたバトルが1回あったという記録です。</p>
                   </div>
                   <GameButton onClick={startMissRankingReview} size="sm" className="flex-shrink-0 bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={missRankingReviewQuestions.length === 0}>
-                    <Flame size={16} /> 上位10語を復習
+                    <Flame size={16} /> 上位10問を復習
                   </GameButton>
                 </div>
               </div>
@@ -8796,8 +8797,8 @@ export default function App() {
                   className="flex w-full items-center justify-between rounded-xl border border-orange-500/30 bg-orange-950/20 px-4 py-3 text-left transition-colors hover:bg-orange-900/25"
                 >
                   <div>
-                    <p className="text-sm font-bold text-orange-200">苦手語レビュー詳細</p>
-                    <p className="mt-1 text-xs text-slate-400">苦手語の統計や復習ボタンは必要なときだけ開けます。</p>
+                    <p className="text-sm font-bold text-orange-200">苦手の復習・詳細</p>
+                    <p className="mt-1 text-xs text-slate-400">苦手な問題の統計や復習ボタンは必要なときだけ開けます。</p>
                   </div>
                   <span className="text-sm font-bold text-orange-100">{weakReviewPanelOpen ? '閉じる ▲' : '開く ▼'}</span>
                 </button>
@@ -8818,14 +8819,14 @@ export default function App() {
                 <div className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
                   <p className="text-xs font-bold uppercase tracking-widest text-orange-300">Need Review</p>
                   <p className="mt-2 text-2xl font-black text-white">{weakQuestionsInView.length}</p>
-                  <p className="mt-2 text-xs text-slate-300">まだ克服できていない苦手語です。</p>
+                  <p className="mt-2 text-xs text-slate-300">まだ克服できていない苦手な問題です。</p>
                 </div>
               </div>
             )}
             {questionListFilter === 'weak' && weakReviewPanelOpen && (
               <div className="mb-4 flex-shrink-0 rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
                 <div className="mb-3">
-                  <p className="text-sm font-bold text-orange-200">表示中の苦手語を復習する</p>
+                  <p className="text-sm font-bold text-orange-200">表示中の苦手な問題を復習する</p>
                   <p className="mt-1 text-xs text-slate-400">一覧を見てから、自分に合ったモードでそのまま復習できます。</p>
                 </div>
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -8872,7 +8873,7 @@ export default function App() {
               </div>
             )}
             <div className="flex-1 min-h-0">
-               <Box className="h-full min-w-0 w-full flex flex-col" contentClassName="min-w-0 w-full p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel} (${questions.length} ${gameState.selectedDifficulty === 'Conversation' ? 'conversations' : 'words'})`}>
+               <Box className="h-full min-w-0 w-full flex flex-col" contentClassName="min-w-0 w-full p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel}・${getLearningContentLabel(gameState.selectedLevel, gameState.selectedDifficulty === 'Conversation')} (${questions.length}問)`}>
                    <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
                      <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
                        <AlertCircle size={28} className="mb-3 text-slate-500" />
@@ -8884,8 +8885,8 @@ export default function App() {
                      {shouldLimitQuestionList && (
                        <div className="mb-3 rounded-lg border border-cyan-500/30 bg-cyan-950/30 px-4 py-3 text-sm text-cyan-100">
                          {wordListToolsOpen || isAutoPlaying
-                           ? '動作を軽くするため、選択・自動再生ツールの使用中と連続再生中は一覧を先頭160件だけ表示しています。全件を確認したい場合は、ツールを閉じてから「さらに表示」を押してください。'
-                           : `表示負荷を抑えるため、まず先頭${renderedQuestions.length}件を表示しています。`}
+                           ? '動作を軽くするため、選択・自動再生ツールの使用中と連続再生中は一覧を先頭160問だけ表示しています。全問を確認したい場合は、ツールを閉じてから「さらに表示」を押してください。'
+                           : `表示負荷を抑えるため、まず先頭${renderedQuestions.length}問を表示しています。`}
                          {!wordListToolsOpen && !isAutoPlaying && (
                            <button
                              onClick={() => setQuestionListRenderLimit(prev => prev + 260)}
@@ -9092,7 +9093,7 @@ export default function App() {
               <label className="flex items-center justify-between gap-4 rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-sm text-slate-200">
                 <span>
                   <span className="block font-bold text-cyan-100">和訳バトル正解後に英語音声を再生</span>
-                  <span className="mt-1 block text-xs text-slate-400">日本語訳だけを見て入力するバトルで、正解直後に用語の発音を確認します。</span>
+                  <span className="mt-1 block text-xs text-slate-400">日本語訳だけを見て入力するバトルで、正解直後に英語の発音を確認します。</span>
                 </span>
                 <input
                   type="checkbox"
@@ -9195,7 +9196,7 @@ export default function App() {
               </div>
               <div className="rounded-xl border border-cyan-500/20 bg-cyan-950/10 p-4 text-sm text-slate-300">
                 <p className="font-bold text-cyan-200">引き継げる主な内容</p>
-                <p className="mt-2">苦手語、ミス統計、手動設定、除外設定、復習キュー、日別・月間の学習記録、保存済み選択リスト、自動再生設定</p>
+                <p className="mt-2">苦手な問題、ミス統計、手動設定、除外設定、復習キュー、日別・月間の学習記録、保存済み選択リスト、自動再生設定</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <GameButton onClick={downloadProgressSnapshot} className="sm:flex-1 bg-cyan-600 border-cyan-400 text-white hover:bg-cyan-500">
@@ -9207,7 +9208,7 @@ export default function App() {
               </div>
               <div className="rounded-xl border border-red-500/30 bg-red-950/15 p-4">
                 <p className="text-sm font-bold text-red-200">現在のプレイヤーの学習データをリセット</p>
-                <p className="mt-1 text-xs text-slate-400">撃破数、スコア、苦手語、日別・月間の学習記録などを消去します。必要なら先に書き出してください。</p>
+                <p className="mt-1 text-xs text-slate-400">撃破数、スコア、苦手な問題、日別・月間の学習記録などを消去します。必要なら先に書き出してください。</p>
                 <GameButton onClick={handleResetHistory} variant="outline" size="sm" className="mt-3 border-red-600/60 text-red-200 hover:border-red-400 hover:bg-red-950/40">
                   <RotateCcw size={16} /> 履歴をリセット
                 </GameButton>
@@ -9322,7 +9323,7 @@ export default function App() {
               <p className="text-sm font-black text-sky-200">2. 出題方法</p>
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
                 {([
-                  ['spelling', 'スペル表示', '英単語を見て入力'],
+                  ['spelling', 'スペル表示', '英語を見て入力'],
                   ['listening-translation', 'リスニング＋和訳', '音と日本語で入力'],
                   ['translation', '和訳', '日本語だけで入力'],
                   ['listening', 'リスニング', '音声だけで入力'],
@@ -9405,10 +9406,10 @@ export default function App() {
             <div className="flex items-center gap-2"><div className="rounded-lg border border-yellow-400/35 bg-yellow-950/25 px-4 py-2 text-right"><p className="text-xs font-bold text-yellow-200">現在の得点</p><p className="text-2xl font-black text-white">{currentAdjustedScore}</p><p className="text-[10px] font-bold text-yellow-100/75">補正後 {getNormalizedVersusScore(currentPlayer)} × {currentPlayer.scoreMultiplier}倍</p></div><GameButton size="sm" variant="outline" onClick={quitVersusMatch}>やめる</GameButton></div>
           </div>
           <div ref={versusKeyboardTargetRef} tabIndex={externalKeyboardMode ? 0 : -1} className="py-10 text-center outline-none">
-            {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-8 text-sm font-bold text-slate-400">この英単語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
-            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英単語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
-            {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-8 text-sm font-bold text-slate-400">英単語を思い出して入力しよう</p></>}
-            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英単語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'spelling' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-2 text-2xl font-black text-white">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-8 text-sm font-bold text-slate-400">この英語を入力しよう</p><p className="mt-2 break-words text-4xl font-black tracking-wide text-cyan-200 md:text-6xl">{currentQuestion.text}</p></>}
+            {currentVersusQuestion.promptMode === 'listening' && <><p className="text-sm font-bold text-cyan-200">音声を聞いて英語を入力しよう</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
+            {currentVersusQuestion.promptMode === 'translation' && <><p className="text-sm font-bold text-cyan-200">日本語の意味</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-8 text-sm font-bold text-slate-400">英語を思い出して入力しよう</p></>}
+            {currentVersusQuestion.promptMode === 'listening-translation' && <><p className="text-sm font-bold text-cyan-200">音を聞き、日本語の意味を見て英語を入力しよう</p><p className="mt-3 text-4xl font-black text-white md:text-5xl">{getQuestionMeaning(currentQuestion, currentPlayer.difficulty)}</p><p className="mt-5 text-5xl">🔊</p><GameButton onPointerDown={event => { event.preventDefault(); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} onClick={() => { speakWithSettings(currentQuestion.text); keepTypingInputReady(versusInputRef, versusKeyboardTargetRef); }} variant="outline" className="mt-5">もう一度聞く <Volume2 size={18} /></GameButton><p className="mt-2 text-xs font-bold text-slate-400">ショートカット: Right Ctrl でもう一度聞く</p></>}
             {versusHintCharacter && <p className="mt-5 text-sm font-bold text-amber-200">ヒント: <span className="font-mono text-xl text-white">{versusHintLength}文字目は「{versusHintCharacter}」</span><span className="ml-2 text-xs text-slate-400">間違えた位置の文字です</span></p>}
             <input
               ref={versusInputRef}
@@ -9432,7 +9433,7 @@ export default function App() {
               autoCapitalize="none"
               autoCorrect="off"
               spellCheck={false}
-              aria-label="英単語を入力"
+              aria-label="英語を入力"
             />
             <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
               <button
@@ -9889,7 +9890,7 @@ export default function App() {
                         <BookOpen size={18} /> 図鑑
                       </GameButton>
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-amber-300 hover:bg-amber-950/25">
-                        <ClipboardList size={18} /> {gameState.selectedDifficulty === 'Conversation' ? '表現リスト' : '単語リスト'}
+                        <ClipboardList size={18} /> 問題リスト
                       </GameButton>
                       <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'settings' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25">
                         <Volume2 size={18} /> 設定
@@ -9988,7 +9989,7 @@ export default function App() {
                 )}
 
                 <div className="mt-4 flex w-full max-w-3xl items-center justify-center text-center text-xs font-bold text-slate-400 md:justify-start">
-                  Word List・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
+                  問題リスト・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
                 </div>
               </div>
 
@@ -10182,7 +10183,7 @@ export default function App() {
                             <p>1. 難易度とレベルを選んでバトルを開始します。</p>
                             <p>2. 表示された英語を正しく入力するとモンスターにダメージを与えます。</p>
                             <p>3. ミスが増えるとスコアが伸びにくくなるので、正確さを意識してください。</p>
-                            <p>4. 苦手特訓や図鑑を使って、単語と記録を確認できます。</p>
+                            <p>4. 苦手特訓や図鑑を使って、問題と記録を確認できます。</p>
                           </div>
                           <div className="mt-6 flex justify-end">
                             <GameButton onClick={() => setShowHelp(false)} variant="outline" size="sm" autoFocus>閉じる</GameButton>
@@ -10231,8 +10232,8 @@ export default function App() {
           3: '会話・文法の短文',
         } : {
           1: 'Short Words / 単語',
-          2: 'Phrases / 熟語',
-          3: 'Sentences / 文章',
+          2: 'Phrases / 熟語・表現',
+          3: 'Sentences / 文章問題',
         };
     const levelIcons: Record<Level, React.ReactNode> = {
       1: <Sword size={26} />,
@@ -10495,11 +10496,11 @@ export default function App() {
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Current Course</p>
                   <h2 className="mt-1 text-2xl font-black text-white md:text-3xl">
-                    {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
+                    {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel} <span className="inline-block text-base text-cyan-100">{getLearningContentLabel(gameState.selectedLevel, isConversationCourse)}</span>
                   </h2>
                 </div>
                 <p className="rounded-full border border-cyan-300/25 bg-cyan-950/40 px-4 py-2 text-sm font-black text-cyan-50">
-                  {learningSummary.playableCount}{isConversationCourse ? '表現' : '単語'}中 {learningSummary.masteredCount}{isConversationCourse ? '表現' : '単語'}を習得
+                  {formatLearningProgress(learningSummary.playableCount, learningSummary.masteredCount)}
                 </p>
               </div>
             </div>
@@ -10642,7 +10643,7 @@ export default function App() {
                   <LayoutGrid size={18} /> 教材を変える
                 </GameButton>
                 <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-amber-400/45 bg-amber-950/25 text-amber-100 hover:border-amber-300 hover:bg-amber-900/30">
-                  <ClipboardList size={18} /> {isConversationCourse ? '表現リスト' : '単語リスト'}
+                  <ClipboardList size={18} /> 問題リスト
                 </GameButton>
               </div>
             </div>
@@ -10787,7 +10788,7 @@ export default function App() {
                )}
                {gameState.mode === 'weakness' && (
                  <div className="bg-orange-900/50 border border-orange-500/50 px-3 py-1 rounded-full text-orange-200 text-xs font-bold">
-                   残り苦手語: {remainingWeakCount}
+                   残りの苦手: {remainingWeakCount}問
                  </div>
                )}
                   </div>
@@ -10830,7 +10831,7 @@ export default function App() {
                        toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
                        keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                      }}
-                     title={isCurrentQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
+                     title={isCurrentQuestionMarked ? '復習リストから外す' : 'この問題をあとで復習する'}
                      aria-pressed={isCurrentQuestionMarked}
                       className={`battle-bookmark inline-flex flex-1 items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-black transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 sm:flex-none ${isCurrentQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_24px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
                    >
@@ -11005,7 +11006,7 @@ export default function App() {
                            toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion);
                            keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                          }}
-                         title={isPreviousQuestionMarked ? '復習リストから外す' : 'この用語をあとで復習する'}
+                         title={isPreviousQuestionMarked ? '復習リストから外す' : 'この問題をあとで復習する'}
                          aria-pressed={isPreviousQuestionMarked}
                          className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 ${isPreviousQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
                        >
@@ -11142,14 +11143,14 @@ export default function App() {
               <header className="result-monster-header flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
                 {isWin ? <Trophy size={48} className="h-8 w-8 flex-shrink-0 text-yellow-400 sm:h-12 sm:w-12" /> : <Zap size={48} className="h-8 w-8 flex-shrink-0 text-slate-500 sm:h-12 sm:w-12" />}
                 {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat" name={defeatedMonster.name}><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
-                <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : isPoolComplete ? '対象を一巡しました' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : isPoolComplete ? '今回の絞り込みは終了です' : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
+                <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : isPoolComplete ? '対象を一巡しました' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : isPoolComplete ? '今回の絞り込みは終了です' : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}・{getLearningContentLabel(gameState.selectedLevel, gameState.selectedDifficulty === 'Conversation')}</span></p></div>
               </header>
 
               {gameState.focusedBattle && <p data-focused-battle-result className="mt-2 text-xs font-bold text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回の絞り込みは終了。次は通常の出題に戻ります。</p>}
               <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-600 bg-slate-900/70 px-3 py-2 sm:px-4">
                   <h3 className="text-sm font-black text-white sm:text-base">今回の問題と結果 <span className="ml-1 text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></h3>
-                  <button type="button" onClick={handleOpenCourseWordList} aria-label="この教材の単語リストを開く" className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-cyan-400/40 bg-cyan-950/50 px-2.5 text-sm font-bold text-cyan-100 transition-colors hover:bg-cyan-900/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"><BookOpen size={16} aria-hidden="true" />単語リスト</button>
+                  <button type="button" onClick={handleOpenCourseWordList} aria-label="この教材の問題リストを開く" className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-cyan-400/40 bg-cyan-950/50 px-2.5 text-sm font-bold text-cyan-100 transition-colors hover:bg-cyan-900/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"><BookOpen size={16} aria-hidden="true" />問題リスト</button>
                 </div>
                 <div className="divide-y divide-slate-700">
                   {gameState.battleLog.map((log, idx) => {
@@ -11169,13 +11170,13 @@ export default function App() {
                           onClick={() => toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}
                           aria-label={`${log.question.text} を${isMarkedForReview ? '復習リストから外す' : 'あとで復習に追加'}`}
                           aria-pressed={isMarkedForReview}
-                          title={isMarkedForReview ? '押すと復習リストから外します' : 'この用語をあとで復習する'}
+                          title={isMarkedForReview ? '押すと復習リストから外します' : 'この問題をあとで復習する'}
                           className={`inline-flex min-h-8 items-center gap-1 whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 ${isMarkedForReview ? 'border-yellow-300/60 bg-yellow-500/20 text-yellow-100 hover:bg-yellow-500/30' : 'border-yellow-500/35 bg-yellow-950/20 text-yellow-200 hover:bg-yellow-900/35'}`}
                         ><Bookmark size={12} aria-hidden="true" fill={isMarkedForReview ? 'currentColor' : 'none'} />{isMarkedForReview ? '追加済み' : 'あとで復習'}</button>
                       </div>
                       <div className="mt-1 flex flex-wrap items-center gap-2 sm:col-span-2">
                         {grammarCard && <GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult />}
-                        <QuestionAiHelp course={DIFFICULTY_LABELS[gameState.selectedDifficulty]} level={gameState.selectedLevel} text={log.question.text} meaning={getQuestionMeaning(log.question, gameState.selectedDifficulty)} example={example || undefined} exampleJa={log.question.exampleJa} />
+                        <QuestionAiHelp isConversation={gameState.selectedDifficulty === 'Conversation'} course={DIFFICULTY_LABELS[gameState.selectedDifficulty]} level={gameState.selectedLevel} text={log.question.text} meaning={getQuestionMeaning(log.question, gameState.selectedDifficulty)} example={example || undefined} exampleJa={log.question.exampleJa} />
                       </div>
                     </div>;
                   })}
@@ -11193,7 +11194,7 @@ export default function App() {
                 <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>
               </section>
 
-              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">この教材・レベルの問題（未出題を含む）</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">語</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">この教材・レベルの問題（未出題を含む）</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">問</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
 
               {gameState.mode !== 'weakness' && <FocusedBattleActions
                 unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
@@ -11219,7 +11220,7 @@ export default function App() {
 
               <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} result />
 
-              <section className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-3"><p className="mb-2 text-sm font-black text-orange-200">今回の苦手登録: {missedCount}語</p><div className="grid gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleStartBattleReview} size="sm" variant="outline" className="border-emerald-500/40 text-emerald-200">今回のミスだけ復習</GameButton><GameButton onClick={handleStartWeaknessFromResult} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500">苦手復習へ</GameButton></div></section>
+              <section className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-3"><p className="mb-2 text-sm font-black text-orange-200">今回の苦手登録: {missedCount}問</p><div className="grid gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleStartBattleReview} size="sm" variant="outline" className="border-emerald-500/40 text-emerald-200">今回のミスだけ復習</GameButton><GameButton onClick={handleStartWeaknessFromResult} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500">苦手復習へ</GameButton></div></section>
             </aside>
           </div>
         </Box>
@@ -11239,7 +11240,7 @@ export default function App() {
 
           <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
             {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="min-h-[54px] text-base" variant="success" autoFocus>つぎのモンスターへ <ArrowRight className="ml-2" size={20}/></GameButton> : <GameButton onClick={handleBackToMode} className="min-h-[54px] text-base" variant="primary" autoFocus>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="min-h-[54px] text-base" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={20}/></GameButton>}
-            {missedCount > 0 && <GameButton onClick={handleStartBattleReview} className="border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="md"><RotateCcw size={17}/> ミス {missedCount}語を復習</GameButton>}
+            {missedCount > 0 && <GameButton onClick={handleStartBattleReview} className="border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="md"><RotateCcw size={17}/> ミス {missedCount}問を復習</GameButton>}
           </div>
 
           <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
@@ -11256,7 +11257,7 @@ export default function App() {
                 </div>;
               })}
             </div>
-            {gameState.battleLog.length > 6 && <p className="border-t border-slate-700 px-3 py-2 text-xs font-bold text-slate-400">最初の6問を表示しています。残りは単語リストから確認できます。</p>}
+            {gameState.battleLog.length > 6 && <p className="border-t border-slate-700 px-3 py-2 text-xs font-bold text-slate-400">最初の6問を表示しています。残りは問題リストから確認できます。</p>}
           </section>
 
           <footer className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-600 pt-3 text-sm font-bold"><span className="text-slate-300">学習中 {learningSummary.learningCount} ・ もう少し {learningSummary.cautionCount} ・ 覚えた {learningSummary.masteredCount}</span><div className="flex gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleBackToMode} size="sm" variant="ghost">コースをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="ghost">ホームへ</GameButton></div></footer>
@@ -11291,7 +11292,7 @@ export default function App() {
               isNextAvailable ? <GameButton onClick={handleNextMonster} className="min-h-[64px] text-lg" variant="success" autoFocus>{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></GameButton>
                 : <GameButton onClick={handleBackToMode} className="min-h-[64px] text-lg" variant="primary" autoFocus>コース選択へ戻る <LayoutGrid className="ml-2" size={22}/></GameButton>
             ) : <GameButton onClick={handleRetry} className="min-h-[64px] text-lg" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
-            {missedCount > 0 ? <GameButton onClick={handleStartBattleReview} className="min-h-[64px] border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="lg"><RotateCcw size={20} /> ミスした {missedCount}語を復習</GameButton>
+            {missedCount > 0 ? <GameButton onClick={handleStartBattleReview} className="min-h-[64px] border-orange-400 bg-orange-600 text-white hover:bg-orange-500" size="lg"><RotateCcw size={20} /> ミスした {missedCount}問を復習</GameButton>
               : <div className="flex min-h-[64px] items-center justify-center rounded-xl border border-emerald-400/25 bg-emerald-950/20 px-4 font-bold text-emerald-200">ミスなし！ この調子</div>}
           </div>
 
@@ -11312,7 +11313,7 @@ export default function App() {
                 </div>;
               })}
             </div>
-            {gameState.battleLog.length > 6 && <details className="mt-2 rounded-lg border border-slate-700 bg-slate-900/60"><summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-slate-300 marker:content-none"><span className="mr-2 text-slate-500">＋</span>残り {gameState.battleLog.length - 6}問を見る</summary><div className="border-t border-slate-700 px-3 py-2 text-xs text-slate-300">残りの問題は、単語リストからも確認できます。</div></details>}
+            {gameState.battleLog.length > 6 && <details className="mt-2 rounded-lg border border-slate-700 bg-slate-900/60"><summary className="cursor-pointer list-none px-3 py-2 text-xs font-bold text-slate-300 marker:content-none"><span className="mr-2 text-slate-500">＋</span>残り {gameState.battleLog.length - 6}問を見る</summary><div className="border-t border-slate-700 px-3 py-2 text-xs text-slate-300">残りの問題は、問題リストからも確認できます。</div></details>}
           </section>
 
           <div className="mt-4 grid grid-cols-3 gap-2 rounded-2xl border border-cyan-500/20 bg-slate-950/45 p-3">
@@ -11376,7 +11377,7 @@ export default function App() {
               {missedCount > 0 && (
                 <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-900/30 px-4 py-2 text-sm font-bold text-orange-200">
                   <AlertCircle size={16} className="text-orange-300" />
-                  今回の苦手登録: {missedCount}語
+                  今回の苦手登録: {missedCount}問
                 </div>
               )}
           </div>
@@ -11412,14 +11413,14 @@ export default function App() {
               <GameButton onClick={handleRetry} className="w-full text-lg py-4" variant="warning" autoFocus>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>
             )}
             {missedCount > 0 && (
-              <p className="mt-3 text-sm font-bold text-orange-200">今回ミスした {missedCount}語は、この下の「復習に進む」から確認できます。</p>
+              <p className="mt-3 text-sm font-bold text-orange-200">今回ミスした {missedCount}問は、この下の「復習に進む」から確認できます。</p>
             )}
           </div>
 
           <details className="mb-4 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.98),rgba(12,18,32,0.92))] shadow-[0_0_30px_rgba(34,211,238,0.08)]">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-4 text-left font-black text-cyan-100 marker:content-none">
               <span><span className="mr-2 text-cyan-300">＋</span>学習全体の状況を見る</span>
-              <span className="text-sm font-bold text-cyan-200">{learningSummary.masteredCount}語 覚えた</span>
+              <span className="text-sm font-bold text-cyan-200">{learningSummary.masteredCount}問 覚えた</span>
             </summary>
             <div className="border-t border-cyan-500/20 p-4">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -11428,7 +11429,7 @@ export default function App() {
                 <h3 className="mt-1 text-xl font-black text-white">{'\u3053\u3053\u307e\u3067\u306e\u5b66\u7fd2\u72b6\u6cc1'}</h3>
               </div>
               <div className="rounded-full border border-cyan-400/25 bg-cyan-950/40 px-4 py-2 text-sm font-bold text-cyan-100">
-                {learningSummary.playableCount}{'\u5358\u8a9e\u4e2d'} {learningSummary.masteredCount}{'\u5358\u8a9e\u304c\u899a\u3048\u305f'}
+                {formatLearningProgress(learningSummary.playableCount, learningSummary.masteredCount)}
               </div>
             </div>
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">

@@ -9,6 +9,12 @@ const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODUL
 const wordPrompt = buildQuestionAiPrompt({ course: '英検4級', level: 1, text: 'start', meaning: '始める', example: 'School starts at eight.' });
 assert.ok(wordPrompt.includes('School starts at eight.'));
 assert.ok(wordPrompt.includes('意味を例文の場面だけに限定しない'));
+// One source of labels for individual consultation, including the conversation exception.
+for (const [level, isConversation, label] of [[1, false, '単語'], [2, false, '熟語・表現'], [3, false, '英文'], [1, true, '会話表現']]) {
+  const prompt = buildQuestionAiPrompt({ course: isConversation ? '英会話 はじめて' : '英検3級', level, isConversation, text: 'Hello.', meaning: 'こんにちは', example: 'Hello.' });
+  assert.ok(prompt.includes(`次の${label}について教えてください。`));
+  assert.ok(!prompt.includes('例文：'), 'The answer itself is not a supplemental example');
+}
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
 const cleanup = await trackTestBrowser(browser);
 await mkdir('tmp/question-ai-help', { recursive: true });
