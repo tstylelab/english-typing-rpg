@@ -35,6 +35,8 @@ import QuestionAiHelp from './QuestionAiHelp';
 import { useBackdropDismiss } from './useBackdropDismiss';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
 import BackupReminder from './BackupReminder';
+import FocusedBattleActions from './FocusedBattleActions';
+import { FOCUSED_BATTLE_LABELS, selectFocusedQuestions, type FocusedBattle, type FocusedBattleKind } from './focusedBattle';
 import { acknowledgeBackupReminder } from './dailyBackupReminder';
 
 // --- Types & Interfaces ---
@@ -44,7 +46,7 @@ type Level = 1 | 2 | 3;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
 type BattleKeyboardGuideMode = 'off' | 'highlight' | 'table';
-type BattleResult = 'win' | 'lose' | 'draw' | null;
+type BattleResult = 'win' | 'lose' | 'draw' | 'pool-complete' | null;
 type SpeechVoiceMode = 'random' | 'us_female' | 'us_male' | 'uk_female' | 'uk_male';
 type BossStage = 0 | 1 | 2 | 3 | 4;
 type BattleHistoryItem = { damage: number; speed: number };
@@ -162,6 +164,7 @@ type LearningStatusChange = {
 };
 
 type ManualQuestionStatus = {
+  presentedAt?: number;
   longTextPreviousExcess?: boolean;
   longTextSuccessCount?: number;
   longTextSpacingRemaining?: number;
@@ -302,6 +305,7 @@ interface GameState {
   questionCount: number; 
   maxQuestions: number;  
   battleResult: BattleResult;
+  focusedBattle?: FocusedBattle<Question>;
   totalMonstersInStage: number;
   defeatedMonsterIds: string[];
   isNewRecord: boolean; 
@@ -2798,6 +2802,7 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
     Object.entries(typeof statuses === 'object' && statuses !== null ? statuses : {}).map(([key, value]) => [
       key,
       withDerivedLearningLevel({
+        presentedAt: Number.isFinite(value?.presentedAt) ? Math.max(0, Number(value.presentedAt)) : 0,
         longTextPreviousExcess: value?.longTextPreviousExcess === true,
         longTextSuccessCount: Math.min(2, Math.max(0, Math.floor(Number(value?.longTextSuccessCount) || 0))),
         longTextSpacingRemaining: Math.min(5, Math.max(0, Math.floor(Number(value?.longTextSpacingRemaining) || 0))),
@@ -2838,6 +2843,7 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
     for (const [key, statuses] of migrated) {
       const latest = statuses.reduce((a,b) => a.updatedAt >= b.updatedAt ? a : b);
       normalized[key] = withDerivedLearningLevel({ ...latest,
+        presentedAt: Math.max(...statuses.map(s => s.presentedAt ?? 0)),
         listeningLevel: Math.max(...statuses.map(s => s.listeningLevel)) as LearningLevel,
         battleLevel: Math.max(...statuses.map(s => s.battleLevel)) as LearningLevel,
       });
@@ -4996,7 +5002,7 @@ export default function App() {
     const current = getManualQuestionStatus(difficulty, level, question);
     const reviewPool = sessionWeakQuestionsRef.current
       ?? (mode === 'weakness' ? getScopedWeakQuestions(difficulty, level) : null);
-    const poolSize = (reviewPool ?? getEligibleBattleQuestions(difficulty, level, gameState.currentMonsterIndex, mode, getScopedPlayableQuestions(difficulty, level), inputMode)).length;
+    const poolSize = gameState.focusedBattle?.total ?? (reviewPool ?? getEligibleBattleQuestions(difficulty, level, gameState.currentMonsterIndex, mode, getScopedPlayableQuestions(difficulty, level), inputMode)).length;
     const nextAutomaticState = EIKEN_DIFFICULTIES.includes(difficulty) && level !== 1
       ? getNextLongTextStudyState(current, track, outcome, poolSize)
       : getNextAutomaticLearningState(current, track, outcome);
@@ -5012,6 +5018,29 @@ export default function App() {
   const persistManualQuestionStatuses = useCallback((nextStatuses: Record<string, ManualQuestionStatus>) => {
     localStorage.setItem(STORAGE_KEYS.manualQuestionStatuses, JSON.stringify(nextStatuses));
   }, []);
+
+  const recordQuestionPresentation = (difficulty: Difficulty, level: Level, question: Question) => {
+    const key = getQuestionStatusKey(difficulty, level, question);
+    setManualQuestionStatuses(prev => {
+      const status = prev[key] ?? getDefaultManualQuestionStatus();
+      if ((status.presentedAt ?? 0) > 0) return prev;
+      const next = { ...prev, [key]: { ...status, presentedAt: Math.max(1, Date.now()) } };
+      persistManualQuestionStatuses(next);
+      return next;
+    });
+  };
+
+  const getFocusedQuestions = (difficulty: Difficulty, level: Level, kind: FocusedBattleKind) => {
+    const reviewKeys = new Set([
+      ...getScopedWeakQuestions(difficulty, level),
+      ...reviewQueueRef.current.filter(entry => entry.difficulty === difficulty && entry.level === level).map(entry => entry.question),
+    ].map(q => getQuestionStatusKey(difficulty, level, q)));
+    return selectFocusedQuestions(QUESTIONS[difficulty]?.[level] ?? [], kind,
+      q => getManualQuestionStatus(difficulty, level, q),
+      q => getEffectiveLearningLevel(getManualQuestionStatus(difficulty, level, q)),
+      q => reviewKeys.has(getQuestionStatusKey(difficulty, level, q)),
+    );
+  };
 
   const updateManualQuestionStatus = useCallback((
     difficulty: Difficulty,
@@ -6234,7 +6263,7 @@ export default function App() {
             if (playWinSound) soundEngine.playNewRecord();
         } else if (result === 'win') {
             if (playWinSound) soundEngine.playClear();
-        } else {
+        } else if (result !== 'pool-complete') {
             soundEngine.playFail();
         }
         if (finalKeystrokes > maxKeystrokes) {
@@ -6243,7 +6272,7 @@ export default function App() {
         }
       } else {
           if (result === 'win' && playWinSound) soundEngine.playClear();
-          else soundEngine.playFail();
+          else if (result !== 'pool-complete') soundEngine.playFail();
       }
       if (EIKEN_DIFFICULTIES.includes(diff) && level !== 1 && finalBattleLog) {
         const needsReview = missedQs.filter(q => {
@@ -6278,7 +6307,7 @@ export default function App() {
     setGameState(prev => ({ ...prev, screen: 'question-list' }));
   };
 
-  const startGame = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, reviewQuestions?: Question[] | null) => {
+  const startGame = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, reviewQuestions?: Question[] | null, focusKind?: FocusedBattleKind) => {
     const monstersObj = getCourseMonsters(diff, level);
     const guideTargetCount = getGuideTargetCount(diff, level);
     const listeningTargetCount = getListeningTargetCount(diff, level);
@@ -6286,6 +6315,12 @@ export default function App() {
     let indices: number[] = [];
     let totalStageMonsters = 0;
     const playableQuestions = getScopedPlayableQuestions(diff, level);
+
+    const focusedQuestions = focusKind ? shuffleQuestions(getFocusedQuestions(diff, level, focusKind)) : null;
+    if (focusedQuestions?.length === 0) {
+      alert('対象の問題はありません。');
+      return;
+    }
 
     if (playableQuestions.length === 0) {
       alert("この範囲で出題できる問題がありません。除外を見直してください。");
@@ -6356,7 +6391,8 @@ export default function App() {
       startStep = nextUndeatedStep >= 0 ? nextUndeatedStep : 0;
     }
 
-    initBattle(diff, level, mode, inputMode, startStep, indices, selectedList, totalStageMonsters, 0, 0);
+    initBattle(diff, level, mode, inputMode, startStep, indices, selectedList, totalStageMonsters, 0, 0,
+      focusKind && focusedQuestions ? { kind: focusKind, remaining: focusedQuestions, total: focusedQuestions.length } : undefined);
   };
 
   const getStudyContext = (question: Question, diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode): StudyContext => ({
@@ -6364,7 +6400,7 @@ export default function App() {
     answerVisible: mode === 'guide',
   });
 
-  const initBattle = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, stepIndex: number, indices: number[], monsterList: Monster[], totalMonsters: number, currentScore: number, currentKeystrokes: number) => {
+  const initBattle = (diff: Difficulty, level: Level, mode: Mode, inputMode: InputMode, stepIndex: number, indices: number[], monsterList: Monster[], totalMonsters: number, currentScore: number, currentKeystrokes: number, focusedBattle?: FocusedBattle<Question>) => {
     audioHintUsedRef.current = false;
     setAudioHintUsed(false);
     clearPendingBattleEndTimeout();
@@ -6394,7 +6430,13 @@ export default function App() {
     );
     let question: Question;
     const activeReviewQuestions = sessionWeakQuestionsRef.current;
-    if (activeReviewQuestions && activeReviewQuestions.length > 0) {
+    if (focusedBattle) {
+        const firstQuestion = focusedBattle.remaining[0];
+        if (!firstQuestion) return;
+        question = firstQuestion;
+        focusedBattle = { ...focusedBattle, remaining: focusedBattle.remaining.slice(1) };
+        activeReviewEntryRef.current = null;
+    } else if (activeReviewQuestions && activeReviewQuestions.length > 0) {
         question = activeReviewQuestions[Math.floor(Math.random() * activeReviewQuestions.length)];
         activeReviewEntryRef.current = null;
     } else if (mode === 'weakness') {
@@ -6407,6 +6449,7 @@ export default function App() {
     }
 
     aiStudyRecorder.beginBattle();
+    recordQuestionPresentation(diff, level, question);
     aiStudyRecorder.start(getStudyContext(question, diff, level, mode, inputMode));
     setGameState(prev => ({
       ...prev, screen: 'battle', selectedDifficulty: diff, selectedLevel: level, mode: mode, inputMode: inputMode,
@@ -6419,6 +6462,7 @@ export default function App() {
       battleStartScore: currentScore,
       battleStartKeystrokes: currentKeystrokes,
       bossStage,
+      focusedBattle,
     }));
   };
   const initBattleRef = useRef(initBattle);
@@ -6468,7 +6512,9 @@ export default function App() {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 // Find primary action button and click it
-                if (gameState.battleResult === 'win') {
+                if (gameState.battleResult === 'pool-complete') {
+                    setGameState(prev => ({ ...prev, screen: 'mode-select' }));
+                } else if (gameState.battleResult === 'win') {
                     const isNextAvailable = gameState.currentMonsterIndex < gameState.totalMonstersInStage - 1;
                     if (isNextAvailable) {
                          // Next Monster
@@ -6861,13 +6907,22 @@ export default function App() {
       return;
     }
 
+    if (gameState.focusedBattle?.remaining.length === 0) {
+       handleGameEnd('pool-complete', currentScore, newHistory, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, nextKeystrokes, newMissedQs, newBattleLog);
+       setGameState(prev => ({ ...prev, monsterHp: nextHp }));
+       return;
+    }
+
     if (gameState.questionCount >= gameState.maxQuestions) {
        handleGameEnd('draw', currentScore, newHistory, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, nextKeystrokes, newMissedQs, newBattleLog);
        return;
     }
 
     let nextQ: Question;
-    if (activeRemainingQuestions.length > 0) {
+    if (gameState.focusedBattle) {
+      nextQ = gameState.focusedBattle.remaining[0];
+      activeReviewEntryRef.current = null;
+    } else if (activeRemainingQuestions.length > 0) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
       const spaced = isLongText ? spaceLongTextQuestions(activeRemainingQuestions, recentLongTextQuestionsRef.current[scope] ?? [], q => getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q), 3) : activeRemainingQuestions;
       nextQ = spaced[Math.floor(Math.random() * spaced.length)];
@@ -6883,11 +6938,13 @@ export default function App() {
       );
     }
     
+    recordQuestionPresentation(gameState.selectedDifficulty, gameState.selectedLevel, nextQ);
     aiStudyRecorder.start(getStudyContext(nextQ, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode));
     setGameState(prev => ({
       ...prev, monsterHp: nextHp, score: currentScore, combo: skipped ? 0 : prev.combo + 1, currentQuestion: nextQ, userInput: "",
       startTime: null, history: newHistory, questionCount: prev.questionCount + 1, missCount: 0, formattingMissCount: 0, totalKeystrokes: nextKeystrokes, hintLength: 0, currentBattleMissedQuestions: newMissedQs,
-      battleLog: newBattleLog
+      battleLog: newBattleLog,
+      focusedBattle: prev.focusedBattle ? { ...prev.focusedBattle, remaining: prev.focusedBattle.remaining.slice(1) } : undefined,
     }));
   };
   
@@ -10677,6 +10734,7 @@ export default function App() {
             </div>
              <div className="battle-card w-full bg-slate-800/95 backdrop-blur border-4 border-slate-600 rounded-2xl shadow-xl p-4 md:p-5 mt-4 relative">
                  <div className="absolute top-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 left-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div><div className="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-slate-600 shadow-inner"></div>
+                 {gameState.focusedBattle && <p data-focused-battle-label className="mb-2 text-center text-xs font-bold text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回だけ <span className="ml-2">{gameState.questionCount} / {Math.min(gameState.focusedBattle.total, gameState.maxQuestions)}問</span></p>}
                  <div className="battle-controls mb-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                    <div className="flex flex-wrap items-center gap-2">
                      <button
@@ -10963,6 +11021,7 @@ export default function App() {
 
   if (gameState.screen === 'result') {
     const isWin = gameState.battleResult === 'win';
+    const isPoolComplete = gameState.battleResult === 'pool-complete';
     const resultMarkedQuestionKeys = new Set(markedQuestionKeysByScope[getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel)] ?? []);
     const learningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const actualMonsterId = gameState.challengeModeIndices[gameState.currentMonsterIndex];
@@ -11022,9 +11081,10 @@ export default function App() {
               <header className="result-monster-header flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
                 {isWin ? <Trophy size={48} className="h-8 w-8 flex-shrink-0 text-yellow-400 sm:h-12 sm:w-12" /> : <Zap size={48} className="h-8 w-8 flex-shrink-0 text-slate-500 sm:h-12 sm:w-12" />}
                 {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat" name={defeatedMonster.name}><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
-                <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
+                <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : isPoolComplete ? '対象を一巡しました' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : isPoolComplete ? '今回の絞り込みは終了です' : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}</span></p></div>
               </header>
 
+              {gameState.focusedBattle && <p data-focused-battle-result className="mt-2 text-xs font-bold text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回の絞り込みは終了。次は通常の出題に戻ります。</p>}
               <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-600 bg-slate-900/70 px-3 py-2 sm:px-4">
                   <h3 className="text-sm font-black text-white sm:text-base">今回の問題と結果 <span className="ml-1 text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></h3>
@@ -11072,7 +11132,13 @@ export default function App() {
                 <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>
               </section>
 
-              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">これまでに取り組んだ単語</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">語</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">この教材・レベルの問題（未出題を含む）</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">語</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+
+              {gameState.mode !== 'weakness' && <FocusedBattleActions
+                unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
+                learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length}
+                onStart={kind => startGame(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode, null, kind)}
+              />}
 
               {learningChanges.length > 0 && (
                 <section className="rounded-xl border border-emerald-500/25 bg-emerald-950/15 p-3">
@@ -11086,7 +11152,7 @@ export default function App() {
                 </section>
               )}
 
-              {isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+              {isPoolComplete ? <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton> : isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
 
               <section className="rounded-xl border border-slate-600 bg-slate-950/35 p-2"><p className="px-1 pb-2 text-xs font-black text-slate-200">移動・メニュー</p><div className="grid grid-cols-2 gap-2"><GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton><GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="outline">ホームへ</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="outline"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton></div></section>
 
