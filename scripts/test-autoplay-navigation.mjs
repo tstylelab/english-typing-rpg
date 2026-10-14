@@ -14,6 +14,7 @@ function setup(repeat = false) {
   const spoken = [];
   const ctx = {
     autoPlayRunIdRef: { current: 0 }, autoPlayNavigateRef: { current: null },
+    autoPlayRemoveCurrentRef: { current: null },
     autoPlayRepeatRef: { current: repeat }, autoPlaySpeechCleanupRef: { current: null },
     autoPlayTimeoutRef: { current: null }, autoPlayWakeLockWantedRef: { current: false },
     autoPlaySettings: { repeat, playbackRatePercent: 100 },
@@ -22,7 +23,7 @@ function setup(repeat = false) {
     setAutoPlayNowPlaying(value) { ctx.now = value; },
     setIsAutoPlaying(value) { ctx.playing = value; },
     setAutoPlayStatusText() {}, requestAutoPlayWakeLock() {}, releaseAutoPlayWakeLock() {},
-    stopAutoPlay() { ctx.playing = false; },
+    stopAutoPlay() { ctx.playing = false; ctx.autoPlayRunIdRef.current++; ctx.autoPlayRemoveCurrentRef.current = null; ctx.autoPlayNavigateRef.current = null; ctx.now = null; },
     speakAutoPlayEntry(text, options) { spoken.push(text); utterance = options; return () => {}; },
     window: {
       speechSynthesis: { cancel() { utterance?.onend(); } },
@@ -75,3 +76,26 @@ const cycles = setup(true); cycles.ctx.start(entries);
 for (let i = 0; i < entries.length * 100; i++) cycles.end();
 assert.equal(cycles.ctx.now, 'A-word'); assert.equal(cycles.timers.size, 0);
 console.log('PASS: question navigation, repeated examples, shuffled order, boundaries, repeat, rapid clicks, stale speech/timers, replacement session');
+
+// Remove all speech parts of a bookmarked question, even midway through it.
+const removable = entries.map(entry => ({ ...entry, nowPlaying: { questionKey: `scope:${entry.questionIndex}`, questionText: entry.text } }));
+const removal = setup(true); removal.ctx.start(removable); removal.end();
+const oldSpeech = removal.utterance;
+oldSpeech.onend(); const oldTimer = [...removal.timers.values()][0];
+assert.equal(removal.ctx.autoPlayRemoveCurrentRef.current('scope:9'), true);
+assert.equal(removal.ctx.now.questionText, 'B-example');
+assert.equal(removal.ctx.autoPlayRemoveCurrentRef.current('scope:9'), false, 'A stale click must not remove the next question');
+oldSpeech.onend(); oldSpeech.onfailure(); oldTimer();
+assert.equal(removal.ctx.now.questionText, 'B-example'); assert.equal(removal.timers.size, 0);
+removal.nav(-1); assert.equal(removal.ctx.now.questionText, 'B-example', 'Previous must skip removed questions');
+removal.nav(1); assert.equal(removal.ctx.now.questionText, 'C-translation');
+removal.nav(1); assert.equal(removal.ctx.now.questionText, 'B-example', 'Repeat must skip removed questions');
+removal.ctx.autoPlayRemoveCurrentRef.current('scope:2');
+assert.equal(removal.ctx.now.questionText, 'C-translation');
+removal.ctx.autoPlayRemoveCurrentRef.current('scope:7');
+assert.equal(removal.ctx.playing, false, 'Removing the final question stops, even with repeat on');
+assert.equal(removal.ctx.autoPlayRemoveCurrentRef.current, null);
+const lastRemoval = setup(false); lastRemoval.ctx.start(removable); lastRemoval.nav(1); lastRemoval.nav(1);
+lastRemoval.ctx.autoPlayRemoveCurrentRef.current('scope:7');
+assert.equal(lastRemoval.ctx.playing, false, 'Removing the last queued question honors repeat off');
+console.log('PASS: review removal, all speech parts, repeat/previous, stale clicks/callbacks, last and empty queue');

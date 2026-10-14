@@ -228,6 +228,8 @@ type AutoPlayNowPlayingPart = 'text' | 'translation' | 'example';
 type AutoPlayWakeLockState = 'inactive' | 'requesting' | 'active' | 'unavailable' | 'unsupported';
 
 type AutoPlayNowPlaying = {
+  questionKey: string;
+  scopeKey: string;
   courseLabel: string;
   questionText: string;
   translation: string;
@@ -4275,6 +4277,7 @@ export default function App() {
   const autoPlayRepeatRef = useRef(autoPlaySettings.repeat);
   const autoPlayRunIdRef = useRef(0);
   const autoPlayNavigateRef = useRef<((direction: -1 | 1) => void) | null>(null);
+  const autoPlayRemoveCurrentRef = useRef<((questionKey: string) => boolean) | null>(null);
   const autoPlayWakeLockRef = useRef<WakeLockSentinel | null>(null);
   const autoPlayWakeLockWantedRef = useRef(false);
   const autoPlayWakeLockRequestIdRef = useRef(0);
@@ -5274,6 +5277,7 @@ export default function App() {
   const stopAutoPlay = useCallback((statusText: string = '停止しました', interruptSpeech = true) => {
     autoPlayRunIdRef.current += 1;
     autoPlayNavigateRef.current = null;
+    autoPlayRemoveCurrentRef.current = null;
     clearAutoPlayTimeout();
     if (interruptSpeech && typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -7592,6 +7596,7 @@ export default function App() {
         }
         setIsAutoPlaying(false);
         autoPlayNavigateRef.current = null;
+        autoPlayRemoveCurrentRef.current = null;
         setAutoPlayNowPlaying(null);
         setAutoPlayStatusText('一巡しました（リピートOFF）');
         releaseAutoPlayWakeLock();
@@ -7656,6 +7661,24 @@ export default function App() {
       window.speechSynthesis.cancel();
       playAt(targetIndex);
     };
+    autoPlayRemoveCurrentRef.current = (questionKey) => {
+      if (autoPlayRunIdRef.current !== runId || entries[currentIndex]?.nowPlaying.questionKey !== questionKey) return false;
+      const questionIndex = entries[currentIndex].questionIndex;
+      let nextIndex = currentIndex;
+      while (nextIndex > 0 && entries[nextIndex - 1].questionIndex === questionIndex) nextIndex -= 1;
+      // Remove every spoken part of this question, including from future repeats.
+      // Invalidate callbacks before cancel(), including an already scheduled gap.
+      runId = ++autoPlayRunIdRef.current;
+      clearAutoPlayTimeout();
+      window.speechSynthesis.cancel();
+      entries = entries.filter(entry => entry.questionIndex !== questionIndex);
+      if (entries.length === 0) {
+        stopAutoPlay('今回の再生対象をすべて復習から外しました');
+      } else {
+        playAt(nextIndex);
+      }
+      return true;
+    };
     playAt(0);
   };
 
@@ -7676,6 +7699,8 @@ export default function App() {
         question: item, difficulty: gameState.selectedDifficulty, level: gameState.selectedLevel,
       };
       const example = getQuestionExample(difficulty, level, question);
+      const questionKey = getQuestionStatusKey(difficulty, level, question);
+      const scopeKey = getReviewScopeKey(difficulty, level);
       const courseLabel = `${DIFFICULTY_LABELS[difficulty]} · Level ${level}`;
       const nextEntries: Array<{
         questionIndex: number;
@@ -7708,6 +7733,8 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            questionKey,
+            scopeKey,
             courseLabel,
             questionText: question.text,
             translation: getQuestionMeaning(question, difficulty),
@@ -7726,6 +7753,8 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            questionKey,
+            scopeKey,
             courseLabel,
             questionText: question.text,
             translation: getQuestionMeaning(question, difficulty),
@@ -7744,6 +7773,8 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            questionKey,
+            scopeKey,
             courseLabel,
             questionText: question.text,
             translation: getQuestionMeaning(question, difficulty),
@@ -7761,6 +7792,8 @@ export default function App() {
           lang: autoPlayJapaneseVoice?.lang || 'ja-JP',
           voice: autoPlayJapaneseVoice,
           nowPlaying: {
+            questionKey,
+            scopeKey,
             courseLabel,
             questionText: question.text,
             translation: getQuestionMeaning(question, difficulty),
@@ -7779,6 +7812,8 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            questionKey,
+            scopeKey,
             courseLabel,
             questionText: question.text,
             translation: getQuestionMeaning(question, difficulty),
@@ -8575,12 +8610,12 @@ export default function App() {
                       </p>
                     </div>
                   </div>
-                  <div className="mt-4 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
+                  <div data-autoplay-now-playing className="mt-4 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-sm font-bold text-cyan-200">現在再生中</span>
                       <span className="text-xs font-bold text-slate-400">{isAutoPlaying ? '再生中' : '待機中'}</span>
                     </div>
-                    <div className="mt-2 flex gap-2" role="group" aria-label="問題単位で移動">
+                    <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="問題単位で移動">
                       <button
                         type="button"
                         onClick={() => autoPlayNavigateRef.current?.(-1)}
@@ -8599,6 +8634,24 @@ export default function App() {
                       >
                         次の問題 →
                       </button>
+                      {autoPlayNowPlaying && (markedQuestionKeysByScope[autoPlayNowPlaying.scopeKey] ?? []).includes(autoPlayNowPlaying.questionKey) && (
+                        <button
+                          type="button"
+                          disabled={!isAutoPlaying}
+                          onClick={() => {
+                            const { questionKey, scopeKey } = autoPlayNowPlaying;
+                            if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
+                            setMarkedQuestionKeysByScope(prev => ({
+                              ...prev,
+                              [scopeKey]: (prev[scopeKey] ?? []).filter(key => key !== questionKey),
+                            }));
+                          }}
+                          title="この問題を「あとで復習」から外して次へ進みます。今回のリピートでも再生しません。"
+                          className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:cursor-not-allowed disabled:opacity-40"
+                        >
+                          <Bookmark size={14} aria-hidden="true" />復習から外して次へ
+                        </button>
+                      )}
                     </div>
                     {autoPlayNowPlaying ? (
                       <div className="mt-3 space-y-2">
