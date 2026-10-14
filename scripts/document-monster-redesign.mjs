@@ -16,7 +16,7 @@ vm.runInNewContext(ts.transpileModule(app.slice(start,end)+'\nthis.roster=MONSTE
 const before = [...context.roster[level].guide,...context.roster[level].challenge];
 const labels = {comic:'コミカル',cool:'かっこいい',cute:'かわいい',beautiful:'きれい'};
 if (report.count !== 43 || profiles.filter(p=>p.course===course&&p.monsterId[1]===levelText).length !== 43) throw Error('Level not fully activated');
-let text = `# ${course} Level ${level}：新名称・新画像43体（2026-10-05）\n\n`;
+let text = `# ${course} Level ${level}：新名称・新画像43体${report.productionDate ? `（${report.productionDate}）` : ''}\n\n`;
 text += '- 練習20＋バトル23（裏ボス3を含む）＝43キャラ。出題方法で倍に数えていません。\n';
 text += '- 新しい名称に合わせてbuilt-in image_genで各キャラを個別制作。以前の4級以降の画像を改名して使っていません。\n';
 text += '- 同じprofileから級＋既存IDで名前・タイプ・色・台詞・画像を取得。図鑑・トップ・戦闘・勝利・拡大へ反映。\n';
@@ -42,7 +42,7 @@ for (let page=1;page<=3;page++) {
 text += '## 再確認\n\n';
 text += '- `node scripts/test-monster-redesign.mjs`：共通名簿・ID・HP・保存キー、新名称と画像URL・実ファイルの対応。\n';
 text += '- `python scripts/export-monster-redesign.py`：元画像ハッシュ、透過、サイズ、四辺、静止画像、拡大せず変換したこと。\n';
-text += '- UI検査：実際の名前表示、図鑑43画像、トップ/戦闘/勝利/次の敵/練習、拡大/矢印/スワイプ、PC/スマホ幅、読み込み数、撃破記録保持。実機Pixel Tabletの確認は含みません。\n';
+text += '- UI検査は別途実行し、実施結果を追記します。この文書の生成だけではUI確認済みとは扱いません。実機Pixel Tabletの確認は含みません。\n';
 text += '- [個別制作プロンプト・画像ハッシュ・サイズ・台詞](./'+course.toLowerCase()+'-level'+level+'.json)。\n';
 writeFileSync(`docs/monster-redesign/${course.toLowerCase()}-level${level}.md`,text);
 console.log(`Documented ${course} Level ${level}: 43 before/after entries`);

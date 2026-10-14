@@ -25,8 +25,11 @@ const original = [...context.roster[plan.level].guide,...context.roster[plan.lev
 const effectiveAssets = report.assets.map(row => {
   const old = original.find(monster=>monster.id===row.monsterId);
   assert.ok(old,`Unknown monster ${row.monsterId}`);
-  assert.equal(row.type==='boss' && old.type!=='boss',false,`Unexpected new boss ${row.monsterId}`);
-  return {...row,type:old.type==='boss'?'boss':row.type};
+  // The illustration may depict a general or king in a normal enemy slot.
+  // Keep the original gameplay classification in both directions.
+  const type = old.type === 'boss' ? 'boss' : row.type === 'boss' ? old.type : row.type;
+  assert.equal(type === 'boss', old.type === 'boss', `Boss status changed for ${row.monsterId}`);
+  return {...row,type};
 });
 const replacement = effectiveAssets.map(row => {
   for (const size of [256,384,1024]) {

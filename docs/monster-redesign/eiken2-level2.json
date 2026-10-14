@@ -1,0 +1,1263 @@
+{
+  "course": "Eiken2",
+  "level": 2,
+  "count": 43,
+  "generationTool": "built-in image_gen",
+  "oldArtworkReused": false,
+  "totalBytes": {
+    "256": 753914,
+    "384": 1353934,
+    "1024": 6924060
+  },
+  "assets": [
+    {
+      "key": "Eiken2:m2_1",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 1,
+      "monsterId": "m2_1",
+      "name": "くるくるネジ巻きひよこ",
+      "role": "regular",
+      "type": "object",
+      "color": "#eab54b",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "巻きすぎ注意。本人も止め方を知らない。",
+      "dialogueDefeat": "ぜんまいより先に、目が回った。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A wind-up chick made of softly worn yellow tin. Its enormous brass winding key has corkscrewed its tail feathers into a spring; it stares back in annoyed surprise while one skinny orange foot tries to untangle the spring. Tiny serious eyes, pear-shaped body, visible rivets and painted feather edges, polished storybook rendering.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): くるくるネジ巻きひよこ. Subject and medium: A wind-up chick made of softly worn yellow tin. Its enormous brass winding key has corkscrewed its tail feathers into a spring; it stares back in annoyed surprise while one skinny orange foot tries to untangle the spring. Tiny serious eyes, pear-shaped body, visible rivets and painted feather edges, polished storybook rendering..",
+      "sourceHash": "8748d19d4a1af56b783f1c7ed0cd87d7f199f7d3170128e4069aac0e45f7437e",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14970,
+        "384": 25430,
+        "1024": 122944
+      }
+    },
+    {
+      "key": "Eiken2:m2_2",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 2,
+      "monsterId": "m2_2",
+      "name": "おめめぱっちり目薬びん",
+      "role": "regular",
+      "type": "object",
+      "color": "#35bdca",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "片目だけ先に目が覚めました。",
+      "dialogueDefeat": "両目で見ても、見事な勝利だ。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A transparent turquoise eye-drop bottle with asymmetrical huge glassy eyes, one sleepy and one wide awake. It lifts its blue ribbed cap and hooked white dropper like a hat; a single attached drop hangs above its face. Flexible glass-blue arms, little bottle-base feet, glass thickness and liquid refraction, humorous premium painted finish.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): おめめぱっちり目薬びん. Subject and medium: A transparent turquoise eye-drop bottle with asymmetrical huge glassy eyes, one sleepy and one wide awake. It lifts its blue ribbed cap and hooked white dropper like a hat; a single attached drop hangs above its face. Flexible glass-blue arms, little bottle-base feet, glass thickness and liquid refraction, humorous premium painted finish..",
+      "sourceHash": "89e4a32ae9078ccd803df98e14309876cdde147e103db4887e3ca5f4aa8a26d5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 20272,
+        "384": 36384,
+        "1024": 183944
+      },
+      "actualGenerationPrompt": "Use case: stylized-concept. Asset: one original full-body transparent monster sprite for an English-learning RPG. Character: おめめぱっちり目薬びん (do not write the name). A comic tiny eye-drop bottle character with two absurdly huge wide-awake glassy eyes on its turquoise transparent bottle body; short rounded feet formed from the bottle base, thin flexible rubber arms. The ribbed blue cap is lifted above its forehead like a jaunty hat by one hand, with the attached white dropper nozzle forming a long hooked nose, a single clear tear-shaped drop hanging from the tip. One eye is comically exhausted and the other startled wide open, as if its own eye drops woke up only half its face. The bottle has subtle embossed ornamental lines but absolutely no text, letters, numbers, labels, or logos. High-end whimsical fantasy game illustration, richly painted clean contours, convincing glass thickness and blue liquid refractions, tactile molded plastic, expressive appealing asymmetry, clever readable silhouette, detailed professional finish comparable to premium illustrated food/object monsters. One character only, fully visible centered occupying about 75 percent of square canvas, generous clear alpha margin on all four sides. Real transparent background, no scene, no floor, no ground shadow, no glow, no detached particles, no checkerboard. Do not make a generic round mascot or armored warrior."
+    },
+    {
+      "key": "Eiken2:m2_3",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 3,
+      "monsterId": "m2_3",
+      "name": "みるみるホットミルク",
+      "role": "regular",
+      "type": "object",
+      "color": "#f0dbc0",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "ひげは立派。中身はほっとしています。",
+      "dialogueDefeat": "温かいうちに、負けを認めます。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A tall warm ivory enamel milk mug with spindly spoon legs, a handle curled into an arm and a luxurious foamy milk moustache that hides its tiny mouth. Peering downward cross-eyed at its enormous moustache while politely holding its own saucer as a hat. Subtle cream surface, chipped enamel detail, thin steam curled immediately above the mug like hair, not detached effects.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): みるみるホットミルク. Subject and medium: A tall warm ivory enamel milk mug with spindly spoon legs, a handle curled into an arm and a luxurious foamy milk moustache that hides its tiny mouth. Peering downward cross-eyed at its enormous moustache while politely holding its own saucer as a hat. Subtle cream surface, chipped enamel detail, thin steam curled immediately above the mug like hair, not detached effects..",
+      "sourceHash": "5510481d85e661dbc5c2bdea0087406db2110fe1bd0f70a9d3a25421b0f5b9f2",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 12984,
+        "384": 22310,
+        "1024": 104494
+      }
+    },
+    {
+      "key": "Eiken2:m2_4",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 4,
+      "monsterId": "m2_4",
+      "name": "おせっかい蝶番",
+      "role": "regular",
+      "type": "object",
+      "color": "#b38646",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "開けます？閉めます？お世話します！",
+      "dialogueDefeat": "お先にどうぞ。勝利の扉です。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A broad brass door hinge whose two plates act as big fluttering coat lapels. The central pin is a tall narrow smiling face with an absurdly long nose; screw holes form buttons. Tiny bent wire legs, one plate folds inward to usher the other forward like an overhelpful doorman. Convincing aged brass, etched edges and playful mechanical anatomy, not armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): おせっかい蝶番. Subject and medium: A broad brass door hinge whose two plates act as big fluttering coat lapels. The central pin is a tall narrow smiling face with an absurdly long nose; screw holes form buttons. Tiny bent wire legs, one plate folds inward to usher the other forward like an overhelpful doorman. Convincing aged brass, etched edges and playful mechanical anatomy, not armor..",
+      "sourceHash": "8b8bff95c18624fd7ca1789070cdade8f3e792881f0fe1063f1077d4853301d9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15166,
+        "384": 27018,
+        "1024": 143046
+      }
+    },
+    {
+      "key": "Eiken2:m2_5",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 5,
+      "monsterId": "m2_5",
+      "name": "満月ほっぺのこだぬき",
+      "role": "regular",
+      "type": "beast",
+      "color": "#b38354",
+      "mood": "cute",
+      "theme": "かわいい",
+      "dialogueStart": "ほっぺの中は、だいたい夢です。",
+      "dialogueDefeat": "まんまるな負け方も、悪くないね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A small Japanese tanuki with an elongated pear-shaped body and two ridiculously full moon-round cheek pouches, gently squeezing one cheek with its tiny paws. Its little sleepy eyes nearly disappear between cheeks. Warm fur with individual strands, charcoal mask, small striped tail, leaf perched askew on its head. Tender woodland illustration, not uniform toy plastic.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 満月ほっぺのこだぬき. Subject and medium: A small Japanese tanuki with an elongated pear-shaped body and two ridiculously full moon-round cheek pouches, gently squeezing one cheek with its tiny paws. Its little sleepy eyes nearly disappear between cheeks. Warm fur with individual strands, charcoal mask, small striped tail, leaf perched askew on its head. Tender woodland illustration, not uniform toy plastic..",
+      "sourceHash": "6835ccbb35c38934bd320cb7c8499a4f635ea9c5d25cc20a83413ec00f67d4c0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14658,
+        "384": 29066,
+        "1024": 167814
+      }
+    },
+    {
+      "key": "Eiken2:m2_6",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 6,
+      "monsterId": "m2_6",
+      "name": "おどろきガムテープ",
+      "role": "regular",
+      "type": "object",
+      "color": "#b99462",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "びっくりして、自分にくっついた！",
+      "dialogueDefeat": "負けても、なかなか離れません。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An anthropomorphic tan packing tape roll caught in the act of startling itself: hollow cardboard core forms its huge circular shocked mouth, two raised eyes on the outer rim. One long adhesive tape strip has stuck to its own cardboard feet; its thin rolled-tape hands pull in opposite directions. Real glossy tape folds and fibrous kraft core, angular springing silhouette, readable physical joke.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): おどろきガムテープ. Subject and medium: An anthropomorphic tan packing tape roll caught in the act of startling itself: hollow cardboard core forms its huge circular shocked mouth, two raised eyes on the outer rim. One long adhesive tape strip has stuck to its own cardboard feet; its thin rolled-tape hands pull in opposite directions. Real glossy tape folds and fibrous kraft core, angular springing silhouette, readable physical joke..",
+      "sourceHash": "5341b6c859f382b845258da50ae50f874aeafa6e1244dd3f7d882bdfb40ddbc5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16370,
+        "384": 28524,
+        "1024": 137804
+      }
+    },
+    {
+      "key": "Eiken2:m2_7",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 7,
+      "monsterId": "m2_7",
+      "name": "藍染めしっぽのキツネ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#37588f",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "しっぽに夜の色を染めてきました。",
+      "dialogueDefeat": "その答え、きれいに染みました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A slender ivory fox whose huge flowing tail is a richly detailed indigo shibori-dyed fabric plume, with elegant white resist-dye circles and carefully painted woven texture. Tail flows in one large S curve; narrow gentle eyes, pointed muzzle, long delicate legs, soft fur blending naturally into textile. Restrained blue and ivory palette, graceful professional painted fantasy art.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 藍染めしっぽのキツネ. Subject and medium: A slender ivory fox whose huge flowing tail is a richly detailed indigo shibori-dyed fabric plume, with elegant white resist-dye circles and carefully painted woven texture. Tail flows in one large S curve; narrow gentle eyes, pointed muzzle, long delicate legs, soft fur blending naturally into textile. Restrained blue and ivory palette, graceful professional painted fantasy art..",
+      "sourceHash": "659eaca766165b9f97950c47607b473230ed1995c3ba27fb9564383c0b17fbff",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 24216,
+        "384": 43730,
+        "1024": 233020
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_1",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 8,
+      "monsterId": "m2_extra_1",
+      "name": "よちよちカヌレ",
+      "role": "regular",
+      "type": "object",
+      "color": "#a65c2f",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "外はカリッと、足取りはふらっと。",
+      "dialogueDefeat": "ころぶ前に、参りました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A tall fluted French canele pastry tottering on two comically tiny custard feet. Its dark caramel crust is its ribbed overcoat, with a pale custard face peeking out high on one side. Short crust arms stretch sideways for balance as the body leans precariously. One eyebrow determined, the other worried. Delicious glossy baked ridges and tender crumb, hand-painted food fantasy.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): よちよちカヌレ. Subject and medium: A tall fluted French canele pastry tottering on two comically tiny custard feet. Its dark caramel crust is its ribbed overcoat, with a pale custard face peeking out high on one side. Short crust arms stretch sideways for balance as the body leans precariously. One eyebrow determined, the other worried. Delicious glossy baked ridges and tender crumb, hand-painted food fantasy..",
+      "sourceHash": "7efc8ec78e4ca94997d9f026b7b9fc30eb5fbb0e65cbbc7e3a469a34161a60cb",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16218,
+        "384": 29848,
+        "1024": 166690
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_2",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 9,
+      "monsterId": "m2_extra_2",
+      "name": "ささやき貝殻ベル",
+      "role": "regular",
+      "type": "object",
+      "color": "#d7a9b0",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "小さな声でも、届くといいな。",
+      "dialogueDefeat": "勝利の音は、そっと鳴らします。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A delicate shell-bell creature, its pearlescent spiral seashell is a tiny suspended handbell body, with a mother-of-pearl clapper forming a quiet smiling face. Fine branching coral legs and two folded shell-lip hands cupped around its mouth as if whispering. Pink nacre, ivory ridges and subtle violet iridescence, intricate organic silhouette with no glow or loose particles.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ささやき貝殻ベル. Subject and medium: A delicate shell-bell creature, its pearlescent spiral seashell is a tiny suspended handbell body, with a mother-of-pearl clapper forming a quiet smiling face. Fine branching coral legs and two folded shell-lip hands cupped around its mouth as if whispering. Pink nacre, ivory ridges and subtle violet iridescence, intricate organic silhouette with no glow or loose particles..",
+      "sourceHash": "822936f0eb9f1a33084633db56d339479d040d553656579ea53e1f9ba1d78370",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14918,
+        "384": 25410,
+        "1024": 117834
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_3",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 10,
+      "monsterId": "m2_extra_3",
+      "name": "よろよろ三脚カメラ",
+      "role": "regular",
+      "type": "robot",
+      "color": "#96784e",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "はい、動かないで。私が動きます。",
+      "dialogueDefeat": "見事な勝利、ぶれずに撮れました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A vintage box camera alive on three mismatched telescoping tripod legs, one far too long and folded into an awkward knee. Its big glass lens eye looks nervously down at its feet, leather bellows stretch like an accordion neck. A tiny cable release is a curled moustache. Warm leather, brass dials without lettering, polished optical glass; comically off-balance yet fully visible.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): よろよろ三脚カメラ. Subject and medium: A vintage box camera alive on three mismatched telescoping tripod legs, one far too long and folded into an awkward knee. Its big glass lens eye looks nervously down at its feet, leather bellows stretch like an accordion neck. A tiny cable release is a curled moustache. Warm leather, brass dials without lettering, polished optical glass; comically off-balance yet fully visible..",
+      "sourceHash": "85658d260c145da07e12c997cde7e5a9529a1b9adcacbabf9322d550e6520050",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14376,
+        "384": 24984,
+        "1024": 110596
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_4",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 11,
+      "monsterId": "m2_extra_4",
+      "name": "水玉羽のハネハム",
+      "role": "regular",
+      "type": "wing",
+      "color": "#d69c87",
+      "mood": "cute",
+      "theme": "かわいい",
+      "dialogueStart": "飛ぶ前に、ちょっとひと休み。",
+      "dialogueDefeat": "羽をたたんで、拍手します。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A small slim hamster with broad butterfly wings patterned in large creamy polka dots on muted coral. Hamster has modest bead eyes and long whiskers, its cheeks gently full; it has folded one wing around itself like a blanket and is yawning. Fine fur and velvety wing scales, delicate wing veins, intimate detailed storybook painting.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 水玉羽のハネハム. Subject and medium: A small slim hamster with broad butterfly wings patterned in large creamy polka dots on muted coral. Hamster has modest bead eyes and long whiskers, its cheeks gently full; it has folded one wing around itself like a blanket and is yawning. Fine fur and velvety wing scales, delicate wing veins, intimate detailed storybook painting..",
+      "sourceHash": "cb4301cd73eaa4c1e508f5d4f277f36171c2b75929329df96fd7814d7889796f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15242,
+        "384": 26462,
+        "1024": 147894
+      }
+    },
+    {
+      "key": "Eiken2:m2_8",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 12,
+      "monsterId": "m2_8",
+      "name": "ちゃっかりベーグル",
+      "role": "regular",
+      "type": "object",
+      "color": "#bb7f3c",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "穴があっても、抜かりはないよ。",
+      "dialogueDefeat": "その答えには、抜け穴がなかった。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A clever sesame bagel character whose central hole is a monocle-like open window framing one suspicious eye on the far side. Long dough arms thread through its own hole to hide a tiny butter knife behind its back; knobbly baked feet and sly sideways smile on the crust. Golden chewy bread texture, toasted sesame, butter flecks, unusual ring silhouette, no conventional armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ちゃっかりベーグル. Subject and medium: A clever sesame bagel character whose central hole is a monocle-like open window framing one suspicious eye on the far side. Long dough arms thread through its own hole to hide a tiny butter knife behind its back; knobbly baked feet and sly sideways smile on the crust. Golden chewy bread texture, toasted sesame, butter flecks, unusual ring silhouette, no conventional armor..",
+      "sourceHash": "869bee808c4e4ac175cae2836c10fa6c7b45c5c8a1995a5c3119857980deea4f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16510,
+        "384": 30266,
+        "1024": 164354
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_5",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 13,
+      "monsterId": "m2_extra_5",
+      "name": "雪割草のモモンガ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#c4c9e3",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "春の風に、答えを乗せて。",
+      "dialogueDefeat": "ひと足先に、花が咲いたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A Japanese flying squirrel with graceful outspread gliding membranes resembling translucent pale lavender hepatica petals, a small cluster of spring flowers growing along its collar. Long slim body, tiny natural dark eyes, pale silver fur, tail curved elegantly beneath it. Botanical watercolor richness with tangible fine fur and petal veins, quiet light, no sparkles.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 雪割草のモモンガ. Subject and medium: A Japanese flying squirrel with graceful outspread gliding membranes resembling translucent pale lavender hepatica petals, a small cluster of spring flowers growing along its collar. Long slim body, tiny natural dark eyes, pale silver fur, tail curved elegantly beneath it. Botanical watercolor richness with tangible fine fur and petal veins, quiet light, no sparkles..",
+      "sourceHash": "a96b848b8858ffa8ddf1953b87ace9146ba388f95bf1a12e2dab6a06403f38c0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15932,
+        "384": 31566,
+        "1024": 176932
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_6",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 14,
+      "monsterId": "m2_extra_6",
+      "name": "すべり台のロングノーズ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#5bb3ab",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "鼻はすべります。口はすべりません。",
+      "dialogueDefeat": "見事な答えに、ずるっと負けた。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A lanky teal creature with an absurdly long smooth nose curved downward into a playground slide, with tiny attached rounded side rails. Its own stubby hand is sliding down that nose while its tall eyebrows watch anxiously. Narrow torso, huge flat feet, bent knees, soft pebbled skin and glossy polished nose, warm intelligent comic character, no scenery or second character.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): すべり台のロングノーズ. Subject and medium: A lanky teal creature with an absurdly long smooth nose curved downward into a playground slide, with tiny attached rounded side rails. Its own stubby hand is sliding down that nose while its tall eyebrows watch anxiously. Narrow torso, huge flat feet, bent knees, soft pebbled skin and glossy polished nose, warm intelligent comic character, no scenery or second character..",
+      "sourceHash": "720116919412969490deeb21b5358e4db4b298900fe10549a80e8a42a9e0bf27",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14240,
+        "384": 24450,
+        "1024": 110536
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_7",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 15,
+      "monsterId": "m2_extra_7",
+      "name": "目が泳ぐゴーグル",
+      "role": "regular",
+      "type": "object",
+      "color": "#40adc5",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "目が泳いでる？準備運動だよ。",
+      "dialogueDefeat": "答えは、まっすぐ届いたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A pair of swimming goggles turned into a nervous character: two transparent water-filled lens chambers each contain one fish-shaped pupil visibly swimming in opposite directions, fully attached inside the lenses. Flexible rubber nose bridge is its tiny worried mouth; the elastic head strap forms long legs and folded arms. Detailed silicone and clear glass, funny wide horizontal silhouette.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 目が泳ぐゴーグル. Subject and medium: A pair of swimming goggles turned into a nervous character: two transparent water-filled lens chambers each contain one fish-shaped pupil visibly swimming in opposite directions, fully attached inside the lenses. Flexible rubber nose bridge is its tiny worried mouth; the elastic head strap forms long legs and folded arms. Detailed silicone and clear glass, funny wide horizontal silhouette..",
+      "sourceHash": "13a4d359e5decd3ce2a1b3c7061a41d3f0926f9597e68315987a93ba2b542986",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15552,
+        "384": 26092,
+        "1024": 117082
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_8",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 16,
+      "monsterId": "m2_extra_8",
+      "name": "ニコニコ大福のしろ丸",
+      "role": "regular",
+      "type": "slime",
+      "color": "#f2e8de",
+      "mood": "cute",
+      "theme": "かわいい",
+      "dialogueStart": "のびのびいこう。体も気持ちも。",
+      "dialogueDefeat": "笑ったまま、参りました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A soft white daifuku mochi creature with a squashed oval body, small crescent smiling eyes and a contented tiny mouth. One stretchy mochi arm tugs its own cheek into a funny long ribbon while stubby feet peek below; a discreet split shows dark red bean paste. Fine rice-flour dust and translucent tender mochi texture, richly illustrated not flat emoji.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ニコニコ大福のしろ丸. Subject and medium: A soft white daifuku mochi creature with a squashed oval body, small crescent smiling eyes and a contented tiny mouth. One stretchy mochi arm tugs its own cheek into a funny long ribbon while stubby feet peek below; a discreet split shows dark red bean paste. Fine rice-flour dust and translucent tender mochi texture, richly illustrated not flat emoji..",
+      "sourceHash": "8aba2d03e77cff8eff73d495fc05e5cf4f9dcd221733339c624c50d1828a0ddd",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 11756,
+        "384": 21476,
+        "1024": 131528
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_9",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 17,
+      "monsterId": "m2_extra_9",
+      "name": "夜光草のランタンリス",
+      "role": "regular",
+      "type": "beast",
+      "color": "#90a967",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "しっぽの明かりで、ご案内します。",
+      "dialogueDefeat": "次の道も、明るく見えるね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A slender red squirrel carrying its own tail curled into a natural lantern cage of grass stems, enclosing pale luminous seed pods. Gentle small eyes, alert tall ears, fine russet fur and botanical leaf detail. The seed pods are softly bright but cast no external glow or particles. Thoughtful fairy-tale creature with elongated elegant silhouette.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 夜光草のランタンリス. Subject and medium: A slender red squirrel carrying its own tail curled into a natural lantern cage of grass stems, enclosing pale luminous seed pods. Gentle small eyes, alert tall ears, fine russet fur and botanical leaf detail. The seed pods are softly bright but cast no external glow or particles. Thoughtful fairy-tale creature with elongated elegant silhouette..",
+      "sourceHash": "5f5568a66a44a1875d5a70349c7263696983f9fc3db1d7bde07d754ae5792b7a",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 20498,
+        "384": 39120,
+        "1024": 204050
+      }
+    },
+    {
+      "key": "Eiken2:m2_extra_10",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 18,
+      "monsterId": "m2_extra_10",
+      "name": "えりまきカーネーション",
+      "role": "regular",
+      "type": "object",
+      "color": "#d36e94",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "えり元だけで、準備に一時間。",
+      "dialogueDefeat": "きれいに決まりました。あなたの勝ち。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An anthropomorphic carnation flower with a tiny green dignified face almost buried inside a comically oversized ruffled pink petal Elizabethan collar. Long narrow stem torso and angular leaf arms; one leaf hand tries to straighten a petal that keeps covering its eye. Fine velvety petals and waxy green leaves, elegant fussy personality, sophisticated painted detail.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): えりまきカーネーション. Subject and medium: An anthropomorphic carnation flower with a tiny green dignified face almost buried inside a comically oversized ruffled pink petal Elizabethan collar. Long narrow stem torso and angular leaf arms; one leaf hand tries to straighten a petal that keeps covering its eye. Fine velvety petals and waxy green leaves, elegant fussy personality, sophisticated painted detail..",
+      "sourceHash": "147932956ba380676ee3a9e15b19e91a113cf59e01b5a6fbd2a78c718265e08b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14742,
+        "384": 25962,
+        "1024": 123518
+      }
+    },
+    {
+      "key": "Eiken2:m2_9",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 19,
+      "monsterId": "m2_9",
+      "name": "すぐ跳ねるトースト網",
+      "role": "regular",
+      "type": "object",
+      "color": "#a2815e",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "焼き上がるより、跳ね上がる！",
+      "dialogueDefeat": "こんがり、やられました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A lively square wire toast grill with spindly spring-coil legs leaping in surprise. One golden toast slice is secured in the grille like its face, grill lines are expressive eyebrows, two little wire arms grab the frame. Hinged metal grid bends like a jacket, crunchy bread crust and fine stainless wire texture. One self-contained creature, no loose crumbs.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): すぐ跳ねるトースト網. Subject and medium: A lively square wire toast grill with spindly spring-coil legs leaping in surprise. One golden toast slice is secured in the grille like its face, grill lines are expressive eyebrows, two little wire arms grab the frame. Hinged metal grid bends like a jacket, crunchy bread crust and fine stainless wire texture. One self-contained creature, no loose crumbs..",
+      "sourceHash": "10c50ab8dc6ee4d20643ff4e65d4fbf2f36ffef01f97f9a94f572bfc136f8a97",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 20282,
+        "384": 38670,
+        "1024": 193996
+      }
+    },
+    {
+      "key": "Eiken2:m2_10",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "training",
+      "stage": 20,
+      "monsterId": "m2_10",
+      "name": "おかわり大臣サラダボウル",
+      "role": "final-boss",
+      "type": "boss",
+      "color": "#7bba69",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "会議の前に、おかわりはいかが。",
+      "dialogueDefeat": "本日の決議、あなたの勝利です。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A pompous salad-bowl minister: an enormous blue-and-white porcelain bowl is his body, overflowing with ruffled lettuce forming his magnificent formal collar and moustache. Cucumber disks are spectacles, a cherry tomato is the nose, two long salad servers form expressive arms, stout carrot boots. Leaning forward offering his own contents with a grand gesture. Rich glazed ceramic, crisp vegetable translucency, regal but hilariously edible.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): おかわり大臣サラダボウル. Subject and medium: A pompous salad-bowl minister: an enormous blue-and-white porcelain bowl is his body, overflowing with ruffled lettuce forming his magnificent formal collar and moustache. Cucumber disks are spectacles, a cherry tomato is the nose, two long salad servers form expressive arms, stout carrot boots. Leaning forward offering his own contents with a grand gesture. Rich glazed ceramic, crisp vegetable translucency, regal but hilariously edible..",
+      "sourceHash": "5ecdb62bc35df728ac78bde925fa0fda1e689c90e8733b37aee0d762ba1cc97a",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 22066,
+        "384": 40058,
+        "1024": 195270
+      }
+    },
+    {
+      "key": "Eiken2:c2_1",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 1,
+      "monsterId": "c2_1",
+      "name": "赤鋼のトンボヘリックス",
+      "role": "regular",
+      "type": "wing",
+      "color": "#b84037",
+      "mood": "cool",
+      "theme": "かっこいい",
+      "dialogueStart": "風を読んで、一文字ずつ来い。",
+      "dialogueDefeat": "その精度、見事だった。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A sleek red-steel dragonfly helicopter creature with four long translucent wing blades, segmented burnished copper-red thorax, narrow dark compound eyes and a slim tapered tail. Its folded landing legs resemble insect limbs, compact mechanical joints and delicate engraved panels, realistic brushed red metal and transparent wing veins. Dynamic poised three-quarter silhouette, no weapons, no armor suit.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 赤鋼のトンボヘリックス. Subject and medium: A sleek red-steel dragonfly helicopter creature with four long translucent wing blades, segmented burnished copper-red thorax, narrow dark compound eyes and a slim tapered tail. Its folded landing legs resemble insect limbs, compact mechanical joints and delicate engraved panels, realistic brushed red metal and transparent wing veins. Dynamic poised three-quarter silhouette, no weapons, no armor suit..",
+      "sourceHash": "c1f7ffdda1682d2e182687da77a87f9464e22212c9ac315b59fe6857c13afb93",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 19312,
+        "384": 34170,
+        "1024": 174504
+      }
+    },
+    {
+      "key": "Eiken2:c2_2",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 2,
+      "monsterId": "c2_2",
+      "name": "踊るうどんのウドンザ",
+      "role": "regular",
+      "type": "object",
+      "color": "#e4c695",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "こしの強さは、踊りで見せる！",
+      "dialogueDefeat": "一本取られた。うどんだけに。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A flamboyant dancing udon noodle monster: thick ivory noodles twist into a tall flexible dancer with one extravagant noodle moustache and tiny seaweed eyebrows. A lacquer bowl around its hips acts as a flared skirt; scallion rings are bracelets and chopsticks are tucked into its noodle hair. One long noodle leg kicks sideways while the other coils in balance. Delicious glossy dough and rich red lacquer, elastic elegant movement.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 踊るうどんのウドンザ. Subject and medium: A flamboyant dancing udon noodle monster: thick ivory noodles twist into a tall flexible dancer with one extravagant noodle moustache and tiny seaweed eyebrows. A lacquer bowl around its hips acts as a flared skirt; scallion rings are bracelets and chopsticks are tucked into its noodle hair. One long noodle leg kicks sideways while the other coils in balance. Delicious glossy dough and rich red lacquer, elastic elegant movement..",
+      "sourceHash": "40c6ab936ed2a8a4e766408459a6680324d2bb2e3fd2212c25b04e0ad5c8eacf",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16928,
+        "384": 28890,
+        "1024": 119354
+      }
+    },
+    {
+      "key": "Eiken2:c2_3",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 3,
+      "monsterId": "c2_3",
+      "name": "ギラギラ瞳の観覧車",
+      "role": "regular",
+      "type": "robot",
+      "color": "#cb9847",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "目も回るけど、気分も上がる！",
+      "dialogueDefeat": "ぐるっと回って、あなたの勝ち。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A small walking vintage Ferris wheel creature with a broad wheel forming its head. Two huge shiny hub eyes sit asymmetrically in the spokes; little attached empty gondolas form a semicircle of teeth in its beaming grin. Stilt-like support-frame legs, brass crank hands, jewel-toned enamel with fine painted wear. Slightly dizzy expression, graphic circular silhouette without becoming a round blob.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ギラギラ瞳の観覧車. Subject and medium: A small walking vintage Ferris wheel creature with a broad wheel forming its head. Two huge shiny hub eyes sit asymmetrically in the spokes; little attached empty gondolas form a semicircle of teeth in its beaming grin. Stilt-like support-frame legs, brass crank hands, jewel-toned enamel with fine painted wear. Slightly dizzy expression, graphic circular silhouette without becoming a round blob..",
+      "sourceHash": "738b1046513eeb88a7ffe07b5c0beeb7141bcf1135e5169858633786558821c1",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 25594,
+        "384": 45810,
+        "1024": 222500
+      }
+    },
+    {
+      "key": "Eiken2:c2_4",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 4,
+      "monsterId": "c2_4",
+      "name": "花びら舟のチューリア",
+      "role": "regular",
+      "type": "object",
+      "color": "#d995b4",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "花びらの舟で、ゆっくり進もう。",
+      "dialogueDefeat": "いい答えが、岸まで届いたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A tulip-petal boat fairy creature, one elongated pink tulip bloom forms a delicate curved boat-shaped body. A small serene face is nested among inner petals; two long folded green leaves form graceful paddling arms and petal tips form tiny feet. Pearly petal translucency, botanical veins, elegant peach pink and deep green palette. One living flower boat without passenger, water or scenery.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 花びら舟のチューリア. Subject and medium: A tulip-petal boat fairy creature, one elongated pink tulip bloom forms a delicate curved boat-shaped body. A small serene face is nested among inner petals; two long folded green leaves form graceful paddling arms and petal tips form tiny feet. Pearly petal translucency, botanical veins, elegant peach pink and deep green palette. One living flower boat without passenger, water or scenery..",
+      "sourceHash": "cdbc5f60630762252c7961cb8db40596878f304db928119c1b08c1f4113a4af0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 13834,
+        "384": 23698,
+        "1024": 110458
+      }
+    },
+    {
+      "key": "Eiken2:c2_5",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 5,
+      "monsterId": "c2_5",
+      "name": "岩盤の拳士ベドロック",
+      "role": "regular",
+      "type": "beast",
+      "color": "#8e8171",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "拳は大きいが、字は小さく書ける。",
+      "dialogueDefeat": "その答え、岩より固いね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A broad squat rock boxer made of layered sandstone slabs, with ludicrously gigantic blocky fists and a tiny head perched between raised shoulders. One oversized fist gently scratches his head as he wonders how to put his hands down; short mismatched legs. Tiny bemused eyes in stone creases, detailed sediment layers, warm weathered stone, powerful but endearingly awkward, no armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 岩盤の拳士ベドロック. Subject and medium: A broad squat rock boxer made of layered sandstone slabs, with ludicrously gigantic blocky fists and a tiny head perched between raised shoulders. One oversized fist gently scratches his head as he wonders how to put his hands down; short mismatched legs. Tiny bemused eyes in stone creases, detailed sediment layers, warm weathered stone, powerful but endearingly awkward, no armor..",
+      "sourceHash": "3923678d5af74c5b9b8cd7009eaf6a11122d795d5bbd76a9897e62f43f28deb9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 20358,
+        "384": 36054,
+        "1024": 200254
+      }
+    },
+    {
+      "key": "Eiken2:c2_6",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 6,
+      "monsterId": "c2_6",
+      "name": "発酵おしゃべりチーズ壺",
+      "role": "regular",
+      "type": "object",
+      "color": "#c59756",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "熟成した話を、ひとつ聞いてよ。",
+      "dialogueDefeat": "言い返す前に、負けちゃった。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A chatty ceramic cheese crock with its hinged lid thrown back like an upper lip. Stretchy golden cheese forms an enormous curling tongue and thin elastic gesturing arms; the pot body has squinting mischievous eyes above a toothy cheese grin. Two small wooden feet. Rich crackle-glazed ochre pottery, glossy melted cheese and detailed rind textures, unmistakable chattering mouth silhouette.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 発酵おしゃべりチーズ壺. Subject and medium: A chatty ceramic cheese crock with its hinged lid thrown back like an upper lip. Stretchy golden cheese forms an enormous curling tongue and thin elastic gesturing arms; the pot body has squinting mischievous eyes above a toothy cheese grin. Two small wooden feet. Rich crackle-glazed ochre pottery, glossy melted cheese and detailed rind textures, unmistakable chattering mouth silhouette..",
+      "sourceHash": "3c9909d78cf34cbf55614606f1d907073a0bddb49ae6d30b3483ec1decccf7b5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 23030,
+        "384": 41402,
+        "1024": 215704
+      }
+    },
+    {
+      "key": "Eiken2:c2_8",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 7,
+      "monsterId": "c2_8",
+      "name": "琥珀毛の山猫アンブレ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#c89242",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "急がなくても、耳は澄んでいる。",
+      "dialogueDefeat": "その音、ちゃんと届いたよ。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A long-limbed lynx with amber-toned fur, prominent tufted ears and a thick translucent amber chest ruff containing delicate natural plant inclusions. Narrow observant eyes, slender paws, graceful curved back and short tail; tactile fur blends subtly with honey-colored polished amber. Calm warm forest fantasy portrait, not armored, not baby-eyed.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 琥珀毛の山猫アンブレ. Subject and medium: A long-limbed lynx with amber-toned fur, prominent tufted ears and a thick translucent amber chest ruff containing delicate natural plant inclusions. Narrow observant eyes, slender paws, graceful curved back and short tail; tactile fur blends subtly with honey-colored polished amber. Calm warm forest fantasy portrait, not armored, not baby-eyed..",
+      "sourceHash": "ddc53a266f694a50a8d0f57a5ce9ba8ca0b2b32061263407a8f8671f241bec02",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 17942,
+        "384": 31778,
+        "1024": 164138
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_1",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 8,
+      "monsterId": "c2_extra_1",
+      "name": "影羽のスワローエッジ",
+      "role": "regular",
+      "type": "wing",
+      "color": "#384c76",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "静かな羽音も、聞き逃さないで。",
+      "dialogueDefeat": "きれいに、追いつかれたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An elegant swallow whose sweeping navy feathers look like layered indigo silk ribbons. Slender natural bird head and small glossy eyes, long forked tail curling around the lower body, pale silver feather edges. Its folded wing holds a subtle fan shape. Detailed velvety plumage, poised graceful flight, no armor, no glowing outlines or loose feathers.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 影羽のスワローエッジ. Subject and medium: An elegant swallow whose sweeping navy feathers look like layered indigo silk ribbons. Slender natural bird head and small glossy eyes, long forked tail curling around the lower body, pale silver feather edges. Its folded wing holds a subtle fan shape. Detailed velvety plumage, poised graceful flight, no armor, no glowing outlines or loose feathers..",
+      "sourceHash": "bd5d2ec43d4f5196ab7e016b5d4c3dd02dfa7147559df94bd03e631c2203c95c",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15898,
+        "384": 27458,
+        "1024": 127754
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_2",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 9,
+      "monsterId": "c2_extra_2",
+      "name": "はりきりドラムメジャー",
+      "role": "regular",
+      "type": "object",
+      "color": "#c64b43",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "一、二！あれ、足が逆だった。",
+      "dialogueDefeat": "勝利の行進、先頭をどうぞ！",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An enthusiastic drum-major character whose barrel torso is an oversized red marching drum. A long drooping feather plume from his tiny shako keeps tickling his own nose; moustache formed from curved drumsticks, extremely thin striped legs with oversized polished shoes. Drumstick arms point in opposite directions while he marches too seriously. Rich lacquer, taut drum skin and brass rims, funny tall silhouette.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): はりきりドラムメジャー. Subject and medium: An enthusiastic drum-major character whose barrel torso is an oversized red marching drum. A long drooping feather plume from his tiny shako keeps tickling his own nose; moustache formed from curved drumsticks, extremely thin striped legs with oversized polished shoes. Drumstick arms point in opposite directions while he marches too seriously. Rich lacquer, taut drum skin and brass rims, funny tall silhouette..",
+      "sourceHash": "5909b859d4467d9f1396b9cb11f951e72c4e3980b687dcde73da6742c324272f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16300,
+        "384": 27556,
+        "1024": 118978
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_3",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 10,
+      "monsterId": "c2_extra_3",
+      "name": "つやつや黒糖騎士",
+      "role": "regular",
+      "type": "object",
+      "color": "#76442d",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "甘く見たな。そこは正しい。",
+      "dialogueDefeat": "角が取れるほど、参りました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A chunky brown-sugar cube knight with a tiny severe face on one corner of a massive glossy irregular sugar block. A bent teaspoon is his lance and a miniature paper candy cup his shield; comically short feet struggle under the block. Dark caramel crystal facets, warm translucent edges, small worn iron gloves only, determined pouting expression. Funny edible weight, not ornate fantasy armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): つやつや黒糖騎士. Subject and medium: A chunky brown-sugar cube knight with a tiny severe face on one corner of a massive glossy irregular sugar block. A bent teaspoon is his lance and a miniature paper candy cup his shield; comically short feet struggle under the block. Dark caramel crystal facets, warm translucent edges, small worn iron gloves only, determined pouting expression. Funny edible weight, not ornate fantasy armor..",
+      "sourceHash": "5227b50fb4d870d95a7da56ee8c4448df49470184575eca6b9a21413d01c6ff8",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 17670,
+        "384": 32714,
+        "1024": 181954
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_4",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 11,
+      "monsterId": "c2_extra_4",
+      "name": "水紋のトカゲリプト",
+      "role": "regular",
+      "type": "beast",
+      "color": "#429baf",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "波紋みたいに、少しずつ広げよう。",
+      "dialogueDefeat": "その一文字、よく響いたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A slender turquoise lizard whose smooth back scales form concentric watery ripple rings in translucent pale blue. Long curling tail, delicate webbed fingers, modest attentive eyes; it balances on two hind feet with forelegs lightly raised. Detailed wet ceramic-like scales and subtle natural skin texture, calm flowing silhouette, no actual water scene or splash effects.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 水紋のトカゲリプト. Subject and medium: A slender turquoise lizard whose smooth back scales form concentric watery ripple rings in translucent pale blue. Long curling tail, delicate webbed fingers, modest attentive eyes; it balances on two hind feet with forelegs lightly raised. Detailed wet ceramic-like scales and subtle natural skin texture, calm flowing silhouette, no actual water scene or splash effects..",
+      "sourceHash": "8805af0e66447d3b78db1aea7e4788f4f69d1cc7a6d6b0f5cef9022be577aaed",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 17744,
+        "384": 30882,
+        "1024": 151662
+      }
+    },
+    {
+      "key": "Eiken2:c2_9",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 12,
+      "monsterId": "c2_9",
+      "name": "カスタード噴射シュー兵",
+      "role": "regular",
+      "type": "object",
+      "color": "#d1a062",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "中身が出るほど、気合い十分！",
+      "dialogueDefeat": "参った。クリームが先に降参だ。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A jaunty cream-puff soldier whose choux pastry body has burst at one side, thick custard forming a curled moustache and a short attached nozzle-arm. He braces with tiny pastry boots while his other hand tries to hold the pastry lid down. Flaky golden choux crust, rich pale yellow custard, chocolate-button eyes, ridiculous serious face. No detached spray, no ammunition, no generic armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): カスタード噴射シュー兵. Subject and medium: A jaunty cream-puff soldier whose choux pastry body has burst at one side, thick custard forming a curled moustache and a short attached nozzle-arm. He braces with tiny pastry boots while his other hand tries to hold the pastry lid down. Flaky golden choux crust, rich pale yellow custard, chocolate-button eyes, ridiculous serious face. No detached spray, no ammunition, no generic armor..",
+      "sourceHash": "aa7bd3de844f2dcb2fd9406ea5fcbb00081b4d97af6a3e04b2488a65a0efc308",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 18488,
+        "384": 34018,
+        "1024": 183406
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_5",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 13,
+      "monsterId": "c2_extra_5",
+      "name": "金網の大ワシ",
+      "role": "regular",
+      "type": "wing",
+      "color": "#ba9c67",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "見事な網だろう。私も抜けられない。",
+      "dialogueDefeat": "答えは、網をすり抜けたね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A broad-winged eagle made of woven brass wire mesh, with a tiny pompous head and comically oversized hooked beak. One wing has accidentally hooked through its own mesh belly and it looks embarrassed while trying to pull free. Feather shapes defined by meticulously bent wire and warm metal highlights, long thin chicken-like feet, clear open lattice silhouette, no armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 金網の大ワシ. Subject and medium: A broad-winged eagle made of woven brass wire mesh, with a tiny pompous head and comically oversized hooked beak. One wing has accidentally hooked through its own mesh belly and it looks embarrassed while trying to pull free. Feather shapes defined by meticulously bent wire and warm metal highlights, long thin chicken-like feet, clear open lattice silhouette, no armor..",
+      "sourceHash": "d51b94f1a2689e17c0d04334ddb1af820a101bfc92b486d9c129ff929cb119ed",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 29346,
+        "384": 58050,
+        "1024": 317434
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_6",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 14,
+      "monsterId": "c2_extra_6",
+      "name": "ぽっこり浮き輪カバ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#a39ba6",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "浮き輪の方が、少し緊張しています。",
+      "dialogueDefeat": "見事に、浮かばれました。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A long-faced hippo with an enormous soft belly squeezed through a small bright orange inflatable swimming ring. The ring sits tilted like a belt, tiny rear legs dangle, one hand solemnly adjusts miniature goggles high on the forehead. Deep wrinkled gray-violet skin, glossy inflated vinyl seams and valve, bashful sideways glance. Funny proportions and convincing tactile detail.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ぽっこり浮き輪カバ. Subject and medium: A long-faced hippo with an enormous soft belly squeezed through a small bright orange inflatable swimming ring. The ring sits tilted like a belt, tiny rear legs dangle, one hand solemnly adjusts miniature goggles high on the forehead. Deep wrinkled gray-violet skin, glossy inflated vinyl seams and valve, bashful sideways glance. Funny proportions and convincing tactile detail..",
+      "sourceHash": "693c70442e6f01935c79f8038be2307e5a1647d5ddabce8e42639682d269c65a",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15166,
+        "384": 27358,
+        "1024": 152016
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_7",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 15,
+      "monsterId": "c2_extra_7",
+      "name": "銀青のつるぎ魚",
+      "role": "regular",
+      "type": "beast",
+      "color": "#679ab9",
+      "mood": "cool",
+      "theme": "かっこいい",
+      "dialogueStart": "一文字の切れ味、見せてもらおう。",
+      "dialogueDefeat": "鋭い答えだった。見事。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A sleek silver-blue swordfish creature with a long elegant pointed bill, luminous natural scale sheen and a dark cobalt dorsal sail. Its fins fold in a poised fencing-like stance but remain natural fish anatomy; tail curves under its body in an S. Narrow alert eye, brushed silver highlights, detailed overlapping scales. Clear elongated diagonal silhouette, no weapons or armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 銀青のつるぎ魚. Subject and medium: A sleek silver-blue swordfish creature with a long elegant pointed bill, luminous natural scale sheen and a dark cobalt dorsal sail. Its fins fold in a poised fencing-like stance but remain natural fish anatomy; tail curves under its body in an S. Narrow alert eye, brushed silver highlights, detailed overlapping scales. Clear elongated diagonal silhouette, no weapons or armor..",
+      "sourceHash": "9ccecc289f82dad62f0bf9835ee292a63ddfc9affda7199e558043d9e4890b80",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 15182,
+        "384": 26270,
+        "1024": 131270
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_8",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 16,
+      "monsterId": "c2_extra_8",
+      "name": "いじっぱりハンマーくん",
+      "role": "regular",
+      "type": "object",
+      "color": "#8c6f4f",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "曲げないのは、意地とこの柄です。",
+      "dialogueDefeat": "今日は、素直に負けを認めます。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A stubborn claw hammer creature with a huge rectangular steel head forming a frowning face, eyebrows forged into the steel. The long wooden handle bends into a skinny torso with tiny bootlike splinters at the bottom; short wire arms cross obstinately. One claw prong points upward like a cowlick. Beautiful oak grain and brushed tool steel, comic vertical silhouette, no violence.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): いじっぱりハンマーくん. Subject and medium: A stubborn claw hammer creature with a huge rectangular steel head forming a frowning face, eyebrows forged into the steel. The long wooden handle bends into a skinny torso with tiny bootlike splinters at the bottom; short wire arms cross obstinately. One claw prong points upward like a cowlick. Beautiful oak grain and brushed tool steel, comic vertical silhouette, no violence..",
+      "sourceHash": "2ddec0f6604d04458fc2232740fed8061fe217722425115550a3f73f0705bd2c",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 10776,
+        "384": 18724,
+        "1024": 98584
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_9",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 17,
+      "monsterId": "c2_extra_9",
+      "name": "月模様のフクロギツネ",
+      "role": "regular",
+      "type": "beast",
+      "color": "#bfae91",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "月の模様は、夜ごとに覚えたんだ。",
+      "dialogueDefeat": "その答えも、忘れないでね。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An unusual owl-fox hybrid with an elongated fox body, a soft heart-shaped owl facial disk, narrow attentive eyes and a long feathered tail patterned with subtle crescent moon marks. Cream and charcoal plumage blends into russet fur; slender legs, small wings tucked around shoulders. Detailed naturalistic fantasy painting, quiet wise expression, no crown, no effects.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 月模様のフクロギツネ. Subject and medium: An unusual owl-fox hybrid with an elongated fox body, a soft heart-shaped owl facial disk, narrow attentive eyes and a long feathered tail patterned with subtle crescent moon marks. Cream and charcoal plumage blends into russet fur; slender legs, small wings tucked around shoulders. Detailed naturalistic fantasy painting, quiet wise expression, no crown, no effects..",
+      "sourceHash": "4e62c99aadd5b226c26139311e2a944d593f46d7fb4e45081d17c9ff23c2f316",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 19262,
+        "384": 34014,
+        "1024": 179866
+      }
+    },
+    {
+      "key": "Eiken2:c2_extra_10",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 18,
+      "monsterId": "c2_extra_10",
+      "name": "陶板の守り手テラモ",
+      "role": "regular",
+      "type": "robot",
+      "color": "#bf795e",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "割れものにつき、やさしく勝ってね。",
+      "dialogueDefeat": "よかった。心までは割れていない。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A guardian built from broad terracotta roof tiles stacked like an oversized coat, with a tiny sleepy face visible in the top tile. Its long arms are hinged narrow ceramic strips; one hand holds a cracked tile over its head like an umbrella while two small clay feet point inward. Warm fired-clay texture, cobalt glazed accents, rounded chipped edges, protective but awkward stance.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 陶板の守り手テラモ. Subject and medium: A guardian built from broad terracotta roof tiles stacked like an oversized coat, with a tiny sleepy face visible in the top tile. Its long arms are hinged narrow ceramic strips; one hand holds a cracked tile over its head like an umbrella while two small clay feet point inward. Warm fired-clay texture, cobalt glazed accents, rounded chipped edges, protective but awkward stance..",
+      "sourceHash": "afea9ac3fda81d7e4596d7a228b6a2bdd2f35bacfadf7a2a82a897b02a2aec39",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 18658,
+        "384": 32916,
+        "1024": 174822
+      }
+    },
+    {
+      "key": "Eiken2:c2_10",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 19,
+      "monsterId": "c2_10",
+      "name": "ぽたぽた味噌だれ翁",
+      "role": "regular",
+      "type": "object",
+      "color": "#9b613c",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "話の味付けは、少し濃いめじゃ。",
+      "dialogueDefeat": "うむ、味のある答えじゃった。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "An elderly miso-sauce sage whose body is a stout brown earthenware sauce jar. Thick miso glaze forms a long drooping moustache and beard which he carefully gathers with a tiny wooden spoon cane. Eyebrows like folded seaweed, tiny amused eyes, short straw-sandal feet; glaze drips remain attached to beard tips. Rich fermented paste grain, glazed pottery and warm hand-painted detail.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): ぽたぽた味噌だれ翁. Subject and medium: An elderly miso-sauce sage whose body is a stout brown earthenware sauce jar. Thick miso glaze forms a long drooping moustache and beard which he carefully gathers with a tiny wooden spoon cane. Eyebrows like folded seaweed, tiny amused eyes, short straw-sandal feet; glaze drips remain attached to beard tips. Rich fermented paste grain, glazed pottery and warm hand-painted detail..",
+      "sourceHash": "3d90c523d4e310aa31e98d4b618fa7f38b537d83d00fb9bf141f94366ea3274b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 17356,
+        "384": 31996,
+        "1024": 183870
+      }
+    },
+    {
+      "key": "Eiken2:c2_7",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 20,
+      "monsterId": "c2_7",
+      "name": "砂漠航王シロッコラ",
+      "role": "final-boss",
+      "type": "boss",
+      "color": "#d1aa65",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "砂の海でも、道には迷う王なのだ。",
+      "dialogueDefeat": "進路変更。勝利はそちらへ！",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A grand desert sailing king: a long-legged camel whose hump is a beautifully carved miniature wooden sailboat integrated naturally into its body. A vast cream sail doubles as a royal cape, tasselled bridle and an oversized turban slip down over one skeptical eye. He stands proudly with hilariously knobbly knees and a drooping moustached muzzle. Rich warm fur, linen, carved wood and brass details, self-contained creature with no sand or scenery.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 砂漠航王シロッコラ. Subject and medium: A grand desert sailing king: a long-legged camel whose hump is a beautifully carved miniature wooden sailboat integrated naturally into its body. A vast cream sail doubles as a royal cape, tasselled bridle and an oversized turban slip down over one skeptical eye. He stands proudly with hilariously knobbly knees and a drooping moustached muzzle. Rich warm fur, linen, carved wood and brass details, self-contained creature with no sand or scenery..",
+      "sourceHash": "11871f1081c7083ebb25cec7406c3ac3aaa6462118c06d844aabdda262de6707",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 23518,
+        "384": 41740,
+        "1024": 200572
+      }
+    },
+    {
+      "key": "Eiken2:c2_11",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 21,
+      "monsterId": "c2_11",
+      "name": "虹衣女王イリディナ",
+      "role": "hidden-boss",
+      "type": "boss",
+      "color": "#a2a3d6",
+      "mood": "beautiful",
+      "theme": "きれい",
+      "dialogueStart": "重なる色のように、知識を増やして。",
+      "dialogueDefeat": "美しい答えを、ありがとう。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A graceful adult fantasy queen wearing layered iridescent silk robes folded like prism facets, each fold shifting between muted rose, jade and violet. Tall slender silhouette, composed mature face, long flowing dark hair, delicate mother-of-pearl tiara, one hand gathering her trailing robes. Extremely refined fabric weave and pearlescent embroidery, elegant and warm, modest clothing, no wings, glow or particles.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 虹衣女王イリディナ. Subject and medium: A graceful adult fantasy queen wearing layered iridescent silk robes folded like prism facets, each fold shifting between muted rose, jade and violet. Tall slender silhouette, composed mature face, long flowing dark hair, delicate mother-of-pearl tiara, one hand gathering her trailing robes. Extremely refined fabric weave and pearlescent embroidery, elegant and warm, modest clothing, no wings, glow or particles..",
+      "sourceHash": "6cce628258f4a42076b6ab88e97fed5fa99ef9c711bb1641a69233be4bb109b3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 16866,
+        "384": 31432,
+        "1024": 178508
+      }
+    },
+    {
+      "key": "Eiken2:c2_12",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 22,
+      "monsterId": "c2_12",
+      "name": "黒翼将ネロファル",
+      "role": "hidden-boss",
+      "type": "boss",
+      "color": "#39414f",
+      "mood": "cool",
+      "theme": "かっこいい",
+      "dialogueStart": "静かに狙い、確かに答えよ。",
+      "dialogueDefeat": "その一答、認めよう。",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A striking black-winged falcon general with a lean avian body and a single sweeping mantle of layered charcoal feathers edged subtly in bronze. Narrow sharp amber eyes, curved beak, strong talons and small restrained ceremonial breastplate. One wing raised like a commanding cape, fine feather barbs and worn bronze detail, poised asymmetrical stance. No huge weapon or heavy all-over armor.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 黒翼将ネロファル. Subject and medium: A striking black-winged falcon general with a lean avian body and a single sweeping mantle of layered charcoal feathers edged subtly in bronze. Narrow sharp amber eyes, curved beak, strong talons and small restrained ceremonial breastplate. One wing raised like a commanding cape, fine feather barbs and worn bronze detail, poised asymmetrical stance. No huge weapon or heavy all-over armor..",
+      "sourceHash": "120b8a96c17c83d5969d19e13717c4762254661d57b3fa812001c71b09e8a169",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 19214,
+        "384": 34132,
+        "1024": 162008
+      }
+    },
+    {
+      "key": "Eiken2:c2_13",
+      "course": "Eiken2",
+      "level": 2,
+      "area": "battle",
+      "stage": 23,
+      "monsterId": "c2_13",
+      "name": "百面王マスクローネ",
+      "role": "hidden-boss",
+      "type": "boss",
+      "color": "#ba8858",
+      "mood": "comic",
+      "theme": "コミカル",
+      "dialogueStart": "負けた顔だけ、まだ練習中です。",
+      "dialogueDefeat": "この顔に決めた。参りました！",
+      "artFolder": "eiken2-v2-level2",
+      "concept": "A theatrical king whose tall body is a stack of four richly carved wooden comedy masks, each facing a slightly different direction with a distinct expression: pompous, startled, sleepy, laughing. The laughing top face wears a tiny velvet crown; thin articulated wooden arms try to rearrange the lower masks. Long striped trousers and oversized curled shoes, lavish but tasteful gilded carving and red velvet. Humorous narrow towering silhouette, no scary faces or copied characters.",
+      "prompt": "Use case: illustration-story. Asset: one original full-body monster sprite for a children friendly English learning RPG. Genuine transparent alpha background. Square composition. One character only, centered within the central 75 percent of the canvas, generous transparent margin on EVERY edge. Clear distinctive silhouette and expressive face readable at thumbnail scale, polished professional character illustration. The named subject is mandatory. No text, lettering, numerals, logos, scenery, background, checkerboard, ground shadow, outer glow, loose particles, or cropped limbs. Accessories must remain part of this single character. Character name (do not write it): 百面王マスクローネ. Subject and medium: A theatrical king whose tall body is a stack of four richly carved wooden comedy masks, each facing a slightly different direction with a distinct expression: pompous, startled, sleepy, laughing. The laughing top face wears a tiny velvet crown; thin articulated wooden arms try to rearrange the lower masks. Long striped trousers and oversized curled shoes, lavish but tasteful gilded carving and red velvet. Humorous narrow towering silhouette, no scary faces or copied characters..",
+      "sourceHash": "1fa994a680c5e349ab7e8052a8a58332bd23e1c71a88ba5066a3ce94b69bff73",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "bytes": {
+        "256": 14504,
+        "384": 26046,
+        "1024": 121098
+      }
+    }
+  ],
+  "productionDate": "2026-10-13"
+}
