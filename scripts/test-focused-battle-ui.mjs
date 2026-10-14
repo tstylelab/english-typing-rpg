@@ -51,7 +51,21 @@ try {
       localStorage.setItem('etyping_manual_question_statuses', JSON.stringify(manualQuestionStatuses));
     }, { questions });
     await page.goto(url);
-    await startNormal(page);
+    await page.getByRole('button', { name: '教材を選ぶ', exact: true }).click();
+    await page.getByRole('button', { name: 'この教材で始める', exact: true }).click();
+    await page.locator('[data-focus-kind="unseen"]').click();
+    await page.getByRole('dialog', { name: '未出題だけで始める' }).waitFor();
+    await page.keyboard.press('Escape');
+    assert.equal(await page.getByRole('dialog').count(), 0);
+    assert.equal(await page.locator('.battle-screen').count(), 0, 'Cancel must not start a battle');
+    await page.locator('[data-focus-kind="learning"]').click();
+    await page.getByRole('dialog', { name: '学習中だけで始める' }).waitFor();
+    await page.mouse.click(5, 5);
+    assert.equal(await page.getByRole('dialog').count(), 0, 'Outside click cancels mode choice');
+    await page.screenshot({ path: `${output}/mode-${width}.png`, fullPage: true });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+    await page.getByRole('button', { name: /Basic Training/ }).click();
+    assert.equal(await page.locator('[data-focused-battle-label]').count(), 0, 'Canceled choices do not affect normal starts');
     await finishBySkipping(page);
     assert.match(await page.locator('[data-focus-kind="unseen"]').innerText(), /3問/);
     assert.match(await page.locator('[data-focus-kind="learning"]').innerText(), /4問/);
@@ -65,6 +79,9 @@ try {
     assert.equal(await page.locator('[data-focus-kind="unseen"]').isDisabled(), true);
     const statuses = await page.evaluate(() => JSON.parse(localStorage.getItem('etyping_manual_question_statuses')));
     for (const q of unseen) assert.ok(statuses[key(q)].presentedAt > 0);
+    const compactHeight = (await result(page).boundingBox()).height;
+    assert.ok(compactHeight <= 70, `Compact controls use ${compactHeight}px at width ${width}`);
+    console.log(`Filter controls: ${compactHeight}px at width ${width}`);
     await result(page).scrollIntoViewIfNeeded();
     await page.screenshot({ path: `${output}/result-${width}.png` });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
@@ -72,6 +89,17 @@ try {
     await finishBySkipping(page);
     assert.deepEqual((await page.locator('[data-result-question]').allTextContents()).map(text => learning.find(q => text.includes(q.text))?.text).sort(), learning.map(q => q.text).sort(), 'Learning includes new and seen, excludes caution/mastered/excluded');
     await page.getByRole('button', { name: 'コース選択へ戻る', exact: true }).click();
+    for (const modeName of ['Basic Training', 'Listening Training', 'Listening Battle', 'Translation Battle']) {
+      assert.equal(await page.locator('[data-focus-kind="unseen"]').isDisabled(), true);
+      await page.locator('[data-focus-kind="learning"]').click();
+      const dialog = page.getByRole('dialog', { name: '学習中だけで始める' });
+      await dialog.getByRole('button', { name: new RegExp(modeName) }).click();
+      assert.match(await page.locator('[data-focused-battle-label]').innerText(), /学習中だけ.*今回だけ/);
+      assert.equal(await page.getByRole('dialog').count(), 0);
+      await finishBySkipping(page);
+      assert.equal(await page.locator('[data-result-question]').count(), 4, `${modeName} uses only the selected pool`);
+      await page.getByRole('button', { name: 'コース選択へ戻る', exact: true }).click();
+    }
     await page.getByRole('button', { name: /Listening Battle/ }).click();
     assert.equal(await page.locator('[data-focused-battle-label]').count(), 0, 'Mode navigation resets the one-shot pool');
     await page.reload();

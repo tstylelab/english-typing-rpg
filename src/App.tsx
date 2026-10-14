@@ -35,7 +35,7 @@ import QuestionAiHelp from './QuestionAiHelp';
 import { useBackdropDismiss } from './useBackdropDismiss';
 import { speakAutoPlayEntry } from './autoPlaySpeech';
 import BackupReminder from './BackupReminder';
-import FocusedBattleActions from './FocusedBattleActions';
+import FocusedBattleActions, { FocusedBattleModeActions } from './FocusedBattleActions';
 import { FOCUSED_BATTLE_LABELS, selectFocusedQuestions, type FocusedBattle, type FocusedBattleKind } from './focusedBattle';
 import { acknowledgeBackupReminder } from './dailyBackupReminder';
 
@@ -10450,8 +10450,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="relative p-5 md:p-7">
-              <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="relative p-5">
+              <div className="mb-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                     <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
@@ -10462,19 +10462,26 @@ export default function App() {
                   <h1 className="mt-1 text-3xl font-black text-white md:text-4xl">モードをえらぶ</h1>
                   <p className="mt-2 text-sm font-bold text-slate-300">{isConversationCourse ? '相手のひと言を聞いて、自分の返答を英語で組み立てよう。' : '今日の気分に合わせて、練習かチャレンジを選ぼう。'}</p>
                 </div>
-                <div className="grid grid-cols-3 gap-2 text-left sm:min-w-[420px]">
-                  <div className="rounded-lg border border-sky-400/30 bg-sky-500/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                    <div className="flex items-center gap-2 text-sky-200"><BookOpen size={16} /><span className="text-[11px] font-black">学習中</span></div>
-                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.learningCount}</p>
+                <div className="space-y-2 lg:w-[420px] lg:shrink-0">
+                  <div className="grid grid-cols-3 gap-2 text-left">
+                    <div className="rounded-lg border border-sky-400/30 bg-sky-500/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                      <div className="flex items-center gap-2 text-sky-200"><BookOpen size={16} /><span className="text-[11px] font-black">学習中</span></div>
+                      <p className="text-2xl font-black text-white">{learningSummary.learningCount}</p>
+                    </div>
+                    <div className="rounded-lg border border-emerald-400/30 bg-emerald-500/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                      <div className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={16} /><span className="text-[11px] font-black">もう少し</span></div>
+                      <p className="text-2xl font-black text-white">{learningSummary.cautionCount}</p>
+                    </div>
+                    <div className="rounded-lg border border-amber-300/35 bg-amber-400/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                      <div className="flex items-center gap-2 text-amber-200"><Crown size={16} /><span className="text-[11px] font-black">覚えた</span></div>
+                      <p className="text-2xl font-black text-white">{learningSummary.masteredCount}</p>
+                    </div>
                   </div>
-                  <div className="rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                    <div className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={16} /><span className="text-[11px] font-black">もう少し</span></div>
-                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.cautionCount}</p>
-                  </div>
-                  <div className="rounded-lg border border-amber-300/35 bg-amber-400/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                    <div className="flex items-center gap-2 text-amber-200"><Crown size={16} /><span className="text-[11px] font-black">覚えた</span></div>
-                    <p className="mt-2 text-3xl font-black text-white">{learningSummary.masteredCount}</p>
-                  </div>
+                  <FocusedBattleModeActions
+                    unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
+                    learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length}
+                    onStart={(kind, mode, inputMode) => startGame(gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, null, kind)}
+                  />
                 </div>
               </div>
 
