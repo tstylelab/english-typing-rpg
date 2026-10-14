@@ -206,8 +206,12 @@ const getLearningFilterLevel = (source: QuestionListFilter | AutoPlaySource): Le
 };
 type AutoPlaySequenceMode = 'normal' | 'exampleFirst' | 'exampleTextExample';
 
+type ScopedAutoPlayQuestion = { question: Question; difficulty: Difficulty; level: Level };
+
 type AutoPlaySettings = {
   source: AutoPlaySource;
+  markedScope: 'current' | 'all' | 'selected';
+  markedDifficulties: Difficulty[];
   playText: boolean;
   playTranslation: boolean;
   playExample: boolean;
@@ -223,6 +227,7 @@ type AutoPlayNowPlayingPart = 'text' | 'translation' | 'example';
 type AutoPlayWakeLockState = 'inactive' | 'requesting' | 'active' | 'unavailable' | 'unsupported';
 
 type AutoPlayNowPlaying = {
+  courseLabel: string;
   questionText: string;
   translation: string;
   basicMeaning?: string;
@@ -2758,6 +2763,8 @@ const getDefaultWeakQuestionStat = (): WeakQuestionStat => ({
 
 const getDefaultAutoPlaySettings = (): AutoPlaySettings => ({
   source: 'weak',
+  markedScope: 'current',
+  markedDifficulties: [],
   playText: true,
   playTranslation: true,
   playExample: true,
@@ -2962,6 +2969,9 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
 
   return {
     source: normalizedSource,
+    markedScope: typedValue.markedScope === 'all' || typedValue.markedScope === 'selected' ? typedValue.markedScope : 'current',
+    markedDifficulties: Array.isArray(typedValue.markedDifficulties)
+      ? DIFFICULTIES.filter(difficulty => typedValue.markedDifficulties?.includes(difficulty)) : [],
     playText: typeof typedValue.playText === 'boolean' ? typedValue.playText : defaults.playText,
     playTranslation: typeof typedValue.playTranslation === 'boolean' ? typedValue.playTranslation : defaults.playTranslation,
     playExample: typeof typedValue.playExample === 'boolean' ? typedValue.playExample : defaults.playExample,
@@ -5469,6 +5479,8 @@ export default function App() {
       questionListFilter,
       weakListSort,
       autoPlaySettings.source,
+      autoPlaySettings.markedScope,
+      autoPlaySettings.markedDifficulties.join(','),
     ].join('|');
     const previousCriteria = autoPlayListCriteriaRef.current;
     autoPlayListCriteriaRef.current = nextCriteria;
@@ -5485,6 +5497,8 @@ export default function App() {
     gameState.selectedLevel,
     questionListFilter,
     autoPlaySettings.source,
+    autoPlaySettings.markedScope,
+    autoPlaySettings.markedDifficulties,
     stopAutoPlay,
     weakListSort,
   ]);
@@ -7462,6 +7476,23 @@ export default function App() {
       })
     )
   ), [currentScopedQuestions, gameState.selectedDifficulty, gameState.selectedLevel]);
+  const allMarkedPlaybackQuestions = useMemo<ScopedAutoPlayQuestion[]>(() => DIFFICULTIES.flatMap(difficulty =>
+    getAvailableLevels(difficulty).flatMap(level => {
+      const keys = new Set(markedQuestionKeysByScope[getReviewScopeKey(difficulty, level)] ?? []);
+      if (!keys.size) return [];
+      return (QUESTIONS[difficulty]?.[level] ?? []).filter(question => {
+        const key = getQuestionStatusKey(difficulty, level, question);
+        return keys.has(key) && !manualQuestionStatuses[key]?.excluded;
+      }).map(question => ({ question, difficulty, level }));
+    })
+  ), [markedQuestionKeysByScope, manualQuestionStatuses]);
+  const markedPlaybackQuestions = allMarkedPlaybackQuestions.filter(item => autoPlaySettings.markedScope === 'all'
+    || (autoPlaySettings.markedScope === 'selected' ? autoPlaySettings.markedDifficulties.includes(item.difficulty)
+      : item.difficulty === gameState.selectedDifficulty && item.level === gameState.selectedLevel));
+  const markedPlaybackScopeLabel = autoPlaySettings.markedScope === 'all' ? '全級・全Level（英会話を含む）'
+    : autoPlaySettings.markedScope === 'selected' ? `${autoPlaySettings.markedDifficulties.map(d => DIFFICULTY_LABELS[d]).join('・') || '級を選んでください'} / 全Level`
+      : `${DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level ${gameState.selectedLevel}`;
+
   const speechDebugCandidates = speechVoices
     .filter(voice => matchesVoiceLocale(voice, selectedSpeechLocale as 'en-us' | 'en-gb'))
     .map(voice => ({
@@ -7603,7 +7634,7 @@ export default function App() {
     playAt(0);
   };
 
-  const startAutoPlayForQuestions = (targetQuestions: Question[]) => {
+  const startAutoPlayForQuestions = (targetQuestions: (Question | ScopedAutoPlayQuestion)[]) => {
     if (!autoPlaySettings.playText && !autoPlaySettings.playTranslation && !autoPlaySettings.playExample) {
       setAutoPlayStatusText('再生対象を1つ以上選んでください');
       return;
@@ -7615,9 +7646,12 @@ export default function App() {
       ? shuffleQuestions(targetQuestions)
       : targetQuestions;
 
-    const entries = playbackQuestions.flatMap((question, questionIndex) => {
-      const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question);
-      const example = currentQuestionExamples.get(questionKey);
+    const entries = playbackQuestions.flatMap((item, questionIndex) => {
+      const { question, difficulty, level } = 'question' in item ? item : {
+        question: item, difficulty: gameState.selectedDifficulty, level: gameState.selectedLevel,
+      };
+      const example = getQuestionExample(difficulty, level, question);
+      const courseLabel = `${DIFFICULTY_LABELS[difficulty]} · Level ${level}`;
       const nextEntries: Array<{
         questionIndex: number;
         label: string;
@@ -7649,8 +7683,9 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            courseLabel,
             questionText: question.text,
-            translation: getQuestionMeaning(question, gameState.selectedDifficulty),
+            translation: getQuestionMeaning(question, difficulty),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -7666,8 +7701,9 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            courseLabel,
             questionText: question.text,
-            translation: getQuestionMeaning(question, gameState.selectedDifficulty),
+            translation: getQuestionMeaning(question, difficulty),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -7683,8 +7719,9 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            courseLabel,
             questionText: question.text,
-            translation: getQuestionMeaning(question, gameState.selectedDifficulty),
+            translation: getQuestionMeaning(question, difficulty),
             basicMeaning: question.basicMeaning,
             example: example ?? null,
             activePart: 'text',
@@ -7694,13 +7731,14 @@ export default function App() {
 
       if (autoPlaySettings.playTranslation) {
         pushEntry({
-          label: `和訳: ${getQuestionMeaning(question, gameState.selectedDifficulty)}`,
-          text: getQuestionMeaning(question, gameState.selectedDifficulty),
+          label: `和訳: ${getQuestionMeaning(question, difficulty)}`,
+          text: getQuestionMeaning(question, difficulty),
           lang: autoPlayJapaneseVoice?.lang || 'ja-JP',
           voice: autoPlayJapaneseVoice,
           nowPlaying: {
+            courseLabel,
             questionText: question.text,
-            translation: getQuestionMeaning(question, gameState.selectedDifficulty),
+            translation: getQuestionMeaning(question, difficulty),
             basicMeaning: question.basicMeaning,
             example: example ?? null,
             activePart: 'translation',
@@ -7716,8 +7754,9 @@ export default function App() {
           lang: speechConfig.lang,
           voice: speechConfig.voice,
           nowPlaying: {
+            courseLabel,
             questionText: question.text,
-            translation: getQuestionMeaning(question, gameState.selectedDifficulty),
+            translation: getQuestionMeaning(question, difficulty),
             basicMeaning: question.basicMeaning,
             example,
             activePart: 'example',
@@ -7967,14 +8006,14 @@ export default function App() {
           : autoPlaySettings.source === 'weak'
             ? weakQuestionsInView
             : autoPlaySettings.source === 'marked'
-              ? markedQuestionsInView
+              ? markedPlaybackQuestions
               : selectedQuestionsInView
       : [];
     const autoPlayPlayableQuestionCount = wordListToolsOpen
       ? autoPlayTargetQuestions.filter(q => {
         if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
-        const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
-        return !!currentQuestionExamples.get(questionKey);
+        return 'question' in q ? !!getQuestionExample(q.difficulty, q.level, q.question)
+          : !!getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, q);
       }).length
       : 0;
     const learningLevelSelectionOptions: Array<{ level: LearningLevel; label: string; questions: Question[]; className: string }> = wordListToolsOpen ? [
@@ -8034,6 +8073,7 @@ export default function App() {
     };
 
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
+      if (isAutoPlaying && (key === 'markedScope' || key === 'markedDifficulties')) stopAutoPlay('再生範囲の変更に合わせて停止しました');
       if (key === 'repeat') autoPlayRepeatRef.current = Boolean(value);
       setAutoPlaySettings(prev => ({
         ...prev,
@@ -8066,8 +8106,8 @@ export default function App() {
       {
         key: 'marked',
         label: 'あとで復習',
-        count: markedQuestionsInView.length,
-        note: '自分で「あとで復習」に登録したものだけ',
+        count: markedPlaybackQuestions.length,
+        note: '登録したものだけ。複数の級もまとめて再生',
         activeClassName: 'border-yellow-300 bg-yellow-500/15 text-yellow-50',
       },
       {
@@ -8223,6 +8263,13 @@ export default function App() {
                 <button aria-pressed={questionListFilter === 'caution'} onClick={() => setQuestionListFilter('caution')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'caution' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>もう少し</button>
                 <button aria-pressed={questionListFilter === 'mastered'} onClick={() => setQuestionListFilter('mastered')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'mastered' ? 'bg-violet-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>覚えた</button>
                 </div>
+                <button type="button" disabled={allMarkedPlaybackQuestions.length === 0} onClick={() => {
+                  autoPlayListCriteriaRef.current = '';
+                  setAutoPlaySettings(prev => ({ ...prev, source: 'marked', markedScope: 'all' }));
+                  setWordListToolsOpen(true);
+                  requestAnimationFrame(() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+                  startAutoPlayForQuestions(allMarkedPlaybackQuestions);
+                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ 全級のあとで復習を再生 <span className="text-xs">{allMarkedPlaybackQuestions.length}語</span></button>
                 {questionListFilter === 'weak' && (
                   <div className="flex bg-slate-800 p-1 rounded-lg self-start">
                     <button onClick={() => setWeakListSort('recent')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${weakListSort === 'recent' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>最近ミス順</button>
@@ -8304,6 +8351,7 @@ export default function App() {
                 <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
                   <div className="text-xs font-bold text-slate-400">現在の設定</div>
                   <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
+                  {autoPlaySettings.source === 'marked' && <p className="mt-1 max-w-xs text-xs text-yellow-100">{markedPlaybackScopeLabel}</p>}
                   <div className="mt-2 flex items-center justify-between gap-4 text-xs">
                     <span>対象 {autoPlayTargetQuestions.length}語</span>
                     <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}語</span>
@@ -8341,9 +8389,27 @@ export default function App() {
                       </button>
                     ))}
                   </div>
+                  {autoPlaySettings.source === 'marked' && <div data-marked-playback-scope className="mt-3 border-t border-slate-700 pt-3">
+                    <div className="flex flex-wrap items-center gap-2" role="group" aria-label="あとで復習の再生範囲">
+                      <span className="text-xs font-bold text-yellow-100">再生範囲</span>
+                      {([{ key: 'current', label: 'このLevel' }, { key: 'all', label: 'すべての級・Level' }, { key: 'selected', label: '級を選ぶ' }] as const).map(option =>
+                        <button key={option.key} type="button" aria-pressed={autoPlaySettings.markedScope === option.key} onClick={() => updateAutoPlaySetting('markedScope', option.key)} className={`min-h-10 rounded-md border px-3 py-2 text-sm font-bold ${autoPlaySettings.markedScope === option.key ? 'border-yellow-300 bg-yellow-500/15 text-yellow-100' : 'border-slate-600 text-slate-300'}`}>{option.label}</button>
+                      )}
+                    </div>
+                    {autoPlaySettings.markedScope === 'selected' && <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="再生する級">
+                      {DIFFICULTIES.map(difficulty => {
+                        const count = allMarkedPlaybackQuestions.filter(item => item.difficulty === difficulty).length;
+                        return <label key={difficulty} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-md border border-slate-600 px-2 py-1 text-sm text-slate-200">
+                          <input type="checkbox" checked={autoPlaySettings.markedDifficulties.includes(difficulty)} onChange={event => updateAutoPlaySetting('markedDifficulties', event.target.checked ? [...autoPlaySettings.markedDifficulties, difficulty] : autoPlaySettings.markedDifficulties.filter(d => d !== difficulty))} />
+                          {DIFFICULTY_LABELS[difficulty]} <span className="text-xs text-slate-400">{count}語</span>
+                        </label>;
+                      })}
+                    </div>}
+                    <p className="mt-2 text-xs text-slate-400">{markedPlaybackScopeLabel} · 除外中は再生しません。一覧の表示範囲は変わりません。</p>
+                  </div>}
                   {autoPlaySettings.source !== 'all' && autoPlayTargetQuestions.length === 0 && visiblePlayableQuestions.length > 0 && (
                     <p className="mt-4 rounded-lg border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs leading-5 text-amber-100">
-                      このレベルでは、まだ対象語がありません。「このレベル全部」を選ぶと自動再生できます。
+                      この再生範囲には対象語がありません。再生範囲やグループを変更してください。
                     </p>
                   )}
                 </div>
@@ -8523,6 +8589,7 @@ export default function App() {
                     </div>
                     {autoPlayNowPlaying ? (
                       <div className="mt-3 space-y-2">
+                        <p data-autoplay-course className="text-xs font-bold text-cyan-200">{autoPlayNowPlaying.courseLabel}</p>
                         <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'text' ? 'border-cyan-300 bg-cyan-500/15 text-cyan-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
                           <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">用語</div>
                           <div className="mt-1 break-words font-semibold">{autoPlayNowPlaying.questionText}</div>
@@ -9649,11 +9716,7 @@ export default function App() {
     const titleWeakQuestionTexts = new Set(weakQuestions.map(question => question.text));
     const titleWeakQuestions = titlePlayableQuestions.filter(question => titleWeakQuestionTexts.has(question.text));
     const titleSelectionScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
-    const titleMarkedQuestionKeys = new Set(markedQuestionKeysByScope[titleSelectionScopeKey] ?? []);
     const titleSelectedQuestionKeys = new Set(selectedQuestionKeysByScope[titleSelectionScopeKey] ?? []);
-    const titleMarkedQuestions = titlePlayableQuestions.filter(question => (
-      titleMarkedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
-    ));
     const titleSelectedQuestions = titlePlayableQuestions.filter(question => (
       titleSelectedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
     ));
@@ -9667,7 +9730,7 @@ export default function App() {
         : autoPlaySettings.source === 'weak'
           ? titleWeakQuestions
           : autoPlaySettings.source === 'marked'
-            ? titleMarkedQuestions
+            ? markedPlaybackQuestions
             : titleSelectedQuestions;
     const openTitleAutoPlayManager = () => {
       autoPlayScrollRequestedRef.current = true;
