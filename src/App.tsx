@@ -210,8 +210,8 @@ type ScopedAutoPlayQuestion = { question: Question; difficulty: Difficulty; leve
 
 type AutoPlaySettings = {
   source: AutoPlaySource;
-  markedScope: 'current' | 'all' | 'selected';
-  markedDifficulties: Difficulty[];
+  playbackScope: 'current' | 'all' | 'selected';
+  playbackDifficulties: Difficulty[];
   playText: boolean;
   playTranslation: boolean;
   playExample: boolean;
@@ -2763,8 +2763,8 @@ const getDefaultWeakQuestionStat = (): WeakQuestionStat => ({
 
 const getDefaultAutoPlaySettings = (): AutoPlaySettings => ({
   source: 'weak',
-  markedScope: 'current',
-  markedDifficulties: [],
+  playbackScope: 'current',
+  playbackDifficulties: [],
   playText: true,
   playTranslation: true,
   playExample: true,
@@ -2969,9 +2969,14 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
 
   return {
     source: normalizedSource,
-    markedScope: typedValue.markedScope === 'all' || typedValue.markedScope === 'selected' ? typedValue.markedScope : 'current',
-    markedDifficulties: Array.isArray(typedValue.markedDifficulties)
-      ? DIFFICULTIES.filter(difficulty => typedValue.markedDifficulties?.includes(difficulty)) : [],
+    playbackScope: (() => {
+      const scope = typedValue.playbackScope ?? (typedValue.source === 'marked' ? typedValue.markedScope : undefined);
+      return scope === 'all' || scope === 'selected' ? scope : 'current';
+    })(),
+    playbackDifficulties: (() => {
+      const difficulties = typedValue.playbackDifficulties ?? (typedValue.source === 'marked' ? typedValue.markedDifficulties : undefined);
+      return Array.isArray(difficulties) ? DIFFICULTIES.filter(difficulty => difficulties.includes(difficulty)) : [];
+    })(),
     playText: typeof typedValue.playText === 'boolean' ? typedValue.playText : defaults.playText,
     playTranslation: typeof typedValue.playTranslation === 'boolean' ? typedValue.playTranslation : defaults.playTranslation,
     playExample: typeof typedValue.playExample === 'boolean' ? typedValue.playExample : defaults.playExample,
@@ -5479,8 +5484,8 @@ export default function App() {
       questionListFilter,
       weakListSort,
       autoPlaySettings.source,
-      autoPlaySettings.markedScope,
-      autoPlaySettings.markedDifficulties.join(','),
+      autoPlaySettings.playbackScope,
+      autoPlaySettings.playbackDifficulties.join(','),
     ].join('|');
     const previousCriteria = autoPlayListCriteriaRef.current;
     autoPlayListCriteriaRef.current = nextCriteria;
@@ -5497,8 +5502,8 @@ export default function App() {
     gameState.selectedLevel,
     questionListFilter,
     autoPlaySettings.source,
-    autoPlaySettings.markedScope,
-    autoPlaySettings.markedDifficulties,
+    autoPlaySettings.playbackScope,
+    autoPlaySettings.playbackDifficulties,
     stopAutoPlay,
     weakListSort,
   ]);
@@ -7476,21 +7481,40 @@ export default function App() {
       })
     )
   ), [currentScopedQuestions, gameState.selectedDifficulty, gameState.selectedLevel]);
-  const allMarkedPlaybackQuestions = useMemo<ScopedAutoPlayQuestion[]>(() => DIFFICULTIES.flatMap(difficulty =>
-    getAvailableLevels(difficulty).flatMap(level => {
-      const keys = new Set(markedQuestionKeysByScope[getReviewScopeKey(difficulty, level)] ?? []);
-      if (!keys.size) return [];
-      return (QUESTIONS[difficulty]?.[level] ?? []).filter(question => {
+  const playbackPools = useMemo(() => {
+    const pools: Record<AutoPlaySource, ScopedAutoPlayQuestion[]> = { all: [], weak: [], marked: [], selected: [], learning: [], caution: [], mastered: [] };
+    if (gameState.screen !== 'title' && gameState.screen !== 'question-list') return pools;
+    // Weak-word registration has historically been shared by English text.
+    // Keep that rule consistent with the existing word-list weak filter.
+    const weakTexts = new Set(weakQuestions.map(question => question.text));
+    for (const difficulty of DIFFICULTIES) for (const level of getAvailableLevels(difficulty)) {
+      const scope = getReviewScopeKey(difficulty, level);
+      const marked = new Set(markedQuestionKeysByScope[scope] ?? []);
+      const selected = new Set(selectedQuestionKeysByScope[scope] ?? []);
+      for (const question of QUESTIONS[difficulty]?.[level] ?? []) {
         const key = getQuestionStatusKey(difficulty, level, question);
-        return keys.has(key) && !manualQuestionStatuses[key]?.excluded;
-      }).map(question => ({ question, difficulty, level }));
-    })
-  ), [markedQuestionKeysByScope, manualQuestionStatuses]);
-  const markedPlaybackQuestions = allMarkedPlaybackQuestions.filter(item => autoPlaySettings.markedScope === 'all'
-    || (autoPlaySettings.markedScope === 'selected' ? autoPlaySettings.markedDifficulties.includes(item.difficulty)
-      : item.difficulty === gameState.selectedDifficulty && item.level === gameState.selectedLevel));
-  const markedPlaybackScopeLabel = autoPlaySettings.markedScope === 'all' ? '全級・全Level（英会話を含む）'
-    : autoPlaySettings.markedScope === 'selected' ? `${autoPlaySettings.markedDifficulties.map(d => DIFFICULTY_LABELS[d]).join('・') || '級を選んでください'} / 全Level`
+        const status = manualQuestionStatuses[key] ?? getDefaultManualQuestionStatus();
+        if (status.excluded) continue;
+        const item = { question, difficulty, level };
+        pools.all.push(item);
+        if (weakTexts.has(question.text)) pools.weak.push(item);
+        if (marked.has(key)) pools.marked.push(item);
+        if (selected.has(key)) pools.selected.push(item);
+        const learningLevel = getEffectiveLearningLevel(status);
+        pools[learningLevel === 1 ? 'learning' : learningLevel === 2 ? 'caution' : 'mastered'].push(item);
+      }
+    }
+    return pools;
+  }, [gameState.screen, weakQuestions, markedQuestionKeysByScope, selectedQuestionKeysByScope, manualQuestionStatuses]);
+  const scopedPlaybackPools = useMemo(() => {
+    const inScope = (item: ScopedAutoPlayQuestion) => autoPlaySettings.playbackScope === 'all'
+      || (autoPlaySettings.playbackScope === 'selected' ? autoPlaySettings.playbackDifficulties.includes(item.difficulty)
+        : item.difficulty === gameState.selectedDifficulty && item.level === gameState.selectedLevel);
+    return Object.fromEntries(Object.entries(playbackPools).map(([source, items]) => [source, items.filter(inScope)])) as Record<AutoPlaySource, ScopedAutoPlayQuestion[]>;
+  }, [playbackPools, autoPlaySettings.playbackScope, autoPlaySettings.playbackDifficulties, gameState.selectedDifficulty, gameState.selectedLevel]);
+  const allMarkedPlaybackQuestions = playbackPools.marked;
+  const playbackScopeLabel = autoPlaySettings.playbackScope === 'all' ? '全級・全Level（英会話を含む）'
+    : autoPlaySettings.playbackScope === 'selected' ? `${autoPlaySettings.playbackDifficulties.map(d => DIFFICULTY_LABELS[d]).join('・') || '級を選んでください'} / 全Level`
       : `${DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level ${gameState.selectedLevel}`;
 
   const speechDebugCandidates = speechVoices
@@ -7971,7 +7995,6 @@ export default function App() {
       getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q)) === level
     ));
     const listLearningLevel = getLearningFilterLevel(questionListFilter);
-    const autoPlayLearningLevel = getLearningFilterLevel(autoPlaySettings.source);
     const visibleQuestions = listLearningLevel !== undefined
       ? questionsByLearningLevel(listLearningLevel)
       : questionListFilter === 'weak'
@@ -7998,22 +8021,11 @@ export default function App() {
       : questionListFilter === 'marked'
         ? markedQuestionsInView
         : weakQuestionsInView;
-    const autoPlayTargetQuestions = wordListToolsOpen
-      ? autoPlayLearningLevel !== undefined
-        ? questionsByLearningLevel(autoPlayLearningLevel)
-        : autoPlaySettings.source === 'all'
-          ? visiblePlayableQuestions
-          : autoPlaySettings.source === 'weak'
-            ? weakQuestionsInView
-            : autoPlaySettings.source === 'marked'
-              ? markedPlaybackQuestions
-              : selectedQuestionsInView
-      : [];
+    const autoPlayTargetQuestions = wordListToolsOpen ? scopedPlaybackPools[autoPlaySettings.source] : [];
     const autoPlayPlayableQuestionCount = wordListToolsOpen
       ? autoPlayTargetQuestions.filter(q => {
         if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
-        return 'question' in q ? !!getQuestionExample(q.difficulty, q.level, q.question)
-          : !!getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, q);
+        return !!getQuestionExample(q.difficulty, q.level, q.question);
       }).length
       : 0;
     const learningLevelSelectionOptions: Array<{ level: LearningLevel; label: string; questions: Question[]; className: string }> = wordListToolsOpen ? [
@@ -8073,7 +8085,7 @@ export default function App() {
     };
 
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
-      if (isAutoPlaying && (key === 'markedScope' || key === 'markedDifficulties')) stopAutoPlay('再生範囲の変更に合わせて停止しました');
+      if (isAutoPlaying && (key === 'playbackScope' || key === 'playbackDifficulties')) stopAutoPlay('再生範囲の変更に合わせて停止しました');
       if (key === 'repeat') autoPlayRepeatRef.current = Boolean(value);
       setAutoPlaySettings(prev => ({
         ...prev,
@@ -8091,50 +8103,50 @@ export default function App() {
     }> = [
       {
         key: 'all',
-        label: 'このレベル全部',
-        count: visiblePlayableQuestions.length,
-        note: '表示中のレベルを最初から通して復習',
+        label: 'すべての問題',
+        count: scopedPlaybackPools.all.length,
+        note: '選んだ範囲の問題をすべて再生',
         activeClassName: 'border-emerald-300 bg-emerald-500/15 text-emerald-50',
       },
       {
         key: 'weak',
         label: '苦手語だけ',
-        count: weakQuestionsInView.length,
+        count: scopedPlaybackPools.weak.length,
         note: 'ミスして苦手語に残っているものだけ',
         activeClassName: 'border-orange-300 bg-orange-500/15 text-orange-50',
       },
       {
         key: 'marked',
         label: 'あとで復習',
-        count: markedPlaybackQuestions.length,
+        count: scopedPlaybackPools.marked.length,
         note: '登録したものだけ。複数の級もまとめて再生',
         activeClassName: 'border-yellow-300 bg-yellow-500/15 text-yellow-50',
       },
       {
         key: 'selected',
         label: '自分で選んだ語',
-        count: selectedQuestionsInView.length,
-        note: '下の選択ツールで作ったリストを再生',
+        count: scopedPlaybackPools.selected.length,
+        note: '各級・Levelの選択ツールで選んだもの',
         activeClassName: 'border-cyan-300 bg-cyan-500/15 text-cyan-50',
       },
       {
         key: 'learning',
         label: '学習中だけ',
-        count: learningSummary.learningCount,
+        count: scopedPlaybackPools.learning.length,
         note: '学習状態が「学習中」のものだけ',
         activeClassName: 'border-sky-300 bg-sky-500/15 text-sky-50',
       },
       {
         key: 'caution',
         label: 'もう少しだけ',
-        count: learningSummary.cautionCount,
+        count: scopedPlaybackPools.caution.length,
         note: '学習状態が「もう少し」のものだけ',
         activeClassName: 'border-emerald-300 bg-emerald-500/15 text-emerald-50',
       },
       {
         key: 'mastered',
         label: '覚えただけ',
-        count: learningSummary.masteredCount,
+        count: scopedPlaybackPools.mastered.length,
         note: '学習状態が「覚えた」のものだけ',
         activeClassName: 'border-violet-300 bg-violet-500/15 text-violet-50',
       },
@@ -8265,7 +8277,7 @@ export default function App() {
                 </div>
                 <button type="button" disabled={allMarkedPlaybackQuestions.length === 0} onClick={() => {
                   autoPlayListCriteriaRef.current = '';
-                  setAutoPlaySettings(prev => ({ ...prev, source: 'marked', markedScope: 'all' }));
+                  setAutoPlaySettings(prev => ({ ...prev, source: 'marked', playbackScope: 'all' }));
                   setWordListToolsOpen(true);
                   requestAnimationFrame(() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
                   startAutoPlayForQuestions(allMarkedPlaybackQuestions);
@@ -8351,7 +8363,7 @@ export default function App() {
                 <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
                   <div className="text-xs font-bold text-slate-400">現在の設定</div>
                   <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
-                  {autoPlaySettings.source === 'marked' && <p className="mt-1 max-w-xs text-xs text-yellow-100">{markedPlaybackScopeLabel}</p>}
+                  <p className="mt-1 max-w-xs text-xs text-yellow-100">{playbackScopeLabel}</p>
                   <div className="mt-2 flex items-center justify-between gap-4 text-xs">
                     <span>対象 {autoPlayTargetQuestions.length}語</span>
                     <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}語</span>
@@ -8366,8 +8378,26 @@ export default function App() {
                     <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">1</span>
                     <div>
                       <p className="font-black text-white">再生する単語を選ぶ</p>
-                      <p className="mt-1 text-xs text-slate-400">どのグループを連続再生するか選びます。</p>
+                      <p className="mt-1 text-xs text-slate-400">対象範囲と、再生する問題のグループを選びます。</p>
                     </div>
+                  </div>
+                  <div data-playback-scope className="mt-3 border-t border-slate-700 pt-3">
+                    <div className="flex flex-wrap items-center gap-2" role="group" aria-label="連続再生の対象範囲">
+                      <span className="text-xs font-bold text-yellow-100">再生範囲</span>
+                      {([{ key: 'current', label: 'このLevel' }, { key: 'all', label: 'すべての級・Level' }, { key: 'selected', label: '級を選ぶ' }] as const).map(option =>
+                        <button key={option.key} type="button" aria-pressed={autoPlaySettings.playbackScope === option.key} onClick={() => updateAutoPlaySetting('playbackScope', option.key)} className={`min-h-10 rounded-md border px-3 py-2 text-sm font-bold ${autoPlaySettings.playbackScope === option.key ? 'border-yellow-300 bg-yellow-500/15 text-yellow-100' : 'border-slate-600 text-slate-300'}`}>{option.label}</button>
+                      )}
+                    </div>
+                    {autoPlaySettings.playbackScope === 'selected' && <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="再生する級">
+                      {DIFFICULTIES.map(difficulty => {
+                        const count = playbackPools[autoPlaySettings.source].filter(item => item.difficulty === difficulty).length;
+                        return <label key={difficulty} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-md border border-slate-600 px-2 py-1 text-sm text-slate-200">
+                          <input type="checkbox" checked={autoPlaySettings.playbackDifficulties.includes(difficulty)} onChange={event => updateAutoPlaySetting('playbackDifficulties', event.target.checked ? [...autoPlaySettings.playbackDifficulties, difficulty] : autoPlaySettings.playbackDifficulties.filter(d => d !== difficulty))} />
+                          {DIFFICULTY_LABELS[difficulty]} <span className="text-xs text-slate-400">{count}語</span>
+                        </label>;
+                      })}
+                    </div>}
+                    <p className="mt-2 text-xs text-slate-400">{playbackScopeLabel} · 除外中は再生しません。一覧の表示範囲は変わりません。</p>
                   </div>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {autoPlaySourceOptions.map(option => (
@@ -8389,25 +8419,7 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                  {autoPlaySettings.source === 'marked' && <div data-marked-playback-scope className="mt-3 border-t border-slate-700 pt-3">
-                    <div className="flex flex-wrap items-center gap-2" role="group" aria-label="あとで復習の再生範囲">
-                      <span className="text-xs font-bold text-yellow-100">再生範囲</span>
-                      {([{ key: 'current', label: 'このLevel' }, { key: 'all', label: 'すべての級・Level' }, { key: 'selected', label: '級を選ぶ' }] as const).map(option =>
-                        <button key={option.key} type="button" aria-pressed={autoPlaySettings.markedScope === option.key} onClick={() => updateAutoPlaySetting('markedScope', option.key)} className={`min-h-10 rounded-md border px-3 py-2 text-sm font-bold ${autoPlaySettings.markedScope === option.key ? 'border-yellow-300 bg-yellow-500/15 text-yellow-100' : 'border-slate-600 text-slate-300'}`}>{option.label}</button>
-                      )}
-                    </div>
-                    {autoPlaySettings.markedScope === 'selected' && <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="再生する級">
-                      {DIFFICULTIES.map(difficulty => {
-                        const count = allMarkedPlaybackQuestions.filter(item => item.difficulty === difficulty).length;
-                        return <label key={difficulty} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-md border border-slate-600 px-2 py-1 text-sm text-slate-200">
-                          <input type="checkbox" checked={autoPlaySettings.markedDifficulties.includes(difficulty)} onChange={event => updateAutoPlaySetting('markedDifficulties', event.target.checked ? [...autoPlaySettings.markedDifficulties, difficulty] : autoPlaySettings.markedDifficulties.filter(d => d !== difficulty))} />
-                          {DIFFICULTY_LABELS[difficulty]} <span className="text-xs text-slate-400">{count}語</span>
-                        </label>;
-                      })}
-                    </div>}
-                    <p className="mt-2 text-xs text-slate-400">{markedPlaybackScopeLabel} · 除外中は再生しません。一覧の表示範囲は変わりません。</p>
-                  </div>}
-                  {autoPlaySettings.source !== 'all' && autoPlayTargetQuestions.length === 0 && visiblePlayableQuestions.length > 0 && (
+                  {autoPlayTargetQuestions.length === 0 && (
                     <p className="mt-4 rounded-lg border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs leading-5 text-amber-100">
                       この再生範囲には対象語がありません。再生範囲やグループを変更してください。
                     </p>
@@ -9710,28 +9722,7 @@ export default function App() {
         `${getTodayKey()}:${nextBattleProgress}:${todayQuestionCount}:${totalDefeated}`
       )
       : '';
-    const titlePlayableQuestions = currentScopedQuestions.filter(question => (
-      !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, question)
-    ));
-    const titleWeakQuestionTexts = new Set(weakQuestions.map(question => question.text));
-    const titleWeakQuestions = titlePlayableQuestions.filter(question => titleWeakQuestionTexts.has(question.text));
-    const titleSelectionScopeKey = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
-    const titleSelectedQuestionKeys = new Set(selectedQuestionKeysByScope[titleSelectionScopeKey] ?? []);
-    const titleSelectedQuestions = titlePlayableQuestions.filter(question => (
-      titleSelectedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, question))
-    ));
-    const titleAutoPlayLearningLevel = getLearningFilterLevel(autoPlaySettings.source);
-    const titleAutoPlayTargetQuestions = titleAutoPlayLearningLevel !== undefined
-      ? titlePlayableQuestions.filter(question => (
-        getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, question)) === titleAutoPlayLearningLevel
-      ))
-      : autoPlaySettings.source === 'all'
-        ? titlePlayableQuestions
-        : autoPlaySettings.source === 'weak'
-          ? titleWeakQuestions
-          : autoPlaySettings.source === 'marked'
-            ? markedPlaybackQuestions
-            : titleSelectedQuestions;
+    const titleAutoPlayTargetQuestions = scopedPlaybackPools[autoPlaySettings.source];
     const openTitleAutoPlayManager = () => {
       autoPlayScrollRequestedRef.current = true;
       setQuestionListFilter('all');

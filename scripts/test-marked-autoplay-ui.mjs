@@ -41,7 +41,7 @@ try {
     }, { items, excluded });
     await page.goto(process.env.TEST_URL || 'http://127.0.0.1:5189');
     await page.getByRole('button', { name: '連続再生の設定', exact: true }).click();
-    const scope = page.getByRole('group', { name: 'あとで復習の再生範囲' });
+    const scope = page.getByRole('group', { name: '連続再生の対象範囲' });
     assert.equal(await scope.getByRole('button', { name: 'このLevel', exact: true }).getAttribute('aria-pressed'), 'true');
     const start = page.getByRole('button', { name: 'この設定で連続再生を開始', exact: true });
     const stop = page.getByRole('button', { name: '停止', exact: true });
@@ -81,7 +81,7 @@ try {
     await stop.click();
     assert.equal(await grades.getByRole('checkbox', { name: /英検4級/ }).isChecked(), true);
     assert.equal(await grades.getByRole('checkbox', { name: /英検3級/ }).isChecked(), false);
-    await page.locator('[data-marked-playback-scope]').scrollIntoViewIfNeeded();
+    await page.locator('[data-playback-scope]').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `${output}/scope-${width}.png` });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
     assert.deepEqual(errors, []);
