@@ -1,0 +1,84 @@
+/* Playback shares the library's readable type, with a clear settings/content hierarchy. */
+.adventure-playback-page:has(.playback-console) {
+  max-width:1120px;
+  padding-top:16px;
+}
+.playback-console, .playback-settings-dialog, .adventure-playback-heading {
+  font-family:'Segoe UI','BIZ UDPGothic','Hiragino Sans',Meiryo,sans-serif;
+  letter-spacing:normal;
+  text-shadow:none;
+  line-height:1.6;
+}
+.adventure-playback-heading:has(+.playback-console) {gap:14px;margin-bottom:12px}
+.adventure-playback-heading:has(+.playback-console) img {width:76px;height:80px}
+.adventure-playback-heading:has(+.playback-console) h1 {font-size:clamp(26px,2vw,32px);font-weight:700}
+.adventure-playback-heading:has(+.playback-console) span {font-size:16px}
+.playback-console {font-size:clamp(16px,1vw,18px);color:#e9f2f6}
+.playback-summary-heading {display:flex;align-items:center;justify-content:space-between;gap:12px}
+.playback-console .playback-caption {font-size:15px;font-weight:500;color:#bad2df}
+.playback-summary-heading h2 {font-size:clamp(21px,1.6vw,26px);font-weight:700;line-height:1.4}
+.playback-summary-heading h2 span {display:inline-block;margin-left:12px;color:#ffe2a0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.playback-console .playback-edit-settings {display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 18px;flex-shrink:0;border:1px solid #92cddd;border-radius:8px;background:#20465a;color:#f0fbff;font-size:17px;font-weight:600;cursor:pointer;box-shadow:inset 0 1px #ffffff15}
+.playback-console .playback-edit-settings:hover {background:#2d5a70}
+.playback-scope {margin-top:5px;color:#c4dce6;font-size:16px;overflow-wrap:anywhere}
+.playback-settings-summary {margin-top:14px;padding:12px 16px;border:1px solid #597588;border-radius:8px;background:#091d2ccc}
+.playback-read-order {display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
+.playback-read-order strong {font-size:clamp(18px,1.35vw,22px);font-weight:600;color:#f4edcf;overflow-wrap:anywhere}
+.playback-timing-summary {display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:8px}
+.playback-timing-summary>div {display:flex;align-items:baseline;gap:10px}
+.playback-timing-summary dt {font-size:15px;color:#b8cdd9}
+.playback-timing-summary dd {font-size:19px;font-weight:600;color:#eff8fb;font-variant-numeric:tabular-nums}
+.playback-timing-summary dd span {font-size:15px;margin-left:3px;font-weight:400}
+.playback-summary-note {font-size:14px;color:#b3cbd9;margin-top:5px}
+.playback-transport {display:flex;gap:10px;margin-top:14px}
+.playback-status-message {margin-top:8px;color:#ffe0a3;font-size:15px}
+.playback-console .playback-transport>button>span {display:flex;align-items:center;justify-content:center;gap:10px}
+.playback-console .playback-start {display:flex;flex-direction:row;align-items:center;justify-content:center;gap:12px;flex:1;min-width:0;min-height:54px;padding:10px 16px;background:linear-gradient(#fff0b5,#dfb252);border:1px solid #ffdf91;border-radius:8px;color:#33260e;font-size:20px;font-weight:700;box-shadow:inset 0 1px #fff6da,0 3px 0 #805f2d}
+.playback-console .playback-stop {display:flex;flex-direction:row;align-items:center;justify-content:center;min-height:54px;min-width:92px;padding:10px 16px;border:1px solid #8aa5b4;border-radius:8px;background:#173247;color:#e3eff4;font-size:17px}
+.playback-console button:disabled {opacity:.45;cursor:not-allowed}
+.playback-console :is(button,input):focus-visible {outline:3px solid #9ee7ef;outline-offset:3px}
+.playback-switches {display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:9px}
+.playback-switches>label {background:none;border:0;padding:5px 0;min-height:44px;font-size:16px}
+.playback-console .playback-current {padding:16px 20px;margin-top:6px}
+.playback-current .playback-current-title {font-size:17px;font-weight:700;color:#314c5c}
+.playback-current .playback-current-state {font-size:15px;color:#536a74}
+.playback-current [role=group] {margin-top:8px}
+.playback-current [role=group]>button {min-height:44px;font-size:15px;font-weight:600}
+.playback-current [data-autoplay-course] {font-size:15px;font-weight:500;color:#516878}
+.playback-reading-row {display:grid;grid-template-columns:3rem minmax(0,1fr);align-items:baseline;gap:0 12px;padding:7px 12px;border-left:3px solid transparent;border-radius:4px;color:#263f4d}
+.playback-reading-row>div:first-child {font-size:15px;font-weight:600;color:#54716e;letter-spacing:normal}
+.playback-reading-row .text-base {font-size:clamp(19px,1.45vw,24px);line-height:1.55;font-weight:400}
+.playback-reading-row[data-reading-part=text] .text-base {font-size:clamp(25px,2vw,34px);font-weight:600;line-height:1.45}
+.playback-reading-row[data-reading-part=example] {border-top:1px solid #d9cbac;padding-top:12px}
+.playback-reading-row[data-active=true] {border-left-color:#187e83;background:#e4efdc}
+.playback-reading-row .text-xs {font-size:15px}
+.playback-console .playback-wake-status {margin-top:12px;padding:0;border:0;background:none;gap:8px}
+.playback-wake-status>div {display:flex;flex-wrap:wrap;gap:2px 14px}
+.playback-wake-status p {font-size:14px;font-weight:400;line-height:1.6;margin:0;color:#bfd0dc}
+.playback-settings-dialog .text-xs {font-size:14px}
+.playback-settings-dialog .text-sm {font-size:16px}
+.playback-settings-dialog .text-\[11px\] {font-size:13px}
+@media(max-width:640px) {
+  .adventure-playback-page:has(.playback-console) {padding:10px 10px 24px}
+  .adventure-playback-heading:has(+.playback-console) img {width:58px;height:64px}
+  .adventure-playback-heading:has(+.playback-console) span {font-size:14px}
+  .playback-console .playback-edit-settings {min-height:48px;font-size:16px;padding:8px 12px}
+  .playback-summary-heading {align-items:center;gap:8px}
+  .playback-summary-heading h2 {font-size:20px}
+  .playback-summary-heading h2 span {margin-left:8px}
+  .playback-settings-summary {padding:10px 12px;margin-top:10px}
+  .playback-read-order {display:block}
+  .playback-read-order .playback-caption {display:block}
+  .playback-read-order strong {font-size:19px}
+  .playback-timing-summary {gap:4px 12px}
+  .playback-timing-summary>div {gap:6px}
+  .playback-timing-summary dt {font-size:14px}
+  .playback-timing-summary dd {font-size:17px}
+  .playback-console .playback-start {font-size:18px;padding:10px;gap:6px}
+  .playback-console .playback-stop {min-width:68px;padding:10px;font-size:16px}
+  .playback-console .playback-current {padding:12px 10px}
+  .playback-reading-row {grid-template-columns:1fr;gap:3px;padding:6px 8px}
+  .playback-reading-row .col-start-2 {grid-column:1}
+  .playback-reading-row .text-base {font-size:19px}
+  .playback-reading-row[data-reading-part=text] .text-base {font-size:26px}
+}

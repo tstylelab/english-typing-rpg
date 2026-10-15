@@ -13,6 +13,7 @@ function setup(repeat = false) {
   const timers = new Map();
   const spoken = [];
   const ctx = {
+    LOCAL_SILENT_CHECK: false,
     autoPlayRunIdRef: { current: 0 }, autoPlayNavigateRef: { current: null },
     autoPlayRemoveCurrentRef: { current: null },
     autoPlayRepeatRef: { current: repeat }, autoPlaySpeechCleanupRef: { current: null },

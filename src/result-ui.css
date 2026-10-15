@@ -1,0 +1,84 @@
+.result-screen {padding:0 16px 24px;background:linear-gradient(#08192bd9,#050b16f5),url('/designs/course-select-pop.png') center/cover fixed}
+.result-screen>.adventure-navigation {width:calc(100% + 32px);margin-inline:-16px}
+.result-board {margin-top:18px;background:linear-gradient(145deg,#142b40f5,#101d31f5);border-color:#ac894e80}
+.result-celebration {display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,1fr);gap:18px;align-items:center;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid #ac894e66}
+.result-celebration .result-monster-header {border:0;background:transparent;padding:0;gap:14px}
+.result-celebration .result-outcome {font-size:28px;letter-spacing:.06em}
+.result-celebration .result-monster-name {font-size:23px;line-height:1.5}
+.result-celebration .monster-reveal-target {flex-shrink:0}
+.result-learning-gains {padding:8px 18px;border-left:1px solid #a68b5266}
+.result-gains-title {color:#d3ebec;font-size:14px;font-weight:700}
+.result-gains-highlight {color:#f5dfa6;font-size:17px;line-height:1.6}
+.result-gains-highlight strong {font-size:34px;margin-inline:6px;font-weight:700}
+.result-gains-highlight>span {display:inline-block;font-size:14px;margin-left:16px;color:#b9e9de}
+.result-gains-highlight b {font-size:22px;margin-inline:3px}
+.result-answer-summary,.result-returned {font-size:13px;color:#b9cddd;line-height:1.8}
+.result-returned {color:#ead6b3}
+.result-layout {display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.45fr);gap:18px;align-items:start}
+.result-actions {display:flex;flex-direction:column;gap:12px;min-width:0}
+.result-next-actions {display:flex;flex-direction:column;gap:10px}
+.result-next-actions>button:first-child {font-size:18px;min-height:58px}
+.result-next-actions>button:disabled {opacity:.5;cursor:default}
+.result-review-current {width:100%;min-height:44px}
+.result-review-current>span {display:flex;align-items:center;justify-content:center;gap:8px}
+.result-next-actions [data-focused-battle-actions] {padding:10px 0 0;border-top:1px solid #64748b55}
+.result-next-actions [data-focused-battle-actions] button {font-size:13px;min-height:44px}
+.result-destinations {display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;padding-top:2px}
+.result-destinations button {display:flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:7px 4px;border:1px solid #657d905c;border-radius:6px;background:#0b1a2b;color:#cce0ed;font-size:13px}
+.result-destinations button:hover {background:#23465a;color:white}
+.result-destinations button:focus-visible {outline:2px solid #9feafa;outline-offset:3px}
+.result-learning-summary {padding:10px 12px;border:1px solid #5f849755;background:#0b2736;border-radius:8px}
+.result-learning-summary h3 {font-size:13px;color:#b9d9e8;margin-bottom:5px}
+.result-learning-summary>div {display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:#cfe1ed}
+.result-learning-summary b {font-size:18px;display:inline-block;margin-left:4px;color:#f0f7ff}
+.result-more {border-top:1px solid #5a748550}
+.result-more>summary {padding:9px 0;font-size:13px;color:#cadde9;cursor:pointer;min-height:40px}
+.result-detail-content {display:flex;flex-direction:column;gap:10px;padding-bottom:8px}
+.result-weak-actions {display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.result-question-english {display:block;font-family:Arial,Meiryo,sans-serif;font-size:17px;line-height:1.5;font-weight:700;color:#ddf5ff;overflow-wrap:anywhere}
+.result-question-meaning {display:block;font-size:14px;line-height:1.7;color:#cddae5;margin-top:2px}
+.result-grammar-note {font-size:13px;margin-top:5px;line-height:1.7;color:#f3e7c7}
+.result-grammar-note summary {color:#dec995;cursor:pointer}
+.result-grammar-note p {padding-top:5px}
+.result-questions [data-result-question]>div:last-child {padding-left:40px;margin-top:5px}
+.result-questions [data-result-status] {font-size:12px;white-space:nowrap}
+.result-questions .grammar-guide-link {font-size:12px;font-weight:400;min-height:36px;max-width:100%;white-space:normal;text-align:left}
+[data-focused-battle-result] {margin-bottom:12px}
+@media(max-width:900px) {
+  .result-celebration {grid-template-columns:1fr;gap:8px}
+  .result-learning-gains {border:0;padding:4px 0}
+  .result-layout {grid-template-columns:1fr}
+  .result-actions {display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+  .result-next-actions {grid-row:span 3}
+  .result-more {grid-column:2}
+}
+@media(max-width:600px) {
+  .result-screen {padding:0 8px 16px}
+  .result-screen>.adventure-navigation {width:calc(100% + 16px);margin-inline:-8px}
+  .result-screen .adventure-navigation nav {gap:0}
+  .result-screen .adventure-navigation nav button {padding-inline:3px}
+  .result-board {padding:12px;margin-top:10px}
+  .result-celebration {margin-bottom:12px;padding-bottom:10px}
+  .result-celebration .result-monster-header {display:flex;gap:10px}
+  .result-screen .result-celebration .result-monster-heading {display:block;flex:1;min-width:0}
+  .result-celebration .result-monster-header>svg {display:none}
+  .result-celebration .monster-reveal-target {width:76px}
+  .result-celebration .result-outcome {font-size:22px}
+  .result-celebration .result-monster-name {font-size:18px}
+  .result-celebration [data-result-course] {font-size:12px}
+  .result-gains-title {display:none}
+  .result-gains-highlight strong {font-size:27px}
+  .result-gains-highlight>span {margin-left:12px;font-size:13px}
+  .result-answer-summary {font-size:12px}
+  .result-layout {display:flex;flex-direction:column;gap:12px}
+  .result-actions {display:contents}
+  .result-next-actions {order:0;width:100%}
+  .result-questions {order:1;width:100%}
+  .result-destinations {order:2;width:100%;grid-template-columns:1fr 1fr}
+  .result-learning-summary {order:3;width:100%}
+  .result-more {order:4;width:100%}
+  .result-questions [data-result-question] {padding:12px}
+  .result-questions [data-result-question]>div:nth-child(2) {flex-direction:row;align-items:center;justify-content:space-between;padding-left:40px;margin-top:5px}
+  .result-questions [data-result-question]>div:last-child {padding-left:40px}
+  .result-question-english {font-size:16px}
+}

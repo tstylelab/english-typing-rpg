@@ -75,7 +75,7 @@ function QuestionDialog({ onClose, ...context }: QuestionAiContext & { onClose: 
   return <dialog ref={dialog} {...backdrop} aria-labelledby={headingId} onCancel={event => { event.preventDefault(); close(); }} onKeyDown={event => event.stopPropagation()} className="fixed inset-0 m-auto max-h-[85dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-xl border border-violet-400/50 bg-slate-900 p-4 text-slate-100 shadow-2xl backdrop:bg-slate-950/70">
     <div className="flex items-center justify-between gap-3">
       <h2 id={headingId} className="font-bold text-violet-100">この問題をAIに相談</h2>
-      <button type="button" autoFocus onClick={close} aria-label="相談を閉じて結果に戻る" className="flex min-h-10 min-w-10 items-center justify-center rounded-lg hover:bg-slate-700"><X size={20} /></button>
+      <button type="button" autoFocus onClick={close} aria-label="相談を閉じる" className="flex min-h-10 min-w-10 items-center justify-center rounded-lg hover:bg-slate-700"><X size={20} /></button>
     </div>
     <p className="mt-2 text-xs text-slate-400">{context.course} · Level {context.level}</p>
     <p className="mt-1 break-words font-bold text-cyan-100">{context.text}</p>

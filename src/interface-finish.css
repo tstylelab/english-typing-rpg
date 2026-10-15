@@ -1,0 +1,101 @@
+/* Final navigation and review controls; saved data and battle geometry stay in App. */
+.home-header-player {display:flex;align-items:center;gap:8px;min-width:0;min-height:60px;color:#d9ebf5;font-size:14px}
+.home-header-player label {white-space:nowrap}
+.home-header-player select {min-width:100px;max-width:180px;min-height:44px;padding:6px 10px;border:1px solid #839fae;border-radius:6px;background:#122e42;color:#fff0c4;font-size:17px;font-weight:600}
+.adventure-navigation .home-header-player button {font-size:14px;padding-inline:8px;text-decoration:underline;text-underline-offset:4px}
+.home-header-player select:focus-visible {outline:3px solid #a4eafa;outline-offset:3px}
+.home-header-defeated {display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:14px;margin-left:10px}
+.home-header-defeated svg {color:#f4d483;flex-shrink:0}
+.home-header-defeated strong {font-size:21px;color:#ffe7ad;font-variant-numeric:tabular-nums}
+.playback-targets-button {display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:8px 12px;border:1px solid #83c4cf;border-radius:7px;background:#143b4d;color:#e7f9fc;font-size:16px;cursor:pointer}
+.playback-targets-button:hover {background:#225367}
+.playback-targets-button span {color:#b9eced;font-variant-numeric:tabular-nums;white-space:nowrap}
+.playback-console>.playback-targets-button {margin-top:9px}
+.playback-targets-settings-link {margin-top:12px}
+.playback-targets-content {padding:16px 20px;font-size:16px}
+.playback-targets-source {font-size:20px;color:#ffe4a5}
+.playback-targets-source+p {color:#c6dce6;overflow-wrap:anywhere}
+.playback-targets-note {color:#bbceda;font-size:14px;margin-top:6px}
+.playback-targets-search {display:grid;gap:6px;margin-top:14px;color:#cce2ec;font-size:15px}
+.playback-targets-search input {width:100%;min-height:44px;border:1px solid #7a9ba9;border-radius:6px;padding:8px 12px;color:#f1f8ff;background:#081c2a;font-size:16px}
+.playback-targets-count {display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;font-size:15px;color:#c5e4e8}
+.playback-targets-count button {text-decoration:underline;text-underline-offset:4px;min-height:44px;cursor:pointer}
+.playback-targets-list {list-style:none;margin:0;padding:0;border-top:1px solid #577587}
+.playback-targets-list li {display:grid;grid-template-columns:145px minmax(0,1.3fr) minmax(0,1fr);gap:8px 16px;padding:12px 6px;border-bottom:1px solid #4d6b7c;align-items:baseline;overflow-wrap:anywhere}
+.playback-targets-course {font-size:14px;color:#a9cbd8}
+.playback-targets-list strong {font-size:19px;font-weight:600;color:#ecf7fc}
+.playback-targets-meaning {color:#d2e2e9;font-size:16px}
+.playback-targets-empty {padding:20px 0;color:#ead9ae}
+.playback-targets-more {display:block;min-height:44px;margin:14px auto 0;padding:8px 18px;border:1px solid #809daa;border-radius:6px;background:#234356;cursor:pointer}
+.playback-targets-content :is(input,button):focus-visible {outline:3px solid #a4eafa;outline-offset:3px}
+/* Result rows: retain readable examples, use the right column for all actions. */
+.result-questions .result-entry[data-result-question] {display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:4px 10px;padding:8px 12px;align-items:start}
+.result-entry-audio {grid-column:1;grid-row:1;margin-top:1px}
+.result-questions .result-entry[data-result-question]>.result-entry-content {grid-column:2;min-width:0;padding:0;margin:0;display:block}
+.result-entry-heading {display:flex;align-items:baseline;flex-wrap:wrap;gap:1px 14px}
+.result-entry-heading .result-question-meaning {margin:0}
+.result-entry-example {margin:3px 0 0;overflow-wrap:anywhere}
+.result-questions .result-entry[data-result-question]>.result-entry-actions {grid-column:3;display:flex;flex-direction:column;align-items:flex-end;gap:3px;padding:0;margin:0;max-width:210px}
+.result-entry-buttons {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.result-questions .result-entry-buttons button {white-space:nowrap;padding:5px 8px}
+.result-entry-grammar {margin-top:4px}
+.result-entry .result-grammar-note {margin-top:3px}
+.result-entry .result-grammar-note summary {min-height:30px;padding-block:2px}
+@media(max-width:1100px) and (min-width:901px) {
+  .result-questions .result-entry[data-result-question] {grid-template-columns:32px minmax(0,1fr)}
+  .result-questions .result-entry[data-result-question]>.result-entry-actions {grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;max-width:none}
+}
+@media(max-width:600px) {
+  .result-questions .result-entry[data-result-question] {grid-template-columns:32px minmax(0,1fr);gap:5px 8px;padding:9px 10px}
+  .result-questions .result-entry[data-result-question]>.result-entry-actions {grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;max-width:none}
+  .result-questions .result-entry [data-result-status] {text-align:left;font-size:13px}
+  .result-questions .result-entry-buttons button {min-height:40px;font-size:13px;padding:5px 6px}
+}
+/* Preserve answer sizing, line wrapping, and the optional keyboard's compact layout. */
+.battle-screen {background-image:radial-gradient(ellipse at 50% 6%,#16364d88,transparent 55%);font-family:'Segoe UI','BIZ UDPGothic','Hiragino Sans',Meiryo,sans-serif}
+.battle-screen .battle-card {border-width:2px;border-color:#668596;border-radius:14px;background:linear-gradient(140deg,#1b3246f7,#102338f7);box-shadow:inset 0 1px #d5f3ff14,0 14px 40px #0005}
+.battle-screen .battle-hp {border-color:#8b9173;background:linear-gradient(120deg,#1c3245,#102134);box-shadow:inset 0 1px #ffffff10}
+.battle-screen .battle-hp-name {font-weight:700}
+.battle-screen .battle-hp-value {font-weight:600;color:#eff7fc}
+.battle-screen .battle-question-panel {border-color:#6e95aa;background:#071522e8;box-shadow:inset 0 3px 18px #0004}
+.battle-screen .battle-navigation button {font-size:13px;background:#142c3e;border-color:#6b8b9b;font-weight:600}
+.battle-screen .battle-controls :is(.battle-replay,.battle-bookmark,.battle-skip,.battle-remaining) {min-height:44px;font-size:15px;font-weight:600;border-radius:8px;padding:8px 12px;letter-spacing:normal;box-shadow:none}
+.battle-screen .battle-replay {color:#d8f3ff;background:#173b54;border-color:#6198b8}
+.battle-screen .battle-shortcut {font-size:12px;box-shadow:none}
+.battle-screen .battle-remaining {background:#102637;border-color:#597787;color:#cce2ec}
+.battle-screen .battle-skip {color:#f8dfb0;background:#473b26;border-color:#b29457;text-transform:none}
+.battle-screen .battle-skip:hover {background:#67512d;transform:none}
+.battle-screen .battle-bookmark {background:#382e20}
+.battle-screen .battle-bookmark[aria-pressed=true] {background:#65501f;border-color:#f0cd7a}
+.battle-screen .battle-dialogue {font-weight:600;box-shadow:0 5px 20px #0003}
+.battle-screen .battle-previous-study {border-color:#447e79;background:#102d36;box-shadow:none}
+.battle-screen .battle-previous-study .font-mono {font-family:'Segoe UI',sans-serif;font-weight:600}
+.battle-screen .battle-previous-study :is(.text-\[10px\],.text-\[11px\]) {font-size:12px;letter-spacing:normal}
+.battle-screen .battle-previous-study button {min-height:32px;border-radius:6px}
+.battle-screen .battle-translation-form {font-size:13px}
+@media(min-width:900px) {.battle-screen .battle-hp-remaining {font-size:12px}}
+@media(max-width:1050px) {
+  .adventure-navigation-inner:has(.home-header-player) {flex-wrap:wrap;gap:0;justify-content:center}
+  .home-header-player {width:100%;min-height:50px}
+  .home-header-player select {flex:1;max-width:240px}
+  .home-header-defeated {margin-left:auto}
+}
+@media(max-width:640px) {
+  .home-header-player label {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .home-header-player select {min-width:90px;max-width:180px;font-size:16px}
+  .home-header-defeated {font-size:13px;gap:4px}
+  .home-defeated-prefix {display:none}
+  .playback-targets-content {padding:12px}
+  .playback-targets-list li {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 12px}
+  .playback-targets-course {grid-column:1/-1;font-size:13px}
+  .playback-targets-list strong {font-size:18px}
+  .playback-targets-meaning {font-size:16px}
+  .battle-screen .battle-controls :is(.battle-replay,.battle-bookmark,.battle-skip,.battle-remaining) {font-size:14px;padding:7px 9px}
+}
+@media(min-width:700px) and (max-height:520px) {
+  .battle-screen.battle-with-keyboard .battle-controls :is(.battle-replay,.battle-bookmark,.battle-skip,.battle-remaining) {min-height:32px;font-size:11px;padding:4px 6px}
+  .battle-screen.battle-with-keyboard .battle-previous-study {padding:5px 8px}
+  .battle-screen.battle-with-keyboard .battle-previous-study :is(.text-lg,.text-base,.text-sm) {font-size:14px;line-height:1.35}
+  .battle-screen.battle-with-keyboard .battle-previous-study :is(.text-\[10px\],.text-\[11px\]) {font-size:11px}
+  .battle-screen.battle-with-keyboard .battle-previous-study button {min-height:26px}
+}

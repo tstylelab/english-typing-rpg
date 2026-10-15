@@ -1,3 +1,6 @@
+import './journey-select.css';
+import './question-library.css';
+import './playback-player.css';
 import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
@@ -11,6 +14,9 @@ import { getQuestionExample } from './data/questionExamples';
 import { getQuestionGrammarPoint } from './data/questionGrammarPoints';
 import { getGrammarCard, getGrammarGuideCourse } from './data/grammarGuides';
 import GrammarGuide from './GrammarGuide';
+import AdventureHome from './AdventureHome';
+import PlaybackSettingsDialog from './PlaybackSettingsDialog';
+import PlaybackTargetsButton from './PlaybackTargetsButton';
 import { getGrade3CurriculumLimit } from './data/questionSets/eiken/grade3';
 import { getPre2CurriculumLimit } from './data/questionSets/eiken/pre2';
 import { getGrade2CurriculumLimit } from './data/questionSets/eiken/grade2';
@@ -194,7 +200,7 @@ type ReviewQueueEntry = {
 };
 
 type LearningStatusFilter = 'learning' | 'caution' | 'mastered';
-type QuestionListFilter = 'all' | 'weak' | 'marked' | 'miss-ranking' | LearningStatusFilter;
+type QuestionListFilter = 'all' | 'weak' | 'marked' | 'selected' | 'miss-ranking' | LearningStatusFilter;
 type AutoPlaySource = 'all' | 'weak' | 'review-history' | 'marked' | 'selected' | LearningStatusFilter;
 
 const getLearningFilterLevel = (source: QuestionListFilter | AutoPlaySource): LearningLevel | undefined => {
@@ -2034,7 +2040,6 @@ const LOSE_EFFECT_TRACKS = [
 const EFFECT_SOUND_VOLUME = 0.45;
 
 const SETTINGS_BGM_PREVIEW_TRACK = NORMAL_BATTLE_TRACKS[0];
-const TITLE_LOGO_IMAGE = `${DESIGN_ASSET_BASE_PATH}title-logo-wide.png`;
 const COURSE_SELECT_ILLUSTRATION_IMAGE = `${DESIGN_ASSET_BASE_PATH}course-select-pop.png`;
 const SETTINGS_SPEECH_PREVIEW_TEXT = 'The brave hero learns English every day.';
 const SPEECH_VOICE_COPY: Record<SpeechVoiceMode, { label: string; description: string }> = {
@@ -2313,6 +2318,7 @@ const speakText = (
   }
 
   const utterance = new SpeechSynthesisUtterance(text);
+  if (LOCAL_SILENT_CHECK) utterance.volume = 0;
   utterance.rate = options?.rate ?? 0.9;
   if (options?.voice) {
     utterance.voice = options.voice;
@@ -2325,6 +2331,8 @@ const speakText = (
 };
 
 
+// Local UI checks can exercise real battles without interrupting other PC work.
+const LOCAL_SILENT_CHECK = import.meta.env.DEV && new URLSearchParams(window.location.search).get('silentCheck') === '1';
 // --- Sound Engine ---
 class SoundEngine {
   private ctx: AudioContext | null = null;
@@ -2345,6 +2353,7 @@ class SoundEngine {
   private lastBossComeOutEffectSrc = '';
 
   constructor() {
+    if (LOCAL_SILENT_CHECK) return;
     try {
       const AudioContext = window.AudioContext || (window as Window & typeof globalThis & { webkitAudioContext?: typeof window.AudioContext }).webkitAudioContext;
       if (!AudioContext) return;
@@ -2416,6 +2425,7 @@ class SoundEngine {
     const selectedTrack = availableTracks[Math.floor(Math.random() * availableTracks.length)] ?? tracks[0];
     this[lastSrcKey] = selectedTrack;
     const audio = new Audio(selectedTrack);
+    audio.muted = LOCAL_SILENT_CHECK;
     audio.preload = 'auto';
     audio.volume = volume;
     this.effectAudioElements.add(audio);
@@ -2513,6 +2523,7 @@ class SoundEngine {
     const requestId = ++this.battleMusicRequestId;
 
     const audio = new Audio();
+    audio.muted = LOCAL_SILENT_CHECK;
     audio.loop = true;
     audio.preload = 'auto';
     audio.volume = volume;
@@ -2569,6 +2580,7 @@ class SoundEngine {
     const requestId = ++this.previewMusicRequestId;
 
     const audio = new Audio(src);
+    audio.muted = LOCAL_SILENT_CHECK;
     audio.loop = true;
     audio.preload = 'auto';
     audio.volume = volume;
@@ -3514,16 +3526,6 @@ const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyl
   );
 };
 
-const GameTitleLogo = () => (
-  <div className="w-full max-w-4xl text-center">
-    <img
-      src={TITLE_LOGO_IMAGE}
-      alt="English Typing Fantasy"
-      className="mx-auto h-[clamp(72px,8vw,112px)] w-[min(760px,72vw)] max-w-full object-contain drop-shadow-[0_14px_30px_rgba(0,0,0,0.34)]"
-    />
-  </div>
-);
-
 const BASE_MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
   1: {
     guide: [
@@ -3778,12 +3780,13 @@ const GameButton = ({ onClick, children, className = "", variant = "primary", di
   );
 };
 
-const ScreenContainer = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`min-h-screen font-sans text-slate-100 flex flex-col relative ${className}`}>
-    <div className="fixed inset-0 z-0 bg-slate-900">
+const ScreenContainer = ({ children, className = "", navigation }: { children: React.ReactNode; className?: string; navigation?: React.ReactNode }) => (
+  <div className={`min-h-screen font-sans text-slate-100 flex flex-col relative ${navigation ? 'adventure-shell' : ''} ${className}`}>
+    <div className={`fixed inset-0 z-0 bg-slate-900 ${navigation ? 'adventure-subscreen-bg' : ''}`}>
        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-slate-900/80"></div>
     </div>
+    {navigation}
     <div className="relative z-10 flex-1 flex flex-col items-center w-full overflow-y-auto">{children}</div>
   </div>
 );
@@ -3930,12 +3933,17 @@ const Box = ({ children, className = "", contentClassName = "p-6", title }: { ch
   </div>
 );
 
+type LibraryRecallMode = 'both' | 'english' | 'meaning';
+
 type QuestionListRowProps = {
+  recallMode: LibraryRecallMode;
   question: Question;
   difficulty: Difficulty;
+  level: Level;
   idx: number;
   displayIndex: number;
   isMissRanking: boolean;
+  selectionMode: boolean;
   questionKey: string;
   isWeakQuestion: boolean;
   stats?: WeakQuestionStat;
@@ -3953,12 +3961,13 @@ type QuestionListRowProps = {
 };
 
 const QuestionListRow = React.memo(function QuestionListRow({
+  recallMode,
   question,
   difficulty,
-  idx,
+  level,
   displayIndex,
   isMissRanking,
-  questionKey,
+  selectionMode,
   isWeakQuestion,
   stats,
   manualStatus,
@@ -3973,130 +3982,78 @@ const QuestionListRow = React.memo(function QuestionListRow({
   onUpdateManualLevel,
   onToggleExcluded,
 }: QuestionListRowProps) {
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const detailsId = React.useId();
+  const [answerVisible, setAnswerVisible] = useState(false);
+  const meaningId = React.useId();
+  const englishId = React.useId();
+  const showEnglish = recallMode !== 'meaning' || answerVisible;
+  const showMeaning = recallMode !== 'english' || answerVisible;
+  const meaning = getQuestionMeaning(question, difficulty);
+  const rowLabel = showEnglish ? question.text : meaning;
   const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
   const automaticLevel = getAutomaticLearningLevel(manualStatus);
   const autoLabel = LEARNING_LEVEL_LABELS[automaticLevel];
   const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
 
   return (
-    <div key={`${questionKey}-${idx}`} className={`question-list-row p-2 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
-      <div className="word-list-heading">
-        <div className="word-list-vocabulary">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="shrink-0 text-[10px] font-mono text-slate-500">{String(displayIndex).padStart(3, '0')}</span>
-            <span className="word-list-term text-xl md:text-2xl font-bold text-cyan-100">{question.text}</span>
+    <article className={`question-list-row library-row recall-${recallMode} ${manualStatus.excluded ? 'is-excluded' : ''}`} aria-label={rowLabel}>
+      <div className="library-row-main">
+        {selectionMode && <input type="checkbox" aria-label={`${rowLabel} を選択`} checked={isSelectedForAutoPlay} onChange={() => onToggleSelected(question)} />}
+        <button className="library-speak" disabled={!showEnglish} aria-label={showEnglish ? `${question.text} を音声で再生` : '英語を表示してから音声で再生'} onClick={() => onSpeak(question.text)}><Volume2 size={18} /></button>
+        <div className={`library-word ${example || synonyms.length > 0 ? 'has-study-notes' : ''}`}>
+          <div className="library-word-heading">
+            {isMissRanking && <span className="library-rank">{displayIndex}位</span>}
+            {recallMode === 'meaning' && <button type="button" className="library-answer-toggle" aria-expanded={answerVisible} aria-controls={englishId} onClick={() => setAnswerVisible(visible => !visible)}>{answerVisible ? '英語を隠す' : '英語を見る'}</button>}
+            <div id={englishId} hidden={!showEnglish}>
+              <h2>{question.text}</h2>
+              {question.promptEn && <p className="library-dialogue">相手：{question.promptEn} {recallMode !== 'english' || answerVisible ? question.promptJa : ''}</p>}
+            </div>
           </div>
-          <div className="word-list-meaning text-left">
-          {question.promptEn && (
-            <div className="mb-2 max-w-sm rounded-lg border border-violet-400/25 bg-violet-950/25 px-3 py-2 text-left">
-              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-violet-300">相手</div>
-              <div className="mt-1 text-sm font-bold text-violet-50">{question.promptEn}</div>
-              {question.promptJa && <div className="mt-0.5 text-[11px] font-medium text-violet-200/75">{question.promptJa}</div>}
-            </div>
-          )}
-          <div className="text-slate-300 font-bold text-sm md:text-base">{getQuestionMeaning(question, difficulty)}</div>
-          {question.basicMeaning && (
-            <div className="mt-0.5 text-[10px] font-medium text-slate-500 md:text-[11px]">
-              Basic: {question.basicMeaning}
-            </div>
-          )}
+          {showEnglish && (example || synonyms.length > 0) && <div className="library-study-notes">
+            {example && <p><b>例文</b><span>{example}</span></p>}
+            {synonyms.length > 0 && <p><b>類義・関連</b><span>{synonyms.join(' / ')}</span></p>}
+          </div>}
+          <div className="library-meaning">
+            {recallMode === 'english' && <button type="button" className="library-answer-toggle" aria-expanded={answerVisible} aria-controls={meaningId} onClick={() => setAnswerVisible(visible => !visible)}>{answerVisible ? '和訳を隠す' : '和訳を見る'}</button>}
+            <p id={meaningId} className="library-meaning-text" hidden={!showMeaning}>{meaning}</p>
           </div>
         </div>
-        <div className="word-list-tools">
-          <div className="flex items-center gap-1">
-          <label className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
-            <input
-              type="checkbox"
-              aria-label={`${question.text} を選択`}
-              checked={isSelectedForAutoPlay}
-              onChange={() => onToggleSelected(question)}
-              className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
-            />
-          </label>
-          <button aria-label={`${question.text} を音声で再生`} onClick={() => onSpeak(question.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
-
-          </div>
-          <div className="flex flex-wrap items-center gap-1 min-w-0">
-              <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] ${manualStatus.learningLevel === 1 ? 'border border-sky-400/35 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border border-emerald-400/35 bg-emerald-500/10 text-emerald-100' : 'border border-violet-400/35 bg-violet-500/10 text-violet-100'}`}>
-                {learningLabel}
-              </span>
-              {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
-              {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">手動設定</span>}
-              {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">除外中</span>}
-              {isMarkedForReview && <span className="rounded-full border border-yellow-300/45 bg-yellow-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-yellow-100">あとで復習</span>}
-              {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
-              {isMissRanking && stats && <span className="rounded-full border border-amber-400/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-amber-100">つまずき {stats.missCount}回</span>}
-              {!isMissRanking && isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
-              {!isMissRanking && !isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
-
-            {isManualOverrideActive && <span className="text-[11px] text-slate-400">自動判定: {autoLabel}</span>}
-          </div>
-        </div>
-      </div>
-      <div className="word-list-actions mt-1 flex flex-wrap items-center gap-1">
-        <span className="text-[11px] font-bold text-slate-400">手動設定</span>
-        {LEARNING_LEVELS.map(level => (
-          <button
-            key={level}
-            onClick={() => onUpdateManualLevel(question, level)}
-            className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.manualOverrideLevel === level ? level === 1 ? 'border-sky-300 bg-sky-500/20 text-sky-100 shadow-[0_0_18px_rgba(56,189,248,0.24)]' : level === 2 ? 'border-emerald-300 bg-emerald-500/20 text-emerald-100 shadow-[0_0_18px_rgba(52,211,153,0.22)]' : 'border-violet-300 bg-violet-500/20 text-violet-100 shadow-[0_0_18px_rgba(167,139,250,0.24)]' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-          >
-            {level === 1 ? '学習中' : level === 2 ? 'もう少し' : '覚えた'}
+        <div className="library-row-status">
+          <span>{learningLabel}{isManualOverrideActive ? '（手動）' : ''}{manualStatus.excluded ? ' · 除外中' : ''}</span>
+          {isWeakQuestion && <span className="library-weak">苦手{stats ? ` · つまずき${stats.missCount}回` : ''}</span>}
+          <button className="library-bookmark" aria-pressed={isMarkedForReview} onClick={() => onToggleMarked(question)}>
+            <Bookmark size={15} fill={isMarkedForReview ? 'currentColor' : 'none'} />{isMarkedForReview ? '復習から外す' : onDeleteReviewHistory ? 'あとで復習に戻す' : 'あとで復習'}
           </button>
-        ))}
-        <button
-          onClick={() => onToggleMarked(question)}
-          className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${isMarkedForReview ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.2)]' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-yellow-400/60 hover:text-yellow-100'}`}
-        >
-          <Bookmark size={12} fill={isMarkedForReview ? 'currentColor' : 'none'} />
-          {isMarkedForReview ? '復習から外す' : onDeleteReviewHistory ? 'あとで復習に戻す' : 'あとで復習'}
-        </button>
-        {onDeleteReviewHistory && <button type="button" onClick={onDeleteReviewHistory} className="rounded-full border border-slate-600 px-3 py-1 text-[11px] font-bold text-slate-300 hover:border-rose-400 hover:text-rose-200">履歴から消す</button>}
-        <button
-          onClick={() => onToggleExcluded(question)}
-          className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.excluded ? 'border-slate-300 bg-slate-200 text-slate-900' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-        >
-          {manualStatus.excluded ? '除外を解除' : '除外する'}
-        </button>
+          {onDeleteReviewHistory && <button className="library-history-delete" onClick={onDeleteReviewHistory}>履歴から消す</button>}
+        </div>
       </div>
-      {example && (
-        <div className="mt-1 text-xs md:text-sm leading-snug text-slate-200 [overflow-wrap:anywhere]">
-          <span className="mr-2 text-[10px] font-bold text-emerald-300">例文</span>{example}
-        </div>
-      )}
-      {question.speakingTip && (
-        <div className="mt-1 text-xs font-semibold text-amber-100/90 [overflow-wrap:anywhere]">
-          <span className="text-amber-300">話すコツ:</span> {question.speakingTip}
-        </div>
-      )}
-      {synonyms.length > 0 && (
-        <div className="mt-1 text-xs font-semibold text-cyan-100/90 [overflow-wrap:anywhere]">
-          <span className="text-cyan-300">類義/関連:</span> {synonyms.join(' / ')}
-        </div>
-      )}
-    </div>
+      <button type="button" className="library-row-details" aria-expanded={detailsOpen} aria-controls={detailsId} onClick={() => setDetailsOpen(open => !open)}>
+        <span aria-hidden="true">{detailsOpen ? '▾' : '▸'}</span> 詳細・設定
+      </button>
+      <div id={detailsId} className="library-row-expanded" hidden={!detailsOpen}>
+          {question.basicMeaning && <p><b>基本の意味</b> {question.basicMeaning}</p>}
+          {question.speakingTip && <p><b>話すコツ</b> {question.speakingTip}</p>}
+          {stats && <p>これまでにつまずいたバトル：{stats.missCount}回</p>}
+          <div className="library-manual"><span>学習状態</span>{LEARNING_LEVELS.map(level => <button key={level} aria-pressed={manualStatus.manualOverrideLevel === level} onClick={() => onUpdateManualLevel(question, level)}>{LEARNING_LEVEL_LABELS[level]}</button>)}<span>自動判定：{autoLabel}</span></div>
+          <p className="library-help">選択中の状態をもう一度押すと、自動判定に戻ります。</p>
+          <div className="library-detail-actions">
+            <QuestionAiHelp isConversation={difficulty === 'Conversation'} course={DIFFICULTY_LABELS[difficulty]} level={level} text={question.text} meaning={getQuestionMeaning(question, difficulty)} example={example || undefined} exampleJa={question.exampleJa} />
+            <button className="library-exclude" onClick={() => onToggleExcluded(question)}>{manualStatus.excluded ? '出題からの除外を解除' : 'この問題を出題から除外'}</button>
+          </div>
+      </div>
+    </article>
   );
 });
 
 // --- Main App ---
-export type LocalPreviewOptions = {
-  screen?: 'title' | 'monster-book' | 'question-list' | 'level-select' | 'settings' | 'typing-practice';
-  revealMonsterArt?: boolean;
-  difficulty?: Difficulty;
-  level?: Level;
-};
-
-export default function App({ localPreview }: { localPreview?: LocalPreviewOptions } = {}) {
-  // Only the separate local preview entry supplies these options. Production
-  // keeps the usual title entry and earned collection visibility.
-  const preview = import.meta.env.DEV ? localPreview : undefined;
-  const [showAllMonsterArt, setShowAllMonsterArt] = useState(preview?.revealMonsterArt ?? false);
+export default function App() {
   const [gameState, setGameState] = useState<GameState>(() => {
     const savedCourse = getStoredCourseSelection();
     return {
-    screen: preview?.screen ?? 'title',
-    selectedDifficulty: preview?.difficulty ?? savedCourse.difficulty,
-    selectedLevel: getSafeLevelForDifficulty(preview?.difficulty ?? savedCourse.difficulty, preview?.level ?? savedCourse.level),
+    screen: 'title',
+    selectedDifficulty: savedCourse.difficulty,
+    selectedLevel: savedCourse.level,
     mode: savedCourse.resumeMode,
     inputMode: savedCourse.resumeInputMode,
     currentMonsterIndex: 0,
@@ -4236,16 +4193,28 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
   const [autoPlayWakeLockState, setAutoPlayWakeLockState] = useState<AutoPlayWakeLockState>('inactive');
   const sessionWeakQuestionsRef = useRef<Question[] | null>(null);
   const [autoPlayNowPlaying, setAutoPlayNowPlaying] = useState<AutoPlayNowPlaying | null>(null);
-  const [bookLevel, setBookLevel] = useState<Level>(preview?.level ?? 1);
-  const [bookDifficulty, setBookDifficulty] = useState<Difficulty>(preview?.difficulty ?? 'Eiken5');
+  const [bookLevel, setBookLevel] = useState<Level>(1);
+  const [bookDifficulty, setBookDifficulty] = useState<Difficulty>('Eiken5');
   const [, setShake] = useState(false);
   const [flash, setFlash] = useState(false);
   const [monsterShake, setMonsterShake] = useState(false); 
   const [scoreViewDiff, setScoreViewDiff] = useState<Difficulty>('Eiken5');
   const [questionListFilter, setQuestionListFilter] = useState<QuestionListFilter>('all');
+  const libraryAdvancedRef = useRef<HTMLDivElement>(null);
+  const [librarySearch, setLibrarySearch] = useState('');
+  const [librarySelectionMode, setLibrarySelectionMode] = useState(false);
+  const [libraryPlayback, setLibraryPlayback] = useState<{ questions: ScopedAutoPlayQuestion[]; label: string; history: boolean } | null>(null);
   const [weakListSort, setWeakListSort] = useState<'recent' | 'frequent'>('recent');
   const [questionListRenderLimit, setQuestionListRenderLimit] = useState(DEFAULT_QUESTION_LIST_RENDER_LIMIT);
   const [wordListToolsOpen, setWordListToolsOpen] = useState(false);
+  const [libraryRecallMode, setLibraryRecallMode] = useState<LibraryRecallMode>('both');
+  const [playbackPage, setPlaybackPage] = useState(false);
+  const [playbackSettingsOpen, setPlaybackSettingsOpen] = useState(false);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (gameState.screen !== 'question-list') { setPlaybackPage(false); setPlaybackSettingsOpen(false); setLibraryPlayback(null); }
+  }, [gameState.screen]);
+  useEffect(() => { setLibraryPlayback(null); setLibrarySearch(''); setLibrarySelectionMode(false); }, [activePlayerId]);
   const [autoPlaySelectionToolsOpen, setAutoPlaySelectionToolsOpen] = useState(false);
   const [weakReviewPanelOpen, setWeakReviewPanelOpen] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
@@ -7688,6 +7657,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
       autoPlaySpeechCleanupRef.current?.();
       autoPlaySpeechCleanupRef.current = speakAutoPlayEntry(entry.text, {
+        volume: LOCAL_SILENT_CHECK ? 0 : 1,
         voice: entry.voice,
         lang: entry.lang,
         rate: entry.lang.startsWith('ja') ? 1 : autoPlaySettings.playbackRatePercent / 100,
@@ -7906,12 +7876,42 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     startAutoPlaySequence(entries);
   };
 
+  const navigateFromMenu = (screen: GameState['screen']) => {
+    soundEngine.stopBattleAmbience();
+    soundEngine.stopBattleMusic();
+    setGameState(prev => ({ ...prev, screen }));
+  };
+  const openPlaybackManager = (destination: 'settings' | 'player' = 'player', play = false) => {
+    setLibraryPlayback(null);
+    setPlaybackPage(true);
+    setPlaybackSettingsOpen(destination === 'settings');
+    autoPlayScrollRequestedRef.current = 'player';
+    setQuestionListFilter('all');
+    setWordListToolsOpen(true);
+    setGameState(prev => ({ ...prev, screen: 'question-list' }));
+    soundEngine.stopBattleAmbience();
+    soundEngine.stopBattleMusic();
+    if (play) startAutoPlayForQuestions(scopedPlaybackPools[autoPlaySettings.source]);
+  };
+  const appNavigation = !['battle', 'versus-play', 'typing-practice', 'beginner-battle'].includes(gameState.screen) ? (
+    <header className="adventure-navigation"><div className="adventure-navigation-inner">
+      {gameState.screen === 'title' ? <div className="home-header-player"><label htmlFor="home-player">プレイヤー</label><select id="home-player" value={activePlayerId} onChange={event => activatePlayerProfile(event.target.value)}>{playerProfiles.map(profile => <option key={profile.id} value={profile.id}>{profile.name}</option>)}</select><button onClick={openPlayerProfileSettings}>管理</button><span className="home-header-defeated" title="級・Level・出題方法ごとの撃破数。同じ相手の再撃破は重複しません。"><Trophy size={18} /><span><span className="home-defeated-prefix">累計</span>撃破</span><strong>{normalizeDefeatedMonsterIds(gameState.defeatedMonsterIds).length}</strong>体</span></div> : <button className="adventure-brand" aria-label="ホームへ" onClick={() => navigateFromMenu('title')}><img src="/designs/title-logo-playful-v5.png" alt="English Typing Fantasy" /></button>}
+      <nav aria-label="主な画面">
+        <button aria-current={gameState.screen === 'title' ? 'page' : undefined} onClick={() => navigateFromMenu('title')}><Home size={17} />ホーム</button>
+        <button aria-current={gameState.screen === 'level-select' || gameState.screen === 'mode-select' ? 'page' : undefined} onClick={() => navigateFromMenu('level-select')}><LayoutGrid size={17} />教材を選ぶ</button>
+        <button aria-current={gameState.screen === 'question-list' && !playbackPage ? 'page' : undefined} onClick={() => { setPlaybackPage(false); setWordListToolsOpen(false); navigateFromMenu('question-list'); }}><ClipboardList size={17} />問題リスト</button>
+        <button aria-current={gameState.screen === 'question-list' && playbackPage ? 'page' : undefined} onClick={() => openPlaybackManager('player')}><Volume2 size={17} />連続再生</button>
+        <GrammarGuide playerId={activePlayerId} course={getGrammarGuideCourse(gameState.selectedDifficulty) ?? 'Eiken5'} label="文法一覧" allowCourseSelection />
+      </nav>
+    </div></header>
+  ) : null;
+
   if (gameState.screen === 'rank-list') {
       const allMonsterIds = Object.values(MONSTERS).flatMap(lvl => [...lvl.guide, ...lvl.challenge]).map(m => m.id);
       const uniqueDefeatedIds = new Set(gameState.defeatedMonsterIds.map(key => extractMonsterId(key)));
       const totalDefeated = [...uniqueDefeatedIds].filter(id => allMonsterIds.includes(id)).length;
       return (
-        <ScreenContainer className="bg-slate-900">
+        <ScreenContainer navigation={appNavigation} className="bg-slate-900">
             <div className="max-w-4xl w-full p-4 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-6">
                     <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
@@ -7941,7 +7941,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
   if (gameState.screen === 'score-view') {
       return (
-        <ScreenContainer className="bg-slate-900">
+        <ScreenContainer navigation={appNavigation} className="bg-slate-900">
             <div className="max-w-4xl w-full p-4">
                 <div className="flex justify-between items-center mb-6">
                     <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
@@ -8004,7 +8004,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     );
     const bookPreviewItems = allMonsters.map(monster => ({
       name: monster.name,
-      locked: !(preview && showAllMonsterArt) && !isMonsterDefeatedInBook(monster.id),
+      locked: !isMonsterDefeatedInBook(monster.id),
       avatar: <MonsterAvatar monsterId={monster.id} difficulty={bookDifficulty} type={monster.type} color={monster.color} visualStyle={getMonsterVisualStyle(monster)} />,
     }));
     const getBookMonsterHp = (
@@ -8019,20 +8019,19 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     };
     const totalDefeated = guideDefeatedCount + challengeDefeatedCount;
     return (
-      <ScreenContainer className="bg-slate-900">
-        <div className="max-w-6xl w-full p-4">
-           <div className="flex justify-between items-center mb-6">
-              <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
-              <div className="flex items-center gap-2 bg-slate-800 border border-slate-600 px-4 py-2 rounded-full shadow-sm text-yellow-400"><Trophy size={20} /><span className="font-bold">撃破数: {totalDefeated} / {allMonsters.length}</span></div>
+      <ScreenContainer navigation={appNavigation} className="bg-slate-900">
+        <div className="monster-library max-w-6xl w-full p-4">
+           <div className="monster-library-heading">
+              <h1>モンスター図鑑</h1>
+              <button onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}><Home size={18} />ホームへ</button>
            </div>
-           <Box title={`Monster Collection - ${DIFFICULTY_LABELS[bookDifficulty]} - Level ${bookLevel}`} className="w-full">
-               {preview && <label className="mb-4 flex items-center justify-center gap-2 rounded-lg border border-cyan-700 bg-cyan-950/70 p-3 text-sm text-cyan-100"><input type="checkbox" checked={showAllMonsterArt} onChange={event => setShowAllMonsterArt(event.target.checked)} />未撃破のイラストも見る（表示確認のみ・撃破記録は変わりません）</label>}
-               <div className="mb-4 flex flex-wrap justify-center gap-3">{DIFFICULTIES.map((diff) => (<button key={diff} onClick={() => updateBookDifficulty(diff)} className={`px-5 py-2 rounded-full font-bold transition-all border-2 ${bookDifficulty === diff ? 'bg-blue-600 border-blue-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-300 hover:bg-slate-600'}`}>{DIFFICULTY_LABELS[diff]}</button>))}</div>
-               <div className="mb-4 rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-center text-xs text-slate-300">
-                 ここでは <span className="font-bold text-blue-200">{DIFFICULTY_LABELS[bookDifficulty]}</span> の進行状況を表示しています。同じ級・レベルのキャラクターは、出題方法が違っても共通です。
-                 <p className="mt-2 text-cyan-200">モンスターをクリック・タップすると拡大できます。</p>
+           <Box className="w-full">
+               <div className="monster-library-filters">
+                 <label>教材<select value={bookDifficulty} onChange={event => updateBookDifficulty(event.target.value as Difficulty)}>{DIFFICULTIES.map(diff => <option key={diff} value={diff}>{DIFFICULTY_LABELS[diff]}</option>)}</select></label>
+                 <label>Level<select value={bookLevel} onChange={event => setBookLevel(Number(event.target.value) as Level)}>{availableBookLevels.map(lvl => <option key={lvl} value={lvl}>Level {lvl}</option>)}</select></label>
+                 <p><Trophy size={20} /><span>この教材・Levelの撃破 <strong>{totalDefeated} / {allMonsters.length}</strong>体</span></p>
                </div>
-               <div className="flex justify-center gap-4 mb-8">{availableBookLevels.map((lvl) => (<button key={lvl} onClick={() => setBookLevel(lvl as Level)} className={`px-6 py-2 rounded-full font-bold transition-all border-2 ${bookLevel === lvl ? 'bg-emerald-600 border-emerald-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-400 hover:bg-slate-600'}`}>レベル {lvl}</button>))}</div>
+               <div className="monster-library-help"><p>イラストを押すと拡大。拡大画面では前後のモンスターも見られます。</p><details><summary>図鑑の進み方</summary><p>同じ級・Levelのキャラクターは、出題方法が違っても共通です。倒すと姿と名前がはっきり見られます。</p></details></div>
                <div className="mb-8">
                  <h3 className="text-blue-300 font-bold mb-4 flex items-center gap-2 text-xl"><Shield size={20} /> 練習エリア (Training Zone)</h3>
                  <div className="monster-book-grid">
@@ -8040,7 +8039,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'training', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated || (preview && showAllMonsterArt) ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <span className="text-xs text-slate-400">未撃破</span>}</>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -8051,7 +8050,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'battle', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated || (preview && showAllMonsterArt) ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <span className="text-xs text-slate-400">未撃破</span>}</>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -8067,7 +8066,6 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const learningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
     const weakQuestionTexts = new Set(weakQuestions.map(q => q.text));
     const playableQuestions = questions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
-    const excludedQuestions = questions.filter(q => isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const weakQuestionsInView = questions.filter(q => weakQuestionTexts.has(q.text) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const markedQuestionKeys = markedQuestionKeysByScope[selectionScopeKey] ?? [];
     const markedQuestionKeySet = new Set(markedQuestionKeys);
@@ -8080,9 +8078,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const markedQuestionsInView = questions.filter(q => markedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const selectedQuestionKeys = selectedQuestionKeysByScope[selectionScopeKey] ?? [];
     const selectedQuestionKeySet = new Set(selectedQuestionKeys);
-    const selectedQuestionsInView = wordListToolsOpen
-      ? playableQuestions.filter(q => selectedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)))
-      : [];
+    const selectedQuestionsInView = playableQuestions.filter(q => selectedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)));
     const savedSelectionListsInScope = savedSelectionLists
       .filter(list => list.difficulty === gameState.selectedDifficulty && list.level === gameState.selectedLevel)
       .sort((a, b) => b.updatedAt - a.updatedAt);
@@ -8090,8 +8086,6 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const manualReviewQuestions = wordListToolsOpen
       ? playableQuestions.filter(q => getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q)) < 3)
       : [];
-    const manualStudyCount = learningSummary.learningCount;
-    const manualCautionCount = learningSummary.cautionCount;
     const sortedWeakQuestions = [...weakQuestionsInView].sort((a, b) => {
       const aStats = weakQuestionStats[a.text] ?? { missCount: 0, lastMissedAt: 0 };
       const bStats = weakQuestionStats[b.text] ?? { missCount: 0, lastMissedAt: 0 };
@@ -8108,15 +8102,19 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       getEffectiveLearningLevel(getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q)) === level
     ));
     const listLearningLevel = getLearningFilterLevel(questionListFilter);
-    const visibleQuestions = listLearningLevel !== undefined
+    const filteredQuestions = listLearningLevel !== undefined
       ? questionsByLearningLevel(listLearningLevel)
       : questionListFilter === 'weak'
         ? sortedWeakQuestions
         : questionListFilter === 'marked'
           ? (isReviewHistoryView ? historyQuestionsInView : markedQuestionsInView)
+          : questionListFilter === 'selected'
+            ? selectedQuestionsInView
           : questionListFilter === 'miss-ranking'
             ? missRankingQuestions
             : questions;
+    const searchTerm = librarySearch.trim().toLocaleLowerCase();
+    const visibleQuestions = searchTerm ? filteredQuestions.filter(q => `${q.text} ${getQuestionMeaning(q, gameState.selectedDifficulty)} ${q.promptEn ?? ''} ${q.promptJa ?? ''}`.toLocaleLowerCase().includes(searchTerm)) : filteredQuestions;
     const visiblePlayableQuestions = visibleQuestions.filter(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const recentWeakSamples = [...weakQuestionsInView]
       .sort((a, b) => (weakQuestionStats[b.text]?.lastMissedAt ?? 0) - (weakQuestionStats[a.text]?.lastMissedAt ?? 0))
@@ -8134,13 +8132,31 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       : questionListFilter === 'marked'
         ? markedQuestionsInView
         : weakQuestionsInView;
-    const autoPlayTargetQuestions = wordListToolsOpen ? scopedPlaybackPools[autoPlaySettings.source] : [];
-    const autoPlayPlayableQuestionCount = wordListToolsOpen
+    const autoPlayTargetQuestions = libraryPlayback?.questions.filter(item => !isQuestionExcluded(item.difficulty, item.level, item.question)) ?? (wordListToolsOpen ? scopedPlaybackPools[autoPlaySettings.source] : []);
+    const playableAutoPlayQuestions = wordListToolsOpen
       ? autoPlayTargetQuestions.filter(q => {
         if (autoPlaySettings.playText || autoPlaySettings.playTranslation) return true;
-        return !!getQuestionExample(q.difficulty, q.level, q.question);
-      }).length
-      : 0;
+        return autoPlaySettings.playExample && !!getQuestionExample(q.difficulty, q.level, q.question);
+      })
+      : [];
+    const autoPlayPlayableQuestionCount = playableAutoPlayQuestions.length;
+    const playbackSummaryScope = libraryPlayback
+      ? [...new Set(autoPlayTargetQuestions.map(item => `${DIFFICULTY_LABELS[item.difficulty]} Level ${item.level}`))].join(' ／ ')
+      : playbackScopeLabel;
+    const playbackReadOrder: string[] = [];
+    if (autoPlaySettings.playExample && autoPlaySettings.sequenceMode !== 'normal') playbackReadOrder.push('例文');
+    if (autoPlaySettings.playText) playbackReadOrder.push('英語');
+    if (autoPlaySettings.playTranslation) playbackReadOrder.push('和訳');
+    if (autoPlaySettings.playExample && autoPlaySettings.sequenceMode !== 'exampleFirst') playbackReadOrder.push('例文');
+    const previewItem = playableAutoPlayQuestions[0];
+    const displayedAutoPlayQuestion = autoPlayNowPlaying ?? (previewItem ? {
+      courseLabel: `${DIFFICULTY_LABELS[previewItem.difficulty]} · Level ${previewItem.level}`,
+      questionText: previewItem.question.text,
+      translation: getQuestionMeaning(previewItem.question, previewItem.difficulty),
+      basicMeaning: previewItem.question.basicMeaning,
+      example: getQuestionExample(previewItem.difficulty, previewItem.level, previewItem.question),
+      activePart: null,
+    } : null);
     const learningLevelSelectionOptions: Array<{ level: LearningLevel; label: string; questions: Question[]; className: string }> = wordListToolsOpen ? [
       {
         level: 1,
@@ -8162,7 +8178,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       },
     ] : [];
     const manualReviewSamples = wordListToolsOpen ? manualReviewQuestions.slice(0, 5).map(q => q.text).join(' / ') : '';
-    const emptyListTitle = isReviewHistoryView ? '解除履歴はありません' : listLearningLevel !== undefined
+    const emptyListTitle = searchTerm ? '検索に一致する問題はありません' : questionListFilter === 'selected' ? '選択した問題はありません' : isReviewHistoryView ? '解除履歴はありません' : listLearningLevel !== undefined
       ? `「${LEARNING_LEVEL_LABELS[listLearningLevel]}」の問題はありません`
       : questionListFilter === 'marked'
         ? 'あとで復習に追加した問題はまだありません'
@@ -8171,7 +8187,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
           : questionListFilter === 'miss-ranking'
             ? 'まだミスの記録がありません'
             : '表示できる問題がありません';
-    const emptyListDescription = isReviewHistoryView ? 'これから「あとで復習」を解除した問題がここに残ります。' : questionListFilter === 'marked'
+    const emptyListDescription = searchTerm ? '検索する言葉や絞り込みを変えてみてください。' : questionListFilter === 'selected' ? '「問題を選ぶ」を押し、一覧のチェックで選べます。' : isReviewHistoryView ? 'これから「あとで復習」を解除した問題がここに残ります。' : questionListFilter === 'marked'
       ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
       : questionListFilter === 'miss-ranking'
         ? 'この教材・レベルでつまずいた問題が、ここへ回数順に表示されます。'
@@ -8198,7 +8214,9 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     };
 
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
-      if (isAutoPlaying && (key === 'playbackScope' || key === 'playbackDifficulties')) stopAutoPlay('再生範囲の変更に合わせて停止しました');
+      if (key === 'source' || key === 'playbackScope' || key === 'playbackDifficulties') setLibraryPlayback(null);
+      // The queue captures these settings at start; stop rather than show settings it is not using.
+      if (isAutoPlaying && key !== 'repeat') stopAutoPlay('設定を変更したため停止しました。新しい設定で再生できます。');
       if (key === 'repeat') autoPlayRepeatRef.current = Boolean(value);
       setAutoPlaySettings(prev => ({
         ...prev,
@@ -8206,8 +8224,20 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       }));
     };
 
+    const playLibraryQuestions = (targets: Question[], label: string) => {
+      const scoped = targets.map(question => ({ question, difficulty: gameState.selectedDifficulty, level: gameState.selectedLevel }));
+      autoPlayListCriteriaRef.current = '';
+      setLibraryPlayback({ questions: scoped, history: isReviewHistoryView, label: `${DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level ${gameState.selectedLevel} · ${label}` });
+      setWordListToolsOpen(true);
+      setPlaybackPage(true);
+      setPlaybackSettingsOpen(false);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      startAutoPlayForQuestions(scoped);
+    };
     const handleStartAutoPlay = () => startAutoPlayForQuestions(autoPlayTargetQuestions);
     const playReviewHistory = (scope: 'current' | 'all') => {
+      setLibraryPlayback(null);
+      setPlaybackPage(true);
       autoPlayListCriteriaRef.current = '';
       setAutoPlaySettings(prev => ({ ...prev, source: 'review-history', playbackScope: scope }));
       setWordListToolsOpen(true);
@@ -8279,6 +8309,17 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       },
     ];
     const selectedAutoPlaySource = autoPlaySourceOptions.find(option => option.key === autoPlaySettings.source) ?? autoPlaySourceOptions[0];
+    const playbackTargetsButton = <PlaybackTargetsButton count={autoPlayPlayableQuestionCount} getSnapshot={() => ({
+      source: libraryPlayback?.label ?? selectedAutoPlaySource.label,
+      scope: playbackSummaryScope,
+      items: playableAutoPlayQuestions.map(item => ({
+        key: getQuestionStatusKey(item.difficulty, item.level, item.question),
+        text: item.question.text,
+        meaning: getQuestionMeaning(item.question, item.difficulty),
+        course: DIFFICULTY_LABELS[item.difficulty],
+        level: item.level,
+      })),
+    })} />;
 
     const activeQuestionListRenderLimit = (isAutoPlaying || wordListToolsOpen)
       ? COMPACT_QUESTION_LIST_RENDER_LIMIT
@@ -8294,12 +8335,15 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
         : [];
       return (
         <QuestionListRow
-          key={questionKey}
+          key={`${questionKey}:${libraryRecallMode}`}
+          recallMode={libraryRecallMode}
           idx={idx}
           displayIndex={idx + 1}
           isMissRanking={questionListFilter === 'miss-ranking'}
+          selectionMode={librarySelectionMode}
           question={q}
           difficulty={gameState.selectedDifficulty}
+          level={gameState.selectedLevel}
           questionKey={questionKey}
           isWeakQuestion={weakQuestionTexts.has(q.text)}
           stats={weakQuestionStats[q.text]}
@@ -8318,202 +8362,8 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       );
     });
 
-    return (
-      <ScreenContainer className="bg-slate-900">
-        <div className="word-list-page max-w-6xl min-w-0 w-full p-2 sm:p-4 h-full flex flex-col">
-           <div className="flex justify-between items-center mb-6 flex-shrink-0">
-              <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
-              <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><ClipboardList /> 問題リスト</h2>
-           </div>
-           <div className="flex flex-col md:flex-row gap-4 mb-6 flex-shrink-0">
-               <div className="flex flex-wrap bg-slate-800 p-1 rounded-lg">{DIFFICULTIES.map(d => (<button key={d} onClick={() => updateSelectedDifficulty(d)} className={`px-4 py-2 rounded-md font-bold transition-colors ${gameState.selectedDifficulty === d ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>{DIFFICULTY_LABELS[d]}</button>))}</div>
-               <div className="flex bg-slate-800 p-1 rounded-lg">{getAvailableLevels(gameState.selectedDifficulty).map(l => (<button key={l} onClick={() => setGameState(prev => ({ ...prev, selectedLevel: l }))} className={`px-4 py-2 rounded-md font-bold transition-colors ${gameState.selectedLevel === l ? 'bg-green-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>Level {l}</button>))}</div>
-           </div>
-           <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} />
-           <div className="mb-4 flex-shrink-0 rounded-2xl border border-cyan-500/20 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.14),transparent_58%),linear-gradient(145deg,rgba(15,23,42,0.96),rgba(12,18,32,0.92))] p-4 shadow-[0_0_30px_rgba(34,211,238,0.08)]">
-             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-               <div>
-                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Learning Progress</p>
-                 <h3 className="mt-1 text-xl font-black text-white">学習の進み具合</h3>
-               </div>
-               <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-900/30 px-4 py-2 text-sm font-bold text-orange-200">
-                 <AlertCircle size={16} className="text-orange-300" />
-                 {'\u82e6\u624b'} {weakCountInView}問
-               </div>
-             </div>
-             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto]">
-               <div className="rounded-2xl border border-sky-400/30 bg-sky-500/12 p-4 shadow-[0_0_24px_rgba(56,189,248,0.12)]">
-                 <div className="flex items-center gap-2 text-sky-200">
-                   <BookOpen size={18} className="text-sky-300" />
-                   <p className="text-[12px] font-black tracking-[0.16em]">{'\u5b66\u7fd2\u4e2d'}</p>
-                 </div>
-                <p className="mt-3 text-4xl font-black leading-none text-white">{learningSummary.learningCount}</p>
-               </div>
-               <div className="rounded-2xl border border-emerald-400/30 bg-emerald-500/12 p-4 shadow-[0_0_24px_rgba(52,211,153,0.12)]">
-                 <div className="flex items-center gap-2 text-emerald-200">
-                   <CheckCircle2 size={18} className="text-emerald-300" />
-                   <p className="text-[12px] font-black tracking-[0.16em]">{'\u3082\u3046\u5c11\u3057'}</p>
-                 </div>
-                <p className="mt-3 text-4xl font-black leading-none text-white">{learningSummary.cautionCount}</p>
-               </div>
-               <div className="rounded-2xl border border-violet-400/30 bg-violet-500/12 p-4 shadow-[0_0_28px_rgba(167,139,250,0.16)]">
-                 <div className="flex items-center gap-2 text-violet-200">
-                   <Crown size={18} className="text-violet-300" />
-                   <p className="text-[12px] font-black tracking-[0.16em]">{'\u899a\u3048\u305f'}</p>
-                 </div>
-                <p className="mt-3 bg-gradient-to-r from-violet-100 via-white to-violet-200 bg-clip-text text-4xl font-black leading-none text-transparent">{learningSummary.masteredCount}</p>
-               </div>
-               <div className="rounded-2xl border border-slate-500/40 bg-slate-900/70 p-4 text-slate-300">
-                 <div className="flex items-center gap-2 text-slate-300">
-                   <Shield size={18} className="text-slate-400" />
-                   <p className="text-[12px] font-black tracking-[0.16em]">{'\u9664\u5916\u4e2d'}</p>
-                 </div>
-                <p className="mt-3 text-3xl font-black leading-none text-white">{learningSummary.excludedCount}</p>
-               </div>
-             </div>
-           </div>
-           <div className="mb-4 hidden flex-shrink-0">
-             <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-900/30 px-4 py-2 text-sm font-bold text-orange-200">
-               <AlertCircle size={16} className="text-orange-300" />
-               この一覧の苦手な問題: {weakCountInView}問
-             </div>
-             <div className="mt-3 flex flex-wrap gap-3">
-               <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-950/20 px-4 py-2 text-sm font-bold text-sky-200">
-                 <BookOpen size={16} className="text-sky-300" />
-                 学習中 {manualStudyCount}問
-               </div>
-               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-4 py-2 text-sm font-bold text-emerald-200">
-                 <CheckCircle2 size={16} className="text-emerald-300" />
-                 もう少し {manualCautionCount}問
-               </div>
-               <div className="inline-flex items-center gap-2 rounded-full border border-slate-500/40 bg-slate-800/80 px-4 py-2 text-sm font-bold text-slate-300">
-                 <Shield size={16} className="text-slate-400" />
-                 除外 {excludedQuestions.length}問
-               </div>
-             </div>
-           </div>
-            <div className="mb-4 flex-shrink-0">
-              <div className="flex flex-wrap gap-3">
-                <div role="group" aria-label="問題リストの絞り込み" className="flex flex-wrap bg-slate-800 p-1 rounded-lg self-start">
-                <button onClick={() => setQuestionListFilter('all')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'all' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>すべて</button>
-                <button onClick={() => setQuestionListFilter('weak')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'weak' ? 'bg-orange-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>苦手だけ</button>
-                <button onClick={() => setQuestionListFilter('miss-ranking')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'miss-ranking' ? 'bg-amber-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>ミスランキング</button>
-                <button onClick={() => { setQuestionListFilter('marked'); setReviewListView('active'); }} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
-                <button aria-pressed={questionListFilter === 'learning'} onClick={() => setQuestionListFilter('learning')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'learning' ? 'bg-sky-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>学習中</button>
-                <button aria-pressed={questionListFilter === 'caution'} onClick={() => setQuestionListFilter('caution')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'caution' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>もう少し</button>
-                <button aria-pressed={questionListFilter === 'mastered'} onClick={() => setQuestionListFilter('mastered')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'mastered' ? 'bg-violet-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>覚えた</button>
-                </div>
-                <button type="button" disabled={(isReviewHistoryView ? playbackPools['review-history'] : allMarkedPlaybackQuestions).length === 0} onClick={() => {
-                  if (isReviewHistoryView) { playReviewHistory('all'); return; }
-                  autoPlayListCriteriaRef.current = '';
-                  setAutoPlaySettings(prev => ({ ...prev, source: 'marked', playbackScope: 'all' }));
-                  setWordListToolsOpen(true);
-                  requestAnimationFrame(() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-                  startAutoPlayForQuestions(allMarkedPlaybackQuestions);
-                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ {isReviewHistoryView ? '全級の解除履歴を再生' : '全級のあとで復習を再生'} <span className="text-xs">{(isReviewHistoryView ? playbackPools['review-history'] : allMarkedPlaybackQuestions).length}問</span></button>
-                {questionListFilter === 'weak' && (
-                  <div className="flex bg-slate-800 p-1 rounded-lg self-start">
-                    <button onClick={() => setWeakListSort('recent')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${weakListSort === 'recent' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>最近ミス順</button>
-                    <button onClick={() => setWeakListSort('frequent')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${weakListSort === 'frequent' ? 'bg-amber-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>回数順</button>
-                  </div>
-                )}
-              </div>
-            </div>
-            {questionListFilter === 'marked' && (
-              <div className="mb-3 flex flex-wrap items-center gap-2" data-review-history-controls>
-                <div role="group" aria-label="あとで復習の表示" className="flex rounded-lg bg-slate-800 p-1">
-                  {([{ key: 'active', label: '復習中', count: markedQuestionsInView.length }, { key: 'history', label: '解除履歴', count: historyQuestionsInView.length }] as const).map(view => (
-                    <button key={view.key} type="button" aria-pressed={reviewListView === view.key} onClick={() => { setReviewListView(view.key); setWordListToolsOpen(false); }} className={`min-h-10 rounded-md px-3 py-2 text-sm font-bold ${reviewListView === view.key ? 'bg-yellow-600 text-white' : 'text-slate-300 hover:text-white'}`}>{view.label} <span className="text-xs">{view.count}問</span></button>
-                  ))}
-                </div>
-                {isReviewHistoryView && <button type="button" onClick={() => playReviewHistory('current')} disabled={!historyQuestionsInView.some(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q))} className="min-h-10 rounded-lg border border-cyan-500/40 px-3 py-2 text-sm font-bold text-cyan-100 disabled:opacity-40">このLevelの履歴を再生</button>}
-                {isReviewHistoryView && reviewHistoryUndo && <div role="status" className="flex w-full flex-wrap items-center gap-2 text-sm text-slate-300"><span className="break-all">「{reviewHistoryUndo.text}」を履歴から消しました。</span><button type="button" onClick={undoReviewHistoryDeletion} className="min-h-10 px-2 font-bold text-cyan-200 underline">元に戻す</button></div>}
-              </div>
-            )}
-            <div className="mb-4 flex-shrink-0">
-              <button
-                onClick={() => setWordListToolsOpen(prev => !prev)}
-                className="flex w-full items-center justify-between rounded-xl border border-cyan-500/30 bg-cyan-950/20 px-4 py-3 text-left transition-colors hover:bg-cyan-900/25"
-              >
-                <div>
-                  <p className="text-sm font-bold text-cyan-200">選択・自動再生ツール</p>
-                  <p className="mt-1 text-xs text-slate-400">任意選択、25問まとめ選択、自動再生を必要なときだけ開けます。</p>
-                </div>
-                <span className="text-sm font-bold text-cyan-100">{wordListToolsOpen ? '閉じる ▲' : '開く ▼'}</span>
-              </button>
-            </div>
-            {wordListToolsOpen && (
-            <>
-            <div className="mb-4 flex-shrink-0 rounded-xl border border-sky-500/30 bg-sky-950/20 p-4">
-              <div className="mb-3 hidden flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="text-sm font-bold text-sky-200">自分で決めた学習メモから復習する</p>
-                  <p className="mt-1 text-xs text-slate-400">学習中と「もう少し」にした問題をまとめて復習できます。苦手判定はこれまで通りゲーム側でも続き、除外した問題だけここから外れます。</p>
-                </div>
-                <div className="text-xs text-slate-300">
-                  {manualReviewQuestions.length > 0 ? manualReviewSamples : 'まだありません'}
-                </div>
-              </div>
-              <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="text-sm font-bold text-sky-200">{'\u624b\u52d5\u8a2d\u5b9a\u306e\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2'}</p>
-                  <p className="mt-1 text-xs text-slate-400">{'\u300c\u5b66\u7fd2\u4e2d\u300d\u3068\u300c\u3082\u3046\u5c11\u3057\u300d\u306b\u3057\u305f\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2\u3067\u304d\u307e\u3059\u3002\u82e6\u624b\u5224\u5b9a\u306f\u3053\u308c\u307e\u3067\u901a\u308a\u30b2\u30fc\u30e0\u5074\u3067\u3082\u7d9a\u304d\u3001\u9664\u5916\u3057\u305f\u554f\u984c\u3060\u3051\u3053\u3053\u304b\u3089\u5916\u308c\u307e\u3059\u3002'}</p>
-                </div>
-                <div className="text-xs text-slate-300">
-                  {manualReviewQuestions.length > 0 ? manualReviewSamples : '\u307e\u3060\u3042\u308a\u307e\u305b\u3093'}
-                </div>
-              </div>
-              <div className="hidden grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-                <GameButton onClick={() => startManualReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={manualReviewQuestions.length === 0}>
-                  <Brain size={16} className="mr-1" /> Basic Training復習
-                </GameButton>
-                <GameButton onClick={() => startManualReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={manualReviewQuestions.length === 0}>
-                  <Volume2 size={16} className="mr-1" /> Listening Training復習
-                </GameButton>
-                <GameButton onClick={() => startManualReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={manualReviewQuestions.length === 0}>
-                  <Sword size={16} className="mr-1" /> Listening Battle復習
-                </GameButton>
-                <GameButton onClick={() => startManualReview('challenge', 'text-only')} size="sm" className="bg-sky-600 border-sky-400 text-white hover:bg-sky-500" disabled={manualReviewQuestions.length === 0}>
-                  <Flame size={16} className="mr-1" /> Translation Battle復習
-                </GameButton>
-              </div>
-            </div>
-            <div className="mb-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4 flex-shrink-0">
-              <GameButton onClick={() => startManualReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={manualReviewQuestions.length === 0}>
-                <Brain size={16} className="mr-1" /> {'Basic Training\u5fa9\u7fd2'}
-              </GameButton>
-              <GameButton onClick={() => startManualReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={manualReviewQuestions.length === 0}>
-                <Volume2 size={16} className="mr-1" /> {'Listening Training\u5fa9\u7fd2'}
-              </GameButton>
-              <GameButton onClick={() => startManualReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={manualReviewQuestions.length === 0}>
-                <Sword size={16} className="mr-1" /> {'Listening Battle\u5fa9\u7fd2'}
-              </GameButton>
-              <GameButton onClick={() => startManualReview('challenge', 'text-only')} size="sm" className="bg-sky-600 border-sky-400 text-white hover:bg-sky-500" disabled={manualReviewQuestions.length === 0}>
-                <Flame size={16} className="mr-1" /> {'Translation Battle\u5fa9\u7fd2'}
-              </GameButton>
-            </div>
-            <div ref={autoPlayPanelRef} className="mb-4 scroll-mt-4 flex-shrink-0 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-4 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Auto Play</p>
-                  <h3 className="mt-1 text-xl font-black text-white">連続再生の設定</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-300">上から順に「再生する問題」「読み上げる内容」「再生順」を選び、最後に再生ボタンを押してください。</p>
-                  <p className="mt-2 text-xs font-bold text-cyan-200">迷ったときは「苦手だけ・英語＋和訳＋例文・通常順」がおすすめです。</p>
-                </div>
-                <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
-                  <div className="text-xs font-bold text-slate-400">現在の設定</div>
-                  <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
-                  <p className="mt-1 max-w-xs text-xs text-yellow-100">{playbackScopeLabel}</p>
-                  <div className="mt-2 flex items-center justify-between gap-4 text-xs">
-                    <span>対象 {autoPlayTargetQuestions.length}問</span>
-                    <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}問</span>
-                  </div>
-                  <div className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-400">{autoPlayStatusText}</div>
-                  <div className="mt-1 text-xs text-cyan-200">{autoPlaySettings.repeat ? 'リピートON：一巡後も先頭から再生' : 'リピートOFF：一巡したら終了'}</div>
-                </div>
-              </div>
-              <div className="mt-5 space-y-4">
-                <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 md:p-5">
+    const playbackSettingsContent = <>
+<div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 md:p-5">
                   <div className="flex items-start gap-3">
                     <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">1</span>
                     <div>
@@ -8537,7 +8387,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                         </label>;
                       })}
                     </div>}
-                    <p className="mt-2 text-xs text-slate-400">{playbackScopeLabel} · 除外中は再生しません。一覧の表示範囲は変わりません。</p>
+                    <p className="mt-2 text-xs text-slate-400">{playbackScopeLabel} · 除外中の問題は再生しません。</p>
                   </div>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {autoPlaySourceOptions.map(option => (
@@ -8559,6 +8409,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                       </button>
                     ))}
                   </div>
+                  <div className="playback-targets-settings-link">{playbackTargetsButton}</div>
                   {autoPlayTargetQuestions.length === 0 && (
                     <p className="mt-4 rounded-lg border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs leading-5 text-amber-100">
                       この再生範囲には対象の問題がありません。再生範囲やグループを変更してください。
@@ -8677,32 +8528,45 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                   </div>
                   </div>
                 </details>
-                <div ref={autoPlayPlayerRef} data-autoplay-player className="scroll-mt-3 rounded-xl border border-cyan-500/35 bg-gradient-to-br from-cyan-950/35 to-slate-900/70 p-3 md:p-4">
-                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                    <p className="font-black text-white">連続再生</p>
-                    <button type="button" onClick={() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' })} className="min-h-10 px-2 text-sm font-bold text-cyan-200 underline underline-offset-4 hover:text-white">設定を変える</button>
+    </>;
+    const playbackPlayer = (
+                <div ref={autoPlayPlayerRef} data-autoplay-player className="playback-console scroll-mt-3 rounded-xl border border-cyan-500/35 bg-gradient-to-br from-cyan-950/35 to-slate-900/70 p-3 md:p-4">
+                  <div className="playback-summary-heading">
+                    <div><p className="playback-caption">再生する問題</p><h2>{libraryPlayback?.label ?? selectedAutoPlaySource.label}<span>{autoPlayPlayableQuestionCount}問</span></h2></div>
+                    <button type="button" onClick={() => playbackPage ? setPlaybackSettingsOpen(true) : autoPlayPanelRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' })} className="playback-edit-settings">設定を変える</button>
                   </div>
-                  <p className="text-xs text-cyan-100">{selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}問 <span className="text-slate-400">／{playbackScopeLabel}</span></p>
-                  <div className="mt-2 flex gap-2">
+                  <p className="playback-scope">{playbackSummaryScope || '対象の問題がありません'}</p>
+                  {playbackTargetsButton}
+                  <section className="playback-settings-summary" aria-label="現在の再生設定">
+                    <div className="playback-read-order"><span className="playback-caption">読み上げ順</span><strong>{playbackReadOrder.join(' → ') || '読み上げ内容を選んでください'}</strong></div>
+                    <dl className="playback-timing-summary">
+                      <div><dt>英語の速度</dt><dd>{autoPlaySettings.playbackRatePercent / 100}<span>倍</span></dd></div>
+                      <div><dt>読み上げ間隔</dt><dd>{autoPlaySettings.itemGapSeconds}<span>秒</span></dd></div>
+                      <div><dt>次の問題まで</dt><dd>{autoPlaySettings.questionGapSeconds}<span>秒</span></dd></div>
+                    </dl>
+                    {autoPlaySettings.playExample && <p className="playback-summary-note">例文のない問題は、例文の読み上げを省きます。</p>}
+                  </section>
+                  {!isAutoPlaying && !['待機中', '停止しました'].includes(autoPlayStatusText) && <p className="playback-status-message" role="status">{autoPlayStatusText}</p>}
+                  <div className="playback-transport">
                     <GameButton
                       onClick={handleStartAutoPlay}
                       size="sm"
-                      className="min-h-11 min-w-0 flex-1 px-2 bg-cyan-600 border-cyan-300 text-white shadow-lg shadow-cyan-950/40 hover:bg-cyan-500"
+                      className="playback-start"
                       disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
                     >
-                      <span>この設定で連続再生を開始</span>
+                      <span aria-hidden="true">▶</span><span>{isAutoPlaying ? '連続再生中' : 'この設定で再生する'}</span>
                     </GameButton>
                     <GameButton
                       onClick={() => stopAutoPlay()}
                       size="sm"
                       variant="outline"
-                      className="min-h-11 shrink-0 border-slate-500 px-3 text-slate-200 hover:bg-slate-800"
+                      className="playback-stop"
                       disabled={!isAutoPlaying}
                     >
                       <Square size={16} className="mr-1" /> 停止
                     </GameButton>
                   </div>
-                  <div className="mt-2 grid grid-cols-2 gap-2" role="group" aria-label="リピート・シャッフル">
+                  <div className="playback-switches" role="group" aria-label="リピート・シャッフル">
                     <label className="flex cursor-pointer items-center min-h-11 gap-2 rounded-lg border border-slate-600 bg-slate-950/70 px-2 py-2 text-sm text-slate-200">
                       <input type="checkbox" aria-label="リピート再生" checked={autoPlaySettings.repeat}
                         onChange={e => updateAutoPlaySetting('repeat', e.target.checked)}
@@ -8716,10 +8580,10 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                       <span className="font-bold text-cyan-100" title="順番を混ぜる（次の再生開始から）">シャッフル</span>
                     </label>
                   </div>
-                  <div data-autoplay-now-playing className="mt-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
+                  <div data-autoplay-now-playing className="playback-current mt-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-bold text-cyan-200">現在再生中</span>
-                      <span className="text-xs font-bold text-slate-400">{isAutoPlaying ? '再生中' : '待機中'}</span>
+                      <span className="playback-current-title">{isAutoPlaying ? '現在再生中' : '再生内容のプレビュー'}</span>
+                      <span className="playback-current-state">{isAutoPlaying ? '再生中' : '開始前'}</span>
                     </div>
                     <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="問題単位で移動">
                       <button
@@ -8755,7 +8619,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                           <Bookmark size={14} aria-hidden="true" />復習から外して次へ
                         </button>
                       )}
-                      {autoPlayNowPlaying && autoPlaySettings.source === 'review-history' && !(markedQuestionKeysByScope[autoPlayNowPlaying.scopeKey] ?? []).includes(autoPlayNowPlaying.questionKey) && (
+                      {autoPlayNowPlaying && (libraryPlayback ? libraryPlayback.history : autoPlaySettings.source === 'review-history') && !(markedQuestionKeysByScope[autoPlayNowPlaying.scopeKey] ?? []).includes(autoPlayNowPlaying.questionKey) && (
                         <button type="button" disabled={!isAutoPlaying} onClick={() => {
                           const { scopeKey, questionKey } = autoPlayNowPlaying;
                           if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
@@ -8763,26 +8627,26 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                         }} className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:opacity-40"><Bookmark size={14} aria-hidden="true" />あとで復習に戻して次へ</button>
                       )}
                     </div>
-                    {autoPlayNowPlaying ? (
-                      <div className="mt-3 space-y-2">
-                        <p data-autoplay-course className="text-xs font-bold text-cyan-200">{autoPlayNowPlaying.courseLabel}</p>
-                        <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'text' ? 'border-cyan-300 bg-cyan-500/15 text-cyan-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                    {displayedAutoPlayQuestion ? (
+                      <div className="playback-reading mt-3 space-y-2">
+                        <p data-autoplay-course className="text-xs font-bold text-cyan-200">{displayedAutoPlayQuestion.courseLabel}</p>
+                        <div data-reading-part="text" data-active={displayedAutoPlayQuestion.activePart === 'text'} className="playback-reading-row">
                           <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">英語</div>
-                          <div className="break-words text-base font-semibold">{autoPlayNowPlaying.questionText}</div>
+                          <div className="break-words text-base font-semibold">{displayedAutoPlayQuestion.questionText}</div>
                         </div>
-                        <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'translation' ? 'border-emerald-300 bg-emerald-500/15 text-emerald-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                        <div data-reading-part="translation" data-active={displayedAutoPlayQuestion.activePart === 'translation'} className="playback-reading-row">
                           <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">和訳</div>
-                          <div className="break-words text-base font-semibold">{autoPlayNowPlaying.translation}</div>
-                          {autoPlayNowPlaying.basicMeaning && (
+                          <div className="break-words text-base font-semibold">{displayedAutoPlayQuestion.translation}</div>
+                          {displayedAutoPlayQuestion.basicMeaning && (
                             <div className="col-start-2 mt-1 break-words text-xs font-medium text-slate-400">
-                              Basic: {autoPlayNowPlaying.basicMeaning}
+                              Basic: {displayedAutoPlayQuestion.basicMeaning}
                             </div>
                           )}
                         </div>
-                        {autoPlayNowPlaying.example && (
-                          <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'example' ? 'border-violet-300 bg-violet-500/15 text-violet-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                        {displayedAutoPlayQuestion.example && (
+                          <div data-reading-part="example" data-active={displayedAutoPlayQuestion.activePart === 'example'} className="playback-reading-row">
                             <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">例文</div>
-                            <div className="break-words text-base leading-relaxed">{autoPlayNowPlaying.example}</div>
+                            <div className="break-words text-base leading-relaxed">{displayedAutoPlayQuestion.example}</div>
                           </div>
                         )}
                       </div>
@@ -8797,7 +8661,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                   </div>
                   <div
                     aria-live="polite"
-                    className={`mt-4 flex items-start gap-3 rounded-lg border px-3 py-3 ${autoPlayWakeLockState === 'active' ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-50' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'border-amber-400/35 bg-amber-500/10 text-amber-50' : 'border-slate-700 bg-slate-950/55 text-slate-200'}`}
+                    className={`playback-wake-status mt-4 flex items-start gap-3 rounded-lg border px-3 py-3 ${autoPlayWakeLockState === 'active' ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-50' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'border-amber-400/35 bg-amber-500/10 text-amber-50' : 'border-slate-700 bg-slate-950/55 text-slate-200'}`}
                   >
                     <Sun size={18} className={`mt-0.5 flex-none ${autoPlayWakeLockState === 'active' ? 'text-emerald-300' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'text-amber-300' : 'text-cyan-300'}`} />
                     <div>
@@ -8820,6 +8684,273 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                     </div>
                   </div>
                 </div>
+    );
+    if (playbackPage) return <ScreenContainer navigation={appNavigation}>
+      <main className="adventure-playback-page">
+        <div className="adventure-playback-heading"><img src={getMonsterArtUrl('m3_1', 'Eiken2')} alt="" /><div><p>耳から、英語を自分のものに。</p><h1>連続再生</h1><span>{getCurrentActivePlayer()?.name ?? 'プレイヤー'} · {libraryPlayback ? '一覧から選んだ問題' : playbackScopeLabel}</span></div></div>
+        {playbackPlayer}
+        <div className="adventure-playback-links"><button onClick={() => { setPlaybackPage(false); setWordListToolsOpen(false); }}>問題リスト・解除履歴を開く</button><button onClick={() => { setPlaybackSettingsOpen(true); }}>再生する範囲・内容を変更</button></div>
+        {playbackSettingsOpen && <PlaybackSettingsDialog onClose={() => setPlaybackSettingsOpen(false)}><div className="space-y-4 p-4">
+
+                {playbackSettingsContent}
+        </div></PlaybackSettingsDialog>}
+      </main>
+    </ScreenContainer>;
+
+    return (
+      <ScreenContainer navigation={appNavigation} className="bg-slate-900">
+        <div className="word-list-page max-w-6xl min-w-0 w-full p-2 sm:p-4 h-full flex flex-col">
+           <header className="library-heading"><img src={getMonsterArtUrl('m2_1', 'Eiken2')} alt="" /><div><p>覚えたい英語を、自分の力に。</p><h1>問題リスト・復習</h1></div><button onClick={() => openPlaybackManager('player')}>連続再生を開く →</button></header>
+           <section className="library-filters" aria-label="問題を探す">
+             <div className="library-search-row">
+               <label>教材<select value={gameState.selectedDifficulty} onChange={event => { setLibrarySearch(''); updateSelectedDifficulty(event.target.value as Difficulty); }}>{DIFFICULTIES.map(d => <option key={d} value={d}>{DIFFICULTY_LABELS[d]}</option>)}</select></label>
+               <label>Level<select value={gameState.selectedLevel} onChange={event => { setLibrarySearch(''); setGameState(prev => ({ ...prev, selectedLevel: Number(event.target.value) as Level })); }}>{getAvailableLevels(gameState.selectedDifficulty).map(l => <option key={l} value={l}>Level {l} · {getLearningContentLabel(l, gameState.selectedDifficulty === 'Conversation')}</option>)}</select></label>
+               <label className="library-search"><span>問題を探す</span><input type="search" value={librarySearch} onChange={event => setLibrarySearch(event.target.value)} placeholder="英語・日本語で検索" /></label>
+             </div>
+             <div className="library-filter-row" role="group" aria-label="問題リストの絞り込み">
+               <button aria-pressed={questionListFilter === 'all'} onClick={() => setQuestionListFilter('all')}>すべて <small>{questions.length}</small></button>
+               <button aria-pressed={questionListFilter === 'marked' && !isReviewHistoryView} onClick={() => { setQuestionListFilter('marked'); setReviewListView('active'); }}><Bookmark size={15} />あとで復習 <small>{markedQuestionsInView.length}</small></button>
+               <button aria-pressed={questionListFilter === 'weak'} onClick={() => setQuestionListFilter('weak')}>苦手 <small>{weakCountInView}</small></button>
+               <label className="library-more-filter">その他<select aria-label="その他の絞り込み" value={isReviewHistoryView ? 'history' : ['learning','caution','mastered','miss-ranking','selected'].includes(questionListFilter) ? questionListFilter : ''} onChange={event => { if (event.target.value === 'history') { setQuestionListFilter('marked'); setReviewListView('history'); } else if (event.target.value) setQuestionListFilter(event.target.value as QuestionListFilter); }}>
+                 <option value="">選んで表示</option><option value="learning">学習中 ({learningSummary.learningCount})</option><option value="caution">もう少し ({learningSummary.cautionCount})</option><option value="mastered">覚えた ({learningSummary.masteredCount})</option><option value="selected">自分で選んだ問題 ({selectedQuestionsInView.length})</option><option value="history">解除履歴 ({historyQuestionsInView.length})</option><option value="miss-ranking">ミスランキング</option>
+               </select></label>
+             </div>
+             <div className="library-progress">この教材・Level：学習中 {learningSummary.learningCount} · もう少し {learningSummary.cautionCount} · 覚えた {learningSummary.masteredCount} · 除外中 {learningSummary.excludedCount}</div>
+           </section>
+           <div className="library-list-actions">
+             <span aria-live="polite"><b>{visibleQuestions.length}</b>問{searchTerm && '（検索結果）'}</span>
+             <label className="library-recall-mode">表示<select value={libraryRecallMode} onChange={event => setLibraryRecallMode(event.target.value as LibraryRecallMode)}><option value="both">両方を見る</option><option value="english">英語から確認</option><option value="meaning">和訳から確認</option></select></label>
+             {questionListFilter === 'weak' && <select aria-label="苦手の並び順" value={weakListSort} onChange={e => setWeakListSort(e.target.value as 'recent' | 'frequent')}><option value="recent">最近ミスした順</option><option value="frequent">ミスが多い順</option></select>}
+             <button aria-pressed={librarySelectionMode} onClick={() => setLibrarySelectionMode(v => !v)}>{librarySelectionMode ? '選択を閉じる' : '問題を選ぶ'}</button>
+             <button className="library-play" disabled={!visiblePlayableQuestions.length} onClick={() => playLibraryQuestions(visiblePlayableQuestions, 'この一覧')}>▶ この一覧を再生</button>
+             <details className="library-practice"><summary>この一覧で練習</summary><div>{([{label:'基礎練習', mode:'guide', input:'voice-text'},{label:'リスニング練習',mode:'challenge',input:'voice-text'},{label:'音声バトル',mode:'challenge',input:'voice-only'},{label:'和訳バトル',mode:'challenge',input:'text-only'}] as const).map(item => <button key={item.label} disabled={!visiblePlayableQuestions.length} onClick={() => startGame(gameState.selectedDifficulty,gameState.selectedLevel,item.mode,item.input,visiblePlayableQuestions)}>{item.label}</button>)}</div></details>
+           </div>
+           {librarySelectionMode && <div className="library-selection">
+             <b>選択 {selectedQuestionsInView.length}問</b>
+             <button onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty,gameState.selectedLevel,visiblePlayableQuestions.map(q => getQuestionStatusKey(gameState.selectedDifficulty,gameState.selectedLevel,q)))}>一覧を全部選ぶ</button>
+             <button onClick={() => updateSelectedQuestionKeysForScope(gameState.selectedDifficulty,gameState.selectedLevel,[])}>選択を解除</button>
+             <button disabled={!selectedQuestionsInView.length} onClick={() => playLibraryQuestions(selectedQuestionsInView,'自分で選んだ問題')}>▶ 選んだ問題を再生</button>
+             <details className="library-practice"><summary>選んだ問題で練習</summary><div>{([{label:'基礎練習',mode:'guide',input:'voice-text'},{label:'リスニング練習',mode:'challenge',input:'voice-text'},{label:'音声バトル',mode:'challenge',input:'voice-only'},{label:'和訳バトル',mode:'challenge',input:'text-only'}] as const).map(item => <button key={item.label} disabled={!selectedQuestionsInView.length} onClick={() => startGame(gameState.selectedDifficulty,gameState.selectedLevel,item.mode,item.input,selectedQuestionsInView)}>{item.label}</button>)}</div></details>
+           </div>}
+           <details className="library-extra"><summary>全級まとめて再生・詳しいツール</summary>
+             <button className="library-all-review" disabled={(isReviewHistoryView ? playbackPools['review-history'] : allMarkedPlaybackQuestions).length === 0} onClick={() => {
+               if (isReviewHistoryView) { playReviewHistory('all'); return; }
+               setLibraryPlayback(null); autoPlayListCriteriaRef.current = ''; setAutoPlaySettings(prev => ({...prev,source:'marked',playbackScope:'all'})); setWordListToolsOpen(true); setPlaybackPage(true); startAutoPlayForQuestions(allMarkedPlaybackQuestions);
+             }}>▶ {isReviewHistoryView ? '全級の解除履歴を再生' : '全級のあとで復習を再生'}</button>
+             <button onClick={() => openPlaybackManager('settings')}>級・読み上げ内容を選ぶ</button>
+             <button onClick={() => { setWordListToolsOpen(v => !v); if (!wordListToolsOpen) requestAnimationFrame(() => libraryAdvancedRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' })); }}>{wordListToolsOpen ? '詳細ツールを閉じる' : '選択リストの保存・詳細ツールを開く'}</button>
+           </details>
+            {questionListFilter === 'marked' && (
+              <div className="mb-3 flex flex-wrap items-center gap-2" data-review-history-controls>
+                <div role="group" aria-label="あとで復習の表示" className="flex rounded-lg bg-slate-800 p-1">
+                  {([{ key: 'active', label: '復習中', count: markedQuestionsInView.length }, { key: 'history', label: '解除履歴', count: historyQuestionsInView.length }] as const).map(view => (
+                    <button key={view.key} type="button" aria-pressed={reviewListView === view.key} onClick={() => { setReviewListView(view.key); setWordListToolsOpen(false); }} className={`min-h-10 rounded-md px-3 py-2 text-sm font-bold ${reviewListView === view.key ? 'bg-yellow-600 text-white' : 'text-slate-300 hover:text-white'}`}>{view.label} <span className="text-xs">{view.count}問</span></button>
+                  ))}
+                </div>
+                {isReviewHistoryView && <button type="button" onClick={() => playReviewHistory('current')} disabled={!historyQuestionsInView.some(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q))} className="min-h-10 rounded-lg border border-cyan-500/40 px-3 py-2 text-sm font-bold text-cyan-100 disabled:opacity-40">このLevelの履歴を再生</button>}
+                {isReviewHistoryView && reviewHistoryUndo && <div role="status" className="flex w-full flex-wrap items-center gap-2 text-sm text-slate-300"><span className="break-all">「{reviewHistoryUndo.text}」を履歴から消しました。</span><button type="button" onClick={undoReviewHistoryDeletion} className="min-h-10 px-2 font-bold text-cyan-200 underline">元に戻す</button></div>}
+              </div>
+            )}
+            {questionListFilter === 'miss-ranking' && (
+              <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/35 bg-amber-950/20 p-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-amber-200"><Trophy size={18} /><p className="text-sm font-black">累計ミスランキング・上位30問</p></div>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">現在の教材・レベルで、一度以上つまずいた問題を回数順に表示します。克服済みの問題も含み、除外中の問題は表示しません。</p>
+                    <p className="mt-1 text-[11px] text-slate-500">「つまずき1回」は、その問題で一度以上ミスしたバトルが1回あったという記録です。</p>
+                  </div>
+                  <GameButton onClick={startMissRankingReview} size="sm" className="flex-shrink-0 bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={missRankingReviewQuestions.length === 0}>
+                    <Flame size={16} /> 上位10問を復習
+                  </GameButton>
+                </div>
+              </div>
+            )}
+            {questionListFilter === 'weak' && (
+              <div className="mb-4 flex-shrink-0">
+                <button
+                  onClick={() => setWeakReviewPanelOpen(prev => !prev)}
+                  className="flex w-full items-center justify-between rounded-xl border border-orange-500/30 bg-orange-950/20 px-4 py-3 text-left transition-colors hover:bg-orange-900/25"
+                >
+                  <div>
+                    <p className="text-sm font-bold text-orange-200">苦手の復習・詳細</p>
+                    <p className="mt-1 text-xs text-slate-400">苦手な問題の統計や復習ボタンは必要なときだけ開けます。</p>
+                  </div>
+                  <span className="text-sm font-bold text-orange-100">{weakReviewPanelOpen ? '閉じる ▲' : '開く ▼'}</span>
+                </button>
+              </div>
+            )}
+            {questionListFilter === 'weak' && weakReviewPanelOpen && (
+              <div className="mb-4 grid gap-4 md:grid-cols-3 flex-shrink-0">
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/20 p-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">Recent Mistakes</p>
+                  <p className="mt-2 text-2xl font-black text-white">{recentWeakSamples.length}</p>
+                  <p className="mt-2 text-xs text-slate-300">{recentWeakSamples.length > 0 ? recentWeakSamples.map(q => q.text).join(' / ') : 'まだありません'}</p>
+                </div>
+                <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Repeated Mistakes</p>
+                  <p className="mt-2 text-2xl font-black text-white">{weakQuestionsInView.filter(q => (weakQuestionStats[q.text]?.missCount ?? 0) >= 2).length}</p>
+                  <p className="mt-2 text-xs text-slate-300">{repeatedWeakSamples.length > 0 ? repeatedWeakSamples.map(q => `${q.text} x${weakQuestionStats[q.text]?.missCount ?? 0}`).join(' / ') : 'まだありません'}</p>
+                </div>
+                <div className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-orange-300">Need Review</p>
+                  <p className="mt-2 text-2xl font-black text-white">{weakQuestionsInView.length}</p>
+                  <p className="mt-2 text-xs text-slate-300">まだ克服できていない苦手な問題です。</p>
+                </div>
+              </div>
+            )}
+            {questionListFilter === 'weak' && weakReviewPanelOpen && (
+              <div className="mb-4 flex-shrink-0 rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
+                <div className="mb-3">
+                  <p className="text-sm font-bold text-orange-200">表示中の苦手な問題を復習する</p>
+                  <p className="mt-1 text-xs text-slate-400">一覧を見てから、自分に合ったモードでそのまま復習できます。</p>
+                </div>
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+                  <GameButton onClick={() => startReviewFromList('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={reviewTargetQuestions.length === 0}>
+                    <Brain size={16} className="mr-1" /> Basic Training復習
+                  </GameButton>
+                  <GameButton onClick={() => startReviewFromList('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={reviewTargetQuestions.length === 0}>
+                    <Volume2 size={16} className="mr-1" /> Listening Training復習
+                  </GameButton>
+                  <GameButton onClick={() => startReviewFromList('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={reviewTargetQuestions.length === 0}>
+                    <Sword size={16} className="mr-1" /> Listening Battle復習
+                  </GameButton>
+                  <GameButton onClick={() => startReviewFromList('challenge', 'text-only')} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500" disabled={reviewTargetQuestions.length === 0}>
+                    <Flame size={16} className="mr-1" /> Translation Battle復習
+                  </GameButton>
+                </div>
+              </div>
+            )}
+            {questionListFilter === 'weak' && weakReviewPanelOpen && (
+              <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/30 bg-amber-950/20 p-4">
+                <div className="mb-3">
+                  <p className="text-sm font-bold text-amber-200">特に間違いが多い問題から復習する</p>
+                  <p className="mt-1 text-xs text-slate-400">ミス回数が多い順の上位問題を優先して、集中的に復習できます。</p>
+                </div>
+                <div className="mb-3 text-xs text-slate-300">
+                  {topMissedQuestions.length > 0
+                    ? topMissedQuestions.slice(0, 5).map(q => `${q.text} x${weakQuestionStats[q.text]?.missCount ?? 0}`).join(' / ')
+                    : 'まだ対象がありません'}
+                </div>
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+                  <GameButton onClick={() => startTopMissReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={topMissedQuestions.length === 0}>
+                    <Brain size={16} className="mr-1" /> Basic上位復習
+                  </GameButton>
+                  <GameButton onClick={() => startTopMissReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={topMissedQuestions.length === 0}>
+                    <Volume2 size={16} className="mr-1" /> Listening上位復習
+                  </GameButton>
+                  <GameButton onClick={() => startTopMissReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={topMissedQuestions.length === 0}>
+                    <Sword size={16} className="mr-1" /> 音声上位復習
+                  </GameButton>
+                  <GameButton onClick={() => startTopMissReview('challenge', 'text-only')} size="sm" className="bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={topMissedQuestions.length === 0}>
+                    <Flame size={16} className="mr-1" /> 和訳上位復習
+                  </GameButton>
+                </div>
+              </div>
+            )}
+            <div className="flex-1 min-h-0">
+               <Box className="library-box h-full min-w-0 w-full flex flex-col" contentClassName="min-w-0 w-full">
+                   <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
+                     <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
+                       <AlertCircle size={28} className="mb-3 text-slate-500" />
+                       <p className="text-lg font-bold text-slate-200">{emptyListTitle}</p>
+                       <p className="mt-2 text-sm text-slate-400">{emptyListDescription}</p>
+                       <GameButton onClick={() => { setLibrarySearch(''); setQuestionListFilter('all'); }} variant="outline" size="sm" className="mt-4">すべて表示に戻す</GameButton>
+                     </div>
+                   ) : <>
+                     {shouldLimitQuestionList && (
+                       <div className="library-render-limit">
+                         {wordListToolsOpen || isAutoPlaying
+                           ? '動作を軽くするため、選択・自動再生ツールの使用中と連続再生中は一覧を先頭160問だけ表示しています。全問を確認したい場合は、ツールを閉じてから「さらに表示」を押してください。'
+                           : `${visibleQuestions.length}問中 ${renderedQuestions.length}問を表示`}
+                         {!wordListToolsOpen && !isAutoPlaying && (
+                           <button
+                             onClick={() => setQuestionListRenderLimit(prev => prev + 260)}
+                             className="hover:bg-cyan-500/20"
+                           >
+                             {'さらに表示'}
+                           </button>
+                         )}
+                       </div>
+                     )}
+                     <div className="grid gap-2 pb-4">{questionRows}</div>
+                   </>}</div>
+               </Box>
+           </div>
+           <details className="library-extra"><summary>学習記録をAIに相談</summary><AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} /></details>
+            {wordListToolsOpen && (
+            <div ref={libraryAdvancedRef} className="library-advanced">
+            <button className="library-close-tools" onClick={() => { setWordListToolsOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }); }}>詳細ツールを閉じて一覧へ ↑</button>
+            <div className="mb-4 flex-shrink-0 rounded-xl border border-sky-500/30 bg-sky-950/20 p-4">
+              <div className="mb-3 hidden flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-bold text-sky-200">自分で決めた学習メモから復習する</p>
+                  <p className="mt-1 text-xs text-slate-400">学習中と「もう少し」にした問題をまとめて復習できます。苦手判定はこれまで通りゲーム側でも続き、除外した問題だけここから外れます。</p>
+                </div>
+                <div className="text-xs text-slate-300">
+                  {manualReviewQuestions.length > 0 ? manualReviewSamples : 'まだありません'}
+                </div>
+              </div>
+              <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-bold text-sky-200">{'\u624b\u52d5\u8a2d\u5b9a\u306e\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2'}</p>
+                  <p className="mt-1 text-xs text-slate-400">{'\u300c\u5b66\u7fd2\u4e2d\u300d\u3068\u300c\u3082\u3046\u5c11\u3057\u300d\u306b\u3057\u305f\u554f\u984c\u3092\u307e\u3068\u3081\u3066\u5fa9\u7fd2\u3067\u304d\u307e\u3059\u3002\u82e6\u624b\u5224\u5b9a\u306f\u3053\u308c\u307e\u3067\u901a\u308a\u30b2\u30fc\u30e0\u5074\u3067\u3082\u7d9a\u304d\u3001\u9664\u5916\u3057\u305f\u554f\u984c\u3060\u3051\u3053\u3053\u304b\u3089\u5916\u308c\u307e\u3059\u3002'}</p>
+                </div>
+                <div className="text-xs text-slate-300">
+                  {manualReviewQuestions.length > 0 ? manualReviewSamples : '\u307e\u3060\u3042\u308a\u307e\u305b\u3093'}
+                </div>
+              </div>
+              <div className="hidden grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+                <GameButton onClick={() => startManualReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={manualReviewQuestions.length === 0}>
+                  <Brain size={16} className="mr-1" /> Basic Training復習
+                </GameButton>
+                <GameButton onClick={() => startManualReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={manualReviewQuestions.length === 0}>
+                  <Volume2 size={16} className="mr-1" /> Listening Training復習
+                </GameButton>
+                <GameButton onClick={() => startManualReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={manualReviewQuestions.length === 0}>
+                  <Sword size={16} className="mr-1" /> Listening Battle復習
+                </GameButton>
+                <GameButton onClick={() => startManualReview('challenge', 'text-only')} size="sm" className="bg-sky-600 border-sky-400 text-white hover:bg-sky-500" disabled={manualReviewQuestions.length === 0}>
+                  <Flame size={16} className="mr-1" /> Translation Battle復習
+                </GameButton>
+              </div>
+            </div>
+            <div className="mb-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4 flex-shrink-0">
+              <GameButton onClick={() => startManualReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={manualReviewQuestions.length === 0}>
+                <Brain size={16} className="mr-1" /> {'Basic Training\u5fa9\u7fd2'}
+              </GameButton>
+              <GameButton onClick={() => startManualReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={manualReviewQuestions.length === 0}>
+                <Volume2 size={16} className="mr-1" /> {'Listening Training\u5fa9\u7fd2'}
+              </GameButton>
+              <GameButton onClick={() => startManualReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={manualReviewQuestions.length === 0}>
+                <Sword size={16} className="mr-1" /> {'Listening Battle\u5fa9\u7fd2'}
+              </GameButton>
+              <GameButton onClick={() => startManualReview('challenge', 'text-only')} size="sm" className="bg-sky-600 border-sky-400 text-white hover:bg-sky-500" disabled={manualReviewQuestions.length === 0}>
+                <Flame size={16} className="mr-1" /> {'Translation Battle\u5fa9\u7fd2'}
+              </GameButton>
+            </div>
+            <div ref={autoPlayPanelRef} className="mb-4 scroll-mt-4 flex-shrink-0 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 p-4 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Auto Play</p>
+                  <h3 className="mt-1 text-xl font-black text-white">連続再生の設定</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">上から順に「再生する問題」「読み上げる内容」「再生順」を選び、最後に再生ボタンを押してください。</p>
+                  <p className="mt-2 text-xs font-bold text-cyan-200">迷ったときは「苦手だけ・英語＋和訳＋例文・通常順」がおすすめです。</p>
+                </div>
+                <div className="min-w-[210px] rounded-xl border border-cyan-500/30 bg-slate-950/75 px-4 py-3 text-sm text-slate-200">
+                  <div className="text-xs font-bold text-slate-400">現在の設定</div>
+                  <div className="mt-1 font-black text-white">{selectedAutoPlaySource.label}</div>
+                  <p className="mt-1 max-w-xs text-xs text-yellow-100">{playbackScopeLabel}</p>
+                  <div className="mt-2 flex items-center justify-between gap-4 text-xs">
+                    <span>対象 {autoPlayTargetQuestions.length}問</span>
+                    <span className="font-black text-cyan-200">再生可能 {autoPlayPlayableQuestionCount}問</span>
+                  </div>
+                  <div className="mt-2 border-t border-slate-700 pt-2 text-xs text-slate-400">{autoPlayStatusText}</div>
+                  <div className="mt-1 text-xs text-cyan-200">{autoPlaySettings.repeat ? 'リピートON：一巡後も先頭から再生' : 'リピートOFF：一巡したら終了'}</div>
+                </div>
+              </div>
+              <div className="mt-5 space-y-4">
+                {playbackSettingsContent}
+                {playbackPlayer}
                 <details
                   open={autoPlaySelectionToolsOpen}
                   onToggle={(event) => setAutoPlaySelectionToolsOpen(event.currentTarget.open)}
@@ -8931,215 +9062,8 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                 </details>
               </div>
             </div>
-            </>
+            </div>
             )}
-            {questionListFilter === 'miss-ranking' && (
-              <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/35 bg-amber-950/20 p-4">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-amber-200"><Trophy size={18} /><p className="text-sm font-black">累計ミスランキング・上位30問</p></div>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-400">現在の教材・レベルで、一度以上つまずいた問題を回数順に表示します。克服済みの問題も含み、除外中の問題は表示しません。</p>
-                    <p className="mt-1 text-[11px] text-slate-500">「つまずき1回」は、その問題で一度以上ミスしたバトルが1回あったという記録です。</p>
-                  </div>
-                  <GameButton onClick={startMissRankingReview} size="sm" className="flex-shrink-0 bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={missRankingReviewQuestions.length === 0}>
-                    <Flame size={16} /> 上位10問を復習
-                  </GameButton>
-                </div>
-              </div>
-            )}
-            {questionListFilter === 'weak' && (
-              <div className="mb-4 flex-shrink-0">
-                <button
-                  onClick={() => setWeakReviewPanelOpen(prev => !prev)}
-                  className="flex w-full items-center justify-between rounded-xl border border-orange-500/30 bg-orange-950/20 px-4 py-3 text-left transition-colors hover:bg-orange-900/25"
-                >
-                  <div>
-                    <p className="text-sm font-bold text-orange-200">苦手の復習・詳細</p>
-                    <p className="mt-1 text-xs text-slate-400">苦手な問題の統計や復習ボタンは必要なときだけ開けます。</p>
-                  </div>
-                  <span className="text-sm font-bold text-orange-100">{weakReviewPanelOpen ? '閉じる ▲' : '開く ▼'}</span>
-                </button>
-              </div>
-            )}
-            {questionListFilter === 'weak' && weakReviewPanelOpen && (
-              <div className="mb-4 grid gap-4 md:grid-cols-3 flex-shrink-0">
-                <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/20 p-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">Recent Mistakes</p>
-                  <p className="mt-2 text-2xl font-black text-white">{recentWeakSamples.length}</p>
-                  <p className="mt-2 text-xs text-slate-300">{recentWeakSamples.length > 0 ? recentWeakSamples.map(q => q.text).join(' / ') : 'まだありません'}</p>
-                </div>
-                <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Repeated Mistakes</p>
-                  <p className="mt-2 text-2xl font-black text-white">{weakQuestionsInView.filter(q => (weakQuestionStats[q.text]?.missCount ?? 0) >= 2).length}</p>
-                  <p className="mt-2 text-xs text-slate-300">{repeatedWeakSamples.length > 0 ? repeatedWeakSamples.map(q => `${q.text} x${weakQuestionStats[q.text]?.missCount ?? 0}`).join(' / ') : 'まだありません'}</p>
-                </div>
-                <div className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-orange-300">Need Review</p>
-                  <p className="mt-2 text-2xl font-black text-white">{weakQuestionsInView.length}</p>
-                  <p className="mt-2 text-xs text-slate-300">まだ克服できていない苦手な問題です。</p>
-                </div>
-              </div>
-            )}
-            {questionListFilter === 'weak' && weakReviewPanelOpen && (
-              <div className="mb-4 flex-shrink-0 rounded-xl border border-orange-500/30 bg-orange-950/20 p-4">
-                <div className="mb-3">
-                  <p className="text-sm font-bold text-orange-200">表示中の苦手な問題を復習する</p>
-                  <p className="mt-1 text-xs text-slate-400">一覧を見てから、自分に合ったモードでそのまま復習できます。</p>
-                </div>
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <GameButton onClick={() => startReviewFromList('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={reviewTargetQuestions.length === 0}>
-                    <Brain size={16} className="mr-1" /> Basic Training復習
-                  </GameButton>
-                  <GameButton onClick={() => startReviewFromList('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={reviewTargetQuestions.length === 0}>
-                    <Volume2 size={16} className="mr-1" /> Listening Training復習
-                  </GameButton>
-                  <GameButton onClick={() => startReviewFromList('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={reviewTargetQuestions.length === 0}>
-                    <Sword size={16} className="mr-1" /> Listening Battle復習
-                  </GameButton>
-                  <GameButton onClick={() => startReviewFromList('challenge', 'text-only')} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500" disabled={reviewTargetQuestions.length === 0}>
-                    <Flame size={16} className="mr-1" /> Translation Battle復習
-                  </GameButton>
-                </div>
-              </div>
-            )}
-            {questionListFilter === 'weak' && weakReviewPanelOpen && (
-              <div className="mb-4 flex-shrink-0 rounded-xl border border-amber-500/30 bg-amber-950/20 p-4">
-                <div className="mb-3">
-                  <p className="text-sm font-bold text-amber-200">特に間違いが多い問題から復習する</p>
-                  <p className="mt-1 text-xs text-slate-400">ミス回数が多い順の上位問題を優先して、集中的に復習できます。</p>
-                </div>
-                <div className="mb-3 text-xs text-slate-300">
-                  {topMissedQuestions.length > 0
-                    ? topMissedQuestions.slice(0, 5).map(q => `${q.text} x${weakQuestionStats[q.text]?.missCount ?? 0}`).join(' / ')
-                    : 'まだ対象がありません'}
-                </div>
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <GameButton onClick={() => startTopMissReview('guide', 'voice-text')} size="sm" variant="outline" className="border-blue-500/40 text-blue-200 hover:bg-blue-900/20" disabled={topMissedQuestions.length === 0}>
-                    <Brain size={16} className="mr-1" /> Basic上位復習
-                  </GameButton>
-                  <GameButton onClick={() => startTopMissReview('challenge', 'voice-text')} size="sm" variant="outline" className="border-indigo-500/40 text-indigo-200 hover:bg-indigo-900/20" disabled={topMissedQuestions.length === 0}>
-                    <Volume2 size={16} className="mr-1" /> Listening上位復習
-                  </GameButton>
-                  <GameButton onClick={() => startTopMissReview('challenge', 'voice-only')} size="sm" variant="outline" className="border-orange-500/40 text-orange-200 hover:bg-orange-900/20" disabled={topMissedQuestions.length === 0}>
-                    <Sword size={16} className="mr-1" /> 音声上位復習
-                  </GameButton>
-                  <GameButton onClick={() => startTopMissReview('challenge', 'text-only')} size="sm" className="bg-amber-600 border-amber-400 text-white hover:bg-amber-500" disabled={topMissedQuestions.length === 0}>
-                    <Flame size={16} className="mr-1" /> 和訳上位復習
-                  </GameButton>
-                </div>
-              </div>
-            )}
-            <div className="flex-1 min-h-0">
-               <Box className="h-full min-w-0 w-full flex flex-col" contentClassName="min-w-0 w-full p-2 md:p-3" title={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} - Level ${gameState.selectedLevel}・${getLearningContentLabel(gameState.selectedLevel, gameState.selectedDifficulty === 'Conversation')} (${questions.length}問)`}>
-                   <div className="overflow-y-auto pr-2 custom-scrollbar flex-1">{visibleQuestions.length === 0 ? (
-                     <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-xl border border-slate-700 bg-slate-900/40 px-6 text-center">
-                       <AlertCircle size={28} className="mb-3 text-slate-500" />
-                       <p className="text-lg font-bold text-slate-200">{emptyListTitle}</p>
-                       <p className="mt-2 text-sm text-slate-400">{emptyListDescription}</p>
-                       <GameButton onClick={() => setQuestionListFilter('all')} variant="outline" size="sm" className="mt-4">すべて表示に戻す</GameButton>
-                     </div>
-                   ) : <>
-                     {shouldLimitQuestionList && (
-                       <div className="mb-3 rounded-lg border border-cyan-500/30 bg-cyan-950/30 px-4 py-3 text-sm text-cyan-100">
-                         {wordListToolsOpen || isAutoPlaying
-                           ? '動作を軽くするため、選択・自動再生ツールの使用中と連続再生中は一覧を先頭160問だけ表示しています。全問を確認したい場合は、ツールを閉じてから「さらに表示」を押してください。'
-                           : `表示負荷を抑えるため、まず先頭${renderedQuestions.length}問を表示しています。`}
-                         {!wordListToolsOpen && !isAutoPlaying && (
-                           <button
-                             onClick={() => setQuestionListRenderLimit(prev => prev + 260)}
-                             className="ml-3 rounded-md border border-cyan-400/40 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-100 hover:bg-cyan-500/20"
-                           >
-                             {'さらに表示'}
-                           </button>
-                         )}
-                       </div>
-                     )}
-                     <div className="grid gap-2 pb-4">{questionRows /* visibleQuestions.map((q, idx) => {
-                     const isWeakQuestion = weakQuestionTexts.has(q.text);
-                     const stats = weakQuestionStats[q.text];
-                     const manualStatus = getManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q);
-                     const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
-                     const isSelectedForAutoPlay = selectedQuestionKeySet.has(questionKey);
-                     const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
-                     const automaticLevel = getAutomaticLearningLevel(manualStatus);
-                     const autoLabel = LEARNING_LEVEL_LABELS[automaticLevel];
-                     const isManualOverrideActive = manualStatus.manualOverrideLevel !== null;
-                     const example = currentQuestionExamples.get(questionKey);
-                     return (
-                       <div key={`${q.text}-${idx}`} className={`p-3 rounded-lg border transition-colors group ${manualStatus.excluded ? 'bg-slate-950/80 border-slate-600 opacity-85' : isWeakQuestion ? 'bg-orange-950/40 border-orange-500/40 hover:border-orange-400/70' : 'bg-slate-900/50 border-slate-700 hover:border-blue-500/50'}`}>
-                         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                           <div className="flex items-start gap-4 min-w-0">
-                             <label className="mt-1 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-950/40 text-cyan-100 transition-colors hover:bg-cyan-900/40">
-                               <input
-                                 type="checkbox"
-                                 checked={isSelectedForAutoPlay}
-                                 onChange={() => toggleSelectedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, q)}
-                                 className="h-4 w-4 rounded border-slate-500 bg-slate-900 text-cyan-400"
-                               />
-                             </label>
-                             <button onClick={() => speakWithSettings(q.text)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0"><Volume2 size={16} /></button>
-                             <div className="min-w-0">
-                               <div className="flex flex-wrap items-center gap-3">
-                               <span className="text-lg md:text-xl font-mono text-blue-100 font-bold break-all">{q.text}</span>
-                                <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] ${manualStatus.learningLevel === 1 ? 'border border-sky-400/35 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border border-emerald-400/35 bg-emerald-500/10 text-emerald-100' : 'border border-violet-400/35 bg-violet-500/10 text-violet-100'}`}>
-                                 {learningLabel}
-                               </span>
-                                {isSelectedForAutoPlay && <span className="rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-cyan-100">選択中</span>}
-                                {manualStatus.manualOverrideLevel !== null && <span className="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/15 px-2 py-0.5 text-[10px] font-bold tracking-wide text-fuchsia-200">{'手動設定'}</span>}
-                                {manualStatus.excluded && <span className="rounded-full border border-slate-400/40 bg-slate-700/70 px-2 py-0.5 text-[10px] font-bold tracking-wide text-slate-200">{'\u9664\u5916\u4e2d'}</span>}
-                               {isWeakQuestion && <span className="rounded-full border border-orange-400/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300">Weak</span>}
-                               {isWeakQuestion && stats && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-200">Miss x{stats.missCount}</span>}
-                               {!isWeakQuestion && stats && <span className="rounded-full border border-slate-500/30 bg-slate-700/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Past Miss x{stats.missCount}</span>}
-                              </div>
-                              <div className="mt-2 flex flex-wrap items-center gap-3">
-                                 <span className={`rounded-2xl border px-4 py-2 text-xl font-black leading-none tracking-[0.08em] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] md:text-2xl ${isManualOverrideActive ? 'border-slate-700 bg-slate-900/60 text-slate-300' : manualStatus.learningLevel === 1 ? 'border-sky-400/30 bg-sky-500/10 text-sky-100' : manualStatus.learningLevel === 2 ? 'border-emerald-400/30 bg-emerald-500/10 text-emerald-100' : 'border-violet-400/30 bg-violet-500/10 text-violet-100'}`}>
-                                  {learningLabel}
-                                </span>
-                                <span className={`rounded-full border px-2.5 py-1 text-[11px] font-bold ${isManualOverrideActive ? 'border-slate-700 bg-slate-900/70 text-slate-400' : 'border-cyan-400/30 bg-cyan-500/10 text-cyan-100'}`}>
-                                  {'\u81ea\u52d5'}: {autoLabel}
-                                </span>
-                              </div>
-                             </div>
-                            </div>
-                           <div className="text-right flex-shrink-0">
-                             <div className="text-slate-300 font-bold text-sm md:text-base">{getQuestionMeaning(q, gameState.selectedDifficulty)}</div>
-                             {q.basicMeaning && (
-                               <div className="mt-0.5 text-[10px] font-medium text-slate-500 md:text-[11px]">
-                                 Basic: {q.basicMeaning}
-                               </div>
-                             )}
-                           </div>
-                         </div>
-                          <div className="mt-3 ml-12 flex flex-wrap items-center gap-2 md:justify-end">
-                            <span className="text-[11px] font-bold text-slate-400">{'\u624b\u52d5\u8a2d\u5b9a'}</span>
-                           {LEARNING_LEVELS.map(level => (
-                             <button
-                               key={level}
-                               onClick={() => updateManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q, current => ({ ...current, manualOverrideLevel: current.manualOverrideLevel === level ? null : level }))}
-                               className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.manualOverrideLevel === level ? level === 1 ? 'border-sky-300 bg-sky-500/20 text-sky-100 shadow-[0_0_18px_rgba(56,189,248,0.24)]' : level === 2 ? 'border-emerald-300 bg-emerald-500/20 text-emerald-100 shadow-[0_0_18px_rgba(52,211,153,0.22)]' : 'border-violet-300 bg-violet-500/20 text-violet-100 shadow-[0_0_18px_rgba(167,139,250,0.24)]' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                             >
-                                {level === 1 ? '\u5b66\u7fd2\u4e2d' : level === 2 ? '\u3082\u3046\u5c11\u3057' : '\u899a\u3048\u305f'}
-                             </button>
-                           ))}
-                           <button
-                             onClick={() => updateManualQuestionStatus(gameState.selectedDifficulty, gameState.selectedLevel, q, current => ({ ...current, excluded: !current.excluded }))}
-                             className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.excluded ? 'border-slate-300 bg-slate-200 text-slate-900' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
-                           >
-                              {manualStatus.excluded ? '\u9664\u5916\u3092\u89e3\u9664' : '\u9664\u5916\u3059\u308b'}
-                           </button>
-                         </div>
-                         {example && (
-                           <div className="mt-3 ml-12 rounded-lg border border-slate-700/80 bg-slate-950/70 px-3 py-2">
-                             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-300">Example</p>
-                             <p className="mt-1 text-xs md:text-sm text-slate-200">{example}</p>
-                           </div>
-                         )}
-                       </div>
-                     );
-                   }) */}</div>
-                   </>}</div>
-               </Box>
-           </div>
         </div>
         <style>{`.custom-scrollbar::-webkit-scrollbar { width: 8px; } .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }`}</style>
       </ScreenContainer>
@@ -9148,7 +9072,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
   if (gameState.screen === 'settings') {
     return (
-      <ScreenContainer className="bg-slate-900">
+      <ScreenContainer navigation={appNavigation} className="bg-slate-900">
         <div className="max-w-3xl w-full p-4">
           <div className="flex justify-between items-center mb-6">
             <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
@@ -9422,7 +9346,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const courseSummary = [...new Set(activeVersusCourses.map(course => `${DIFFICULTY_LABELS[course.difficulty]} Level ${course.level}`))].join(' ・ ');
     const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', 'listening-translation': 'リスニング＋和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
-      <ScreenContainer className="items-center p-2 sm:p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center p-2 sm:p-4">
         <Box className="w-full max-w-5xl" contentClassName="p-3 sm:p-4">
           <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
             <div className="flex items-start gap-3">
@@ -9537,11 +9461,11 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const currentAdjustedScore = currentPlayer ? getAdjustedVersusScore(currentPlayer) : 0;
     const versusHintCharacter = versusHintLength > 0 ? currentQuestion?.text[versusHintLength - 1] : '';
     if (!currentPlayer || !currentQuestion || !currentVersusQuestion) {
-      return <ScreenContainer className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
+      return <ScreenContainer navigation={appNavigation} className="items-center justify-center"><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}>対戦の準備へ戻る</GameButton></ScreenContainer>;
     }
     if (versusShowHandoff) {
       return (
-        <ScreenContainer className="items-center justify-center p-4">
+        <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
           <Box className="w-full max-w-xl text-center">
             <Trophy size={58} className="mx-auto text-yellow-300" />
             <p className="mt-5 text-sm font-black uppercase tracking-[0.25em] text-violet-300">Next Player</p>
@@ -9556,7 +9480,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       );
     }
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
         <Box className="w-full max-w-3xl">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-600 pb-4">
             <div><p className="text-sm font-black text-violet-300">{currentPlayer.name} のターン</p><p className="mt-1 text-xs font-bold text-cyan-200">{DIFFICULTY_LABELS[currentPlayer.difficulty]} Level {currentPlayer.level}</p><p className="mt-1 text-2xl font-black text-white">{versusQuestionIndex + 1} / {currentPlayer.questionCount} 問</p></div>
@@ -9617,7 +9541,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const winner = ranking[0];
     const confettiColors = ['bg-yellow-300', 'bg-fuchsia-400', 'bg-cyan-300', 'bg-emerald-300', 'bg-orange-300'];
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
         <Box title="英語タイピングバトル・結果" className="w-full max-w-3xl">
           {!isSoloChallenge && winner && <div className="relative isolate overflow-hidden rounded-2xl border-2 border-yellow-300/75 bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.32),rgba(76,29,149,0.52)_48%,rgba(15,23,42,0.92)_100%)] px-5 py-7 text-center shadow-[0_0_38px_rgba(250,204,21,0.28)]">
             <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">{Array.from({ length: 20 }, (_, index) => <span key={index} className={`absolute h-2 w-2 rotate-45 ${confettiColors[index % confettiColors.length]} animate-bounce`} style={{ left: `${5 + (index * 37) % 90}%`, top: `${8 + (index * 23) % 72}%`, animationDelay: `${(index % 6) * 110}ms`, animationDuration: `${700 + (index % 4) * 120}ms` }} />)}</div>
@@ -9651,7 +9575,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const isComplete = typingPracticeIndex >= TYPING_PRACTICE_STEPS.length;
     const practicePhase = typingPracticeIndex < 2 ? 'まんなかを見つけよう' : typingPracticeIndex < 13 ? '文字の場所を覚えよう' : '短い単語を打とう';
     return (
-      <ScreenContainer className="items-center justify-center px-3 py-6">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center px-3 py-6">
         <Box title="はじめてのタイピング練習" className="w-full max-w-2xl">
           <p className="text-sm text-slate-200">パソコンではキーボードで、スマホでは横向きにして画面の文字を押そう。半角／全角は切り替えなくてOKです。</p>
           {isComplete ? <div className="mt-6 text-center"><p className="text-3xl font-black text-emerald-300">練習クリア！</p><p className="mt-2 text-slate-200">まちがい {typingPracticeMisses} 回。ゆっくり正しく打てたね。</p><div className="mt-6 grid gap-3 sm:grid-cols-2"><GameButton variant="outline" onClick={leaveTypingPractice}>タイトルへ戻る</GameButton><GameButton variant="success" onClick={startBeginnerBattle}><Sword size={19} /> つぎは はじめてバトルへ</GameButton></div></div> : <>
@@ -9686,7 +9610,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
     if (isComplete) {
       return (
-        <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950 px-3 py-5">
+        <ScreenContainer navigation={appNavigation} className="items-center justify-center overflow-hidden bg-slate-950 px-3 py-5">
           <img src={COURSE_SELECT_ILLUSTRATION_IMAGE} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35" />
           <div className="absolute inset-0 bg-slate-950/72" />
           <div className="relative z-10 w-full max-w-2xl rounded-2xl border-2 border-amber-300/60 bg-slate-900/94 p-6 text-center shadow-[0_28px_90px_rgba(0,0,0,0.72)] sm:p-8">
@@ -9709,7 +9633,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     }
 
     return (
-      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950 px-2 py-3 sm:px-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center overflow-hidden bg-slate-950 px-2 py-3 sm:px-4">
         <img src={COURSE_SELECT_ILLUSTRATION_IMAGE} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-slate-950/76" />
         <div
@@ -9874,29 +9798,14 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       : 0;
     const nextBattleProgress = nextBattleStep >= 0 ? nextBattleStep : nextBattleIndices.length;
     const nextBattleIsComplete = nextBattleStep < 0;
-    const nextBattleTaunt = nextBattleMonster
-      ? getTitleMonsterTaunt(
-        nextBattleMonster,
-        `${getTodayKey()}:${nextBattleProgress}:${todayQuestionCount}:${totalDefeated}`
-      )
-      : '';
-    const titleAutoPlayTargetQuestions = scopedPlaybackPools[autoPlaySettings.source];
-    const openTitleAutoPlayManager = (destination: 'settings' | 'player' = 'settings') => {
-      autoPlayScrollRequestedRef.current = destination;
-      setQuestionListFilter('all');
-      setWordListToolsOpen(true);
-      setGameState(prev => ({ ...prev, screen: 'question-list' }));
-    };
-    const handleTitleAutoPlay = () => {
-      openTitleAutoPlayManager('player');
-      startAutoPlayForQuestions(titleAutoPlayTargetQuestions);
-    };
+    const openTitleAutoPlayManager = () => openPlaybackManager('settings');
+    const handleTitleAutoPlay = () => openPlaybackManager('player', true);
     const previewGrammarCourse = getGrammarGuideCourse(new URLSearchParams(window.location.search).get('guide'));
     const titleGrammarCourse = previewGrammarCourse ?? getGrammarGuideCourse(gameState.selectedDifficulty);
 
     return (
-      <ScreenContainer>
-        <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#081426] p-4">
+      <ScreenContainer navigation={appNavigation}>
+        <div className="relative flex w-full flex-col items-center overflow-hidden bg-[#081426]">
             <img
               src={COURSE_SELECT_ILLUSTRATION_IMAGE}
               alt=""
@@ -9906,160 +9815,30 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(34,211,238,0.12),transparent_30%),radial-gradient(circle_at_78%_24%,rgba(251,191,36,0.2),transparent_32%)]"></div>
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.68)_0%,rgba(2,6,23,0.34)_38%,rgba(2,6,23,0.06)_68%,rgba(2,6,23,0.12)_100%),linear-gradient(180deg,rgba(2,6,23,0.02)_0%,rgba(2,6,23,0.24)_100%)]"></div>
             <div
-              className="relative z-10 flex w-full max-w-7xl flex-col items-center gap-2 px-2 py-3"
-              style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
+              className="relative z-10 flex w-full flex-col items-center"
             >
-              <GameTitleLogo />
-              <div className="grid w-full items-stretch gap-8 lg:grid-cols-[minmax(0,680px)_minmax(360px,1fr)]">
-              <div className="flex h-full w-full max-w-3xl flex-col items-center justify-self-center lg:items-start lg:justify-self-start">
-                <div className="mb-5 grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setActivityMonth(currentMonthKey);
-                      setShowMonthlyActivity(true);
-                    }}
-                    className="group rounded-lg border border-emerald-300/35 bg-emerald-950/22 px-4 py-3 text-left shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm transition hover:border-emerald-200/70 hover:bg-emerald-900/30 focus:outline-none focus:ring-4 focus:ring-emerald-300/25"
-                    aria-label="今月の学習記録を見る"
-                  >
-                    <div className="flex items-center gap-2 text-emerald-200">
-                      <Target size={18} />
-                      <span className="text-xs font-black">今日の解答数</span>
-                    </div>
-                    <p className="mt-1 text-3xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-base text-emerald-100">問</span></p>
-                    <span className="mt-1 block text-[11px] font-black text-emerald-200/85 group-hover:text-emerald-100">今月の記録を見る →</span>
-                  </button>
-                  <div className="rounded-lg border border-amber-300/42 bg-amber-950/24 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-sm">
-                    <div className="flex items-center gap-2 text-amber-200">
-                      <Trophy size={18} />
-                      <span className="text-xs font-black">撃破数</span>
-                    </div>
-                    <p className="mt-1 text-3xl font-black text-white">{totalDefeated}<span className="ml-1 text-base text-amber-100">体</span></p>
-                    <p title="同じコースで同じモンスターを再び倒した場合は重複カウントしません。" className="mt-1 text-[11px] font-bold text-amber-100/80">級・レベル・出題方法ごとの撃破を合計</p>
-                  </div>
-                </div>
-
-                <div className="w-full max-w-3xl overflow-hidden rounded-lg border border-sky-300/28 bg-slate-950/76 shadow-[0_24px_70px_rgba(0,0,0,0.48)] backdrop-blur-md">
-                  <div className="border-b border-sky-300/18 bg-slate-900/70 px-5 py-4">
-                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                      <div className="min-w-0">
-                        <p className="text-[11px] font-black uppercase tracking-[0.22em] text-cyan-300">Current Course</p>
-                        <p className="mt-1 truncate text-2xl font-black text-white">
-                          {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        {playerProfiles.map((profile) => {
-                          const isActive = profile.id === activePlayerId;
-                          return (
-                            <button
-                              key={profile.id}
-                              onClick={() => activatePlayerProfile(profile.id)}
-                              disabled={isActive}
-                              className={`rounded-lg border px-3 py-1.5 text-sm font-black transition-colors ${isActive ? 'border-violet-300 bg-violet-500/20 text-white' : 'border-slate-600 bg-slate-900/60 text-slate-200 hover:border-violet-300 hover:bg-violet-900/15'}`}
-                            >
-                              {profile.name}
-                            </button>
-                          );
-                        })}
-                        <button
-                          onClick={openPlayerProfileSettings}
-                          className="rounded-lg border border-violet-400/45 bg-violet-950/25 px-3 py-1.5 text-sm font-black text-violet-100 transition-colors hover:border-violet-300 hover:bg-violet-900/25"
-                        >
-                          管理
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 p-4 sm:grid-cols-2">
-                    <GameButton
-                      onClick={() => hasStartedMainGame
-                        ? startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)
-                        : setGameState(prev => ({ ...prev, screen: 'level-select' }))}
-                      className="w-full min-h-[72px] border-cyan-300 bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 text-xl shadow-[0_0_34px_rgba(34,211,238,0.28)] hover:from-cyan-500 hover:via-sky-500 hover:to-blue-500 sm:col-span-2"
-                      size="md"
-                    >
-                      <ArrowRight size={26} /> {hasStartedMainGame ? '前回の続きから' : '教材を選んではじめる'}
-                    </GameButton>
-
-                    <GameButton
-                      onClick={() => setShowFirstPlayGuide(true)}
-                      variant="outline"
-                      className="w-full border-slate-600 bg-slate-900/45 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/30 sm:col-span-2"
-                      size="md"
-                    >
-                      <span className="flex items-center justify-center gap-2 text-base">
-                        <Keyboard size={18} /> タイピングに慣れていない方へ
-                      </span>
-                      <span className="text-xs font-medium text-slate-400">キーの場所から、ゆっくり練習できます</span>
-                    </GameButton>
-
-                    <GameButton
-                      onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
-                      variant="outline"
-                      className="w-full min-h-[64px] border-amber-300/55 bg-amber-950/25 text-base text-amber-100 hover:border-amber-200 hover:bg-amber-900/35"
-                      size="md"
-                    >
-                      <LayoutGrid size={24} /> 教材を選ぶ
-                    </GameButton>
-
-                    <GameButton
-                      onClick={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}
-                      variant="outline"
-                      className="w-full min-h-[64px] border-violet-300/55 bg-violet-950/25 text-base text-violet-100 hover:border-violet-200 hover:bg-violet-900/35"
-                      size="md"
-                    >
-                      <Trophy size={24} /> 英語タイピングバトル（1〜5人）
-                    </GameButton>
-
-                    <GameButton
-                      onClick={startTypingPractice}
-                      variant="outline"
-                      className="w-full min-h-[64px] border-emerald-300/55 bg-emerald-950/25 text-base text-emerald-100 hover:border-emerald-200 hover:bg-emerald-900/35"
-                      size="md"
-                    >
-                      <Keyboard size={24} /> はじめてのタイピング練習
-                    </GameButton>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <GameButton
-                        onClick={handleTitleAutoPlay}
-                        variant="outline"
-                        className="w-full min-h-[64px] border-cyan-300/55 bg-cyan-950/25 px-2 text-sm text-cyan-100 hover:border-cyan-200 hover:bg-cyan-900/35"
-                        size="md"
-                      >
-                        <Volume2 size={19} /> 連続再生
-                      </GameButton>
-                      <GameButton
-                        onClick={() => openTitleAutoPlayManager()}
-                        variant="outline"
-                        className="w-full min-h-[64px] border-slate-600 bg-slate-900/65 px-2 text-sm text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25"
-                        size="md"
-                        aria-label="連続再生の設定"
-                      >
-                        <ClipboardList size={18} /> 再生設定
-                      </GameButton>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3 sm:col-span-2 md:grid-cols-4">
-                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-emerald-300 hover:bg-emerald-950/25">
-                        <BookOpen size={18} /> 図鑑
-                      </GameButton>
-                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-amber-300 hover:bg-amber-950/25">
-                        <ClipboardList size={18} /> 問題リスト
-                      </GameButton>
-                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'settings' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25">
-                        <Volume2 size={18} /> 設定
-                      </GameButton>
-                      <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'help' }))} variant="outline" className="border-slate-600 bg-slate-900/65 px-2 text-slate-200 hover:border-violet-300 hover:bg-violet-950/25">
-                        <AlertCircle size={18} /> 遊び方
-                      </GameButton>
-                    </div>
-                    {titleGrammarCourse && <div className="sm:col-span-2"><GrammarGuide key={titleGrammarCourse} course={titleGrammarCourse} playerId={activePlayerId} initialOpen={!!previewGrammarCourse} /></div>}
-                  </div>
-                </div>
-
+              <AdventureHome
+                key={`${activePlayerId}:${gameState.selectedDifficulty}:${gameState.selectedLevel}:${nextBattleMonster?.id}`}
+                today={todayQuestionCount}
+                course={`${DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level ${gameState.selectedLevel}`}
+                content={getLearningContentLabel(gameState.selectedLevel, gameState.selectedDifficulty === 'Conversation')} mode={nextBattleModeLabel}
+                hasStarted={hasStartedMainGame} monsterName={nextBattleMonster?.name ?? '冒険の仲間'}
+                monsterCourse={gameState.selectedDifficulty} monsterId={nextBattleMonster?.id}
+                monsterTaunt={nextBattleMonster ? getTitleMonsterTaunt(nextBattleMonster, `${getTodayKey()}:${nextBattleProgress}:${todayQuestionCount}:${totalDefeated}`) : undefined}
+                monsterDetails={`${nextBattleIsComplete ? 'クリア済み · もう一度挑戦' : `Stage ${Math.min(nextBattleDisplayStep + 1, nextBattleIndices.length)}/${nextBattleIndices.length}`} · HP ${nextBattleHp}`}
+                monster={nextBattleMonster && <MonsterPreview name={nextBattleMonster.name}><MonsterAvatar monsterId={nextBattleMonster.id} difficulty={gameState.selectedDifficulty} type={nextBattleMonster.type} color={nextBattleMonster.color} size={360} visualStyle={getMonsterVisualStyle(nextBattleMonster)} /></MonsterPreview>}
+                grammar={<GrammarGuide key={titleGrammarCourse} course={titleGrammarCourse ?? 'Eiken5'} playerId={activePlayerId} initialOpen={!!previewGrammarCourse} label="文法一覧を開く" allowCourseSelection />}
+                onResume={() => hasStartedMainGame ? startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode) : setGameState(prev => ({ ...prev, screen: 'level-select' }))}
+                onCourse={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}
+                onTyping={startTypingPractice} onBeginner={() => setShowFirstPlayGuide(true)}
+                onList={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))}
+                onPlayback={handleTitleAutoPlay} onPlaybackSettings={() => openTitleAutoPlayManager()}
+                onBook={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))}
+                onSettings={() => setGameState(prev => ({ ...prev, screen: 'settings' }))}
+                onHelp={() => setGameState(prev => ({ ...prev, screen: 'help' }))}
+                onVersus={() => setGameState(prev => ({ ...prev, screen: 'versus-setup' }))}
+                onActivity={() => { setActivityMonth(currentMonthKey); setShowMonthlyActivity(true); }}
+              />
                 {showFirstPlayGuide && (
                   <div
                     className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/82 p-4 backdrop-blur-sm"
@@ -10145,80 +9924,6 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                   </div>
                 )}
 
-                <div className="mt-4 flex w-full max-w-3xl items-center justify-center text-center text-xs font-bold text-slate-400 md:justify-start">
-                  問題リスト・保存/読み込み・履歴リセットは、教材や設定画面から使えます。
-                </div>
-              </div>
-
-              <aside className="relative hidden min-h-[560px] overflow-hidden rounded-lg border border-cyan-100/45 bg-sky-950/10 shadow-[0_28px_80px_rgba(0,0,0,0.24)] lg:block">
-                <img
-                  src={COURSE_SELECT_ILLUSTRATION_IMAGE}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 h-full w-full object-cover object-[62%_50%] saturate-[1.22] contrast-[1.04] brightness-[1.08]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,20,38,0.04)_0%,rgba(8,20,38,0)_44%,rgba(8,20,38,0.04)_100%),linear-gradient(180deg,rgba(2,6,23,0)_0%,rgba(2,6,23,0.08)_100%)]"></div>
-                <div className="absolute left-5 top-5 rounded-lg border border-amber-100/55 bg-amber-900/24 px-4 py-3 shadow-[0_16px_40px_rgba(0,0,0,0.22)] backdrop-blur-md">
-                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-amber-100">Next Adventure</p>
-                  <p className="mt-1 text-lg font-black text-white">教材を選んで出発</p>
-                </div>
-                <div className="absolute bottom-5 right-5 rounded-lg border border-cyan-100/45 bg-cyan-900/22 px-4 py-3 text-right shadow-[0_16px_40px_rgba(0,0,0,0.22)] backdrop-blur-md">
-                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-100">Today</p>
-                  <p className="mt-1 text-2xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-sm text-cyan-100">問</span></p>
-                </div>
-                {nextBattleMonster && (
-                  <div className="absolute left-7 right-7 top-28 overflow-hidden rounded-lg border border-sky-100/50 bg-slate-950/46 p-5 shadow-[0_22px_54px_rgba(0,0,0,0.28)] backdrop-blur-md">
-                    <div className="flex items-center gap-5">
-                      <div className="relative shrink-0">
-                        <div className="absolute inset-3 rounded-full bg-cyan-300/20 blur-2xl"></div>
-                        <MonsterPreview name={nextBattleMonster.name}>
-                        <MonsterAvatar monsterId={nextBattleMonster.id} difficulty={gameState.selectedDifficulty}
-                          type={nextBattleMonster.type}
-                          color={nextBattleMonster.color}
-                          size={150}
-                          visualStyle={getMonsterVisualStyle(nextBattleMonster)}
-                        />
-                        </MonsterPreview>
-                        {nextBattleBossStage > 0 && (
-                          <div className="absolute right-2 top-2 rounded bg-red-600 px-2 py-0.5 text-[10px] font-black text-white">BOSS</div>
-                        )}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-200">
-                          {nextBattleIsComplete ? `${nextBattleModeLabel} Cleared` : `${nextBattleModeLabel} Next Enemy`}
-                        </p>
-                        <h3 className="mt-1 truncate text-2xl font-black text-white">{nextBattleMonster.name}</h3>
-                        <p className="mt-1 text-xs font-bold text-slate-300">
-                          Progress {nextBattleProgress} / {nextBattleIndices.length}
-                        </p>
-                        {nextBattleTaunt && (
-                          <div className="mt-3 rounded-lg border border-cyan-100/35 bg-slate-950/42 px-3 py-2 text-[13px] font-bold leading-relaxed text-cyan-50 shadow-[0_12px_28px_rgba(0,0,0,0.2)]">
-                            「{nextBattleTaunt}」
-                          </div>
-                        )}
-                        <div className="mt-3 grid grid-cols-2 gap-2">
-                          <div className="rounded-lg border border-slate-600/70 bg-slate-900/72 px-3 py-2">
-                            <p className="text-[10px] font-black text-slate-400">HP</p>
-                            <p className="text-lg font-black text-amber-100">{nextBattleHp}</p>
-                          </div>
-                          <div className="rounded-lg border border-slate-600/70 bg-slate-900/72 px-3 py-2">
-                            <p className="text-[10px] font-black text-slate-400">Stage</p>
-                            <p className="text-lg font-black text-cyan-100">{Math.min(nextBattleDisplayStep + 1, nextBattleIndices.length)}</p>
-                          </div>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode)}
-                          className="mt-4 w-full rounded-lg border border-cyan-200 bg-cyan-500/20 px-4 py-3 text-sm font-black text-cyan-50 shadow-[0_0_24px_rgba(34,211,238,0.16)] transition-colors hover:bg-cyan-400/25"
-                        >
-                          この敵に挑む
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </aside>
-              </div>
                     {showMonthlyActivity && (
                       <div
                         className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/82 p-3 backdrop-blur-sm sm:p-4"
@@ -10398,204 +10103,62 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       3: <BookOpen size={26} />,
     };
 
+    const courseMascot = getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel).challenge[0];
     return (
-      <ScreenContainer className="course-select-screen items-center justify-center overflow-hidden bg-slate-950">
-        <img
-          src={COURSE_SELECT_ILLUSTRATION_IMAGE}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70 saturate-[1.08]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.7)_38%,rgba(2,6,23,0.56)_100%),radial-gradient(circle_at_18%_22%,rgba(251,191,36,0.22),transparent_32%),radial-gradient(circle_at_86%_78%,rgba(56,189,248,0.24),transparent_36%)]"></div>
-        <div
-          className="course-select-content relative z-10 w-full max-w-6xl p-3 sm:p-4"
-          style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
-        >
-          <div className="mb-2 flex items-center justify-between gap-2">
-            <GameButton
-              size="sm"
-              variant="ghost"
-              onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}
-              className="text-slate-300 hover:bg-slate-800 hover:text-white"
-            >
-              <Home size={16} /> ホームへ
-            </GameButton>
-            <div className="rounded-full border border-cyan-300/30 bg-cyan-950/35 px-3 py-1.5 text-xs font-black text-cyan-100">
-              現在: {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-lg border border-slate-500/45 bg-slate-950/74 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md">
-            <div className="relative overflow-hidden border-b border-slate-600/50 bg-[linear-gradient(135deg,rgba(15,23,42,0.9),rgba(8,47,73,0.74),rgba(120,53,15,0.28))] px-4 py-3">
-              <div className="pointer-events-none absolute -right-4 bottom-[-70px] hidden h-56 w-56 rounded-full border border-cyan-200/20 bg-cyan-300/10 blur-2xl md:block"></div>
-              <div className="relative max-w-2xl">
-                <p className="text-[11px] font-black uppercase tracking-[0.24em] text-amber-200">Course Select</p>
-                <h2 className="mt-1 text-2xl font-black text-white">教材を選ぶ</h2>
-                <p className="mt-1 text-xs font-bold leading-relaxed text-slate-300">
-                  教材・級・Levelを選んで「この教材で始める」へ。次に学習方法を選びます。
-                </p>
+      <ScreenContainer navigation={appNavigation} className="journey-selection-screen">
+        <main className="journey-select journey-course">
+          <header className="journey-heading">
+            <div><p className="journey-eyebrow">冒険の準備</p><h1>教材を選ぶ</h1></div>
+            <ol className="journey-steps" aria-label="開始までの手順"><li aria-current="step"><b>1</b> 教材・Level</li><li><b>2</b> 学習方法</li></ol>
+          </header>
+          <div className="journey-course-panel">
+            <div className="journey-choices">
+              <div className="journey-materials" aria-label="教材の種類">
+                <button type="button" aria-pressed={!isConversationCourse} onClick={() => { if (isConversationCourse) updateSelectedDifficulty('Eiken4'); }}>英検</button>
+                <button type="button" aria-pressed={isConversationCourse} onClick={() => updateSelectedDifficulty('Conversation')}>英会話 <small>ベータ版</small></button>
+                <span>TOEIC 準備中</span>
               </div>
-            </div>
-
-            <div className="grid gap-4 p-3 sm:p-4 lg:grid-cols-[0.7fr_1.3fr]">
-              <section className="space-y-3">
-                <div>
-                  <p className="mb-2 text-sm font-black text-cyan-200">1. 教材</p>
-                  <div className="grid gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (isConversationCourse) updateSelectedDifficulty('Eiken4');
-                      }}
-                      aria-pressed={!isConversationCourse}
-                      className={`relative min-h-[44px] overflow-hidden rounded-lg border-2 px-3 py-2 text-left transition-colors ${!isConversationCourse ? 'border-cyan-300 bg-cyan-500/16 shadow-[0_0_24px_rgba(34,211,238,0.14)]' : 'border-slate-700 bg-slate-900/64 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
-                    >
-                      <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-amber-300/18"></div>
-                      <div className="flex items-center justify-between gap-3">
-                        <div>
-                          <p className="text-base font-black text-white">英検</p>
-                          <p className="text-xs font-bold text-cyan-100">級ごとに単語・熟語・文章を練習</p>
-                        </div>
-                        {!isConversationCourse && <CheckCircle2 className="text-cyan-200" size={24} />}
-                      </div>
-                    </button>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 opacity-60">
-                        <p className="text-base font-black text-slate-200">TOEIC</p>
-                        <p className="mt-1 text-xs font-bold text-slate-500">準備中</p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => updateSelectedDifficulty('Conversation')}
-                        aria-pressed={isConversationCourse}
-                        className={`min-h-[44px] rounded-lg border-2 px-3 py-2 text-left transition-colors ${isConversationCourse ? 'border-emerald-300 bg-emerald-500/16 text-white shadow-[0_0_24px_rgba(52,211,153,0.16)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-emerald-300/60 hover:bg-emerald-950/20'}`}
-                      >
-                        <div className="flex items-center justify-between gap-2">
-                          <div>
-                            <div className="flex flex-wrap items-center gap-2">
-                              <p className="text-base font-black">英会話</p>
-                              <span className="rounded-full border border-amber-300/60 bg-amber-400/15 px-2 py-0.5 text-[10px] font-black tracking-wide text-amber-200">
-                                ベータ版
-                              </span>
-                            </div>
-                            <p className="mt-1 text-xs font-bold text-emerald-200/80">聞く・返す・声に出す</p>
-                          </div>
-                          {isConversationCourse && <CheckCircle2 className="text-emerald-200" size={20} />}
-                        </div>
-                      </button>
-                    </div>
-                  </div>
+              <section aria-labelledby="journey-grade-title">
+                <div className="journey-section-label"><h2 id="journey-grade-title">{isConversationCourse ? 'コース' : '級を選ぶ'}</h2><span><Star size={14} fill="currentColor" /> = バトル2方式をクリアしたLevel</span></div>
+                <div className={`journey-grades ${isConversationCourse ? 'journey-grades-conversation' : ''}`}>
+                  {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
+                    const count = completedLevelsByDifficulty.get(diff)!.size;
+                    return <button key={diff} type="button" className="course-grade-button" aria-label={`${DIFFICULTY_LABELS[diff]}${count > 0 ? `・${count}つのLevelでバトル2方式を全クリア` : ''}`} aria-pressed={gameState.selectedDifficulty === diff} data-course-complete={count === getAvailableLevels(diff).length} onClick={() => updateSelectedDifficulty(diff)}>
+                      <strong><span className="journey-grade-full">{DIFFICULTY_LABELS[diff]}</span><span className="journey-grade-short">{DIFFICULTY_LABELS[diff].replace(/^英検/, '')}</span></strong>
+                      {gameState.selectedDifficulty === diff && <CheckCircle2 size={18} className="journey-check" />}
+                      {count > 0 && <GradeCompletionStars count={count} />}
+                    </button>;
+                  })}
                 </div>
-
-                <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-slate-900/62 p-3">
-                  <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-400/12"></div>
-                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Selected Course</p>
-                  <p className="mt-1 text-lg font-black text-white">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
-                  <div className="mt-2 grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-lg border border-sky-400/25 bg-sky-500/10 px-2 py-1.5">
-                      <p className="text-[10px] font-black text-sky-200">問題数</p>
-                      <p className="mt-1 text-xl font-black text-white">{selectedQuestionCount}</p>
-                    </div>
-                    <div className="rounded-lg border border-violet-400/25 bg-violet-500/10 px-2 py-1.5">
-                      <p className="text-[10px] font-black text-violet-200">覚えた</p>
-                      <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.masteredCount}</p>
-                    </div>
-                    <div className="rounded-lg border border-amber-400/25 bg-amber-500/10 px-2 py-1.5">
-                      <p className="text-[10px] font-black text-amber-200">学習中</p>
-                      <p className="mt-1 text-xl font-black text-white">{selectedLearningSummary.learningCount}</p>
-                    </div>
-                  </div>
+                {isConversationCourse && <p className="journey-hint">英検4級を終えたころから。あいさつ・反応から場面別の会話へ。</p>}
+              </section>
+              <section aria-labelledby="journey-level-title">
+                <div className="journey-section-label"><h2 id="journey-level-title">Levelを選ぶ</h2></div>
+                <div className="journey-levels">
+                  {availableLevels.map(lvl => <button key={lvl} type="button" className="course-level-button" aria-pressed={gameState.selectedLevel === lvl} data-course-complete={selectedCompletedLevels.has(lvl)} onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl }))} title={levelDescriptions[lvl]}>
+                    <span className="journey-level-icon">{levelIcons[lvl]}</span>
+                    <span><small>Level {lvl}</small><strong>{isConversationCourse ? levelDescriptions[lvl].split(' / ').at(-1) : getLearningContentLabel(lvl)}</strong></span>
+                    {selectedCompletedLevels.has(lvl) && <CourseCompletionStar />}
+                  </button>)}
                 </div>
               </section>
-
-              <section className="min-w-0 space-y-3">
-                <div>
-                  <p className="mb-2 text-sm font-black text-cyan-200">2. {isConversationCourse ? 'コース' : '級'}</p>
-                  <div className={`grid gap-2 ${isConversationCourse ? 'grid-cols-1' : 'grid-cols-2 sm:grid-cols-3'}`}>
-                    {(isConversationCourse ? ['Conversation'] as Difficulty[] : EIKEN_DIFFICULTIES).map(diff => {
-                      const isSelected = gameState.selectedDifficulty === diff;
-                      const levelCount = getAvailableLevels(diff).length;
-                      const completedLevelCount = completedLevelsByDifficulty.get(diff)!.size;
-                      const isComplete = completedLevelCount === levelCount;
-                      return (
-                        <button
-                          key={diff}
-                          type="button"
-                          onClick={() => updateSelectedDifficulty(diff)}
-                          aria-pressed={isSelected}
-                          data-course-complete={isComplete}
-                          className={`course-grade-button relative min-h-[64px] min-w-0 rounded-lg border-2 px-2.5 py-2 text-left transition-colors ${isSelected ? 'border-amber-300 bg-amber-500/16 text-white shadow-[0_0_26px_rgba(251,191,36,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-amber-300/60 hover:bg-amber-950/20'}`}
-                        >
-                          <div className="flex items-start justify-between gap-2">
-                            <div className="min-w-0">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <p className="text-sm font-black sm:text-base">{DIFFICULTY_LABELS[diff]}</p>
-                                {diff === 'Conversation' && (
-                                  <span className="rounded-full border border-amber-300/60 bg-amber-400/15 px-2 py-0.5 text-[10px] font-black tracking-wide text-amber-200">
-                                    ベータ版
-                                  </span>
-                                )}
-                              </div>
-                              <p className="mt-1 text-[11px] font-bold leading-snug text-slate-400">{diff === 'Conversation' ? '英検4級を終えたころから・Level 3段階' : diff === 'Eiken1Part1' ? '社会・科学の語彙' : diff === 'Eiken1Part2' ? '抽象語彙・高度な表現' : diff === 'Eiken2' ? '語彙・熟語・意見表現' : diff === 'EikenPre2' ? '語彙・熟語・会話・文法' : diff === 'Eiken3' ? '単語・熟語・会話・文法' : `Level ${levelCount}段階`}</p>
-                            </div>
-                            {isSelected && <CheckCircle2 className="shrink-0 text-amber-200" size={18} />}
-                          </div>
-                          {completedLevelCount > 0 && <GradeCompletionStars count={completedLevelCount} />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-2 text-sm font-black text-cyan-200">3. Level</p>
-                  <div className={`grid gap-2 ${availableLevels.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
-                    {availableLevels.map(lvl => {
-                      const isSelected = gameState.selectedLevel === lvl;
-                      return (
-                        <button
-                          key={lvl}
-                          type="button"
-                          onClick={() => setGameState(prev => ({ ...prev, selectedLevel: lvl }))}
-                          aria-pressed={isSelected}
-                          data-course-complete={selectedCompletedLevels.has(lvl)}
-                          className={`course-level-button relative min-h-[56px] min-w-0 rounded-lg border-2 px-2 py-2 text-left transition-colors ${isSelected ? 'border-cyan-300 bg-cyan-500/16 text-white shadow-[0_0_26px_rgba(34,211,238,0.18)]' : 'border-slate-700 bg-slate-900/64 text-slate-200 hover:border-cyan-300/60 hover:bg-cyan-950/20'}`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <div className={`hidden h-8 w-8 shrink-0 items-center justify-center rounded-lg border sm:flex ${isSelected ? 'border-cyan-200 bg-cyan-400/20 text-cyan-100' : 'border-slate-700 bg-slate-950/60 text-slate-400'}`}>
-                              {levelIcons[lvl]}
-                            </div>
-                            <div>
-                              <p className="whitespace-nowrap text-sm font-black sm:text-base">Level {lvl}</p>
-                              <p className="mt-0.5 text-[11px] font-bold leading-snug text-slate-400">{levelDescriptions[lvl].split(' / ').at(-1)}</p>
-                            </div>
-                          </div>
-                          {selectedCompletedLevels.has(lvl) && <CourseCompletionStar />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-              </section>
             </div>
-          </div>
-          <div className="course-select-action">
-            <div className="course-select-action-inner">
-              <div className="min-w-0">
-                <p className="text-sm font-black text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel}</p>
-                <p className="mt-0.5 text-xs font-bold text-slate-300">次に学習方法を選びます</p>
+            <aside className="journey-course-preview" aria-label="選択した教材の情報">
+              <div className="journey-course-art">
+                {courseMascot && <MonsterPreview name={courseMascot.name}><MonsterAvatar monsterId={courseMascot.id} difficulty={gameState.selectedDifficulty} type={courseMascot.type} color={courseMascot.color} size={210} visualStyle={getMonsterVisualStyle(courseMascot)} /></MonsterPreview>}
               </div>
-              <GameButton
-                onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}
-                className="min-h-[44px] shrink-0 whitespace-nowrap border-cyan-300 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500"
-                size="sm"
-              >
-                <span className="inline-flex items-center justify-center gap-2">この教材で始める <ArrowRight size={18} /></span>
-              </GameButton>
-            </div>
+              <p className="journey-preview-caption">この教材に登場 · {courseMascot?.name}</p>
+              <h2>{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span>Level {gameState.selectedLevel}</span></h2>
+              <p>{levelDescriptions[gameState.selectedLevel].split(' / ').at(-1)}</p>
+              <div className="journey-mastery"><span>覚えた <b>{selectedLearningSummary.masteredCount}</b> / {selectedQuestionCount}問</span><progress aria-label="選択した教材の習得状況" value={selectedLearningSummary.masteredCount} max={Math.max(1, selectedQuestionCount)} /></div>
+              <div className="journey-mini-stats"><span>学習中 <b>{selectedLearningSummary.learningCount}</b></span><span>もう少し <b>{selectedLearningSummary.cautionCount}</b></span></div>
+            </aside>
+            <footer className="journey-course-footer">
+              <div><strong>{DIFFICULTY_LABELS[gameState.selectedDifficulty]} · Level {gameState.selectedLevel}</strong><span>{getLearningContentLabel(gameState.selectedLevel, isConversationCourse)} · {selectedQuestionCount}問</span></div>
+              <button type="button" className="journey-next" onClick={() => setGameState(prev => ({ ...prev, screen: 'mode-select' }))}>学習方法を選ぶ <ArrowRight size={20} /></button>
+            </footer>
           </div>
-        </div>
+        </main>
       </ScreenContainer>
     );
   }
@@ -10629,6 +10192,9 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
               ? null
               : list[nextMonsterIndex]?.name ?? null,
             isComplete: nextMonsterIndex == null,
+            monster: list[nextMonsterIndex ?? targetIndices[0]],
+            clearedCount: targetIndices.filter(index => matchesDefeatedMonster(gameState.defeatedMonsterIds, gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, list[index]?.id ?? '')).length,
+            targetCount: targetIndices.length,
         };
     };
 
@@ -10636,176 +10202,45 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const easyStatus = getModeProgress(monstersObj.guide, 'challenge', 'voice-text', listeningTargetCount);
     const normalStatus = getModeProgress(monstersObj.challenge, 'challenge', 'voice-only', NORMAL_TARGET_COUNT);
     const hardStatus = getModeProgress(monstersObj.challenge, 'challenge', 'text-only', HARD_TARGET_COUNT);
-    const trainingMascot = monstersObj.guide[0];
-    const battleMascot = monstersObj.challenge[0];
-
+    const modeChoices = [
+      { key: 'basic', zone: 'training', title: isConversationCourse ? '会話の型練習' : '基礎練習', english: isConversationCourse ? 'Conversation Basics' : 'Basic Training', description: isConversationCourse ? '相手のひと言と返答を見て入力。会話の型に慣れよう。' : '英語を見ながら入力。つづりと意味に慣れよう。', clue: '英語を表示', icon: <Shield size={22} />, status: guideStatus, finalName: guideFinalMonsterName, mode: 'guide', inputMode: 'voice-text' },
+      { key: 'listening-practice', zone: 'training', title: isConversationCourse ? '聞いて返す練習' : 'リスニング練習', english: isConversationCourse ? 'Reply Training' : 'Listening Training', description: isConversationCourse ? '相手の発言を聞いて、返答を入力。和訳も見られます。' : '音声を聞いて入力。和訳も見ながら練習できます。', clue: '音声 ＋ 和訳', icon: <Volume2 size={22} />, status: easyStatus, finalName: listeningFinalMonsterName, mode: 'challenge', inputMode: 'voice-text' },
+      { key: 'listening-battle', zone: 'battle', title: isConversationCourse ? '即答バトル' : '音声バトル', english: isConversationCourse ? 'Quick Reply Battle' : 'Listening Battle', description: isConversationCourse ? '相手の音声だけを聞いて、英語で返答しよう。' : '聞き取った英語を入力。耳を頼りに挑戦しよう。', clue: '音声だけ', icon: <Volume2 size={22} />, status: normalStatus, finalName: normalFinalMonsterName, mode: 'challenge', inputMode: 'voice-only' },
+      { key: 'translation-battle', zone: 'battle', title: isConversationCourse ? '場面バトル' : '和訳バトル', english: isConversationCourse ? 'Scene Battle' : 'Translation Battle', description: isConversationCourse ? '場面と返したい意味から、英文を組み立てよう。' : '和訳から英語を思い出して入力。使える力を試そう。', clue: isConversationCourse ? '場面 ＋ 和訳' : '和訳だけ', icon: <Keyboard size={22} />, status: hardStatus, finalName: hardFinalMonsterName, mode: 'challenge', inputMode: 'text-only' },
+    ] as const;
     return (
-      <ScreenContainer className="items-center justify-center overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_82%,rgba(245,158,11,0.24),transparent_34%),radial-gradient(circle_at_78%_12%,rgba(56,189,248,0.26),transparent_38%)]"></div>
-        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[42%] bg-[linear-gradient(90deg,transparent,rgba(14,165,233,0.12),rgba(251,191,36,0.08))] lg:block"></div>
-        <div
-          className="relative z-10 w-full max-w-6xl p-4"
-          style={{ fontFamily: "'M PLUS Rounded 1c', 'Zen Maru Gothic', 'Kosugi Maru', 'Yu Gothic', 'Meiryo', sans-serif" }}
-        >
-          <div className="overflow-hidden rounded-lg border border-slate-500/45 bg-slate-950/70 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md">
-            <div className="border-b border-slate-600/50 bg-slate-800/70 px-5 py-3">
-              <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Current Course</p>
-                  <h2 className="mt-1 text-2xl font-black text-white md:text-3xl">
-                    {DIFFICULTY_LABELS[gameState.selectedDifficulty]} Level {gameState.selectedLevel} <span className="inline-block text-base text-cyan-100">{getLearningContentLabel(gameState.selectedLevel, isConversationCourse)}</span>
-                  </h2>
-                </div>
-                <p className="rounded-full border border-cyan-300/25 bg-cyan-950/40 px-4 py-2 text-sm font-black text-cyan-50">
-                  {formatLearningProgress(learningSummary.playableCount, learningSummary.masteredCount)}
-                </p>
-              </div>
-            </div>
-
-            <div className="relative p-5">
-              <div className="mb-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    <p className="text-[11px] font-black uppercase tracking-[0.24em] text-cyan-300">Mode Select</p>
-                    <p className="hidden rounded-full border border-amber-200/45 bg-slate-950/82 px-3 py-1 text-xs font-black text-amber-100 xl:block">
-                      今日の冒険を選ぼう!
-                    </p>
-                  </div>
-                  <h1 className="mt-1 text-3xl font-black text-white md:text-4xl">モードをえらぶ</h1>
-                  <p className="mt-2 text-sm font-bold text-slate-300">{isConversationCourse ? '相手のひと言を聞いて、自分の返答を英語で組み立てよう。' : '今日の気分に合わせて、練習かチャレンジを選ぼう。'}</p>
-                </div>
-                <div className="space-y-2 lg:w-[420px] lg:shrink-0">
-                  <div className="grid grid-cols-3 gap-2 text-left">
-                    <div className="rounded-lg border border-sky-400/30 bg-sky-500/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                      <div className="flex items-center gap-2 text-sky-200"><BookOpen size={16} /><span className="text-[11px] font-black">学習中</span></div>
-                      <p className="text-2xl font-black text-white">{learningSummary.learningCount}</p>
-                    </div>
-                    <div className="rounded-lg border border-emerald-400/30 bg-emerald-500/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                      <div className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={16} /><span className="text-[11px] font-black">もう少し</span></div>
-                      <p className="text-2xl font-black text-white">{learningSummary.cautionCount}</p>
-                    </div>
-                    <div className="rounded-lg border border-amber-300/35 bg-amber-400/10 flex flex-col items-start justify-between gap-x-2 px-2 py-1.5 sm:flex-row sm:items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                      <div className="flex items-center gap-2 text-amber-200"><Crown size={16} /><span className="text-[11px] font-black">覚えた</span></div>
-                      <p className="text-2xl font-black text-white">{learningSummary.masteredCount}</p>
-                    </div>
-                  </div>
-                  <FocusedBattleModeActions
-                    unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
-                    learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length}
-                    onStart={(kind, mode, inputMode) => startGame(gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, null, kind)}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                <section className="relative overflow-hidden rounded-lg border border-emerald-400/25 bg-[linear-gradient(145deg,rgba(9,56,55,0.72),rgba(15,23,42,0.78))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.26)]">
-                  {trainingMascot && (
-                    <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
-                      <MonsterAvatar monsterId={trainingMascot.id} difficulty={gameState.selectedDifficulty} type={trainingMascot.type} color={trainingMascot.color} size={128} visualStyle={getMonsterVisualStyle(trainingMascot)} />
-                    </div>
-                  )}
-                  <div className="mb-4 flex items-center gap-3 border-b border-emerald-300/20 pb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-emerald-300/30 bg-emerald-400/15 text-emerald-200"><Brain size={24} /></div>
-                    <div>
-                      <h3 className="text-xl font-black text-emerald-50">TRAINING ZONE</h3>
-                      <p className="text-xs font-bold text-emerald-200/75">まずはここで練習しよう！({guideTargetCount}体)</p>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'guide', 'voice-text')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(16,185,129,0.16)] ${guideStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-emerald-300/25 bg-slate-900/52 hover:border-emerald-300/60 hover:bg-emerald-950/35'}`}>
-                      {guideStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-emerald-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-emerald-100">FINAL: {guideFinalMonsterName}</div>}
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-400/15 text-emerald-200"><Shield size={21} /></div>
-                        <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${guideStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Conversation Basics / 会話の型練習' : 'Basic Training / 基礎練習'}</p>
-                          <p className={`mt-1 text-xs font-bold ${guideStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手のひと言と返答を見て、会話を丸ごと覚えます。' : 'スペルを見て入力。指の運動に最適！'}</p>
-                        </div>
-                      </div>
-                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${guideStatus.isComplete ? 'text-amber-200' : 'text-emerald-200'}`}>
-                        {guideStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
-                        <span>{guideStatus.isComplete ? '免許皆伝！次のレベルへ！' : `NEXT: ${guideStatus.nextTargetName}`}</span>
-                      </div>
-                    </button>
-
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-text')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(34,211,238,0.14)] ${easyStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-cyan-300/25 bg-slate-900/52 hover:border-cyan-300/60 hover:bg-cyan-950/30'}`}>
-                      {easyStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-cyan-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-cyan-100">FINAL: {listeningFinalMonsterName}</div>}
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200"><Volume2 size={21} /></div>
-                        <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${easyStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Reply Training / 聞いて返す練習' : 'Listening Training / リスニング練習'}</p>
-                          <p className={`mt-1 text-xs font-bold ${easyStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の発言を聞いて返答。ノーミスなら「もう少し」へ進みます。' : '音声と日本語から入力。ノーミスなら「もう少し」へ進みます。'}</p>
-                        </div>
-                      </div>
-                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${easyStatus.isComplete ? 'text-amber-200' : 'text-cyan-200'}`}>
-                        {easyStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
-                        <span>{easyStatus.isComplete ? '免許皆伝！次のレベルへ！' : `NEXT: ${easyStatus.nextTargetName}`}</span>
-                      </div>
-                    </button>
-                  </div>
-                </section>
-
-                <section className="relative overflow-hidden rounded-lg border border-amber-400/25 bg-[linear-gradient(145deg,rgba(83,34,18,0.68),rgba(24,18,35,0.82))] p-4 shadow-[0_18px_42px_rgba(0,0,0,0.28)]">
-                  {battleMascot && (
-                    <div className="pointer-events-none absolute -right-5 -top-5 opacity-20 blur-[0.2px]">
-                      <MonsterAvatar monsterId={battleMascot.id} difficulty={gameState.selectedDifficulty} type={battleMascot.type} color={battleMascot.color} size={128} visualStyle={getMonsterVisualStyle(battleMascot)} />
-                    </div>
-                  )}
-                  <div className="absolute right-0 top-0 rounded-bl-lg bg-red-500 px-3 py-1 text-[10px] font-black text-white shadow-lg">本番</div>
-                  <div className="mb-4 flex items-center gap-3 border-b border-amber-300/20 pb-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-amber-300/30 bg-amber-400/15 text-amber-200"><Sword size={24} /></div>
-                    <div>
-                      <h3 className="text-xl font-black text-amber-50">BATTLE ZONE</h3>
-                      <p className="text-xs font-bold text-amber-200/75">実力を試そう！ゲームオーバーあり</p>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'voice-only')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(251,146,60,0.16)] ${normalStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-orange-300/28 bg-slate-900/52 hover:border-orange-300/70 hover:bg-orange-950/30'}`}>
-                      {normalStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-orange-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-orange-100">FINAL: {normalFinalMonsterName}</div>}
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-orange-400/15 text-orange-200"><Volume2 size={21} /></div>
-                        <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${normalStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Quick Reply Battle / 即答バトル' : 'Listening Battle / 音声バトル'}</p>
-                          <p className={`mt-1 text-xs font-bold ${normalStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '相手の音声だけを聞き、とっさに英語で返します。' : '音声だけを聞いて入力。耳を頼りに戦います。'}</p>
-                        </div>
-                      </div>
-                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${normalStatus.isComplete ? 'text-amber-200' : 'text-orange-200'}`}>
-                        {normalStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
-                        <span>{normalStatus.isComplete ? '見事！次はTranslation Battle！' : `NEXT: ${normalStatus.nextTargetName}`}</span>
-                      </div>
-                    </button>
-
-                    <button onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'challenge', 'text-only')} className={`group relative w-full overflow-hidden rounded-lg border p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(248,113,113,0.16)] ${hardStatus.isComplete ? 'border-amber-300 bg-amber-400/14 shadow-[0_0_0_1px_rgba(251,191,36,0.18)]' : 'border-red-300/35 bg-slate-900/52 hover:border-red-300/70 hover:bg-red-950/30'}`}>
-                      {hardStatus.isComplete ? <div className="absolute right-0 top-0 rounded-bl bg-amber-300 px-2 py-1 text-[10px] font-black text-amber-950">MASTERED</div> : <div className="absolute right-0 top-0 rounded-bl border-b border-l border-red-300/20 bg-slate-950/80 px-2 py-1 text-[10px] font-black text-red-100">FINAL: {hardFinalMonsterName}</div>}
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-400/15 text-red-200"><Keyboard size={21} /></div>
-                        <div className="min-w-0">
-                          <p className={`text-base font-black md:text-lg ${hardStatus.isComplete ? 'text-amber-100' : 'text-white'}`}>{isConversationCourse ? 'Scene Battle / 場面バトル' : 'Translation Battle / 和訳バトル'}</p>
-                          <p className={`mt-1 text-xs font-bold ${hardStatus.isComplete ? 'text-amber-100/85' : 'text-slate-300'}`}>{isConversationCourse ? '会話の場面と返したい意味から、英文を作ります。' : '和訳だけを見て入力。できればかなり実力派です。'}</p>
-                        </div>
-                      </div>
-                      <div className={`mt-3 flex items-center gap-1 text-xs font-black ${hardStatus.isComplete ? 'text-amber-200' : 'text-red-200'}`}>
-                        {hardStatus.isComplete ? <Crown size={14} /> : <Target size={14} />}
-                        <span>{hardStatus.isComplete ? '伝説の英雄！おめでとう！' : `NEXT: ${hardStatus.nextTargetName}`}</span>
-                      </div>
-                    </button>
-                  </div>
-                </section>
-              </div>
-
-              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))} variant="outline" className="border-slate-600 bg-slate-900/70 text-slate-200 hover:border-slate-400 hover:bg-slate-800">
-                  <Home size={18} /> ホームへ
-                </GameButton>
-                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))} variant="outline" className="border-cyan-500/45 bg-cyan-950/25 text-cyan-100 hover:border-cyan-300 hover:bg-cyan-900/30">
-                  <LayoutGrid size={18} /> 教材を変える
-                </GameButton>
-                <GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))} variant="outline" className="border-amber-400/45 bg-amber-950/25 text-amber-100 hover:border-amber-300 hover:bg-amber-900/30">
-                  <ClipboardList size={18} /> 問題リスト
-                </GameButton>
-              </div>
-            </div>
+      <ScreenContainer navigation={appNavigation} className="journey-selection-screen">
+        <main className="journey-select journey-modes">
+          <header className="journey-heading">
+            <div><p className="journey-eyebrow">冒険の準備</p><h1>学習方法を選ぶ</h1></div>
+            <ol className="journey-steps" aria-label="開始までの手順"><li><button type="button" onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}><b>1</b> 教材・Level</button></li><li aria-current="step"><b>2</b> 学習方法</li></ol>
+          </header>
+          <div className="journey-current-course">
+            <div><strong>{DIFFICULTY_LABELS[gameState.selectedDifficulty]} · Level {gameState.selectedLevel}</strong><span>{getLearningContentLabel(gameState.selectedLevel, isConversationCourse)}</span><button type="button" onClick={() => setGameState(prev => ({ ...prev, screen: 'level-select' }))}>教材を変更</button></div>
+            <p>{formatLearningProgress(learningSummary.playableCount, learningSummary.masteredCount)}</p>
           </div>
-        </div>
+          <div className="journey-zones">
+            {(['training', 'battle'] as const).map(zone => <section key={zone} className={`journey-zone journey-zone-${zone}`} aria-labelledby={`journey-${zone}-title`}>
+              <header className="journey-zone-heading"><div>{zone === 'training' ? <Brain size={27} /> : <Sword size={27} />}<h2 id={`journey-${zone}-title`}>{zone === 'training' ? '練習で身につける' : 'バトルで腕試し'}</h2></div><p>{zone === 'training' ? '英語や和訳をヒントに練習' : 'ゲームオーバーあり'}</p></header>
+              {modeChoices.filter(choice => choice.zone === zone).map(choice => <article key={choice.key} className="journey-mode-card" data-cleared={choice.status.isComplete}>
+                <button type="button" className="journey-mode-start" onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, choice.mode, choice.inputMode)}>
+                  <div className="journey-mode-copy">
+                    <div className="journey-mode-title">{choice.icon}<h3>{choice.title}</h3></div>
+                    <span className="journey-mode-clue">{choice.clue}</span>
+                    <p>{choice.description}</p>
+                    <div className="journey-mode-progress">{choice.status.isComplete ? <><Crown size={16} /> 全クリア</> : <><Target size={16} /> 撃破 {choice.status.clearedCount} / {choice.status.targetCount}体</>}<span>{choice.status.isComplete ? 'もう一度挑戦' : 'ここから開始'} <ArrowRight size={16} /></span></div>
+                  </div>
+                </button>
+                <div className="journey-mode-monster">{choice.status.monster && <MonsterPreview name={choice.status.monster.name}><MonsterAvatar monsterId={choice.status.monster.id} difficulty={gameState.selectedDifficulty} type={choice.status.monster.type} color={choice.status.monster.color} size={124} visualStyle={getMonsterVisualStyle(choice.status.monster)} /></MonsterPreview>}</div>
+                <details className="journey-mode-details"><summary><span>{choice.status.isComplete ? '再挑戦の相手' : '次の相手'}</span> <strong>{choice.status.monster?.name}</strong><small>詳細</small></summary><p>{choice.english} · 最終の相手：{choice.finalName}</p></details>
+              </article>)}
+            </section>)}
+          </div>
+          <section className="journey-focused" aria-label="今回だけ出題を絞る">
+            <div className="journey-learning-counts"><span>学習中 <b>{learningSummary.learningCount}</b></span><span>もう少し <b>{learningSummary.cautionCount}</b></span><span>覚えた <b>{learningSummary.masteredCount}</b></span><button type="button" onClick={() => setGameState(prev => ({ ...prev, screen: 'question-list' }))}><ClipboardList size={16} /> 問題リスト</button></div>
+            <FocusedBattleModeActions unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length} learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length} onStart={(kind, mode, inputMode) => startGame(gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, null, kind)} />
+          </section>
+        </main>
       </ScreenContainer>
     );
   }
@@ -10815,7 +10250,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const currentMonster = gameState.currentMonsterList[actualMonsterId] ?? gameState.currentMonsterList[0];
     if (!currentMonster) {
       return (
-        <ScreenContainer className="bg-slate-900">
+        <ScreenContainer navigation={appNavigation} className="bg-slate-900">
           <div className="w-full max-w-xl p-6">
             <Box title="Battle Error" className="w-full">
               <div className="space-y-4 text-center">
@@ -10885,7 +10320,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
       : selectedMonsterDialogue;
 
     return (
-      <ScreenContainer className={`battle-screen ${showBattleKeyboardGuide ? 'battle-with-keyboard' : ''} ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
+      <ScreenContainer navigation={appNavigation} className={`battle-screen ${showBattleKeyboardGuide ? 'battle-with-keyboard' : ''} ${isBoss ? "bg-red-950" : "bg-slate-900"}`}>
         <div className="mobile-landscape-notice pointer-events-none fixed inset-x-3 bottom-3 z-30 hidden items-center justify-center gap-2 rounded-xl border border-cyan-300/45 bg-slate-950/92 px-4 py-3 text-center text-sm font-black text-cyan-100 shadow-xl">
           <RotateCcw size={18} className="text-cyan-300" /> スマホでは縦向きにして遊ぼう
         </div>
@@ -11003,7 +10438,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                       className="battle-skip inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-amber-300/50 bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-sm font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_30px_rgba(249,115,22,0.28)] transition-all hover:scale-[1.02] hover:from-amber-400 hover:to-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 sm:flex-none"
                    >
                      <SkipForward size={18} />
-                     <span>Skip</span>
+                     <span>スキップ</span>
                    </button>
                    </div>
                  </div>
@@ -11128,7 +10563,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                     <div className="battle-previous-study mx-auto mt-3 max-w-3xl rounded-xl border border-emerald-500/30 bg-emerald-950/20 px-3 py-2 shadow-[0_0_20px_rgba(16,185,129,0.12)]">
                      <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-1 text-left leading-snug">
                        <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
-                         Previous
+                         前の問題
                        </span>
                        <span className="font-mono text-lg font-bold text-white md:text-xl">{lastSolvedQuestion.text}</span>
                         <div className="flex flex-col">
@@ -11290,21 +10725,72 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     const handleStartWeaknessFromResult = () => openWeakReviewHub();
     const handleStartBattleReview = () => startGame(gameState.selectedDifficulty, gameState.selectedLevel, 'weakness', 'text-only', gameState.currentBattleMissedQuestions);
 
-    // Desktop result layout: every result and every action remains visible in two columns.
+    // Actual result data and handlers; compact summary, primary actions, then review.
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="result-screen items-center p-4">
         <BackupReminder key={`${activePlayerId}:${todayKey}`} playerId={activePlayerId} date={todayKey} answered={todayQuestionCount} onExport={downloadProgressSnapshot} />
-        <Box className="w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5" contentClassName="p-0">
-          <div className="grid gap-4 lg:grid-cols-[minmax(340px,0.85fr)_minmax(0,1.35fr)]">
-            <main className="min-w-0 lg:order-2">
+        <Box className="result-board w-full max-w-6xl border-2 border-yellow-600/50 bg-slate-800 p-4 md:p-5" contentClassName="p-0">
+          <div className="result-celebration">
               <header className="result-monster-header flex items-center gap-3 rounded-xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 sm:gap-4">
                 {isWin ? <Trophy size={48} className="h-8 w-8 flex-shrink-0 text-yellow-400 sm:h-12 sm:w-12" /> : <Zap size={48} className="h-8 w-8 flex-shrink-0 text-slate-500 sm:h-12 sm:w-12" />}
-                {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat" name={defeatedMonster.name}><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={76} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
+                {isWin && defeatedMonster && <MonsterBattleReveal kind="defeat" name={defeatedMonster.name}><MonsterAvatar monsterId={defeatedMonster.id} difficulty={gameState.selectedDifficulty} type={defeatedMonster.type} color={defeatedMonster.color} emotion="win" size={104} visualStyle={getMonsterVisualStyle(defeatedMonster)} /></MonsterBattleReveal>}
                 <div className="result-monster-heading min-w-0"><p className={`result-outcome text-2xl font-black ${isWin ? 'text-yellow-300' : 'text-slate-400'}`}>{isWin ? 'CLEAR!' : isPoolComplete ? '対象を一巡しました' : 'おしい！'}</p><p className={`mt-1 ${isWin ? 'result-monster-name monster-display-name' : 'text-lg font-black text-white'}`}>{isWin ? defeatedMonster?.name : isPoolComplete ? '今回の絞り込みは終了です' : `あと ${remainingHpToWin} HP`}</p><p data-result-course className="mt-1 text-sm font-bold leading-snug text-cyan-100">{DIFFICULTY_LABELS[gameState.selectedDifficulty]} <span className="inline-block whitespace-nowrap">· Level {gameState.selectedLevel}・{getLearningContentLabel(gameState.selectedLevel, gameState.selectedDifficulty === 'Conversation')}</span></p></div>
               </header>
 
-              {gameState.focusedBattle && <p data-focused-battle-result className="mt-2 text-xs font-bold text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回の絞り込みは終了。次は通常の出題に戻ります。</p>}
-              <section className="mt-4 overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
+            <div className="result-learning-gains">
+              <p className="result-gains-title">今回の学習</p>
+              <p className="result-gains-highlight">覚えた <strong>{promotedToMasteredCount}</strong> 問<span>もう少しへ <b>{promotedToCautionCount}</b> 問</span></p>
+              <p className="result-answer-summary">全{gameState.battleLog.length}問 · 正確 {perfectCount} · 修正 {recoveredCount} · スキップ {skippedCount}</p>
+              {(returnedToCautionCount > 0 || returnedToLearningCount > 0) && <p className="result-returned">{returnedToCautionCount > 0 && <span>もう少しに戻った {returnedToCautionCount}問 </span>}{returnedToLearningCount > 0 && <span>学習中に戻った {returnedToLearningCount}問</span>}</p>}
+            </div>
+          </div>
+          {gameState.focusedBattle && <p data-focused-battle-result className="text-xs text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回の絞り込みは終了。次は通常の出題に戻ります。</p>}
+          <div className="result-layout">
+            <aside className="result-actions" aria-label="次の学習と学習記録">
+              <section className="result-next-actions" aria-label="次の学習">
+              {isPoolComplete ? <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton> : isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
+
+
+                <GameButton onClick={handleStartBattleReview} disabled={missedCount === 0} size="sm" variant="outline" className="result-review-current"><RotateCcw size={17} />今回のミスを復習 <span>{missedCount}問</span></GameButton>
+              {gameState.mode !== 'weakness' && <FocusedBattleActions
+                unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
+                learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length}
+                onStart={kind => startGame(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode, null, kind)}
+              />}
+              </section>
+              <nav className="result-destinations" aria-label="結果から移動">
+                <button onClick={handleBackToMode}>学習方法を選ぶ</button>
+                <button onClick={handleBackToLevel}><LayoutGrid size={16} />教材を選ぶ</button>
+                <button onClick={handleBackToTitle}><Home size={16} />ホームへ</button>
+                <button onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))}><BookOpen size={16} />図鑑</button>
+              </nav>
+              <section className="result-learning-summary" aria-label="この教材の学習状況">
+                <h3>この教材の学習状況</h3>
+                <div><span>学習中 <b>{learningSummary.learningCount}</b></span><span>もう少し <b>{learningSummary.cautionCount}</b></span><span>覚えた <b>{learningSummary.masteredCount}</b></span></div>
+              </section>
+              <details className="result-more"><summary>成績と学習記録を見る</summary><div className="result-detail-content">
+              <div className="result-today flex items-center justify-between gap-3 rounded-xl border border-emerald-400/30 bg-emerald-950/25 px-3 py-2">
+                <span className="flex items-center gap-2 text-sm font-bold text-emerald-100"><Target size={17} />今日の解答数</span>
+                <span className="text-xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-xs text-emerald-200">問</span></span>
+              </div>
+              <section className="overflow-hidden rounded-xl border border-slate-600 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,41,59,0.82))] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
+                <div className="flex items-center justify-between gap-3"><div><p className="text-sm font-black text-white">今回の成績</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">{gameState.battleLog.length}問のバトル結果</p></div><div className="rounded-lg border border-cyan-300/30 bg-cyan-500/10 px-3 py-1.5 text-right"><p className="text-[10px] font-bold text-cyan-200">正確さ</p><p className="text-3xl font-black leading-none text-cyan-100">{perfectRate}%</p></div></div>
+                <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>
+              </section>
+
+              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">この教材・レベルの問題（未出題を含む）</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">問</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
+
+
+
+
+              </div></details>
+              <details className="result-more"><summary>苦手リスト・AIでまとめて振り返る</summary><div className="result-detail-content">
+                <div className="result-weak-actions"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleStartWeaknessFromResult} size="sm" variant="outline">苦手復習へ</GameButton></div>
+                <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} result />
+              </div></details>
+            </aside>
+            <main className="result-questions min-w-0">
+              <section className="overflow-hidden rounded-xl border border-slate-600 bg-slate-950/35">
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-600 bg-slate-900/70 px-3 py-2 sm:px-4">
                   <h3 className="text-sm font-black text-white sm:text-base">今回の問題と結果 <span className="ml-1 text-xs font-bold text-slate-400">{gameState.battleLog.length}問</span></h3>
                   <button type="button" onClick={handleOpenCourseWordList} aria-label="この教材の問題リストを開く" className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg border border-cyan-400/40 bg-cyan-950/50 px-2.5 text-sm font-bold text-cyan-100 transition-colors hover:bg-cyan-900/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"><BookOpen size={16} aria-hidden="true" />問題リスト</button>
@@ -11318,10 +10804,17 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                     const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 || learningOk ? 'text-emerald-300' : 'text-yellow-300';
                     const isMarkedForReview = resultMarkedQuestionKeys.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, log.question));
-                    return <div key={idx} data-result-question className="grid gap-x-3 gap-y-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_auto]">
-                      <div className="flex min-w-0 items-start gap-2"><button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button><div className="min-w-0"><span className="font-mono text-base font-black text-cyan-100">{log.question.text}</span><span className="ml-2 text-sm font-bold text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>{example && <p className="mt-1 text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}{grammarPoint && <p className="mt-1 text-xs leading-relaxed text-amber-50"><span className="mr-2 font-black text-amber-300">文法・{grammarPoint.label}</span>{grammarPoint.note}<span className="ml-2 font-mono text-amber-200/90">型: {grammarPoint.pattern}</span></p>}</div></div>
-                      <div className="flex flex-col items-start gap-1 sm:items-end">
+                    return <div key={idx} data-result-question className="result-entry">
+                      <button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="result-entry-audio flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button>
+                      <div className="result-entry-content">
+                        <div className="result-entry-heading"><span className="result-question-english">{log.question.text}</span><span className="result-question-meaning">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span></div>
+                        {example && <p className="result-entry-example text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}
+                        {grammarPoint && <details className="result-grammar-note"><summary>文法ポイント：{grammarPoint.label}</summary><p>{grammarPoint.note}<span className="block text-amber-200/90">型: {grammarPoint.pattern}</span></p></details>}
+                        {grammarCard && <div className="result-entry-grammar"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
+                      </div>
+                      <div className="result-entry-actions">
                         <span data-result-status className={`text-sm font-black ${resultClass}`}>{resultLabel}</span>
+                        <div className="result-entry-buttons">
                         <button
                           type="button"
                           onClick={() => toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}
@@ -11330,10 +10823,8 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
                           title={isMarkedForReview ? '押すと復習リストから外します' : 'この問題をあとで復習する'}
                           className={`inline-flex min-h-8 items-center gap-1 whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 ${isMarkedForReview ? 'border-yellow-300/60 bg-yellow-500/20 text-yellow-100 hover:bg-yellow-500/30' : 'border-yellow-500/35 bg-yellow-950/20 text-yellow-200 hover:bg-yellow-900/35'}`}
                         ><Bookmark size={12} aria-hidden="true" fill={isMarkedForReview ? 'currentColor' : 'none'} />{isMarkedForReview ? '追加済み' : 'あとで復習'}</button>
-                      </div>
-                      <div className="mt-1 flex flex-wrap items-center gap-2 sm:col-span-2">
-                        {grammarCard && <GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult />}
                         <QuestionAiHelp isConversation={gameState.selectedDifficulty === 'Conversation'} course={DIFFICULTY_LABELS[gameState.selectedDifficulty]} level={gameState.selectedLevel} text={log.question.text} meaning={getQuestionMeaning(log.question, gameState.selectedDifficulty)} example={example || undefined} exampleJa={log.question.exampleJa} />
+                        </div>
                       </div>
                     </div>;
                   })}
@@ -11341,44 +10832,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
               </section>
             </main>
 
-            <aside className="space-y-3 lg:order-1">
-              <div className="result-today flex items-center justify-between gap-3 rounded-xl border border-emerald-400/30 bg-emerald-950/25 px-3 py-2">
-                <span className="flex items-center gap-2 text-sm font-bold text-emerald-100"><Target size={17} />今日の解答数</span>
-                <span className="text-xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-xs text-emerald-200">問</span></span>
-              </div>
-              <section className="overflow-hidden rounded-xl border border-slate-600 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,41,59,0.82))] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
-                <div className="flex items-center justify-between gap-3"><div><p className="text-sm font-black text-white">今回の成績</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">{gameState.battleLog.length}問のバトル結果</p></div><div className="rounded-lg border border-cyan-300/30 bg-cyan-500/10 px-3 py-1.5 text-right"><p className="text-[10px] font-bold text-cyan-200">正確さ</p><p className="text-3xl font-black leading-none text-cyan-100">{perfectRate}%</p></div></div>
-                <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>
-              </section>
 
-              <section className="rounded-xl border border-cyan-500/25 bg-[linear-gradient(135deg,rgba(8,47,73,0.26),rgba(15,23,42,0.72))] p-3"><div className="flex items-end justify-between gap-3"><div><p className="text-sm font-black text-white">学習の積み上げ</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">この教材・レベルの問題（未出題を含む）</p></div><p className="text-lg font-black text-cyan-100">{learningSummary.learningCount + learningSummary.cautionCount + learningSummary.masteredCount}<span className="ml-1 text-xs text-cyan-200">問</span></p></div><div className="mt-3 grid grid-cols-3 gap-2"><div className="rounded-lg bg-sky-950/35 p-2 text-center"><p className="text-[10px] font-bold text-sky-300">学習中</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.learningCount}</p></div><div className="rounded-lg bg-emerald-950/30 p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">もう少し</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.cautionCount}</p></div><div className="rounded-lg bg-violet-950/30 p-2 text-center"><p className="text-[10px] font-bold text-violet-300">覚えた</p><p className="mt-0.5 text-xl font-black text-white">{learningSummary.masteredCount}</p></div></div></section>
-
-              {gameState.mode !== 'weakness' && <FocusedBattleActions
-                unseenCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'unseen').length}
-                learningCount={getFocusedQuestions(gameState.selectedDifficulty, gameState.selectedLevel, 'learning').length}
-                onStart={kind => startGame(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode, null, kind)}
-              />}
-
-              {learningChanges.length > 0 && (
-                <section className="rounded-xl border border-emerald-500/25 bg-emerald-950/15 p-3">
-                  <p className="text-sm font-black text-emerald-100">今回の学習変化</p>
-                  <div className="mt-2 flex flex-wrap gap-2 text-xs font-bold">
-                    {promotedToCautionCount > 0 && <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-emerald-100">もう少しへ {promotedToCautionCount}問</span>}
-                    {promotedToMasteredCount > 0 && <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-2.5 py-1 text-violet-100">覚えた {promotedToMasteredCount}問</span>}
-                    {returnedToCautionCount > 0 && <span className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 text-amber-100">もう少しに戻った {returnedToCautionCount}問</span>}
-                    {returnedToLearningCount > 0 && <span className="rounded-full border border-sky-400/30 bg-sky-950/40 px-2.5 py-1 text-sky-100">学習中に戻った {returnedToLearningCount}問</span>}
-                  </div>
-                </section>
-              )}
-
-              {isPoolComplete ? <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton> : isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
-
-              <section className="rounded-xl border border-slate-600 bg-slate-950/35 p-2"><p className="px-1 pb-2 text-xs font-black text-slate-200">移動・メニュー</p><div className="grid grid-cols-2 gap-2"><GameButton onClick={handleBackToMode} size="sm" variant="outline">コースをえらぶ</GameButton><GameButton onClick={handleBackToLevel} size="sm" variant="outline">レベルをえらぶ</GameButton><GameButton onClick={handleBackToTitle} size="sm" variant="outline">ホームへ</GameButton><GameButton onClick={() => setGameState(prev => ({ ...prev, screen: 'monster-book' }))} size="sm" variant="outline"><BookOpen size={16} className="mr-2" /> 図鑑</GameButton></div></section>
-
-              <AiStudyReviewPanel key={activePlayerId} recorder={aiStudyRecorder} courseLabels={DIFFICULTY_LABELS} result />
-
-              <section className="rounded-xl border border-orange-500/30 bg-orange-950/20 p-3"><p className="mb-2 text-sm font-black text-orange-200">今回の苦手登録: {missedCount}問</p><div className="grid gap-2"><GameButton onClick={handleOpenWeakList} size="sm" variant="outline">苦手だけ見る</GameButton><GameButton onClick={handleStartBattleReview} size="sm" variant="outline" className="border-emerald-500/40 text-emerald-200">今回のミスだけ復習</GameButton><GameButton onClick={handleStartWeaknessFromResult} size="sm" className="bg-orange-600 border-orange-400 text-white hover:bg-orange-500">苦手復習へ</GameButton></div></section>
-            </aside>
           </div>
         </Box>
       </ScreenContainer>
@@ -11386,7 +10840,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
     // Compact result sheet: the battle result and learning material are readable without scanning cards.
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
         <Box className="w-full max-w-3xl border border-yellow-500/45 bg-slate-800 p-4 text-left md:p-5">
           <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-slate-600 pb-3">
             {isWin ? <Trophy size={38} className="text-yellow-400" /> : <Zap size={38} className="text-slate-500" />}
@@ -11424,7 +10878,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
 
     // Result screen: show the immediate result, learning state, and next action at a glance.
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
         <Box className="w-full max-w-4xl border-2 border-yellow-600/50 bg-slate-800 p-4 text-center md:p-5">
           <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="flex items-center gap-4 rounded-2xl border border-yellow-400/35 bg-gradient-to-r from-yellow-950/30 to-slate-900/55 p-4 text-left">
@@ -11497,7 +10951,7 @@ export default function App({ localPreview }: { localPreview?: LocalPreviewOptio
     );
 
     return (
-      <ScreenContainer className="items-center justify-center p-4">
+      <ScreenContainer navigation={appNavigation} className="items-center justify-center p-4">
         {/* Main Result Box - Scrollable if content is long, but constrained to viewport */}
         <Box className="max-w-5xl w-full text-center border-4 border-yellow-600/50 bg-slate-800 relative flex flex-col max-h-full">
           {gameState.isNewRecord && (<div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 px-6 py-2 rounded-full font-black text-xl shadow-[0_0_20px_rgba(250,204,21,0.8)] animate-bounce z-50 whitespace-nowrap">👑 NEW RECORD! 👑</div>)}

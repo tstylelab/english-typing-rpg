@@ -6,22 +6,25 @@ import { grammarBookmarkKey, readGrammarBookmarks, toggleGrammarBookmark } from 
 import './Grade5GrammarGuide.css';
 import GrammarCardAiHelp from './GrammarCardAiHelp';
 import { useBackdropDismiss } from './useBackdropDismiss';
+import { getMonsterArtUrl } from './monsterArt';
+import './grammar-reading-room.css';
 
-type Props = { playerId: string; course?: GrammarCourse; cardId?: string; questionText?: string; label?: string; fromResult?: boolean; initialOpen?: boolean };
+type Props = { playerId: string; course?: GrammarCourse; cardId?: string; questionText?: string; label?: string; fromResult?: boolean; initialOpen?: boolean; allowCourseSelection?: boolean };
 
 // Mount the reference only on demand. Native modal keeps the result mounted,
 // traps focus and makes all background game controls inert without saving state.
-export default function GrammarGuide({ playerId, course = 'Eiken5', cardId, questionText, label, fromResult = false, initialOpen = false }: Props) {
+export default function GrammarGuide({ playerId, course = 'Eiken5', cardId, questionText, label, fromResult = false, initialOpen = false, allowCourseSelection = false }: Props) {
   const [open, setOpen] = useState(initialOpen);
+  const [selectedCourse, setSelectedCourse] = useState(course);
   return <>
-    <button type="button" className="grammar-guide-link" disabled={!playerId} onClick={() => setOpen(true)} aria-haspopup="dialog">
+    <button type="button" className="grammar-guide-link" disabled={!playerId} onClick={() => { setSelectedCourse(course); setOpen(true); }} aria-haspopup="dialog">
       <BookOpen size={15} aria-hidden="true" />{label ?? `${grammarGuides[course].grade}・文のしくみ`}
     </button>
-    {open && playerId && createPortal(<GuideDialog key={`${playerId}:${course}`} playerId={playerId} course={course} cardId={cardId} questionText={questionText} fromResult={fromResult} onClose={() => setOpen(false)} />, document.body)}
+    {open && playerId && createPortal(<GuideDialog key={`${playerId}:${selectedCourse}`} playerId={playerId} course={selectedCourse} cardId={cardId} questionText={questionText} fromResult={fromResult} onCourseChange={allowCourseSelection ? setSelectedCourse : undefined} onClose={() => setOpen(false)} />, document.body)}
   </>;
 }
 
-function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromResult, onClose }: Props & { onClose: () => void }) {
+function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromResult, onClose, onCourseChange }: Props & { onClose: () => void; onCourseChange?: (course: GrammarCourse) => void }) {
   const { cards, sections, grade, intro } = grammarGuides[course];
   const dialog = useRef<HTMLDialogElement>(null);
   const backdrop = useBackdropDismiss<HTMLDialogElement>(onClose);
@@ -30,13 +33,15 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
   const headingId = useId();
   const [active, setActive] = useState(cardId);
   const [savedOnly, setSavedOnly] = useState(false);
+  const [query, setQuery] = useState('');
   const savedFilter = useRef<HTMLButtonElement>(null);
+  const searchInput = useRef<HTMLInputElement>(null);
   const [bookmarks, setBookmarks] = useState(() => {
     try { return { ids: readGrammarBookmarks(localStorage, playerId, course), error: '' }; }
     catch { return { ids: [] as string[], error: '保存したカードを読み込めませんでした。ブラウザの保存設定をご確認ください。' }; }
   });
   const [notice, setNotice] = useState('');
-  const visibleCards = savedOnly ? cards.filter(card => bookmarks.ids.includes(card.id)) : cards;
+  const visibleCards = cards.filter(card => (!savedOnly || bookmarks.ids.includes(card.id)) && `${card.title} ${card.term} ${card.subtitle ?? ''} ${card.pattern} ${card.examples.flat().join(' ')}`.toLowerCase().includes(query.trim().toLowerCase()));
 
   const toggleSaved = (id: string) => {
     try {
@@ -94,7 +99,7 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
     onCancel={event => { event.preventDefault(); onClose(); }} onKeyDown={event => {
       event.stopPropagation();
       if (event.key !== 'Tab') return;
-      const focusable = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], summary, textarea')]
+      const focusable = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], summary, textarea, input, select')]
         .filter(el => el.getClientRects().length > 0 && (el.tagName === 'SUMMARY' || !el.closest('details:not([open])')));
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -102,33 +107,41 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
       if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
     }}>
     <header className="grammar-guide-bar">
-      <span><BookOpen size={18} aria-hidden="true" />英検{grade} · 文のしくみ</span>
+      <span><img className="grammar-brand" src="/designs/title-logo-playful-v5.png" alt="English Typing Fantasy" />文法一覧</span>
       <div>
-        <button type="button" onClick={() => { content.current?.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }}><ArrowUp size={15} aria-hidden="true" />目次</button>
+        <button type="button" onClick={() => { content.current?.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }}><ArrowUp size={15} aria-hidden="true" />目次・検索</button>
         <button type="button" onClick={onClose}><X size={17} aria-hidden="true" />{fromResult ? '結果へ戻る' : '閉じる'}</button>
       </div>
     </header>
     <div className="grammar-guide-content" ref={content}>
       <div className="grammar-guide-intro">
+        <img className="grammar-reading-host" src={getMonsterArtUrl('m1_5', 'Eiken4')} alt="" />
         <p className="grammar-guide-eyebrow"><Sparkles size={16} aria-hidden="true" />ことばの順番が分かると、英文が見えてくる。</p>
         <h1 id={headingId} ref={heading} tabIndex={-1}>英検{grade}・文のしくみ</h1>
         <p>全部を一度に覚えなくても大丈夫。気になった型から、例文と見比べてみましょう！</p>
         <p className="grammar-guide-small">{intro}</p>
         <p className="grammar-guide-small">このゲームのLevel 3に対応する早見表です。英検の公式な出題範囲一覧ではありません。</p>
       </div>
+      <div className="grammar-reading-search">
+        {onCourseChange && <label>教材<select value={course} onChange={event => onCourseChange(event.target.value as GrammarCourse)}>{Object.entries(grammarGuides).map(([key, guide]) => <option key={key} value={key}>英検{guide.grade}</option>)}</select></label>}
+        <label>文法を探す<input ref={searchInput} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="現在完了・have been など" /></label>
+      </div>
       <div className="grammar-guide-filters" role="group" aria-label="カードの表示">
         <button type="button" aria-pressed={!savedOnly} onClick={() => setSavedOnly(false)}>すべて <span>{cards.length}</span></button>
         <button ref={savedFilter} type="button" aria-pressed={savedOnly} onClick={() => setSavedOnly(true)}><Bookmark size={15} aria-hidden="true" />保存したカード <span>{bookmarks.ids.length}</span></button>
+        <span className="grammar-search-count" role="status">{visibleCards.length}件を表示</span>
+        {query && <button type="button" onClick={() => { setQuery(''); searchInput.current?.focus(); }}>検索を解除</button>}
       </div>
       <p className="grammar-guide-storage-note">保存はこのブラウザのプレイヤー別・級別です。端末間の自動同期・学習データの書き出しには含まれません。</p>
       <span className="sr-only" role="status">{notice}</span>
       {bookmarks.error && <p className="grammar-guide-error" role="alert">{bookmarks.error}</p>}
-      {savedOnly && visibleCards.length === 0 && <div className="grammar-guide-empty"><Bookmark size={25} aria-hidden="true" /><p>あとで見たいカードを集めましょう！</p><p>各カードの「保存」を押すと、ここからすぐ見返せます。</p><button type="button" onClick={() => setSavedOnly(false)}>すべてのカードを見る</button></div>}
+      {query && visibleCards.length === 0 && <div className="grammar-guide-empty"><p>{savedOnly ? '保存したカードに該当する解説がありません。' : '該当する解説がありません。'}検索語を変えるか、一覧に戻れます。</p><button type="button" onClick={() => { setQuery(''); setSavedOnly(false); searchInput.current?.focus(); }}>すべての解説に戻る</button></div>}
+      {savedOnly && !query.trim() && visibleCards.length === 0 && <div className="grammar-guide-empty"><Bookmark size={25} aria-hidden="true" /><p>あとで見たいカードを集めましょう！</p><p>各カードの「保存」を押すと、ここからすぐ見返せます。</p><button type="button" onClick={() => setSavedOnly(false)}>すべてのカードを見る</button></div>}
       {visibleCards.length > 0 && <>
       <nav className="grammar-guide-toc" aria-label="文のしくみの目次">
         {sections.map((section, index) => visibleCards.some(card => card.section === index) && <div key={section.title} data-section={index}>
           <h2>{index + 1}. {section.title}</h2>
-          <div>{visibleCards.filter(card => card.section === index).map(card => <button key={card.id} type="button" data-grammar-target={card.id} onClick={() => goTo(card.id)}>{card.subtitle ? <><strong>{card.title}</strong><span>{card.subtitle}</span></> : card.title}</button>)}</div>
+          <div>{visibleCards.filter(card => card.section === index).map(card => <button key={card.id} type="button" data-grammar-target={card.id} onClick={() => goTo(card.id)}><strong>{card.title}</strong><span lang="en">{card.examples[0]?.[0] ?? card.subtitle ?? card.term}</span><small>{card.examples[0]?.[1]}</small></button>)}</div>
         </div>)}
       </nav>
       <p className="grammar-guide-key">読み方：「だれ・何」は文の主役（主語）。「動詞のもとの形」は play / go / be など、s・ed・ing を付ける前の形です。</p>

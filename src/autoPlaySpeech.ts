@@ -2,6 +2,7 @@ type Options = {
   voice: SpeechSynthesisVoice | null;
   lang: string;
   rate: number;
+  volume?: number;
   onend: () => void;
   onfailure: () => void;
   onretry: () => void;
@@ -65,6 +66,7 @@ export function speakAutoPlayEntry(text: string, options: Options): () => void {
       utterance = current; // Retain the active utterance until it settles.
       current.lang = options.lang;
       current.rate = options.rate;
+      current.volume = options.volume ?? 1;
       if (options.voice) current.voice = options.voice;
       deadline = Date.now() + timeoutMs;
       current.onboundary = () => {

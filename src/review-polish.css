@@ -1,0 +1,70 @@
+/* Keep review/reference screens readable without adding rows of controls. */
+.result-board,.monster-library,dialog.grammar-guide {
+  font-family:'Segoe UI','BIZ UDPGothic','Hiragino Sans',Meiryo,sans-serif;
+  letter-spacing:normal;
+  text-shadow:none;
+}
+.result-board {max-width:1280px}
+.result-layout {grid-template-columns:minmax(300px,.7fr) minmax(0,1.5fr);gap:16px}
+.result-actions {gap:10px}
+.result-answer-summary,.result-returned {font-size:15px}
+.result-destinations button {font-size:15px;min-height:44px}
+.result-learning-summary h3 {font-size:15px}
+.result-learning-summary>div {font-size:14px}
+.result-more>summary {font-size:15px;min-height:44px}
+.result-next-actions [data-focused-battle-actions] button {font-size:14px}
+.result-question-english {font-family:inherit;font-size:clamp(19px,1.25vw,23px);font-weight:600;line-height:1.5}
+.result-question-meaning {font-size:16px;line-height:1.55}
+.result-grammar-note {font-size:15px}
+.result-grammar-note summary {min-height:40px;display:list-item;padding-block:7px}
+.result-questions [data-result-question] {padding-block:10px}
+.result-questions [data-result-question] p.text-sm {font-size:16px;color:#c2d5df}
+.result-questions [data-result-status] {font-size:14px;white-space:normal;text-align:right}
+.result-questions [data-result-question] button:not([aria-label$="を音声で再生"]),.result-questions .grammar-guide-link {font-size:14px;min-height:40px}
+.result-questions [data-result-question]>div:last-child {margin-top:2px}
+.result-detail-content :is(.text-\[10px\],.text-\[11px\],.text-xs) {font-size:13px}
+.result-next-actions kbd {font-size:13px}
+.monster-library-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.monster-library-heading h1 {font-size:clamp(25px,2vw,32px);font-weight:700;color:#ffe3a7}
+.monster-library-heading button {display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid #7394a8;border-radius:7px;background:#173348;font-size:16px}
+.monster-library-filters {display:flex;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.monster-library-filters label {display:grid;gap:5px;font-size:15px;color:#c7dfeb}
+.monster-library-filters select {min-height:44px;min-width:120px;padding:8px 12px;background:#0b2132;border:1px solid #7c9dae;border-radius:6px;font-size:17px;color:#f1f8fc}
+.monster-library-filters>p {margin-left:auto;display:flex;align-items:center;gap:9px;min-height:44px;font-size:15px;color:#eadbb3}
+.monster-library-filters strong {margin:0 7px;font-size:22px;color:#ffe3a7}
+.monster-library-help {display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:18px;font-size:15px;color:#bbd6e3}
+.monster-library-help summary {cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.monster-library-help details p {margin-top:6px;max-width:600px}
+.monster-library :is(button,select,summary):focus-visible {outline:3px solid #9de3e6;outline-offset:3px}
+.monster-library .monster-book-grid .text-\[11px\] {font-size:13px}
+dialog.grammar-guide .grammar-guide-bar button {font-size:15px;min-height:44px}
+.grammar-guide .grammar-guide-card-heading h3 {font-size:19px;font-weight:700}
+.grammar-guide .grammar-guide-card-heading>span {font-size:14px}
+.grammar-guide .grammar-guide-pattern {font-size:16px;line-height:1.6}
+.grammar-guide .grammar-guide-pattern>span {font-size:14px}
+.grammar-guide .grammar-guide-examples p[lang] {font-size:20px;font-weight:600;line-height:1.6}
+.grammar-guide .grammar-guide-examples p:not([lang]) {font-size:16px}
+.grammar-guide .grammar-guide-tip {font-size:16px;line-height:1.75}
+.grammar-guide .grammar-guide-card details {font-size:15px}
+.grammar-guide .grammar-guide-card summary {min-height:40px;padding-block:6px}
+.grammar-guide .grammar-guide-filters {flex-wrap:wrap;align-items:center}
+.grammar-guide .grammar-guide-filters>button {min-height:44px;font-size:15px}
+.grammar-search-count {font-size:15px;margin-left:auto;color:#47616e}
+.grammar-guide .grammar-guide-section-note,.grammar-guide .grammar-guide-key {font-size:15px}
+@media(max-width:900px) {
+  .result-layout {grid-template-columns:1fr}
+  .monster-library-filters {gap:10px}
+}
+@media(max-width:640px) {
+  .monster-library-filters label {flex:1}
+  .monster-library-filters select {width:100%;min-width:0;font-size:16px}
+  .monster-library-filters>p {width:100%;margin:0;min-height:32px}
+  .monster-library-help {gap:4px}
+  .result-questions [data-result-question]>div:nth-child(2) {gap:10px;flex-wrap:wrap}
+  .result-answer-summary {font-size:14px}
+  dialog.grammar-guide .grammar-guide-bar>span {font-size:0}
+  .grammar-guide .grammar-guide-toc {padding:10px}
+  .grammar-guide[data-course]:not(.unused) .grammar-guide-toc button {padding:12px}
+  .grammar-search-count {margin-left:0}
+  .grammar-guide .grammar-guide-grid {grid-template-columns:1fr}
+}
