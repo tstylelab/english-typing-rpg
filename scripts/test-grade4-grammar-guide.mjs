@@ -27,7 +27,7 @@ assert.equal(new Set(questions.map(q=>q.text.toLowerCase())).size,209);
 for (const q of questions) {
   assert.ok(getGrade4GrammarCard('Eiken4',3,q),q.text);
   assert.equal(getGrammarCard('Eiken4',3,q)?.id,assignments[q.text]);
-  assert.equal(getGrammarCard('EikenPre2',3,q),undefined);
+  assert.equal(getGrade4GrammarCard('EikenPre2',3,q),undefined);
   assert.equal(getGrammarCard('Eiken4',2,q),undefined);
   assert.equal(getGrade4GrammarCard('Eiken5',3,q),undefined);
 }
@@ -61,6 +61,6 @@ for (const [text,id] of [
 assert.equal(getGrammarCard('Eiken4',3,{text:'An unknown sentence.'}),undefined);
 assert.equal(getGrammarGuideCourse('eiken4'),'Eiken4');
 assert.equal(getGrammarGuideCourse('Eiken5'),'Eiken5');
-assert.equal(getGrammarGuideCourse('eikenpre2'),undefined);
+assert.equal(getGrammarGuideCourse('eikenpre2'),'EikenPre2');
 assert.equal(getGrammarGuideCourse(null),undefined);
 console.log('PASS: 209 exact Grade 4 links, 33 cards, 9 justified additions; published 200 identities and Levels 1/2 preserved; semantic distinctions and course isolation');

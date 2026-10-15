@@ -156,7 +156,21 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
         <p>「この文なら分かる」を、ひとつずつ増やしていきましょう♪</p>
         {course === 'Eiken4' && <p><a href="?guide=eiken5" target="_blank" rel="noreferrer">I・youやbe動詞から確認したいときは、5級の土台へ（別タブ）</a></p>}
         {course === 'Eiken3' && <p><a href="?guide=eiken4" target="_blank" rel="noreferrer">過去・未来やto・ingの土台を確認したいときは、4級の解説へ（別タブ）</a></p>}
+        {course === 'EikenPre2' && <p><a href="?guide=eiken3" target="_blank" rel="noreferrer">現在完了・受け身・関係代名詞の土台は、3級の解説へ（別タブ）</a></p>}
+        {course === 'Eiken2' && <p><a href="?guide=eikenpre2" target="_blank" rel="noreferrer">会話の型や長い文の読み方を確認したいときは、準2級の解説へ（別タブ）</a></p>}
+        {(course === 'EikenPre1Part1' || course === 'EikenPre1Part2') && <p><a href="?guide=eiken2" target="_blank" rel="noreferrer">意見をつなぐ形や長い文の土台は、2級の解説へ（別タブ）</a></p>}
+        {(course === 'Eiken1Part1' || course === 'Eiken1Part2') && <p><a href="?guide=eiken2" target="_blank" rel="noreferrer">意見をつなぐ形や文の骨組みを確認したいときは、2級の解説へ（別タブ）</a></p>}
         <details><summary>説明の参考資料</summary><p>British Council などの文法資料で基本の型を確認しています。英検の級別範囲を示す資料ではありません。</p>
+          {(course === 'Eiken1Part1' || course === 'Eiken1Part2') && <>
+            <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/will-would" target="_blank" rel="noreferrer">wouldの意味（英語・別タブ）</a>{' ／ '}
+            <a href="https://dictionary.cambridge.org/dictionary/english/allow" target="_blank" rel="noreferrer">allowの形と意味（英語・別タブ）</a>{' ／ '}
+            <a href="https://dictionary.cambridge.org/grammar/british-grammar/help" target="_blank" rel="noreferrer">helpの後ろの動詞（英語・別タブ）</a>{' ／ '}
+          </>}
+          {(course === 'EikenPre1Part1' || course === 'EikenPre1Part2') && <>
+            <a href="https://dictionary.cambridge.org/grammar/british-grammar/ellipsis" target="_blank" rel="noreferrer">会話の省略（英語・別タブ）</a>{' ／ '}
+            <a href="https://dictionary.cambridge.org/grammar/british-grammar/would-rather-would-sooner" target="_blank" rel="noreferrer">would rather（英語・別タブ）</a>{' ／ '}
+            <a href="https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/modals-deductions-about-past" target="_blank" rel="noreferrer">過去の推量（英語・別タブ）</a>{' ／ '}
+          </>}
           <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-simple" target="_blank" rel="noreferrer">現在形（英語・別タブ）</a>{' ／ '}
           <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/question-forms" target="_blank" rel="noreferrer">疑問文（英語・別タブ）</a>{' ／ '}
           <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-continuous" target="_blank" rel="noreferrer">進行形（英語・別タブ）</a>
@@ -165,12 +179,21 @@ function GuideDialog({ playerId, course = 'Eiken5', cardId, questionText, fromRe
           {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/how-often" target="_blank" rel="noreferrer">頻度の副詞（英語・別タブ）</a>
           {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/present-simple-be" target="_blank" rel="noreferrer">be動詞・短縮形・返事（英語・別タブ）</a>
           {course !== 'Eiken5' && <>{' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/comparative-superlative-adjectives" target="_blank" rel="noreferrer">比較（英語・別タブ）</a>{' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/verbs-followed-ing-or-infinitive" target="_blank" rel="noreferrer">toとing（英語・別タブ）</a></>}
-          {course === 'Eiken3' && <>
+          {course !== 'Eiken5' && course !== 'Eiken4' && <>
             {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect" target="_blank" rel="noreferrer">現在完了（英語・別タブ）</a>
             {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/present-perfect-simple-continuous" target="_blank" rel="noreferrer">現在完了と現在完了進行形（英語・別タブ）</a>
             {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/passives" target="_blank" rel="noreferrer">受け身（英語・別タブ）</a>
             {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/relative-clauses-defining-relative-clauses" target="_blank" rel="noreferrer">関係代名詞（英語・別タブ）</a>
             {' ／ '}<a href="https://our-languages.canada.ca/en/writing-tips-plus/made-from-made-of-made-with" target="_blank" rel="noreferrer">made of / from（英語・別タブ）</a>
+          </>}
+          {(course === 'EikenPre2' || course === 'Eiken2') && <>
+            {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/conditionals-zero-first-second" target="_blank" rel="noreferrer">条件の文（英語・別タブ）</a>
+            {' ／ '}<a href="https://dictionaryblog.cambridge.org/2022/12/07/moreover-consequently-and-therefore-ways-to-link-ideas-2/" target="_blank" rel="noreferrer">追加・結果をつなぐ表現（英語・別タブ）</a>
+          </>}
+          {course === 'EikenPre2' && <>
+            {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2-grammar/different-uses-of-used-to" target="_blank" rel="noreferrer">used toの使い分け（英語・別タブ）</a>
+            {' ／ '}<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/reported-speech" target="_blank" rel="noreferrer">発言の伝え方（英語・別タブ）</a>
+            {' ／ '}<a href="https://dictionaryblog.cambridge.org/2014/04/30/would-you-mind-reading-this-please/" target="_blank" rel="noreferrer">丁寧な依頼（英語・別タブ）</a>
           </>}
         </details>
       </footer>

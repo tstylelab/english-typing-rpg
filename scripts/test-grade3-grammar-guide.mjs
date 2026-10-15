@@ -52,7 +52,7 @@ for (const [text, id] of [
 assert.equal(getGrammarCard('Eiken3', 3, { text: 'An unknown sentence.' }), undefined);
 assert.equal(getGrammarGuideCourse('eiken3'), 'Eiken3');
 assert.equal(getGrammarGuideCourse('Eiken3'), 'Eiken3');
-assert.equal(getGrammarGuideCourse('eikenpre2'), undefined);
+assert.equal(getGrammarGuideCourse('eikenpre2'), 'EikenPre2');
 
 const data = new Map();
 const storage = { getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) };

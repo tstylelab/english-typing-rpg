@@ -1,6 +1,6 @@
 import { grammarGuides, type GrammarCourse } from './data/grammarGuides';
 
-const knownIds = { Eiken5: new Set(grammarGuides.Eiken5.cards.map(card => card.id)), Eiken4: new Set(grammarGuides.Eiken4.cards.map(card => card.id)), Eiken3: new Set(grammarGuides.Eiken3.cards.map(card => card.id)) };
+const knownIds = Object.fromEntries(Object.entries(grammarGuides).map(([course, guide]) => [course, new Set(guide.cards.map(card => card.id))])) as Record<GrammarCourse, Set<string>>;
 type BookmarkStorage = Pick<Storage, 'getItem' | 'setItem'>;
 export const grammarBookmarkKey = (playerId: string, course: GrammarCourse = 'Eiken5') => `etyping_grammar_bookmarks_v1:${encodeURIComponent(playerId)}:${course}`;
 

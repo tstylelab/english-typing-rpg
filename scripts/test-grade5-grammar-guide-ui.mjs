@@ -3,18 +3,27 @@ import { createRequire } from 'node:module';
 import { load } from './lib/load-typescript-data.mjs';
 const { chromium } = createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const { QUESTIONS } = load('src/data/questions.ts');
+const upperCases = {
+  Eiken1Part1: {saved:'relative-subject',second:'quantity',question:'force-to',jump:'relative-subject',chunks:'force-to',first:['concession','condition','unless','because','force-to','lead-to'],targets:[{text:'The law that protects workers will take effect next year.',id:'relative-subject'},{text:'The closure left hundreds of workers without jobs.',id:'leave-state'},{text:'If the evidence is weak, the case should be reconsidered.',id:'condition'}]},
+  Eiken1Part2: {saved:'relative-subject',second:'whose',question:'comparison-past',jump:'whose',chunks:'whose',first:['concession','condition','unless','force-to','allow-to','cause-direct'],targets:[{text:'The families whose homes were flooded received support.',id:'whose'},{text:'Although both sides sought peace, neither would compromise.',id:'neither-would'},{text:'The potential harm outweighs the short-term benefit.',id:'outweigh'}]},
+  EikenPre1Part1: {saved:'past-perfect',second:'modal-perfect',question:'embedded-question',jump:'what-clause',chunks:'embedded-question',first:['embedded-question','what-clause','questions','requests','make-person','let'],targets:[{text:'That must have been difficult.',id:'modal-perfect'},{text:'If I understand you correctly.',id:'conditional-intro'},{text:"I hadn't thought of it that way.",id:'past-perfect'}]},
+  EikenPre1Part2: {saved:'relative-object',second:'sound-seem',question:'not-necessarily',jump:'relative-object',chunks:'relative-object',first:['embedded-question','what-clause','questions','requests','make-person','let'],targets:[{text:"I get the point you're making.",id:'relative-object'},{text:"That doesn't necessarily mean it's wrong.",id:'not-necessarily'},{text:'Sounds about right.',id:'sound-seem'}]},
+};
 const course = process.env.TEST_GRAMMAR_COURSE || 'Eiken5';
-assert.ok(['Eiken5','Eiken4','Eiken3'].includes(course));
+const upper = upperCases[course];
+assert.ok(upper || ['Eiken5','Eiken4','Eiken3','EikenPre2','Eiken2'].includes(course));
 const questions = QUESTIONS[course][3];
 const {grammarGuides} = load('src/data/grammarGuides.ts');
 const {cards,grade} = grammarGuides[course];
 const is4 = course === 'Eiken4';
 const is3 = course === 'Eiken3';
+const isPre2 = course === 'EikenPre2';
+const is2 = course === 'Eiken2';
 const slug = course.toLowerCase();
-const savedId = is3 ? 'perfect-duration' : is4 ? 'past-be' : 'be';
-const secondSavedId = is3 ? 'relative-object' : is4 ? 'future-will' : 'verb';
-const questionId = is3 ? 'indirect-question' : is4 ? 'questions' : 'do-question';
-const firstIds = is3 ? ['foundation','questions','tenses','modals','perfect-experience','perfect-result'] : is4 ? ['foundation','questions','noun-phrases','present-progressive','past-be','past-verb'] : ['subjects','word-types','be','word-order','demonstratives','contractions'];
+const savedId = upper ? upper.saved : isPre2 ? 'perfect-duration' : is2 ? 'perfect-duration' : is3 ? 'perfect-duration' : is4 ? 'past-be' : 'be';
+const secondSavedId = upper ? upper.second : isPre2 ? 'used-to' : is2 ? 'relative-object' : is3 ? 'relative-object' : is4 ? 'future-will' : 'verb';
+const questionId = upper ? upper.question : isPre2 ? 'indirect-question' : is2 ? 'indirect-question' : is3 ? 'indirect-question' : is4 ? 'questions' : 'do-question';
+const firstIds = upper ? upper.first : isPre2 ? ['greetings','responses','neither','either','reactions','requests'] : is2 ? ['opinion','agreement','reason-because','reason-noun','reason-content','reasons-for-why'] : is3 ? ['foundation','questions','tenses','modals','perfect-experience','perfect-result'] : is4 ? ['foundation','questions','noun-phrases','present-progressive','past-be','past-verb'] : ['subjects','word-types','be','word-order','demonstratives','contractions'];
 const url = process.env.TEST_URL || 'http://127.0.0.1:5178';
 const shots = process.env.GRAMMAR_SCREENSHOT_DIR;
 const server = await chromium.launchServer({ channel:'chrome', headless:true, args:['--mute-audio'] });
@@ -27,7 +36,7 @@ const bounded = async promise => {
 let passed = false;
 try {
   for (const width of [1366, 390, 320]) {
-    const target = is3 ? (width === 1366 ? {text:'The cake she made was delicious.',id:'relative-object'} : width === 390 ? {text:'I have lived here for three years.',id:'perfect-duration'} : {text:'He stopped to talk.',id:'stop-remember'}) : is4 ? (width === 1366 ? {text:'Ken is as tall as Tom.',id:'as'}
+    const target = upper ? upper.targets[[1366,390,320].indexOf(width)] : isPre2 ? (width === 1366 ? {text:'Could you tell me where the bus stops?',id:'indirect-question'} : width === 390 ? {text:'May I take a message?',id:'phone'} : {text:'Is it OK if I sit here?',id:'permission'}) : is2 ? (width === 1366 ? {text:'The book that you recommended was useful.',id:'relative-object'} : width === 390 ? {text:'In conclusion, the program is worth trying.',id:'worth'} : {text:'Can you tell me how to apply for the program?',id:'wh-to'}) : is3 ? (width === 1366 ? {text:'The cake she made was delicious.',id:'relative-object'} : width === 390 ? {text:'I have lived here for three years.',id:'perfect-duration'} : {text:'He stopped to talk.',id:'stop-remember'}) : is4 ? (width === 1366 ? {text:'Ken is as tall as Tom.',id:'as'}
       : width === 390 ? {text:'I stayed home because I was sick.',id:'connectors'}
       : {text:'You must not use your phone here.',id:'must'}) : width === 1366 ? {text:"I'm a student.",id:'contractions'}
       : width === 390 ? {text:'These are books.',id:'demonstratives'}
@@ -48,7 +57,7 @@ try {
     assert.equal(await guide.locator('[data-grammar-card]').count(),cards.length);
     assert.deepEqual(await guide.locator('[data-grammar-card]').evaluateAll(els=>els.slice(0,6).map(el=>el.dataset.grammarCard)),firstIds);
     assert.equal(await guide.locator('.grammar-guide-chunks>div').count(),cards.reduce((sum,card)=>sum+(card.chunks?.length || 0),0));
-    for (const id of is3 ? ['foundation','questions','perfect-experience','perfect-result','perfect-duration','relative-object','indirect-question','responses'] : is4 ? ['foundation','questions','noun-phrases','past-be','past-verb','must'] : ['subjects','word-types','be','word-order','demonstratives','contractions','short-answers','amounts','pronouns','articles','negative','modifiers','conjunctions','place','noun','third']) {
+    for (const id of upper ? cards.filter(c=>c.compare?.length>=3).map(c=>c.id) : isPre2 ? ['mind','used-to','relative','where-when','perfect-duration','past-perfect','purpose-result','negative-opinion'] : is2 ? ['agreement','reason-noun','contrast-clause','conclusion','relative-object','indirect-question','condition','trend-number','comparison'] : is3 ? ['foundation','questions','perfect-experience','perfect-result','perfect-duration','relative-object','indirect-question','responses'] : is4 ? ['foundation','questions','noun-phrases','past-be','past-verb','must'] : ['subjects','word-types','be','word-order','demonstratives','contractions','short-answers','amounts','pronouns','articles','negative','modifiers','conjunctions','place','noun','third']) {
       const comparison = guide.locator(`[data-grammar-card="${id}"] .grammar-guide-compare`);
       assert.ok(await comparison.locator('dt').count() >= 3);
       assert.ok(await comparison.evaluate(el => el.scrollWidth <= el.clientWidth+1), `${id} comparison fits ${width}px`);
@@ -57,7 +66,7 @@ try {
     assert.ok(await guide.evaluate(el => el.scrollWidth <= el.clientWidth + 1));
     const toc = guide.locator('.grammar-guide-toc');
     assert.equal(await guide.getAttribute('data-course'),course);
-    if (is4 || is3) {
+    if (course !== 'Eiken5') {
       assert.equal(await toc.locator('button strong').count(),cards.length);
       assert.equal(await toc.locator('button span').count(),cards.length);
       for (const item of cards) {
@@ -71,7 +80,7 @@ try {
       assert.ok(await toc.locator('button').evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth+1)),'All headings fit');
       const widths = await toc.locator('button').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().width));
       assert.ok(Math.max(...widths)-Math.min(...widths)<1,'Equal-width navigation buttons');
-      const jumpId = is3 ? 'relative-object' : 'must';
+      const jumpId = upper ? upper.jump : isPre2 ? 'relative' : is2 ? 'relative-object' : is3 ? 'relative-object' : 'must';
       await toc.locator(`[data-grammar-target="${jumpId}"]`).click();
       assert.equal(await guide.locator(`[data-grammar-card="${jumpId}"]`).evaluate(el=>el===document.activeElement),true);
       await guide.getByRole('button',{name:'目次',exact:true}).click();
@@ -89,7 +98,7 @@ try {
     assert.ok((await doCard.boundingBox()).y >= 50);
     assert.ok((await doCard.boundingBox()).y < 140);
     if (shots && width === 390) await page.screenshot({path:`${shots}/${slug}-grammar-mobile.png`});
-    await guide.locator(`[data-grammar-card="${is4||is3?'foundation':'word-order'}"]`).scrollIntoViewIfNeeded();
+    await guide.locator(`[data-grammar-card="${upper?upper.chunks:isPre2?'infinitive-purpose':is2?'opinion':is4||is3?'foundation':'word-order'}"]`).scrollIntoViewIfNeeded();
     assert.ok(await guide.locator('.grammar-guide-chunks').evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth+1)));
     if (shots && width === 390) await page.screenshot({path:`${shots}/${slug}-grammar-beginner-mobile.png`});
     await doCard.getByText('もうひとつヒント',{exact:true}).click();
@@ -139,12 +148,12 @@ try {
     assert.ok((await card.boundingBox()).y < 140);
     assert.ok((await card.innerText()).includes('今回の文'));
     if (shots && width === 1366) await page.screenshot({path:`${shots}/${slug}-grammar-result-link.png`});
-    if (is3) {
+    if (upper || is3 || is2 || isPre2) {
       const help = card.locator('.grammar-ai-help');
       await help.locator(':scope > summary').click();
       await help.getByRole('button',{name:'質問文を確認する',exact:true}).click();
       const prompt = await help.getByRole('textbox').inputValue();
-      assert.ok(prompt.includes('英検3級に挑戦する学習者'));
+      assert.ok(prompt.includes(`英検${grade}に挑戦する学習者`));
       assert.ok(prompt.includes('ゲームで出た文：'+target.text));
       assert.ok(prompt.includes('基本ルールと作り方'));
       assert.ok(!prompt.includes('英検4級') && !prompt.includes('英検5級'));

@@ -1,0 +1,982 @@
+{
+  "status": "editorial-draft-not-implemented",
+  "topics": {
+    "embedded-question": "why / how / where＋主語＋動詞：疑問の内容を文に入れる",
+    "what-clause": "what＋文：言いたいこと・意味することをひとまとまりにする",
+    "agreement": "agree / be with / be for：賛成・同意の伝え方",
+    "sense": "make sense / add up：意味が通る・筋が通る",
+    "possibility": "may / might / could：可能性を示す",
+    "partial": "up to a point / partly / in a way：同意の範囲を限定する",
+    "empathy": "relate to / know what it is like：相手の経験・気持ちを理解する",
+    "noun-phrase": "a fair point / a tough one：名詞のまとまりとone",
+    "past-perfect": "had not＋過去分詞：過去のある時点より前を振り返る",
+    "to-modifier": "a way / time to …：名詞を説明するto不定詞",
+    "partial-negative": "not entirely / not always / not quite：否定の及ぶ範囲",
+    "sure-clause": "not sure / convinced＋文：確信や留保の内容",
+    "would-stance": "would / would not：仮の立場から述べる・断定を和らげる",
+    "viewpoint": "see it differently：考え方・見方を伝える",
+    "depend": "depend on＋名詞 / 疑問詞節：判断の条件を示す",
+    "it-to": "It is＋形容詞＋to：行動を評価する",
+    "progressive": "be＋ing：進行中・一時的な取り組み",
+    "questions": "疑問詞の役割：主語を尋ねる文と一般の疑問文",
+    "requests": "Could / Can you …：説明や例を頼む",
+    "make-person": "make＋人＋動詞の原形：そう言う・感じる原因",
+    "let": "Let me / Let us：自分にさせてもらう・一緒にする",
+    "intro-fragment": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+    "make-clear": "make＋目的語＋形容詞：内容を明確にする",
+    "worth": "worth＋名詞 / ing：試す・考える価値",
+    "tendency": "tend to / be inclined to：傾向・控えめな意見",
+    "perfect-change": "have come to …：考えの変化と現在",
+    "contrast": "on the other hand / still / even so：異なる面をつなぐ",
+    "reason": "for that reason：理由を受けて判断を伝える",
+    "modal-perfect": "must have＋過去分詞：過去についての強い推量",
+    "sound-seem": "sound / seem＋形容詞、sound like＋名詞",
+    "blame-for": "blame＋人＋for＋ing：行動や感情を責める",
+    "perfect-experience": "have＋過去分詞＋before：これまでの経験",
+    "comparison": "not as … as / more … than：程度を比べる",
+    "more-to": "There is more to … than …：見えている以上の事情",
+    "rather": "would rather（not）＋原形：どちらを選びたいか",
+    "should": "should＋原形：提案・望ましい対応",
+    "that-content": "think / say＋文：意見や発言の内容",
+    "modal-progressive": "may / might be＋ing：進行中の事柄についての推量",
+    "too-to": "too＋形容詞＋to：〜するには程度が過ぎる",
+    "hypothetical": "would＋動詞、if＋過去形：仮定した場合の判断",
+    "chance": "There is a chance（that）…：可能性の内容",
+    "not-necessarily": "not necessarily：必ずしもそうとは言えない",
+    "saying-negative": "not saying＋文：発言・主張の範囲を限定する",
+    "easier-said": "easier said than done：過去分詞を使った定型比較",
+    "ready-to": "be ready / need / try＋to：準備・必要・試み",
+    "cause": "lead to＋名詞：結果につながる",
+    "conversation": "works for me / on the fence：会話での定型的な意味",
+    "past-progressive": "was thinking：過去のそのとき考えていたこと",
+    "relative-object": "the point（that）you are making：目的格関係詞の省略",
+    "lets-not": "Let us not＋原形：一緒にしないようにしよう",
+    "being": "be being＋形容詞：そのときの振る舞い・態度",
+    "perception": "see＋目的語＋ing：起きている・起こる場面を思い描く",
+    "wh-to": "what to make of …：どう受け止めるか"
+  },
+  "courses": [
+    {
+      "course": "EikenPre1Part1",
+      "count": 75,
+      "entries": [
+        {
+          "text": "I can see why you feel that way.",
+          "translation": "そう感じる理由は分かります。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "That makes a lot of sense.",
+          "translation": "それはとても筋が通っています。",
+          "topicId": "sense",
+          "topic": "make sense / add up：意味が通る・筋が通る"
+        },
+        {
+          "text": "I see what you're getting at.",
+          "translation": "言いたいことは分かります。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "You may have a point there.",
+          "translation": "それは一理あるかもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "I agree up to a point.",
+          "translation": "ある程度は賛成です。",
+          "topicId": "partial",
+          "topic": "up to a point / partly / in a way：同意の範囲を限定する"
+        },
+        {
+          "text": "I'm with you on that.",
+          "translation": "その点は私も同意見です。",
+          "topicId": "agreement",
+          "topic": "agree / be with / be for：賛成・同意の伝え方"
+        },
+        {
+          "text": "I can relate to that.",
+          "translation": "その気持ちはよく分かります。",
+          "topicId": "empathy",
+          "topic": "relate to / know what it is like：相手の経験・気持ちを理解する"
+        },
+        {
+          "text": "That's a fair point.",
+          "translation": "それはもっともな指摘です。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "I hadn't thought of it that way.",
+          "translation": "そういう見方はしていませんでした。",
+          "topicId": "past-perfect",
+          "topic": "had not＋過去分詞：過去のある時点より前を振り返る"
+        },
+        {
+          "text": "That's a good way to put it.",
+          "translation": "うまい言い方ですね。",
+          "topicId": "to-modifier",
+          "topic": "a way / time to …：名詞を説明するto不定詞"
+        },
+        {
+          "text": "I'm not entirely sure about that.",
+          "translation": "それについては完全には確信がありません。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I'm not so sure I agree.",
+          "translation": "そこは少し意見が違う気がします。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "That's not always the case.",
+          "translation": "いつもそうとは限りません。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I wouldn't go that far.",
+          "translation": "そこまでは言わないです。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "I'm not convinced that's true.",
+          "translation": "それが本当だとはまだ思えません。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "That may be true in some cases.",
+          "translation": "場合によってはそうかもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "I see it a little differently.",
+          "translation": "私は少し違う見方をしています。",
+          "topicId": "viewpoint",
+          "topic": "see it differently：考え方・見方を伝える"
+        },
+        {
+          "text": "That depends on the situation.",
+          "translation": "それは状況次第です。",
+          "topicId": "depend",
+          "topic": "depend on＋名詞 / 疑問詞節：判断の条件を示す"
+        },
+        {
+          "text": "It depends on how you define it.",
+          "translation": "それをどう定義するかによります。",
+          "topicId": "depend",
+          "topic": "depend on＋名詞 / 疑問詞節：判断の条件を示す"
+        },
+        {
+          "text": "It's hard to say for sure.",
+          "translation": "はっきりとは言いにくいです。",
+          "topicId": "it-to",
+          "topic": "It is＋形容詞＋to：行動を評価する"
+        },
+        {
+          "text": "I'd have to think about that.",
+          "translation": "それは少し考える必要があります。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "That's an interesting question.",
+          "translation": "それは興味深い質問ですね。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "I'm still figuring that out.",
+          "translation": "それはまだ自分の中で整理しているところです。",
+          "topicId": "progressive",
+          "topic": "be＋ing：進行中・一時的な取り組み"
+        },
+        {
+          "text": "I need a little time to think.",
+          "translation": "少し考える時間が必要です。",
+          "topicId": "to-modifier",
+          "topic": "a way / time to …：名詞を説明するto不定詞"
+        },
+        {
+          "text": "That's a tough one.",
+          "translation": "それはなかなか難しいですね。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "What exactly do you mean?",
+          "translation": "具体的にはどういう意味ですか。",
+          "topicId": "questions",
+          "topic": "疑問詞の役割：主語を尋ねる文と一般の疑問文"
+        },
+        {
+          "text": "Could you be a bit more specific?",
+          "translation": "もう少し具体的に言ってもらえますか。",
+          "topicId": "requests",
+          "topic": "Could / Can you …：説明や例を頼む"
+        },
+        {
+          "text": "Can you give me an example?",
+          "translation": "例を挙げてもらえますか。",
+          "topicId": "requests",
+          "topic": "Could / Can you …：説明や例を頼む"
+        },
+        {
+          "text": "What makes you say that?",
+          "translation": "そう思う理由は何ですか。",
+          "topicId": "make-person",
+          "topic": "make＋人＋動詞の原形：そう言う・感じる原因"
+        },
+        {
+          "text": "Are you saying that it's unavoidable?",
+          "translation": "それは避けられないと言っているのですか。",
+          "topicId": "that-content",
+          "topic": "think / say＋文：意見や発言の内容"
+        },
+        {
+          "text": "Let me make sure I understand.",
+          "translation": "ちゃんと理解できているか確認させてください。",
+          "topicId": "let",
+          "topic": "Let me / Let us：自分にさせてもらう・一緒にする"
+        },
+        {
+          "text": "So what you're saying is this.",
+          "translation": "つまりあなたが言いたいのはこういうことですね。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "If I understand you correctly.",
+          "translation": "私の理解が正しければ。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "if節だけの前置き。後ろに確認内容の主節を続ける形を解説する。"
+        },
+        {
+          "text": "To put it simply.",
+          "translation": "簡単に言うと。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "独立した完全文ではなく、説明を導く前置き。"
+        },
+        {
+          "text": "To put it another way.",
+          "translation": "別の言い方をすると。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "言い換えを導く前置き。後ろに言い換えた内容が必要。"
+        },
+        {
+          "text": "What I mean is this.",
+          "translation": "私が言いたいのはこういうことです。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "When you put it that way.",
+          "translation": "そういう言い方をされると。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "when節だけの断片。会話で後ろの反応が省略されることを説明する。"
+        },
+        {
+          "text": "What I'm getting at is this.",
+          "translation": "私が言いたいのはこういうことです。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "That's basically what I'm saying.",
+          "translation": "だいたいそういうことを言っています。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "Let me rephrase that.",
+          "translation": "言い換えさせてください。",
+          "topicId": "let",
+          "topic": "Let me / Let us：自分にさせてもらう・一緒にする"
+        },
+        {
+          "text": "Maybe I didn't make that clear.",
+          "translation": "もしかすると私の言い方が分かりにくかったかもしれません。",
+          "topicId": "make-clear",
+          "topic": "make＋目的語＋形容詞：内容を明確にする"
+        },
+        {
+          "text": "That's not quite what I meant.",
+          "translation": "それは私の意図と少し違います。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "If you ask me.",
+          "translation": "私に言わせれば。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "「私に言わせれば」という前置き。単独の標準的完全文としない。"
+        },
+        {
+          "text": "From what I can tell.",
+          "translation": "私が見るかぎりでは。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "視点・根拠を限定する前置き。後ろに判断を続ける。"
+        },
+        {
+          "text": "I think it's worth a try.",
+          "translation": "やってみる価値はあると思います。",
+          "topicId": "worth",
+          "topic": "worth＋名詞 / ing：試す・考える価値"
+        },
+        {
+          "text": "The way I see it.",
+          "translation": "私が思うには。",
+          "topicId": "intro-fragment",
+          "topic": "前置き・つなぎの断片：後ろに主節や説明を続ける",
+          "reviewNote": "見方を導く前置き。元データの句点と、完全な文の構造を混同しない。"
+        },
+        {
+          "text": "I tend to think so too.",
+          "translation": "私もどちらかといえばそう思います。",
+          "topicId": "tendency",
+          "topic": "tend to / be inclined to：傾向・控えめな意見"
+        },
+        {
+          "text": "I'm inclined to agree.",
+          "translation": "どちらかといえば賛成です。",
+          "topicId": "tendency",
+          "topic": "tend to / be inclined to：傾向・控えめな意見"
+        },
+        {
+          "text": "I've come to think that lately.",
+          "translation": "最近はそう考えるようになりました。",
+          "topicId": "perfect-change",
+          "topic": "have come to …：考えの変化と現在"
+        },
+        {
+          "text": "On the one hand that's true.",
+          "translation": "一方ではそれは確かです。",
+          "topicId": "contrast",
+          "topic": "on the other hand / still / even so：異なる面をつなぐ"
+        },
+        {
+          "text": "On the other hand we should be careful.",
+          "translation": "その一方で注意も必要です。",
+          "topicId": "contrast",
+          "topic": "on the other hand / still / even so：異なる面をつなぐ"
+        },
+        {
+          "text": "At the same time I understand your concern.",
+          "translation": "同時にあなたの懸念も分かります。",
+          "topicId": "contrast",
+          "topic": "on the other hand / still / even so：異なる面をつなぐ"
+        },
+        {
+          "text": "Still, we can't ignore the risks.",
+          "translation": "それでもリスクは無視できません。",
+          "topicId": "contrast",
+          "topic": "on the other hand / still / even so：異なる面をつなぐ"
+        },
+        {
+          "text": "Even so I wouldn't give up yet.",
+          "translation": "それでも私はまだ諦めません。",
+          "topicId": "contrast",
+          "topic": "on the other hand / still / even so：異なる面をつなぐ"
+        },
+        {
+          "text": "You're right in a way.",
+          "translation": "ある意味ではあなたの言う通りです。",
+          "topicId": "partial",
+          "topic": "up to a point / partly / in a way：同意の範囲を限定する"
+        },
+        {
+          "text": "For that reason I'm hesitant.",
+          "translation": "そういう理由で私はためらっています。",
+          "topicId": "reason",
+          "topic": "for that reason：理由を受けて判断を伝える"
+        },
+        {
+          "text": "That's partly true.",
+          "translation": "それは一部その通りです。",
+          "topicId": "partial",
+          "topic": "up to a point / partly / in a way：同意の範囲を限定する"
+        },
+        {
+          "text": "I can understand how you feel.",
+          "translation": "あなたの気持ちは理解できます。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "That must have been difficult.",
+          "translation": "それは大変だったでしょうね。",
+          "topicId": "modal-perfect",
+          "topic": "must have＋過去分詞：過去についての強い推量"
+        },
+        {
+          "text": "That sounds a bit stressful.",
+          "translation": "それは少し大変そうですね。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "I don't blame you for feeling that way.",
+          "translation": "そう感じるのも無理はありません。",
+          "topicId": "blame-for",
+          "topic": "blame＋人＋for＋ing：行動や感情を責める"
+        },
+        {
+          "text": "I've felt the same way before.",
+          "translation": "私も前に同じように感じたことがあります。",
+          "topicId": "perfect-experience",
+          "topic": "have＋過去分詞＋before：これまでの経験"
+        },
+        {
+          "text": "That would bother me too.",
+          "translation": "それは私でも気になると思います。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "I know what that's like.",
+          "translation": "そういう感じはよく分かります。",
+          "topicId": "empathy",
+          "topic": "relate to / know what it is like：相手の経験・気持ちを理解する"
+        },
+        {
+          "text": "That doesn't sound easy.",
+          "translation": "それは簡単そうには聞こえません。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "You're probably not the only one.",
+          "translation": "そう感じているのはあなただけではないと思います。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "It's not as simple as it sounds.",
+          "translation": "聞こえるほど単純ではありません。",
+          "topicId": "comparison",
+          "topic": "not as … as / more … than：程度を比べる"
+        },
+        {
+          "text": "It's a little more complicated than that.",
+          "translation": "それはもう少し複雑です。",
+          "topicId": "comparison",
+          "topic": "not as … as / more … than：程度を比べる"
+        },
+        {
+          "text": "There's more to it than that.",
+          "translation": "それだけではありません。",
+          "topicId": "more-to",
+          "topic": "There is more to … than …：見えている以上の事情"
+        },
+        {
+          "text": "That's one way to look at it.",
+          "translation": "それも一つの見方です。",
+          "topicId": "to-modifier",
+          "topic": "a way / time to …：名詞を説明するto不定詞"
+        },
+        {
+          "text": "I wouldn't rule that out.",
+          "translation": "その可能性は否定しません。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "That might actually work.",
+          "translation": "それは意外とうまくいくかもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "It's worth thinking about.",
+          "translation": "考えてみる価値があります。",
+          "topicId": "worth",
+          "topic": "worth＋名詞 / ing：試す・考える価値"
+        },
+        {
+          "text": "I wouldn't dismiss that idea.",
+          "translation": "その考えを切り捨てはしません。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "That could be part of the problem.",
+          "translation": "それが問題の一部かもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "count": 75,
+      "entries": [
+        {
+          "text": "That seems reasonable to me.",
+          "translation": "私にはそれが妥当に思えます。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "I'd rather not jump to conclusions.",
+          "translation": "早まって結論は出したくありません。",
+          "topicId": "rather",
+          "topic": "would rather（not）＋原形：どちらを選びたいか"
+        },
+        {
+          "text": "We should keep an open mind.",
+          "translation": "先入観を持たずに考えるべきです。",
+          "topicId": "should",
+          "topic": "should＋原形：提案・望ましい対応"
+        },
+        {
+          "text": "I think we need more information.",
+          "translation": "もっと情報が必要だと思います。",
+          "topicId": "that-content",
+          "topic": "think / say＋文：意見や発言の内容"
+        },
+        {
+          "text": "We may be missing something important.",
+          "translation": "何か大事なことを見落としているかもしれません。",
+          "topicId": "modal-progressive",
+          "topic": "may / might be＋ing：進行中の事柄についての推量"
+        },
+        {
+          "text": "It's too early to tell.",
+          "translation": "まだ判断するには早すぎます。",
+          "topicId": "too-to",
+          "topic": "too＋形容詞＋to：〜するには程度が過ぎる"
+        },
+        {
+          "text": "I wouldn't be surprised if that were true.",
+          "translation": "それが本当でも驚きません。",
+          "topicId": "hypothetical",
+          "topic": "would＋動詞、if＋過去形：仮定した場合の判断"
+        },
+        {
+          "text": "That's certainly a possibility.",
+          "translation": "それは十分あり得ます。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "There's a chance we're overthinking it.",
+          "translation": "私たちは考えすぎている可能性があります。",
+          "topicId": "chance",
+          "topic": "There is a chance（that）…：可能性の内容"
+        },
+        {
+          "text": "I wouldn't take that at face value.",
+          "translation": "それをそのまま鵜呑みにはしません。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "It's better to be cautious.",
+          "translation": "慎重であるに越したことはありません。",
+          "topicId": "it-to",
+          "topic": "It is＋形容詞＋to：行動を評価する"
+        },
+        {
+          "text": "I can see where you're coming from.",
+          "translation": "あなたの考え方は理解できます。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる",
+          "reviewNote": "出身地ではなく、考えに至った立場・背景への理解を表す。"
+        },
+        {
+          "text": "That doesn't necessarily mean it's wrong.",
+          "translation": "だからといってそれが間違いだとは限りません。",
+          "topicId": "not-necessarily",
+          "topic": "not necessarily：必ずしもそうとは言えない"
+        },
+        {
+          "text": "I'm not saying it's impossible.",
+          "translation": "不可能だと言っているわけではありません。",
+          "topicId": "saying-negative",
+          "topic": "not saying＋文：発言・主張の範囲を限定する"
+        },
+        {
+          "text": "We should look at the bigger picture.",
+          "translation": "もっと大きな視点で見るべきです。",
+          "topicId": "should",
+          "topic": "should＋原形：提案・望ましい対応"
+        },
+        {
+          "text": "That's easier said than done.",
+          "translation": "言うのは簡単ですが実行は難しいです。",
+          "topicId": "easier-said",
+          "topic": "easier said than done：過去分詞を使った定型比較"
+        },
+        {
+          "text": "I'm not ready to rule it out.",
+          "translation": "それを完全に否定するつもりはありません。",
+          "topicId": "ready-to",
+          "topic": "be ready / need / try＋to：準備・必要・試み"
+        },
+        {
+          "text": "That may not be the best approach.",
+          "translation": "それは最善のやり方ではないかもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "I can see the logic behind that.",
+          "translation": "その考えの筋道は分かります。",
+          "topicId": "sense",
+          "topic": "make sense / add up：意味が通る・筋が通る"
+        },
+        {
+          "text": "That sounds good in theory.",
+          "translation": "理屈としてはよさそうです。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "I'm not sure that's the main issue.",
+          "translation": "それが一番の問題とは限らない気がします。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "We need to be realistic about this.",
+          "translation": "この件は現実的に考える必要があります。",
+          "topicId": "ready-to",
+          "topic": "be ready / need / try＋to：準備・必要・試み"
+        },
+        {
+          "text": "That could lead to misunderstandings.",
+          "translation": "それは誤解につながるかもしれません。",
+          "topicId": "cause",
+          "topic": "lead to＋名詞：結果につながる"
+        },
+        {
+          "text": "I'd rather focus on what we can do now.",
+          "translation": "今できることに集中したいです。",
+          "topicId": "rather",
+          "topic": "would rather（not）＋原形：どちらを選びたいか"
+        },
+        {
+          "text": "I think that's a step in the right direction.",
+          "translation": "それは良い方向への一歩だと思います。",
+          "topicId": "that-content",
+          "topic": "think / say＋文：意見や発言の内容"
+        },
+        {
+          "text": "Sounds about right.",
+          "translation": "だいたいそんな感じだと思います。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞",
+          "reviewNote": "会話でThat / Itが省略された形。主語を省く一般ルールにはしない。"
+        },
+        {
+          "text": "That works for me.",
+          "translation": "それで大丈夫です。",
+          "topicId": "conversation",
+          "topic": "works for me / on the fence：会話での定型的な意味"
+        },
+        {
+          "text": "I'm not ruling it out.",
+          "translation": "その可能性を否定するつもりはありません。",
+          "topicId": "progressive",
+          "topic": "be＋ing：進行中・一時的な取り組み"
+        },
+        {
+          "text": "That's not a bad idea.",
+          "translation": "それは悪くない考えですね。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I was just thinking that.",
+          "translation": "ちょうど私もそう思っていました。",
+          "topicId": "past-progressive",
+          "topic": "was thinking：過去のそのとき考えていたこと"
+        },
+        {
+          "text": "That crossed my mind too.",
+          "translation": "私もそれを思い浮かべていました。",
+          "topicId": "conversation",
+          "topic": "works for me / on the fence：会話での定型的な意味"
+        },
+        {
+          "text": "I don't quite see it that way.",
+          "translation": "私はそこまでそうは思いません。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I'm not fully convinced.",
+          "translation": "まだ完全には納得していません。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I'm on the fence about it.",
+          "translation": "それについてはまだ決めかねています。",
+          "topicId": "conversation",
+          "topic": "works for me / on the fence：会話での定型的な意味"
+        },
+        {
+          "text": "That's a tough call.",
+          "translation": "それは判断が難しいですね。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "It could go either way.",
+          "translation": "どちらに転ぶか分かりません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "That's a valid concern.",
+          "translation": "それはもっともな懸念です。",
+          "topicId": "noun-phrase",
+          "topic": "a fair point / a tough one：名詞のまとまりとone"
+        },
+        {
+          "text": "I get the point you're making.",
+          "translation": "あなたの言いたい点は分かります。",
+          "topicId": "relative-object",
+          "topic": "the point（that）you are making：目的格関係詞の省略"
+        },
+        {
+          "text": "I'm not sure I follow.",
+          "translation": "話を十分に追えていないかもしれません。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "Could you walk me through that?",
+          "translation": "そこを順を追って説明してもらえますか。",
+          "topicId": "requests",
+          "topic": "Could / Can you …：説明や例を頼む"
+        },
+        {
+          "text": "What makes you feel that way?",
+          "translation": "どうしてそう感じるのですか。",
+          "topicId": "make-person",
+          "topic": "make＋人＋動詞の原形：そう言う・感じる原因"
+        },
+        {
+          "text": "What brought you to that conclusion?",
+          "translation": "どうしてそういう結論になったのですか。",
+          "topicId": "questions",
+          "topic": "疑問詞の役割：主語を尋ねる文と一般の疑問文"
+        },
+        {
+          "text": "I get where you're going with this.",
+          "translation": "あなたがこの話をどこに持っていきたいのか分かります。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "I wouldn't count on it.",
+          "translation": "それはあまり当てにしないほうがいいです。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "I wouldn't read too much into that.",
+          "translation": "それを深読みしすぎないほうがいいです。",
+          "topicId": "would-stance",
+          "topic": "would / would not：仮の立場から述べる・断定を和らげる"
+        },
+        {
+          "text": "That doesn't sound like the whole story.",
+          "translation": "それだけが話のすべてには聞こえません。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "I'm not sure it works that way.",
+          "translation": "それがそういう仕組みかは分かりません。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "That might be pushing it.",
+          "translation": "それは少し言いすぎかもしれません。",
+          "topicId": "modal-progressive",
+          "topic": "may / might be＋ing：進行中の事柄についての推量"
+        },
+        {
+          "text": "I don't know if that's fair.",
+          "translation": "それが公平かどうかは分かりません。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "I'm not against it.",
+          "translation": "それに反対というわけではありません。",
+          "topicId": "agreement",
+          "topic": "agree / be with / be for：賛成・同意の伝え方"
+        },
+        {
+          "text": "I'm all for that.",
+          "translation": "私はそれに大賛成です。",
+          "topicId": "agreement",
+          "topic": "agree / be with / be for：賛成・同意の伝え方"
+        },
+        {
+          "text": "I can go with that.",
+          "translation": "それでいけます。",
+          "topicId": "agreement",
+          "topic": "agree / be with / be for：賛成・同意の伝え方"
+        },
+        {
+          "text": "I'm not ready to commit to that.",
+          "translation": "それに決めるにはまだ早いです。",
+          "topicId": "ready-to",
+          "topic": "be ready / need / try＋to：準備・必要・試み"
+        },
+        {
+          "text": "Let's not get ahead of ourselves.",
+          "translation": "先走りすぎないようにしましょう。",
+          "topicId": "lets-not",
+          "topic": "Let us not＋原形：一緒にしないようにしよう"
+        },
+        {
+          "text": "Let's see how it goes.",
+          "translation": "少し様子を見ましょう。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "Let's see where this goes.",
+          "translation": "この先どうなるか見てみましょう。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "I'm keeping an open mind.",
+          "translation": "先入観を持たずに考えています。",
+          "topicId": "progressive",
+          "topic": "be＋ing：進行中・一時的な取り組み"
+        },
+        {
+          "text": "That seems about right to me.",
+          "translation": "私にはだいたい妥当に思えます。",
+          "topicId": "sound-seem",
+          "topic": "sound / seem＋形容詞、sound like＋名詞"
+        },
+        {
+          "text": "That adds up.",
+          "translation": "それなら筋が通っています。",
+          "topicId": "sense",
+          "topic": "make sense / add up：意味が通る・筋が通る"
+        },
+        {
+          "text": "I can work with that.",
+          "translation": "それを前提に進められます。",
+          "topicId": "conversation",
+          "topic": "works for me / on the fence：会話での定型的な意味"
+        },
+        {
+          "text": "That's more like it.",
+          "translation": "そういう方向ならいいですね。",
+          "topicId": "conversation",
+          "topic": "works for me / on the fence：会話での定型的な意味"
+        },
+        {
+          "text": "I'm not making excuses.",
+          "translation": "言い訳をしているわけではありません。",
+          "topicId": "progressive",
+          "topic": "be＋ing：進行中・一時的な取り組み"
+        },
+        {
+          "text": "I'm just being realistic.",
+          "translation": "ただ現実的に考えているだけです。",
+          "topicId": "being",
+          "topic": "be being＋形容詞：そのときの振る舞い・態度"
+        },
+        {
+          "text": "I'm trying to be careful.",
+          "translation": "慎重に進めようとしているだけです。",
+          "topicId": "ready-to",
+          "topic": "be ready / need / try＋to：準備・必要・試み"
+        },
+        {
+          "text": "That's not what I'm getting at.",
+          "translation": "私が言いたいのはそういうことではありません。",
+          "topicId": "what-clause",
+          "topic": "what＋文：言いたいこと・意味することをひとまとまりにする"
+        },
+        {
+          "text": "Let me think for a second.",
+          "translation": "少し考えさせてください。",
+          "topicId": "let",
+          "topic": "Let me / Let us：自分にさせてもらう・一緒にする"
+        },
+        {
+          "text": "I'm still not convinced.",
+          "translation": "私はまだ納得していません。",
+          "topicId": "partial-negative",
+          "topic": "not entirely / not always / not quite：否定の及ぶ範囲"
+        },
+        {
+          "text": "I can see that happening.",
+          "translation": "そうなる可能性はあると思います。",
+          "topicId": "perception",
+          "topic": "see＋目的語＋ing：起きている・起こる場面を思い描く",
+          "reviewNote": "文脈上は、物理的に見えるより「そうなることを想像できる」。"
+        },
+        {
+          "text": "I can see why that matters.",
+          "translation": "それが大事な理由は分かります。",
+          "topicId": "embedded-question",
+          "topic": "why / how / where＋主語＋動詞：疑問の内容を文に入れる"
+        },
+        {
+          "text": "I'm not saying you're wrong.",
+          "translation": "あなたが間違っていると言いたいわけではありません。",
+          "topicId": "saying-negative",
+          "topic": "not saying＋文：発言・主張の範囲を限定する"
+        },
+        {
+          "text": "I'm trying to look at both sides.",
+          "translation": "両方の立場から見ようとしています。",
+          "topicId": "ready-to",
+          "topic": "be ready / need / try＋to：準備・必要・試み"
+        },
+        {
+          "text": "I'm not sure I'm with you there.",
+          "translation": "そこは少し同意しかねます。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "I'm not sure that's enough.",
+          "translation": "それで十分かは分かりません。",
+          "topicId": "sure-clause",
+          "topic": "not sure / convinced＋文：確信や留保の内容"
+        },
+        {
+          "text": "That may be part of it.",
+          "translation": "それも一因かもしれません。",
+          "topicId": "possibility",
+          "topic": "may / might / could：可能性を示す"
+        },
+        {
+          "text": "I'm not sure what to make of that.",
+          "translation": "それをどう受け止めればいいのかまだ分かりません。",
+          "topicId": "wh-to",
+          "topic": "what to make of …：どう受け止めるか"
+        }
+      ]
+    }
+  ]
+}

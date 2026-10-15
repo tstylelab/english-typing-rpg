@@ -21,16 +21,16 @@
 .grammar-guide-toc>div>div { display:flex; flex-wrap:wrap; gap:5px; }
 .grammar-guide-toc button { padding:5px 8px; border:1px solid var(--guide-border); border-radius:6px; background:var(--guide-tint); font-size:12px; color:var(--guide-accent); cursor:pointer; }
 .grammar-guide-toc button:hover { outline:1px solid var(--guide-accent); }
-.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
-.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button { min-width:0; min-height:60px; padding:8px 10px; text-align:left; overflow-wrap:anywhere; }
-.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button strong { display:block; font-size:13px; font-weight:750; line-height:1.5; }
-.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc button span { display:block; margin-top:3px; font-size:12px; line-height:1.5; color:#475569; }
-.grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-card-heading>span { font-size:13px; color:#475569; }
+.grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc>div>div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc button { min-width:0; min-height:60px; padding:8px 10px; text-align:left; overflow-wrap:anywhere; }
+.grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc button strong { display:block; font-size:13px; font-weight:750; line-height:1.5; }
+.grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc button span { display:block; margin-top:3px; font-size:12px; line-height:1.5; color:#475569; }
+.grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-card-heading>span { font-size:13px; color:#475569; }
 @media(max-width:800px) {
-  .grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc>div>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:360px) {
-  .grammar-guide:is([data-course="Eiken4"], [data-course="Eiken3"]) .grammar-guide-toc>div>div { grid-template-columns:minmax(0,1fr); }
+  .grammar-guide[data-course]:not([data-course="Eiken5"]) .grammar-guide-toc>div>div { grid-template-columns:minmax(0,1fr); }
 }
 .grammar-guide-key { font-size:12px; line-height:1.7; color:#566b70; }
 .grammar-guide-section { margin-top:24px; }
@@ -95,6 +95,7 @@
 .grammar-guide [data-section="0"] { --guide-accent:#0369a1; --guide-tint:#e0f2fe; --guide-border:#a5d9f5; }
 .grammar-guide [data-section="1"] { --guide-accent:#6d28d9; --guide-tint:#f0e8ff; --guide-border:#d8bffa; }
 .grammar-guide [data-section="2"] { --guide-accent:#b45309; --guide-tint:#fff0d5; --guide-border:#f4cf94; }
+.grammar-guide [data-section="3"] { --guide-accent:#047857; --guide-tint:#dff7ed; --guide-border:#9cd9c5; }
 .grammar-guide-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
 .grammar-guide-card-heading { min-width:0; }
 .grammar-guide-save { display:inline-flex; align-items:center; justify-content:center; gap:4px; flex-shrink:0; min-height:36px; padding:5px 8px; border:1px solid #c5d0e2; border-radius:8px; background:#f8fafc; color:#475569; font-size:12px; font-weight:700; cursor:pointer; }
