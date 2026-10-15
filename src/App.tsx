@@ -4283,7 +4283,8 @@ export default function App() {
   const autoPlayWakeLockRequestIdRef = useRef(0);
   const autoPlayListCriteriaRef = useRef('');
   const autoPlayPanelRef = useRef<HTMLDivElement>(null);
-  const autoPlayScrollRequestedRef = useRef(false);
+  const autoPlayPlayerRef = useRef<HTMLDivElement>(null);
+  const autoPlayScrollRequestedRef = useRef<'settings' | 'player' | null>(null);
   const questionPoolRef = useRef<Record<string, QuestionPoolState>>({});
   const learningQuestionBalanceRef = useRef<Record<string, LearningQuestionBalance>>({});
   const reviewQueueRef = useRef<ReviewQueueEntry[]>([]);
@@ -5468,8 +5469,9 @@ export default function App() {
     if (gameState.screen !== 'question-list' || !wordListToolsOpen || !autoPlayScrollRequestedRef.current) return;
 
     const timerId = window.setTimeout(() => {
-      autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      autoPlayScrollRequestedRef.current = false;
+      const target = autoPlayScrollRequestedRef.current === 'player' ? autoPlayPlayerRef : autoPlayPanelRef;
+      target.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      autoPlayScrollRequestedRef.current = null;
     }, 80);
 
     return () => window.clearTimeout(timerId);
@@ -8573,44 +8575,46 @@ export default function App() {
                   </div>
                   </div>
                 </details>
-                <div className="rounded-xl border border-cyan-500/35 bg-gradient-to-br from-cyan-950/35 to-slate-900/70 p-4 md:p-5">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex items-start gap-3">
-                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cyan-500 text-sm font-black text-slate-950">3</span>
-                      <div>
-                        <p className="font-black text-white">この設定で再生する</p>
-                        <p className="mt-1 text-xs text-slate-400">準備ができたら、下のボタンを押してください。</p>
-                      </div>
-                    </div>
-                    <div className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-100">
-                      {selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}問
-                    </div>
+                <div ref={autoPlayPlayerRef} data-autoplay-player className="scroll-mt-3 rounded-xl border border-cyan-500/35 bg-gradient-to-br from-cyan-950/35 to-slate-900/70 p-3 md:p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                    <p className="font-black text-white">連続再生</p>
+                    <button type="button" onClick={() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' })} className="min-h-10 px-2 text-sm font-bold text-cyan-200 underline underline-offset-4 hover:text-white">設定を変える</button>
                   </div>
-                  <div
-                    aria-live="polite"
-                    className={`mt-4 flex items-start gap-3 rounded-lg border px-3 py-3 ${autoPlayWakeLockState === 'active' ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-50' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'border-amber-400/35 bg-amber-500/10 text-amber-50' : 'border-slate-700 bg-slate-950/55 text-slate-200'}`}
-                  >
-                    <Sun size={18} className={`mt-0.5 flex-none ${autoPlayWakeLockState === 'active' ? 'text-emerald-300' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'text-amber-300' : 'text-cyan-300'}`} />
-                    <div>
-                      <p className="text-sm font-black">
-                        {autoPlayWakeLockState === 'active'
-                          ? '画面をつけたまま再生中'
-                          : autoPlayWakeLockState === 'requesting'
-                            ? '画面の自動ロック防止を準備中'
-                            : autoPlayWakeLockState === 'unsupported'
-                              ? 'この端末は自動ロック防止に対応していません'
-                              : autoPlayWakeLockState === 'unavailable'
-                                ? '画面の自動ロック防止を利用できませんでした'
-                                : '再生中は画面の自動ロックを防ぎます'}
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-slate-400">
-                        {autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported'
-                          ? '音声の連続再生はそのまま続きます。省電力モードや端末設定をご確認ください。'
-                          : '連続再生を停止すると通常の画面設定に戻ります。'}
-                      </p>
-                    </div>
+                  <p className="text-xs text-cyan-100">{selectedAutoPlaySource.label}・{autoPlayPlayableQuestionCount}問 <span className="text-slate-400">／{playbackScopeLabel}</span></p>
+                  <div className="mt-2 flex gap-2">
+                    <GameButton
+                      onClick={handleStartAutoPlay}
+                      size="sm"
+                      className="min-h-11 min-w-0 flex-1 px-2 bg-cyan-600 border-cyan-300 text-white shadow-lg shadow-cyan-950/40 hover:bg-cyan-500"
+                      disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
+                    >
+                      <span>この設定で連続再生を開始</span>
+                    </GameButton>
+                    <GameButton
+                      onClick={() => stopAutoPlay()}
+                      size="sm"
+                      variant="outline"
+                      className="min-h-11 shrink-0 border-slate-500 px-3 text-slate-200 hover:bg-slate-800"
+                      disabled={!isAutoPlaying}
+                    >
+                      <Square size={16} className="mr-1" /> 停止
+                    </GameButton>
                   </div>
-                  <div data-autoplay-now-playing className="mt-4 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
+                  <div className="mt-2 grid grid-cols-2 gap-2" role="group" aria-label="リピート・シャッフル">
+                    <label className="flex cursor-pointer items-center min-h-11 gap-2 rounded-lg border border-slate-600 bg-slate-950/70 px-2 py-2 text-sm text-slate-200">
+                      <input type="checkbox" aria-label="リピート再生" checked={autoPlaySettings.repeat}
+                        onChange={e => updateAutoPlaySetting('repeat', e.target.checked)}
+                        className="h-5 w-5 flex-none accent-cyan-400" />
+                      <span className="font-bold text-cyan-100" title="一巡後に先頭へ戻る">リピート</span>
+                    </label>
+                    <label className="flex cursor-pointer items-center min-h-11 gap-2 rounded-lg border border-slate-600 bg-slate-950/70 px-2 py-2 text-sm text-slate-200">
+                      <input type="checkbox" aria-label="シャッフル再生" checked={autoPlaySettings.shuffle}
+                        onChange={e => updateAutoPlaySetting('shuffle', e.target.checked)}
+                        className="h-5 w-5 flex-none accent-cyan-400" />
+                      <span className="font-bold text-cyan-100" title="順番を混ぜる（次の再生開始から）">シャッフル</span>
+                    </label>
+                  </div>
+                  <div data-autoplay-now-playing className="mt-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-sm font-bold text-cyan-200">現在再生中</span>
                       <span className="text-xs font-bold text-slate-400">{isAutoPlaying ? '再生中' : '待機中'}</span>
@@ -8656,64 +8660,58 @@ export default function App() {
                     {autoPlayNowPlaying ? (
                       <div className="mt-3 space-y-2">
                         <p data-autoplay-course className="text-xs font-bold text-cyan-200">{autoPlayNowPlaying.courseLabel}</p>
-                        <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'text' ? 'border-cyan-300 bg-cyan-500/15 text-cyan-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                        <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'text' ? 'border-cyan-300 bg-cyan-500/15 text-cyan-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
                           <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">英語</div>
-                          <div className="mt-1 break-words font-semibold">{autoPlayNowPlaying.questionText}</div>
+                          <div className="break-words text-base font-semibold">{autoPlayNowPlaying.questionText}</div>
                         </div>
-                        <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'translation' ? 'border-emerald-300 bg-emerald-500/15 text-emerald-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                        <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'translation' ? 'border-emerald-300 bg-emerald-500/15 text-emerald-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
                           <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">和訳</div>
-                          <div className="mt-1 break-words font-semibold">{autoPlayNowPlaying.translation}</div>
+                          <div className="break-words text-base font-semibold">{autoPlayNowPlaying.translation}</div>
                           {autoPlayNowPlaying.basicMeaning && (
-                            <div className="mt-1 break-words text-[11px] font-medium text-slate-400">
+                            <div className="col-start-2 mt-1 break-words text-xs font-medium text-slate-400">
                               Basic: {autoPlayNowPlaying.basicMeaning}
                             </div>
                           )}
                         </div>
                         {autoPlayNowPlaying.example && (
-                          <div className={`rounded-lg border px-3 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'example' ? 'border-violet-300 bg-violet-500/15 text-violet-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
+                          <div className={`grid grid-cols-[2.5rem_minmax(0,1fr)] items-baseline gap-x-2 rounded-lg border px-2 py-2 text-sm transition-colors ${autoPlayNowPlaying.activePart === 'example' ? 'border-violet-300 bg-violet-500/15 text-violet-50' : 'border-slate-700 bg-slate-900/70 text-slate-300'}`}>
                             <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">例文</div>
-                            <div className="mt-1 break-words leading-relaxed">{autoPlayNowPlaying.example}</div>
+                            <div className="break-words text-base leading-relaxed">{autoPlayNowPlaying.example}</div>
                           </div>
                         )}
                       </div>
                     ) : (
                       <div className="mt-3 rounded-lg border border-dashed border-slate-700 bg-slate-900/50 px-3 py-4 text-sm text-slate-400">
-                        再生を開始すると、ここに英語・和訳・例文を表示します。
+                        <p>{autoPlayStatusText}</p>
+                        <p className="mt-1">{autoPlayPlayableQuestionCount === 0
+                          ? '再生できる問題がありません。「設定を変える」から対象を選んでください。'
+                          : '再生を開始すると、ここに英語・和訳・例文を表示します。'}</p>
                       </div>
                     )}
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <GameButton
-                      onClick={handleStartAutoPlay}
-                      size="sm"
-                      className="min-h-12 flex-1 bg-cyan-600 border-cyan-300 text-white shadow-lg shadow-cyan-950/40 hover:bg-cyan-500"
-                      disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
-                    >
-                      <Volume2 size={16} className="mr-1" /> この設定で連続再生を開始
-                    </GameButton>
-                    <GameButton
-                      onClick={() => stopAutoPlay()}
-                      size="sm"
-                      variant="outline"
-                      className="border-slate-500 text-slate-200 hover:bg-slate-800"
-                      disabled={!isAutoPlaying}
-                    >
-                      <Square size={16} className="mr-1" /> 停止
-                    </GameButton>
-                  </div>
-                  <div className="mt-3 grid gap-2 sm:grid-cols-2" role="group" aria-label="リピート・シャッフル">
-                    <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-600 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
-                      <input type="checkbox" aria-label="リピート再生" checked={autoPlaySettings.repeat}
-                        onChange={e => updateAutoPlaySetting('repeat', e.target.checked)}
-                        className="h-5 w-5 flex-none accent-cyan-400" />
-                      <span><span className="block font-bold text-cyan-100">リピート再生</span><span className="text-xs text-slate-400">一巡後に先頭へ戻る</span></span>
-                    </label>
-                    <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-slate-600 bg-slate-950/70 px-3 py-3 text-sm text-slate-200">
-                      <input type="checkbox" aria-label="シャッフル再生" checked={autoPlaySettings.shuffle}
-                        onChange={e => updateAutoPlaySetting('shuffle', e.target.checked)}
-                        className="h-5 w-5 flex-none accent-cyan-400" />
-                      <span><span className="block font-bold text-cyan-100">シャッフル再生</span><span className="text-xs text-slate-400">順番を混ぜる（次の再生開始から）</span></span>
-                    </label>
+                  <div
+                    aria-live="polite"
+                    className={`mt-4 flex items-start gap-3 rounded-lg border px-3 py-3 ${autoPlayWakeLockState === 'active' ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-50' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'border-amber-400/35 bg-amber-500/10 text-amber-50' : 'border-slate-700 bg-slate-950/55 text-slate-200'}`}
+                  >
+                    <Sun size={18} className={`mt-0.5 flex-none ${autoPlayWakeLockState === 'active' ? 'text-emerald-300' : autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported' ? 'text-amber-300' : 'text-cyan-300'}`} />
+                    <div>
+                      <p className="text-sm font-black">
+                        {autoPlayWakeLockState === 'active'
+                          ? '画面をつけたまま再生中'
+                          : autoPlayWakeLockState === 'requesting'
+                            ? '画面の自動ロック防止を準備中'
+                            : autoPlayWakeLockState === 'unsupported'
+                              ? 'この端末は自動ロック防止に対応していません'
+                              : autoPlayWakeLockState === 'unavailable'
+                                ? '画面の自動ロック防止を利用できませんでした'
+                                : '再生中は画面の自動ロックを防ぎます'}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-slate-400">
+                        {autoPlayWakeLockState === 'unavailable' || autoPlayWakeLockState === 'unsupported'
+                          ? '音声の連続再生はそのまま続きます。省電力モードや端末設定をご確認ください。'
+                          : '連続再生を停止すると通常の画面設定に戻ります。'}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <details
@@ -9777,14 +9775,14 @@ export default function App() {
       )
       : '';
     const titleAutoPlayTargetQuestions = scopedPlaybackPools[autoPlaySettings.source];
-    const openTitleAutoPlayManager = () => {
-      autoPlayScrollRequestedRef.current = true;
+    const openTitleAutoPlayManager = (destination: 'settings' | 'player' = 'settings') => {
+      autoPlayScrollRequestedRef.current = destination;
       setQuestionListFilter('all');
       setWordListToolsOpen(true);
       setGameState(prev => ({ ...prev, screen: 'question-list' }));
     };
     const handleTitleAutoPlay = () => {
-      openTitleAutoPlayManager();
+      openTitleAutoPlayManager('player');
       startAutoPlayForQuestions(titleAutoPlayTargetQuestions);
     };
     const previewGrammarCourse = getGrammarGuideCourse(new URLSearchParams(window.location.search).get('guide'));
@@ -9928,7 +9926,7 @@ export default function App() {
                         <Volume2 size={19} /> 連続再生
                       </GameButton>
                       <GameButton
-                        onClick={openTitleAutoPlayManager}
+                        onClick={() => openTitleAutoPlayManager()}
                         variant="outline"
                         className="w-full min-h-[64px] border-slate-600 bg-slate-900/65 px-2 text-sm text-slate-200 hover:border-cyan-300 hover:bg-cyan-950/25"
                         size="md"
