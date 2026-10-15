@@ -195,7 +195,7 @@ type ReviewQueueEntry = {
 
 type LearningStatusFilter = 'learning' | 'caution' | 'mastered';
 type QuestionListFilter = 'all' | 'weak' | 'marked' | 'miss-ranking' | LearningStatusFilter;
-type AutoPlaySource = 'all' | 'weak' | 'marked' | 'selected' | LearningStatusFilter;
+type AutoPlaySource = 'all' | 'weak' | 'review-history' | 'marked' | 'selected' | LearningStatusFilter;
 
 const getLearningFilterLevel = (source: QuestionListFilter | AutoPlaySource): LearningLevel | undefined => {
   switch (source) {
@@ -267,6 +267,7 @@ type PlayerProfileData = {
   autoPlaySettings?: AutoPlaySettings;
   selectedQuestionKeysByScope?: Record<string, string[]>;
   markedQuestionKeysByScope?: Record<string, string[]>;
+  reviewHistoryKeysByScope?: Record<string, string[]>;
   savedSelectionLists?: SavedSelectionList[];
 };
 
@@ -2628,6 +2629,7 @@ const STORAGE_KEYS = {
   autoPlaySettings: 'etyping_auto_play_settings',
   selectedQuestionKeysByScope: 'etyping_selected_question_keys_by_scope',
   markedQuestionKeysByScope: 'etyping_marked_question_keys_by_scope',
+  reviewHistoryKeysByScope: 'etyping_review_history_keys_by_scope',
   savedSelectionLists: 'etyping_saved_selection_lists',
   versusBestScores: 'etyping_versus_best_scores',
   versusRankings: 'etyping_versus_rankings',
@@ -2963,7 +2965,7 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
   const defaults = getDefaultAutoPlaySettings();
   if (!value || typeof value !== 'object') return defaults;
   const typedValue = value as Partial<AutoPlaySettings> & Record<string, unknown>;
-  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'marked' || typedValue.source === 'selected' || typedValue.source === 'learning' || typedValue.source === 'caution' || typedValue.source === 'mastered'
+  const normalizedSource: AutoPlaySource = typedValue.source === 'all' || typedValue.source === 'weak' || typedValue.source === 'marked' || typedValue.source === 'review-history' || typedValue.source === 'selected' || typedValue.source === 'learning' || typedValue.source === 'caution' || typedValue.source === 'mastered'
     ? typedValue.source
     : defaults.source;
   const normalizedSequenceMode: AutoPlaySequenceMode = typedValue.sequenceMode === 'normal' || typedValue.sequenceMode === 'exampleFirst' || typedValue.sequenceMode === 'exampleTextExample'
@@ -3172,6 +3174,7 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
     autoPlaySettings: normalizeAutoPlaySettings(typedValue.autoPlaySettings ?? getDefaultAutoPlaySettings()),
     selectedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.selectedQuestionKeysByScope ?? {}),
     markedQuestionKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.markedQuestionKeysByScope ?? {}),
+    reviewHistoryKeysByScope: normalizeSelectedQuestionKeysByScope(typedValue.reviewHistoryKeysByScope ?? {}),
     savedSelectionLists: normalizeSavedSelectionLists(typedValue.savedSelectionLists ?? []),
   };
 };
@@ -3944,6 +3947,7 @@ type QuestionListRowProps = {
   onSpeak: (text: string) => void;
   onToggleSelected: (question: Question) => void;
   onToggleMarked: (question: Question) => void;
+  onDeleteReviewHistory?: () => void;
   onUpdateManualLevel: (question: Question, level: LearningLevel) => void;
   onToggleExcluded: (question: Question) => void;
 };
@@ -3965,6 +3969,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
   onSpeak,
   onToggleSelected,
   onToggleMarked,
+  onDeleteReviewHistory,
   onUpdateManualLevel,
   onToggleExcluded,
 }: QuestionListRowProps) {
@@ -4044,8 +4049,9 @@ const QuestionListRow = React.memo(function QuestionListRow({
           className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${isMarkedForReview ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.2)]' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-yellow-400/60 hover:text-yellow-100'}`}
         >
           <Bookmark size={12} fill={isMarkedForReview ? 'currentColor' : 'none'} />
-          {isMarkedForReview ? '復習から外す' : 'あとで復習'}
+          {isMarkedForReview ? '復習から外す' : onDeleteReviewHistory ? 'あとで復習に戻す' : 'あとで復習'}
         </button>
+        {onDeleteReviewHistory && <button type="button" onClick={onDeleteReviewHistory} className="rounded-full border border-slate-600 px-3 py-1 text-[11px] font-bold text-slate-300 hover:border-rose-400 hover:text-rose-200">履歴から消す</button>}
         <button
           onClick={() => onToggleExcluded(question)}
           className={`rounded-full border px-3 py-1 text-[11px] font-bold transition-colors ${manualStatus.excluded ? 'border-slate-300 bg-slate-200 text-slate-900' : 'border-slate-600 bg-slate-900/70 text-slate-300 hover:border-slate-500 hover:text-white'}`}
@@ -4145,6 +4151,14 @@ export default function App() {
   const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(getDefaultAutoPlaySettings());
   const [selectedQuestionKeysByScope, setSelectedQuestionKeysByScope] = useState<Record<string, string[]>>({});
   const [markedQuestionKeysByScope, setMarkedQuestionKeysByScope] = useState<Record<string, string[]>>({});
+  const [reviewHistoryKeysByScope, setReviewHistoryKeysByScope] = useState<Record<string, string[]>>({});
+  const [reviewListView, setReviewListView] = useState<'active' | 'history'>('active');
+  const [reviewHistoryUndo, setReviewHistoryUndo] = useState<{ scopeKey: string; questionKey: string; text: string } | null>(null);
+  useEffect(() => {
+    if (!reviewHistoryUndo) return;
+    const timer = window.setTimeout(() => setReviewHistoryUndo(null), 10000);
+    return () => window.clearTimeout(timer);
+  }, [reviewHistoryUndo]);
   const [savedSelectionLists, setSavedSelectionLists] = useState<SavedSelectionList[]>([]);
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
@@ -4345,6 +4359,7 @@ export default function App() {
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
     const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
+    const savedReviewHistoryKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.reviewHistoryKeysByScope, {}));
     const savedSelectionLists = normalizeSavedSelectionLists(safeLoadJson<SavedSelectionList[]>(STORAGE_KEYS.savedSelectionLists, []));
 
     const savedMaxKRaw = localStorage.getItem(STORAGE_KEYS.maxKeystrokes);
@@ -4370,6 +4385,7 @@ export default function App() {
       autoPlaySettings: savedAutoPlaySettings,
       selectedQuestionKeysByScope: savedSelectedQuestionKeysByScope,
       markedQuestionKeysByScope: savedMarkedQuestionKeysByScope,
+      reviewHistoryKeysByScope: savedReviewHistoryKeysByScope,
       savedSelectionLists,
     });
   }, []);
@@ -4392,10 +4408,12 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.autoPlaySettings, JSON.stringify(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings()));
     localStorage.setItem(STORAGE_KEYS.selectedQuestionKeysByScope, JSON.stringify(normalizedData.selectedQuestionKeysByScope ?? {}));
     localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(normalizedData.markedQuestionKeysByScope ?? {}));
+    localStorage.setItem(STORAGE_KEYS.reviewHistoryKeysByScope, JSON.stringify(normalizedData.reviewHistoryKeysByScope ?? {}));
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(normalizedData.savedSelectionLists ?? []));
   }, []);
 
   const applyProfileDataToState = useCallback((data: PlayerProfileData) => {
+    setReviewHistoryUndo(null);
     const normalizedData = normalizePlayerProfileData(data);
     const todayKey = getTodayKey();
     const normalizedReviewQueue = (normalizedData.dailyProgress?.date ?? todayKey) === todayKey
@@ -4424,6 +4442,7 @@ export default function App() {
     setAutoPlaySettings(normalizedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     setSelectedQuestionKeysByScope(normalizedData.selectedQuestionKeysByScope ?? {});
     setMarkedQuestionKeysByScope(normalizedData.markedQuestionKeysByScope ?? {});
+    setReviewHistoryKeysByScope(normalizedData.reviewHistoryKeysByScope ?? {});
     setSavedSelectionLists(normalizedData.savedSelectionLists ?? []);
   }, []);
 
@@ -4448,6 +4467,7 @@ export default function App() {
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
+    reviewHistoryKeysByScope,
     savedSelectionLists,
   }), [
     gameState.defeatedMonsterIds,
@@ -4465,6 +4485,7 @@ export default function App() {
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
+    reviewHistoryKeysByScope,
     savedSelectionLists,
   ]);
 
@@ -4540,6 +4561,7 @@ export default function App() {
     const savedAutoPlaySettings = normalizeAutoPlaySettings(safeLoadJson<AutoPlaySettings>(STORAGE_KEYS.autoPlaySettings, getDefaultAutoPlaySettings()));
     const savedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.selectedQuestionKeysByScope, {}));
     const savedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.markedQuestionKeysByScope, {}));
+    const savedReviewHistoryKeysByScope = normalizeSelectedQuestionKeysByScope(safeLoadJson<Record<string, string[]>>(STORAGE_KEYS.reviewHistoryKeysByScope, {}));
     const savedSelectionLists = normalizeSavedSelectionLists(safeLoadJson<SavedSelectionList[]>(STORAGE_KEYS.savedSelectionLists, []));
     const todayKey = getTodayKey();
     const isNewDay = savedDailyProgress.date !== todayKey;
@@ -4571,6 +4593,7 @@ export default function App() {
     setAutoPlaySettings(savedAutoPlaySettings);
     setSelectedQuestionKeysByScope(savedSelectedQuestionKeysByScope);
     setMarkedQuestionKeysByScope(savedMarkedQuestionKeysByScope);
+    setReviewHistoryKeysByScope(savedReviewHistoryKeysByScope);
     setSavedSelectionLists(savedSelectionLists);
     reviewQueueRef.current = normalizedReviewQueue;
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedReviewQueue));
@@ -5329,6 +5352,10 @@ export default function App() {
   }, [markedQuestionKeysByScope]);
 
   useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.reviewHistoryKeysByScope, JSON.stringify(reviewHistoryKeysByScope));
+  }, [reviewHistoryKeysByScope]);
+
+  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(savedSelectionLists));
   }, [savedSelectionLists]);
 
@@ -5359,6 +5386,7 @@ export default function App() {
     autoPlaySettings,
     selectedQuestionKeysByScope,
     markedQuestionKeysByScope,
+    reviewHistoryKeysByScope,
     savedSelectionLists,
   ]);
 
@@ -5489,6 +5517,7 @@ export default function App() {
       gameState.selectedDifficulty,
       gameState.selectedLevel,
       questionListFilter,
+      questionListFilter === 'marked' ? reviewListView : '',
       weakListSort,
       autoPlaySettings.source,
       autoPlaySettings.playbackScope,
@@ -5508,6 +5537,7 @@ export default function App() {
     gameState.selectedDifficulty,
     gameState.selectedLevel,
     questionListFilter,
+    reviewListView,
     autoPlaySettings.source,
     autoPlaySettings.playbackScope,
     autoPlaySettings.playbackDifficulties,
@@ -5667,24 +5697,42 @@ export default function App() {
     });
   };
 
-  const toggleMarkedQuestion = (
-    difficulty: Difficulty,
-    level: Level,
-    question: Question,
-  ) => {
+  const setQuestionMarkedForReview = useCallback((scopeKey: string, questionKey: string, marked: boolean) => {
+    setReviewHistoryUndo(null);
+    setMarkedQuestionKeysByScope(prev => ({
+      ...prev,
+      [scopeKey]: marked ? [...new Set([...(prev[scopeKey] ?? []), questionKey])] : (prev[scopeKey] ?? []).filter(key => key !== questionKey),
+    }));
+    setReviewHistoryKeysByScope(prev => ({
+      ...prev,
+      [scopeKey]: marked ? (prev[scopeKey] ?? []).filter(key => key !== questionKey) : [...new Set([...(prev[scopeKey] ?? []), questionKey])],
+    }));
+  }, []);
+
+  const toggleMarkedQuestion = useCallback((difficulty: Difficulty, level: Level, question: Question) => {
     const scopeKey = getReviewScopeKey(difficulty, level);
     const questionKey = getQuestionStatusKey(difficulty, level, question);
-    setMarkedQuestionKeysByScope(prev => {
-      const currentKeys = prev[scopeKey] ?? [];
-      const nextKeys = currentKeys.includes(questionKey)
-        ? currentKeys.filter(key => key !== questionKey)
-        : [...currentKeys, questionKey];
+    // List edits invalidate a saved queue. The player buttons instead remove
+    // the current entry explicitly and continue with the next question.
+    if (isAutoPlaying && (autoPlaySettings.source === 'marked' || autoPlaySettings.source === 'review-history')) {
+      stopAutoPlay('復習リストの変更に合わせて停止しました');
+    }
+    setQuestionMarkedForReview(scopeKey, questionKey, !(markedQuestionKeysByScope[scopeKey] ?? []).includes(questionKey));
+  }, [markedQuestionKeysByScope, setQuestionMarkedForReview, isAutoPlaying, autoPlaySettings.source, stopAutoPlay]);
 
-      return {
-        ...prev,
-        [scopeKey]: nextKeys,
-      };
-    });
+  const deleteReviewHistory = (scopeKey: string, questionKey: string, text: string) => {
+    setReviewHistoryKeysByScope(prev => ({ ...prev, [scopeKey]: (prev[scopeKey] ?? []).filter(key => key !== questionKey) }));
+    setReviewHistoryUndo({ scopeKey, questionKey, text });
+    if (isAutoPlaying && autoPlaySettings.source === 'review-history') stopAutoPlay('解除履歴の整理に合わせて停止しました');
+  };
+
+  const undoReviewHistoryDeletion = () => {
+    if (!reviewHistoryUndo) return;
+    const { scopeKey, questionKey } = reviewHistoryUndo;
+    if (!(markedQuestionKeysByScope[scopeKey] ?? []).includes(questionKey)) {
+      setReviewHistoryKeysByScope(prev => ({ ...prev, [scopeKey]: [...new Set([...(prev[scopeKey] ?? []), questionKey])] }));
+    }
+    setReviewHistoryUndo(null);
   };
 
   const saveCurrentSelectionList = (
@@ -5902,6 +5950,7 @@ export default function App() {
   };
 
   const applyImportedProgressSnapshot = (payload: ProgressExportPayload) => {
+    setReviewHistoryUndo(null);
     const importedData = payload.data ?? {};
     const todayKey = getTodayKey();
     const defeatedMonsterIds = normalizeDefeatedMonsterIds(importedData.defeatedMonsterIds ?? []);
@@ -5928,6 +5977,7 @@ export default function App() {
     const importedAutoPlaySettings = normalizeAutoPlaySettings(importedData.autoPlaySettings ?? getDefaultAutoPlaySettings());
     const importedSelectedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.selectedQuestionKeysByScope ?? {});
     const importedMarkedQuestionKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.markedQuestionKeysByScope ?? {});
+    const importedReviewHistoryKeysByScope = normalizeSelectedQuestionKeysByScope(importedData.reviewHistoryKeysByScope ?? {});
     const importedSavedSelectionLists = normalizeSavedSelectionLists(importedData.savedSelectionLists ?? []);
 
     stopAutoPlay('学習データの読み込みに合わせて停止しました');
@@ -5980,7 +6030,9 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.selectedQuestionKeysByScope, JSON.stringify(importedSelectedQuestionKeysByScope));
 
     setMarkedQuestionKeysByScope(importedMarkedQuestionKeysByScope);
+    setReviewHistoryKeysByScope(importedReviewHistoryKeysByScope);
     localStorage.setItem(STORAGE_KEYS.markedQuestionKeysByScope, JSON.stringify(importedMarkedQuestionKeysByScope));
+    localStorage.setItem(STORAGE_KEYS.reviewHistoryKeysByScope, JSON.stringify(importedReviewHistoryKeysByScope));
 
     setSavedSelectionLists(importedSavedSelectionLists);
     localStorage.setItem(STORAGE_KEYS.savedSelectionLists, JSON.stringify(importedSavedSelectionLists));
@@ -6223,6 +6275,7 @@ export default function App() {
   };
 
   const confirmResetHistory = () => {
+    setReviewHistoryUndo(null);
     aiStudyRecorder.clear();
     [
       STORAGE_KEYS.defeatedMonsters,
@@ -6240,6 +6293,7 @@ export default function App() {
       STORAGE_KEYS.autoPlaySettings,
       STORAGE_KEYS.selectedQuestionKeysByScope,
       STORAGE_KEYS.markedQuestionKeysByScope,
+      STORAGE_KEYS.reviewHistoryKeysByScope,
       STORAGE_KEYS.savedSelectionLists,
       STORAGE_KEYS.beginnerBattleProgress,
     ].forEach(key => localStorage.removeItem(key));
@@ -6249,6 +6303,7 @@ export default function App() {
     setWeakQuestionStats({});
     setManualQuestionStatuses({});
     setMarkedQuestionKeysByScope({});
+    setReviewHistoryKeysByScope({});
     setDailyProgress(createDailyProgress());
     setDailyActivityHistory({});
     reviewQueueRef.current = [];
@@ -7489,7 +7544,7 @@ export default function App() {
     )
   ), [currentScopedQuestions, gameState.selectedDifficulty, gameState.selectedLevel]);
   const playbackPools = useMemo(() => {
-    const pools: Record<AutoPlaySource, ScopedAutoPlayQuestion[]> = { all: [], weak: [], marked: [], selected: [], learning: [], caution: [], mastered: [] };
+    const pools: Record<AutoPlaySource, ScopedAutoPlayQuestion[]> = { all: [], weak: [], marked: [], 'review-history': [], selected: [], learning: [], caution: [], mastered: [] };
     if (gameState.screen !== 'title' && gameState.screen !== 'question-list') return pools;
     // Weak-word registration has historically been shared by English text.
     // Keep that rule consistent with the existing word-list weak filter.
@@ -7497,6 +7552,7 @@ export default function App() {
     for (const difficulty of DIFFICULTIES) for (const level of getAvailableLevels(difficulty)) {
       const scope = getReviewScopeKey(difficulty, level);
       const marked = new Set(markedQuestionKeysByScope[scope] ?? []);
+      const history = new Set(reviewHistoryKeysByScope[scope] ?? []);
       const selected = new Set(selectedQuestionKeysByScope[scope] ?? []);
       for (const question of QUESTIONS[difficulty]?.[level] ?? []) {
         const key = getQuestionStatusKey(difficulty, level, question);
@@ -7506,13 +7562,14 @@ export default function App() {
         pools.all.push(item);
         if (weakTexts.has(question.text)) pools.weak.push(item);
         if (marked.has(key)) pools.marked.push(item);
+        if (history.has(key) && !marked.has(key)) pools['review-history'].push(item);
         if (selected.has(key)) pools.selected.push(item);
         const learningLevel = getEffectiveLearningLevel(status);
         pools[learningLevel === 1 ? 'learning' : learningLevel === 2 ? 'caution' : 'mastered'].push(item);
       }
     }
     return pools;
-  }, [gameState.screen, weakQuestions, markedQuestionKeysByScope, selectedQuestionKeysByScope, manualQuestionStatuses]);
+  }, [gameState.screen, weakQuestions, markedQuestionKeysByScope, reviewHistoryKeysByScope, selectedQuestionKeysByScope, manualQuestionStatuses]);
   const scopedPlaybackPools = useMemo(() => {
     const inScope = (item: ScopedAutoPlayQuestion) => autoPlaySettings.playbackScope === 'all'
       || (autoPlaySettings.playbackScope === 'selected' ? autoPlaySettings.playbackDifficulties.includes(item.difficulty)
@@ -7539,7 +7596,7 @@ export default function App() {
 
   const handleToggleMarkedQuestion = useCallback((question: Question) => {
     toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, question);
-  }, [gameState.selectedDifficulty, gameState.selectedLevel]);
+  }, [gameState.selectedDifficulty, gameState.selectedLevel, toggleMarkedQuestion]);
 
   const handleUpdateManualLevel = useCallback((question: Question, level: LearningLevel) => {
     updateManualQuestionStatus(
@@ -8002,6 +8059,12 @@ export default function App() {
     const weakQuestionsInView = questions.filter(q => weakQuestionTexts.has(q.text) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const markedQuestionKeys = markedQuestionKeysByScope[selectionScopeKey] ?? [];
     const markedQuestionKeySet = new Set(markedQuestionKeys);
+    const historyQuestionKeySet = new Set(reviewHistoryKeysByScope[selectionScopeKey] ?? []);
+    const historyQuestionsInView = questions.filter(q => {
+      const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
+      return historyQuestionKeySet.has(key) && !markedQuestionKeySet.has(key);
+    });
+    const isReviewHistoryView = questionListFilter === 'marked' && reviewListView === 'history';
     const markedQuestionsInView = questions.filter(q => markedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)) && !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q));
     const selectedQuestionKeys = selectedQuestionKeysByScope[selectionScopeKey] ?? [];
     const selectedQuestionKeySet = new Set(selectedQuestionKeys);
@@ -8038,7 +8101,7 @@ export default function App() {
       : questionListFilter === 'weak'
         ? sortedWeakQuestions
         : questionListFilter === 'marked'
-          ? markedQuestionsInView
+          ? (isReviewHistoryView ? historyQuestionsInView : markedQuestionsInView)
           : questionListFilter === 'miss-ranking'
             ? missRankingQuestions
             : questions;
@@ -8087,7 +8150,7 @@ export default function App() {
       },
     ] : [];
     const manualReviewSamples = wordListToolsOpen ? manualReviewQuestions.slice(0, 5).map(q => q.text).join(' / ') : '';
-    const emptyListTitle = listLearningLevel !== undefined
+    const emptyListTitle = isReviewHistoryView ? '解除履歴はありません' : listLearningLevel !== undefined
       ? `「${LEARNING_LEVEL_LABELS[listLearningLevel]}」の問題はありません`
       : questionListFilter === 'marked'
         ? 'あとで復習に追加した問題はまだありません'
@@ -8096,7 +8159,7 @@ export default function App() {
           : questionListFilter === 'miss-ranking'
             ? 'まだミスの記録がありません'
             : '表示できる問題がありません';
-    const emptyListDescription = questionListFilter === 'marked'
+    const emptyListDescription = isReviewHistoryView ? 'これから「あとで復習」を解除した問題がここに残ります。' : questionListFilter === 'marked'
       ? 'バトル中や問題一覧で「あとで復習」を押すと、ここに集められます。'
       : questionListFilter === 'miss-ranking'
         ? 'この教材・レベルでつまずいた問題が、ここへ回数順に表示されます。'
@@ -8132,6 +8195,13 @@ export default function App() {
     };
 
     const handleStartAutoPlay = () => startAutoPlayForQuestions(autoPlayTargetQuestions);
+    const playReviewHistory = (scope: 'current' | 'all') => {
+      autoPlayListCriteriaRef.current = '';
+      setAutoPlaySettings(prev => ({ ...prev, source: 'review-history', playbackScope: scope }));
+      setWordListToolsOpen(true);
+      requestAnimationFrame(() => autoPlayPlayerRef.current?.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      startAutoPlayForQuestions(scope === 'all' ? playbackPools['review-history'] : playbackPools['review-history'].filter(item => item.difficulty === gameState.selectedDifficulty && item.level === gameState.selectedLevel));
+    };
     const autoPlaySourceOptions: Array<{
       key: AutoPlaySource;
       label: string;
@@ -8158,6 +8228,13 @@ export default function App() {
         label: 'あとで復習',
         count: scopedPlaybackPools.marked.length,
         note: '登録したものだけ。複数の級もまとめて再生',
+        activeClassName: 'border-yellow-300 bg-yellow-500/15 text-yellow-50',
+      },
+      {
+        key: 'review-history',
+        label: '解除履歴',
+        count: scopedPlaybackPools['review-history'].length,
+        note: 'あとで復習を解除した問題を再確認',
         activeClassName: 'border-yellow-300 bg-yellow-500/15 text-yellow-50',
       },
       {
@@ -8222,6 +8299,7 @@ export default function App() {
           onSpeak={speakWithSettings}
           onToggleSelected={handleToggleSelectedQuestion}
           onToggleMarked={handleToggleMarkedQuestion}
+          onDeleteReviewHistory={isReviewHistoryView ? () => deleteReviewHistory(selectionScopeKey, questionKey, q.text) : undefined}
           onUpdateManualLevel={handleUpdateManualLevel}
           onToggleExcluded={handleToggleExcludedQuestion}
         />
@@ -8308,18 +8386,19 @@ export default function App() {
                 <button onClick={() => setQuestionListFilter('all')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'all' ? 'bg-blue-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>すべて</button>
                 <button onClick={() => setQuestionListFilter('weak')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'weak' ? 'bg-orange-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>苦手だけ</button>
                 <button onClick={() => setQuestionListFilter('miss-ranking')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'miss-ranking' ? 'bg-amber-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>ミスランキング</button>
-                <button onClick={() => setQuestionListFilter('marked')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
+                <button onClick={() => { setQuestionListFilter('marked'); setReviewListView('active'); }} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'marked' ? 'bg-yellow-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>あとで復習</button>
                 <button aria-pressed={questionListFilter === 'learning'} onClick={() => setQuestionListFilter('learning')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'learning' ? 'bg-sky-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>学習中</button>
                 <button aria-pressed={questionListFilter === 'caution'} onClick={() => setQuestionListFilter('caution')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'caution' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>もう少し</button>
                 <button aria-pressed={questionListFilter === 'mastered'} onClick={() => setQuestionListFilter('mastered')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${questionListFilter === 'mastered' ? 'bg-violet-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>覚えた</button>
                 </div>
-                <button type="button" disabled={allMarkedPlaybackQuestions.length === 0} onClick={() => {
+                <button type="button" disabled={(isReviewHistoryView ? playbackPools['review-history'] : allMarkedPlaybackQuestions).length === 0} onClick={() => {
+                  if (isReviewHistoryView) { playReviewHistory('all'); return; }
                   autoPlayListCriteriaRef.current = '';
                   setAutoPlaySettings(prev => ({ ...prev, source: 'marked', playbackScope: 'all' }));
                   setWordListToolsOpen(true);
                   requestAnimationFrame(() => autoPlayPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
                   startAutoPlayForQuestions(allMarkedPlaybackQuestions);
-                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ 全級のあとで復習を再生 <span className="text-xs">{allMarkedPlaybackQuestions.length}問</span></button>
+                }} className="min-h-11 rounded-lg border border-yellow-400/40 bg-yellow-950/20 px-3 py-2 text-sm font-bold text-yellow-100 hover:bg-yellow-900/30 disabled:opacity-40">▶ {isReviewHistoryView ? '全級の解除履歴を再生' : '全級のあとで復習を再生'} <span className="text-xs">{(isReviewHistoryView ? playbackPools['review-history'] : allMarkedPlaybackQuestions).length}問</span></button>
                 {questionListFilter === 'weak' && (
                   <div className="flex bg-slate-800 p-1 rounded-lg self-start">
                     <button onClick={() => setWeakListSort('recent')} className={`px-4 py-2 rounded-md text-sm font-bold transition-colors ${weakListSort === 'recent' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}>最近ミス順</button>
@@ -8328,6 +8407,17 @@ export default function App() {
                 )}
               </div>
             </div>
+            {questionListFilter === 'marked' && (
+              <div className="mb-3 flex flex-wrap items-center gap-2" data-review-history-controls>
+                <div role="group" aria-label="あとで復習の表示" className="flex rounded-lg bg-slate-800 p-1">
+                  {([{ key: 'active', label: '復習中', count: markedQuestionsInView.length }, { key: 'history', label: '解除履歴', count: historyQuestionsInView.length }] as const).map(view => (
+                    <button key={view.key} type="button" aria-pressed={reviewListView === view.key} onClick={() => { setReviewListView(view.key); setWordListToolsOpen(false); }} className={`min-h-10 rounded-md px-3 py-2 text-sm font-bold ${reviewListView === view.key ? 'bg-yellow-600 text-white' : 'text-slate-300 hover:text-white'}`}>{view.label} <span className="text-xs">{view.count}問</span></button>
+                  ))}
+                </div>
+                {isReviewHistoryView && <button type="button" onClick={() => playReviewHistory('current')} disabled={!historyQuestionsInView.some(q => !isQuestionExcluded(gameState.selectedDifficulty, gameState.selectedLevel, q))} className="min-h-10 rounded-lg border border-cyan-500/40 px-3 py-2 text-sm font-bold text-cyan-100 disabled:opacity-40">このLevelの履歴を再生</button>}
+                {isReviewHistoryView && reviewHistoryUndo && <div role="status" className="flex w-full flex-wrap items-center gap-2 text-sm text-slate-300"><span className="break-all">「{reviewHistoryUndo.text}」を履歴から消しました。</span><button type="button" onClick={undoReviewHistoryDeletion} className="min-h-10 px-2 font-bold text-cyan-200 underline">元に戻す</button></div>}
+              </div>
+            )}
             <div className="mb-4 flex-shrink-0">
               <button
                 onClick={() => setWordListToolsOpen(prev => !prev)}
@@ -8645,16 +8735,20 @@ export default function App() {
                           onClick={() => {
                             const { questionKey, scopeKey } = autoPlayNowPlaying;
                             if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
-                            setMarkedQuestionKeysByScope(prev => ({
-                              ...prev,
-                              [scopeKey]: (prev[scopeKey] ?? []).filter(key => key !== questionKey),
-                            }));
+                            setQuestionMarkedForReview(scopeKey, questionKey, false);
                           }}
                           title="この問題を「あとで復習」から外して次へ進みます。今回のリピートでも再生しません。"
                           className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:cursor-not-allowed disabled:opacity-40"
                         >
                           <Bookmark size={14} aria-hidden="true" />復習から外して次へ
                         </button>
+                      )}
+                      {autoPlayNowPlaying && autoPlaySettings.source === 'review-history' && !(markedQuestionKeysByScope[autoPlayNowPlaying.scopeKey] ?? []).includes(autoPlayNowPlaying.questionKey) && (
+                        <button type="button" disabled={!isAutoPlaying} onClick={() => {
+                          const { scopeKey, questionKey } = autoPlayNowPlaying;
+                          if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
+                          setQuestionMarkedForReview(scopeKey, questionKey, true);
+                        }} className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:opacity-40"><Bookmark size={14} aria-hidden="true" />あとで復習に戻して次へ</button>
                       )}
                     </div>
                     {autoPlayNowPlaying ? (
