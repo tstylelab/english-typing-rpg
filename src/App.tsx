@@ -4079,13 +4079,24 @@ const QuestionListRow = React.memo(function QuestionListRow({
 });
 
 // --- Main App ---
-export default function App() {
+export type LocalPreviewOptions = {
+  screen?: 'title' | 'monster-book' | 'question-list' | 'level-select' | 'settings' | 'typing-practice';
+  revealMonsterArt?: boolean;
+  difficulty?: Difficulty;
+  level?: Level;
+};
+
+export default function App({ localPreview }: { localPreview?: LocalPreviewOptions } = {}) {
+  // Only the separate local preview entry supplies these options. Production
+  // keeps the usual title entry and earned collection visibility.
+  const preview = import.meta.env.DEV ? localPreview : undefined;
+  const [showAllMonsterArt, setShowAllMonsterArt] = useState(preview?.revealMonsterArt ?? false);
   const [gameState, setGameState] = useState<GameState>(() => {
     const savedCourse = getStoredCourseSelection();
     return {
-    screen: 'title',
-    selectedDifficulty: savedCourse.difficulty,
-    selectedLevel: savedCourse.level,
+    screen: preview?.screen ?? 'title',
+    selectedDifficulty: preview?.difficulty ?? savedCourse.difficulty,
+    selectedLevel: getSafeLevelForDifficulty(preview?.difficulty ?? savedCourse.difficulty, preview?.level ?? savedCourse.level),
     mode: savedCourse.resumeMode,
     inputMode: savedCourse.resumeInputMode,
     currentMonsterIndex: 0,
@@ -4225,8 +4236,8 @@ export default function App() {
   const [autoPlayWakeLockState, setAutoPlayWakeLockState] = useState<AutoPlayWakeLockState>('inactive');
   const sessionWeakQuestionsRef = useRef<Question[] | null>(null);
   const [autoPlayNowPlaying, setAutoPlayNowPlaying] = useState<AutoPlayNowPlaying | null>(null);
-  const [bookLevel, setBookLevel] = useState<Level>(1);
-  const [bookDifficulty, setBookDifficulty] = useState<Difficulty>('Eiken5');
+  const [bookLevel, setBookLevel] = useState<Level>(preview?.level ?? 1);
+  const [bookDifficulty, setBookDifficulty] = useState<Difficulty>(preview?.difficulty ?? 'Eiken5');
   const [, setShake] = useState(false);
   const [flash, setFlash] = useState(false);
   const [monsterShake, setMonsterShake] = useState(false); 
@@ -7993,7 +8004,7 @@ export default function App() {
     );
     const bookPreviewItems = allMonsters.map(monster => ({
       name: monster.name,
-      locked: !isMonsterDefeatedInBook(monster.id),
+      locked: !(preview && showAllMonsterArt) && !isMonsterDefeatedInBook(monster.id),
       avatar: <MonsterAvatar monsterId={monster.id} difficulty={bookDifficulty} type={monster.type} color={monster.color} visualStyle={getMonsterVisualStyle(monster)} />,
     }));
     const getBookMonsterHp = (
@@ -8015,6 +8026,7 @@ export default function App() {
               <div className="flex items-center gap-2 bg-slate-800 border border-slate-600 px-4 py-2 rounded-full shadow-sm text-yellow-400"><Trophy size={20} /><span className="font-bold">撃破数: {totalDefeated} / {allMonsters.length}</span></div>
            </div>
            <Box title={`Monster Collection - ${DIFFICULTY_LABELS[bookDifficulty]} - Level ${bookLevel}`} className="w-full">
+               {preview && <label className="mb-4 flex items-center justify-center gap-2 rounded-lg border border-cyan-700 bg-cyan-950/70 p-3 text-sm text-cyan-100"><input type="checkbox" checked={showAllMonsterArt} onChange={event => setShowAllMonsterArt(event.target.checked)} />未撃破のイラストも見る（表示確認のみ・撃破記録は変わりません）</label>}
                <div className="mb-4 flex flex-wrap justify-center gap-3">{DIFFICULTIES.map((diff) => (<button key={diff} onClick={() => updateBookDifficulty(diff)} className={`px-5 py-2 rounded-full font-bold transition-all border-2 ${bookDifficulty === diff ? 'bg-blue-600 border-blue-400 text-white shadow-lg scale-105' : 'bg-slate-700 border-slate-600 text-slate-300 hover:bg-slate-600'}`}>{DIFFICULTY_LABELS[diff]}</button>))}</div>
                <div className="mb-4 rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-center text-xs text-slate-300">
                  ここでは <span className="font-bold text-blue-200">{DIFFICULTY_LABELS[bookDifficulty]}</span> の進行状況を表示しています。同じ級・レベルのキャラクターは、出題方法が違っても共通です。
@@ -8028,7 +8040,7 @@ export default function App() {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'training', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated || (preview && showAllMonsterArt) ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <span className="text-xs text-slate-400">未撃破</span>}</>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
@@ -8039,7 +8051,7 @@ export default function App() {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'battle', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated || (preview && showAllMonsterArt) ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <span className="text-xs text-slate-400">未撃破</span>}</>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
                     })}
                  </div>
                </div>
