@@ -68,11 +68,17 @@
 .adventure-versus>svg:first-child {color:#ffe2a2;flex-shrink:0}
 .adventure-versus small {margin-left:auto;padding:2px 7px;border:1px solid #dcc5ff55;border-radius:20px;background:#24193666;color:#eadbff;font-size:12px;white-space:nowrap}
 .adventure-versus:hover {background:linear-gradient(120deg,#65508e,#493364);border-color:#e2ccff}
-.adventure-footer {display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;padding-top:12px}
+.adventure-footer {display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px;padding-top:12px}
 .adventure-footer button {display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 14px;border:1px solid #7698a9;border-radius:8px;background:#102b3fee;color:#e4eff4;font-size:14px;font-weight:600;box-shadow:inset 0 1px #d5edff16}
 .adventure-footer button>svg {color:#ecd49a;flex-shrink:0}
 .adventure-footer button:hover,.adventure-footer button[aria-expanded=true] {background:#25475c;border-color:#c9d5b7}
 .adventure-footer .is-open {transform:rotate(180deg)}
+.adventure-footer .adventure-settings-entry {margin-right:auto;min-height:62px;padding:9px 16px;gap:13px;border:1px solid #efcf88;border-radius:10px;background:linear-gradient(120deg,#284954,#153342);box-shadow:inset 0 1px #fff1bf40,0 3px 0 #061724,0 0 18px #f2c86c18;text-align:left}
+.adventure-settings-entry span {display:grid;gap:2px}
+.adventure-settings-entry strong {font-size:18px;line-height:1.4;color:#ffe5ad;font-weight:750}
+.adventure-settings-entry small {font-size:13px;line-height:1.4;color:#dfebee;font-weight:400}
+.adventure-footer .adventure-settings-entry>svg:last-child {margin-left:12px}
+.adventure-footer .adventure-settings-entry:hover {background:linear-gradient(120deg,#365e68,#214554);border-color:#fff0bd;box-shadow:inset 0 1px #fff1bf40,0 3px 0 #061724,0 0 20px #f2c86c30}
 .adventure-beginner-links:not([hidden]) {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px;padding:12px;border:1px solid #7396a577;border-radius:10px;background:#0a1d30f5}
 .adventure-beginner-links button {display:flex;align-items:center;gap:10px;padding:12px;border-radius:7px;text-align:left;background:#19364b;color:#e4eff4}
 .adventure-beginner-links button>svg {color:#f2d68f;flex-shrink:0}
@@ -85,6 +91,8 @@
   .adventure-stage .adventure-versus {order:5;width:100%;margin-bottom:8px}
   .adventure-home .adventure-footer {display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .adventure-home .adventure-footer button:first-child {grid-column:1/-1}
+  .adventure-home .adventure-footer .adventure-settings-entry {width:100%;margin-right:0;justify-content:flex-start}
+  .adventure-home .adventure-footer .adventure-settings-entry>svg:last-child {margin-left:auto}
   .adventure-beginner-links:not([hidden]) {grid-template-columns:1fr}
 }
 .adventure-subscreen-bg {background:linear-gradient(#071426cc,#071426ed),url('/designs/course-select-pop.png') center/cover fixed!important}

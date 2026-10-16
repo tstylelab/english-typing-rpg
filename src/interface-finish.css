@@ -2,7 +2,10 @@
 .home-header-player {display:flex;align-items:center;gap:8px;min-width:0;min-height:60px;color:#d9ebf5;font-size:14px}
 .home-header-player label {white-space:nowrap}
 .home-header-player select {min-width:100px;max-width:180px;min-height:44px;padding:6px 10px;border:1px solid #839fae;border-radius:6px;background:#122e42;color:#fff0c4;font-size:17px;font-weight:600}
-.adventure-navigation .home-header-player button {font-size:14px;padding-inline:8px;text-decoration:underline;text-underline-offset:4px}
+.adventure-navigation .home-header-player .home-player-manage {display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 13px;border:1px solid #e2be70;border-radius:8px;background:linear-gradient(135deg,#385665,#1c3648);box-shadow:inset 0 1px #fff0bf40,0 2px 0 #031221;color:#ffe6ae;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.adventure-navigation .home-header-player .home-player-manage svg {color:#f5d488;flex-shrink:0}
+.adventure-navigation .home-header-player .home-player-manage:hover {border-color:#fff0bc;background:linear-gradient(135deg,#476c7c,#294c60)}
+.adventure-navigation .home-header-player .home-player-manage:focus-visible {outline:3px solid #a4eafa;outline-offset:3px}
 .home-header-player select:focus-visible {outline:3px solid #a4eafa;outline-offset:3px}
 .home-header-defeated {display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:14px;margin-left:10px}
 .home-header-defeated svg {color:#f4d483;flex-shrink:0}

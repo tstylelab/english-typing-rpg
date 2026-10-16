@@ -1,0 +1,95 @@
+/* Versus preparation only; match rules and persisted setup remain in App. */
+.versus-setup-screen .versus-lobby {max-width:1200px;border:1px solid #9c90b475;border-radius:16px;background:radial-gradient(ellipse at 6% 0%,#44306085,transparent 48%),linear-gradient(145deg,#162c40f5,#0e1d30f5);box-shadow:inset 0 1px #f0e3ff20,0 18px 45px #0005}
+.versus-lobby-content {padding:22px}
+.versus-lobby-header {display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:20px;border-bottom:1px solid #9facc333}
+.versus-lobby-title {display:flex;gap:15px;align-items:center;min-width:0}
+.versus-lobby-emblem {display:grid;place-items:center;flex-shrink:0;width:64px;height:64px;border:1px solid #dfbf7d99;border-radius:18px;background:linear-gradient(145deg,#654e82,#2a2946);color:#ffe3a2;box-shadow:inset 0 0 0 4px #f0cf8d10,0 0 25px #ca93fa18;transform:rotate(-5deg)}
+.versus-lobby-eyebrow {color:#dacba8;font-size:13px;letter-spacing:.05em;margin-bottom:4px}
+.versus-lobby-title h1 {font-size:clamp(23px,2.1vw,29px);font-weight:700;line-height:1.4;color:#fff0cf}
+.versus-lobby-description {font-size:15px;color:#c4d4e1;margin-top:4px;line-height:1.5}
+.versus-launch {flex-shrink:0;width:270px}
+.versus-launch>p {display:flex;align-items:center;justify-content:center;gap:7px;color:#d7d6ee;font-size:14px;margin-bottom:8px;flex-wrap:wrap}
+.versus-launch>p strong {color:#fff0cf;font-size:17px}
+.versus-lobby .versus-launch-button {width:100%;padding:12px 16px;min-height:52px;border:1px solid #d7c2fc;border-radius:10px;background:linear-gradient(125deg,#7655a7,#523b7e);color:#fff4dc;box-shadow:inset 0 1px #ffffff40,0 4px 0 #251d3d,0 8px 20px #050c2044;font-size:18px;font-weight:700}
+.versus-lobby .versus-launch-button:hover {background:linear-gradient(125deg,#8b68be,#684995)}
+.versus-lobby .versus-button-content {display:flex;align-items:center;justify-content:center;gap:12px}
+.versus-lobby-main {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(330px,1fr);gap:18px;margin-top:20px;align-items:start}
+.versus-participants,.versus-prompt-panel {min-width:0}
+.versus-section-heading {display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:38px}
+.versus-section-heading h2 {display:flex;align-items:center;gap:8px;color:#e9e9f5;font-weight:700;font-size:18px;flex-wrap:wrap}
+.versus-section-heading h2>span {display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#74578e;color:#fff1cd;font-size:14px}
+.versus-section-heading h2>small {font-size:13px;color:#b8bfd3;font-weight:500;white-space:nowrap}
+.versus-lobby .versus-section-heading button {min-height:36px;padding:6px 10px;font-size:13px;font-weight:600;border:1px solid #aa98c3;background:#332c4c;color:#eee2ff;white-space:nowrap}
+.versus-section-note {margin:8px 0 12px;font-size:13px;line-height:1.5;color:#afc2d1}
+.versus-player-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.versus-player-card {--player-accent:#81d7de;display:flex;flex-direction:column;gap:10px;min-width:0;padding:13px;border:1px solid #64828e77;border-top:3px solid var(--player-accent);border-radius:10px;background:linear-gradient(140deg,#20394d,#12263a);box-shadow:0 5px 13px #0002}
+.versus-player-card[data-player="2"] {--player-accent:#d4adf7}
+.versus-player-card[data-player="3"] {--player-accent:#edc37f}
+.versus-player-card[data-player="4"] {--player-accent:#98d5a2}
+.versus-player-card[data-player="5"] {--player-accent:#f3adbb}
+.versus-player-heading {display:flex;justify-content:space-between;align-items:center;gap:7px;color:#bdcdd8;font-size:12px}
+.versus-player-number {font-size:12px;font-weight:700;letter-spacing:.09em;color:var(--player-accent)}
+.versus-lobby .versus-player-card input {min-height:42px;padding:7px 10px;background:#091b2c;color:#f0f6fa;font-size:17px;font-weight:600;border:1px solid #6a879a;border-radius:7px}
+.versus-lobby .versus-player-card label {color:#bdcddc;font-size:13px;font-weight:500}
+.versus-lobby .versus-player-card select {min-width:0;min-height:38px;padding:6px 8px;font-size:15px;font-weight:600;color:#edf6fb;background:#0c2133;border:1px solid #638197;border-radius:6px}
+.versus-player-name button {flex-shrink:0;width:36px;height:38px;padding:0!important;border-color:#a27b8c66!important;background:#281f3033;color:#d8b2c0}
+.versus-handicap {border-top:1px solid #7895a32e;padding-top:9px}
+.versus-handicap select {max-width:65%}
+.versus-prompt-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.versus-prompt-choice {display:flex;align-items:flex-start;gap:9px;position:relative;min-height:80px;padding:12px 10px;border:1px solid #566f85;border-radius:9px;background:#12283c;color:#cbdae5;text-align:left}
+.versus-prompt-choice>span:nth-child(2) {min-width:0}
+.versus-prompt-choice strong {display:block;font-size:15px;font-weight:600;line-height:1.45}
+.versus-prompt-choice small {display:block;margin-top:5px;font-size:12px;line-height:1.5;color:#adbfce}
+.versus-prompt-icon {flex-shrink:0;color:#9fb7cb;margin-top:2px}
+.versus-prompt-choice:hover {border-color:#b1c5d1;background:#1c354a}
+.versus-prompt-choice[aria-pressed=true] {border-color:#bc9ee5;background:linear-gradient(135deg,#473761,#302d4d);box-shadow:inset 0 0 0 1px #c4a9ec44;color:#fff0cc}
+.versus-prompt-choice[aria-pressed=true] .versus-prompt-icon {color:#f2d594}
+.versus-prompt-check {position:absolute;right:5px;top:5px;color:#e7cfa0}
+.versus-prompt-choice.is-mixed {grid-column:1/-1;min-height:66px;align-items:center}
+.versus-lobby-bottom {display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.8fr);gap:14px;align-items:start;margin-top:18px}
+.versus-rules {border:1px solid #897d5c88;border-radius:10px;background:#352d274d;color:#e5d6b8}
+.versus-rules summary {display:flex;align-items:center;gap:10px;cursor:pointer;padding:13px;list-style:none;font-size:15px;font-weight:600}
+.versus-rules summary::-webkit-details-marker {display:none}
+.versus-rules summary>svg {flex-shrink:0;color:#d8bf82}
+.versus-rules summary::after {content:'＋';margin-left:auto;font-size:18px;color:#d8bf82}
+.versus-rules[open] summary::after {content:'−'}
+.versus-rules summary small {display:block;margin-top:4px;font-size:12px;font-weight:400;color:#c4b99e}
+.versus-rules-content {padding:0 14px 14px;font-size:14px;line-height:1.7}
+.versus-ranking {min-width:0;padding:14px 16px;border:1px solid #9e8b5f66;border-radius:10px;background:linear-gradient(120deg,#2f2d3333,#0e2033);color:#d6e2ed}
+.versus-ranking-empty {display:flex;align-items:center;justify-content:center;gap:12px;margin:12px 0;padding:10px;color:#ddc690;font-size:16px}
+.versus-ranking-empty>svg {color:#d7ba79;flex-shrink:0}
+.versus-ranking-empty small {display:block;font-size:12px;color:#aabecf;margin-top:3px}
+.versus-lobby-footer {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.versus-lobby-footer p {font-size:12px;color:#b1c4d3;line-height:1.6}
+.versus-lobby :is(button,input,select,summary):focus-visible {outline:2px solid #f6d994;outline-offset:3px}
+@media(max-width:999px) {
+  .versus-lobby-content {padding:18px}
+  .versus-lobby-main {grid-template-columns:minmax(0,1fr)}
+  .versus-prompt-grid {grid-template-columns:repeat(5,minmax(0,1fr))}
+  .versus-prompt-choice {flex-direction:column;gap:6px;min-height:108px}
+  .versus-prompt-choice.is-mixed {grid-column:auto;min-height:108px;align-items:flex-start}
+  .versus-lobby-emblem {width:52px;height:52px}
+  .versus-launch {width:240px}
+}
+@media(max-width:640px) {
+  .versus-setup-screen .versus-lobby {border-radius:12px}
+  .versus-lobby-content {padding:13px}
+  .versus-lobby-header {flex-direction:column;align-items:stretch;gap:14px;padding-bottom:15px}
+  .versus-lobby-title {gap:10px}
+  .versus-lobby-emblem {width:42px;height:48px;border-radius:12px}
+  .versus-lobby-title h1 {font-size:22px}
+  .versus-lobby-eyebrow {font-size:11px}
+  .versus-lobby-description {font-size:13px}
+  .versus-launch {width:100%}
+  .versus-lobby .versus-launch-button {min-height:48px;font-size:17px}
+  .versus-lobby-main {margin-top:14px;gap:16px}
+  .versus-section-heading {flex-wrap:wrap}
+  .versus-section-heading h2 {font-size:17px}
+  .versus-player-grid {grid-template-columns:minmax(0,1fr)}
+  .versus-player-card {padding:11px}
+  .versus-prompt-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .versus-prompt-choice {min-height:90px}
+  .versus-prompt-choice.is-mixed {grid-column:1/-1;flex-direction:row;align-items:center;min-height:62px;gap:10px}
+  .versus-lobby-bottom {grid-template-columns:minmax(0,1fr)}
+  .versus-lobby-footer {align-items:flex-start;flex-direction:column;gap:10px}
+}

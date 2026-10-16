@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { ArrowRight, BookOpen, Headphones, Keyboard, LayoutGrid, Settings, Sword, Swords, Bookmark, Sparkles, Star, Compass, SlidersHorizontal, CircleHelp, ChevronDown } from 'lucide-react';
+import { ArrowRight, BookOpen, Headphones, Keyboard, LayoutGrid, Save, Sword, Swords, Bookmark, Sparkles, Star, Compass, SlidersHorizontal, CircleHelp, ChevronDown } from 'lucide-react';
 import { getMonsterArtUrl } from './monsterArt';
 import { getHomeCompanions, type HomeCompanion } from './homeCompanions';
 import './adventure-ui.css';
@@ -47,9 +47,9 @@ export default function AdventureHome(p: Props) {
       <button className="adventure-destination is-collection" onClick={p.onBook}><Star /><h2>モンスター図鑑</h2><span>集めた出会いが、宝物。</span><img src={getMonsterArtUrl('c3_13', 'Eiken2')} alt="" /></button>
     </div>
     <footer className="adventure-footer">
+      <button className="adventure-settings-entry" onClick={p.onSettings}><Save size={25} /><span><strong>設定・データ保存</strong><small>学習記録のバックアップ・読み込み</small></span><ArrowRight size={20} /></button>
       <button aria-expanded={showBeginnerLinks} aria-controls="adventure-beginner-links" onClick={() => setShowBeginnerLinks(open => !open)}><Compass size={19} />はじめての方へ<ChevronDown size={15} className={showBeginnerLinks ? 'is-open' : ''} /></button>
       <button onClick={p.onPlaybackSettings}><SlidersHorizontal size={18} />再生設定</button>
-      <button onClick={p.onSettings}><Settings size={18} />設定・データ</button>
     </footer>
     <nav ref={beginnerLinksRef} id="adventure-beginner-links" className="adventure-beginner-links" aria-label="はじめての方へ" hidden={!showBeginnerLinks}>
       <button onClick={() => openBeginnerDestination(p.onBeginner)}><Compass size={22} /><span><strong>初心者向けガイド</strong><small>学習の始め方を確認</small></span><ArrowRight size={17} /></button>

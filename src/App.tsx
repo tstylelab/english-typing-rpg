@@ -2,10 +2,13 @@ import './journey-select.css';
 import './question-library.css';
 import './playback-player.css';
 import './monster-library.css';
+import './versus-setup.css';
+import './game-settings.css';
+import { isBalancedLongTextBattle, getBalancedLongTextTuning, getBalancedLongTextSpeedMultiplier, getBalancedLongTextDamage } from './longTextBattleBalance';
 import { battleResumeScope, normalizeBattleResumePositions, resolveBattleResumeStep, nextBattleResumeId, type BattleResumePositions } from './battleResume';
 import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
+import { Volume2, Sword, Swords, Users, Shuffle, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
 import { alignTypingCase } from './typingInput';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
@@ -513,12 +516,6 @@ const EIKEN5_SENTENCE_BATTLE_HP = [600, 650, 700, 730, 760, 790, 820, 850, 880, 
 const isEikenSentenceBattle = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode) => (
   difficulty.startsWith('Eiken') && level === 3 && isEndlessChallengeInputMode(mode, inputMode)
 );
-const getEiken5SentenceSpeedMultiplier = (charsPerSec: number) => (
-  1 + Math.min(0.3, Math.max(0, (charsPerSec - 1) * 0.1))
-);
-const getEikenSentenceDamage = (misses: number, speedMultiplier: number, length: number) => (
-  Math.floor(Math.max(40, 200 - 10 * Math.max(0, misses) * 20 / Math.max(20, length)) * speedMultiplier + 1e-9)
-);
 
 const getBossStage = (
   mode: Mode,
@@ -671,6 +668,9 @@ const getBattleTuning = (
   baseHp: number,
   bossStage: BossStage
 ) => {
+  if (isBalancedLongTextBattle(difficulty, level, mode, inputMode)) {
+    return getBalancedLongTextTuning(difficulty, level, inputMode, stepIndex, bossStage);
+  }
   const courseBaseHp = getCourseBaseHp(difficulty, level, mode, inputMode, stepIndex, baseHp);
   const sentenceBattle = isEikenSentenceBattle(difficulty, level, mode, inputMode);
   const sentenceBattleHp = sentenceBattle
@@ -2048,23 +2048,23 @@ const COURSE_SELECT_ILLUSTRATION_IMAGE = `${DESIGN_ASSET_BASE_PATH}course-select
 const SETTINGS_SPEECH_PREVIEW_TEXT = 'The brave hero learns English every day.';
 const SPEECH_VOICE_COPY: Record<SpeechVoiceMode, { label: string; description: string }> = {
   random: {
-    label: 'ランダム / Random',
+    label: 'おまかせ',
     description: '4種類の英語音声からランダムで再生します。',
   },
   us_female: {
-    label: '米語女性 / American Accent - Female',
+    label: 'アメリカ英語・女性',
     description: 'アメリカ英語の女性音声で再生します。',
   },
   us_male: {
-    label: '米語男性 / American Accent - Male',
+    label: 'アメリカ英語・男性',
     description: 'アメリカ英語の男性音声で再生します。',
   },
   uk_female: {
-    label: '英語女性 / British Accent - Female',
+    label: 'イギリス英語・女性',
     description: 'イギリス英語の女性音声で再生します。',
   },
   uk_male: {
-    label: '英語男性 / British Accent - Male',
+    label: 'イギリス英語・男性',
     description: 'イギリス英語の男性音声で再生します。',
   },
 };
@@ -7057,9 +7057,9 @@ export default function App() {
       && gameState.mode === 'guide'
       && (gameState.selectedLevel === 2 || gameState.selectedLevel === 3)
     );
-    const isSentenceBattle = isEikenSentenceBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
-    const speedMultiplier = audioHintUsedRef.current ? 1 : isSentenceBattle
-      ? getEiken5SentenceSpeedMultiplier(charsPerSec)
+    const isBalancedBattle = isBalancedLongTextBattle(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode);
+    const speedMultiplier = audioHintUsedRef.current ? 1 : isBalancedBattle
+      ? getBalancedLongTextSpeedMultiplier(charsPerSec, charCount, gameState.missCount)
       : isEikenLongTextGuide
       ? getEikenLongTextGuideSpeedMultiplier(charsPerSec)
       : getSpeedMultiplier(charsPerSec);
@@ -7097,10 +7097,10 @@ export default function App() {
               : gameState.missCount === 3
                 ? 0.8
                 : 0.7;
-    if (isSentenceBattle) {
-      // Apply the new miss penalty exactly once; do not reapply legacy boss floors.
-      // Preserve the already released Grade 5 trial; scale other grades by actual answer length.
-      finalDamage = getEikenSentenceDamage(gameState.missCount, speedMultiplier, gameState.selectedDifficulty === 'Eiken5' ? 20 : charCount);
+    if (isBalancedBattle) {
+      // Shared Grade 5 progression: length changes typo allowance, not attack power.
+      // Neither the legacy 75% damage floor nor perfect-answer boss floors apply.
+      finalDamage = getBalancedLongTextDamage(gameState.selectedLevel, charCount, gameState.missCount, speedMultiplier);
     } else if (isEikenLongTextGuide) {
       // 通常モンスターは、10問中5問程度の小さなケアレスミスで詰まらない余白を持たせる。
       // ラスボスは20問中、各文で1回程度の修正なら倒せるが、繰り返しのミスでは届かない。
@@ -7937,7 +7937,7 @@ export default function App() {
   };
   const appNavigation = !['battle', 'versus-play', 'typing-practice', 'beginner-battle'].includes(gameState.screen) ? (
     <header className="adventure-navigation"><div className="adventure-navigation-inner">
-      {gameState.screen === 'title' ? <div className="home-header-player"><label htmlFor="home-player">プレイヤー</label><select id="home-player" value={activePlayerId} onChange={event => activatePlayerProfile(event.target.value)}>{playerProfiles.map(profile => <option key={profile.id} value={profile.id}>{profile.name}</option>)}</select><button onClick={openPlayerProfileSettings}>管理</button><span className="home-header-defeated" title="級・Level・出題方法ごとの撃破数。同じ相手の再撃破は重複しません。"><Trophy size={18} /><span><span className="home-defeated-prefix">累計</span>撃破</span><strong>{normalizeDefeatedMonsterIds(gameState.defeatedMonsterIds).length}</strong>体</span></div> : <button className="adventure-brand" aria-label="ホームへ" onClick={() => navigateFromMenu('title')}><img src="/designs/title-logo-playful-v5.png" alt="English Typing Fantasy" /></button>}
+      {gameState.screen === 'title' ? <div className="home-header-player"><label htmlFor="home-player">プレイヤー</label><select id="home-player" value={activePlayerId} onChange={event => activatePlayerProfile(event.target.value)}>{playerProfiles.map(profile => <option key={profile.id} value={profile.id}>{profile.name}</option>)}</select><button className="home-player-manage" onClick={openPlayerProfileSettings} aria-label="プレイヤー管理を開く"><Users size={18} aria-hidden="true" /><span>管理</span></button><span className="home-header-defeated" title="級・Level・出題方法ごとの撃破数。同じ相手の再撃破は重複しません。"><Trophy size={18} /><span><span className="home-defeated-prefix">累計</span>撃破</span><strong>{normalizeDefeatedMonsterIds(gameState.defeatedMonsterIds).length}</strong>体</span></div> : <button className="adventure-brand" aria-label="ホームへ" onClick={() => navigateFromMenu('title')}><img src="/designs/title-logo-playful-v5.png" alt="English Typing Fantasy" /></button>}
       <nav aria-label="主な画面">
         <button aria-current={gameState.screen === 'title' ? 'page' : undefined} onClick={() => navigateFromMenu('title')}><Home size={17} />ホーム</button>
         <button aria-current={gameState.screen === 'level-select' || gameState.screen === 'mode-select' ? 'page' : undefined} onClick={() => navigateFromMenu('level-select')}><LayoutGrid size={17} />教材を選ぶ</button>
@@ -9125,36 +9125,42 @@ export default function App() {
 
   if (gameState.screen === 'settings') {
     return (
-      <ScreenContainer navigation={appNavigation} className="bg-slate-900">
-        <div className="max-w-3xl w-full p-4">
-          <div className="flex justify-between items-center mb-6">
-            <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>&larr; タイトルへ</GameButton>
-            <h2 className="text-2xl font-bold text-blue-300 flex items-center gap-2"><Volume2 /> ゲーム設定</h2>
-          </div>
-          <Box title="BGM Volume" className="w-full">
-            <div className="space-y-6">
-              <p className="text-slate-300 text-sm">バトル中のBGM音量を選べます。`Off` にするとBGMを再生しません。</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <ScreenContainer navigation={appNavigation} className="game-settings-screen">
+        <div className="game-settings-page">
+          <header className="settings-heading">
+            <div><p>自分に合った学習環境に</p><h1><Volume2 aria-hidden="true" />ゲーム設定</h1></div>
+            <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}><span className="inline-flex items-center gap-2"><Home size={16} /> ホームへ</span></GameButton>
+          </header>
+          <div className="settings-context"><span><Users size={16} aria-hidden="true" />{getCurrentActivePlayer()?.name ?? 'Player'} の設定</span><span><CheckCircle2 size={15} aria-hidden="true" />変更は自動で保存されます</span></div>
+          <nav className="settings-jump-links" aria-label="設定の項目">
+            <a href="#settings-audio"><Volume2 size={17} />音声・音量</a>
+            <a href="#settings-players"><Users size={17} />プレイヤー</a>
+            <a href="#settings-data"><ClipboardList size={17} />データの保存・移行</a>
+          </nav>
+          <div id="settings-audio" className="settings-audio-grid">
+          <Box title={<h2>BGMの音量</h2>} className="settings-panel settings-bgm" contentClassName="settings-panel-body">
+            <div>
+              <div className="settings-value-line"><p>バトル中の音楽</p><strong>{bgmVolumeLevel === 0 ? 'オフ' : `${bgmVolumeLevel} / 5`}</strong></div>
+              <div className="settings-volume-buttons" role="group" aria-label="BGMの音量">
                 {['Off', '1', '2', '3', '4', '5'].map((label, index) => (
                   <button
                     key={label}
                     onClick={() => handleBgmVolumeSelect(index)}
-                    className={`rounded-xl border-2 px-4 py-4 font-bold transition-all ${bgmVolumeLevel === index ? 'bg-blue-600 border-blue-400 text-white shadow-lg' : 'bg-slate-800 border-slate-600 text-slate-300 hover:border-slate-400 hover:bg-slate-700'}`}
+                    aria-pressed={bgmVolumeLevel === index}
+                    aria-label={index === 0 ? 'BGMをオフ' : `BGM音量 ${label}`}
+                    className="settings-choice"
                   >
-                    {label}
+                    {index === 0 ? 'オフ' : label}
                   </button>
                 ))}
               </div>
-              <div className="rounded-xl border border-slate-700 bg-slate-900/50 p-4 text-sm text-slate-300">
-                現在の設定: <span className="font-black text-white">{['Off', '1', '2', '3', '4', '5'][bgmVolumeLevel]}</span>
-              </div>
+              <p className="settings-help">1：小さめ → 5：大きめ · 選ぶと試聴できます</p>
             </div>
           </Box>
-          <Box title="English Voice" className="w-full mt-6">
-            <div className="space-y-6">
-              <p className="text-slate-300 text-sm">アメリカ英語・イギリス英語の男女4種類と、ランダム切り替えから選べます。利用できる音声はブラウザやOSによって変わるため、近い候補を自動で選びます。</p>
-              <p className="text-slate-400 text-xs">American Accent / British Accent を聞き比べながら選べます。</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <Box title={<h2>英語の読み上げ音声</h2>} className="settings-panel settings-voice" contentClassName="settings-panel-body">
+            <div>
+              <p className="settings-description">聞き取りやすい声を選びましょう。選ぶとサンプルが流れます。</p>
+              <div className="settings-voice-grid" role="group" aria-label="英語の読み上げ音声">
                 {SPEECH_VOICE_OPTIONS.map((option) => {
                   const exactSupported = option.id === 'random' || supportedSpeechModes.includes(option.id as Exclude<SpeechVoiceMode, 'random'>);
                   const isSupported = isSpeechModeSelectable(speechVoices, option.id);
@@ -9165,20 +9171,25 @@ export default function App() {
                       key={option.id}
                       onClick={() => handleSpeechVoiceSelect(option.id)}
                       disabled={!isSupported}
-                      className={`rounded-xl border-2 px-4 py-4 text-left transition-all ${!isSupported ? 'cursor-not-allowed border-slate-800 bg-slate-900/60 text-slate-500 opacity-70' : isSelected ? 'bg-blue-600 border-blue-400 text-white shadow-lg' : 'bg-slate-800 border-slate-600 text-slate-300 hover:border-slate-400 hover:bg-slate-700'}`}
+                      aria-pressed={isSelected}
+                      className={`settings-choice settings-voice-choice ${option.id === 'random' ? 'settings-random-voice' : ''}`}
                     >
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="font-bold">{SPEECH_VOICE_COPY[option.id].label}</div>
+                      <span className="settings-voice-choice-heading">
+                        <strong>{option.id === 'random' ? 'おまかせ' : option.id.startsWith('us_') ? 'アメリカ英語' : 'イギリス英語'}</strong>
+                        {isSelected && <CheckCircle2 size={18} aria-label="選択中" />}
                         {!isSupported && <span className="rounded-full border border-amber-500/40 bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-300">未対応</span>}
                         {isSupported && !exactSupported && <span className="rounded-full border border-cyan-500/40 bg-cyan-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-cyan-200">代替</span>}
-                      </div>
-                      <div className={`text-xs mt-1 ${isSupported && isSelected ? 'text-blue-100' : 'text-slate-400'}`}>{SPEECH_VOICE_COPY[option.id].description}</div>
+                      </span>
+                      <span className="settings-voice-kind">{option.id === 'random' ? '利用できる音声からランダムに' : option.id.endsWith('female') ? '女性の声' : '男性の声'}</span>
                     </button>
                   );
                 })}
               </div>
-              <div className="rounded-xl border border-cyan-500/30 bg-slate-950/70 p-4 text-xs text-slate-300">
-                <div className="font-bold text-cyan-300">Voice Debug</div>
+              <div className="settings-voice-preview"><span>選択中：<strong>{SPEECH_VOICE_COPY[speechVoiceMode].label}</strong></span><button className="settings-preview-button" disabled={!isSpeechModeSelectable(speechVoices, speechVoiceMode)} onClick={() => playSpeechPreview(speechVoiceMode, speechRatePercent)}><Volume2 size={17} />もう一度試聴</button></div>
+              <p className="settings-help">「代替」は近い声で再生します。利用できる音声は端末やブラウザーによって異なります。</p>
+              <details className="settings-voice-details">
+                <summary>使用中の音声・詳細情報</summary>
+                <div className="settings-voice-debug">
                 <div className="mt-2">Selected Mode: <span className="font-mono text-white">{selectedSpeechConfig.mode}</span></div>
                 <div>Requested Lang: <span className="font-mono text-white">{selectedSpeechConfig.lang}</span></div>
                 <div>Resolution: <span className="font-mono text-white">{selectedSpeechConfig.resolution}</span></div>
@@ -9202,44 +9213,47 @@ export default function App() {
                     </div>
                   )}
                 </div>
-              </div>
+                </div>
+              </details>
             </div>
           </Box>
-          <Box title="Speech Speed" className="w-full mt-6">
-            <div className="space-y-6">
-              <p className="text-slate-300 text-sm">英語読み上げのスピードを 50%〜200% の範囲で調整できます。</p>
+          <Box title={<h2>読み上げの速さ</h2>} className="settings-panel settings-speed" contentClassName="settings-panel-body">
+            <div>
+              <div className="settings-value-line"><label htmlFor="settings-speech-speed">英語の再生速度</label><strong>{speechRatePercent / 100}<small> 倍</small></strong></div>
               <input
+                id="settings-speech-speed"
                 type="range"
                 min="50"
                 max="250"
                 step="5"
                 value={speechRatePercent}
+                aria-valuetext={`${speechRatePercent / 100}倍`}
                 onChange={(e) => handleSpeechRateChange(parseInt(e.target.value, 10))}
-                className="w-full accent-blue-500"
+                className="settings-speed-range"
               />
-              <div className="rounded-xl border border-slate-700 bg-slate-900/50 p-4 text-sm text-slate-300">
-                現在の設定: <span className="font-black text-white">{speechRatePercent}%</span>
-              </div>
+              <div className="settings-range-labels"><span>ゆっくり 0.5倍</span><span>速く 2.5倍</span></div>
+              <div className="settings-speed-presets" role="group" aria-label="読み上げ速度の目安">{[75, 100, 125, 150].map(rate => <button key={rate} className="settings-choice" aria-pressed={speechRatePercent === rate} onClick={() => handleSpeechRateChange(rate)}>{rate / 100}倍{rate === 100 && <small>標準</small>}</button>)}</div>
             </div>
           </Box>
-          <Box title="Translation Battle" className="w-full mt-6">
+          <Box title={<h2>和訳バトルの発音確認</h2>} className="settings-panel settings-translation" contentClassName="settings-panel-body">
             <div className="space-y-4">
-              <label className="flex items-center justify-between gap-4 rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-sm text-slate-200">
+              <label className="settings-toggle-row">
                 <span>
-                  <span className="block font-bold text-cyan-100">和訳バトル正解後に英語音声を再生</span>
-                  <span className="mt-1 block text-xs text-slate-400">日本語訳だけを見て入力するバトルで、正解直後に英語の発音を確認します。</span>
+                  <strong>正解後に英語を読み上げる</strong>
+                  <span>和訳から答えたあとに、発音も確認できます。</span>
                 </span>
                 <input
                   type="checkbox"
                   checked={translationBattleCorrectSpeechEnabled}
                   onChange={(e) => setTranslationBattleCorrectSpeechEnabled(e.target.checked)}
-                  className="h-4 w-4 flex-shrink-0 rounded border-slate-500 bg-slate-900 text-cyan-400"
+                  className="settings-checkbox"
                 />
               </label>
             </div>
           </Box>
-          <div ref={playerProfilesSectionRef}>
-          <Box title="Player Profiles" className="w-full mt-6">
+          </div>
+          <div ref={playerProfilesSectionRef} id="settings-players" className="settings-lower-section">
+          <Box title={<h2><Users size={19} />プレイヤー管理</h2>} className="settings-panel" contentClassName="settings-panel-body">
             <div className="space-y-5">
               <div className="rounded-xl border border-violet-500/20 bg-violet-950/10 p-4 text-sm text-slate-300">
                 <p className="font-bold text-violet-200">現在のプレイヤー</p>
@@ -9261,6 +9275,7 @@ export default function App() {
                     }
                   }}
                   placeholder="新しいプレイヤー名"
+                  aria-label="新しいプレイヤー名"
                   className="flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 text-sm text-white placeholder:text-slate-500"
                 />
                 <GameButton
@@ -9296,7 +9311,7 @@ export default function App() {
                             aria-label="プレイヤー名"
                             className="w-full max-w-xs rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 text-sm font-bold text-white placeholder:text-slate-500 focus:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400/30"
                           />
-                          {isActive && <span className="rounded-full border border-violet-300/40 bg-violet-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-violet-100">Active</span>}
+                          {isActive && <span className="settings-active-player">使用中</span>}
                         </div>
                         <div className="mt-1 text-xs text-slate-400">更新: {profile.updatedAt ? new Date(profile.updatedAt).toLocaleString('ja-JP') : '未使用'}</div>
                       </div>
@@ -9318,11 +9333,11 @@ export default function App() {
             </div>
           </Box>
           </div>
-          <div ref={progressTransferSectionRef}>
-          <Box title="Progress Transfer" className="w-full mt-6">
+          <div ref={progressTransferSectionRef} id="settings-data" className="settings-lower-section">
+          <Box title={<h2><ClipboardList size={19} />学習データの保存・移行</h2>} className="settings-panel" contentClassName="settings-panel-body">
             <div className="space-y-5">
               <p className="text-sm text-slate-300">
-                学習データを JSON ファイルとして保存し、別端末で読み込めます。分かる項目だけ復元するので、将来データ項目が増減しても壊れにくい方式です。
+                今の学習記録をファイルに保存して、バックアップや別の端末への引き継ぎに使えます。
               </p>
               <div className="rounded-xl border border-slate-700 bg-slate-900/60 p-4 text-sm text-slate-300">
                 <p>現在のプレイヤーのみを書き出します。</p>
@@ -9399,34 +9414,36 @@ export default function App() {
     const courseSummary = [...new Set(activeVersusCourses.map(course => `${DIFFICULTY_LABELS[course.difficulty]} Level ${course.level}`))].join(' ・ ');
     const promptSelectionLabel = ({ spelling: 'スペル表示', listening: 'リスニング', translation: '和訳', 'listening-translation': 'リスニング＋和訳', mixed: 'おまかせ' } as const)[versusPromptSelection];
     return (
-      <ScreenContainer navigation={appNavigation} className="items-center p-2 sm:p-4">
-        <Box className="w-full max-w-5xl" contentClassName="p-3 sm:p-4">
-          <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-            <div className="flex items-start gap-3">
-              <Trophy size={30} className="mt-0.5 shrink-0 text-yellow-300" />
+      <ScreenContainer navigation={appNavigation} className="versus-setup-screen items-center p-2 sm:p-4">
+        <Box className="versus-lobby w-full max-w-5xl" contentClassName="versus-lobby-content">
+          <div className="versus-lobby-header">
+            <div className="versus-lobby-title">
+              <span className="versus-lobby-emblem" aria-hidden="true"><Swords size={32} /></span>
               <div>
-                <h1 className="text-xl font-black text-white sm:text-2xl">{setupTitle}</h1>
-                <p className="mt-1 text-xs font-bold leading-relaxed text-slate-300 sm:text-sm">{isSoloSetup ? `選んだLevelの${getVersusQuestionCount(activeVersusCourses[0]?.level ?? 1)}問を解いて、自分の最高記録に挑戦します。` : 'Level 1は20問、Level 2は12問、Level 3は7問。問題数の差を自動補正して競います。普段の学習記録には残りません。'}</p>
+                <p className="versus-lobby-eyebrow">ひとりでも、みんなでも。</p>
+                <h1>{setupTitle}</h1>
+                <p className="versus-lobby-description">{isSoloSetup ? '自分の最高記録に挑戦しよう。' : '教材やLevelが違っても、一緒に腕試し。'}</p>
               </div>
             </div>
-            <div className="rounded-xl border border-fuchsia-300/55 bg-fuchsia-950/25 p-2.5 text-center shadow-[0_0_22px_rgba(217,70,239,0.16)]">
-              <p className="mb-1 text-[11px] font-black text-fuchsia-100">設定ができたら開始</p>
-              <GameButton onClick={startVersusMatch} className="w-full border-violet-300 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 md:min-w-64">バトルをはじめる <ArrowRight size={20} /></GameButton>
+            <div className="versus-launch">
+              <p aria-live="polite"><Users size={16} aria-hidden="true" /><strong>{versusNameDrafts.length}人</strong><span>／ {promptSelectionLabel}</span></p>
+              <GameButton onClick={startVersusMatch} className="versus-launch-button"><span className="versus-button-content">{isSoloSetup ? '記録に挑戦する' : 'バトルをはじめる'}<ArrowRight size={20} aria-hidden="true" /></span></GameButton>
             </div>
           </div>
           {versusSetupError && <p className="mt-3 text-center font-bold text-red-300">{versusSetupError}</p>}
 
-          <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)]">
-            <div className="rounded-xl border border-violet-400/25 bg-slate-900/55 p-3">
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-violet-200">1. 名前・教材・得点倍率（1〜5人）</p>
+          <div className="versus-lobby-main">
+            <section className="versus-participants" aria-labelledby="versus-participants-title">
+              <div className="versus-section-heading">
+                <h2 id="versus-participants-title"><span>1</span>参加者を決めよう<small>{versusNameDrafts.length} / 5人</small></h2>
                 {versusNameDrafts.length < 5 && <GameButton size="sm" variant="outline" onClick={() => { setVersusNameDrafts(names => [...names, `プレイヤー${names.length + 1}`]); setVersusScoreMultipliers(multipliers => [...multipliers, 1]); setVersusCourseSelections(courses => [...courses, courses[0] ?? DEFAULT_VERSUS_COURSE_SELECTION]); }}>＋ 参加者を追加</GameButton>}
               </div>
-              <p className="mt-1 text-[11px] font-bold text-violet-100/75">開始した設定をこの端末に保存し、次回そのまま表示します。</p>
-              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+              <p className="versus-section-note">それぞれの名前と教材を選択。開始した設定は次回も使えます。</p>
+              <div className="versus-player-grid">
                 {versusNameDrafts.map((name, index) => (
-                  <div key={index} className="flex flex-col gap-2 rounded-lg border border-slate-700 bg-slate-950/40 p-2">
-                    <div className="flex items-center gap-2">
+                  <div key={index} className="versus-player-card" data-player={index + 1}>
+                    <div className="versus-player-heading"><span className="versus-player-number">PLAYER {index + 1}</span><span>{getVersusQuestionCount((versusCourseSelections[index] ?? DEFAULT_VERSUS_COURSE_SELECTION).level)}問に挑戦</span></div>
+                    <div className="versus-player-name flex items-center gap-2">
                       <input value={name} maxLength={20} onChange={event => setVersusNameDrafts(names => names.map((currentName, currentIndex) => currentIndex === index ? event.target.value : currentName))} className="min-w-0 flex-1 rounded-lg border border-slate-600 bg-slate-950 px-3 py-2 font-bold text-white outline-none focus:border-violet-300" aria-label={`参加者${index + 1}の名前`} />
                       {versusNameDrafts.length > 1 && <button onClick={() => { setVersusNameDrafts(names => names.filter((_, currentIndex) => currentIndex !== index)); setVersusScoreMultipliers(multipliers => multipliers.filter((_, currentIndex) => currentIndex !== index)); setVersusCourseSelections(courses => courses.filter((_, currentIndex) => currentIndex !== index)); }} className="rounded-lg border border-red-500/50 px-3 py-2 font-bold text-red-200 hover:bg-red-950/40" aria-label={`${name}を外す`}>×</button>}
                     </div>
@@ -9442,7 +9459,7 @@ export default function App() {
                         </select>
                       </label>
                     </div>
-                    <label className="flex items-center justify-between gap-2 text-xs font-bold text-violet-100">
+                    <label className="versus-handicap flex items-center justify-between gap-2 text-xs font-bold text-violet-100">
                       得点倍率
                       <select value={versusNameDrafts.length === 1 ? 1 : versusScoreMultipliers[index] ?? 1} disabled={versusNameDrafts.length === 1} onChange={event => setVersusScoreMultipliers(multipliers => multipliers.map((multiplier, currentIndex) => currentIndex === index ? Number(event.target.value) : multiplier))} className="rounded-lg border border-violet-400/45 bg-slate-900 px-2 py-1.5 text-sm font-black text-white disabled:cursor-not-allowed disabled:opacity-60" aria-label={`${name || `参加者${index + 1}`}の得点倍率`}>
                         {VERSUS_SCORE_MULTIPLIER_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
@@ -9451,11 +9468,12 @@ export default function App() {
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
 
-            <div className="rounded-xl border border-sky-400/25 bg-slate-900/55 p-3">
-              <p className="text-sm font-black text-sky-200">2. 出題方法</p>
-              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <section className="versus-prompt-panel" aria-labelledby="versus-prompt-title">
+              <div className="versus-section-heading"><h2 id="versus-prompt-title"><span>2</span>出題方法を選ぼう</h2></div>
+              <p className="versus-section-note">全員が同じ出題方法で挑戦します。</p>
+              <div className="versus-prompt-grid">
                 {([
                   ['spelling', 'スペル表示', '英語を見て入力'],
                   ['listening-translation', 'リスニング＋和訳', '音と日本語で入力'],
@@ -9463,22 +9481,26 @@ export default function App() {
                   ['listening', 'リスニング', '音声だけで入力'],
                   ['mixed', 'おまかせ', '4種類をランダム出題'],
                 ] as const).map(([mode, label, description]) => (
-                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} className={`rounded-lg border p-2.5 text-left ${mode === 'mixed' ? 'sm:col-span-2' : ''} ${versusPromptSelection === mode ? 'border-sky-300 bg-sky-600/35 text-white' : 'border-slate-600 bg-slate-800 text-slate-300 hover:border-slate-400'}`}>
-                    <p className="text-sm font-black">{label}</p>
-                    <p className="mt-0.5 text-[11px] font-bold opacity-80">{description}</p>
+                  <button key={mode} onClick={() => setVersusPromptSelection(mode)} aria-pressed={versusPromptSelection === mode} className={`versus-prompt-choice ${mode === 'mixed' ? 'is-mixed' : ''}`}>
+                    <span className="versus-prompt-icon" aria-hidden="true">{mode === 'spelling' ? <Keyboard size={21} /> : mode === 'translation' ? <BookOpen size={21} /> : mode === 'mixed' ? <Shuffle size={21} /> : <Volume2 size={21} />}</span>
+                    <span><strong>{label}</strong><small>{description}</small></span>
+                    {versusPromptSelection === mode && <CheckCircle2 className="versus-prompt-check" size={16} aria-hidden="true" />}
                   </button>
                 ))}
               </div>
-            </div>
+            </section>
           </div>
 
-          <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(240px,0.65fr)_minmax(0,1.35fr)]">
-            <div className="rounded-xl border border-amber-400/25 bg-amber-950/20 p-3 text-xs leading-relaxed text-amber-100">
-              <p className="font-black">採点ルール</p>
+          <div className="versus-lobby-bottom">
+            <details className="versus-rules">
+              <summary><Shield size={18} aria-hidden="true" /><span>採点ルール<small>正確さ ＋ スピードで勝負</small></span></summary>
+              <div className="versus-rules-content">
               <p className="mt-1">正解50点、ミスなしなら50点追加、速さに応じて最大50点追加です。ミスは1回につき15点減点（その問題の最低点は0点）。対戦ではプレイヤーごとの得点倍率をかけた点で順位を決めます。</p>
               <p className="mt-1">Levelごとの問題数差は、20問相当の得点に自動補正します。</p>
-            </div>
-            <div className="rounded-xl border border-yellow-400/30 bg-slate-900/70 p-3">
+              <p className="mt-1">Level 1は20問、Level 2は12問、Level 3は7問。普段の学習記録には残りません。</p>
+              </div>
+            </details>
+            <section className="versus-ranking" aria-label="この設定のランキング">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="flex items-center gap-2 text-base font-black text-yellow-200"><Trophy size={18} /> この設定のランキング</p>
                 <p className="text-xs font-bold text-slate-300">{courseSummary || '教材未選択'} ・ {promptSelectionLabel}</p>
@@ -9494,13 +9516,14 @@ export default function App() {
                   ))}
                 </ol>
               ) : (
-                <p className="mt-2 rounded-lg border border-dashed border-slate-600 px-4 py-3 text-center text-sm font-bold text-slate-400">まだ記録がありません。最初の1戦でランキング入り！</p>
+                <p className="versus-ranking-empty"><Medal size={27} aria-hidden="true" /><span>最初の1戦で、ここに記録を。<small>まだこの設定の記録はありません</small></span></p>
               )}
               <p className="mt-2 text-xs text-slate-400">同じ名前は最高記録だけを残します。ハンデは対戦中のみで、ランキングは問題数を補正した基本点で公平に記録します。</p>
-            </div>
+            </section>
           </div>
-          <div className="mt-3 flex justify-start">
-            <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}>タイトルへ戻る</GameButton>
+          <div className="versus-lobby-footer">
+            <GameButton size="sm" variant="outline" onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}><span className="versus-button-content"><Home size={16} aria-hidden="true" />ホームへ戻る</span></GameButton>
+            <p>対戦の記録はランキングへ。普段の学習記録は変わりません。</p>
           </div>
         </Box>
       </ScreenContainer>
@@ -10405,7 +10428,8 @@ export default function App() {
                     <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" name={currentMonster.name} enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={220} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal></div>
                     {isBoss && <span className="battle-boss-seal"><Crown size={14} aria-hidden="true" />BOSS</span>}
                     {!!gameState.history.length && gameState.history[gameState.history.length - 1].damage > 0 && !gameState.battleLog[gameState.battleLog.length - 1]?.skipped && <div key={`${currentMonster.id}:${gameState.history.length}`} className="battle-hit" aria-hidden="true">
-                      <span className="battle-hit-ray" /><span className="battle-hit-ring" />
+                      <span className="battle-hit-ray" /><span className="battle-hit-flare" /><span className="battle-hit-ring" />
+                      {Array.from({ length: 8 }, (_, index) => <span key={index} className="battle-hit-spark" style={{ '--spark-angle': `${index * 45 + 15}deg` } as React.CSSProperties} />)}
                       <span className="battle-hit-number">−{gameState.history[gameState.history.length - 1].damage}<small>ダメージ</small></span>
                     </div>}
                   </div>

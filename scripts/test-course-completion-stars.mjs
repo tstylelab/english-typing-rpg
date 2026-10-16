@@ -27,6 +27,8 @@ for(const course of tuning.courses)for(const level of [1,2,3]){
   assert.equal(model.complete(new Set(keys.filter(k=>k.includes(':voice-only:'))),course,level),false);
 }
 console.log(`PASS all courses/levels, ${missingChecks} individual missing wins including final/hidden bosses, isolated scopes, duplicates and single mode`);
+// Pure logic checks can run without touching a browser or requiring Playwright.
+if (process.argv.includes('--offline')) process.exit(0);
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const cleanup=await trackTestBrowser(browser);
 const output='node_modules/.tmp/course-completion';mkdirSync(output,{recursive:true});
