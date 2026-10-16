@@ -10777,6 +10777,10 @@ export default function App() {
           <div className="result-layout">
             <aside className="result-actions" aria-label="次の学習と学習記録">
               <section className="result-next-actions" aria-label="次の学習">
+                <div className="result-today" aria-label={`今日の解答 ${todayQuestionCount}問`}>
+                  <span><Target size={20} aria-hidden="true" />今日の解答</span>
+                  <strong>{todayQuestionCount}<small>問</small></strong>
+                </div>
               {isPoolComplete ? <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton> : isWin ? (isNextAvailable ? <GameButton onClick={handleNextMonster} className="w-full min-h-[62px] text-lg" variant="success" autoFocus autoFocusPreventScroll><span className="flex flex-col items-center leading-tight"><span className="flex items-center">{nextMonsterIsFinal ? 'ラスボスのモンスターへ' : 'つぎのモンスターへ'} <ArrowRight className="ml-2" size={22}/></span><span className="mt-1 text-[11px] font-black text-emerald-50/90"><kbd className="rounded border border-emerald-100/45 bg-emerald-950/25 px-1.5 py-0.5 font-sans">Enter</kbd> でも進める</span></span></GameButton> : <GameButton onClick={handleBackToMode} className="w-full min-h-[62px] text-lg" variant="primary" autoFocus autoFocusPreventScroll>コース選択へ戻る</GameButton>) : <GameButton onClick={handleRetry} className="w-full min-h-[62px] text-lg" variant="warning" autoFocus autoFocusPreventScroll>もう一度挑戦する <RotateCcw className="ml-2" size={22}/></GameButton>}
 
 
@@ -10798,10 +10802,6 @@ export default function App() {
                 <div><span>学習中 <b>{learningSummary.learningCount}</b></span><span>もう少し <b>{learningSummary.cautionCount}</b></span><span>覚えた <b>{learningSummary.masteredCount}</b></span></div>
               </section>
               <details className="result-more"><summary>成績と学習記録を見る</summary><div className="result-detail-content">
-              <div className="result-today flex items-center justify-between gap-3 rounded-xl border border-emerald-400/30 bg-emerald-950/25 px-3 py-2">
-                <span className="flex items-center gap-2 text-sm font-bold text-emerald-100"><Target size={17} />今日の解答数</span>
-                <span className="text-xl font-black text-white">{todayQuestionCount}<span className="ml-1 text-xs text-emerald-200">問</span></span>
-              </div>
               <section className="overflow-hidden rounded-xl border border-slate-600 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,41,59,0.82))] p-3 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
                 <div className="flex items-center justify-between gap-3"><div><p className="text-sm font-black text-white">今回の成績</p><p className="mt-0.5 text-[11px] font-bold text-slate-400">{gameState.battleLog.length}問のバトル結果</p></div><div className="rounded-lg border border-cyan-300/30 bg-cyan-500/10 px-3 py-1.5 text-right"><p className="text-[10px] font-bold text-cyan-200">正確さ</p><p className="text-3xl font-black leading-none text-cyan-100">{perfectRate}%</p></div></div>
                 <div className="mt-3 grid grid-cols-3 overflow-hidden rounded-lg border border-slate-700/80 bg-slate-950/35"><div className="p-2 text-center"><p className="text-[10px] font-bold text-emerald-300">正確</p><p className="mt-0.5 text-2xl font-black text-white">{perfectCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="border-x border-slate-700/80 p-2 text-center"><p className="text-[10px] font-bold text-amber-300">修正</p><p className="mt-0.5 text-2xl font-black text-white">{recoveredCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div><div className="p-2 text-center"><p className="text-[10px] font-bold text-slate-400">スキップ</p><p className="mt-0.5 text-2xl font-black text-white">{skippedCount}<span className="ml-0.5 text-xs text-slate-400">問</span></p></div></div>
