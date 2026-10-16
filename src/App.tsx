@@ -4196,6 +4196,7 @@ export default function App() {
   const [playerNameDrafts, setPlayerNameDrafts] = useState<Record<string, string>>({});
   const [settingsFocusSection, setSettingsFocusSection] = useState<'progress-transfer' | 'player-profiles' | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  const [isAutoPlayPaused, setIsAutoPlayPaused] = useState(false);
   const [autoPlayStatusText, setAutoPlayStatusText] = useState('待機中');
   const [autoPlayWakeLockState, setAutoPlayWakeLockState] = useState<AutoPlayWakeLockState>('inactive');
   const sessionWeakQuestionsRef = useRef<Question[] | null>(null);
@@ -4277,6 +4278,7 @@ export default function App() {
   const autoPlaySpeechCleanupRef = useRef<(() => void) | null>(null);
   const autoPlayRepeatRef = useRef(autoPlaySettings.repeat);
   const autoPlayRunIdRef = useRef(0);
+  const autoPlayResumeRef = useRef<(() => void) | null>(null);
   const autoPlayNavigateRef = useRef<((direction: -1 | 1) => void) | null>(null);
   const autoPlayRemoveCurrentRef = useRef<((questionKey: string) => boolean) | null>(null);
   const autoPlayWakeLockRef = useRef<WakeLockSentinel | null>(null);
@@ -5304,7 +5306,7 @@ export default function App() {
     }
   }, []);
 
-  const stopAutoPlay = useCallback((statusText: string = '停止しました', interruptSpeech = true) => {
+  const stopAutoPlay = useCallback((statusText: string = '停止しました', interruptSpeech = true, keepPosition = false) => {
     autoPlayRunIdRef.current += 1;
     autoPlayNavigateRef.current = null;
     autoPlayRemoveCurrentRef.current = null;
@@ -5313,10 +5315,20 @@ export default function App() {
       window.speechSynthesis.cancel();
     }
     setIsAutoPlaying(false);
-    setAutoPlayNowPlaying(null);
+    const canResume = keepPosition && autoPlayResumeRef.current !== null;
+    setIsAutoPlayPaused(canResume);
+    if (!canResume) {
+      autoPlayResumeRef.current = null;
+      setAutoPlayNowPlaying(null);
+    }
     setAutoPlayStatusText(statusText);
     releaseAutoPlayWakeLock();
   }, [clearAutoPlayTimeout, releaseAutoPlayWakeLock]);
+
+  useEffect(() => {
+    // A retained queue belongs to one player and one voice configuration.
+    if (autoPlayResumeRef.current) stopAutoPlay('プレイヤー・音声の変更に合わせて停止しました');
+  }, [activePlayerId, speechVoiceMode, stopAutoPlay]);
 
   const clearPendingBattleEndTimeout = useCallback(() => {
     if (pendingBattleEndTimeoutRef.current !== null) {
@@ -5535,10 +5547,11 @@ export default function App() {
 
     if (gameState.screen !== 'question-list') return;
     if (!previousCriteria.startsWith('question-list|')) return;
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying && !isAutoPlayPaused) return;
     stopAutoPlay('一覧条件の変更に合わせて停止しました');
   }, [
     isAutoPlaying,
+    isAutoPlayPaused,
     gameState.screen,
     gameState.selectedDifficulty,
     gameState.selectedLevel,
@@ -5720,16 +5733,16 @@ export default function App() {
     const questionKey = getQuestionStatusKey(difficulty, level, question);
     // List edits invalidate a saved queue. The player buttons instead remove
     // the current entry explicitly and continue with the next question.
-    if (isAutoPlaying && (autoPlaySettings.source === 'marked' || autoPlaySettings.source === 'review-history')) {
+    if ((isAutoPlaying || isAutoPlayPaused) && (autoPlaySettings.source === 'marked' || autoPlaySettings.source === 'review-history')) {
       stopAutoPlay('復習リストの変更に合わせて停止しました');
     }
     setQuestionMarkedForReview(scopeKey, questionKey, !(markedQuestionKeysByScope[scopeKey] ?? []).includes(questionKey));
-  }, [markedQuestionKeysByScope, setQuestionMarkedForReview, isAutoPlaying, autoPlaySettings.source, stopAutoPlay]);
+  }, [markedQuestionKeysByScope, setQuestionMarkedForReview, isAutoPlaying, isAutoPlayPaused, autoPlaySettings.source, stopAutoPlay]);
 
   const deleteReviewHistory = (scopeKey: string, questionKey: string, text: string) => {
     setReviewHistoryKeysByScope(prev => ({ ...prev, [scopeKey]: (prev[scopeKey] ?? []).filter(key => key !== questionKey) }));
     setReviewHistoryUndo({ scopeKey, questionKey, text });
-    if (isAutoPlaying && autoPlaySettings.source === 'review-history') stopAutoPlay('解除履歴の整理に合わせて停止しました');
+    if ((isAutoPlaying || isAutoPlayPaused) && autoPlaySettings.source === 'review-history') stopAutoPlay('解除履歴の整理に合わせて停止しました');
   };
 
   const undoReviewHistoryDeletion = () => {
@@ -7626,6 +7639,7 @@ export default function App() {
       gapAfterSeconds: number;
       nowPlaying: AutoPlayNowPlaying;
     }>,
+    startIndex = 0,
   ) => {
     if (entries.length === 0) {
       stopAutoPlay('再生できる項目がありません');
@@ -7640,6 +7654,7 @@ export default function App() {
     }
     setAutoPlayNowPlaying(null);
     setIsAutoPlaying(true);
+    setIsAutoPlayPaused(false);
     autoPlayWakeLockWantedRef.current = true;
     void requestAutoPlayWakeLock();
 
@@ -7656,6 +7671,7 @@ export default function App() {
         setIsAutoPlaying(false);
         autoPlayNavigateRef.current = null;
         autoPlayRemoveCurrentRef.current = null;
+        autoPlayResumeRef.current = null;
         setAutoPlayNowPlaying(null);
         setAutoPlayStatusText('一巡しました（リピートOFF）');
         releaseAutoPlayWakeLock();
@@ -7664,6 +7680,11 @@ export default function App() {
 
       const entry = entries[index];
       currentIndex = index;
+      // Retain the exact queue (including shuffle/removals). Resume the current
+      // question from its first spoken part, rather than halfway through a phrase.
+      let questionStart = index;
+      while (questionStart > 0 && entries[questionStart - 1].questionIndex === entry.questionIndex) questionStart -= 1;
+      autoPlayResumeRef.current = () => startAutoPlaySequence(entries, questionStart);
       const entryRunId = runId;
       setAutoPlayNowPlaying(entry.nowPlaying);
       setAutoPlayStatusText(`${index + 1}/${entries.length} ${entry.label}`);
@@ -7739,7 +7760,7 @@ export default function App() {
       }
       return true;
     };
-    playAt(0);
+    playAt(startIndex);
   };
 
   const startAutoPlayForQuestions = (targetQuestions: (Question | ScopedAutoPlayQuestion)[]) => {
@@ -8238,7 +8259,7 @@ export default function App() {
     const updateAutoPlaySetting = <K extends keyof AutoPlaySettings>(key: K, value: AutoPlaySettings[K]) => {
       if (key === 'source' || key === 'playbackScope' || key === 'playbackDifficulties') setLibraryPlayback(null);
       // The queue captures these settings at start; stop rather than show settings it is not using.
-      if (isAutoPlaying && key !== 'repeat') stopAutoPlay('設定を変更したため停止しました。新しい設定で再生できます。');
+      if ((isAutoPlaying || isAutoPlayPaused) && key !== 'repeat') stopAutoPlay('設定を変更したため停止しました。新しい設定で最初から再生できます。');
       if (key === 'repeat') autoPlayRepeatRef.current = Boolean(value);
       setAutoPlaySettings(prev => ({
         ...prev,
@@ -8256,7 +8277,10 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: 'instant' });
       startAutoPlayForQuestions(scoped);
     };
-    const handleStartAutoPlay = () => startAutoPlayForQuestions(autoPlayTargetQuestions);
+    const handleStartAutoPlay = () => {
+      if (isAutoPlayPaused && autoPlayResumeRef.current) autoPlayResumeRef.current();
+      else startAutoPlayForQuestions(autoPlayTargetQuestions);
+    };
     const playReviewHistory = (scope: 'current' | 'all') => {
       setLibraryPlayback(null);
       setPlaybackPage(true);
@@ -8576,10 +8600,10 @@ export default function App() {
                       className="playback-start"
                       disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
                     >
-                      <span aria-hidden="true">▶</span><span>{isAutoPlaying ? '連続再生中' : 'この設定で再生する'}</span>
+                      <span aria-hidden="true">▶</span><span>{isAutoPlaying ? '連続再生中' : isAutoPlayPaused ? '続きから再生' : 'この設定で再生する'}</span>
                     </GameButton>
                     <GameButton
-                      onClick={() => stopAutoPlay()}
+                      onClick={() => stopAutoPlay('停止中です。続きから再生すると、この問題の読み上げの先頭から再開します。', true, true)}
                       size="sm"
                       variant="outline"
                       className="playback-stop"
@@ -8588,6 +8612,7 @@ export default function App() {
                       <Square size={16} className="mr-1" /> 停止
                     </GameButton>
                   </div>
+                  {isAutoPlayPaused && <button type="button" className="playback-restart" onClick={() => startAutoPlayForQuestions(autoPlayTargetQuestions)}><RotateCcw size={16} aria-hidden="true" />最初から再生</button>}
                   <div className="playback-switches" role="group" aria-label="リピート・シャッフル">
                     <label className="flex cursor-pointer items-center min-h-11 gap-2 rounded-lg border border-slate-600 bg-slate-950/70 px-2 py-2 text-sm text-slate-200">
                       <input type="checkbox" aria-label="リピート再生" checked={autoPlaySettings.repeat}
@@ -8604,8 +8629,8 @@ export default function App() {
                   </div>
                   <div data-autoplay-now-playing className="playback-current mt-3 rounded-lg border border-slate-700 bg-slate-950/70 px-3 py-3">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="playback-current-title">{isAutoPlaying ? '現在再生中' : '再生内容のプレビュー'}</span>
-                      <span className="playback-current-state">{isAutoPlaying ? '再生中' : '開始前'}</span>
+                      <span className="playback-current-title">{isAutoPlaying ? '現在再生中' : isAutoPlayPaused ? '停止中の問題' : '再生内容のプレビュー'}</span>
+                      <span className="playback-current-state">{isAutoPlaying ? '再生中' : isAutoPlayPaused ? '停止中' : '開始前'}</span>
                     </div>
                     <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="問題単位で移動">
                       <button

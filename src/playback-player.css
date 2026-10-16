@@ -31,6 +31,8 @@
 .playback-timing-summary dd span {font-size:15px;margin-left:3px;font-weight:400}
 .playback-summary-note {font-size:14px;color:#b3cbd9;margin-top:5px}
 .playback-transport {display:flex;gap:10px;margin-top:14px}
+.playback-restart {display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:8px;padding:8px 12px;border:1px solid #698b9c;border-radius:8px;color:#d9eef7;font-size:15px}
+.playback-restart:hover {background:#21485c}
 .playback-status-message {margin-top:8px;color:#ffe0a3;font-size:15px}
 .playback-console .playback-transport>button>span {display:flex;align-items:center;justify-content:center;gap:10px}
 .playback-console .playback-start {display:flex;flex-direction:row;align-items:center;justify-content:center;gap:12px;flex:1;min-width:0;min-height:54px;padding:10px 16px;background:linear-gradient(#fff0b5,#dfb252);border:1px solid #ffdf91;border-radius:8px;color:#33260e;font-size:20px;font-weight:700;box-shadow:inset 0 1px #fff6da,0 3px 0 #805f2d}

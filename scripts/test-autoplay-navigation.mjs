@@ -6,7 +6,8 @@ import ts from 'typescript';
 // Exercise the actual playback function with controlled speech and timers.
 const source = readFileSync(new URL('../src/App.tsx', import.meta.url), 'utf8');
 const body = source.slice(source.indexOf('  const startAutoPlaySequence = ('), source.indexOf('  const startAutoPlayForQuestions = ('));
-const compiled = ts.transpile('(() => { const autoPlaySettings = globalThis.autoPlaySettings;\n' + body + '\nglobalThis.start = startAutoPlaySequence; })();', { target: ts.ScriptTarget.ES2022 });
+const stopBody = source.slice(source.indexOf('  const stopAutoPlay = useCallback('), source.indexOf('\n  useEffect(', source.indexOf('  const stopAutoPlay = useCallback(')));
+const compiled = ts.transpile('(() => { const autoPlaySettings = globalThis.autoPlaySettings;\n' + stopBody + body + '\nglobalThis.start = startAutoPlaySequence; globalThis.stop = stopAutoPlay; })();', { target: ts.ScriptTarget.ES2022 });
 function setup(repeat = false) {
   let utterance;
   let timerId = 0;
@@ -15,6 +16,7 @@ function setup(repeat = false) {
   const ctx = {
     LOCAL_SILENT_CHECK: false,
     autoPlayRunIdRef: { current: 0 }, autoPlayNavigateRef: { current: null },
+    autoPlayResumeRef: { current: null },
     autoPlayRemoveCurrentRef: { current: null },
     autoPlayRepeatRef: { current: repeat }, autoPlaySpeechCleanupRef: { current: null },
     autoPlayTimeoutRef: { current: null }, autoPlayWakeLockWantedRef: { current: false },
@@ -23,6 +25,8 @@ function setup(repeat = false) {
     clearAutoPlayTimeout() { ctx.autoPlaySpeechCleanupRef.current?.(); timers.delete(ctx.autoPlayTimeoutRef.current); ctx.autoPlayTimeoutRef.current = null; },
     setAutoPlayNowPlaying(value) { ctx.now = value; },
     setIsAutoPlaying(value) { ctx.playing = value; },
+    setIsAutoPlayPaused(value) { ctx.paused = value; },
+    useCallback(fn) { return fn; },
     setAutoPlayStatusText() {}, requestAutoPlayWakeLock() {}, releaseAutoPlayWakeLock() {},
     stopAutoPlay() { ctx.playing = false; ctx.autoPlayRunIdRef.current++; ctx.autoPlayRemoveCurrentRef.current = null; ctx.autoPlayNavigateRef.current = null; ctx.now = null; },
     speakAutoPlayEntry(text, options) { spoken.push(text); utterance = options; return () => {}; },
@@ -100,3 +104,36 @@ const lastRemoval = setup(false); lastRemoval.ctx.start(removable); lastRemoval.
 lastRemoval.ctx.autoPlayRemoveCurrentRef.current('scope:7');
 assert.equal(lastRemoval.ctx.playing, false, 'Removing the last queued question honors repeat off');
 console.log('PASS: review removal, all speech parts, repeat/previous, stale clicks/callbacks, last and empty queue');
+
+// Stop uses the real App callback; resume keeps the exact shuffled queue and
+// restarts the current question, including repeated examples, not question A.
+const paused = setup(true); paused.ctx.start(entries); paused.nav(1); paused.end();
+assert.equal(paused.ctx.now, 'B-word');
+const cancelledSpeech = paused.utterance;
+paused.utterance.onend(); const cancelledGap = [...paused.timers.values()][0];
+paused.ctx.stop('paused', true, true);
+assert.equal(paused.ctx.playing, false); assert.equal(paused.ctx.paused, true);
+assert.equal(paused.ctx.now, 'B-word', 'Stopping retains displayed question');
+assert.equal(paused.ctx.autoPlayNavigateRef.current, null);
+assert.equal(paused.timers.size, 0);
+cancelledSpeech.onend(); cancelledSpeech.onfailure(); cancelledGap();
+assert.equal(paused.ctx.now, 'B-word'); assert.equal(paused.timers.size, 0);
+paused.ctx.autoPlayResumeRef.current();
+assert.equal(paused.ctx.now, 'B-example'); assert.equal(paused.ctx.paused, false);
+assert.equal(paused.ctx.playing, true);
+paused.nav(1); assert.equal(paused.ctx.now, 'C-translation', 'Resume preserves shuffled order');
+for (let i = 0; i < 20; i++) { paused.ctx.stop('paused', true, true); paused.ctx.autoPlayResumeRef.current(); }
+assert.equal(paused.ctx.now, 'C-translation'); assert.equal(paused.timers.size, 0);
+paused.ctx.stop('settings changed');
+assert.equal(paused.ctx.autoPlayResumeRef.current, null); assert.equal(paused.ctx.paused, false);
+assert.equal(paused.ctx.now, null);
+paused.ctx.start(entries); assert.equal(paused.ctx.now, 'A-word', 'Explicit restart starts at the beginning');
+const afterRemoval = setup(true); afterRemoval.ctx.start(removable);
+afterRemoval.ctx.autoPlayRemoveCurrentRef.current('scope:9');
+afterRemoval.ctx.stop('paused', true, true); afterRemoval.ctx.autoPlayResumeRef.current();
+assert.equal(afterRemoval.ctx.now.questionText, 'B-example');
+afterRemoval.nav(-1); assert.equal(afterRemoval.ctx.now.questionText, 'B-example', 'Resume does not restore removed questions');
+const completed = setup(false); completed.ctx.start(entries.slice(-1)); completed.end();
+assert.equal(completed.ctx.autoPlayResumeRef.current, null, 'Natural completion clears resume position');
+completed.ctx.stop('paused', true, true); assert.equal(completed.ctx.paused, false);
+console.log('PASS: stop/resume at current question, shuffle retention, stale speech/gaps, rapid repeated resumes, restart, invalidation, removal and completion');
