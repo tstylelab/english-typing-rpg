@@ -10390,28 +10390,34 @@ export default function App() {
           </div>
         )}
         <div className="battle-main w-full max-w-4xl mx-auto flex flex-col items-center justify-start mt-4 px-4 pb-20">
-             <div className="battle-monster-area relative w-full flex flex-col items-center z-10 mb-4">
-                {gameState.combo >= 3 && (
-                   <div className="battle-combo mb-2 inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm font-black uppercase tracking-[0.2em] text-yellow-200 shadow-[0_0_20px_rgba(250,204,21,0.2)]">
-                    <Flame size={16} className="text-yellow-300" />
-                    {comboLabel} x{gameState.combo}
-                  </div>
-                )}
+             <div className="battle-monster-area battle-encounter relative w-full z-10" data-boss={isBoss} data-danger={hpPercent > 0 && hpPercent < 30}>
+                <div className="battle-hp-heading flex items-center justify-between gap-2">
+                  <span className="battle-hp-name monster-display-name">{currentMonster.name}</span>
+                  <span className="battle-hp-level flex-shrink-0 rounded font-bold">Stage {gameState.currentMonsterIndex + 1}</span>
+                </div>
+                <div className="battle-streak-slot" aria-label={gameState.combo >= 3 ? `${gameState.combo}連続正解` : 'コンボ'}>
+                  {gameState.combo >= 3 ? <span key={gameState.combo} className="battle-streak" data-milestone={[3, 5, 10].includes(gameState.combo)}><Flame size={17} aria-hidden="true" /><strong>{gameState.combo}</strong>連続正解<span>{comboLabel}</span></span> : <span className="battle-streak-hint"><Sword size={16} aria-hidden="true" />{isBoss ? 'ボスに挑戦！' : '英語を力に、一撃ずつ。'}</span>}
+                </div>
                 <div className="battle-character-row">
-                  <div className="battle-dialogue">{monsterDialogue}</div>
-                  <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" name={currentMonster.name} enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={140} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal>{isBoss && <div className="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded animate-pulse">BOSS</div>}</div>
+                  <div className="battle-dialogue"><span className="battle-dialogue-label">相手のひとこと</span><span>{monsterDialogue}</span></div>
+                  <div className="battle-stage-art">
+                    <div className="battle-summon-ring" aria-hidden="true" />
+                    <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" name={currentMonster.name} enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={220} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal></div>
+                    {isBoss && <span className="battle-boss-seal"><Crown size={14} aria-hidden="true" />BOSS</span>}
+                    {!!gameState.history.length && gameState.history[gameState.history.length - 1].damage > 0 && !gameState.battleLog[gameState.battleLog.length - 1]?.skipped && <div key={`${currentMonster.id}:${gameState.history.length}`} className="battle-hit" aria-hidden="true">
+                      <span className="battle-hit-ray" /><span className="battle-hit-ring" />
+                      <span className="battle-hit-number">−{gameState.history[gameState.history.length - 1].damage}<small>ダメージ</small></span>
+                    </div>}
+                  </div>
                 </div>
                 <div className="battle-status-row">
                   <nav aria-label="バトルから移動" className="battle-navigation">
-                    <button type="button" onClick={() => leaveBattle('title')}><Home size={16} />トップに戻る</button>
-                    <button type="button" onClick={() => leaveBattle('mode-select')}><LayoutGrid size={16} />コース選択に戻る</button>
+                    <button type="button" aria-label="トップに戻る" onClick={() => leaveBattle('title')}><Home size={16} /><span className="battle-nav-full">トップに戻る</span><span className="battle-nav-short">ホーム</span></button>
+                    <button type="button" aria-label="コース選択に戻る" onClick={() => leaveBattle('mode-select')}><LayoutGrid size={16} /><span className="battle-nav-full">コース選択に戻る</span><span className="battle-nav-short">コース</span></button>
                   </nav>
                 <div className="battle-hp max-w-full rounded-lg border border-slate-600 bg-slate-800/80 p-2">
-                  <div className="battle-hp-heading mb-1 flex items-center justify-between gap-2 px-1">
-                    <span className="battle-hp-name monster-display-name">{currentMonster.name}</span>
-                    <span className="battle-hp-level flex-shrink-0 rounded bg-slate-700 px-1.5 py-0.5 font-bold text-slate-200">Lv.{gameState.currentMonsterIndex + 1}</span>
-                  </div>
-                  <div className="h-3 overflow-hidden rounded-full bg-slate-900 shadow-inner"><div className={`relative h-full overflow-hidden transition-all duration-300 ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div>
+                  <div className="battle-hp-caption"><span>相手のHP</span><strong>{gameState.monsterHp <= 0 ? '撃破！' : hpPercent < 30 ? 'あと少し！' : '英語を打って、攻撃しよう'}</strong></div>
+                  <div role="progressbar" aria-label="相手のHP" aria-valuemin={0} aria-valuemax={gameState.maxMonsterHp} aria-valuenow={gameState.monsterHp} className="h-3 overflow-hidden rounded-full bg-slate-900 shadow-inner"><div className={`relative h-full overflow-hidden transition-all duration-300 ${hpPercent < 30 ? 'bg-red-600' : 'bg-green-500'}`} style={{ width: `${hpPercent}%` }}><div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent"></div></div></div>
                   <div className="battle-hp-footer mt-1 flex items-center justify-between gap-2 px-1">
                     <span className="battle-hp-value font-bold text-slate-100">{gameState.monsterHp} / {gameState.maxMonsterHp}</span>
                     <span

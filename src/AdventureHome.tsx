@@ -1,5 +1,5 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { ArrowRight, BookOpen, Headphones, Keyboard, LayoutGrid, Settings, Sword, Bookmark, Sparkles, Star } from 'lucide-react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { ArrowRight, BookOpen, Headphones, Keyboard, LayoutGrid, Settings, Sword, Swords, Bookmark, Sparkles, Star, Compass, SlidersHorizontal, CircleHelp, ChevronDown } from 'lucide-react';
 import { getMonsterArtUrl } from './monsterArt';
 import { getHomeCompanions, type HomeCompanion } from './homeCompanions';
 import './adventure-ui.css';
@@ -17,6 +17,10 @@ type Props = {
 // Presentation only: all progress, profile selection and navigation come from App.
 let previousCompanions: readonly HomeCompanion[] = [];
 export default function AdventureHome(p: Props) {
+  const [showBeginnerLinks, setShowBeginnerLinks] = useState(false);
+  const beginnerLinksRef = useRef<HTMLElement>(null);
+  useEffect(() => { if (showBeginnerLinks) beginnerLinksRef.current?.scrollIntoView({ block: 'nearest' }); }, [showBeginnerLinks]);
+  const openBeginnerDestination = (action: () => void) => { setShowBeginnerLinks(false); action(); };
   const [companions] = useState(() => getHomeCompanions(p.monsterCourse, p.monsterId, previousCompanions));
   useEffect(() => { previousCompanions = companions; }, [companions]);
   return <main className="adventure-home">
@@ -26,7 +30,7 @@ export default function AdventureHome(p: Props) {
         <div className="adventure-course"><div><h1>{p.course}</h1></div><p>{p.content} ／ {p.mode}</p></div>
         <button className="adventure-primary" onClick={p.onResume}><Sword size={24} /><span>{p.hasStarted ? '前回の続きから' : '教材を選んではじめる'}</span><ArrowRight size={22} /></button>
         {p.hasStarted && <button className="adventure-course-button" onClick={p.onCourse}><LayoutGrid size={21} /><span>教材を選ぶ</span><ArrowRight size={19} /></button>}
-        <button className="adventure-beginner" onClick={p.onTyping}><Keyboard size={22} /><span>はじめてのタイピング練習</span><ArrowRight size={18} /></button>
+        <button className="adventure-versus" onClick={p.onVersus}><Swords size={23} /><span>対戦で腕試し</span><small>1〜5人</small><ArrowRight size={18} /></button>
       </div>
       <div className="adventure-cast">
         <div className="adventure-magic-circle" />
@@ -42,6 +46,15 @@ export default function AdventureHome(p: Props) {
       <div className="adventure-destination is-grammar"><BookOpen /><h2>文法一覧</h2><span>一文から、しくみを見つけよう。</span><div className="adventure-grammar-action">{p.grammar}</div></div>
       <button className="adventure-destination is-collection" onClick={p.onBook}><Star /><h2>モンスター図鑑</h2><span>集めた出会いが、宝物。</span><img src={getMonsterArtUrl('c3_13', 'Eiken2')} alt="" /></button>
     </div>
-    <footer className="adventure-footer"><button onClick={p.onBeginner}>初心者向けガイド</button><button onClick={p.onVersus}>対戦（1〜5人）</button><button onClick={p.onPlaybackSettings}>再生設定</button><button onClick={p.onHelp}>遊び方</button><button onClick={p.onSettings}><Settings size={16} />設定・データ</button></footer>
+    <footer className="adventure-footer">
+      <button aria-expanded={showBeginnerLinks} aria-controls="adventure-beginner-links" onClick={() => setShowBeginnerLinks(open => !open)}><Compass size={19} />はじめての方へ<ChevronDown size={15} className={showBeginnerLinks ? 'is-open' : ''} /></button>
+      <button onClick={p.onPlaybackSettings}><SlidersHorizontal size={18} />再生設定</button>
+      <button onClick={p.onSettings}><Settings size={18} />設定・データ</button>
+    </footer>
+    <nav ref={beginnerLinksRef} id="adventure-beginner-links" className="adventure-beginner-links" aria-label="はじめての方へ" hidden={!showBeginnerLinks}>
+      <button onClick={() => openBeginnerDestination(p.onBeginner)}><Compass size={22} /><span><strong>初心者向けガイド</strong><small>学習の始め方を確認</small></span><ArrowRight size={17} /></button>
+      <button onClick={() => openBeginnerDestination(p.onTyping)}><Keyboard size={22} /><span><strong>はじめてのタイピング練習</strong><small>キーの場所からゆっくり練習</small></span><ArrowRight size={17} /></button>
+      <button onClick={() => openBeginnerDestination(p.onHelp)}><CircleHelp size={22} /><span><strong>遊び方</strong><small>操作やルールを確認</small></span><ArrowRight size={17} /></button>
+    </nav>
   </main>;
 }

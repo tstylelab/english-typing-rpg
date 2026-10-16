@@ -6,6 +6,7 @@ import './interface-typography.css'
 import './result-ui.css'
 import './review-polish.css'
 import './interface-finish.css'
+import './battle-encounter.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
