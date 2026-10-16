@@ -779,11 +779,11 @@ const countDefeatedMonstersForBook = (
   monsters: Monster[],
   defeatedMonsterIds: string[],
   difficulty: Difficulty,
-  level: Level,
-  mode: Extract<Mode, 'guide' | 'challenge'>
+  level: Level
 ) => (
   monsters.filter(monster => (
-    isMonsterDefeatedForBook(defeatedMonsterIds, difficulty, level, mode, monster.id)
+    isMonsterDefeatedForBook(defeatedMonsterIds, difficulty, level, 'guide', monster.id)
+    || isMonsterDefeatedForBook(defeatedMonsterIds, difficulty, level, 'challenge', monster.id)
   )).length
 );
 
@@ -8009,15 +8009,13 @@ export default function App() {
       visibleGuideMonsters,
       gameState.defeatedMonsterIds,
       bookDifficulty,
-      bookLevel,
-      'guide'
+      bookLevel
     );
     const challengeDefeatedCount = countDefeatedMonstersForBook(
       visibleChallengeMonsters,
       gameState.defeatedMonsterIds,
       bookDifficulty,
-      bookLevel,
-      'challenge'
+      bookLevel
     );
     const isMonsterDefeatedInBook = (monsterId: string) => (
       isMonsterDefeatedForBook(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'guide', monsterId)
