@@ -54,7 +54,11 @@
 .journey-zone-battle{border-color:#e5b45f;background:linear-gradient(140deg,#493321b3,#231b32db)}
 .journey-zone-heading {margin-bottom:13px;padding:0 3px}.journey-zone-heading>div{display:flex;align-items:center;gap:10px;color:#a0eee0}.journey-zone-battle .journey-zone-heading>div{color:#ffe0a3}.journey-zone-heading h2{font-size:22px;font-weight:900}.journey-zone-heading p{font-size:13px;color:#ccdae4;margin:3px 0 0 37px}
 .journey-mode-card {position:relative;border:1px solid #738a966b;border-radius:9px;background:linear-gradient(120deg,#172d40f5,#0b1e32db);overflow:hidden}.journey-mode-card+.journey-mode-card{margin-top:12px}.journey-zone-battle .journey-mode-card{border-color:#b699665f;background:linear-gradient(120deg,#302d35f5,#1a2132e6)}
-.journey-mode-card[data-cleared=true]{border-color:#ddbc67}.journey-mode-card:hover{border-color:#dbd8b6;background:#203a4e}
+.journey-mode-card:hover{border-color:#dbd8b6;background:#203a4e}
+.journey-zone .journey-mode-card[data-cleared=true]{border-color:#eac768;background:linear-gradient(120deg,#493d25f5,#292b35f5);box-shadow:inset 0 0 0 1px #ebc86c78,0 0 16px #f1c55a12}
+.journey-zone .journey-mode-card[data-cleared=true]:hover{background:linear-gradient(120deg,#5a4828,#33343e);border-color:#ffe5a0}
+.journey-mode-clear-badge{display:inline-flex;align-items:center;gap:4px;vertical-align:middle;margin:6px 8px 6px 0;padding:2px 7px;border:1px solid #f4d478;border-radius:4px;background:#f2cd73;color:#31230b;font-size:13px;font-weight:700;line-height:1.35}
+.journey-mode-clear-badge svg{flex-shrink:0}
 .journey-mode-start {display:grid;grid-template-columns:minmax(0,1fr) 124px;width:100%;text-align:left;gap:6px;padding:14px 12px 8px}
 .journey-mode-copy{min-width:0}.journey-mode-title{display:flex;align-items:center;gap:8px;color:#f1f6fb}.journey-mode-title svg{flex-shrink:0;color:#b4e6e8}.journey-zone-battle .journey-mode-title svg{color:#f1d39b}.journey-mode-title h3{font-weight:900;font-size:20px;line-height:1.35}
 .journey-mode-clue{display:inline-block;color:#b0e4e8;font-size:12px;background:#7ec6d014;border:1px solid #76b8c03d;border-radius:4px;padding:1px 6px;margin:6px 0}.journey-zone-battle .journey-mode-clue{color:#f1d69f;border-color:#b9995a4a;background:#ca9c4214}

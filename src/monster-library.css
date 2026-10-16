@@ -1,0 +1,66 @@
+/* A collection album; the existing discovery rules and preview gallery stay in App. */
+.monster-library {max-width:1260px}
+.monster-library .monster-library-heading {margin-bottom:18px;align-items:center}
+.monster-library-eyebrow {color:#b9d8df;font-size:14px;margin-bottom:3px;letter-spacing:.08em}
+.monster-library-heading h1 {display:flex;align-items:center;gap:12px}
+.monster-library-heading h1>svg {width:30px;height:30px;color:#f4cf79}
+.monster-library .monster-library-album {padding:22px;border:1px solid #88794f;border-radius:16px;background:radial-gradient(ellipse at 0 0,#22505b80,transparent 45%),radial-gradient(ellipse at 100% 10%,#72513335,transparent 42%),#0c2031;box-shadow:inset 0 0 0 5px #d7c29009,0 20px 60px #0004}
+.monster-album-intro {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid #b19c6545}
+.monster-album-intro p {font-size:clamp(21px,1.7vw,26px);font-weight:700;color:#ffe7b2;line-height:1.4;margin-bottom:5px}
+.monster-album-intro span {font-size:15px;color:#c3d9df}
+.monster-album-emblem {display:flex;align-items:center;gap:10px;color:#f4ce7e;padding:6px 10px;filter:drop-shadow(0 0 12px #e9c66940)}
+.monster-album-emblem svg:first-child {transform:translateY(-8px)}
+.monster-album-emblem svg:last-child {transform:translateY(8px)}
+.monster-library .monster-library-filters {margin-bottom:10px}
+.monster-album-progress {display:flex;align-items:center;gap:14px;margin-bottom:12px;font-size:14px;color:#dfcfa7}
+.monster-album-progress progress {appearance:none;width:180px;max-width:40%;height:8px;border:0;border-radius:5px;overflow:hidden;background:#030e1b}
+.monster-album-progress progress::-webkit-progress-bar {background:#030e1b;border-radius:5px}
+.monster-album-progress progress::-webkit-progress-value {background:linear-gradient(90deg,#4bb3b0,#f5d37b);border-radius:5px}
+.monster-album-progress progress::-moz-progress-bar {background:linear-gradient(90deg,#4bb3b0,#f5d37b)}
+.monster-album-zone {--collection-halo:#55bec342;--collection-color:#9ce1de;margin-top:24px}
+.monster-album-zone.is-battle {--collection-halo:#dc8e4b42;--collection-color:#f5cc92;margin-top:34px}
+.monster-zone-heading {display:flex;align-items:center;gap:18px;margin-bottom:13px;color:var(--collection-color)}
+.monster-zone-heading::after {content:'';height:1px;flex:1;background:linear-gradient(90deg,#a4c7ce55,transparent)}
+.monster-zone-heading h2 {display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700}
+.monster-zone-heading>span {font-size:15px;font-variant-numeric:tabular-nums;color:#c4dbe2;white-space:nowrap}
+.monster-library .monster-book-grid {grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.monster-collection-card {position:relative;isolation:isolate;min-width:0;display:flex;flex-direction:column;align-items:center;padding:28px 12px 12px;border:1px solid #a1915f;border-radius:12px;background:radial-gradient(ellipse at 50% 35%,var(--collection-halo),transparent 67%),linear-gradient(150deg,#17384b,#102333 66%);box-shadow:inset 0 0 0 4px #edda9b08,0 6px 15px #0003}
+.monster-collection-card:nth-child(3n+2) {--collection-halo:#a69ace35}
+.monster-collection-card:nth-child(3n+3) {--collection-halo:#e6bd6035}
+.monster-collection-card::before {content:'';position:absolute;inset:6px;border:1px solid #e3cf8f20;border-radius:7px;z-index:-1;pointer-events:none}
+.monster-collection-number {position:absolute;left:14px;top:11px;font-size:12px;letter-spacing:.07em;font-variant-numeric:tabular-nums;color:#d1bc87}
+.monster-collection-art {position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:168px;margin-bottom:8px}
+.monster-collection-art::before {content:'';position:absolute;bottom:5px;left:50%;width:72%;height:25px;transform:translateX(-50%);border:1px solid #c7ceab66;border-radius:50%;background:radial-gradient(ellipse,#9bceba38,transparent 70%);box-shadow:0 0 14px #a8c7c011;pointer-events:none}
+.monster-collection-art>button {max-width:100%;filter:drop-shadow(0 0 2px #fff4ce55) drop-shadow(0 6px 8px #0007)}
+.monster-collection-art>button>span {display:flex;align-items:center;justify-content:center;max-width:100%}
+.monster-collection-art img,.monster-collection-art svg {max-width:100%;object-fit:contain}
+.monster-collection-name {width:100%;margin:0;padding:5px 0 10px;text-align:center;font-family:inherit;font-size:16px;font-weight:600;line-height:1.45;color:#f5edda;overflow-wrap:anywhere}
+.monster-collection-footer {display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:auto;padding:9px 3px 0;border-top:1px solid #b8c9c833;font-size:13px;color:#9ed1d2}
+.monster-collection-footer strong {font-size:15px;font-weight:600;color:#e5f2ef}
+.monster-collection-footer>span:last-child {color:#d9c490}
+.monster-collection-lock {position:absolute;top:12px;right:12px;color:#8399ac}
+.monster-collection-card.is-locked {border-color:#3c5368;background:radial-gradient(ellipse at 50% 35%,#28465e45,transparent 68%),#0b1c2b;box-shadow:inset 0 0 0 4px #b4d1f004}
+.monster-collection-card.is-locked::before {border-color:#8fa9bf17}
+.monster-collection-card.is-locked .monster-collection-art>button {filter:none}
+.monster-collection-card.is-locked .monster-collection-art::before {border-style:dashed;border-color:#7396ad44;background:none;box-shadow:none}
+.monster-collection-card.is-locked :is(.monster-collection-name,.monster-collection-number,.monster-collection-footer>span:last-child) {color:#9eb4c5}
+@media(hover:hover) {.monster-collection-card.is-discovered:hover {border-color:#f2d382;background-color:#1c394b;box-shadow:inset 0 0 0 4px #edda9b0a,0 0 22px #e1bd6b1c}.monster-collection-art>button:hover {filter:drop-shadow(0 0 5px #fff1ae90) drop-shadow(0 6px 8px #0007)}}
+@media(max-width:640px) {
+  .monster-library {padding:12px 10px}
+  .monster-library .monster-library-album {padding:12px;border-radius:12px}
+  .monster-album-intro {margin-bottom:14px;padding-bottom:12px}
+  .monster-album-intro p {font-size:21px}.monster-album-intro span {font-size:14px}
+  .monster-album-emblem {display:none}
+  .monster-library-heading h1 {gap:8px;font-size:25px}.monster-library-heading h1>svg {display:none}
+  .monster-library .monster-book-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .monster-collection-card {padding:28px 8px 10px}
+  .monster-collection-art {height:138px;margin-bottom:4px}
+  .monster-collection-art img,.monster-collection-art svg {width:100%;height:auto;max-height:138px}
+  .monster-collection-name {font-size:14px;padding-bottom:8px}
+  .monster-collection-footer {font-size:12px;gap:4px;padding-top:7px}
+  .monster-collection-footer strong {font-size:14px}
+  .monster-album-progress {gap:10px;font-size:13px}
+  .monster-library .monster-library-help {font-size:14px}
+  .monster-zone-heading {gap:10px}.monster-zone-heading h2 {font-size:19px}
+}
+@media(max-width:360px) {.monster-library .monster-book-grid {grid-template-columns:1fr}.monster-collection-art {height:166px}.monster-collection-art img,.monster-collection-art svg {max-height:166px;width:auto}}

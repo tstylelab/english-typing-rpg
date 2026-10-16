@@ -51,6 +51,11 @@
 .playback-reading-row[data-reading-part=text] .text-base {font-size:clamp(25px,2vw,34px);font-weight:600;line-height:1.45}
 .playback-reading-row[data-reading-part=example] {border-top:1px solid #d9cbac;padding-top:12px}
 .playback-reading-row[data-active=true] {border-left-color:#187e83;background:#e4efdc}
+.playback-related-words {display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin:8px 12px 12px;padding:12px 15px;border:1px solid #b1c9b8;border-left:3px solid #43847a;border-radius:6px;background:#e9f1e5;color:#234e49}
+.playback-related-words h3 {font-size:15px;font-weight:600;line-height:1.5;white-space:nowrap}
+.playback-related-words ul {display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;list-style:none;margin:0;padding:0;min-width:0}
+.playback-related-words li {font-size:clamp(20px,1.5vw,24px);font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+.playback-related-words li+li {border-left:1px solid #9dbab0;padding-left:20px}
 .playback-reading-row .text-xs {font-size:15px}
 .playback-console .playback-wake-status {margin-top:12px;padding:0;border:0;background:none;gap:8px}
 .playback-wake-status>div {display:flex;flex-wrap:wrap;gap:2px 14px}
@@ -81,4 +86,7 @@
   .playback-reading-row .col-start-2 {grid-column:1}
   .playback-reading-row .text-base {font-size:19px}
   .playback-reading-row[data-reading-part=text] .text-base {font-size:26px}
+  .playback-related-words {margin:8px 8px 12px;padding:10px 12px;gap:6px}
+  .playback-related-words h3 {width:100%}
+  .playback-related-words ul {gap:6px 14px}.playback-related-words li {font-size:20px}.playback-related-words li+li {padding-left:14px}
 }

@@ -32,9 +32,28 @@ const protectedNames = ['STORAGE_KEYS', 'normalizePlayerProfiles', 'normalizePla
   'normalizeDefeatedMonsterIds', 'persistPlayerProfiles', 'readLegacyWorkingSetFromLocalStorage', 'writeProfileDataToWorkingSet',
   'captureCurrentProfileData', 'activatePlayerProfile'];
 const printer = ts.createPrinter({ removeComments: true });
+// Replay positions are the only additive storage change. Strip that field alone
+// for the legacy AST comparison; all original keys and statements remain exact.
+function legacyPrint(node, ast) {
+  const transformed = ts.transform(node, [context => {
+    const visit = n => {
+      if ((ts.isPropertyAssignment(n) || ts.isShorthandPropertyAssignment(n)) && n.name.getText(ast) === 'battleResumePositions') return undefined;
+      if (ts.isExpressionStatement(n) && ts.isCallExpression(n.expression)
+        && n.expression.expression.getText(ast) === 'localStorage.setItem'
+        && n.expression.arguments[0]?.getText(ast) === 'STORAGE_KEYS.battleResumePositions') return undefined;
+      if (ts.isArrayLiteralExpression(n)) return ts.factory.updateArrayLiteralExpression(n,
+        ts.factory.createNodeArray(n.elements.filter(e => !(ts.isIdentifier(e) && e.text === 'battleResumePositions')).map(e => ts.visitNode(e, visit)), n.elements.hasTrailingComma));
+      return ts.visitEachChild(n, visit, context);
+    };
+    return root => ts.visitNode(root, visit);
+  }]);
+  const printed = printer.printNode(ts.EmitHint.Unspecified, transformed.transformed[0], ast);
+  transformed.dispose();
+  return printed;
+}
 for (const name of protectedNames) {
   assert.ok(before.vars.has(name) && after.vars.has(name), name);
-  assert.equal(printer.printNode(ts.EmitHint.Unspecified, after.vars.get(name), after.ast),
+  assert.equal(legacyPrint(after.vars.get(name), after.ast),
     printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} must retain released storage behavior`);
 }
 // Validate all actual helper dependencies too, and execute them rather than test replicas.
@@ -53,7 +72,7 @@ function select(name) {
   if (selected.has(name)) return;
   selected.add(name);
   const node = after.vars.get(name);
-  assert.equal(printer.printNode(ts.EmitHint.Unspecified, node, after.ast), printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} changed since release`);
+  assert.equal(legacyPrint(node, after.ast), printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} changed since release`);
   function refs(n) { if (ts.isIdentifier(n) && n !== node.name) select(n.text); ts.forEachChild(n, refs); }
   refs(node.initializer);
 }
@@ -86,6 +105,7 @@ const fixture = [{id:'existing-child',name:'既存プレイヤー',updatedAt:172
   savedSelectionLists:[{id:'saved',name:'復習リスト',difficulty:'Eiken5',level:1,questionKeys:[qKey],updatedAt:1728000000000}],
 }}, {id:'second',name:'家族',updatedAt:1,data:{defeatedMonsterIds:[defeats[0]]}}];
 const normalized = json(api.normalizePlayerProfiles(fixture));
+assert.deepEqual(normalized[0].data.battleResumePositions, {}, 'Legacy saves need no destructive migration');
 assert.deepEqual(normalized[0].data.defeatedMonsterIds, defeats);
 assert.equal(normalized.length,2); assert.equal(normalized[0].id,fixture[0].id);
 const d=normalized[0].data;
@@ -102,9 +122,18 @@ for (const profile of normalized) {
 api.writeProfileDataToWorkingSet(normalized[0].data);
 assert.equal(api.matchesDefeatedMonster(d.defeatedMonsterIds,'Eiken3',3,'challenge','voice-only','c3_13'),true);
 assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(normalized)))),normalized);
+const replayField = { 'EikenPre2:1:challenge:voice-only': 'c1_7', 'EikenPre2:1:challenge:text-only': 'c1_3' };
+const replayProfiles = json(api.normalizePlayerProfiles([{...normalized[0], data:{...d, battleResumePositions:replayField}}, normalized[1]]));
+assert.deepEqual({...replayProfiles[0].data, battleResumePositions:{}}, d, 'Replay cursor must not change any legacy progress');
+assert.deepEqual(replayProfiles[1], normalized[1], 'Other player is unchanged');
+for (const profile of [replayProfiles[0], replayProfiles[1], replayProfiles[0]]) {
+  api.writeProfileDataToWorkingSet(profile.data);
+  assert.deepEqual(json(api.readLegacyWorkingSetFromLocalStorage()),profile.data, 'Replay position survives reload and player switching');
+}
+assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(replayProfiles)))),replayProfiles, 'Export/import retains cursor and progress');
 const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim();
 assert.equal(dataDiff,'','Question identity, monster catalog and learning rules must remain unchanged in UI integration');
-console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies match ${baseline}; 2-player fixture, all saved progress fields, reload/profile-switch round trip, IDs and curriculum unchanged.`);
+console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; only additive replay field; 2-player fixture, old saves, reload/profile-switch/export round trips, IDs and curriculum unchanged.`);
 
 const companions = require('./homeCompanions.ts');
 const profiles = require('./monsterProfiles.json');

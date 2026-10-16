@@ -1,6 +1,8 @@
 import './journey-select.css';
 import './question-library.css';
 import './playback-player.css';
+import './monster-library.css';
+import { battleResumeScope, normalizeBattleResumePositions, resolveBattleResumeStep, nextBattleResumeId, type BattleResumePositions } from './battleResume';
 import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
@@ -241,6 +243,7 @@ type AutoPlayNowPlaying = {
   translation: string;
   basicMeaning?: string;
   example: string | null;
+  synonyms?: string[];
   activePart: AutoPlayNowPlayingPart;
 };
 
@@ -257,6 +260,7 @@ type ProgressExportPayload = {
 };
 
 type PlayerProfileData = {
+  battleResumePositions?: BattleResumePositions;
   defeatedMonsterIds?: string[];
   bestScores?: Record<string, number>;
   maxKeystrokes?: number;
@@ -2625,6 +2629,7 @@ class SoundEngine {
 const soundEngine = new SoundEngine();
 
 const STORAGE_KEYS = {
+  battleResumePositions: 'etyping_battle_resume_positions',
   defeatedMonsters: 'etyping_defeated_monsters',
   bestScores: 'etyping_best_scores',
   maxKeystrokes: 'etyping_max_keystrokes',
@@ -3171,6 +3176,7 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
 
   return {
     defeatedMonsterIds: normalizeDefeatedMonsterIds(typedValue.defeatedMonsterIds ?? []),
+    battleResumePositions: normalizeBattleResumePositions(typedValue.battleResumePositions),
     bestScores: normalizeBestScores(typedValue.bestScores ?? {}),
     maxKeystrokes: normalizeMaxKeystrokes(typedValue.maxKeystrokes),
     weakQuestions: normalizeQuestionArray(typedValue.weakQuestions ?? []),
@@ -4128,6 +4134,7 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [reviewHistoryUndo]);
   const [savedSelectionLists, setSavedSelectionLists] = useState<SavedSelectionList[]>([]);
+  const [battleResumePositions, setBattleResumePositions] = useState<BattleResumePositions>({});
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
   const [activePlayerId, setActivePlayerId] = useState('');
@@ -4350,6 +4357,7 @@ export default function App() {
 
     return normalizePlayerProfileData({
       defeatedMonsterIds: safeLoadJson<string[]>(STORAGE_KEYS.defeatedMonsters, []),
+      battleResumePositions: normalizeBattleResumePositions(safeLoadJson(STORAGE_KEYS.battleResumePositions, {})),
       bestScores: safeLoadJson<Record<string, number>>(STORAGE_KEYS.bestScores, {}),
       maxKeystrokes: savedMaxKRaw ? parseInt(savedMaxKRaw, 10) : 0,
       weakQuestions: savedWeak,
@@ -4373,6 +4381,7 @@ export default function App() {
   const writeProfileDataToWorkingSet = useCallback((data: PlayerProfileData) => {
     const normalizedData = normalizePlayerProfileData(data);
     localStorage.setItem(STORAGE_KEYS.defeatedMonsters, JSON.stringify(normalizedData.defeatedMonsterIds ?? []));
+    localStorage.setItem(STORAGE_KEYS.battleResumePositions, JSON.stringify(normalizedData.battleResumePositions ?? {}));
     localStorage.setItem(STORAGE_KEYS.bestScores, JSON.stringify(normalizedData.bestScores ?? {}));
     localStorage.setItem(STORAGE_KEYS.maxKeystrokes, String(normalizedData.maxKeystrokes ?? 0));
     localStorage.setItem(STORAGE_KEYS.weakQuestions, JSON.stringify(normalizedData.weakQuestions ?? []));
@@ -4424,6 +4433,7 @@ export default function App() {
     setMarkedQuestionKeysByScope(normalizedData.markedQuestionKeysByScope ?? {});
     setReviewHistoryKeysByScope(normalizedData.reviewHistoryKeysByScope ?? {});
     setSavedSelectionLists(normalizedData.savedSelectionLists ?? []);
+    setBattleResumePositions(normalizedData.battleResumePositions ?? {});
   }, []);
 
   const getCurrentActivePlayer = useCallback(() => (
@@ -4432,6 +4442,7 @@ export default function App() {
 
   const captureCurrentProfileData = useCallback((): PlayerProfileData => normalizePlayerProfileData({
     defeatedMonsterIds: gameState.defeatedMonsterIds,
+    battleResumePositions,
     bestScores,
     maxKeystrokes,
     weakQuestions,
@@ -4451,6 +4462,7 @@ export default function App() {
     savedSelectionLists,
   }), [
     gameState.defeatedMonsterIds,
+    battleResumePositions,
     bestScores,
     maxKeystrokes,
     weakQuestions,
@@ -4575,6 +4587,7 @@ export default function App() {
     setMarkedQuestionKeysByScope(savedMarkedQuestionKeysByScope);
     setReviewHistoryKeysByScope(savedReviewHistoryKeysByScope);
     setSavedSelectionLists(savedSelectionLists);
+    setBattleResumePositions(normalizeBattleResumePositions(safeLoadJson(STORAGE_KEYS.battleResumePositions, {})));
     reviewQueueRef.current = normalizedReviewQueue;
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedReviewQueue));
     setDailyProgress(normalizedDailyProgress);
@@ -4641,6 +4654,19 @@ export default function App() {
   const getManualQuestionStatus = (difficulty: Difficulty, level: Level, question: Question) => (
     manualQuestionStatuses[getQuestionStatusKey(difficulty, level, question)] ?? getDefaultManualQuestionStatus()
   );
+
+  const getBattleResumeStep = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode, list: Monster[], indices: number[]) =>
+    resolveBattleResumeStep(indices.map(index => list[index].id), battleResumePositions[battleResumeScope(difficulty, level, mode, inputMode)],
+      id => matchesDefeatedMonster(gameState.defeatedMonsterIds, difficulty, level, mode, inputMode, id));
+
+  const rememberBattlePosition = (difficulty: Difficulty, level: Level, mode: Mode, inputMode: InputMode, monsterId: string | undefined) => {
+    if (mode === 'weakness' || !monsterId) return;
+    const positions = { ...battleResumePositions, [battleResumeScope(difficulty, level, mode, inputMode)]: monsterId };
+    setBattleResumePositions(positions);
+    localStorage.setItem(STORAGE_KEYS.battleResumePositions, JSON.stringify(positions));
+    // The profile effect saves this alongside the updated victory/learning state.
+    // Saving a captured profile here would still contain the previous render's wins.
+  };
 
   const isQuestionExcluded = (difficulty: Difficulty, level: Level, question: Question) => (
     getManualQuestionStatus(difficulty, level, question).excluded
@@ -6276,8 +6302,10 @@ export default function App() {
       STORAGE_KEYS.reviewHistoryKeysByScope,
       STORAGE_KEYS.savedSelectionLists,
       STORAGE_KEYS.beginnerBattleProgress,
+      STORAGE_KEYS.battleResumePositions,
     ].forEach(key => localStorage.removeItem(key));
     setBestScores({});
+    setBattleResumePositions({});
     setMaxKeystrokes(0);
     setWeakQuestions([]);
     setWeakQuestionStats({});
@@ -6435,21 +6463,10 @@ export default function App() {
     }
 
     let startStep = 0;
-    // Resume Training/Challenge from the first undefeated monster.
-    // If all target monsters are already defeated, start from the beginning for replay.
+    // Old saves resume from the first undefeated monster. New sessions also
+    // remember replay progress after the course has already been completed.
     if (mode === 'guide' || mode === 'challenge') {
-      const nextUndeatedStep = indices.findIndex(monsterIndex => {
-        return !matchesDefeatedMonster(
-          gameState.defeatedMonsterIds,
-          diff,
-          level,
-          mode,
-          inputMode,
-          selectedList[monsterIndex].id
-        );
-      });
-
-      startStep = nextUndeatedStep >= 0 ? nextUndeatedStep : 0;
+      startStep = getBattleResumeStep(diff, level, mode, inputMode, selectedList, indices);
     }
 
     initBattle(diff, level, mode, inputMode, startStep, indices, selectedList, totalStageMonsters, 0, 0,
@@ -6510,6 +6527,7 @@ export default function App() {
     }
 
     aiStudyRecorder.beginBattle();
+    rememberBattlePosition(diff, level, mode, inputMode, startingMonster.id);
     recordQuestionPresentation(diff, level, question);
     aiStudyRecorder.start(getStudyContext(question, diff, level, mode, inputMode));
     setGameState(prev => ({
@@ -6952,6 +6970,8 @@ export default function App() {
       
       if (gameState.mode !== 'weakness') { 
           saveDefeatedMonster(monster.id); 
+          rememberBattlePosition(gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode,
+            nextBattleResumeId(gameState.challengeModeIndices.map(index => gameState.currentMonsterList[index].id), gameState.currentMonsterIndex));
       }
 
       const isLastMonster = gameState.currentMonsterIndex >= gameState.totalMonstersInStage - 1;
@@ -7760,6 +7780,7 @@ export default function App() {
       }) => {
         nextEntries.push({
           ...entry,
+          nowPlaying: { ...entry.nowPlaying, synonyms: getQuestionSynonyms(difficulty, level, question) },
           questionIndex,
           gapAfterSeconds: autoPlaySettings.itemGapSeconds,
         });
@@ -8022,38 +8043,40 @@ export default function App() {
       <ScreenContainer navigation={appNavigation} className="bg-slate-900">
         <div className="monster-library max-w-6xl w-full p-4">
            <div className="monster-library-heading">
-              <h1>モンスター図鑑</h1>
+              <div><p className="monster-library-eyebrow">冒険のコレクション</p><h1><BookOpen aria-hidden="true" />モンスター図鑑</h1></div>
               <button onClick={() => setGameState(prev => ({ ...prev, screen: 'title' }))}><Home size={18} />ホームへ</button>
            </div>
-           <Box className="w-full">
+           <Box className="monster-library-album w-full" contentClassName="p-0">
+               <div className="monster-album-intro"><div><p>一体ずつ、出会いを集めよう。</p><span>倒したモンスターが、あなたの図鑑を彩ります。</span></div><div className="monster-album-emblem" aria-hidden="true"><Star size={18} /><BookOpen size={38} /><Star size={18} /></div></div>
                <div className="monster-library-filters">
                  <label>教材<select value={bookDifficulty} onChange={event => updateBookDifficulty(event.target.value as Difficulty)}>{DIFFICULTIES.map(diff => <option key={diff} value={diff}>{DIFFICULTY_LABELS[diff]}</option>)}</select></label>
                  <label>Level<select value={bookLevel} onChange={event => setBookLevel(Number(event.target.value) as Level)}>{availableBookLevels.map(lvl => <option key={lvl} value={lvl}>Level {lvl}</option>)}</select></label>
                  <p><Trophy size={20} /><span>この教材・Levelの撃破 <strong>{totalDefeated} / {allMonsters.length}</strong>体</span></p>
                </div>
+               <div className="monster-album-progress"><progress aria-label="この教材・Levelの図鑑の完成度" value={totalDefeated} max={allMonsters.length} /><span>{totalDefeated === allMonsters.length ? 'このページのモンスター、勢ぞろい！' : `あと${allMonsters.length - totalDefeated}体で、このページが完成`}</span></div>
                <div className="monster-library-help"><p>イラストを押すと拡大。拡大画面では前後のモンスターも見られます。</p><details><summary>図鑑の進み方</summary><p>同じ級・Levelのキャラクターは、出題方法が違っても共通です。倒すと姿と名前がはっきり見られます。</p></details></div>
-               <div className="mb-8">
-                 <h3 className="text-blue-300 font-bold mb-4 flex items-center gap-2 text-xl"><Shield size={20} /> 練習エリア (Training Zone)</h3>
+               <section className="monster-album-zone" aria-label="練習エリア">
+                 <div className="monster-zone-heading"><h2><Shield size={22} />練習エリア</h2><span>{guideDefeatedCount} / {visibleGuideMonsters.length}体</span></div>
                  <div className="monster-book-grid">
                     {visibleGuideMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'training', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'guide', 'voice-text');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-slate-700/50 border-slate-500' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name">{m.name}</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-75"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-cyan-500/30 bg-cyan-950/70 px-2 py-1 text-[11px] font-black text-cyan-200">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<article key={m.id} className={`monster-collection-card ${isDefeated ? 'is-discovered' : 'is-locked'}`} aria-label={isDefeated ? m.name : `未撃破のモンスター ${index + 1}`}><span className="monster-collection-number">No. {String(index + 1).padStart(2, '0')}</span><div className="monster-collection-art"><MonsterPreview name={m.name} locked={!isDefeated} gallery={{ items: bookPreviewItems, index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={166} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><h3 className="monster-collection-name">{isDefeated ? m.name : '???'}</h3><div className="monster-collection-footer"><span>HP <strong>{displayHp}</strong></span><span>{isDefeated ? '撃破済み' : 'まだ見ぬ相手'}</span></div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <Lock className="monster-collection-lock" size={16} aria-label="未撃破" />}</article>);
                     })}
                  </div>
-               </div>
-               <div>
-                 <h3 className="text-red-400 font-bold mb-4 flex items-center gap-2 text-xl"><Skull size={20} /> 危険エリア (Danger Zone)</h3>
+               </section>
+               <section className="monster-album-zone is-battle" aria-label="危険エリア">
+                 <div className="monster-zone-heading"><h2><Skull size={22} />危険エリア</h2><span>{challengeDefeatedCount} / {visibleChallengeMonsters.length}体</span></div>
                  <div className="monster-book-grid">
                     {visibleChallengeMonsters.map((m, index, monsters) => {
                       const isDefeated = isMonsterDefeatedInBook(m.id);
                       const completedBoth = hasClearedBothMonsterBookModes(gameState.defeatedMonsterIds, bookDifficulty, bookLevel, 'battle', m.id);
                       const displayHp = getBookMonsterHp(m, index, monsters, 'challenge', 'text-only');
-                      return (<div key={m.id} className={`relative p-4 rounded-xl flex flex-col items-center justify-center text-center transition-all border-2 ${isDefeated ? 'bg-red-900/20 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'bg-slate-900/50 border-slate-800 opacity-70'}`}>{isDefeated ? (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="monster-book-name monster-book-name--battle">{m.name}</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><MonsterBookStars completedBoth={completedBoth} /></>) : (<><div className="mb-2 scale-90"><MonsterPreview name={m.name} locked gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={100} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><div className="font-bold text-sm text-slate-600 mb-1">???</div><div className="mb-1 rounded-full border border-red-500/30 bg-red-950/70 px-2 py-1 text-[11px] font-black text-red-100">HP {displayHp}</div><div className="absolute top-2 right-2 text-slate-700"><Lock size={16} /></div></>)}</div>);
+                      return (<article key={m.id} className={`monster-collection-card ${isDefeated ? 'is-discovered' : 'is-locked'}`} aria-label={isDefeated ? m.name : `未撃破のモンスター ${visibleGuideMonsters.length + index + 1}`}><span className="monster-collection-number">No. {String(visibleGuideMonsters.length + index + 1).padStart(2, '0')}</span><div className="monster-collection-art"><MonsterPreview name={m.name} locked={!isDefeated} gallery={{ items: bookPreviewItems, index: visibleGuideMonsters.length + index }}><MonsterAvatar monsterId={m.id} difficulty={bookDifficulty} lazy type={m.type} color={m.color} size={166} visualStyle={getMonsterVisualStyle(m)} /></MonsterPreview></div><h3 className="monster-collection-name">{isDefeated ? m.name : '???'}</h3><div className="monster-collection-footer"><span>HP <strong>{displayHp}</strong></span><span>{isDefeated ? '撃破済み' : 'まだ見ぬ相手'}</span></div>{isDefeated ? <MonsterBookStars completedBoth={completedBoth} /> : <Lock className="monster-collection-lock" size={16} aria-label="未撃破" />}</article>);
                     })}
                  </div>
-               </div>
+               </section>
            </Box>
         </div>
       </ScreenContainer>
@@ -8155,6 +8178,7 @@ export default function App() {
       translation: getQuestionMeaning(previewItem.question, previewItem.difficulty),
       basicMeaning: previewItem.question.basicMeaning,
       example: getQuestionExample(previewItem.difficulty, previewItem.level, previewItem.question),
+      synonyms: getQuestionSynonyms(previewItem.difficulty, previewItem.level, previewItem.question),
       activePart: null,
     } : null);
     const learningLevelSelectionOptions: Array<{ level: LearningLevel; label: string; questions: Question[]; className: string }> = wordListToolsOpen ? [
@@ -8643,6 +8667,12 @@ export default function App() {
                             </div>
                           )}
                         </div>
+                        {!!displayedAutoPlayQuestion.synonyms?.length && (
+                          <section className="playback-related-words" aria-label="類義語・関連語">
+                            <h3>類義語・関連語</h3>
+                            <ul>{displayedAutoPlayQuestion.synonyms.map(word => <li key={word} lang="en">{word}</li>)}</ul>
+                          </section>
+                        )}
                         {displayedAutoPlayQuestion.example && (
                           <div data-reading-part="example" data-active={displayedAutoPlayQuestion.activePart === 'example'} className="playback-reading-row">
                             <div className="text-[11px] font-bold uppercase tracking-wide text-slate-400">例文</div>
@@ -9781,7 +9811,7 @@ export default function App() {
         nextBattleList[monsterIndex].id
       )
     ));
-    const nextBattleDisplayStep = nextBattleStep >= 0 ? nextBattleStep : 0;
+    const nextBattleDisplayStep = getBattleResumeStep(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode, nextBattleList, nextBattleIndices);
     const nextBattleMonsterIndex = nextBattleIndices[nextBattleDisplayStep] ?? 0;
     const nextBattleMonster = nextBattleList[nextBattleMonsterIndex] ?? nextBattleList[0];
     const nextBattleBossStage = getBossStage(nextBattleMode, nextBattleInputMode, nextBattleDisplayStep, nextBattleIndices.length);
@@ -9825,7 +9855,7 @@ export default function App() {
                 hasStarted={hasStartedMainGame} monsterName={nextBattleMonster?.name ?? '冒険の仲間'}
                 monsterCourse={gameState.selectedDifficulty} monsterId={nextBattleMonster?.id}
                 monsterTaunt={nextBattleMonster ? getTitleMonsterTaunt(nextBattleMonster, `${getTodayKey()}:${nextBattleProgress}:${todayQuestionCount}:${totalDefeated}`) : undefined}
-                monsterDetails={`${nextBattleIsComplete ? 'クリア済み · もう一度挑戦' : `Stage ${Math.min(nextBattleDisplayStep + 1, nextBattleIndices.length)}/${nextBattleIndices.length}`} · HP ${nextBattleHp}`}
+                monsterDetails={`${nextBattleIsComplete ? '全クリア済み · 再挑戦 ' : ''}Stage ${Math.min(nextBattleDisplayStep + 1, nextBattleIndices.length)}/${nextBattleIndices.length} · HP ${nextBattleHp}`}
                 monster={nextBattleMonster && <MonsterPreview name={nextBattleMonster.name}><MonsterAvatar monsterId={nextBattleMonster.id} difficulty={gameState.selectedDifficulty} type={nextBattleMonster.type} color={nextBattleMonster.color} size={360} visualStyle={getMonsterVisualStyle(nextBattleMonster)} /></MonsterPreview>}
                 grammar={<GrammarGuide key={titleGrammarCourse} course={titleGrammarCourse ?? 'Eiken5'} playerId={activePlayerId} initialOpen={!!previewGrammarCourse} label="文法一覧を開く" allowCourseSelection />}
                 onResume={() => hasStartedMainGame ? startGame(gameState.selectedDifficulty, gameState.selectedLevel, nextBattleMode, nextBattleInputMode) : setGameState(prev => ({ ...prev, screen: 'level-select' }))}
@@ -10192,7 +10222,7 @@ export default function App() {
               ? null
               : list[nextMonsterIndex]?.name ?? null,
             isComplete: nextMonsterIndex == null,
-            monster: list[nextMonsterIndex ?? targetIndices[0]],
+            monster: list[targetIndices[getBattleResumeStep(gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, list, targetIndices)]],
             clearedCount: targetIndices.filter(index => matchesDefeatedMonster(gameState.defeatedMonsterIds, gameState.selectedDifficulty, gameState.selectedLevel, mode, inputMode, list[index]?.id ?? '')).length,
             targetCount: targetIndices.length,
         };
@@ -10226,9 +10256,10 @@ export default function App() {
                 <button type="button" className="journey-mode-start" onClick={() => startGame(gameState.selectedDifficulty, gameState.selectedLevel, choice.mode, choice.inputMode)}>
                   <div className="journey-mode-copy">
                     <div className="journey-mode-title">{choice.icon}<h3>{choice.title}</h3></div>
+                    {choice.status.isComplete && <span className="journey-mode-clear-badge"><Crown size={14} />全クリア済み</span>}
                     <span className="journey-mode-clue">{choice.clue}</span>
                     <p>{choice.description}</p>
-                    <div className="journey-mode-progress">{choice.status.isComplete ? <><Crown size={16} /> 全クリア</> : <><Target size={16} /> 撃破 {choice.status.clearedCount} / {choice.status.targetCount}体</>}<span>{choice.status.isComplete ? 'もう一度挑戦' : 'ここから開始'} <ArrowRight size={16} /></span></div>
+                    <div className="journey-mode-progress"><Target size={16} /> 撃破 {choice.status.clearedCount} / {choice.status.targetCount}体<span>{choice.status.isComplete ? '再挑戦を続ける' : 'ここから開始'} <ArrowRight size={16} /></span></div>
                   </div>
                 </button>
                 <div className="journey-mode-monster">{choice.status.monster && <MonsterPreview name={choice.status.monster.name}><MonsterAvatar monsterId={choice.status.monster.id} difficulty={gameState.selectedDifficulty} type={choice.status.monster.type} color={choice.status.monster.color} size={124} visualStyle={getMonsterVisualStyle(choice.status.monster)} /></MonsterPreview>}</div>
