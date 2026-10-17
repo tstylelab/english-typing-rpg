@@ -40,6 +40,8 @@ import MonsterPreview from './MonsterPreview';
 import MonsterBookStars from './MonsterBookStars';
 import MonsterBattleReveal from './MonsterBattleReveal';
 import { applyMonsterProfile } from './monsterProfiles';
+import { applyMonsterDialogue } from './monsterDialogues';
+import MonsterBattleSpeech from './MonsterBattleSpeech';
 import { createLearningQuestionBalance, selectLearningBalancedQuestion, selectLongTextLearningQuestion, type LearningQuestionBalance } from './learningQuestionBalance';
 import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStudyReview';
 import AiStudyReviewPanel from './AiStudyReviewPanel';
@@ -3717,8 +3719,8 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
 
 // --- Components ---
 const getCourseMonsters = (difficulty: Difficulty, level: Level) => ({
-  guide: MONSTERS[level].guide.map(monster => applyMonsterProfile(difficulty, monster)),
-  challenge: MONSTERS[level].challenge.map(monster => applyMonsterProfile(difficulty, monster)),
+  guide: MONSTERS[level].guide.map(monster => applyMonsterDialogue(difficulty, applyMonsterProfile(difficulty, monster))),
+  challenge: MONSTERS[level].challenge.map(monster => applyMonsterDialogue(difficulty, applyMonsterProfile(difficulty, monster))),
 });
 // Use each battle's actual stage list, including the final and all hidden bosses.
 const hasClearedBattleLevel = (defeatedKeys: ReadonlySet<string>, difficulty: Difficulty, level: Level) => {
@@ -10422,7 +10424,12 @@ export default function App() {
                   {gameState.combo >= 3 ? <span key={gameState.combo} className="battle-streak" data-milestone={[3, 5, 10].includes(gameState.combo)}><Flame size={17} aria-hidden="true" /><strong>{gameState.combo}</strong>連続正解<span>{comboLabel}</span></span> : <span className="battle-streak-hint"><Sword size={16} aria-hidden="true" />{isBoss ? 'ボスに挑戦！' : '英語を力に、一撃ずつ。'}</span>}
                 </div>
                 <div className="battle-character-row">
-                  <div className="battle-dialogue"><span className="battle-dialogue-label">相手のひとこと</span><span>{monsterDialogue}</span></div>
+                  <div className="battle-dialogue"><span className="battle-dialogue-label">相手のひとこと</span><MonsterBattleSpeech
+                    course={gameState.selectedDifficulty} monsterId={currentMonster.id}
+                    encounterKey={JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel, gameState.mode, gameState.inputMode, currentMonster.id, gameState.currentMonsterIndex, gameState.battleStartScore, gameState.battleStartKeystrokes])}
+                    questionNumber={gameState.questionCount} hpRate={hpPercent / 100} isDefeated={gameState.monsterHp <= 0}
+                    fallbackText={monsterDialogue} fallbackDefeat={currentMonster.dialogueDefeat}
+                  /></div>
                   <div className="battle-stage-art">
                     <div className="battle-summon-ring" aria-hidden="true" />
                     <div className={`battle-avatar transition-transform duration-100 relative ${flash ? 'translate-x-2 -translate-y-2 brightness-150 saturate-150' : monsterShake ? 'animate-shake brightness-110' : 'animate-bounce-slow'}`}><MonsterBattleReveal key={`${gameState.selectedDifficulty}:${currentMonster.id}:${gameState.mode}:${gameState.inputMode}`} kind="entry" name={currentMonster.name} enabled={!showBossIntro}><MonsterAvatar monsterId={currentMonster.id} difficulty={gameState.selectedDifficulty} type={currentMonster.type} color={currentMonster.color} emotion={monsterEmotion} size={220} visualStyle={getMonsterVisualStyle(currentMonster)} /></MonsterBattleReveal></div>
