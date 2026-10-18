@@ -1,0 +1,137 @@
+import {applyReview} from './lib/apply-translation-prompt-review.mjs';
+const all={EikenPre1Part1:[],EikenPre1Part2:[]};
+const add=(course,text,meaning,alternatives,contrasts,reason='出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。')=>all[course].push({text,meaning,alternatives,contrasts,reason});
+const a=(...args)=>add('EikenPre1Part1',...args),b=(...args)=>add('EikenPre1Part2',...args);
+// Part 1, items 1–40.
+a('account for','','explain|理由などを説明する;make up|全体の割合を占める');
+a('accuse A of B','AをBのことで非難する・告発する（Bは名詞・-ing形）',undefined,undefined,'非難と告発の意味、対象となる行為の形を示す。');
+a('act on','（助言・情報など）に基づいて行動する',undefined,undefined,'行動の根拠になる対象を補う。');
+a('act out','','perform|役・場面を演じる');
+a('add up to','','amount to|合計・結果が〜になる','add up|数字などを足し合わせる');
+a('air out','（部屋・衣類など）に風を通す・換気する','ventilate|部屋などの換気をする');
+a('answer for','（行為・結果など）の責任を負う','be accountable for|〜について説明責任を負う');
+a('aspire to do','高い目標として〜することを熱望する（doは動詞の原形）','aim to do|〜することを目指す');
+a('attribute A to B','Aの原因・理由はBだと考える／AをBの作とする（Bは原因・作者）',undefined,undefined,'原因・作者側がどちらかを明示し、向きの誤解を防ぐ。');
+a('back down','','give in|譲歩して折れる');
+a('be committed to','〜に尽力している・専念している（後ろに名詞・-ing形）','be dedicated to|〜に献身・専念している');
+a('be free of','','be free from|害・負担などがない');
+a('bounce back','','recover|不調などから回復する');
+a('bring off','','pull off|難しいことをやってのける');
+a('bring on','','cause|病気・問題などを引き起こす');
+a('by means of','','using|手段として〜を使って');
+a('check off','確認した項目にチェック印を付ける','tick off|項目にチェックを付ける','cross out|線を引いて消す','チェック印は確認・完了の印であり、必ずしも項目の抹消ではない。');
+a('chip in','','contribute|お金・労力を出す');
+// Part 1, items 41–80.
+a('clear up','','resolve|問題・誤解を解決する');
+a('come down to','','boil down to|結局は〜に尽きる');
+a('come down with','','catch|風邪などにかかる');
+a('cover for','','stand in for|不在の人の代役を務める');
+a('cover up','','conceal|事実などを隠す');
+a('cross out','','strike out|線を引いて消す');
+a('cut back on','','cut down on|支出・量などを減らす');
+a('cut in on','（会話・活動など）に割り込む','interrupt|会話などを妨げる');
+a('deal in','（商品など）を商う・扱う',undefined,'deal with|問題などに対処する');
+a('deprive A of B','AからBを奪う（Aは奪われる人・もの）','rob A of B|AからBを奪う');
+a('die down','','subside|勢いが弱まる・静まる');
+a('draw up','','prepare|書類・計画などを作成する');
+a('eat up','','use up|時間・資源を使い尽くす');
+a('embark on','（新しい計画・事業など）に乗り出す','launch into|新しい活動などに取りかかる');
+a('even up','','even out|差をならす・均等にする');
+a('fall back on','','resort to|最後の手段として〜に頼る');
+// Part 1, items 81–120.
+a('feel for','（人）に同情する／手探りで〜を探す','sympathize with|人に同情する');
+a('fix up','','repair|壊れた物を修理する;arrange|予定などを手配する');
+a('for all','','despite|〜にもかかわらず');
+a('frown on','〜を好ましく思わない・難色を示す','disapprove of|行動などに不賛成である');
+a('gear up','','prepare|準備をする');
+a('get on with','（仕事など）を進める／（人）と仲よくする','carry on with|作業などを続ける;get along with|人と仲よくやる');
+a('go back on','','break|約束などを破る');
+a('grow on','（時間がたつにつれ、人に）だんだん好かれるようになる',undefined,undefined,'好きになる側の人を後ろに置くことが分かるようにする。');
+a('hand down','','pass down|次の世代へ伝える');
+a('hand off','','hand over|手渡す・引き継ぐ');
+a('hold off','','put off|決定・行動を先延ばしにする');
+a('hold over','','postpone|予定などを先送りする');
+a('in the event of','（事故・災害など）の場合には（後ろに名詞）','in case of|〜の場合には');
+a('in response to','（要請・出来事など）への反応として', 'in reply to|〜への返答として');
+a('kick around','','discuss|考えなどをあれこれ話し合う');
+// Part 1, items 121–157.
+a('lay into','〜を激しく非難する','attack|人・意見などを激しく非難する');
+a('let up','','ease off|雨・勢いなどが弱まる');
+a('lift off','','take off|飛行機などが離陸する');
+a('make ends meet','収入の範囲で何とか生活する・収支を合わせる',undefined,undefined,'単なる会計の一致ではなく、暮らしのやりくりを示す。');
+a('make do with','十分でない〜で間に合わせる','get by with|手持ちのもので何とかやる');
+a('on behalf of A','Aを代表して・Aに代わって',undefined,undefined,'代理の用法も残す。');
+a('phase out','','gradually discontinue|段階的に使用をやめる');
+a('play down','','downplay|重要性を小さく見せる');
+a('play up','','emphasize|重要性などを強調する');
+a('pull off','','bring off|難しいことをやってのける');
+a('pull through','','recover|病気・危機から回復する');
+// Part 2, items 1–40.
+b('push for','（変更・要求の実現など）を強く求める','press for|実現を強く求める');
+b('put forth','','put forward|案・意見を提示する');
+b('put forward','','put forth|案・意見を提示する');
+b('refrain from doing','〜するのを控える（doingは動詞の-ing形）','abstain from doing|〜するのを差し控える');
+b('round off','','round out|活動などを締めくくる');
+b('round up','','gather|人・物を集める');
+b('run against','〜に反する／〜を相手に選挙で争う',undefined,undefined,'選挙で争う相手を表すことが分かるようにする。');
+b('run through','','go over|内容を見直す');
+b('scratch out','','cross out|文字を線で消す');
+b('see through','','detect|うそ・ごまかしなどを見抜く');
+b('set off','','set out|出発する;trigger|反応などを引き起こす');
+b('settle up','代金や借金の勘定を済ませる','pay up|支払うべき額を支払う');
+b('single out','','pick out|集団から選び出す');
+b('skim over','','glance over|ざっと目を通す');
+b('spring from','（原因・動機など）から生じる','stem from|〜に由来する');
+b('spring up','','appear suddenly|突然現れる');
+b('stick up for','（人・立場など）をかばう・擁護する','stand up for|人などを擁護する');
+b('stay off','（場所・物）に近づかない・乗らない／（酒など）を控える',undefined,undefined,'場所を避ける用法だけでなく、飲食物等を控える用法も示す。');
+// Part 2, items 41–80.
+b('talk A into doing','Aを説得して〜させる（doingは動詞の-ing形）','persuade A to do|人を説得して〜させる');
+b('tidy up','散らかった物を整理して片づける','straighten up|散らかりを片づける');
+b('tip over','','overturn|ひっくり返す・ひっくり返る');
+b('touch up','（絵・写真など）を少し手直しする','retouch|写真・絵などを修整する');
+b('track down','探し続けて、人・物・情報を見つけ出す','locate|所在を突き止める');
+b('watch over','','keep an eye on|様子を見守る');
+b('agree on','（案・条件など）について合意する','reach agreement on|〜について合意する');
+b('appeal to','（人の心）に訴える・魅力を感じさせる','attract|人をひきつける');
+b('approve of','（考え・行動など）をよいと認める・賛成する',undefined,'approve|計画などを正式に承認する');
+b('be concerned about','','be worried about|〜を心配している');
+b('be inclined to','〜する傾向がある・〜したい気がする（後ろに動詞の原形）','tend to|〜する傾向がある');
+b('be involved in','','be engaged in|活動などに従事している');
+// Part 2, items 81–120.
+b('call for','（状況が）〜を必要とする／〜を強く求める','require|〜を必要とする');
+b('carry out','（計画・実験など）を実行・実施する','conduct|調査・実験などを実施する');
+b('catch up with','遅れを取り戻して〜に追いつく',undefined,'keep up with|遅れず同じペースでついていく');
+b('depend on','（条件や人）に依存する・〜次第である','rely on|人・支援などに頼る');
+b('differ from','','be different from|〜とは異なる');
+b('distinguish A from B','AとBを見分ける・区別する','tell A from B|AとBを見分ける');
+b('figure out','','work out|考えて答えなどを見つける');
+b('get rid of','','dispose of|不要な物を処分する');
+b('in accordance with','','in line with|規則・方針などに従って');
+b('in favor of','','supporting|〜を支持して');
+b('keep up with','（変化・人）に遅れず同じペースでついていく',undefined,'catch up with|遅れていたところから追いつく');
+b('look into','（問題など）を調査する・検討する','investigate|問題などを調査する');
+b('object to','〜に反対する（後ろに名詞・-ing形）','oppose|〜に反対する');
+b('pay attention to','（対象に）注意を向ける・気を配る','take notice of|〜に注意を向ける');
+// Part 2, items 121–158.
+b('result from','（原因として）〜から生じる','stem from|〜に起因する','result in|結果として〜につながる');
+b('run out of','（資源など）の持ち分がなくなる・尽きる','use up|持っている物を使い切る');
+b('set up','','establish|組織などを設立する;install|設備などを設置する');
+b('show up','','turn up|姿を現す');
+b('stand for','','represent|記号などが〜を表す;support|主義などを支持する');
+b('take advantage of','','make use of|機会などを活用する;exploit|人の弱みなどにつけ込む');
+b('turn down','','reject|申し出などを断る;lower|音量などを下げる');
+b('be aware of','（事実・危険など）を認識している','be conscious of|〜を意識している');
+b('bear in mind','','keep in mind|心に留めておく');
+b('have an impact on','','affect|〜に影響を与える');
+b('keep track of','（出費・変化など）を追って把握し続ける',undefined,'lose track of|〜の動きなどが分からなくなる');
+b('on behalf of','（人・組織）を代表して・〜に代わって',undefined,undefined,'代理としての意味も含める。');
+b('pose a threat to','','threaten|〜を脅かす');
+b('in the long run','','in the long term|長期的には');
+b('out of date','','outdated|時代遅れの');
+b('take effect','（法律などが）効力を生じる／効果が現れる','come into effect|規則などが効力を持ち始める');
+for(const [course,edits] of Object.entries(all))applyReview({course,level:2,date:'2026-10-18',edits,auditPath:`docs/translation-prompt-reviews-2026-10-18/${course}-L2.json`,sources:[
+ 'https://dictionary.cambridge.org/dictionary/english/check-off',
+ 'https://dictionary.cambridge.org/dictionary/english/approve',
+ 'https://dictionary.cambridge.org/dictionary/english/take-effect'
+]});

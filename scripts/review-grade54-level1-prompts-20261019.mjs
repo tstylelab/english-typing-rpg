@@ -1,0 +1,51 @@
+import {applyReview} from './lib/apply-translation-prompt-review.mjs';
+const all={Eiken5:[],Eiken4:[]};
+const add=(c,text,meaning,alternatives,contrasts,reason='似た日本語になる語との比較、品詞、対象を短く補い、既存の分かりやすい訳は維持する。')=>all[c].push({text,meaning,alternatives,contrasts,reason});
+const a=(...x)=>add('Eiken5',...x),b=(...x)=>add('Eiken4',...x);
+a('eraser','','rubber|消しゴムの英式の呼び方');
+a('hat','帽子（ふつう、周囲につばのあるもの）',undefined,'cap|前につばがある帽子など','カタカナへの置き換えだけでなく、典型的な形の違いを補う。');
+a('chopstick','箸の一本（単数）',undefined,undefined,'箸一膳という複数の表現との違いを示す。');
+a('bathroom','浴室・洗面所／（特に米語で）トイレ',undefined,undefined,'基本的な英米の用法を残し、浴室だけに限定しない。');
+a('basket','','hamper|ふた付きのかごなど');
+a('gym','体育館・運動施設（短い呼び方）','gymnasium|体育館の略さない呼び方');
+a('stomach','胃・お腹',undefined,undefined,'日常語としてのお腹も含める。');
+a('ready','','prepared|準備のできた');
+a('popular','','well-liked|多くの人に好かれる');
+a('lucky','','fortunate|運のよい');
+a('slow','','unhurried|急がない・ゆっくりした');
+a('sleepy','眠い（眠りたい気分）',undefined,'asleep|眠っている状態');
+a('only','','just|〜だけ');
+a('some','いくつかの・いくらかの',undefined,undefined,'数えられるものにも数えられないものにも使える。');
+a('many','','a lot of|数にも量にも使う、たくさんの');
+a('much','','a lot of|数にも量にも使う、たくさんの');
+b('present','','gift|贈り物');
+b('gift','','present|贈り物');
+b('photo','','photograph|写真の略さない呼び方');
+b('picture','','photo|写真;drawing|線で描いた絵');
+b('university','大学（学位を授与する高等教育機関）','college|大学・大学内の学部など',undefined,'総合大学でなければ使わないという誤解を避ける。');
+b('college','','university|大学');
+b('hometown','','home town|故郷の別の綴り方');
+b('vacation','休暇（夏休みなど）','holiday|休暇の英式の呼び方');
+b('fall','秋（主にアメリカ英語）','autumn|秋');
+b('autumn','','fall|秋の主に米式の呼び方');
+b('between','〜の間に（区別される二つ以上の人・物）',undefined,'among|集団の中に','三つ以上には使えないという不正確な限定を外す。');
+b('during','〜の間に・〜の間ずっと（後ろに名詞）',undefined,'while|〜する間、後ろに文を続ける');
+b('for','〜のために／（期間として）〜の間',undefined,undefined,'期間を表す用法も含める。');
+b('recycle','（廃棄物を）資源として再生利用する',undefined,'reuse|そのまま再び使う','そのまま使い回すこととの意味の違いを示す。');
+b('become','','get|ある状態になる');
+b('order','（食べ物・商品など）を注文する',undefined,undefined,'動詞の意味と対象を明確にする。');
+b('something','何か・何かあるもの','anything|疑問・否定での何かなど');
+b('answer','','reply|答える・返事をする');
+b('look','（目を向けて）見る',undefined,'see|視界に入る・見える');
+b('hear','（音・声が）聞こえる',undefined,'listen|意識して耳を傾ける');
+b('learn','（学んで）身につける／知る','study|勉強する',undefined,'学習する過程と身につけることの違いを、同じとは言い切らず比較する。');
+b('remember','','recall|思い出す');
+b('another','もう一つの・別の（単数）',undefined,'other|ほかの・別の');
+b('everyone','','everybody|みんな');
+b('everything','','all|すべて');
+b('gray','','grey|灰色の英式の綴り');
+for(const [course,edits] of Object.entries(all))applyReview({course,level:1,date:'2026-10-19',edits,auditPath:`docs/translation-prompt-reviews-2026-10-18/${course}-L1.json`,sources:[
+ 'https://dictionary.cambridge.org/grammar/british-grammar/between-or-among',
+ 'https://dictionary.cambridge.org/dictionary/english/university',
+ 'https://dictionary.cambridge.org/dictionary/english/recycle'
+]});

@@ -1,0 +1,1710 @@
+{
+  "date": "2026-10-18",
+  "course": "Eiken1Part1",
+  "level": 2,
+  "reviewed": 70,
+  "changed": 39,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "24f017750775273c88f71fa1b69626769fc48da5b77f65a46dfaf745f8eb5f1f",
+  "sources": [
+    "https://dictionary.cambridge.org/dictionary/english/let-on",
+    "https://dictionary.cambridge.org/dictionary/english/goof-off",
+    "https://dictionary.cambridge.org/dictionary/english/chime-in"
+  ],
+  "rows": [
+    {
+      "text": "act up",
+      "translation": "機械が調子悪く動く",
+      "exampleEn": "My old computer began to act up.",
+      "before": {
+        "meaning": "（機械などの）調子が悪くなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機械などの）調子が悪くなる／（子どもなどが）行儀悪く振る舞う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "機械の不調だけに限定せず、人の振る舞いの意味も残す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "egg on",
+      "translation": "悪いことをけしかける",
+      "exampleEn": "His friends egged him on.",
+      "before": {
+        "meaning": "悪いことをけしかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（よくない行為などをするよう、人を）けしかける",
+        "alternatives": [
+          {
+            "text": "urge on",
+            "note": "人を促す・けしかける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "beef up",
+      "translation": "体制などを強化する",
+      "exampleEn": "The school beefed up security.",
+      "before": {
+        "meaning": "（体制などを）強化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（体制などを）強化する",
+        "alternatives": [
+          {
+            "text": "strengthen",
+            "note": "体制などを強化する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bow out",
+      "translation": "役目から身を引く",
+      "exampleEn": "The actor bowed out after the show.",
+      "before": {
+        "meaning": "（役目から）身を引く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（役目から）身を引く",
+        "alternatives": [
+          {
+            "text": "withdraw",
+            "note": "役目・競争などから退く"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "butt in",
+      "translation": "会話に口を挟む",
+      "exampleEn": "Please do not butt in.",
+      "before": {
+        "meaning": "（会話に）口を挟む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（会話に）口を挟む",
+        "alternatives": [
+          {
+            "text": "interrupt",
+            "note": "会話などを遮る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "buy off",
+      "translation": "金で口止めする",
+      "exampleEn": "The firm tried to buy off the witness.",
+      "before": {
+        "meaning": "金で口止めする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "金などを渡して、反対や非難をやめさせる",
+        "alternatives": [
+          {
+            "text": "bribe",
+            "note": "金品で人を買収する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "証人の口止めだけに限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cave in",
+      "translation": "圧力に屈する",
+      "exampleEn": "The board refused to cave in.",
+      "before": {
+        "meaning": "圧力に屈する",
+        "alternatives": [
+          {
+            "text": "knuckle under",
+            "note": "圧力に屈する"
+          },
+          {
+            "text": "give in",
+            "note": "屈する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "圧力に屈する",
+        "alternatives": [
+          {
+            "text": "knuckle under",
+            "note": "圧力に屈する"
+          },
+          {
+            "text": "give in",
+            "note": "屈する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "clam up",
+      "translation": "急に口を閉ざす",
+      "exampleEn": "He clammed up when questioned.",
+      "before": {
+        "meaning": "急に口を閉ざす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急に口を閉ざす",
+        "alternatives": [
+          {
+            "text": "keep quiet",
+            "note": "口をつぐむ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "clog up",
+      "translation": "管などを詰まらせる",
+      "exampleEn": "Leaves clogged up the drain.",
+      "before": {
+        "meaning": "（管などを）詰まらせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（管などを）詰まらせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "coop up",
+      "translation": "狭い所に閉じ込める",
+      "exampleEn": "The birds were cooped up indoors.",
+      "before": {
+        "meaning": "狭い所に閉じ込める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "狭い所に閉じ込める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cop out",
+      "translation": "責任を避ける",
+      "exampleEn": "He copped out of the decision.",
+      "before": {
+        "meaning": "責任を避ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すべきことや責任から逃げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "単に危険を避ける意味ではなく、義務の回避を明示する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "crop up",
+      "translation": "問題などが突然現れる",
+      "exampleEn": "New problems cropped up.",
+      "before": {
+        "meaning": "（問題などが）突然現れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題などが）突然現れる",
+        "alternatives": [
+          {
+            "text": "come up",
+            "note": "問題などが持ち上がる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "back out",
+      "translation": "約束や計画から手を引く",
+      "exampleEn": "He backed out at the last minute.",
+      "before": {
+        "meaning": "（約束や計画から）手を引く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（約束や計画から）手を引く",
+        "alternatives": [
+          {
+            "text": "withdraw",
+            "note": "約束・計画から手を引く"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bail out",
+      "translation": "経営難の組織を救済する",
+      "exampleEn": "The government bailed out the bank.",
+      "before": {
+        "meaning": "（経営難の組織を）救済する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（経営難の組織などを、資金などで）救済する",
+        "alternatives": [
+          {
+            "text": "rescue financially",
+            "note": "資金面で救済する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bawl out",
+      "translation": "大声で厳しく叱る",
+      "exampleEn": "The coach bawled out the players.",
+      "before": {
+        "meaning": "大声で厳しく叱る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大声で厳しく叱る",
+        "alternatives": [
+          {
+            "text": "tell off",
+            "note": "人を厳しく叱る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "blot out",
+      "translation": "光や景色を覆い隠す",
+      "exampleEn": "Clouds blotted out the sun.",
+      "before": {
+        "meaning": "（光や景色を）覆い隠す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（光や景色を）覆い隠す",
+        "alternatives": [
+          {
+            "text": "block out",
+            "note": "光・記憶などを遮る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bunch up",
+      "translation": "狭い場所に固まる",
+      "exampleEn": "The runners bunched up near the gate.",
+      "before": {
+        "meaning": "狭い場所に固まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "狭い場所に固まる",
+        "alternatives": [
+          {
+            "text": "cluster",
+            "note": "集まって固まる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "carve up",
+      "translation": "土地や利益を分割する",
+      "exampleEn": "The companies carved up the market.",
+      "before": {
+        "meaning": "（土地や利益を）分割する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（土地や利益を）分割する",
+        "alternatives": [
+          {
+            "text": "divide up",
+            "note": "いくつかに分割する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "chime in",
+      "translation": "会話に割って入る",
+      "exampleEn": "Several guests chimed in.",
+      "before": {
+        "meaning": "（会話に）割って入る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（会話に）自分の意見・相づちを加える",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "butt in",
+            "note": "無遠慮に会話を遮る"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "必ずしも無遠慮な割り込みではないため、会話への参加と説明する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "choke up",
+      "translation": "感情で声が詰まる",
+      "exampleEn": "He choked up during the speech.",
+      "before": {
+        "meaning": "（感情が高ぶって）声が詰まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（感情が高ぶって）声が詰まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dole out",
+      "translation": "少しずつ配る",
+      "exampleEn": "The agency doled out supplies.",
+      "before": {
+        "meaning": "少しずつ配る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（金・物などを）分けて配る",
+        "alternatives": [
+          {
+            "text": "hand out",
+            "note": "配る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drone on",
+      "translation": "単調に長話を続ける",
+      "exampleEn": "The speaker droned on for hours.",
+      "before": {
+        "meaning": "単調に長話を続ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "単調に長話を続ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "duck out",
+      "translation": "こっそり抜け出す",
+      "exampleEn": "He ducked out before the meeting ended.",
+      "before": {
+        "meaning": "こっそり抜け出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "こっそり抜け出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ease off",
+      "translation": "勢いが弱まる",
+      "exampleEn": "The rain eased off at night.",
+      "before": {
+        "meaning": "（勢いが）弱まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（勢いが）弱まる",
+        "alternatives": [
+          {
+            "text": "let up",
+            "note": "雨・勢いなどが弱まる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "flare up",
+      "translation": "争いなどが急に激しくなる",
+      "exampleEn": "Fighting flared up again.",
+      "before": {
+        "meaning": "（争いなどが）急に激しくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（争いなどが）急に激しくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "blurt out",
+      "translation": "考えずに口走る",
+      "exampleEn": "She blurted out the answer.",
+      "before": {
+        "meaning": "考えずに口走る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "考えずに口走る",
+        "alternatives": [
+          {
+            "text": "let slip",
+            "note": "考えず秘密などを漏らす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bottle up",
+      "translation": "感情を抑えてため込む",
+      "exampleEn": "He bottled up his anger.",
+      "before": {
+        "meaning": "（感情を）抑えてため込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（感情を）抑えてため込む",
+        "alternatives": [
+          {
+            "text": "suppress",
+            "note": "感情などを抑え込む"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "breeze in",
+      "translation": "気軽な様子で入ってくる",
+      "exampleEn": "She breezed in ten minutes late.",
+      "before": {
+        "meaning": "気軽な様子で入ってくる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "気軽な様子で入ってくる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "butter up",
+      "translation": "お世辞を言って取り入る",
+      "exampleEn": "He tried to butter up his boss.",
+      "before": {
+        "meaning": "お世辞を言って取り入る",
+        "alternatives": [
+          {
+            "text": "flatter",
+            "note": "お世辞を言う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "お世辞を言って取り入る",
+        "alternatives": [
+          {
+            "text": "flatter",
+            "note": "お世辞を言う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "choke off",
+      "translation": "供給を断つ",
+      "exampleEn": "The blockade choked off supplies.",
+      "before": {
+        "meaning": "（供給を）断つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（供給を）断つ",
+        "alternatives": [
+          {
+            "text": "cut off",
+            "note": "供給などを断つ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "churn out",
+      "translation": "大量に生産する",
+      "exampleEn": "The factory churns out cheap goods.",
+      "before": {
+        "meaning": "大量に生産する",
+        "alternatives": [
+          {
+            "text": "crank out",
+            "note": "急いで大量に作る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大量に生産する",
+        "alternatives": [
+          {
+            "text": "crank out",
+            "note": "急いで大量に作る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "crank out",
+      "translation": "急いで大量に作る",
+      "exampleEn": "The team cranked out reports.",
+      "before": {
+        "meaning": "急いで大量に作る",
+        "alternatives": [
+          {
+            "text": "churn out",
+            "note": "大量に作る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急いで大量に作る",
+        "alternatives": [
+          {
+            "text": "churn out",
+            "note": "大量に作る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drown out",
+      "translation": "大きな音でかき消す",
+      "exampleEn": "The music drowned out his voice.",
+      "before": {
+        "meaning": "（大きな音で）かき消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（より大きな音で、別の音）をかき消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "音を遮る方法と対象を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fall flat",
+      "translation": "冗談などが受けずに終わる",
+      "exampleEn": "The joke fell flat.",
+      "before": {
+        "meaning": "（冗談などが）受けずに終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（冗談などが）受けずに終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bottom out",
+      "translation": "価格などが底を打つ",
+      "exampleEn": "Prices finally bottomed out.",
+      "before": {
+        "meaning": "（価格などが）底を打つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（価格などが）底を打つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dawn on",
+      "translation": "（人に）ふとわかる",
+      "exampleEn": "It suddenly dawned on me.",
+      "before": {
+        "meaning": "（人に）ふとわかる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人に）ふとわかる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fizzle out",
+      "translation": "勢いを失って終わる",
+      "exampleEn": "The campaign fizzled out.",
+      "before": {
+        "meaning": "勢いを失って終わる",
+        "alternatives": [
+          {
+            "text": "peter out",
+            "note": "徐々に弱まり終わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "勢いを失って終わる",
+        "alternatives": [
+          {
+            "text": "peter out",
+            "note": "徐々に弱まり終わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "buckle down",
+      "translation": "本腰を入れて取り組む",
+      "exampleEn": "We need to buckle down and study.",
+      "before": {
+        "meaning": "本腰を入れて取り組む",
+        "alternatives": [
+          {
+            "text": "knuckle down",
+            "note": "本気で取り組む"
+          },
+          {
+            "text": "get down to",
+            "note": "本腰を入れて取りかかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "本腰を入れて取り組む",
+        "alternatives": [
+          {
+            "text": "knuckle down",
+            "note": "本気で取り組む"
+          },
+          {
+            "text": "get down to",
+            "note": "本腰を入れて取りかかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "change over",
+      "translation": "別の方式へ切り替える",
+      "exampleEn": "The factory changed over to solar power.",
+      "before": {
+        "meaning": "別の方式へ切り替える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "別の方式へ切り替える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "coast along",
+      "translation": "努力せずに進める",
+      "exampleEn": "He cannot coast along forever.",
+      "before": {
+        "meaning": "努力せずに進める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大した努力もせず、成り行きでやっていく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "滑らかな動きだけでなく、努力せず過ごす意味を示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come around",
+      "translation": "意見を変えて賛成する",
+      "exampleEn": "She eventually came around.",
+      "before": {
+        "meaning": "意見を変えて賛成する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "意見を変えて賛成する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fall through",
+      "translation": "計画が実現せずに終わる",
+      "exampleEn": "The deal fell through.",
+      "before": {
+        "meaning": "（計画が）実現せずに終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（計画が）実現せずに終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cater to",
+      "translation": "（需要・好みなど）に応える",
+      "exampleEn": "The shop caters to local demand.",
+      "before": {
+        "meaning": "（需要・好みなど）に応える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（需要・好みなど）に応える",
+        "alternatives": [
+          {
+            "text": "meet the needs of",
+            "note": "〜の需要・要望を満たす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drum up",
+      "translation": "（支持・商売など）を集める",
+      "exampleEn": "They drummed up support.",
+      "before": {
+        "meaning": "（支持・商売など）を集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（働きかけて支持・商売など）を集める",
+        "alternatives": [
+          {
+            "text": "generate",
+            "note": "支持・需要などを生み出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "choke back",
+      "translation": "（涙・感情など）をこらえる",
+      "exampleEn": "She choked back tears.",
+      "before": {
+        "meaning": "（涙・感情など）をこらえる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（涙・感情など）をこらえる",
+        "alternatives": [
+          {
+            "text": "hold back",
+            "note": "涙・感情などをこらえる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dip into",
+      "translation": "（貯金など）を少し使う",
+      "exampleEn": "They dipped into savings.",
+      "before": {
+        "meaning": "（貯金など）を少し使う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（貯金など）を少し使う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "eke out a living",
+      "translation": "かろうじて生計を立てる",
+      "exampleEn": "The family eked out a living.",
+      "before": {
+        "meaning": "かろうじて生計を立てる",
+        "alternatives": [
+          {
+            "text": "scrape by",
+            "note": "ぎりぎり暮らす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "かろうじて生計を立てる",
+        "alternatives": [
+          {
+            "text": "scrape by",
+            "note": "ぎりぎり暮らす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fend for oneself",
+      "translation": "自力で生活する",
+      "exampleEn": "The young birds must fend for themselves.",
+      "before": {
+        "meaning": "自力で生活する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自力で生活する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "flesh out",
+      "translation": "（案など）を詳しく肉付けする",
+      "exampleEn": "We fleshed out the plan.",
+      "before": {
+        "meaning": "（案など）を詳しく肉付けする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案など）を詳しく肉付けする",
+        "alternatives": [
+          {
+            "text": "elaborate on",
+            "note": "案などを詳しく説明する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dote on",
+      "translation": "（人を）溺愛する",
+      "exampleEn": "She dotes on her child.",
+      "before": {
+        "meaning": "（人を）溺愛する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）溺愛する",
+        "alternatives": [
+          {
+            "text": "adore",
+            "note": "人を非常にかわいがる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dwell on",
+      "translation": "（過去など）をくよくよ考える",
+      "exampleEn": "Do not dwell on the past.",
+      "before": {
+        "meaning": "（過去など）をくよくよ考える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（過去などを）くよくよ考える／（話題を）詳しく長く扱う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "否定的に考え続ける用法だけに限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "farm out",
+      "translation": "（仕事を）外部に委託する",
+      "exampleEn": "They farmed out the work.",
+      "before": {
+        "meaning": "（仕事を）外部に委託する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事を）外部に委託する",
+        "alternatives": [
+          {
+            "text": "outsource",
+            "note": "仕事を外部に委託する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "abide by",
+      "translation": "（規則など）を守る",
+      "exampleEn": "All members must abide by the rules.",
+      "before": {
+        "meaning": "（規則など）を守る",
+        "alternatives": [
+          {
+            "text": "adhere to",
+            "note": "規則・方針に従う"
+          },
+          {
+            "text": "comply with",
+            "note": "要求・規則に従う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（規則など）を守る",
+        "alternatives": [
+          {
+            "text": "adhere to",
+            "note": "規則・方針に従う"
+          },
+          {
+            "text": "comply with",
+            "note": "要求・規則に従う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bargain on",
+      "translation": "〜を当てにする",
+      "exampleEn": "We cannot bargain on success.",
+      "before": {
+        "meaning": "〜を当てにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を当てにする",
+        "alternatives": [
+          {
+            "text": "count on",
+            "note": "〜を当てにする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "defer to",
+      "translation": "（人の判断など）を尊重する",
+      "exampleEn": "We deferred to an expert.",
+      "before": {
+        "meaning": "（人の判断など）を尊重する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の判断など）を尊重する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "factor in",
+      "translation": "（費用・事情など）を計算に入れる",
+      "exampleEn": "We factored in the cost.",
+      "before": {
+        "meaning": "（費用・事情など）を計算に入れる",
+        "alternatives": [
+          {
+            "text": "take into account",
+            "note": "考慮する"
+          },
+          {
+            "text": "take into consideration",
+            "note": "考慮する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（費用・事情など）を計算に入れる",
+        "alternatives": [
+          {
+            "text": "take into account",
+            "note": "考慮する"
+          },
+          {
+            "text": "take into consideration",
+            "note": "考慮する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fend off",
+      "translation": "（攻撃など）を防ぐ",
+      "exampleEn": "The guards fended off an attack.",
+      "before": {
+        "meaning": "（攻撃など）を防ぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（攻撃など）を防ぐ",
+        "alternatives": [
+          {
+            "text": "ward off",
+            "note": "攻撃・危険などを防ぐ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "crack down on",
+      "translation": "（犯罪など）を厳しく取り締まる",
+      "exampleEn": "Police cracked down on crime.",
+      "before": {
+        "meaning": "（犯罪など）を厳しく取り締まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（犯罪など）を厳しく取り締まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "creep into",
+      "translation": "〜にそっと忍び込む",
+      "exampleEn": "The cat crept into the room.",
+      "before": {
+        "meaning": "〜にそっと忍び込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜にそっと忍び込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ease up on",
+      "translation": "（規制など）を緩める",
+      "exampleEn": "The school eased up on the rules.",
+      "before": {
+        "meaning": "（規制など）を緩める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（規制・人への厳しさなど）を緩める",
+        "alternatives": [
+          {
+            "text": "go easy on",
+            "note": "〜に手加減する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fall back on",
+      "translation": "（困ったときに）〜を頼りにする",
+      "exampleEn": "They fell back on savings.",
+      "before": {
+        "meaning": "（困ったときに）〜を頼りにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（困ったときに）〜を頼りにする",
+        "alternatives": [
+          {
+            "text": "resort to",
+            "note": "最後の手段として〜に頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cash in on",
+      "translation": "〜を利用して利益を得る",
+      "exampleEn": "The brand cashed in on her popularity.",
+      "before": {
+        "meaning": "〜を利用して利益を得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を利用して利益を得る",
+        "alternatives": [
+          {
+            "text": "capitalize on",
+            "note": "好機などを利用して利益を得る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come in for",
+      "translation": "（批判など）を受ける",
+      "exampleEn": "The policy came in for criticism.",
+      "before": {
+        "meaning": "（批判など）を受ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（批判など）を受ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "boil down to",
+      "translation": "結局〜に帰着する",
+      "exampleEn": "The debate boils down to one issue.",
+      "before": {
+        "meaning": "結局〜に帰着する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結局〜に帰着する",
+        "alternatives": [
+          {
+            "text": "come down to",
+            "note": "結局は〜にかかっている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "chip away at",
+      "translation": "（問題など）を少しずつ減らす",
+      "exampleEn": "We chipped away at the problem.",
+      "before": {
+        "meaning": "（問題など）を少しずつ減らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題など）を少しずつ減らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "detract from",
+      "translation": "（価値など）を損なう",
+      "exampleEn": "The flaws detract from the value.",
+      "before": {
+        "meaning": "（価値など）を損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（価値など）を損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "barge through",
+      "translation": "〜を強引に通り抜ける",
+      "exampleEn": "He barged through the crowd.",
+      "before": {
+        "meaning": "〜を強引に通り抜ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を強引に通り抜ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come down on",
+      "translation": "（人・組織）を厳しく非難する",
+      "exampleEn": "Critics came down on the company.",
+      "before": {
+        "meaning": "（人・組織）を厳しく非難する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・組織）を厳しく非難する",
+        "alternatives": [
+          {
+            "text": "criticize harshly",
+            "note": "人などを厳しく非難する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dispense with",
+      "translation": "（手続きなど）を省く",
+      "exampleEn": "We can dispense with formalities.",
+      "before": {
+        "meaning": "（手続きなど）を省く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（手続きなど）を省く",
+        "alternatives": [
+          {
+            "text": "do without",
+            "note": "〜なしで済ませる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "capitalize on",
+      "translation": "（好機など）を生かす",
+      "exampleEn": "She capitalized on an opportunity.",
+      "before": {
+        "meaning": "（好機など）を生かす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（好機など）を生かす",
+        "alternatives": [
+          {
+            "text": "cash in on",
+            "note": "好機などを利用して利益を得る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "近い熟語・単語との重なりを認め、対象・動作や場面を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

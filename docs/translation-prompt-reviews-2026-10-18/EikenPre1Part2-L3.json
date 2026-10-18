@@ -1,0 +1,1648 @@
+{
+  "date": "2026-10-19",
+  "course": "EikenPre1Part2",
+  "level": 3,
+  "reviewed": 75,
+  "changed": 11,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "b2596d69f5e1e48bc84882208599460502766729c0fe173745b92546979801ae",
+  "sources": [
+    "https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns",
+    "https://dictionary.cambridge.org/dictionary/english/sure",
+    "https://dictionary.cambridge.org/dictionary/english/shortage"
+  ],
+  "rows": [
+    {
+      "text": "That seems reasonable to me.",
+      "translation": "私にはそれが妥当に思えます。",
+      "before": {
+        "meaning": "私にはそれが妥当に思えます。",
+        "alternatives": [
+          {
+            "text": "sensible",
+            "note": "妥当な"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私にはそれが妥当に思えます。",
+        "alternatives": [
+          {
+            "text": "sensible",
+            "note": "妥当な"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'd rather not jump to conclusions.",
+      "translation": "早まって結論は出したくありません。",
+      "before": {
+        "meaning": "早まって結論は出したくありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は早まって結論を出すのは避けたいです。",
+        "alternatives": [
+          {
+            "text": "rush to conclusions",
+            "note": "早まって結論を出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We should keep an open mind.",
+      "translation": "先入観を持たずに考えるべきです。",
+      "before": {
+        "meaning": "先入観を持たずに考えるべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは先入観を持たずに考えるべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "心を開いた状態に保つという表現"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I think we need more information.",
+      "translation": "もっと情報が必要だと思います。",
+      "before": {
+        "meaning": "もっと情報が必要だと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もっと情報が必要だと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We may be missing something important.",
+      "translation": "何か大事なことを見落としているかもしれません。",
+      "before": {
+        "meaning": "何か大事なことを見落としているかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何か大事なことを見落としているかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's too early to tell.",
+      "translation": "まだ判断するには早すぎます。",
+      "before": {
+        "meaning": "まだ判断するには早すぎます。",
+        "alternatives": [
+          {
+            "text": "too soon to judge",
+            "note": "判断には早すぎる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まだ判断するには早すぎます。",
+        "alternatives": [
+          {
+            "text": "too soon to judge",
+            "note": "判断には早すぎる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I wouldn't be surprised if that were true.",
+      "translation": "それが本当でも驚きません。",
+      "before": {
+        "meaning": "それが本当でも驚きません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "仮にそれが本当でも、私は驚かないでしょう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "仮定を置いた控えめな判断"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's certainly a possibility.",
+      "translation": "それは十分あり得ます。",
+      "before": {
+        "meaning": "それは十分あり得ます。",
+        "alternatives": [
+          {
+            "text": "definitely possible",
+            "note": "十分あり得る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは十分あり得ます。",
+        "alternatives": [
+          {
+            "text": "definitely possible",
+            "note": "十分あり得る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "There's a chance we're overthinking it.",
+      "translation": "私たちは考えすぎている可能性があります。",
+      "before": {
+        "meaning": "私たちは考えすぎている可能性があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは考えすぎている可能性があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I wouldn't take that at face value.",
+      "translation": "それをそのまま鵜呑みにはしません。",
+      "before": {
+        "meaning": "それをそのまま鵜呑みにはしません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私ならそれを額面どおりには受け取りません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "仮に自分なら、と控えめに述べる"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's better to be cautious.",
+      "translation": "慎重であるに越したことはありません。",
+      "before": {
+        "meaning": "慎重であるに越したことはありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "慎重であるに越したことはありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can see where you're coming from.",
+      "translation": "あなたの考え方は理解できます。",
+      "before": {
+        "meaning": "あなたがどういう立場・事情でそう考えるのか分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたがどういう立場・事情でそう考えるのか分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That doesn't necessarily mean it's wrong.",
+      "translation": "だからといってそれが間違いだとは限りません。",
+      "before": {
+        "meaning": "だからといってそれが間違いだとは限りません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは必ずしも、それが間違っていることを意味しません。",
+        "alternatives": [
+          {
+            "text": "not always",
+            "note": "いつも〜とは限らない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not saying it's impossible.",
+      "translation": "不可能だと言っているわけではありません。",
+      "before": {
+        "meaning": "不可能だと言っているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "不可能だと言っているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We should look at the bigger picture.",
+      "translation": "もっと大きな視点で見るべきです。",
+      "before": {
+        "meaning": "もっと大きな視点で見るべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もっと大きな視点で見るべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's easier said than done.",
+      "translation": "言うのは簡単ですが実行は難しいです。",
+      "before": {
+        "meaning": "言うのは簡単ですが実行は難しいです。",
+        "alternatives": [
+          {
+            "text": "harder to do than to say",
+            "note": "言うより実行が難しい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "言うのは簡単ですが実行は難しいです。",
+        "alternatives": [
+          {
+            "text": "harder to do than to say",
+            "note": "言うより実行が難しい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not ready to rule it out.",
+      "translation": "それを完全に否定するつもりはありません。",
+      "before": {
+        "meaning": "それを可能性から外すのは、まだ早いと考えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それを可能性から外すのは、まだ早いと考えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That may not be the best approach.",
+      "translation": "それは最善のやり方ではないかもしれません。",
+      "before": {
+        "meaning": "それは最善のやり方ではないかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは最善のやり方ではないかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can see the logic behind that.",
+      "translation": "その考えの筋道は分かります。",
+      "before": {
+        "meaning": "その考えの筋道は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その考えの筋道は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That sounds good in theory.",
+      "translation": "理屈としてはよさそうです。",
+      "before": {
+        "meaning": "理屈としてはよさそうです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "理屈としてはよさそうです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure that's the main issue.",
+      "translation": "それが一番の問題とは限らない気がします。",
+      "before": {
+        "meaning": "それが主な問題なのかどうか、確信がありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それが主な問題なのかどうか、確信がありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We need to be realistic about this.",
+      "translation": "この件は現実的に考える必要があります。",
+      "before": {
+        "meaning": "この件は現実的に考える必要があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "この件は現実的に考える必要があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That could lead to misunderstandings.",
+      "translation": "それは誤解につながるかもしれません。",
+      "before": {
+        "meaning": "それは誤解につながるかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは誤解につながるかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'd rather focus on what we can do now.",
+      "translation": "今できることに集中したいです。",
+      "before": {
+        "meaning": "それよりも、私たちが今できることに集中したいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それよりも、私たちが今できることに集中したいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I think that's a step in the right direction.",
+      "translation": "それは良い方向への一歩だと思います。",
+      "before": {
+        "meaning": "それは良い方向への一歩だと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは良い方向への一歩だと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Sounds about right.",
+      "translation": "だいたいそんな感じだと思います。",
+      "before": {
+        "meaning": "だいたいそんな感じだと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（聞いた話に）だいたい合っていそうですね。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "会話で主語を省いた返答"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That works for me.",
+      "translation": "それで大丈夫です。",
+      "before": {
+        "meaning": "（提案・予定に対して）私はそれで都合がよいです。",
+        "alternatives": [
+          {
+            "text": "suit me",
+            "note": "私に都合がよい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（提案・予定に対して）私はそれで都合がよいです。",
+        "alternatives": [
+          {
+            "text": "suit me",
+            "note": "私に都合がよい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not ruling it out.",
+      "translation": "その可能性を否定するつもりはありません。",
+      "before": {
+        "meaning": "私は、その可能性を排除しているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は、その可能性を排除しているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's not a bad idea.",
+      "translation": "それは悪くない考えですね。",
+      "before": {
+        "meaning": "それは悪くない考えですね。",
+        "alternatives": [
+          {
+            "text": "a good idea",
+            "note": "良い考え"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは悪くない考えですね。",
+        "alternatives": [
+          {
+            "text": "a good idea",
+            "note": "良い考え"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I was just thinking that.",
+      "translation": "ちょうど私もそう思っていました。",
+      "before": {
+        "meaning": "ちょうど私もそう思っていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ちょうど私もそう思っていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That crossed my mind too.",
+      "translation": "私もそれを思い浮かべていました。",
+      "before": {
+        "meaning": "その考えは、私の頭にも浮かびました。",
+        "alternatives": [
+          {
+            "text": "thought of",
+            "note": "思い浮かべた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その考えは、私の頭にも浮かびました。",
+        "alternatives": [
+          {
+            "text": "thought of",
+            "note": "思い浮かべた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I don't quite see it that way.",
+      "translation": "私はそこまでそうは思いません。",
+      "before": {
+        "meaning": "私は、それをまったく同じようには捉えていません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は、それをまったく同じようには捉えていません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not fully convinced.",
+      "translation": "まだ完全には納得していません。",
+      "before": {
+        "meaning": "まだ完全には納得していません。",
+        "alternatives": [
+          {
+            "text": "not completely persuaded",
+            "note": "完全には納得していない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まだ完全には納得していません。",
+        "alternatives": [
+          {
+            "text": "not completely persuaded",
+            "note": "完全には納得していない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm on the fence about it.",
+      "translation": "それについてはまだ決めかねています。",
+      "before": {
+        "meaning": "それについては、賛否を決めかねています。",
+        "alternatives": [
+          {
+            "text": "undecided",
+            "note": "決めかねた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それについては、賛否を決めかねています。",
+        "alternatives": [
+          {
+            "text": "undecided",
+            "note": "決めかねた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's a tough call.",
+      "translation": "それは判断が難しいですね。",
+      "before": {
+        "meaning": "それは判断が難しいですね。",
+        "alternatives": [
+          {
+            "text": "a difficult decision",
+            "note": "難しい判断"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは判断が難しいですね。",
+        "alternatives": [
+          {
+            "text": "a difficult decision",
+            "note": "難しい判断"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It could go either way.",
+      "translation": "どちらに転ぶか分かりません。",
+      "before": {
+        "meaning": "どちらに転ぶか分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どちらに転ぶか分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's a valid concern.",
+      "translation": "それはもっともな懸念です。",
+      "before": {
+        "meaning": "それはもっともな懸念です。",
+        "alternatives": [
+          {
+            "text": "a reasonable concern",
+            "note": "もっともな懸念"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それはもっともな懸念です。",
+        "alternatives": [
+          {
+            "text": "a reasonable concern",
+            "note": "もっともな懸念"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I get the point you're making.",
+      "translation": "あなたの言いたい点は分かります。",
+      "before": {
+        "meaning": "あなたの言いたい点は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたの言いたい点は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure I follow.",
+      "translation": "話を十分に追えていないかもしれません。",
+      "before": {
+        "meaning": "話の筋を理解できているか、自信がありません。",
+        "alternatives": [
+          {
+            "text": "understand",
+            "note": "理解する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "話の筋を理解できているか、自信がありません。",
+        "alternatives": [
+          {
+            "text": "understand",
+            "note": "理解する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Could you walk me through that?",
+      "translation": "そこを順を追って説明してもらえますか。",
+      "before": {
+        "meaning": "そこを順を追って説明してもらえますか。",
+        "alternatives": [
+          {
+            "text": "explain step by step",
+            "note": "順を追って説明する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そこを順を追って説明してもらえますか。",
+        "alternatives": [
+          {
+            "text": "explain step by step",
+            "note": "順を追って説明する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What makes you feel that way?",
+      "translation": "どうしてそう感じるのですか。",
+      "before": {
+        "meaning": "どうしてそう感じるのですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうしてそう感じるのですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What brought you to that conclusion?",
+      "translation": "どうしてそういう結論になったのですか。",
+      "before": {
+        "meaning": "どうしてそういう結論になったのですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何があなたをその結論へ導いたのですか。",
+        "alternatives": [
+          {
+            "text": "led you to",
+            "note": "あなたを〜に導いた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "何を主語にし、結論に至った要因を尋ねる"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I get where you're going with this.",
+      "translation": "あなたがこの話をどこに持っていきたいのか分かります。",
+      "before": {
+        "meaning": "あなたがこの話をどこに持っていきたいのか分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたがこの話をどこに持っていきたいのか分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I wouldn't count on it.",
+      "translation": "それはあまり当てにしないほうがいいです。",
+      "before": {
+        "meaning": "私なら、それを当てにはしません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私なら、それを当てにはしません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I wouldn't read too much into that.",
+      "translation": "それを深読みしすぎないほうがいいです。",
+      "before": {
+        "meaning": "私なら、それに深い意味を読み込みすぎないようにします。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私なら、それに深い意味を読み込みすぎないようにします。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That doesn't sound like the whole story.",
+      "translation": "それだけが話のすべてには聞こえません。",
+      "before": {
+        "meaning": "それを聞く限り、まだ語られていない事情がありそうです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それを聞く限り、まだ語られていない事情がありそうです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure it works that way.",
+      "translation": "それがそういう仕組みかは分かりません。",
+      "before": {
+        "meaning": "それがそういう仕組みかは分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それがそういう仕組みかどうか、私は確信が持てません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "単に知らないのではなく、確信を弱めた言い方と示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That might be pushing it.",
+      "translation": "それは少し言いすぎかもしれません。",
+      "before": {
+        "meaning": "それは少し無理な要求・期待かもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは少し無理な要求・期待かもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I don't know if that's fair.",
+      "translation": "それが公平かどうかは分かりません。",
+      "before": {
+        "meaning": "それが公平かどうかは分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それが公平かどうかは分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not against it.",
+      "translation": "それに反対というわけではありません。",
+      "before": {
+        "meaning": "それに反対というわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それに反対というわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm all for that.",
+      "translation": "私はそれに大賛成です。",
+      "before": {
+        "meaning": "私はそれに大賛成です。",
+        "alternatives": [
+          {
+            "text": "strongly support",
+            "note": "強く支持する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はそれに大賛成です。",
+        "alternatives": [
+          {
+            "text": "strongly support",
+            "note": "強く支持する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can go with that.",
+      "translation": "それでいけます。",
+      "before": {
+        "meaning": "その案に賛成して、それで進められます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その案に賛成して、それで進められます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not ready to commit to that.",
+      "translation": "それに決めるにはまだ早いです。",
+      "before": {
+        "meaning": "それを引き受ける・約束する決心は、まだついていません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それを引き受ける・約束する決心は、まだついていません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let's not get ahead of ourselves.",
+      "translation": "先走りすぎないようにしましょう。",
+      "before": {
+        "meaning": "先走りすぎないようにしましょう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "先走りすぎないようにしましょう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let's see how it goes.",
+      "translation": "少し様子を見ましょう。",
+      "before": {
+        "meaning": "やってみて、うまくいくか様子を見ましょう。",
+        "alternatives": [
+          {
+            "text": "how it turns out",
+            "note": "どういう結果になるか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "やってみて、うまくいくか様子を見ましょう。",
+        "alternatives": [
+          {
+            "text": "how it turns out",
+            "note": "どういう結果になるか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let's see where this goes.",
+      "translation": "この先どうなるか見てみましょう。",
+      "before": {
+        "meaning": "この話・状況がどこへ向かうのか、見守りましょう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "この話・状況がどこへ向かうのか、見守りましょう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm keeping an open mind.",
+      "translation": "先入観を持たずに考えています。",
+      "before": {
+        "meaning": "先入観を持たずに考えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "先入観を持たずに考えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That seems about right to me.",
+      "translation": "私にはだいたい妥当に思えます。",
+      "before": {
+        "meaning": "私にはだいたい妥当に思えます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私にはだいたい妥当に思えます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That adds up.",
+      "translation": "それなら筋が通っています。",
+      "before": {
+        "meaning": "それなら話のつじつまが合います。",
+        "alternatives": [
+          {
+            "text": "make sense",
+            "note": "筋が通る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それなら話のつじつまが合います。",
+        "alternatives": [
+          {
+            "text": "make sense",
+            "note": "筋が通る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can work with that.",
+      "translation": "それを前提に進められます。",
+      "before": {
+        "meaning": "その条件・材料なら、何とかやっていけます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その条件・材料なら、何とかやっていけます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's more like it.",
+      "translation": "そういう方向ならいいですね。",
+      "before": {
+        "meaning": "そう、それでこそ期待していた感じです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そう、それでこそ期待していた感じです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not making excuses.",
+      "translation": "言い訳をしているわけではありません。",
+      "before": {
+        "meaning": "言い訳をしているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "言い訳をしているわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm just being realistic.",
+      "translation": "ただ現実的に考えているだけです。",
+      "before": {
+        "meaning": "ただ現実的に考えているだけです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ただ現実的に考えているだけです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm trying to be careful.",
+      "translation": "慎重に進めようとしているだけです。",
+      "before": {
+        "meaning": "私は慎重にしようと心がけています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は慎重にしようと心がけています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's not what I'm getting at.",
+      "translation": "私が言いたいのはそういうことではありません。",
+      "before": {
+        "meaning": "私が言いたいのはそういうことではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私が言いたいのはそういうことではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let me think for a second.",
+      "translation": "少し考えさせてください。",
+      "before": {
+        "meaning": "少し考えさせてください。",
+        "alternatives": [
+          {
+            "text": "a moment to think",
+            "note": "少し考える時間"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "少し考えさせてください。",
+        "alternatives": [
+          {
+            "text": "a moment to think",
+            "note": "少し考える時間"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm still not convinced.",
+      "translation": "私はまだ納得していません。",
+      "before": {
+        "meaning": "私はまだ納得していません。",
+        "alternatives": [
+          {
+            "text": "not persuaded yet",
+            "note": "まだ納得していない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はまだ納得していません。",
+        "alternatives": [
+          {
+            "text": "not persuaded yet",
+            "note": "まだ納得していない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can see that happening.",
+      "translation": "そうなる可能性はあると思います。",
+      "before": {
+        "meaning": "そうなる可能性はあると思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そうなる可能性はあると思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can see why that matters.",
+      "translation": "それが大事な理由は分かります。",
+      "before": {
+        "meaning": "それが大事な理由は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それが大事な理由は分かります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not saying you're wrong.",
+      "translation": "あなたが間違っていると言いたいわけではありません。",
+      "before": {
+        "meaning": "あなたが間違っていると言いたいわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたが間違っていると言いたいわけではありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm trying to look at both sides.",
+      "translation": "両方の立場から見ようとしています。",
+      "before": {
+        "meaning": "両方の立場から見ようとしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は両方の立場から見ようとしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "今、心がけていることを進行形で述べる"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure I'm with you there.",
+      "translation": "そこは少し同意しかねます。",
+      "before": {
+        "meaning": "そこは少し同意しかねます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その点ではあなたに同意しているか、私は確信が持てません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "控えめな不同意の表現を、元の文の確信の弱さも保って示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure that's enough.",
+      "translation": "それで十分かは分かりません。",
+      "before": {
+        "meaning": "それで十分かは分かりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それで十分だとは、私は確信が持てません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "不十分と断定せず、確信の弱さを残す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That may be part of it.",
+      "translation": "それも一因かもしれません。",
+      "before": {
+        "meaning": "それも一因かもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それも一因かもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure what to make of that.",
+      "translation": "それをどう受け止めればいいのかまだ分かりません。",
+      "before": {
+        "meaning": "それをどう受け止めればいいのかまだ分かりません。",
+        "alternatives": [
+          {
+            "text": "interpret",
+            "note": "解釈する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それをどう受け止めればいいのかまだ分かりません。",
+        "alternatives": [
+          {
+            "text": "interpret",
+            "note": "解釈する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

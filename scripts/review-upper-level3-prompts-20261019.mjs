@@ -1,0 +1,51 @@
+import {applyReview} from './lib/apply-translation-prompt-review.mjs';
+const all={EikenPre1Part1:[],EikenPre1Part2:[],Eiken1Part1:[],Eiken1Part2:[]};
+const add=(c,text,meaning,alternatives,formNote,reason='意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。')=>all[c].push({text,meaning,alternatives,formNote,reason});
+const a=(...x)=>add('EikenPre1Part1',...x),b=(...x)=>add('EikenPre1Part2',...x),c=(...x)=>add('Eiken1Part1',...x),d=(...x)=>add('Eiken1Part2',...x);
+a('I can see why you feel that way.','あなたがそう感じる理由は、私には分かります。','understand|理解する');
+a("I hadn't thought of it that way.",'それ以前には、そのような見方はしていませんでした。',undefined,'過去のある時点より前のことを否定する');
+a("That's a good way to put it.",'それはうまい言い表し方ですね。','express it|それを言い表す');
+a("I'm not entirely sure about that.",'それについて、私は完全には確信が持てません。','completely|完全に');
+a("I wouldn't go that far.",'私ならそこまでは言いません。',undefined,'仮に自分なら、と控えめに線を引く');
+a('What makes you say that?','何があなたにそう言わせるのですか。','Why|なぜ','何を主語にして、そう言う原因を尋ねる');
+a('Maybe I didn\'t make that clear.','もしかすると、私はそれを十分明確に伝えなかったかもしれません。','Perhaps|もしかすると');
+a("That's not quite what I meant.",'それは私が意図したことと、少し違います。','exactly|まさに・完全に');
+a('From what I can tell.','私に分かる範囲からすると。',undefined,undefined,'見た印象に限らず、判断できる範囲の意味を示す。');
+a("I've come to think that lately.",'最近、私はそう考えるようになってきました。',undefined,'現在までの考えの変化を表す');
+a('At the same time I understand your concern.','同時に、私はあなたの懸念も理解しています。','Meanwhile|その一方で');
+a("You're probably not the only one.",'おそらく、あなただけではありません。',undefined,undefined,'英語に明示されない感じているを本文に追加せず、相手だけではない意味を保つ。');
+a('That might actually work.','それは実際にはうまくいくかもしれません。','in fact|実際には',undefined,'意外という評価を必須にせず、実際にという意味を保つ。');
+b("I'd rather not jump to conclusions.",'私は早まって結論を出すのは避けたいです。','rush to conclusions|早まって結論を出す');
+b('We should keep an open mind.','私たちは先入観を持たずに考えるべきです。',undefined,'心を開いた状態に保つという表現');
+b("I wouldn't be surprised if that were true.",'仮にそれが本当でも、私は驚かないでしょう。',undefined,'仮定を置いた控えめな判断');
+b("I wouldn't take that at face value.",'私ならそれを額面どおりには受け取りません。',undefined,'仮に自分なら、と控えめに述べる');
+b("That doesn't necessarily mean it's wrong.",'それは必ずしも、それが間違っていることを意味しません。','not always|いつも〜とは限らない');
+b('Sounds about right.','（聞いた話に）だいたい合っていそうですね。',undefined,'会話で主語を省いた返答');
+b('What brought you to that conclusion?','何があなたをその結論へ導いたのですか。','led you to|あなたを〜に導いた','何を主語にし、結論に至った要因を尋ねる');
+b("I'm not sure it works that way.",'それがそういう仕組みかどうか、私は確信が持てません。',undefined,undefined,'単に知らないのではなく、確信を弱めた言い方と示す。');
+b("I'm not sure I'm with you there.",'その点ではあなたに同意しているか、私は確信が持てません。',undefined,undefined,'控えめな不同意の表現を、元の文の確信の弱さも保って示す。');
+b("I'm not sure that's enough.",'それで十分だとは、私は確信が持てません。',undefined,undefined,'不十分と断定せず、確信の弱さを残す。');
+b("I'm trying to look at both sides.",'私は両方の立場から見ようとしています。',undefined,'今、心がけていることを進行形で述べる');
+c('Poor housing can increase the risk of illness.','劣悪な住環境は、病気になるリスクを高めることがあります。',undefined,'住環境を主語にして、リスクへの影響を述べる');
+c('The new rules led to a sharp drop in pollution.','新しい規則は、汚染の急激な減少につながりました。','resulted in|結果として〜につながった');
+c('The closure left hundreds of workers without jobs.','その閉鎖は、何百人もの労働者を仕事のない状態にしました。',undefined,'閉鎖を主語にして、人をある状態にした結果を述べる');
+c('The device that monitors air quality is easy to use.','空気の質を監視するその装置は使いやすいです。','which|物を説明する関係代名詞');
+c('The study found that children benefit from outdoor play.','その研究で、子どもたちは屋外の遊びから恩恵を受けると分かりました。',undefined,'研究を主語にして、明らかになった内容を節で続ける');
+c('The law that protects workers will take effect next year.','','which|物を説明する関係代名詞');
+c('Public trust declined because the agency hid the results.','その機関が結果を隠したため、人々の信頼は低下しました。','concealed|隠した');
+c('While the trial failed, it revealed an important problem.','','Although|〜ではあるけれど');
+c('Although the evidence is limited, the risk cannot be ignored.','','While|〜ではあるけれど');
+c('The accused person was released after new evidence emerged.','新たな証拠が現れた後、容疑をかけられていた人は釈放されました。',undefined,undefined,'非難・告発を受けた人を、特定の訴訟段階だけに限定しない。');
+d('Repeated delays eroded confidence in the project.','度重なる遅れが、その事業への信頼を徐々に損ないました。','undermined|信頼などを損なった');
+d('The drought drove more people to migrate to cities.','その干ばつが、より多くの人を都市への移住に追いやりました。',undefined,'干ばつを主語にし、人を行動に追い込む形');
+d('The families whose homes were flooded received support.','家が浸水した家族たちは、支援を受けました。',undefined,'家族とその家の関係を、所有を表す関係代名詞で示す');
+d('New evidence could alter our interpretation of the event.','新たな証拠が、その出来事についての私たちの解釈を変える可能性があります。','change|変える');
+d('The inquiry revealed that officials had ignored warnings.','その調査は、職員たちが警告を無視していたことを明らかにしました。',undefined,'調査で明らかになるより前の行為を、過去完了で述べる');
+d('The study which examined rural hospitals revealed a shortage.','地方の病院を調べたその研究は、不足があることを明らかにしました。','that|物を説明する関係代名詞',undefined,'英語に対象がない不足を、人手不足と決めつけない。');
+d('The findings were challenged by several independent experts.','その調査結果には、複数の独立した専門家から異議が唱えられました。',undefined,'調査結果を主語にした受け身');
+d('The findings indicate that the treatment has long-term effects.','その調査結果は、その治療に長期的な影響があることを示しています。','show|〜を示す');
+for(const [course,edits] of Object.entries(all))applyReview({course,level:3,date:'2026-10-19',edits,auditPath:`docs/translation-prompt-reviews-2026-10-18/${course}-L3.json`,sources:[
+ 'https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns',
+ 'https://dictionary.cambridge.org/dictionary/english/sure',
+ 'https://dictionary.cambridge.org/dictionary/english/shortage'
+]});

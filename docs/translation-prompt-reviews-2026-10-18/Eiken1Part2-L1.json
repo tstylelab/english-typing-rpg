@@ -1,0 +1,5823 @@
+{
+  "date": "2026-10-19",
+  "course": "Eiken1Part2",
+  "level": 1,
+  "reviewed": 262,
+  "changed": 47,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "2df0873dd2ae1ed8c833b9f4b1f873082a4a6e133c7809726f9aa5856b62faf5",
+  "sources": [
+    "https://dictionary.cambridge.org/dictionary/english/reside",
+    "https://dictionary.cambridge.org/dictionary/english/prosecute",
+    "https://dictionary.cambridge.org/dictionary/english/watershed",
+    "https://dictionary.cambridge.org/dictionary/english/integrity"
+  ],
+  "rows": [
+    {
+      "text": "vie",
+      "translation": "競って争う",
+      "exampleEn": "Several companies vie for the contract.",
+      "before": {
+        "meaning": "競って争う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "競って争う",
+        "alternatives": [
+          {
+            "text": "compete",
+            "note": "競争する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "oust",
+      "translation": "地位から追い出す",
+      "exampleEn": "The board ousted its chairman.",
+      "before": {
+        "meaning": "（地位から）追い出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（地位から）追い出す",
+        "alternatives": [
+          {
+            "text": "remove",
+            "note": "地位などから追い出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pill",
+      "translation": "飲み薬の錠剤",
+      "exampleEn": "Take one pill after dinner.",
+      "before": {
+        "meaning": "飲み薬の錠剤",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "飲み薬の錠剤",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "lull",
+      "translation": "一時的な静けさ",
+      "exampleEn": "There was a lull in the fighting.",
+      "before": {
+        "meaning": "一時的な静けさ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一時的な静けさ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wane",
+      "translation": "勢いが徐々に弱まる",
+      "exampleEn": "Public interest began to wane.",
+      "before": {
+        "meaning": "（勢いが）徐々に弱まる",
+        "alternatives": [
+          {
+            "text": "dwindle",
+            "note": "徐々に減る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（勢いが）徐々に弱まる",
+        "alternatives": [
+          {
+            "text": "dwindle",
+            "note": "徐々に減る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "shun",
+      "translation": "人や物を意識的に避ける",
+      "exampleEn": "The community shunned the former leader.",
+      "before": {
+        "meaning": "（人や物を）意識的に避ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人や物を）意識的に避ける",
+        "alternatives": [
+          {
+            "text": "avoid",
+            "note": "意識的に避ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "feat",
+      "translation": "困難を乗り越えた偉業",
+      "exampleEn": "Climbing the mountain was a great feat.",
+      "before": {
+        "meaning": "困難を乗り越えた偉業",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "困難を乗り越えた偉業",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hoax",
+      "translation": "人をだます作り話",
+      "exampleEn": "The warning turned out to be a hoax.",
+      "before": {
+        "meaning": "人をだます作り話",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人をだます作り話",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deem",
+      "translation": "〜だと判断する",
+      "exampleEn": "The court deemed the measure unlawful.",
+      "before": {
+        "meaning": "〜だと判断する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜だと判断する",
+        "alternatives": [
+          {
+            "text": "consider",
+            "note": "〜だと見なす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "allay",
+      "translation": "不安などを和らげる",
+      "exampleEn": "The doctor tried to allay her fears.",
+      "before": {
+        "meaning": "（不安などを）和らげる",
+        "alternatives": [
+          {
+            "text": "relieve",
+            "note": "不安を和らげる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（不安などを）和らげる",
+        "alternatives": [
+          {
+            "text": "relieve",
+            "note": "不安を和らげる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wreak",
+      "translation": "大きな被害をもたらす",
+      "exampleEn": "The storm wreaked havoc on the coast.",
+      "before": {
+        "meaning": "（大きな被害を）もたらす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（大きな被害を）もたらす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hunch",
+      "translation": "根拠は薄いがそう思う勘",
+      "exampleEn": "I had a hunch that she was right.",
+      "before": {
+        "meaning": "根拠は薄いがそう思う勘",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "根拠は薄いがそう思う勘",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "budge",
+      "translation": "少し動く・考えを変える",
+      "exampleEn": "The heavy door would not budge.",
+      "before": {
+        "meaning": "少し動く・考えを変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "少し動く・考えを変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "perch",
+      "translation": "鳥が止まる場所",
+      "exampleEn": "The bird landed on its perch.",
+      "before": {
+        "meaning": "鳥が止まる場所",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "鳥が止まる場所",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reign",
+      "translation": "君主の統治期間",
+      "exampleEn": "The king's reign lasted forty years.",
+      "before": {
+        "meaning": "君主の統治期間",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "君主の統治期間",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ulcer",
+      "translation": "胃などにできる潰瘍",
+      "exampleEn": "The doctor diagnosed an ulcer.",
+      "before": {
+        "meaning": "胃などにできる潰瘍",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "胃などにできる潰瘍",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "unity",
+      "translation": "集団の結束",
+      "exampleEn": "The crisis strengthened national unity.",
+      "before": {
+        "meaning": "集団の結束",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "集団の結束",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "merge",
+      "translation": "組織を合併させる",
+      "exampleEn": "The two companies will merge next year.",
+      "before": {
+        "meaning": "（組織を）合併させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（組織を）合併させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "erupt",
+      "translation": "火山が噴火する",
+      "exampleEn": "The volcano erupted without warning.",
+      "before": {
+        "meaning": "（火山が）噴火する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（火山が）噴火する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "evade",
+      "translation": "追跡や責任をうまく逃れる",
+      "exampleEn": "The suspect evaded capture.",
+      "before": {
+        "meaning": "（追跡や責任を）うまく逃れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（追跡や責任を）うまく逃れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "recur",
+      "translation": "再び起こる",
+      "exampleEn": "The symptoms may recur.",
+      "before": {
+        "meaning": "再び起こる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "再び起こる",
+        "alternatives": [
+          {
+            "text": "happen again",
+            "note": "再び起こる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ensue",
+      "translation": "その後に続いて起きる",
+      "exampleEn": "A heated debate ensued.",
+      "before": {
+        "meaning": "その後に続いて起きる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その後に続いて起きる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "extol",
+      "translation": "良さを強く褒める",
+      "exampleEn": "Critics extolled the new film.",
+      "before": {
+        "meaning": "良さを強く褒める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "良さを強く褒める",
+        "alternatives": [
+          {
+            "text": "praise highly",
+            "note": "大いにほめる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "surge",
+      "translation": "急激な増加",
+      "exampleEn": "The hospital saw a surge in patients.",
+      "before": {
+        "meaning": "急激な増加",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急激な増加",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tenet",
+      "translation": "信念の基本原則",
+      "exampleEn": "Equality is a central tenet of the movement.",
+      "before": {
+        "meaning": "信念の基本原則",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "信念の基本原則",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "nudge",
+      "translation": "軽く肘でつつく",
+      "exampleEn": "She nudged her friend to get his attention.",
+      "before": {
+        "meaning": "軽く肘でつつく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "軽く肘でつつく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "elicit",
+      "translation": "質問などで反応を引き出す",
+      "exampleEn": "The question elicited an honest answer.",
+      "before": {
+        "meaning": "（質問などで反応を）引き出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（質問などで反応を）引き出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "entice",
+      "translation": "魅力で誘い込む",
+      "exampleEn": "The ad enticed customers into the store.",
+      "before": {
+        "meaning": "魅力で誘い込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "魅力で誘い込む",
+        "alternatives": [
+          {
+            "text": "lure",
+            "note": "魅力で誘う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stifle",
+      "translation": "声や感情を抑え込む",
+      "exampleEn": "She stifled a laugh during the speech.",
+      "before": {
+        "meaning": "（声や感情を）抑え込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（声や感情を）抑え込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rebuke",
+      "translation": "厳しく叱る",
+      "exampleEn": "The coach rebuked the player.",
+      "before": {
+        "meaning": "厳しく叱る",
+        "alternatives": [
+          {
+            "text": "reprimand",
+            "note": "正式に叱責する"
+          },
+          {
+            "text": "scold",
+            "note": "しかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "厳しく叱る",
+        "alternatives": [
+          {
+            "text": "reprimand",
+            "note": "正式に叱責する"
+          },
+          {
+            "text": "scold",
+            "note": "しかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "vilify",
+      "translation": "人を悪人として非難する",
+      "exampleEn": "The article vilified the researcher.",
+      "before": {
+        "meaning": "人を悪人として非難する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人を悪人として非難する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "huddle",
+      "translation": "身を寄せ合って集まる",
+      "exampleEn": "The children huddled under a blanket.",
+      "before": {
+        "meaning": "身を寄せ合って集まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "身を寄せ合って集まる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "swerve",
+      "translation": "急に進路を変える",
+      "exampleEn": "The driver swerved to avoid a deer.",
+      "before": {
+        "meaning": "急に進路を変える",
+        "alternatives": [
+          {
+            "text": "veer",
+            "note": "急に方向を変える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急に進路を変える",
+        "alternatives": [
+          {
+            "text": "veer",
+            "note": "急に方向を変える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deepen",
+      "translation": "関係や理解を深める",
+      "exampleEn": "The discussion deepened their understanding.",
+      "before": {
+        "meaning": "（関係や理解を）深める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（関係や理解を）深める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stigma",
+      "translation": "社会的な汚名",
+      "exampleEn": "The campaign aims to reduce the stigma.",
+      "before": {
+        "meaning": "社会的な汚名",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "社会的な汚名",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "priest",
+      "translation": "宗教儀式を行う司祭",
+      "exampleEn": "The priest addressed the crowd.",
+      "before": {
+        "meaning": "宗教儀式を行う司祭",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "宗教儀式を行う司祭",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "throng",
+      "translation": "大勢の人の群れ",
+      "exampleEn": "A throng gathered outside the station.",
+      "before": {
+        "meaning": "大勢の人の群れ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大勢の人の群れ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "zenith",
+      "translation": "最も高い頂点",
+      "exampleEn": "Her career reached its zenith.",
+      "before": {
+        "meaning": "最も高い頂点",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最も高い頂点",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bounty",
+      "translation": "捕獲などへの報奨金",
+      "exampleEn": "A bounty was offered for the fugitive.",
+      "before": {
+        "meaning": "捕獲などへの報奨金",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "捕獲などへの報奨金",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "outlaw",
+      "translation": "法律で禁止する",
+      "exampleEn": "The country outlawed the practice.",
+      "before": {
+        "meaning": "法律で禁止する",
+        "alternatives": [
+          {
+            "text": "prohibit",
+            "note": "禁止する"
+          },
+          {
+            "text": "ban",
+            "note": "禁止する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "法律で禁止する",
+        "alternatives": [
+          {
+            "text": "prohibit",
+            "note": "禁止する"
+          },
+          {
+            "text": "ban",
+            "note": "禁止する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "render",
+      "translation": "ある状態にする",
+      "exampleEn": "The flood rendered the road unusable.",
+      "before": {
+        "meaning": "ある状態にする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ある状態にする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hurdle",
+      "translation": "目標への障害",
+      "exampleEn": "Cost remains a major hurdle.",
+      "before": {
+        "meaning": "目標への障害",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "目標への障害",
+        "alternatives": [
+          {
+            "text": "obstacle",
+            "note": "障害"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "intern",
+      "translation": "実習生",
+      "exampleEn": "The intern joined the research team.",
+      "before": {
+        "meaning": "実習生",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実習生",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "trench",
+      "translation": "地面に掘った長い溝",
+      "exampleEn": "Soldiers dug a trench.",
+      "before": {
+        "meaning": "地面に掘った長い溝",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "地面に掘った長い溝",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "entail",
+      "translation": "必然的に伴う",
+      "exampleEn": "The job entails frequent travel.",
+      "before": {
+        "meaning": "必然的に伴う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "必然的に伴う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "induce",
+      "translation": "ある結果を引き起こす",
+      "exampleEn": "The medicine can induce sleep.",
+      "before": {
+        "meaning": "ある結果を引き起こす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ある結果を引き起こす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tackle",
+      "translation": "難題に取り組む",
+      "exampleEn": "The team tackled the water shortage.",
+      "before": {
+        "meaning": "難題に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "難題に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bestow",
+      "translation": "名誉などを授ける",
+      "exampleEn": "The university bestowed an award on her.",
+      "before": {
+        "meaning": "（名誉などを）授ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（名誉などを）授ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ravage",
+      "translation": "地域をひどく荒廃させる",
+      "exampleEn": "The drought ravaged the farms.",
+      "before": {
+        "meaning": "（地域を）ひどく荒廃させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（地域を）ひどく荒廃させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "impede",
+      "translation": "進行を妨げる",
+      "exampleEn": "Heavy snow impeded the rescue effort.",
+      "before": {
+        "meaning": "（進行を）妨げる",
+        "alternatives": [
+          {
+            "text": "hinder",
+            "note": "進行を妨げる"
+          },
+          {
+            "text": "obstruct",
+            "note": "ふさいで妨げる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（進行を）妨げる",
+        "alternatives": [
+          {
+            "text": "hinder",
+            "note": "進行を妨げる"
+          },
+          {
+            "text": "obstruct",
+            "note": "ふさいで妨げる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "incite",
+      "translation": "暴動などをあおる",
+      "exampleEn": "The speech incited violence.",
+      "before": {
+        "meaning": "（暴動などを）あおる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（暴動などを）あおる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "remedy",
+      "translation": "問題を解決する手段",
+      "exampleEn": "The committee proposed a remedy.",
+      "before": {
+        "meaning": "問題を解決する手段",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "問題を解決する手段",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "plight",
+      "translation": "困難な苦境",
+      "exampleEn": "The article described the refugees' plight.",
+      "before": {
+        "meaning": "困難な苦境",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "困難な状況・苦境",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "困難な苦境という重複した日本語を整理する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revert",
+      "translation": "以前の状態に戻る",
+      "exampleEn": "The system reverted to its old settings.",
+      "before": {
+        "meaning": "以前の状態に戻る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "以前の状態に戻る",
+        "alternatives": [
+          {
+            "text": "return",
+            "note": "以前の状態に戻る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "lament",
+      "translation": "失敗や死を深く嘆く",
+      "exampleEn": "Many people lamented the loss.",
+      "before": {
+        "meaning": "（失敗や死を）深く嘆く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（失敗や死を）深く嘆く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deluge",
+      "translation": "大量の水による大洪水",
+      "exampleEn": "The deluge flooded the village.",
+      "before": {
+        "meaning": "大量の水による大洪水",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大量の水による大洪水",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "clique",
+      "translation": "排他的な仲間集団",
+      "exampleEn": "A small clique controlled the committee.",
+      "before": {
+        "meaning": "排他的な仲間集団",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "排他的な仲間集団",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "felony",
+      "translation": "重い刑罰を伴う犯罪",
+      "exampleEn": "The charge was a serious felony.",
+      "before": {
+        "meaning": "重い刑罰を伴う犯罪",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "重い刑罰を伴う犯罪",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ratify",
+      "translation": "条約を正式に承認する",
+      "exampleEn": "Parliament ratified the treaty.",
+      "before": {
+        "meaning": "（条約を）正式に承認する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（条約を）正式に承認する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revamp",
+      "translation": "仕組みを大きく作り直す",
+      "exampleEn": "The agency revamped its website.",
+      "before": {
+        "meaning": "（仕組みを）大きく作り直す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕組みを）大きく作り直す",
+        "alternatives": [
+          {
+            "text": "overhaul",
+            "note": "大幅に作り直す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pester",
+      "translation": "しつこくせがむ",
+      "exampleEn": "The child pestered his father for a toy.",
+      "before": {
+        "meaning": "しつこくせがむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "しつこくせがむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "negate",
+      "translation": "効果を打ち消す",
+      "exampleEn": "The delay negated the earlier gains.",
+      "before": {
+        "meaning": "（効果を）打ち消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（効果を）打ち消す",
+        "alternatives": [
+          {
+            "text": "nullify",
+            "note": "効果などを無効にする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hasten",
+      "translation": "早める",
+      "exampleEn": "The announcement hastened the decision.",
+      "before": {
+        "meaning": "早める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "早める",
+        "alternatives": [
+          {
+            "text": "hurry",
+            "note": "急ぐ・早める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "solace",
+      "translation": "悲しいときの慰め",
+      "exampleEn": "She found solace in music.",
+      "before": {
+        "meaning": "（悲しいときの）慰め",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（悲しいときの）慰め",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "placate",
+      "translation": "要求に応じて怒っている人をなだめる",
+      "exampleEn": "The manager offered a refund to placate the customer.",
+      "before": {
+        "meaning": "要求に応じて怒っている人をなだめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（怒った人を）なだめる・怒りを和らげる",
+        "alternatives": [
+          {
+            "text": "appease",
+            "note": "人をなだめる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "要求に応じる方法だけに限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dwindle",
+      "translation": "徐々に減る",
+      "exampleEn": "The town's population has dwindled.",
+      "before": {
+        "meaning": "徐々に減る",
+        "alternatives": [
+          {
+            "text": "wane",
+            "note": "勢いが弱まる"
+          },
+          {
+            "text": "taper off",
+            "note": "徐々に減る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "徐々に減る",
+        "alternatives": [
+          {
+            "text": "wane",
+            "note": "勢いが弱まる"
+          },
+          {
+            "text": "taper off",
+            "note": "徐々に減る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ransack",
+      "translation": "物を探して荒らす",
+      "exampleEn": "Thieves ransacked the house.",
+      "before": {
+        "meaning": "物を探して荒らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "物を探して荒らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "overrun",
+      "translation": "数が増えて場所を占領する",
+      "exampleEn": "The garden was overrun with weeds.",
+      "before": {
+        "meaning": "数が増えて場所を占領する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "数が増えて場所を占領する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dissent",
+      "translation": "多数派の意見に反対する",
+      "exampleEn": "Two judges dissented from the ruling.",
+      "before": {
+        "meaning": "多数派の意見に反対する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "多数派の意見に反対する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "freight",
+      "translation": "輸送される貨物",
+      "exampleEn": "The train carries freight at night.",
+      "before": {
+        "meaning": "輸送される貨物",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "輸送される貨物",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turmoil",
+      "translation": "社会や心の混乱",
+      "exampleEn": "The country was in political turmoil.",
+      "before": {
+        "meaning": "社会や心の混乱",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "社会や心の混乱",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dilemma",
+      "translation": "どちらも難しい選択",
+      "exampleEn": "She faced a difficult dilemma.",
+      "before": {
+        "meaning": "どちらも難しい選択",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どちらも難しい選択",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "warrior",
+      "translation": "戦いに参加する戦士",
+      "exampleEn": "The story follows a young warrior.",
+      "before": {
+        "meaning": "戦いに参加する戦士",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "戦いに参加する戦士",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ailment",
+      "translation": "比較的軽い病気や不調",
+      "exampleEn": "The doctor treated a minor ailment.",
+      "before": {
+        "meaning": "比較的軽い病気や不調",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "比較的軽い病気や不調",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "incline",
+      "translation": "傾く",
+      "exampleEn": "The path inclines sharply here.",
+      "before": {
+        "meaning": "傾く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "傾く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "conjure",
+      "translation": "イメージを思い起こさせる",
+      "exampleEn": "The smell conjured memories of home.",
+      "before": {
+        "meaning": "（イメージを）思い起こさせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（イメージを）思い起こさせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cripple",
+      "translation": "機能を深刻に損なう",
+      "exampleEn": "The attack crippled the network.",
+      "before": {
+        "meaning": "（機能を）深刻に損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機能を）深刻に損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "foresee",
+      "translation": "将来起きることを予測する",
+      "exampleEn": "No one foresaw the sudden change.",
+      "before": {
+        "meaning": "将来起きることを予測する",
+        "alternatives": [
+          {
+            "text": "predict",
+            "note": "将来を予測する"
+          },
+          {
+            "text": "forecast",
+            "note": "将来を予測・予報する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "将来起きることを予測する",
+        "alternatives": [
+          {
+            "text": "predict",
+            "note": "将来を予測する"
+          },
+          {
+            "text": "forecast",
+            "note": "将来を予測・予報する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ascribe",
+      "translation": "原因を〜に帰する",
+      "exampleEn": "They ascribed the delay to bad weather.",
+      "before": {
+        "meaning": "原因を〜に帰する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "原因を〜に帰する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reactor",
+      "translation": "原子炉",
+      "exampleEn": "The reactor was shut down safely.",
+      "before": {
+        "meaning": "原子炉",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "原子炉",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revival",
+      "translation": "文化などの復活",
+      "exampleEn": "The town enjoyed an artistic revival.",
+      "before": {
+        "meaning": "（文化などの）復活",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（文化などの）復活",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "segment",
+      "translation": "全体の一部分",
+      "exampleEn": "This segment of the market is growing.",
+      "before": {
+        "meaning": "全体の一部分",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "全体の一部分",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reissue",
+      "translation": "改めて発行する",
+      "exampleEn": "The bank reissued the card.",
+      "before": {
+        "meaning": "改めて発行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "改めて発行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "specify",
+      "translation": "詳しく指定する",
+      "exampleEn": "Please specify the date on the form.",
+      "before": {
+        "meaning": "詳しく指定する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "詳しく指定する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "instill",
+      "translation": "考えや習慣を徐々に植え付ける",
+      "exampleEn": "Parents instill good habits in children.",
+      "before": {
+        "meaning": "（考えや習慣を）徐々に植え付ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考えや習慣を）徐々に植え付ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "disdain",
+      "translation": "軽蔑する",
+      "exampleEn": "She disdained the unfair offer.",
+      "before": {
+        "meaning": "軽蔑する",
+        "alternatives": [
+          {
+            "text": "despise",
+            "note": "軽蔑する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "軽蔑する",
+        "alternatives": [
+          {
+            "text": "despise",
+            "note": "軽蔑する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "burgeon",
+      "translation": "急速に成長する",
+      "exampleEn": "The city's population burgeoned.",
+      "before": {
+        "meaning": "急速に成長する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急速に成長する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "splurge",
+      "translation": "ぜいたくにお金を使う",
+      "exampleEn": "We splurged on a special dinner.",
+      "before": {
+        "meaning": "ぜいたくにお金を使う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ぜいたくにお金を使う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "envelop",
+      "translation": "すっぽり覆う",
+      "exampleEn": "Thick fog enveloped the village.",
+      "before": {
+        "meaning": "すっぽり覆う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すっぽり覆う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "preside",
+      "translation": "会議の議長を務める",
+      "exampleEn": "She presided over the meeting.",
+      "before": {
+        "meaning": "（会議の）議長を務める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（会議の）議長を務める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pretext",
+      "translation": "本当の目的を隠す口実",
+      "exampleEn": "The rule was a pretext for censorship.",
+      "before": {
+        "meaning": "本当の目的を隠す口実",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "本当の目的を隠す口実",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "respite",
+      "translation": "困難からの一時的な休息",
+      "exampleEn": "The ceasefire offered a brief respite.",
+      "before": {
+        "meaning": "困難からの一時的な休息",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "困難からの一時的な休息",
+        "alternatives": [
+          {
+            "text": "temporary relief",
+            "note": "苦痛などの一時的な緩和"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "conserve",
+      "translation": "資源を節約する",
+      "exampleEn": "We must conserve water.",
+      "before": {
+        "meaning": "（資源を）節約する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（資源を）節約する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ideology",
+      "translation": "政治や社会に関する思想体系",
+      "exampleEn": "Their ideology shaped the party.",
+      "before": {
+        "meaning": "政治や社会に関する思想体系",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "政治や社会に関する思想体系",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "atrocity",
+      "translation": "戦争などの残虐行為",
+      "exampleEn": "The report documented an atrocity.",
+      "before": {
+        "meaning": "戦争などの残虐行為",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "戦争などの残虐行為",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pretense",
+      "translation": "本心を隠す見せかけ",
+      "exampleEn": "He gave up the pretense of being calm.",
+      "before": {
+        "meaning": "本心を隠す見せかけ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "本心を隠す見せかけ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "mitigate",
+      "translation": "被害や影響を軽減する",
+      "exampleEn": "Trees help mitigate air pollution.",
+      "before": {
+        "meaning": "（被害や影響を）軽減する",
+        "alternatives": [
+          {
+            "text": "lessen",
+            "note": "被害・悪影響を軽減する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（被害や影響を）軽減する",
+        "alternatives": [
+          {
+            "text": "lessen",
+            "note": "被害・悪影響を軽減する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "appraise",
+      "translation": "価値を評価する",
+      "exampleEn": "The expert appraised the painting.",
+      "before": {
+        "meaning": "（価値を）評価する",
+        "alternatives": [
+          {
+            "text": "evaluate",
+            "note": "価値・効果を評価する"
+          },
+          {
+            "text": "assess",
+            "note": "価値・状況を評価する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（価値を）評価する",
+        "alternatives": [
+          {
+            "text": "evaluate",
+            "note": "価値・効果を評価する"
+          },
+          {
+            "text": "assess",
+            "note": "価値・状況を評価する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "penalize",
+      "translation": "規則違反に罰を与える",
+      "exampleEn": "The referee penalized the team.",
+      "before": {
+        "meaning": "規則違反に罰を与える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則違反に罰を与える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "loyalist",
+      "translation": "指導者や政府に忠実な人",
+      "exampleEn": "A loyalist defended the king.",
+      "before": {
+        "meaning": "指導者や政府に忠実な人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "指導者や政府に忠実な人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "nobility",
+      "translation": "貴族階級",
+      "exampleEn": "The castle belonged to the nobility.",
+      "before": {
+        "meaning": "貴族階級",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "貴族階級",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "excavate",
+      "translation": "地面を掘って発掘する",
+      "exampleEn": "Researchers excavated the ancient site.",
+      "before": {
+        "meaning": "地面を掘って発掘する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "地面を掘って発掘する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "relegate",
+      "translation": "低い地位へ追いやる",
+      "exampleEn": "The team was relegated to a lower league.",
+      "before": {
+        "meaning": "低い地位へ追いやる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "低い地位へ追いやる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "supplant",
+      "translation": "以前のものに取って代わる",
+      "exampleEn": "Digital tools supplanted paper records.",
+      "before": {
+        "meaning": "以前のものに取って代わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "以前のものに取って代わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "velocity",
+      "translation": "物体が動く速度",
+      "exampleEn": "The scientist calculated the object's velocity.",
+      "before": {
+        "meaning": "物体が動く速度",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "物体が動く速度",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "leverage",
+      "translation": "交渉を有利にする力",
+      "exampleEn": "The group used its leverage in the talks.",
+      "before": {
+        "meaning": "交渉を有利にする力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "交渉を有利にする力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fugitive",
+      "translation": "逃亡中の容疑者",
+      "exampleEn": "Police searched for the fugitive.",
+      "before": {
+        "meaning": "逃亡中の容疑者",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "逃亡者・逃亡中の人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "容疑者だけに対象を限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "aversion",
+      "translation": "強い嫌悪感",
+      "exampleEn": "She has an aversion to risk.",
+      "before": {
+        "meaning": "強い嫌悪感",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "強い嫌悪感",
+        "alternatives": [
+          {
+            "text": "strong dislike",
+            "note": "強い嫌悪"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pinnacle",
+      "translation": "成功の頂点",
+      "exampleEn": "The award marked the pinnacle of her career.",
+      "before": {
+        "meaning": "成功の頂点",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "成功の頂点",
+        "alternatives": [
+          {
+            "text": "peak",
+            "note": "頂点"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "antibody",
+      "translation": "病原体に対抗する抗体",
+      "exampleEn": "The test detected an antibody.",
+      "before": {
+        "meaning": "病原体に対抗する抗体",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "病原体に対抗する抗体",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "coercion",
+      "translation": "脅して従わせる強制",
+      "exampleEn": "The confession was obtained through coercion.",
+      "before": {
+        "meaning": "脅して従わせる強制",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "脅して従わせる強制",
+        "alternatives": [
+          {
+            "text": "compulsion",
+            "note": "強制"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "homicide",
+      "translation": "人を殺す犯罪",
+      "exampleEn": "Police opened a homicide investigation.",
+      "before": {
+        "meaning": "人を殺す犯罪",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人を殺すこと・殺人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "語の意味を特定の違法性の判断まで限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "vindicate",
+      "translation": "無実や正しさを証明する",
+      "exampleEn": "New evidence vindicated her claim.",
+      "before": {
+        "meaning": "（無実や正しさを）証明する",
+        "alternatives": [
+          {
+            "text": "exonerate",
+            "note": "責任・罪がないと認める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（無実や正しさを）証明する",
+        "alternatives": [
+          {
+            "text": "exonerate",
+            "note": "責任・罪がないと認める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "skyrocket",
+      "translation": "急激に上昇する",
+      "exampleEn": "Housing prices skyrocketed last year.",
+      "before": {
+        "meaning": "急激に上昇する",
+        "alternatives": [
+          {
+            "text": "soar",
+            "note": "急上昇する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急激に上昇する",
+        "alternatives": [
+          {
+            "text": "soar",
+            "note": "急上昇する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "inception",
+      "translation": "組織や計画の始まり",
+      "exampleEn": "The project has grown since its inception.",
+      "before": {
+        "meaning": "（組織や計画の）始まり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（組織や計画の）始まり",
+        "alternatives": [
+          {
+            "text": "beginning",
+            "note": "始まり"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cessation",
+      "translation": "活動や行為の停止",
+      "exampleEn": "The agreement called for a cessation of fighting.",
+      "before": {
+        "meaning": "（活動や行為の）停止",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動や行為の）停止",
+        "alternatives": [
+          {
+            "text": "stoppage",
+            "note": "停止"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "intensify",
+      "translation": "いっそう強くする",
+      "exampleEn": "The heat intensified in the afternoon.",
+      "before": {
+        "meaning": "いっそう強くする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "いっそう強くする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "supervise",
+      "translation": "作業を監督する",
+      "exampleEn": "She supervises the new employees.",
+      "before": {
+        "meaning": "（作業を）監督する",
+        "alternatives": [
+          {
+            "text": "oversee",
+            "note": "監督する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（作業を）監督する",
+        "alternatives": [
+          {
+            "text": "oversee",
+            "note": "監督する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "culminate",
+      "translation": "最後に〜という結果に至る",
+      "exampleEn": "Months of talks culminated in an agreement.",
+      "before": {
+        "meaning": "最後に〜という結果に至る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最後に〜という結果に至る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "overreact",
+      "translation": "必要以上に強く反応する",
+      "exampleEn": "I may have overreacted to the news.",
+      "before": {
+        "meaning": "必要以上に強く反応する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "必要以上に強く反応する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "overstate",
+      "translation": "実際より大げさに述べる",
+      "exampleEn": "The report overstated the benefits.",
+      "before": {
+        "meaning": "実際より大げさに述べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実際より大げさに述べる",
+        "alternatives": [
+          {
+            "text": "exaggerate",
+            "note": "大げさに述べる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pregnancy",
+      "translation": "妊娠期間・妊娠",
+      "exampleEn": "Regular care is important during pregnancy.",
+      "before": {
+        "meaning": "妊娠期間・妊娠",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "妊娠期間・妊娠",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tolerance",
+      "translation": "異なる考えを受け入れる寛容さ",
+      "exampleEn": "The school promotes tolerance.",
+      "before": {
+        "meaning": "異なる考えを受け入れる寛容さ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "寛容さ／耐性・許容度",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "考えの違いへの寛容だけに限定しない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "postulate",
+      "translation": "根拠として仮定する",
+      "exampleEn": "The theory postulates a new mechanism.",
+      "before": {
+        "meaning": "根拠として仮定する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "根拠として仮定する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reexamine",
+      "translation": "再び詳しく調べる",
+      "exampleEn": "The court will reexamine the evidence.",
+      "before": {
+        "meaning": "再び詳しく調べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "再び詳しく調べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "segregate",
+      "translation": "人を集団ごとに分離する",
+      "exampleEn": "The old law segregated students.",
+      "before": {
+        "meaning": "（人を集団ごとに）分離する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を集団ごとに）分離する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "intervene",
+      "translation": "争いや事態に介入する",
+      "exampleEn": "The government intervened in the dispute.",
+      "before": {
+        "meaning": "（争いや事態に）介入する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（争いや事態に）介入する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "instigate",
+      "translation": "騒動などをけしかける",
+      "exampleEn": "The leader instigated the violence.",
+      "before": {
+        "meaning": "（騒動などを）けしかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（騒動などを）けしかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "alleviate",
+      "translation": "苦痛や問題を和らげる",
+      "exampleEn": "The medicine alleviated her pain.",
+      "before": {
+        "meaning": "（苦痛や問題を）和らげる",
+        "alternatives": [
+          {
+            "text": "relieve",
+            "note": "痛み・負担を軽減する"
+          },
+          {
+            "text": "mitigate",
+            "note": "悪影響を軽減する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（苦痛や問題を）和らげる",
+        "alternatives": [
+          {
+            "text": "relieve",
+            "note": "痛み・負担を軽減する"
+          },
+          {
+            "text": "mitigate",
+            "note": "悪影響を軽減する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stabilize",
+      "translation": "安定させる",
+      "exampleEn": "The treatment stabilized his condition.",
+      "before": {
+        "meaning": "安定させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "安定させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "perimeter",
+      "translation": "敷地の外周",
+      "exampleEn": "Guards patrolled the perimeter.",
+      "before": {
+        "meaning": "敷地の外周",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "敷地の外周",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "precursor",
+      "translation": "後に起こることの先駆け",
+      "exampleEn": "The discovery was a precursor to the cure.",
+      "before": {
+        "meaning": "後に起こることの先駆け",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "後に起こることの先駆け",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hindrance",
+      "translation": "進行を妨げるもの",
+      "exampleEn": "Poor roads are a hindrance to trade.",
+      "before": {
+        "meaning": "進行を妨げるもの",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "進行を妨げるもの",
+        "alternatives": [
+          {
+            "text": "obstacle",
+            "note": "妨げ・障害"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "charlatan",
+      "translation": "専門家を装う詐欺師",
+      "exampleEn": "The so-called healer was a charlatan.",
+      "before": {
+        "meaning": "専門家を装う詐欺師",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "専門家を装う詐欺師",
+        "alternatives": [
+          {
+            "text": "fraud",
+            "note": "専門家などを装う詐欺師"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reinstate",
+      "translation": "解任した人を元の職に戻す",
+      "exampleEn": "The company reinstated the worker.",
+      "before": {
+        "meaning": "解任した人を元の職に戻す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "解任した人を元の職に戻す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stalemate",
+      "translation": "交渉などの行き詰まり",
+      "exampleEn": "The talks ended in a stalemate.",
+      "before": {
+        "meaning": "（交渉などの）行き詰まり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（交渉などの）行き詰まり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "onslaught",
+      "translation": "猛烈な攻撃",
+      "exampleEn": "The village survived the onslaught.",
+      "before": {
+        "meaning": "猛烈な攻撃",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "猛烈な攻撃",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "abolition",
+      "translation": "制度などの廃止",
+      "exampleEn": "The group called for the abolition of the law.",
+      "before": {
+        "meaning": "（制度などの）廃止",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（制度などの）廃止",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "aftermath",
+      "translation": "災害などの余波",
+      "exampleEn": "The town struggled in the aftermath of the flood.",
+      "before": {
+        "meaning": "（災害などの）余波",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（災害などの）余波",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "anonymity",
+      "translation": "名前を明かさないこと",
+      "exampleEn": "The witness requested anonymity.",
+      "before": {
+        "meaning": "名前を明かさないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "名前を明かさないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deterrent",
+      "translation": "行動を思いとどまらせる抑止力",
+      "exampleEn": "The fine acted as a deterrent.",
+      "before": {
+        "meaning": "行動を思いとどまらせる抑止力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "行動を思いとどまらせる抑止力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dominance",
+      "translation": "他を上回る支配力",
+      "exampleEn": "The firm maintained its market dominance.",
+      "before": {
+        "meaning": "他を上回る支配力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "他を上回る支配力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revitalize",
+      "translation": "衰えたものを再活性化する",
+      "exampleEn": "The project revitalized the town center.",
+      "before": {
+        "meaning": "衰えたものを再活性化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "衰えたものを再活性化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "relinquish",
+      "translation": "権利や支配を手放す",
+      "exampleEn": "The leader relinquished power.",
+      "before": {
+        "meaning": "（権利や支配を）手放す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（権利や支配を）手放す",
+        "alternatives": [
+          {
+            "text": "give up",
+            "note": "権利・支配などを手放す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "articulate",
+      "translation": "考えを明確に述べる",
+      "exampleEn": "She articulated her concerns clearly.",
+      "before": {
+        "meaning": "（考えを）明確に述べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考えを）明確に述べる",
+        "alternatives": [
+          {
+            "text": "express clearly",
+            "note": "明確に表現する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "neutrality",
+      "translation": "対立でどちらにもつかないこと",
+      "exampleEn": "The country maintained neutrality.",
+      "before": {
+        "meaning": "対立でどちらにもつかないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "対立でどちらにもつかないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "evaluation",
+      "translation": "価値や成果の評価",
+      "exampleEn": "The evaluation showed clear progress.",
+      "before": {
+        "meaning": "価値や成果の評価",
+        "alternatives": [
+          {
+            "text": "assessment",
+            "note": "評価・査定"
+          },
+          {
+            "text": "appraisal",
+            "note": "価値の評価"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "価値や成果の評価",
+        "alternatives": [
+          {
+            "text": "assessment",
+            "note": "評価・査定"
+          },
+          {
+            "text": "appraisal",
+            "note": "価値の評価"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "expedition",
+      "translation": "探検の旅",
+      "exampleEn": "The expedition crossed the desert.",
+      "before": {
+        "meaning": "探検の旅",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "探検の旅",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "propensity",
+      "translation": "ある行動をしがちな傾向",
+      "exampleEn": "He has a propensity to take risks.",
+      "before": {
+        "meaning": "ある行動をしがちな傾向",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ある行動をしがちな傾向",
+        "alternatives": [
+          {
+            "text": "tendency",
+            "note": "傾向"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "perpetuate",
+      "translation": "問題などを長引かせる",
+      "exampleEn": "The policy may perpetuate inequality.",
+      "before": {
+        "meaning": "（問題などを）長引かせる",
+        "alternatives": [
+          {
+            "text": "prolong",
+            "note": "長引かせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題などを）長引かせる",
+        "alternatives": [
+          {
+            "text": "prolong",
+            "note": "長引かせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "insulation",
+      "translation": "熱や音を遮る断熱材",
+      "exampleEn": "The house needs better insulation.",
+      "before": {
+        "meaning": "熱や音を遮る断熱材",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "断熱・防音・絶縁／そのための材料",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "材料だけでなく、遮断する作用や絶縁の用法も残す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "occurrence",
+      "translation": "出来事の発生",
+      "exampleEn": "The occurrence was recorded on camera.",
+      "before": {
+        "meaning": "出来事の発生",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "出来事の発生",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reflection",
+      "translation": "光などの反射",
+      "exampleEn": "The reflection was visible in the water.",
+      "before": {
+        "meaning": "（光などの）反射",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（光などの）反射",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revelation",
+      "translation": "隠れていた事実の発覚",
+      "exampleEn": "The revelation shocked the public.",
+      "before": {
+        "meaning": "隠れていた事実の発覚",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "隠れていた事実の発覚",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "standpoint",
+      "translation": "物事を見る立場",
+      "exampleEn": "From a legal standpoint, it is unclear.",
+      "before": {
+        "meaning": "物事を見る立場",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "物事を見る立場",
+        "alternatives": [
+          {
+            "text": "viewpoint",
+            "note": "見方・立場"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reevaluate",
+      "translation": "もう一度評価する",
+      "exampleEn": "We need to reevaluate the policy.",
+      "before": {
+        "meaning": "もう一度評価する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もう一度評価する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "exasperate",
+      "translation": "ひどくいら立たせる",
+      "exampleEn": "The repeated delays exasperated us.",
+      "before": {
+        "meaning": "ひどくいら立たせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ひどくいら立たせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prevalence",
+      "translation": "広く見られる割合",
+      "exampleEn": "The study measured the prevalence of the disease.",
+      "before": {
+        "meaning": "広く見られる割合",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "広く見られること・普及／有病率",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "割合の数字そのものだけでなく、広く存在する意味も示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "referendum",
+      "translation": "国民投票",
+      "exampleEn": "Voters approved the change in a referendum.",
+      "before": {
+        "meaning": "国民投票",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "国民投票",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "conjecture",
+      "translation": "確証のない推測",
+      "exampleEn": "His theory remains a conjecture.",
+      "before": {
+        "meaning": "確証のない推測",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "確証のない推測",
+        "alternatives": [
+          {
+            "text": "speculation",
+            "note": "確証のない推測"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "condolence",
+      "translation": "遺族へのお悔やみ",
+      "exampleEn": "She sent a message of condolence.",
+      "before": {
+        "meaning": "遺族へのお悔やみ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "遺族へのお悔やみ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "anesthetic",
+      "translation": "感覚をなくす麻酔薬",
+      "exampleEn": "The doctor administered an anesthetic.",
+      "before": {
+        "meaning": "感覚をなくす麻酔薬",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "感覚をなくす麻酔薬",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "perpetrate",
+      "translation": "犯罪を実行する",
+      "exampleEn": "The group perpetrated the attack.",
+      "before": {
+        "meaning": "（犯罪を）実行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（犯罪を）実行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reparation",
+      "translation": "損害に対する賠償",
+      "exampleEn": "The victims demanded reparation.",
+      "before": {
+        "meaning": "損害に対する賠償",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "損害に対する賠償",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "contention",
+      "translation": "議論の争点",
+      "exampleEn": "The main point of contention was cost.",
+      "before": {
+        "meaning": "議論の争点",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "議論の争点",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reverberate",
+      "translation": "音が反響する",
+      "exampleEn": "The bell reverberated through the hall.",
+      "before": {
+        "meaning": "（音が）反響する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（音が）反響する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sovereignty",
+      "translation": "国家が自らを治める主権",
+      "exampleEn": "The treaty recognized its sovereignty.",
+      "before": {
+        "meaning": "国家が自らを治める主権",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "国家が自らを治める主権",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "perpetrator",
+      "translation": "犯罪を実行した人",
+      "exampleEn": "Police identified the perpetrator.",
+      "before": {
+        "meaning": "犯罪を実行した人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "犯罪を実行した人",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "neurologist",
+      "translation": "神経系を診る専門医",
+      "exampleEn": "A neurologist examined the patient.",
+      "before": {
+        "meaning": "神経系を診る専門医",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "神経系を診る専門医",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "incarcerate",
+      "translation": "刑務所に収監する",
+      "exampleEn": "The court incarcerated the offender.",
+      "before": {
+        "meaning": "（刑務所に）収監する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（刑務所に）収監する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "instability",
+      "translation": "政治や経済の不安定さ",
+      "exampleEn": "Instability discouraged investment.",
+      "before": {
+        "meaning": "政治や経済の不安定さ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "政治や経済の不安定さ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "predecessor",
+      "translation": "前任者",
+      "exampleEn": "The director praised her predecessor.",
+      "before": {
+        "meaning": "前任者",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "前任者",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "progression",
+      "translation": "段階を追った進行",
+      "exampleEn": "The doctor monitored disease progression.",
+      "before": {
+        "meaning": "段階を追った進行",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "段階を追った進行",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "resignation",
+      "translation": "職を辞めること",
+      "exampleEn": "The minister announced her resignation.",
+      "before": {
+        "meaning": "職を辞めること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "職を辞めること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "superiority",
+      "translation": "他より優れていること",
+      "exampleEn": "They claimed technological superiority.",
+      "before": {
+        "meaning": "他より優れていること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "他より優れていること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "suppression",
+      "translation": "活動や感情を抑え込むこと",
+      "exampleEn": "The suppression of protests drew criticism.",
+      "before": {
+        "meaning": "（活動や感情を）抑え込むこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動や感情を）抑え込むこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reciprocate",
+      "translation": "相手の好意に応える",
+      "exampleEn": "She reciprocated his kindness.",
+      "before": {
+        "meaning": "相手の好意に応える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "相手の好意に応える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deportation",
+      "translation": "外国人を国外へ退去させること",
+      "exampleEn": "He faced deportation after the ruling.",
+      "before": {
+        "meaning": "外国人を国外へ退去させること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "外国人を国外へ退去させること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "complacency",
+      "translation": "現状に満足して警戒しないこと",
+      "exampleEn": "Complacency can hide serious risks.",
+      "before": {
+        "meaning": "現状に満足して警戒しないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "現状に満足して警戒しないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pollination",
+      "translation": "植物の受粉",
+      "exampleEn": "Bees play a role in pollination.",
+      "before": {
+        "meaning": "植物の受粉",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "植物の受粉",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "endorsement",
+      "translation": "公の支持表明",
+      "exampleEn": "The candidate received her endorsement.",
+      "before": {
+        "meaning": "公の支持表明",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "公の支持表明",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "groundwater",
+      "translation": "地下にある水",
+      "exampleEn": "The chemicals polluted groundwater.",
+      "before": {
+        "meaning": "地下にある水",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "地下にある水",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "substantiate",
+      "translation": "証拠で裏付ける",
+      "exampleEn": "The report substantiated the accusation.",
+      "before": {
+        "meaning": "証拠で裏付ける",
+        "alternatives": [
+          {
+            "text": "corroborate",
+            "note": "裏付ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "証拠で裏付ける",
+        "alternatives": [
+          {
+            "text": "corroborate",
+            "note": "裏付ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "practitioner",
+      "translation": "専門職の実務家",
+      "exampleEn": "The practitioner shared her experience.",
+      "before": {
+        "meaning": "専門職の実務家",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "専門職の実務家",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "spokesperson",
+      "translation": "組織の広報担当者",
+      "exampleEn": "A spokesperson answered reporters' questions.",
+      "before": {
+        "meaning": "組織の広報担当者",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "組織の広報担当者",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "jurisdiction",
+      "translation": "法律上の管轄権",
+      "exampleEn": "The case falls under federal jurisdiction.",
+      "before": {
+        "meaning": "法律上の管轄権",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "法律上の管轄権",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "conglomerate",
+      "translation": "多分野の企業を持つ複合企業",
+      "exampleEn": "The conglomerate owns several media firms.",
+      "before": {
+        "meaning": "多分野の企業を持つ複合企業",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "多分野の企業を持つ複合企業",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "anthropology",
+      "translation": "人間の文化や社会を研究する学問",
+      "exampleEn": "She studied anthropology at university.",
+      "before": {
+        "meaning": "人間の文化や社会を研究する学問",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人間の文化や社会を研究する学問",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "differentiate",
+      "translation": "違いを明確にする",
+      "exampleEn": "The test differentiates the two conditions.",
+      "before": {
+        "meaning": "違いを明確にする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "違いを明確にする",
+        "alternatives": [
+          {
+            "text": "distinguish",
+            "note": "違いを見分ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "precipitation",
+      "translation": "雨や雪の降水量",
+      "exampleEn": "Annual precipitation has declined.",
+      "before": {
+        "meaning": "雨や雪の降水量",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "雨や雪などの降水・降水量",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "量だけでなく、降水という現象を含める。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "privatization",
+      "translation": "国営事業の民営化",
+      "exampleEn": "Privatization changed the rail system.",
+      "before": {
+        "meaning": "国営事業の民営化",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "国営事業の民営化",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revolutionize",
+      "translation": "仕組みを根本から変える",
+      "exampleEn": "The invention revolutionized medicine.",
+      "before": {
+        "meaning": "（仕組みを）根本から変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕組みを）根本から変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "transgression",
+      "translation": "道徳や規則に背く行為",
+      "exampleEn": "He apologized for the transgression.",
+      "before": {
+        "meaning": "道徳や規則に背く行為",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "道徳や規則に背く行為",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "mar",
+      "translation": "美しさなどを損なう",
+      "exampleEn": "The graffiti marred the monument.",
+      "before": {
+        "meaning": "（美しさなどを）損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（美しさなどを）損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reap",
+      "translation": "努力の成果を得る",
+      "exampleEn": "The farmers reaped the benefits of their work.",
+      "before": {
+        "meaning": "（努力の成果を）得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（努力の成果を）得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "lurk",
+      "translation": "人目につかず潜む",
+      "exampleEn": "Danger lurks beneath the surface.",
+      "before": {
+        "meaning": "人目につかず潜む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人目につかず潜む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "boon",
+      "translation": "大きな恩恵",
+      "exampleEn": "The new bridge was a boon to residents.",
+      "before": {
+        "meaning": "大きな恩恵",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大きな恩恵",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "veer",
+      "translation": "急に方向を変える",
+      "exampleEn": "The ship veered away from the rocks.",
+      "before": {
+        "meaning": "急に方向を変える",
+        "alternatives": [
+          {
+            "text": "swerve",
+            "note": "急に進路を変える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急に方向を変える",
+        "alternatives": [
+          {
+            "text": "swerve",
+            "note": "急に進路を変える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "adorn",
+      "translation": "飾り付ける",
+      "exampleEn": "Paintings adorned the walls.",
+      "before": {
+        "meaning": "飾り付ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "飾り付ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "plead",
+      "translation": "必死に懇願する",
+      "exampleEn": "She pleaded for more time.",
+      "before": {
+        "meaning": "必死に懇願する",
+        "alternatives": [
+          {
+            "text": "implore",
+            "note": "切実に懇願する"
+          },
+          {
+            "text": "beg",
+            "note": "懇願する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "必死に懇願する",
+        "alternatives": [
+          {
+            "text": "implore",
+            "note": "切実に懇願する"
+          },
+          {
+            "text": "beg",
+            "note": "懇願する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "clump",
+      "translation": "固まった塊",
+      "exampleEn": "A clump of soil fell from the shovel.",
+      "before": {
+        "meaning": "固まった塊",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "固まった塊",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "taunt",
+      "translation": "侮辱してあざける",
+      "exampleEn": "The crowd taunted the players.",
+      "before": {
+        "meaning": "侮辱してあざける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "侮辱してあざける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tally",
+      "translation": "数を集計する",
+      "exampleEn": "Officials tallied the votes.",
+      "before": {
+        "meaning": "（数を）集計する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（数を）集計する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wince",
+      "translation": "痛みや不快感で顔をしかめる",
+      "exampleEn": "She winced at the loud noise.",
+      "before": {
+        "meaning": "（痛みや不快感で）顔をしかめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（痛みや不快感で）顔をしかめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "defame",
+      "translation": "人の名誉を傷つける",
+      "exampleEn": "The false article defamed the doctor.",
+      "before": {
+        "meaning": "（人の）名誉を傷つける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の）名誉を傷つける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "impair",
+      "translation": "機能を損なう",
+      "exampleEn": "The injury impaired his vision.",
+      "before": {
+        "meaning": "（機能を）損なう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機能を）損なう",
+        "alternatives": [
+          {
+            "text": "damage",
+            "note": "機能などを損なう"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reside",
+      "translation": "正式な住所として住む",
+      "exampleEn": "She resides in a small village.",
+      "before": {
+        "meaning": "正式な住所として住む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（かたい言い方で）住む・居住する",
+        "alternatives": [
+          {
+            "text": "live",
+            "note": "住む"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "公的に登録した住所である必要はなく、語調のかたさを示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "baffle",
+      "translation": "理解できず困惑させる",
+      "exampleEn": "The strange result baffled the scientists.",
+      "before": {
+        "meaning": "理解できず困惑させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "理解できず困惑させる",
+        "alternatives": [
+          {
+            "text": "puzzle",
+            "note": "困惑させる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tangle",
+      "translation": "絡まった状態",
+      "exampleEn": "The wires formed a tangle.",
+      "before": {
+        "meaning": "絡まった状態",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "絡まった状態",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "garner",
+      "translation": "支持や注目を集める",
+      "exampleEn": "The proposal garnered broad support.",
+      "before": {
+        "meaning": "（支持や注目を）集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（支持や注目を）集める",
+        "alternatives": [
+          {
+            "text": "gather",
+            "note": "支持・注目などを集める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "flaunt",
+      "translation": "富や能力を見せびらかす",
+      "exampleEn": "He flaunted his wealth online.",
+      "before": {
+        "meaning": "（富や能力を）見せびらかす",
+        "alternatives": [
+          {
+            "text": "show off",
+            "note": "見せびらかす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（富や能力を）見せびらかす",
+        "alternatives": [
+          {
+            "text": "show off",
+            "note": "見せびらかす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "muster",
+      "translation": "人員や勇気を何とか集める",
+      "exampleEn": "The team mustered enough support.",
+      "before": {
+        "meaning": "（人員や勇気を）何とか集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人員や勇気を）何とか集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rebuff",
+      "translation": "申し出をきっぱり拒む",
+      "exampleEn": "The council rebuffed the proposal.",
+      "before": {
+        "meaning": "（申し出を）きっぱり拒む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（申し出を）きっぱり拒む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "revoke",
+      "translation": "許可や資格を取り消す",
+      "exampleEn": "The agency revoked the license.",
+      "before": {
+        "meaning": "（許可や資格を）取り消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（許可や資格を）取り消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "topple",
+      "translation": "倒す・倒れる",
+      "exampleEn": "The storm toppled several trees.",
+      "before": {
+        "meaning": "倒す・倒れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "倒す・倒れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "amplify",
+      "translation": "音や影響を増幅する",
+      "exampleEn": "The device amplifies weak signals.",
+      "before": {
+        "meaning": "（音や影響を）増幅する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（音や影響を）増幅する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "shatter",
+      "translation": "粉々に砕く",
+      "exampleEn": "The impact shattered the window.",
+      "before": {
+        "meaning": "粉々に砕く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "粉々に砕く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "augment",
+      "translation": "量や効果を増やす",
+      "exampleEn": "The grant augmented the research budget.",
+      "before": {
+        "meaning": "（量や効果を）増やす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（量や効果を）増やす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "agitate",
+      "translation": "液体をかき混ぜる",
+      "exampleEn": "Agitate the solution before use.",
+      "before": {
+        "meaning": "（液体を）かき混ぜる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（液体を）かき混ぜる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "agility",
+      "translation": "すばやく動ける能力",
+      "exampleEn": "The athlete showed great agility.",
+      "before": {
+        "meaning": "すばやく動ける能力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すばやく動ける能力",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "embroil",
+      "translation": "争いに巻き込む",
+      "exampleEn": "The scandal embroiled several officials.",
+      "before": {
+        "meaning": "（争いに）巻き込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（争いに）巻き込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "meander",
+      "translation": "川などが曲がりくねる",
+      "exampleEn": "The river meanders through the valley.",
+      "before": {
+        "meaning": "（川などが）曲がりくねる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（川などが）曲がりくねる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "forfeit",
+      "translation": "規則違反で権利を失う",
+      "exampleEn": "The team forfeited the match.",
+      "before": {
+        "meaning": "規則違反で権利を失う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則違反で権利を失う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rectify",
+      "translation": "誤りを正す",
+      "exampleEn": "The agency rectified the mistake.",
+      "before": {
+        "meaning": "（誤りを）正す",
+        "alternatives": [
+          {
+            "text": "correct",
+            "note": "正す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（誤りを）正す",
+        "alternatives": [
+          {
+            "text": "correct",
+            "note": "正す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "implore",
+      "translation": "切実に懇願する",
+      "exampleEn": "She implored them to stay.",
+      "before": {
+        "meaning": "切実に懇願する",
+        "alternatives": [
+          {
+            "text": "plead",
+            "note": "懇願する"
+          },
+          {
+            "text": "beg",
+            "note": "懇願する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "切実に懇願する",
+        "alternatives": [
+          {
+            "text": "plead",
+            "note": "懇願する"
+          },
+          {
+            "text": "beg",
+            "note": "懇願する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "torment",
+      "translation": "ひどく苦しめる",
+      "exampleEn": "The memory continued to torment him.",
+      "before": {
+        "meaning": "ひどく苦しめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ひどく苦しめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "procure",
+      "translation": "必要な物資を調達する",
+      "exampleEn": "The hospital procured new equipment.",
+      "before": {
+        "meaning": "（必要な物資を）調達する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（必要な物資を）調達する",
+        "alternatives": [
+          {
+            "text": "obtain",
+            "note": "必要な物などを入手する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "smuggle",
+      "translation": "物を隠して密輸する",
+      "exampleEn": "They tried to smuggle goods across the border.",
+      "before": {
+        "meaning": "物を隠して密輸する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "物を隠して密輸する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "embezzle",
+      "translation": "預かった金を横領する",
+      "exampleEn": "The accountant embezzled company funds.",
+      "before": {
+        "meaning": "（預かった金を）横領する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（預かった金を）横領する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "saturate",
+      "translation": "すっかり浸す",
+      "exampleEn": "The rain saturated the soil.",
+      "before": {
+        "meaning": "すっかり浸す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すっかり浸す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "simulate",
+      "translation": "実際の状況を模擬する",
+      "exampleEn": "The program simulates an earthquake.",
+      "before": {
+        "meaning": "実際の状況を模擬する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実際の状況を模擬する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "permeate",
+      "translation": "広い範囲に染み渡る",
+      "exampleEn": "The smell permeated the room.",
+      "before": {
+        "meaning": "広い範囲に染み渡る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "広い範囲に染み渡る",
+        "alternatives": [
+          {
+            "text": "penetrate",
+            "note": "内部まで染み渡る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "withhold",
+      "translation": "情報や支払いを差し控える",
+      "exampleEn": "The agency withheld the report.",
+      "before": {
+        "meaning": "（情報や支払いを）差し控える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（情報や支払いを）差し控える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "insulate",
+      "translation": "熱や音を遮断する",
+      "exampleEn": "Thick walls insulate the room.",
+      "before": {
+        "meaning": "（熱や音を）遮断する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（熱や音を）遮断する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "loophole",
+      "translation": "規則の抜け穴",
+      "exampleEn": "The company exploited a legal loophole.",
+      "before": {
+        "meaning": "規則の抜け穴",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則の抜け穴",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "clemency",
+      "translation": "処罰を軽くする寛大な措置",
+      "exampleEn": "The prisoner appealed for clemency.",
+      "before": {
+        "meaning": "処罰を軽くする寛大な措置",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "処罰を軽くする寛大な措置",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "validate",
+      "translation": "妥当だと確認する",
+      "exampleEn": "The study validated the method.",
+      "before": {
+        "meaning": "妥当だと確認する",
+        "alternatives": [
+          {
+            "text": "confirm",
+            "note": "確かめる"
+          },
+          {
+            "text": "verify",
+            "note": "事実・正しさを検証する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "妥当だと確認する",
+        "alternatives": [
+          {
+            "text": "confirm",
+            "note": "確かめる"
+          },
+          {
+            "text": "verify",
+            "note": "事実・正しさを検証する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "modulate",
+      "translation": "強さや調子を調節する",
+      "exampleEn": "The device modulates the signal.",
+      "before": {
+        "meaning": "（強さや調子を）調節する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（強さや調子を）調節する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "empathize",
+      "translation": "人の気持ちに共感する",
+      "exampleEn": "She could empathize with the families.",
+      "before": {
+        "meaning": "（人の気持ちに）共感する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の気持ちに）共感する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "diversify",
+      "translation": "種類や事業を多様化する",
+      "exampleEn": "The company diversified its products.",
+      "before": {
+        "meaning": "（種類や事業を）多様化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（種類や事業を）多様化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prosecute",
+      "translation": "犯罪を起訴する",
+      "exampleEn": "The state prosecuted the officer.",
+      "before": {
+        "meaning": "犯罪を起訴する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・組織を）起訴する・訴追する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "犯罪を目的語にするという誤解を防ぐ。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "enumerate",
+      "translation": "一つずつ列挙する",
+      "exampleEn": "The report enumerates the risks.",
+      "before": {
+        "meaning": "一つずつ列挙する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一つずつ列挙する",
+        "alternatives": [
+          {
+            "text": "list",
+            "note": "一つずつ挙げる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "dissipate",
+      "translation": "徐々に消えていく",
+      "exampleEn": "The fog dissipated by noon.",
+      "before": {
+        "meaning": "徐々に消えていく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "徐々に消えていく",
+        "alternatives": [
+          {
+            "text": "disperse",
+            "note": "散って消える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "liquidate",
+      "translation": "会社などの資産を清算する",
+      "exampleEn": "The firm liquidated its remaining assets.",
+      "before": {
+        "meaning": "（会社などの資産を）清算する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（会社などの資産を）清算する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "inculcate",
+      "translation": "考えを繰り返し教え込む",
+      "exampleEn": "The school inculcates respect for others.",
+      "before": {
+        "meaning": "（考えを）繰り返し教え込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考えを）繰り返し教え込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "galvanize",
+      "translation": "人々を奮い立たせる",
+      "exampleEn": "The speech galvanized the volunteers.",
+      "before": {
+        "meaning": "（人々を）奮い立たせる",
+        "alternatives": [
+          {
+            "text": "motivate",
+            "note": "やる気にさせる"
+          },
+          {
+            "text": "inspire",
+            "note": "気持ちを奮い立たせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人々を）奮い立たせる",
+        "alternatives": [
+          {
+            "text": "motivate",
+            "note": "やる気にさせる"
+          },
+          {
+            "text": "inspire",
+            "note": "気持ちを奮い立たせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "integrity",
+      "translation": "誠実で正直な姿勢",
+      "exampleEn": "Her integrity earned everyone's trust.",
+      "before": {
+        "meaning": "誠実で正直な姿勢",
+        "alternatives": [
+          {
+            "text": "honesty",
+            "note": "正直さ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "誠実さ・高潔さ／完全な状態・損なわれていないこと",
+        "alternatives": [
+          {
+            "text": "honesty",
+            "note": "誠実さ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "人格の意味と構造などの完全性の意味を残す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "threshold",
+      "translation": "変化が始まる境目・基準値",
+      "exampleEn": "The noise exceeded the legal threshold.",
+      "before": {
+        "meaning": "変化が始まる境目・基準値",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "変化が始まる境目・基準値",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "multitude",
+      "translation": "非常に多くの人や物",
+      "exampleEn": "A multitude of visitors filled the square.",
+      "before": {
+        "meaning": "非常に多くの人や物",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "非常に多くの人や物",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "subjugate",
+      "translation": "武力で支配下に置く",
+      "exampleEn": "The empire subjugated neighboring lands.",
+      "before": {
+        "meaning": "武力で支配下に置く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "武力で支配下に置く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reprimand",
+      "translation": "職務上の失敗を叱責する",
+      "exampleEn": "The manager reprimanded the employee.",
+      "before": {
+        "meaning": "職務上の失敗を叱責する",
+        "alternatives": [
+          {
+            "text": "rebuke",
+            "note": "厳しく叱る"
+          },
+          {
+            "text": "scold",
+            "note": "しかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "職務上の失敗を叱責する",
+        "alternatives": [
+          {
+            "text": "rebuke",
+            "note": "厳しく叱る"
+          },
+          {
+            "text": "scold",
+            "note": "しかる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ostracize",
+      "translation": "集団から仲間外れにする",
+      "exampleEn": "The group ostracized the newcomer.",
+      "before": {
+        "meaning": "集団から仲間外れにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "集団から仲間外れにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "suffocate",
+      "translation": "息ができず窒息する",
+      "exampleEn": "Without fresh air, the trapped miners could suffocate.",
+      "before": {
+        "meaning": "息ができず窒息する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "息ができず窒息する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hibernate",
+      "translation": "動物が冬眠する",
+      "exampleEn": "Some bears hibernate through winter.",
+      "before": {
+        "meaning": "（動物が）冬眠する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（動物が）冬眠する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "assimilate",
+      "translation": "社会や文化に同化する",
+      "exampleEn": "The newcomers gradually assimilated.",
+      "before": {
+        "meaning": "（社会や文化に）同化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（社会や文化に）同化する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "capitulate",
+      "translation": "抵抗をやめて降伏する",
+      "exampleEn": "The army finally capitulated.",
+      "before": {
+        "meaning": "抵抗をやめて降伏する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "抵抗をやめて降伏する",
+        "alternatives": [
+          {
+            "text": "surrender",
+            "note": "降伏する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "compliance",
+      "translation": "規則を守ること",
+      "exampleEn": "The audit checked compliance with the law.",
+      "before": {
+        "meaning": "規則を守ること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則を守ること",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "inaugurate",
+      "translation": "新しい時代や事業を開始する",
+      "exampleEn": "The agreement inaugurated a new era of cooperation.",
+      "before": {
+        "meaning": "（新しい時代や事業を）開始する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（新しい時代や事業を）開始する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "recuperate",
+      "translation": "病気から回復する",
+      "exampleEn": "He recuperated at home after surgery.",
+      "before": {
+        "meaning": "（病気から）回復する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気から）回復する",
+        "alternatives": [
+          {
+            "text": "recover",
+            "note": "病気・疲労から回復する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "実際に意味が重なる比較語を添え、語義・品詞・対象の誤解につながる限定を見直す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "compunction",
+      "translation": "悪いことへの良心の痛み",
+      "exampleEn": "He showed no compunction about lying.",
+      "before": {
+        "meaning": "悪いことへの良心の痛み",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "悪いことへの良心の痛み",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "predominate",
+      "translation": "数や影響で優勢を占める",
+      "exampleEn": "Pine trees predominate in this forest.",
+      "before": {
+        "meaning": "数や影響で優勢を占める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "数や影響で優勢を占める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "verification",
+      "translation": "事実であることの確認",
+      "exampleEn": "The claim requires independent verification.",
+      "before": {
+        "meaning": "事実であることの確認",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "事実であることの確認",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

@@ -1,0 +1,798 @@
+{
+  "date": "2026-10-19",
+  "course": "Eiken1Part2",
+  "level": 3,
+  "reviewed": 40,
+  "changed": 8,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "4673f0f80312dc4af0171e53834f800539cb91485a723319f8812eb7a1ed8145",
+  "sources": [
+    "https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns",
+    "https://dictionary.cambridge.org/dictionary/english/sure",
+    "https://dictionary.cambridge.org/dictionary/english/shortage"
+  ],
+  "rows": [
+    {
+      "text": "The court may overturn the earlier conviction.",
+      "translation": "裁判所は以前の有罪判決を覆すかもしれない。",
+      "before": {
+        "meaning": "裁判所は以前の有罪判決を覆すかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "裁判所は以前の有罪判決を覆すかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Repeated delays eroded confidence in the project.",
+      "translation": "度重なる遅れで、事業への信頼が損なわれた。",
+      "before": {
+        "meaning": "度重なる遅れで、事業への信頼が損なわれた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "度重なる遅れが、その事業への信頼を徐々に損ないました。",
+        "alternatives": [
+          {
+            "text": "undermined",
+            "note": "信頼などを損なった"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If officials act now, they can stave off a crisis.",
+      "translation": "当局が今動けば、危機を食い止められる。",
+      "before": {
+        "meaning": "当局が今動けば、危機を食い止められる。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "当局が今動けば、危機を食い止められる。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The false claim sparked a wave of public criticism.",
+      "translation": "誤った主張が、世論の批判の波を引き起こした。",
+      "before": {
+        "meaning": "誤った主張が、世論の批判の波を引き起こした。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "誤った主張が、世論の批判の波を引き起こした。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The drought drove more people to migrate to cities.",
+      "translation": "干ばつにより、さらに多くの人が都市へ移住した。",
+      "before": {
+        "meaning": "干ばつにより、さらに多くの人が都市へ移住した。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その干ばつが、より多くの人を都市への移住に追いやりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "干ばつを主語にし、人を行動に追い込む形"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The potential harm outweighs the short-term benefit.",
+      "translation": "潜在的な害は短期的な恩恵を上回る。",
+      "before": {
+        "meaning": "潜在的な害は短期的な恩恵を上回る。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "after": {
+        "meaning": "潜在的な害は短期的な恩恵を上回る。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "A loophole allowed the firm to avoid the restriction.",
+      "translation": "規則の抜け穴により、その会社は制限を免れた。",
+      "before": {
+        "meaning": "規則の抜け穴により、その会社は制限を免れた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則の抜け穴により、その会社は制限を免れた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Researchers concluded that the species was endangered.",
+      "translation": "研究者たちは、その種が絶滅危惧種だと結論づけた。",
+      "before": {
+        "meaning": "研究者たちは、その種が絶滅危惧種だと結論づけた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "after": {
+        "meaning": "研究者たちは、その種が絶滅危惧種だと結論づけた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Unless emissions fall, the damage may be irreversible.",
+      "translation": "排出量が減らなければ、被害は元に戻せないかもしれない。",
+      "before": {
+        "meaning": "排出量が減らなければ、被害は元に戻せないかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "排出量が減らなければ、被害は元に戻せないかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Thousands were displaced when the conflict intensified.",
+      "translation": "紛争が激化し、何千人も住まいを追われた。",
+      "before": {
+        "meaning": "紛争が激化し、何千人も住まいを追われた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "紛争が激化し、何千人も住まいを追われた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "While aid arrived quickly, clean water remained scarce.",
+      "translation": "援助はすぐ届いたが、きれいな水は不足したままだった。",
+      "before": {
+        "meaning": "援助はすぐ届いたが、きれいな水は不足したままだった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "after": {
+        "meaning": "援助はすぐ届いたが、きれいな水は不足したままだった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The families whose homes were flooded received support.",
+      "translation": "家が浸水した家族に支援が届いた。",
+      "before": {
+        "meaning": "家が浸水した家族に支援が届いた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "after": {
+        "meaning": "家が浸水した家族たちは、支援を受けました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "家族とその家の関係を、所有を表す関係代名詞で示す"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Although the measure is unpopular, it may reduce waste.",
+      "translation": "その対策は不人気だが、無駄を減らすかもしれない。",
+      "before": {
+        "meaning": "その対策は不人気だが、無駄を減らすかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "after": {
+        "meaning": "その対策は不人気だが、無駄を減らすかもしれない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The committee agreed that more oversight was necessary.",
+      "translation": "委員会は、さらに監督が必要だと合意した。",
+      "before": {
+        "meaning": "委員会は、さらに監督が必要だと合意した。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "after": {
+        "meaning": "委員会は、さらに監督が必要だと合意した。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The proposal is less costly than a complete replacement.",
+      "translation": "その提案は全面的な交換より費用が少ない。",
+      "before": {
+        "meaning": "その提案は全面的な交換より費用が少ない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "after": {
+        "meaning": "その提案は全面的な交換より費用が少ない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The new law offers stronger protection than the old one.",
+      "translation": "新しい法律は旧法より強い保護を与える。",
+      "before": {
+        "meaning": "新しい法律は旧法より強い保護を与える。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "after": {
+        "meaning": "新しい法律は旧法より強い保護を与える。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The journalist who exposed the scandal received threats.",
+      "translation": "不祥事を暴いた記者は脅迫を受けた。",
+      "before": {
+        "meaning": "不祥事を暴いた記者は脅迫を受けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "after": {
+        "meaning": "不祥事を暴いた記者は脅迫を受けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Leaders should address the cause rather than the symptom.",
+      "translation": "指導者は表面の症状でなく原因に対処すべきだ。",
+      "before": {
+        "meaning": "指導者は表面の症状でなく原因に対処すべきだ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "指導者は表面の症状でなく原因に対処すべきだ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "New evidence could alter our interpretation of the event.",
+      "translation": "新たな証拠で、その出来事の解釈が変わる可能性がある。",
+      "before": {
+        "meaning": "新たな証拠で、その出来事の解釈が変わる可能性がある。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "新たな証拠が、その出来事についての私たちの解釈を変える可能性があります。",
+        "alternatives": [
+          {
+            "text": "change",
+            "note": "変える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This explanation is more convincing than the earlier one.",
+      "translation": "この説明は前のものより説得力がある。",
+      "before": {
+        "meaning": "この説明は前のものより説得力がある。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "after": {
+        "meaning": "この説明は前のものより説得力がある。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The inquiry revealed that officials had ignored warnings.",
+      "translation": "調査で、職員たちが警告を無視していたと分かった。",
+      "before": {
+        "meaning": "調査で、職員たちが警告を無視していたと分かった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "after": {
+        "meaning": "その調査は、職員たちが警告を無視していたことを明らかにしました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "調査で明らかになるより前の行為を、過去完了で述べる"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Policy makers should consider the long-term consequences.",
+      "translation": "政策担当者は長期的な結果を考慮すべきだ。",
+      "before": {
+        "meaning": "政策担当者は長期的な結果を考慮すべきだ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "政策担当者は長期的な結果を考慮すべきだ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Unless the treaty is enforced, illegal trade will persist.",
+      "translation": "条約が実施されなければ、違法取引は続くだろう。",
+      "before": {
+        "meaning": "条約が実施されなければ、違法取引は続くだろう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "条約が実施されなければ、違法取引は続くだろう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If the data is accurate, the policy needs urgent revision.",
+      "translation": "データが正しければ、政策は早急に見直す必要がある。",
+      "before": {
+        "meaning": "データが正しければ、政策は早急に見直す必要がある。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "データが正しければ、政策は早急に見直す必要がある。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The agency must verify the figures before publishing them.",
+      "translation": "機関は数字を公表する前に確認しなければならない。",
+      "before": {
+        "meaning": "機関は数字を公表する前に確認しなければならない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "機関は数字を公表する前に確認しなければならない。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Witnesses claimed that the officer had altered the report.",
+      "translation": "目撃者たちは職員が報告書を改ざんしたと主張した。",
+      "before": {
+        "meaning": "目撃者たちは職員が報告書を改ざんしたと主張した。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "after": {
+        "meaning": "目撃者たちは職員が報告書を改ざんしたと主張した。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The damage was far more severe than officials had expected.",
+      "translation": "被害は当局の予想よりはるかに深刻だった。",
+      "before": {
+        "meaning": "被害は当局の予想よりはるかに深刻だった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "after": {
+        "meaning": "被害は当局の予想よりはるかに深刻だった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較・程度"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Although both sides sought peace, neither would compromise.",
+      "translation": "双方が平和を求めたが、どちらも譲歩しなかった。",
+      "before": {
+        "meaning": "双方が平和を求めたが、どちらも譲歩しなかった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "after": {
+        "meaning": "双方が平和を求めたが、どちらも譲歩しなかった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The minister was accused of withholding crucial information.",
+      "translation": "大臣は重要な情報を隠したとして非難された。",
+      "before": {
+        "meaning": "大臣は重要な情報を隠したとして非難された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "大臣は重要な情報を隠したとして非難された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The evidence that supported the claim was later discredited.",
+      "translation": "その主張を裏付けた証拠は、後に信用を失った。",
+      "before": {
+        "meaning": "その主張を裏付けた証拠は、後に信用を失った。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "after": {
+        "meaning": "その主張を裏付けた証拠は、後に信用を失った。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "While the technology is promising, its risks remain unclear.",
+      "translation": "その技術には期待が持てるが、リスクはなお不明だ。",
+      "before": {
+        "meaning": "その技術には期待が持てるが、リスクはなお不明だ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "after": {
+        "meaning": "その技術には期待が持てるが、リスクはなお不明だ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The officials who approved the contract faced investigation.",
+      "translation": "契約を承認した職員たちは調査を受けた。",
+      "before": {
+        "meaning": "契約を承認した職員たちは調査を受けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "after": {
+        "meaning": "契約を承認した職員たちは調査を受けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The findings were challenged by several independent experts.",
+      "translation": "その結果には複数の独立した専門家が異議を唱えた。",
+      "before": {
+        "meaning": "その結果には複数の独立した専門家が異議を唱えた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "その調査結果には、複数の独立した専門家から異議が唱えられました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "調査結果を主語にした受け身"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The suspect was exonerated after the records were reexamined.",
+      "translation": "記録を再調査した後、容疑者の無実が証明された。",
+      "before": {
+        "meaning": "記録を再調査した後、容疑者の無実が証明された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "記録を再調査した後、容疑者の無実が証明された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The study which examined rural hospitals revealed a shortage.",
+      "translation": "地方病院を調べた研究が人手不足を明らかにした。",
+      "before": {
+        "meaning": "地方病院を調べた研究が人手不足を明らかにした。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "after": {
+        "meaning": "地方の病院を調べたその研究は、不足があることを明らかにしました。",
+        "alternatives": [
+          {
+            "text": "that",
+            "note": "物を説明する関係代名詞"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "関係詞"
+      },
+      "changed": true,
+      "reason": "英語に対象がない不足を、人手不足と決めつけない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Although the economy recovered, inequality continued to widen.",
+      "translation": "景気は回復したが、格差は広がり続けた。",
+      "before": {
+        "meaning": "景気は回復したが、格差は広がり続けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "after": {
+        "meaning": "景気は回復したが、格差は広がり続けた。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "譲歩・対比"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The campaign helped dispel the stigma surrounding the illness.",
+      "translation": "その運動は病気に対する偏見をなくす助けとなった。",
+      "before": {
+        "meaning": "その運動は病気に対する偏見をなくす助けとなった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その運動は病気に対する偏見をなくす助けとなった。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The findings indicate that the treatment has long-term effects.",
+      "translation": "結果はその治療に長期的影響があることを示す。",
+      "before": {
+        "meaning": "結果はその治療に長期的影響があることを示す。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "after": {
+        "meaning": "その調査結果は、その治療に長期的な影響があることを示しています。",
+        "alternatives": [
+          {
+            "text": "show",
+            "note": "〜を示す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "内容を表す節"
+      },
+      "changed": true,
+      "reason": "意訳で抜けていた主語・語句・構文や、近い表現の比較を補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The final decision was postponed until further evidence arrived.",
+      "translation": "最終決定は追加の証拠が届くまで延期された。",
+      "before": {
+        "meaning": "最終決定は追加の証拠が届くまで延期された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "最終決定は追加の証拠が届くまで延期された。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Unless the parties reach an agreement, the strike will continue.",
+      "translation": "双方が合意しなければ、ストライキは続くだろう。",
+      "before": {
+        "meaning": "双方が合意しなければ、ストライキは続くだろう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "双方が合意しなければ、ストライキは続くだろう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

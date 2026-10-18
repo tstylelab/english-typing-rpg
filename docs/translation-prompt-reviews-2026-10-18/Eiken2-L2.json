@@ -1,0 +1,5007 @@
+{
+  "date": "2026-10-18",
+  "course": "Eiken2",
+  "level": 2,
+  "reviewed": 203,
+  "changed": 93,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "791195bf8b2f864a4488fae878faaff8ba355f0ed17cccfdc503e65171cb1060",
+  "sources": [
+    "https://dictionary.cambridge.org/dictionary/english/speak-out-up",
+    "https://dictionary.cambridge.org/us/dictionary/english/willing",
+    "https://dictionary.cambridge.org/grammar/british-grammar/as-long-as-and-so-long-as"
+  ],
+  "rows": [
+    {
+      "text": "on duty",
+      "translation": "勤務中で",
+      "exampleEn": "A nurse is on duty tonight.",
+      "before": {
+        "meaning": "勤務中で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "当番・勤務に就いている状態で",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "off duty",
+            "note": "非番で・勤務を離れて"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "勤務中と非番の状態を対比する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "at times",
+      "translation": "時々",
+      "exampleEn": "At times, the road is crowded.",
+      "before": {
+        "meaning": "時々",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "時々・時には",
+        "alternatives": [
+          {
+            "text": "sometimes",
+            "note": "時々"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in person",
+      "translation": "直接会って",
+      "exampleEn": "I met the teacher in person.",
+      "before": {
+        "meaning": "直接会って",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "電話や代理ではなく、本人が直接その場に行って",
+        "alternatives": [
+          {
+            "text": "personally",
+            "note": "自分で直接に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take notes",
+      "translation": "メモを取る",
+      "exampleEn": "Please take notes during the talk.",
+      "before": {
+        "meaning": "メモを取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "メモを取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in trouble",
+      "translation": "困った状況にある",
+      "exampleEn": "Call me if you are in trouble.",
+      "before": {
+        "meaning": "困った状況にある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "困った状況にある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in fashion",
+      "translation": "流行している",
+      "exampleEn": "That style is in fashion again.",
+      "before": {
+        "meaning": "流行している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "流行している",
+        "alternatives": [
+          {
+            "text": "fashionable",
+            "note": "流行している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "settle down",
+      "translation": "落ち着く",
+      "exampleEn": "Please settle down.",
+      "before": {
+        "meaning": "落ち着く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "興奮や騒ぎが収まって落ち着く",
+        "alternatives": [
+          {
+            "text": "calm down",
+            "note": "落ち着く"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "shake hands",
+      "translation": "握手する",
+      "exampleEn": "They shook hands after the game.",
+      "before": {
+        "meaning": "握手する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "握手する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "upside down",
+      "translation": "上下逆さまに",
+      "exampleEn": "The picture is upside down.",
+      "before": {
+        "meaning": "上下逆さまに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "上下逆さまに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "back and forth",
+      "translation": "行ったり来たり",
+      "exampleEn": "The boat moved back and forth.",
+      "before": {
+        "meaning": "行ったり来たり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "前後・両方向に行ったり来たり",
+        "alternatives": [
+          {
+            "text": "to and fro",
+            "note": "行ったり来たり"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "safe and sound",
+      "translation": "無事で・けがもなく",
+      "exampleEn": "The children arrived home safe and sound.",
+      "before": {
+        "meaning": "無事で・けがもなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "無事で・けがもなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "give A a hand",
+      "translation": "Aに手を貸す（Aは人）",
+      "exampleEn": "Can you give her a hand?",
+      "before": {
+        "meaning": "Aに手を貸す（Aは人）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aを手伝う・Aに手を貸す（Aは人）",
+        "alternatives": [
+          {
+            "text": "help A",
+            "note": "人を手伝う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ask A for B",
+      "translation": "AにBを求める",
+      "exampleEn": "I asked her for help.",
+      "before": {
+        "meaning": "AにBを求める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AにBを求める・頼む（Aは相手、Bは求めるもの）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "求める相手と物の役割を明確にし、目的語の取り違えを減らす。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stop by",
+      "translation": "〜にちょっと立ち寄る",
+      "exampleEn": "I will stop by the shop.",
+      "before": {
+        "meaning": "〜にちょっと立ち寄る",
+        "alternatives": [
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          },
+          {
+            "text": "drop in",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜にちょっと立ち寄る",
+        "alternatives": [
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          },
+          {
+            "text": "drop in",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "try out",
+      "translation": "（物・方法）を試してみる",
+      "exampleEn": "Let's try out the game.",
+      "before": {
+        "meaning": "（物・方法）を試してみる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物・方法）を試しに使ってみる",
+        "alternatives": [
+          {
+            "text": "test",
+            "note": "性能などを試す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fill out",
+      "translation": "（用紙）に記入する",
+      "exampleEn": "Please fill out the form.",
+      "before": {
+        "meaning": "（用紙）に記入する",
+        "alternatives": [
+          {
+            "text": "fill in",
+            "note": "空欄・用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（用紙）に記入する",
+        "alternatives": [
+          {
+            "text": "fill in",
+            "note": "空欄・用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bring back",
+      "translation": "（物を）持ち帰る・返しに来る",
+      "exampleEn": "Please bring back the book.",
+      "before": {
+        "meaning": "（物を）持ち帰る・返しに来る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物を）持ち帰る・返しに来る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hang up the phone",
+      "translation": "電話を切る",
+      "exampleEn": "She hung up the phone.",
+      "before": {
+        "meaning": "電話を切る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "電話を切る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take up",
+      "translation": "（趣味など）を始める",
+      "exampleEn": "I want to take up gardening this spring.",
+      "before": {
+        "meaning": "（趣味など）を始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（趣味など）を始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "throw away",
+      "translation": "（不要な物）を捨てる",
+      "exampleEn": "Do not throw away the box.",
+      "before": {
+        "meaning": "（不要な物）を捨てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（不要な物）を捨てる",
+        "alternatives": [
+          {
+            "text": "discard",
+            "note": "不要な物を捨てる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn up",
+      "translation": "（音量など）を上げる",
+      "exampleEn": "Please turn up the volume.",
+      "before": {
+        "meaning": "（音量など）を上げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（音量など）を上げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in search of",
+      "translation": "〜を探して",
+      "exampleEn": "She moved to the city in search of a job.",
+      "before": {
+        "meaning": "〜を探して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を探して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pick up",
+      "translation": "（荷物など）を受け取る",
+      "exampleEn": "I will pick up the package today.",
+      "before": {
+        "meaning": "（荷物など）を受け取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（荷物など）を受け取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take a look at",
+      "translation": "〜をちょっと見る",
+      "exampleEn": "Please take a look at this.",
+      "before": {
+        "meaning": "〜をちょっと見る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜をちょっと見る・一目見る",
+        "alternatives": [
+          {
+            "text": "have a look at",
+            "note": "〜をちょっと見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "leave behind",
+      "translation": "（物を）置き忘れる",
+      "exampleEn": "I left my bag behind on the bus.",
+      "before": {
+        "meaning": "（物を）置き忘れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物を）置き忘れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stare at",
+      "translation": "〜をじっと見る",
+      "exampleEn": "Do not stare at the screen too long.",
+      "before": {
+        "meaning": "〜をじっと見る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "目を離さず、〜をじっと見つめる",
+        "alternatives": [
+          {
+            "text": "gaze at",
+            "note": "〜をじっと見つめる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in a row",
+      "translation": "連続して・一列に",
+      "exampleEn": "It rained for three days in a row.",
+      "before": {
+        "meaning": "連続して・一列に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "連続して・一列に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hand in",
+      "translation": "（書類など）を提出する",
+      "exampleEn": "Please hand in the homework tomorrow.",
+      "before": {
+        "meaning": "（書類など）を提出する",
+        "alternatives": [
+          {
+            "text": "turn in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（書類など）を提出する",
+        "alternatives": [
+          {
+            "text": "turn in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sell out",
+      "translation": "（商品など）を売り切る",
+      "exampleEn": "They sold out the tickets.",
+      "before": {
+        "meaning": "（商品など）を売り切る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（商品など）を売り切る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take away",
+      "translation": "（物を）片づける・持ち去る",
+      "exampleEn": "Please take away the plates.",
+      "before": {
+        "meaning": "（物を）片づける・持ち去る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物を）片づける・持ち去る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put together",
+      "translation": "（部品など）を組み立てる",
+      "exampleEn": "We put together the table.",
+      "before": {
+        "meaning": "（部品など）を組み立てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（部品など）を組み立てる",
+        "alternatives": [
+          {
+            "text": "assemble",
+            "note": "部品を組み立てる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "according to",
+      "translation": "〜によると",
+      "exampleEn": "According to the report, sales increased.",
+      "before": {
+        "meaning": "〜によると",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜によると",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "look through",
+      "translation": "（写真・書類など）にざっと目を通す",
+      "exampleEn": "We looked through the photos.",
+      "before": {
+        "meaning": "（写真・書類など）にざっと目を通す",
+        "alternatives": [
+          {
+            "text": "look over",
+            "note": "ざっと目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（写真・書類など）にざっと目を通す",
+        "alternatives": [
+          {
+            "text": "look over",
+            "note": "ざっと目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drop in",
+      "translation": "ふらりと立ち寄る",
+      "exampleEn": "Please drop in when you are nearby.",
+      "before": {
+        "meaning": "ふらりと立ち寄る",
+        "alternatives": [
+          {
+            "text": "stop by",
+            "note": "ちょっと寄る"
+          },
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ふらりと立ち寄る",
+        "alternatives": [
+          {
+            "text": "stop by",
+            "note": "ちょっと寄る"
+          },
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in demand",
+      "translation": "需要がある",
+      "exampleEn": "These skills are in demand.",
+      "before": {
+        "meaning": "需要がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "多くの人に求められて・需要があって",
+        "alternatives": [
+          {
+            "text": "sought-after",
+            "note": "需要が高い"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "speak out",
+      "translation": "はっきり意見を言う",
+      "exampleEn": "She decided to speak out.",
+      "before": {
+        "meaning": "はっきり意見を言う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ためらわずに、自分の意見を公にはっきり言う",
+        "alternatives": [
+          {
+            "text": "speak up",
+            "note": "意見をはっきり述べる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "声量だけの指示と混同しないようにし、意見表明の用法を示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "at random",
+      "translation": "無作為に",
+      "exampleEn": "The names were chosen at random.",
+      "before": {
+        "meaning": "無作為に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "決まった順序や基準を設けず、無作為に",
+        "alternatives": [
+          {
+            "text": "randomly",
+            "note": "無作為に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "break out",
+      "translation": "突然発生する",
+      "exampleEn": "A fire broke out at night.",
+      "before": {
+        "meaning": "（火事や戦争などが）突然発生する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（火事や戦争などが）突然発生する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in detail",
+      "translation": "詳しく",
+      "exampleEn": "Please explain it in detail.",
+      "before": {
+        "meaning": "詳しく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "詳しく",
+        "alternatives": [
+          {
+            "text": "at length",
+            "note": "詳しく・時間をかけて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pass away",
+      "translation": "亡くなる",
+      "exampleEn": "Her grandfather passed away.",
+      "before": {
+        "meaning": "（婉曲な言い方で）亡くなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（婉曲な言い方で）亡くなる",
+        "alternatives": [
+          {
+            "text": "die",
+            "note": "死ぬという直接的な表現"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as follows",
+      "translation": "次のとおり",
+      "exampleEn": "The rules are as follows.",
+      "before": {
+        "meaning": "次のとおり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "次のとおり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in general",
+      "translation": "一般的に",
+      "exampleEn": "In general, children need enough sleep.",
+      "before": {
+        "meaning": "一般的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一般に・全般的な傾向として",
+        "alternatives": [
+          {
+            "text": "generally",
+            "note": "一般的に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "one by one",
+      "translation": "一つずつ",
+      "exampleEn": "Please answer one by one.",
+      "before": {
+        "meaning": "一つずつ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一人ずつ・一つずつ、順に",
+        "alternatives": [
+          {
+            "text": "one at a time",
+            "note": "一度に一つずつ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "on schedule",
+      "translation": "予定どおりに",
+      "exampleEn": "The work is on schedule.",
+      "before": {
+        "meaning": "予定どおりに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "予定された時期・進度どおりに",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "ahead of schedule",
+            "note": "予定より早く"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "時刻・進度の予定どおりという意味を示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in progress",
+      "translation": "進行中で",
+      "exampleEn": "The repairs are in progress.",
+      "before": {
+        "meaning": "進行中で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "進行中で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "out of stock",
+      "translation": "在庫切れで",
+      "exampleEn": "That book is out of stock.",
+      "before": {
+        "meaning": "在庫切れで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "在庫切れで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "on the whole",
+      "translation": "全体的に見て",
+      "exampleEn": "On the whole, the event went well.",
+      "before": {
+        "meaning": "全体的に見て",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "細部はともかく、全体として見ると",
+        "alternatives": [
+          {
+            "text": "overall",
+            "note": "全体としては"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "more or less",
+      "translation": "だいたい・ほぼ",
+      "exampleEn": "The two bags cost more or less the same.",
+      "before": {
+        "meaning": "だいたい・ほぼ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "だいたい・ほぼ",
+        "alternatives": [
+          {
+            "text": "approximately",
+            "note": "およそ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "meet one's needs",
+      "translation": "必要を満たす（one'sはour・theirなど）",
+      "exampleEn": "This service meets our needs.",
+      "before": {
+        "meaning": "必要を満たす（one'sはour・theirなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の）必要・要望を満たす（one'sはour・theirなど）",
+        "alternatives": [
+          {
+            "text": "satisfy one's needs",
+            "note": "人の必要を満たす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "run out of",
+      "translation": "（時間・物など）を使い切る",
+      "exampleEn": "We are running out of time.",
+      "before": {
+        "meaning": "（時間・物など）を使い切る",
+        "alternatives": [
+          {
+            "text": "use up",
+            "note": "すべて使う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（時間・物など）の持ち分がなくなる・尽きる",
+        "alternatives": [
+          {
+            "text": "use up",
+            "note": "持っている物を使い切る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "なくなる結果と使い切る動作の重なりを認め、自然な日本語にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep a promise",
+      "translation": "約束を守る",
+      "exampleEn": "I always try to keep my promise.",
+      "before": {
+        "meaning": "約束を守る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "約束を守る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "make fun of",
+      "translation": "〜をからかう",
+      "exampleEn": "Do not make fun of him.",
+      "before": {
+        "meaning": "〜をからかう",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜をからかう・笑いものにする",
+        "alternatives": [
+          {
+            "text": "mock",
+            "note": "〜をあざける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sooner or later",
+      "translation": "遅かれ早かれ",
+      "exampleEn": "We will find out sooner or later.",
+      "before": {
+        "meaning": "遅かれ早かれ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "遅かれ早かれ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "work on",
+      "translation": "（課題など）に取り組む",
+      "exampleEn": "I worked on a report all morning.",
+      "before": {
+        "meaning": "（課題など）に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（課題など）に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "instead of",
+      "translation": "〜の代わりに（insteadを使う）",
+      "exampleEn": "We took a train instead of a car.",
+      "before": {
+        "meaning": "〜の代わりに",
+        "alternatives": [
+          {
+            "text": "in place of",
+            "note": "〜の代わりに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の代わりに",
+        "alternatives": [
+          {
+            "text": "in place of",
+            "note": "〜の代わりに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set up",
+      "translation": "（設備）を設置する・（組織）を設立する",
+      "exampleEn": "They set up a company last year.",
+      "before": {
+        "meaning": "（設備）を設置する・（組織）を設立する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（設備）を設置する・（組織）を設立する",
+        "alternatives": [
+          {
+            "text": "establish",
+            "note": "組織などを設立する"
+          },
+          {
+            "text": "install",
+            "note": "設備などを設置する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "manage to",
+      "translation": "何とか〜する（後ろに動詞の原形）",
+      "exampleEn": "We managed to finish on time.",
+      "before": {
+        "meaning": "何とか〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "困難があっても、何とか〜する（後ろに動詞の原形）",
+        "alternatives": [
+          {
+            "text": "succeed in",
+            "note": "〜することに成功する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "look up",
+      "translation": "（語・情報）を辞書などで調べる",
+      "exampleEn": "Look up the word in a dictionary.",
+      "before": {
+        "meaning": "（語・情報）を辞書などで調べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（語・情報）を辞書などで調べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as if",
+      "translation": "まるで〜であるかのように（後ろに文）",
+      "exampleEn": "He smiled as if he knew me.",
+      "before": {
+        "meaning": "まるで〜であるかのように（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まるで〜であるかのように（後ろに文）",
+        "alternatives": [
+          {
+            "text": "as though",
+            "note": "まるで〜のように"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tend to",
+      "translation": "〜する傾向がある（後ろに動詞の原形）",
+      "exampleEn": "He tends to be quiet.",
+      "before": {
+        "meaning": "〜する傾向がある（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する傾向がある（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "find one's way",
+      "translation": "道を見つけて進む（one'sはmy・yourなど）",
+      "exampleEn": "I found my way home.",
+      "before": {
+        "meaning": "道を見つけて進む（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "道を見つけて進む（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "major in",
+      "translation": "（学問）を専攻する",
+      "exampleEn": "She majors in history.",
+      "before": {
+        "meaning": "（学問）を専攻する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（学問）を専攻する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put off",
+      "translation": "（予定など）を延期する",
+      "exampleEn": "We put off the trip.",
+      "before": {
+        "meaning": "（予定など）を延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（予定など）を延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as far as I know",
+      "translation": "私が知る限りでは",
+      "exampleEn": "As far as I know, the library is open today.",
+      "before": {
+        "meaning": "私が知る限りでは",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私が知る限りでは",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be based on",
+      "translation": "〜に基づいている",
+      "exampleEn": "The story is based on facts.",
+      "before": {
+        "meaning": "〜に基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "happen to",
+      "translation": "偶然〜する（後ろに動詞の原形）",
+      "exampleEn": "I happened to see her there.",
+      "before": {
+        "meaning": "偶然〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "偶然〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "result in",
+      "translation": "結果として〜につながる",
+      "exampleEn": "The rain resulted in a delay.",
+      "before": {
+        "meaning": "結果として〜につながる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結果として〜につながる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "by the end of",
+      "translation": "〜の終わりまでに",
+      "exampleEn": "We will finish by the end of May.",
+      "before": {
+        "meaning": "〜の終わりまでに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の終わりまでに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "apply for",
+      "translation": "（仕事・許可など）に応募する・申請する",
+      "exampleEn": "She applied for the job.",
+      "before": {
+        "meaning": "（仕事・許可など）に応募する・申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事・許可など）に応募する・申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be about to",
+      "translation": "まさに〜しようとしている（後ろに動詞の原形）",
+      "exampleEn": "We were about to leave.",
+      "before": {
+        "meaning": "まさに〜しようとしている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まさに〜しようとしている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "due to",
+      "translation": "〜のために（原因、dueを使う）",
+      "exampleEn": "The game was canceled due to heavy rain.",
+      "before": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "because of",
+            "note": "〜のために"
+          },
+          {
+            "text": "owing to",
+            "note": "〜が原因で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "because of",
+            "note": "〜のために"
+          },
+          {
+            "text": "owing to",
+            "note": "〜が原因で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stick to",
+      "translation": "（計画・約束など）を守り続ける",
+      "exampleEn": "Let's stick to the plan.",
+      "before": {
+        "meaning": "（計画・約束など）を守り続ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（計画・約束など）を変えずに守り続ける",
+        "alternatives": [
+          {
+            "text": "adhere to",
+            "note": "方針などを守る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be likely to",
+      "translation": "〜しそうだ（後ろに動詞の原形）",
+      "exampleEn": "It is likely to rain soon.",
+      "before": {
+        "meaning": "〜しそうだ（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する可能性が高い・〜しそうだ（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "単なる可能性ではなく、起こりそうだという見込みを示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep in mind",
+      "translation": "（大事なことを）覚えておく",
+      "exampleEn": "Please keep that in mind.",
+      "before": {
+        "meaning": "（大事なことを）覚えておく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（大事なことを）覚えておく",
+        "alternatives": [
+          {
+            "text": "bear in mind",
+            "note": "心に留めておく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "remind A of B",
+      "translation": "AにBを思い出させる",
+      "exampleEn": "The smell reminds me of home.",
+      "before": {
+        "meaning": "AにBを思い出させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AにBを思い出させる（Aは思い出す人）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "人と記憶の対象の役割を明示する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wear out",
+      "translation": "（靴など）をすり減らす",
+      "exampleEn": "Walking wore out my shoes.",
+      "before": {
+        "meaning": "（靴など）をすり減らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（靴など）をすり減らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bring up",
+      "translation": "（問題・話題）を持ち出す",
+      "exampleEn": "You can bring up an issue at the meeting.",
+      "before": {
+        "meaning": "（問題・話題）を持ち出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題・話題）を会話に持ち出す",
+        "alternatives": [
+          {
+            "text": "raise",
+            "note": "問題・話題を持ち出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "carry out",
+      "translation": "（計画・調査など）を実行する",
+      "exampleEn": "They carried out a survey.",
+      "before": {
+        "meaning": "（計画・調査など）を実行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（計画・調査など）を実行する",
+        "alternatives": [
+          {
+            "text": "conduct",
+            "note": "調査などを実施する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "find a way to",
+      "translation": "〜する方法を見つける（後ろに動詞の原形）",
+      "exampleEn": "We must find a way to help.",
+      "before": {
+        "meaning": "〜する方法を見つける（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する方法を見つける（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "refer to",
+      "translation": "（資料など）を参照する",
+      "exampleEn": "Please refer to the chart.",
+      "before": {
+        "meaning": "（資料など）を参照する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（資料など）を参照して確かめる",
+        "alternatives": [
+          {
+            "text": "consult",
+            "note": "資料などを調べる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in return for",
+      "translation": "〜のお返しに",
+      "exampleEn": "I gave her a book in return for help.",
+      "before": {
+        "meaning": "〜のお返しに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜のお返しに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "allow A to do",
+      "translation": "Aが〜するのを許す（Aは人、doは動詞の原形）",
+      "exampleEn": "They allowed her to enter.",
+      "before": {
+        "meaning": "Aが〜するのを許す（Aは人、doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aが〜するのを許す（Aは人、doは動詞の原形）",
+        "alternatives": [
+          {
+            "text": "permit A to do",
+            "note": "人が〜するのを許す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "let down",
+      "translation": "（人を）がっかりさせる",
+      "exampleEn": "I do not want to let my friend down.",
+      "before": {
+        "meaning": "（人を）がっかりさせる",
+        "alternatives": [
+          {
+            "text": "disappoint",
+            "note": "がっかりさせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）がっかりさせる",
+        "alternatives": [
+          {
+            "text": "disappoint",
+            "note": "がっかりさせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be willing to",
+      "translation": "進んで〜する（後ろに動詞の原形）",
+      "exampleEn": "She is willing to help us.",
+      "before": {
+        "meaning": "進んで〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するのをいとわない・快く応じる（後ろに動詞の原形）",
+        "alternatives": [
+          {
+            "text": "be ready to",
+            "note": "〜する用意・意思がある"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "常に熱心で積極的という意味に限定せず、応じる意思を示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drop out of",
+      "translation": "（学校など）を中退する・途中でやめる",
+      "exampleEn": "He dropped out of school.",
+      "before": {
+        "meaning": "（学校など）を中退する・途中でやめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（学校など）を中退する・途中でやめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "for the time being",
+      "translation": "当面の間",
+      "exampleEn": "We will stay here for the time being.",
+      "before": {
+        "meaning": "当面の間",
+        "alternatives": [
+          {
+            "text": "for now",
+            "note": "今のところ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "当面の間",
+        "alternatives": [
+          {
+            "text": "for now",
+            "note": "今のところ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take over",
+      "translation": "（事業など）を引き継ぐ",
+      "exampleEn": "She took over the shop.",
+      "before": {
+        "meaning": "（事業など）を引き継ぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事業など）を引き継ぐ",
+        "alternatives": [
+          {
+            "text": "assume control of",
+            "note": "管理・責任を引き受ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "a series of",
+      "translation": "一連の〜",
+      "exampleEn": "A series of events led to the change.",
+      "before": {
+        "meaning": "一連の〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一連の〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come up with",
+      "translation": "（考え・案）を思いつく",
+      "exampleEn": "She came up with a plan.",
+      "before": {
+        "meaning": "（考え・案）を思いつく",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考え・案）を思いつく",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn A into B",
+      "translation": "AをBに変える",
+      "exampleEn": "Cold air turns water into ice.",
+      "before": {
+        "meaning": "AをBに変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBに変える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as long as",
+      "translation": "〜する限り（後ろに文）",
+      "exampleEn": "Stay as long as you need.",
+      "before": {
+        "meaning": "〜する限り（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する限り（期間・条件、後ろに文）",
+        "alternatives": [
+          {
+            "text": "so long as",
+            "note": "〜する限り"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "end up",
+      "translation": "結局〜することになる（後ろに-ing形など）",
+      "exampleEn": "We ended up staying home.",
+      "before": {
+        "meaning": "結局〜することになる（後ろに-ing形など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結局〜することになる（後ろに-ing形など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "feel like",
+      "translation": "〜したい気分だ（後ろに-ing形）",
+      "exampleEn": "I feel like going out.",
+      "before": {
+        "meaning": "〜したい気分だ（後ろに-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜したい気分だ（後ろに-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "give in to",
+      "translation": "〜に屈する",
+      "exampleEn": "Do not give in to pressure.",
+      "before": {
+        "meaning": "〜に屈する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（圧力・要求など）に屈する",
+        "alternatives": [
+          {
+            "text": "yield to",
+            "note": "〜に屈する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "count on",
+      "translation": "〜を頼りにする",
+      "exampleEn": "I can count on my friends.",
+      "before": {
+        "meaning": "〜を頼りにする",
+        "alternatives": [
+          {
+            "text": "rely on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を頼りにする",
+        "alternatives": [
+          {
+            "text": "rely on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "ever since",
+      "translation": "〜以来ずっと",
+      "exampleEn": "We have been friends ever since that day.",
+      "before": {
+        "meaning": "〜以来ずっと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜以来ずっと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as a matter of fact",
+      "translation": "実際のところ",
+      "exampleEn": "As a matter of fact, I knew her already.",
+      "before": {
+        "meaning": "実際のところ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実際のところ",
+        "alternatives": [
+          {
+            "text": "in fact",
+            "note": "実際のところ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "a number of",
+      "translation": "かなりの数の〜（後ろに複数名詞）",
+      "exampleEn": "A number of students joined the club.",
+      "before": {
+        "meaning": "かなりの数の〜（後ろに複数名詞）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "かなりの数の〜（後ろに複数名詞）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "encourage A to do",
+      "translation": "Aが〜するよう励ます（Aは人、doは動詞の原形）",
+      "exampleEn": "We encouraged him to try.",
+      "before": {
+        "meaning": "Aが〜するよう励ます（Aは人、doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aが〜するよう励ます（Aは人、doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "along with",
+      "translation": "〜と一緒に",
+      "exampleEn": "I went along with my family.",
+      "before": {
+        "meaning": "〜と一緒に",
+        "alternatives": [
+          {
+            "text": "together with",
+            "note": "〜と一緒に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜と一緒に",
+        "alternatives": [
+          {
+            "text": "together with",
+            "note": "〜と一緒に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be related to",
+      "translation": "〜に関連している",
+      "exampleEn": "The issue is related to health.",
+      "before": {
+        "meaning": "〜に関連している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に関連している",
+        "alternatives": [
+          {
+            "text": "be connected with",
+            "note": "〜と関連している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prefer A to B",
+      "translation": "BよりAを好む",
+      "exampleEn": "I prefer tea to coffee.",
+      "before": {
+        "meaning": "BよりAを好む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "BよりAのほうを好む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "比較の向きを明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "had better",
+      "translation": "〜した方がよい（忠告、後ろに動詞の原形）",
+      "exampleEn": "You had better leave now.",
+      "before": {
+        "meaning": "〜した方がよい（忠告、後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜した方がよい（忠告、後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "persuade A to do",
+      "translation": "Aが〜するよう説得する（Aは人、doは動詞の原形）",
+      "exampleEn": "We persuaded him to join.",
+      "before": {
+        "meaning": "Aが〜するよう説得する（Aは人、doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aを説得して〜させる（Aは人、doは動詞の原形）",
+        "alternatives": [
+          {
+            "text": "convince A to do",
+            "note": "説得して行動する気にさせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "説得を試みるだけでなく、受け入れさせる意味を表す。",
+      "recheck": "変更案を再読し、意味の範囲と比較対象を調整。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in danger of",
+      "translation": "〜の危険がある（後ろに名詞・-ing形）",
+      "exampleEn": "The old library is in danger of closing.",
+      "before": {
+        "meaning": "〜の危険がある（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の危険がある（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in time for",
+      "translation": "〜に間に合って",
+      "exampleEn": "We arrived in time for the show.",
+      "before": {
+        "meaning": "〜に間に合って",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に間に合って",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be sick of",
+      "translation": "〜にうんざりしている",
+      "exampleEn": "I am sick of the noise.",
+      "before": {
+        "meaning": "〜にうんざりしている",
+        "alternatives": [
+          {
+            "text": "be tired of",
+            "note": "〜にうんざりする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜にうんざりしている",
+        "alternatives": [
+          {
+            "text": "be tired of",
+            "note": "〜にうんざりする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "break into",
+      "translation": "（建物に）押し入る",
+      "exampleEn": "Someone broke into the house.",
+      "before": {
+        "meaning": "（建物に）押し入る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（建物に）押し入る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "call off",
+      "translation": "（予定・行事）を中止する",
+      "exampleEn": "They called off the meeting.",
+      "before": {
+        "meaning": "（予定・行事）を中止する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（予定・行事）を取りやめる・中止する",
+        "alternatives": [
+          {
+            "text": "cancel",
+            "note": "予定などを中止する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "care for",
+      "translation": "〜の世話をする",
+      "exampleEn": "A nurse cares for the patient.",
+      "before": {
+        "meaning": "〜の世話をする",
+        "alternatives": [
+          {
+            "text": "take care of",
+            "note": "世話をする"
+          },
+          {
+            "text": "look after",
+            "note": "世話をする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の世話をする",
+        "alternatives": [
+          {
+            "text": "take care of",
+            "note": "世話をする"
+          },
+          {
+            "text": "look after",
+            "note": "世話をする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "have second thoughts",
+      "translation": "決めたことに迷いが生じる",
+      "exampleEn": "I am having second thoughts.",
+      "before": {
+        "meaning": "決めたことに迷いが生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "決めたことに迷いが生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put aside",
+      "translation": "（お金など）を取っておく",
+      "exampleEn": "I put aside some money each month.",
+      "before": {
+        "meaning": "（お金など）を取っておく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（お金など）を使わずに取っておく",
+        "alternatives": [
+          {
+            "text": "set aside",
+            "note": "将来のために取っておく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "think over",
+      "translation": "（案など）をよく考える",
+      "exampleEn": "I will think over the offer.",
+      "before": {
+        "meaning": "（案など）をよく考える",
+        "alternatives": [
+          {
+            "text": "mull over",
+            "note": "じっくり考える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（提案・決断など）をじっくり考える",
+        "alternatives": [
+          {
+            "text": "consider carefully",
+            "note": "慎重に考える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "use up",
+      "translation": "〜をすべて使い切る",
+      "exampleEn": "We used up all the paper.",
+      "before": {
+        "meaning": "〜をすべて使い切る",
+        "alternatives": [
+          {
+            "text": "run out of",
+            "note": "使い果たしてなくなる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜をすべて使い切る",
+        "alternatives": [
+          {
+            "text": "run out of",
+            "note": "使い果たしてなくなる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "go along with",
+      "translation": "（案など）に賛同する",
+      "exampleEn": "I can go along with a plan that reduces waste.",
+      "before": {
+        "meaning": "（案など）に賛同する",
+        "alternatives": [
+          {
+            "text": "agree with",
+            "note": "〜に賛成する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案など）に賛同する",
+        "alternatives": [
+          {
+            "text": "agree with",
+            "note": "〜に賛成する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "so A that B",
+      "translation": "とてもAなのでBだ（Aは形容詞・副詞、Bは文）",
+      "exampleEn": "I was so tired that I slept early.",
+      "before": {
+        "meaning": "とてもAなのでBだ（Aは形容詞・副詞、Bは文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "とてもAなのでBだ（Aは形容詞・副詞、Bは文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deal with",
+      "translation": "（問題など）に対処する（dealを使う）",
+      "exampleEn": "We must deal with the problem.",
+      "before": {
+        "meaning": "（問題など）に対処する",
+        "alternatives": [
+          {
+            "text": "cope with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題など）に対処する",
+        "alternatives": [
+          {
+            "text": "cope with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "figure out",
+      "translation": "（答えなど）を考えて見つける",
+      "exampleEn": "Can you figure out the answer?",
+      "before": {
+        "meaning": "（答えなど）を考えて見つける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "考えたり調べたりして、答え・仕組みを理解する",
+        "alternatives": [
+          {
+            "text": "work out",
+            "note": "考えて答えなどを見つける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "so that",
+      "translation": "〜するように（目的を表し、後ろに文）",
+      "exampleEn": "We stay quiet so that she can study.",
+      "before": {
+        "meaning": "〜するように（目的を表し、後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するように（目的を表し、後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "get used to",
+      "translation": "〜に慣れる（後ろに名詞・-ing形）",
+      "exampleEn": "I got used to the noise.",
+      "before": {
+        "meaning": "〜に慣れる（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それまで不慣れだった〜に慣れる（後ろに名詞・-ing形）",
+        "alternatives": [
+          {
+            "text": "become accustomed to",
+            "note": "〜に慣れる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "look up to",
+      "translation": "（人を）尊敬する",
+      "exampleEn": "I look up to my teacher.",
+      "before": {
+        "meaning": "（人を）尊敬する",
+        "alternatives": [
+          {
+            "text": "respect",
+            "note": "尊敬する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）尊敬する",
+        "alternatives": [
+          {
+            "text": "respect",
+            "note": "尊敬する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "a wide range of",
+      "translation": "幅広い種類の〜",
+      "exampleEn": "The shop has a wide range of books.",
+      "before": {
+        "meaning": "幅広い種類の〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "幅広い種類の〜",
+        "alternatives": [
+          {
+            "text": "a broad range of",
+            "note": "幅広い種類の"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "just in case",
+      "translation": "万が一に備えて（後ろに文を続けられる）",
+      "exampleEn": "Take an umbrella just in case it rains.",
+      "before": {
+        "meaning": "万が一に備えて（後ろに文を続けられる）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "万が一に備えて（後ろに文を続けられる）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "look into",
+      "translation": "（問題など）を調査する",
+      "exampleEn": "We will look into the problem.",
+      "before": {
+        "meaning": "（問題など）を調査する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題など）を調査する",
+        "alternatives": [
+          {
+            "text": "investigate",
+            "note": "問題などを調査する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "make use of",
+      "translation": "〜を活用する",
+      "exampleEn": "Make use of this tool.",
+      "before": {
+        "meaning": "〜を活用する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を活用する",
+        "alternatives": [
+          {
+            "text": "use",
+            "note": "〜を使う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in order to",
+      "translation": "〜するために（後ろに動詞の原形）",
+      "exampleEn": "We walk in order to save money.",
+      "before": {
+        "meaning": "〜するために（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するために（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "suffer from",
+      "translation": "（病気・問題など）に苦しむ",
+      "exampleEn": "She suffered from a headache.",
+      "before": {
+        "meaning": "（病気・問題など）に苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気・問題など）に苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take part in",
+      "translation": "〜に参加する",
+      "exampleEn": "Many children took part in the event.",
+      "before": {
+        "meaning": "〜に参加する",
+        "alternatives": [
+          {
+            "text": "participate in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に参加する",
+        "alternatives": [
+          {
+            "text": "participate in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rather than",
+      "translation": "〜よりもむしろ",
+      "exampleEn": "I chose tea rather than coffee.",
+      "before": {
+        "meaning": "〜よりもむしろ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜よりもむしろ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be similar to",
+      "translation": "〜によく似ている",
+      "exampleEn": "Your bag is similar to this one.",
+      "before": {
+        "meaning": "〜によく似ている",
+        "alternatives": [
+          {
+            "text": "resemble",
+            "note": "似ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜によく似ている",
+        "alternatives": [
+          {
+            "text": "resemble",
+            "note": "似ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be aware of",
+      "translation": "〜に気づいている",
+      "exampleEn": "We are aware of the danger.",
+      "before": {
+        "meaning": "〜に気づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に気づいている・〜を認識している",
+        "alternatives": [
+          {
+            "text": "be conscious of",
+            "note": "〜を意識している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "live on",
+      "translation": "〜を主食にする・〜で生計を立てる",
+      "exampleEn": "They live on a small income.",
+      "before": {
+        "meaning": "〜を主食にする・〜で生計を立てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を主食にする・〜で生計を立てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be capable of",
+      "translation": "〜する能力がある（後ろに名詞・-ing形）",
+      "exampleEn": "She is capable of swimming far.",
+      "before": {
+        "meaning": "〜する能力がある（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する能力がある（後ろに名詞・-ing形）",
+        "alternatives": [
+          {
+            "text": "be able to",
+            "note": "〜することができる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "consist of",
+      "translation": "〜から成る",
+      "exampleEn": "The course consists of three parts.",
+      "before": {
+        "meaning": "〜から成る",
+        "alternatives": [
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜から成る",
+        "alternatives": [
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "except for",
+      "translation": "〜を除いて",
+      "exampleEn": "Everyone came except for one student.",
+      "before": {
+        "meaning": "〜を除いて",
+        "alternatives": [
+          {
+            "text": "with the exception of",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を除いて",
+        "alternatives": [
+          {
+            "text": "with the exception of",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in addition to",
+      "translation": "〜に加えて",
+      "exampleEn": "She studies French in addition to English.",
+      "before": {
+        "meaning": "〜に加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rely on A for B",
+      "translation": "BのためにAを頼る",
+      "exampleEn": "I rely on her for advice.",
+      "before": {
+        "meaning": "BのためにAを頼る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Bを得るためにAを頼る（Aは頼る相手・もの）",
+        "alternatives": [
+          {
+            "text": "depend on A for B",
+            "note": "Bを得るためにAに頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sign up for",
+      "translation": "（講座など）に申し込む",
+      "exampleEn": "I signed up for the course.",
+      "before": {
+        "meaning": "（講座など）に申し込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（講座・活動など）に申し込む",
+        "alternatives": [
+          {
+            "text": "enroll in",
+            "note": "講座などに登録する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "would rather",
+      "translation": "むしろ〜したい（後ろに動詞の原形）",
+      "exampleEn": "I would rather stay home.",
+      "before": {
+        "meaning": "むしろ〜したい（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "むしろ〜したい（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "compare A with B",
+      "translation": "AをBと比べる",
+      "exampleEn": "Compare this with that.",
+      "before": {
+        "meaning": "AをBと比べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBと比べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "no matter what happens",
+      "translation": "何が起きても",
+      "exampleEn": "I will help no matter what happens.",
+      "before": {
+        "meaning": "何が起きても",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何が起きても",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "carry on with",
+      "translation": "〜を続ける",
+      "exampleEn": "We carried on with the work.",
+      "before": {
+        "meaning": "〜を続ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を続ける",
+        "alternatives": [
+          {
+            "text": "continue with",
+            "note": "〜を続ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "get by on",
+      "translation": "〜で何とか暮らす",
+      "exampleEn": "They get by on little money.",
+      "before": {
+        "meaning": "〜で何とか暮らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜で何とか暮らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in place of",
+      "translation": "〜の代わりに",
+      "exampleEn": "I attended in place of my brother.",
+      "before": {
+        "meaning": "〜の代わりに",
+        "alternatives": [
+          {
+            "text": "instead of",
+            "note": "〜の代わりに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の代わりに",
+        "alternatives": [
+          {
+            "text": "instead of",
+            "note": "〜の代わりに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep in touch with",
+      "translation": "〜と連絡を取り続ける",
+      "exampleEn": "I keep in touch with her.",
+      "before": {
+        "meaning": "〜と連絡を取り続ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜と連絡を取り合い続ける",
+        "alternatives": [
+          {
+            "text": "stay in touch with",
+            "note": "〜と連絡を保つ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sum up",
+      "translation": "（要点など）をまとめる",
+      "exampleEn": "Please sum up the main points.",
+      "before": {
+        "meaning": "（要点など）をまとめる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（要点など）をまとめる",
+        "alternatives": [
+          {
+            "text": "summarize",
+            "note": "要点をまとめる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "a variety of",
+      "translation": "さまざまな種類の〜",
+      "exampleEn": "The camp offers a variety of activities.",
+      "before": {
+        "meaning": "さまざまな種類の〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "さまざまな種類の〜",
+        "alternatives": [
+          {
+            "text": "various kinds of",
+            "note": "いろいろな種類の"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "catch up with",
+      "translation": "〜に追いつく",
+      "exampleEn": "She worked hard to catch up with the class.",
+      "before": {
+        "meaning": "〜に追いつく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "遅れを取り戻して〜に追いつく",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "keep up with",
+            "note": "遅れず同じペースでついていく"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "遅れの回復とペースの維持を区別する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "concentrate on",
+      "translation": "〜に集中する",
+      "exampleEn": "Concentrate on the task.",
+      "before": {
+        "meaning": "〜に集中する",
+        "alternatives": [
+          {
+            "text": "focus on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に集中する",
+        "alternatives": [
+          {
+            "text": "focus on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prevent A from doing",
+      "translation": "Aが〜するのを防ぐ（doingは動詞の-ing形）",
+      "exampleEn": "The rain prevented him from leaving.",
+      "before": {
+        "meaning": "Aが〜するのを防ぐ（doingは動詞の-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aが〜するのを防ぐ（doingは動詞の-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be concerned about",
+      "translation": "〜を心配している",
+      "exampleEn": "They are concerned about costs.",
+      "before": {
+        "meaning": "〜を心配している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を心配している",
+        "alternatives": [
+          {
+            "text": "be worried about",
+            "note": "〜を心配している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come across",
+      "translation": "（人・物）に偶然出会う",
+      "exampleEn": "I came across an old photo.",
+      "before": {
+        "meaning": "（人・物）に偶然出会う",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・物）に偶然出会う",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "get along with",
+      "translation": "〜と仲よくやっていく",
+      "exampleEn": "I get along with my sister.",
+      "before": {
+        "meaning": "〜と仲よくやっていく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜と仲よくやっていく",
+        "alternatives": [
+          {
+            "text": "get on with",
+            "note": "〜と仲よくやる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be made up of",
+      "translation": "〜で構成される",
+      "exampleEn": "The group is made up of four teams.",
+      "before": {
+        "meaning": "〜で構成される",
+        "alternatives": [
+          {
+            "text": "consist of",
+            "note": "〜から成る"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜で構成される",
+        "alternatives": [
+          {
+            "text": "consist of",
+            "note": "〜から成る"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "have something in common",
+      "translation": "共通点がある",
+      "exampleEn": "We have something in common.",
+      "before": {
+        "meaning": "共通点がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "共通点がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in exchange for",
+      "translation": "〜と引き換えに",
+      "exampleEn": "I gave her a book in exchange for a ticket.",
+      "before": {
+        "meaning": "〜と引き換えに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を受け取るのと引き換えに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "交換する相手の品・行為との関係を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "provided that",
+      "translation": "〜であることを条件に（後ろに文）",
+      "exampleEn": "You can go provided that it is safe.",
+      "before": {
+        "meaning": "〜であることを条件に（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜であることを条件に（後ろに文）",
+        "alternatives": [
+          {
+            "text": "as long as",
+            "note": "条件としての〜する限り"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "make sure that",
+      "translation": "〜であることを確認する（後ろに文）",
+      "exampleEn": "Make sure that it is safe.",
+      "before": {
+        "meaning": "〜であることを確認する（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜であることを確かめる・確実にする（後ろに文）",
+        "alternatives": [
+          {
+            "text": "ensure that",
+            "note": "〜であることを確実にする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "recheck": "変更案を再読し、意味の範囲と比較対象を調整。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pay attention to",
+      "translation": "〜に注意を向ける",
+      "exampleEn": "Pay attention to the sign.",
+      "before": {
+        "meaning": "〜に注意を向ける",
+        "alternatives": [
+          {
+            "text": "heed",
+            "note": "〜に注意を払う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に注意を向ける・気を配る",
+        "alternatives": [
+          {
+            "text": "take notice of",
+            "note": "〜に注意を向ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be responsible for",
+      "translation": "〜に責任がある",
+      "exampleEn": "He is responsible for safety.",
+      "before": {
+        "meaning": "〜に責任がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に責任がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be involved in",
+      "translation": "〜に関わっている",
+      "exampleEn": "He is involved in the project.",
+      "before": {
+        "meaning": "〜に関わっている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動・出来事など）に関わっている",
+        "alternatives": [
+          {
+            "text": "be engaged in",
+            "note": "活動などに従事している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in response to",
+      "translation": "〜に応じて",
+      "exampleEn": "They acted in response to the request.",
+      "before": {
+        "meaning": "〜に応じて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜への返答・反応として",
+        "alternatives": [
+          {
+            "text": "in reply to",
+            "note": "〜への返答として"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put an end to",
+      "translation": "〜を終わらせる",
+      "exampleEn": "They put an end to the argument.",
+      "before": {
+        "meaning": "〜を終わらせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "続いていた〜を終わらせる",
+        "alternatives": [
+          {
+            "text": "bring an end to",
+            "note": "〜を終わらせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put into practice",
+      "translation": "（計画・考え）を実行に移す",
+      "exampleEn": "Let's put the plan into practice.",
+      "before": {
+        "meaning": "（計画・考え）を実行に移す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考え・方針）を実際の行動に移す",
+        "alternatives": [
+          {
+            "text": "implement",
+            "note": "計画・方針を実施する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "provide A with B",
+      "translation": "AにBを提供する",
+      "exampleEn": "The library provides children with books.",
+      "before": {
+        "meaning": "AにBを提供する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AにBを提供する（Aは受け取る相手）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "提供される相手と提供物の位置を明示する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be satisfied with",
+      "translation": "〜に満足している",
+      "exampleEn": "We are satisfied with the result.",
+      "before": {
+        "meaning": "〜に満足している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に満足している",
+        "alternatives": [
+          {
+            "text": "be content with",
+            "note": "〜に満足している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "not only A but also B",
+      "translation": "AだけでなくBも",
+      "exampleEn": "The plan helps not only students but also teachers.",
+      "before": {
+        "meaning": "AだけでなくBも",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AだけでなくBも",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "die out",
+      "translation": "絶滅する",
+      "exampleEn": "Some animals may die out.",
+      "before": {
+        "meaning": "絶滅する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（生物・慣習などが）次第に姿を消す・絶滅する",
+        "alternatives": [
+          {
+            "text": "become extinct",
+            "note": "絶滅する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in vain",
+      "translation": "むだに・成果なく",
+      "exampleEn": "We searched in vain.",
+      "before": {
+        "meaning": "むだに・成果なく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "努力しても成果がなく・むだに",
+        "alternatives": [
+          {
+            "text": "without success",
+            "note": "成功せずに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "for good",
+      "translation": "永久に",
+      "exampleEn": "The shop closed for good.",
+      "before": {
+        "meaning": "永久に",
+        "alternatives": [
+          {
+            "text": "forever",
+            "note": "永遠に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "永久に",
+        "alternatives": [
+          {
+            "text": "forever",
+            "note": "永遠に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in short",
+      "translation": "要するに",
+      "exampleEn": "In short, we need more time.",
+      "before": {
+        "meaning": "要するに",
+        "alternatives": [
+          {
+            "text": "in brief",
+            "note": "簡潔に言うと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "要するに",
+        "alternatives": [
+          {
+            "text": "in brief",
+            "note": "簡潔に言うと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "above all",
+      "translation": "何よりも",
+      "exampleEn": "Above all, we must stay safe.",
+      "before": {
+        "meaning": "何よりも",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ほかの何よりも大切なのは",
+        "alternatives": [
+          {
+            "text": "most importantly",
+            "note": "何より重要なことに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "at any cost",
+      "translation": "どんな犠牲を払ってでも",
+      "exampleEn": "They wanted to win at any cost.",
+      "before": {
+        "meaning": "どんな犠牲を払ってでも",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どんな犠牲を払ってでも",
+        "alternatives": [
+          {
+            "text": "at all costs",
+            "note": "どんな犠牲を払っても"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "by no means",
+      "translation": "決して〜ない",
+      "exampleEn": "The task is by no means easy.",
+      "before": {
+        "meaning": "決して〜ない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "決して〜ない",
+        "alternatives": [
+          {
+            "text": "not at all",
+            "note": "まったく〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come to light",
+      "translation": "明らかになる",
+      "exampleEn": "New facts came to light.",
+      "before": {
+        "meaning": "明らかになる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "隠れていた事実などが明らかになる",
+        "alternatives": [
+          {
+            "text": "be revealed",
+            "note": "明らかにされる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "out of control",
+      "translation": "制御できない状態で",
+      "exampleEn": "The fire was out of control.",
+      "before": {
+        "meaning": "制御できない状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "制御できない状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "to some extent",
+      "translation": "ある程度まで",
+      "exampleEn": "I agree to some extent.",
+      "before": {
+        "meaning": "ある程度まで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ある程度まで",
+        "alternatives": [
+          {
+            "text": "to a certain degree",
+            "note": "ある程度まで"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in the meantime",
+      "translation": "それまでの間に",
+      "exampleEn": "In the meantime, let's prepare.",
+      "before": {
+        "meaning": "それまでの間に",
+        "alternatives": [
+          {
+            "text": "meanwhile",
+            "note": "その間に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それまでの間に",
+        "alternatives": [
+          {
+            "text": "meanwhile",
+            "note": "その間に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "on the contrary",
+      "translation": "それどころか逆に",
+      "exampleEn": "It was not easy; on the contrary, it was hard.",
+      "before": {
+        "meaning": "それどころか逆に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "直前の内容を否定して、それとは逆に",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "in contrast",
+            "note": "違いを比べて、対照的に"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "否定して反対を述べる用法と、単なる対比を区別する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in terms of",
+      "translation": "〜の面では・〜の観点から",
+      "exampleEn": "In terms of cost, this plan is better.",
+      "before": {
+        "meaning": "〜の面では・〜の観点から",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の面では・〜の観点から",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cope with",
+      "translation": "（問題など）に対処する",
+      "exampleEn": "Exercise helps me cope with stress.",
+      "before": {
+        "meaning": "（問題など）に対処する",
+        "alternatives": [
+          {
+            "text": "deal with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題など）に対処する",
+        "alternatives": [
+          {
+            "text": "deal with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "as a general rule",
+      "translation": "一般的な決まりとして",
+      "exampleEn": "As a general rule, we start at nine.",
+      "before": {
+        "meaning": "一般的な決まりとして",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一般には・通常の扱いとして",
+        "alternatives": [
+          {
+            "text": "generally speaking",
+            "note": "一般的に言えば"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be free from",
+      "translation": "（心配・害など）がない",
+      "exampleEn": "She felt free from worry.",
+      "before": {
+        "meaning": "（心配・害など）がない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（心配・害など）がない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bring about",
+      "translation": "（変化など）をもたらす",
+      "exampleEn": "The new law brought about change.",
+      "before": {
+        "meaning": "（変化など）をもたらす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（変化・結果など）をもたらす",
+        "alternatives": [
+          {
+            "text": "cause",
+            "note": "変化などを引き起こす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "owing to",
+      "translation": "〜のために（原因）",
+      "exampleEn": "The train stopped owing to the storm.",
+      "before": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "due to",
+            "note": "〜が原因で"
+          },
+          {
+            "text": "because of",
+            "note": "〜のために"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "due to",
+            "note": "〜が原因で"
+          },
+          {
+            "text": "because of",
+            "note": "〜のために"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "for fear of",
+      "translation": "〜を恐れて",
+      "exampleEn": "He stayed silent for fear of failure.",
+      "before": {
+        "meaning": "〜を恐れて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を恐れて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "enable A to do",
+      "translation": "Aが〜できるようにする（doは動詞の原形）",
+      "exampleEn": "The grant enabled her to study.",
+      "before": {
+        "meaning": "Aが〜できるようにする（doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aが〜できるようにする（doは動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "by means of",
+      "translation": "〜という手段で",
+      "exampleEn": "We collected data by means of a survey.",
+      "before": {
+        "meaning": "〜という手段で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜という手段で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in favor of",
+      "translation": "〜に賛成して",
+      "exampleEn": "Most members are in favor of the plan.",
+      "before": {
+        "meaning": "〜に賛成して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に賛成して",
+        "alternatives": [
+          {
+            "text": "supporting",
+            "note": "〜を支持して"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be reluctant to",
+      "translation": "〜するのをためらう（後ろに動詞の原形）",
+      "exampleEn": "He was reluctant to speak.",
+      "before": {
+        "meaning": "〜するのをためらう（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "気が進まず、〜するのをためらう（後ろに動詞の原形）",
+        "alternatives": [
+          {
+            "text": "be unwilling to",
+            "note": "〜したくない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put up with",
+      "translation": "〜を我慢する",
+      "exampleEn": "I cannot put up with the noise.",
+      "before": {
+        "meaning": "〜を我慢する",
+        "alternatives": [
+          {
+            "text": "tolerate",
+            "note": "許容・我慢する"
+          },
+          {
+            "text": "endure",
+            "note": "耐える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を我慢する",
+        "alternatives": [
+          {
+            "text": "tolerate",
+            "note": "許容・我慢する"
+          },
+          {
+            "text": "endure",
+            "note": "耐える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep track of",
+      "translation": "（出費・変化など）を記録して把握する",
+      "exampleEn": "I keep track of my expenses.",
+      "before": {
+        "meaning": "（出費・変化など）を記録して把握する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（出費・変化など）を記録して把握する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take for granted",
+      "translation": "〜を当然のことと思う",
+      "exampleEn": "Do not take health for granted.",
+      "before": {
+        "meaning": "〜を当然のことと思う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を当然として疑わない／ありがたさを意識しない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "当然と見なす用法と、感謝・評価が不足する用法の両方を残す。",
+      "recheck": "変更案を再読し、意味の範囲と比較対象を調整。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in contrast to",
+      "translation": "〜とは対照的に",
+      "exampleEn": "In contrast to the past, travel is easier.",
+      "before": {
+        "meaning": "〜とは対照的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜とは対照的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "live up to",
+      "translation": "（期待など）に応える",
+      "exampleEn": "The product lived up to expectations.",
+      "before": {
+        "meaning": "（期待など）に応える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（期待など）に応える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "not to mention",
+      "translation": "〜は言うまでもなく",
+      "exampleEn": "The trip takes time, not to mention the cost.",
+      "before": {
+        "meaning": "〜は言うまでもなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜は言うまでもなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rule out",
+      "translation": "（可能性など）を除外する",
+      "exampleEn": "We cannot rule out the possibility of rain.",
+      "before": {
+        "meaning": "（可能性など）を除外する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（可能性・候補など）を考慮から外す",
+        "alternatives": [
+          {
+            "text": "exclude",
+            "note": "〜を除外する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "account for",
+      "translation": "（割合）を占める",
+      "exampleEn": "These products account for half the sales.",
+      "before": {
+        "meaning": "（割合）を占める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（割合）を占める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be familiar with",
+      "translation": "〜をよく知っている",
+      "exampleEn": "Are you familiar with the rules?",
+      "before": {
+        "meaning": "〜をよく知っている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（経験などによって）〜をよく知っている",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "be familiar to",
+            "note": "〜にとって見覚えがある"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "知っている側と、見覚えのある対象の関係を区別する。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prohibit A from doing",
+      "translation": "Aが〜するのを禁じる（doingは動詞の-ing形）",
+      "exampleEn": "The rule prohibits them from entering.",
+      "before": {
+        "meaning": "Aが〜するのを禁じる（doingは動詞の-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aが〜するのを規則などで禁じる（doingは動詞の-ing形）",
+        "alternatives": [
+          {
+            "text": "forbid A to do",
+            "note": "人が〜するのを禁じる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take advantage of",
+      "translation": "（機会など）を活用する",
+      "exampleEn": "Take advantage of the chance.",
+      "before": {
+        "meaning": "（機会など）を活用する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機会・条件など）をうまく利用する",
+        "alternatives": [
+          {
+            "text": "make use of",
+            "note": "〜を活用する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "日本語から浮かぶ自然な別表現を比較に添え、指定熟語を思い出す手掛かりを補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be independent of",
+      "translation": "〜から自立している",
+      "exampleEn": "She is independent of her parents.",
+      "before": {
+        "meaning": "〜から自立している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に頼らず自立している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "依存せずに成り立つ関係を明確にする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "play a role in",
+      "translation": "〜に役割を果たす",
+      "exampleEn": "Sleep plays an important role in health.",
+      "before": {
+        "meaning": "〜に役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の中で役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "元の例文にある重要なという形容は、入力対象そのものには含まれない。",
+      "recheck": "変更案を再読し、意味の範囲と比較対象を調整。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

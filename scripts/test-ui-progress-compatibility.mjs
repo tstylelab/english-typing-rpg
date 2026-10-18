@@ -131,7 +131,9 @@ for (const profile of [replayProfiles[0], replayProfiles[1], replayProfiles[0]])
   assert.deepEqual(json(api.readLegacyWorkingSetFromLocalStorage()),profile.data, 'Replay position survives reload and player switching');
 }
 assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(replayProfiles)))),replayProfiles, 'Export/import retains cursor and progress');
-const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim();
+// Reviewed display overlays can change without changing question identities or saves.
+// test-translation-battle-prompts / test-sequential-prompt-reviews validate that overlay.
+const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data',':(exclude)src/data/translationBattlePrompts.json','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim();
 assert.equal(dataDiff,'','Question identity, monster catalog and learning rules must remain unchanged in UI integration');
 console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; only additive replay field; 2-player fixture, old saves, reload/profile-switch/export round trips, IDs and curriculum unchanged.`);
 

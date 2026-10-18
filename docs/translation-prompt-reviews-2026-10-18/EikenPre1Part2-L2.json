@@ -1,0 +1,3946 @@
+{
+  "date": "2026-10-18",
+  "course": "EikenPre1Part2",
+  "level": 2,
+  "reviewed": 158,
+  "changed": 60,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "4bfd85794d9e59dc58fce42f85e0a455d77ea5da2076101e024ce895c1e383e2",
+  "sources": [
+    "https://dictionary.cambridge.org/dictionary/english/check-off",
+    "https://dictionary.cambridge.org/dictionary/english/approve",
+    "https://dictionary.cambridge.org/dictionary/english/effect"
+  ],
+  "rows": [
+    {
+      "text": "push for",
+      "translation": "を強く求める",
+      "exampleEn": "The group is pushing for stricter rules.",
+      "before": {
+        "meaning": "を強く求める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（変更・要求の実現など）を強く求める",
+        "alternatives": [
+          {
+            "text": "press for",
+            "note": "実現を強く求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "push through",
+      "translation": "押し通す / やり抜く",
+      "exampleEn": "They pushed through the final stage of the project.",
+      "before": {
+        "meaning": "（反対・障害があっても案などを）押し通す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（反対・障害があっても案などを）押し通す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put down",
+      "translation": "書き留める / けなす / 置く",
+      "exampleEn": "She put down her thoughts in a notebook.",
+      "before": {
+        "meaning": "書き留める / けなす / 置く",
+        "alternatives": [
+          {
+            "text": "set down",
+            "note": "書き留める"
+          },
+          {
+            "text": "write down",
+            "note": "書き留める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "書き留める / けなす / 置く",
+        "alternatives": [
+          {
+            "text": "set down",
+            "note": "書き留める"
+          },
+          {
+            "text": "write down",
+            "note": "書き留める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put forth",
+      "translation": "出す / 提案する",
+      "exampleEn": "The committee put forth a new proposal.",
+      "before": {
+        "meaning": "（案・意見を）提示する / （努力・力を）注ぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案・意見を）提示する / （努力・力を）注ぐ",
+        "alternatives": [
+          {
+            "text": "put forward",
+            "note": "案・意見を提示する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put forward",
+      "translation": "提案する / 前に出す",
+      "exampleEn": "She put forward an interesting idea.",
+      "before": {
+        "meaning": "（案・候補者を）提案する・推薦する / 前に出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案・候補者を）提案する・推薦する / 前に出す",
+        "alternatives": [
+          {
+            "text": "put forth",
+            "note": "案・意見を提示する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put in",
+      "translation": "差し込む / 費やす / 申請する",
+      "exampleEn": "They put in a lot of effort to finish on time.",
+      "before": {
+        "meaning": "差し込む / 費やす / 申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "差し込む / 費やす / 申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put A through to B",
+      "translation": "AをBにつなぐ",
+      "exampleEn": "Could you put me through to the sales department?",
+      "before": {
+        "meaning": "（電話で）AをBにつなぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（電話で）AをBにつなぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "read off",
+      "translation": "読み上げる",
+      "exampleEn": "The teacher read off the names one by one.",
+      "before": {
+        "meaning": "（リスト・表示などを見て）読み上げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（リスト・表示などを見て）読み上げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "refrain from doing",
+      "translation": "するのを控える",
+      "exampleEn": "Please refrain from using your phone during the performance.",
+      "before": {
+        "meaning": "するのを控える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するのを控える（doingは動詞の-ing形）",
+        "alternatives": [
+          {
+            "text": "abstain from doing",
+            "note": "〜するのを差し控える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "roll in",
+      "translation": "どっと入ってくる / 転がり込む",
+      "exampleEn": "Orders began to roll in after the ad campaign.",
+      "before": {
+        "meaning": "どっと入ってくる / 転がり込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どっと入ってくる / 転がり込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "roll up",
+      "translation": "巻き上げる / 到着する",
+      "exampleEn": "He rolled up his sleeves and got to work.",
+      "before": {
+        "meaning": "巻き上げる / 到着する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "巻き上げる / 到着する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "round off",
+      "translation": "締めくくる / 丸める",
+      "exampleEn": "They rounded off the evening with a song.",
+      "before": {
+        "meaning": "（活動・話を）締めくくる / （数を）丸める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動・話を）締めくくる / （数を）丸める",
+        "alternatives": [
+          {
+            "text": "round out",
+            "note": "活動などを締めくくる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "round up",
+      "translation": "集める / 端数を切り上げる",
+      "exampleEn": "We need to round up all the participants.",
+      "before": {
+        "meaning": "（人・動物などを）集める / （端数を）切り上げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・動物などを）集める / （端数を）切り上げる",
+        "alternatives": [
+          {
+            "text": "gather",
+            "note": "人・物を集める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "run against",
+      "translation": "に反する / に立候補して争う",
+      "exampleEn": "The proposal runs against our policy.",
+      "before": {
+        "meaning": "に反する / に立候補して争う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に反する／〜を相手に選挙で争う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "選挙で争う相手を表すことが分かるようにする。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "run down",
+      "translation": "要約して話す / 衰えさせる",
+      "exampleEn": "Could you run down the main points for me?",
+      "before": {
+        "meaning": "（要点などを）順にざっと説明する / けなす / 消耗させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（要点などを）順にざっと説明する / けなす / 消耗させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "run through",
+      "translation": "ざっと見直す / 通り抜ける",
+      "exampleEn": "Let's run through the checklist once more.",
+      "before": {
+        "meaning": "（内容を）ざっと見直す / 通り抜ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（内容を）ざっと見直す / 通り抜ける",
+        "alternatives": [
+          {
+            "text": "go over",
+            "note": "内容を見直す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "scoop up",
+      "translation": "すくい上げる / 一気に買い集める",
+      "exampleEn": "She scooped up the spilled rice with a spoon.",
+      "before": {
+        "meaning": "すくい上げる / 一気に買い集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すくい上げる / 一気に買い集める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "scratch out",
+      "translation": "かき消す / かろうじて得る",
+      "exampleEn": "He scratched out the wrong word and rewrote it.",
+      "before": {
+        "meaning": "（文字を）かき消す / かろうじて得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（文字を）かき消す / かろうじて得る",
+        "alternatives": [
+          {
+            "text": "cross out",
+            "note": "文字を線で消す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "see about",
+      "translation": "に対処する / を手配する",
+      "exampleEn": "I will see about booking the tickets.",
+      "before": {
+        "meaning": "に対処する / を手配する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "に対処する / を手配する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "see A off",
+      "translation": "Aを見送る",
+      "exampleEn": "We went to the station to see her off.",
+      "before": {
+        "meaning": "Aを見送る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aを見送る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "see through",
+      "translation": "見抜く / 最後までやり通す",
+      "exampleEn": "She saw through his excuse at once.",
+      "before": {
+        "meaning": "見抜く / 最後までやり通す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "見抜く / 最後までやり通す",
+        "alternatives": [
+          {
+            "text": "detect",
+            "note": "うそ・ごまかしなどを見抜く"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "recheck": "変更案を再読し、意味の範囲と比較対象を調整。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "send for",
+      "translation": "を呼びにやる / 取り寄せる",
+      "exampleEn": "The doctor was sent for immediately.",
+      "before": {
+        "meaning": "を呼びにやる / 取り寄せる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "を呼びにやる / 取り寄せる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "send out for",
+      "translation": "を出前で取る",
+      "exampleEn": "We sent out for pizza after work.",
+      "before": {
+        "meaning": "を出前で取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "を出前で取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set down",
+      "translation": "書き留める / 置く",
+      "exampleEn": "She set down her ideas in a notebook.",
+      "before": {
+        "meaning": "書き留める / 置く",
+        "alternatives": [
+          {
+            "text": "put down",
+            "note": "書き留める"
+          },
+          {
+            "text": "write down",
+            "note": "書き留める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "書き留める / 置く",
+        "alternatives": [
+          {
+            "text": "put down",
+            "note": "書き留める"
+          },
+          {
+            "text": "write down",
+            "note": "書き留める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set in",
+      "translation": "始まる / 定着する",
+      "exampleEn": "Winter has begun to set in early this year.",
+      "before": {
+        "meaning": "（悪天候・好ましくない状態などが）始まり、続くようになる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（悪天候・好ましくない状態などが）始まり、続くようになる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set off",
+      "translation": "出発する / 引き起こす",
+      "exampleEn": "They set off early in the morning.",
+      "before": {
+        "meaning": "出発する / 引き起こす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "出発する / 引き起こす",
+        "alternatives": [
+          {
+            "text": "set out",
+            "note": "出発する"
+          },
+          {
+            "text": "trigger",
+            "note": "反応などを引き起こす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set out to do",
+      "translation": "するつもりで始める",
+      "exampleEn": "They set out to build a better service.",
+      "before": {
+        "meaning": "するつもりで始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "するつもりで始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "settle up",
+      "translation": "勘定を済ませる",
+      "exampleEn": "We settled up before leaving the hotel.",
+      "before": {
+        "meaning": "勘定を済ませる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "代金や借金の勘定を済ませる",
+        "alternatives": [
+          {
+            "text": "pay up",
+            "note": "支払うべき額を支払う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "shake up",
+      "translation": "大きく変える / 動揺させる",
+      "exampleEn": "The company shook up its management team.",
+      "before": {
+        "meaning": "大きく変える / 動揺させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "大きく変える / 動揺させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "single out",
+      "translation": "を選び出す / 取り上げる",
+      "exampleEn": "The coach singled out her effort for praise.",
+      "before": {
+        "meaning": "（集団の中から）一人・一つを特に選び出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（集団の中から）一人・一つを特に選び出す",
+        "alternatives": [
+          {
+            "text": "pick out",
+            "note": "集団から選び出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "sit by",
+      "translation": "傍観する",
+      "exampleEn": "We cannot just sit by and do nothing.",
+      "before": {
+        "meaning": "傍観する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "傍観する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "skim over",
+      "translation": "ざっと目を通す",
+      "exampleEn": "I skimmed over the report before the meeting.",
+      "before": {
+        "meaning": "（細部を読まずに）ざっと目を通す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（細部を読まずに）ざっと目を通す",
+        "alternatives": [
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "slip by",
+      "translation": "いつの間にか過ぎる",
+      "exampleEn": "The summer vacation slipped by quickly.",
+      "before": {
+        "meaning": "（時間が）いつの間にか過ぎる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（時間が）いつの間にか過ぎる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "smooth over",
+      "translation": "を丸く収める",
+      "exampleEn": "She tried to smooth over the disagreement.",
+      "before": {
+        "meaning": "（もめ事・意見の違いを）丸く収める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（もめ事・意見の違いを）丸く収める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "spring from",
+      "translation": "から生じる",
+      "exampleEn": "Many problems spring from poor communication.",
+      "before": {
+        "meaning": "から生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（原因・動機など）から生じる",
+        "alternatives": [
+          {
+            "text": "stem from",
+            "note": "〜に由来する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "spring up",
+      "translation": "突然現れる",
+      "exampleEn": "New cafes have sprung up around the station.",
+      "before": {
+        "meaning": "（建物・問題などが）急に現れる・生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（建物・問題などが）急に現れる・生じる",
+        "alternatives": [
+          {
+            "text": "appear suddenly",
+            "note": "突然現れる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stand down",
+      "translation": "退く / 辞任する",
+      "exampleEn": "The chairperson agreed to stand down next month.",
+      "before": {
+        "meaning": "退く / 辞任する",
+        "alternatives": [
+          {
+            "text": "step down",
+            "note": "辞任する"
+          },
+          {
+            "text": "resign",
+            "note": "辞任する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "退く / 辞任する",
+        "alternatives": [
+          {
+            "text": "step down",
+            "note": "辞任する"
+          },
+          {
+            "text": "resign",
+            "note": "辞任する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stand up to",
+      "translation": "に立ち向かう / に耐える",
+      "exampleEn": "She stood up to unfair criticism.",
+      "before": {
+        "meaning": "に立ち向かう / に耐える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "に立ち向かう / に耐える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stay off",
+      "translation": "に近づかない / を避ける",
+      "exampleEn": "You should stay off that wet floor.",
+      "before": {
+        "meaning": "に近づかない / を避ける",
+        "alternatives": [
+          {
+            "text": "stay away from",
+            "note": "〜に近づかない"
+          },
+          {
+            "text": "keep away from",
+            "note": "〜に近づかない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（場所・物）に近づかない・乗らない／（酒など）を控える",
+        "alternatives": [
+          {
+            "text": "stay away from",
+            "note": "〜に近づかない"
+          },
+          {
+            "text": "keep away from",
+            "note": "〜に近づかない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "場所を避ける用法だけでなく、飲食物等を控える用法も示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "step down",
+      "translation": "辞任する / 身を引く",
+      "exampleEn": "The director stepped down after ten years.",
+      "before": {
+        "meaning": "辞任する / 身を引く",
+        "alternatives": [
+          {
+            "text": "stand down",
+            "note": "退く"
+          },
+          {
+            "text": "resign",
+            "note": "辞任する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "辞任する / 身を引く",
+        "alternatives": [
+          {
+            "text": "stand down",
+            "note": "退く"
+          },
+          {
+            "text": "resign",
+            "note": "辞任する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stick to",
+      "translation": "を守る / に固執する",
+      "exampleEn": "Please stick to the schedule.",
+      "before": {
+        "meaning": "を守る / に固執する",
+        "alternatives": [
+          {
+            "text": "adhere to",
+            "note": "固守する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "を守る / に固執する",
+        "alternatives": [
+          {
+            "text": "adhere to",
+            "note": "固守する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stick up for",
+      "translation": "をかばう / 擁護する",
+      "exampleEn": "He always sticks up for his friends.",
+      "before": {
+        "meaning": "をかばう / 擁護する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・立場など）をかばう・擁護する",
+        "alternatives": [
+          {
+            "text": "stand up for",
+            "note": "人などを擁護する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stir in",
+      "translation": "をかき混ぜて入れる",
+      "exampleEn": "Stir in the sugar slowly.",
+      "before": {
+        "meaning": "をかき混ぜて入れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "をかき混ぜて入れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stir up",
+      "translation": "かき立てる / かき混ぜる",
+      "exampleEn": "The speech stirred up strong emotions.",
+      "before": {
+        "meaning": "（感情・騒動などを）かき立てる / かき混ぜる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（感情・騒動などを）かき立てる / かき混ぜる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "talk down to A",
+      "translation": "Aを見下した話し方をする",
+      "exampleEn": "You should not talk down to your students.",
+      "before": {
+        "meaning": "Aを見下した話し方をする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aを見下した話し方をする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "talk A into doing",
+      "translation": "Aを説得してさせる",
+      "exampleEn": "She talked him into joining the trip.",
+      "before": {
+        "meaning": "Aを説得してさせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aを説得して〜させる（doingは動詞の-ing形）",
+        "alternatives": [
+          {
+            "text": "persuade A to do",
+            "note": "人を説得して〜させる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "talk up",
+      "translation": "を盛んにほめる / 宣伝する",
+      "exampleEn": "The media talked up the new product.",
+      "before": {
+        "meaning": "を盛んにほめる / 宣伝する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "を盛んにほめる / 宣伝する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tell on",
+      "translation": "に告げ口する / に悪影響を及ぼす",
+      "exampleEn": "The long hours are starting to tell on him.",
+      "before": {
+        "meaning": "に告げ口する / に悪影響を及ぼす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "に告げ口する / に悪影響を及ぼす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "the other way around",
+      "translation": "逆に",
+      "exampleEn": "I thought he was the teacher, but it was the other way around.",
+      "before": {
+        "meaning": "（順序・関係・向きが）逆に・逆の状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（順序・関係・向きが）逆に・逆の状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "throw off",
+      "translation": "振り払う / 取り除く",
+      "exampleEn": "She tried to throw off her anxiety.",
+      "before": {
+        "meaning": "振り払う / 取り除く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "振り払う / 取り除く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "throw up",
+      "translation": "吐く / 急に生じる",
+      "exampleEn": "The project threw up several unexpected problems.",
+      "before": {
+        "meaning": "吐く / 急に生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "吐く / 急に生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tidy up",
+      "translation": "片づける",
+      "exampleEn": "Please tidy up the room before dinner.",
+      "before": {
+        "meaning": "片づける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "散らかった物を整理して片づける",
+        "alternatives": [
+          {
+            "text": "straighten up",
+            "note": "散らかりを片づける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tie up",
+      "translation": "縛る / 時間を取る / 提携する",
+      "exampleEn": "The meeting tied up the staff for most of the day.",
+      "before": {
+        "meaning": "縛る / （人・資金などを）拘束する・使えなくする / 提携する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "縛る / （人・資金などを）拘束する・使えなくする / 提携する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tip over",
+      "translation": "ひっくり返る / ひっくり返す",
+      "exampleEn": "The vase tipped over in the wind.",
+      "before": {
+        "meaning": "ひっくり返る / ひっくり返す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ひっくり返る / ひっくり返す",
+        "alternatives": [
+          {
+            "text": "overturn",
+            "note": "ひっくり返す・ひっくり返る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "touch up",
+      "translation": "手直しする / 修整する",
+      "exampleEn": "She touched up the photo before printing it.",
+      "before": {
+        "meaning": "手直しする / 修整する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（絵・写真など）を少し手直しする",
+        "alternatives": [
+          {
+            "text": "retouch",
+            "note": "写真・絵などを修整する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "track down",
+      "translation": "追跡して見つける",
+      "exampleEn": "The reporter tracked down the original source.",
+      "before": {
+        "meaning": "追跡して見つける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "探し続けて、人・物・情報を見つけ出す",
+        "alternatives": [
+          {
+            "text": "locate",
+            "note": "所在を突き止める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "trip up",
+      "translation": "つまずかせる / 失敗させる",
+      "exampleEn": "A small detail tripped up the team.",
+      "before": {
+        "meaning": "つまずかせる / 失敗させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "つまずかせる / 失敗させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tune in to",
+      "translation": "にチャンネルを合わせる / 注意を向ける",
+      "exampleEn": "Many listeners tuned in to the live broadcast.",
+      "before": {
+        "meaning": "にチャンネルを合わせる / 注意を向ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "にチャンネルを合わせる / 注意を向ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "tune up",
+      "translation": "調整する",
+      "exampleEn": "He tuned up the engine before the trip.",
+      "before": {
+        "meaning": "（楽器を）調律する / （エンジンなどを）調整する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（楽器を）調律する / （エンジンなどを）調整する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn around",
+      "translation": "好転させる / 振り向く",
+      "exampleEn": "The new manager turned the business around.",
+      "before": {
+        "meaning": "（状況を）好転させる / 振り向く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（状況を）好転させる / 振り向く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn away",
+      "translation": "追い返す / 顔をそむける",
+      "exampleEn": "The shelter could not turn away anyone in need.",
+      "before": {
+        "meaning": "追い返す / 顔をそむける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "追い返す / 顔をそむける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn in",
+      "translation": "提出する / 寝る / 引き渡す",
+      "exampleEn": "Please turn in your report by Friday.",
+      "before": {
+        "meaning": "提出する / 寝る / 引き渡す",
+        "alternatives": [
+          {
+            "text": "hand in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "提出する / 寝る / 引き渡す",
+        "alternatives": [
+          {
+            "text": "hand in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "walk off with",
+      "translation": "を持ち去る / を楽々手に入れる",
+      "exampleEn": "Someone walked off with my umbrella.",
+      "before": {
+        "meaning": "を持ち去る / を楽々手に入れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "を持ち去る / を楽々手に入れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wander off",
+      "translation": "ふらりと離れる",
+      "exampleEn": "The child wandered off from the group.",
+      "before": {
+        "meaning": "ふらりと離れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ふらりと離れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "want for",
+      "translation": "を欠く",
+      "exampleEn": "The town never wanted for fresh water.",
+      "before": {
+        "meaning": "（必要なものを）欠く・不足する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（必要なものを）欠く・不足する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wash away",
+      "translation": "洗い流す / 消し去る",
+      "exampleEn": "The heavy rain washed away the footprints.",
+      "before": {
+        "meaning": "洗い流す / 消し去る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "洗い流す / 消し去る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "wash down",
+      "translation": "水などで飲み下す",
+      "exampleEn": "She washed the pills down with a glass of water.",
+      "before": {
+        "meaning": "（食べ物・薬を）飲み物で流し込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（食べ物・薬を）飲み物で流し込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "watch over",
+      "translation": "見守る / 世話をする",
+      "exampleEn": "An older nurse watched over the children.",
+      "before": {
+        "meaning": "見守る / 世話をする",
+        "alternatives": [
+          {
+            "text": "look after",
+            "note": "世話をする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "見守る / 世話をする",
+        "alternatives": [
+          {
+            "text": "keep an eye on",
+            "note": "様子を見守る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "weigh on",
+      "translation": "重くのしかかる / 心を悩ませる",
+      "exampleEn": "The uncertainty weighed on everyone in the office.",
+      "before": {
+        "meaning": "（心配事などが人の心に）重くのしかかる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（心配事などが人の心に）重くのしかかる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "win over",
+      "translation": "味方に引き入れる / 納得させる",
+      "exampleEn": "Her honesty won over the audience.",
+      "before": {
+        "meaning": "味方に引き入れる / 納得させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "味方に引き入れる / 納得させる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "agree on",
+      "translation": "(案や条件に)合意する",
+      "exampleEn": "They agreed on a new plan.",
+      "before": {
+        "meaning": "（案や条件に）合意する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案・条件など）について合意する",
+        "alternatives": [
+          {
+            "text": "reach agreement on",
+            "note": "〜について合意する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "aim at",
+      "translation": "(目標として)目指す / 狙う",
+      "exampleEn": "The campaign aims at young voters.",
+      "before": {
+        "meaning": "（目標として）目指す / 狙う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（目標として）目指す / 狙う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "appeal to",
+      "translation": "(感情に)訴えかける",
+      "exampleEn": "The ad appeals to young people.",
+      "before": {
+        "meaning": "（感情に）訴えかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の心）に訴える・魅力を感じさせる",
+        "alternatives": [
+          {
+            "text": "attract",
+            "note": "人をひきつける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "approve of",
+      "translation": "(考えや行動に)賛成する",
+      "exampleEn": "I do not approve of that idea.",
+      "before": {
+        "meaning": "（考えや行動に）賛成する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考え・行動など）をよいと認める・賛成する",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "approve",
+            "note": "計画などを正式に承認する"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be based on",
+      "translation": "(事実や理論に)基づいている",
+      "exampleEn": "The film is based on a true story.",
+      "before": {
+        "meaning": "（事実や理論に）基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事実や理論に）基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be composed of",
+      "translation": "(要素から)成り立っている",
+      "exampleEn": "The committee is composed of five members.",
+      "before": {
+        "meaning": "（要素から）成り立っている",
+        "alternatives": [
+          {
+            "text": "consist of",
+            "note": "〜から成る"
+          },
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（要素から）成り立っている",
+        "alternatives": [
+          {
+            "text": "consist of",
+            "note": "〜から成る"
+          },
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be concerned about",
+      "translation": "(問題を)心配している",
+      "exampleEn": "Parents are concerned about online safety.",
+      "before": {
+        "meaning": "（問題を）心配している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題を）心配している",
+        "alternatives": [
+          {
+            "text": "be worried about",
+            "note": "〜を心配している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be exposed to",
+      "translation": "(危険や影響に)さらされる",
+      "exampleEn": "Children are exposed to many ads.",
+      "before": {
+        "meaning": "（危険や影響に）さらされる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（危険や影響に）さらされる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be inclined to",
+      "translation": "(ある傾向に)なりがちである",
+      "exampleEn": "He is inclined to doubt new ideas.",
+      "before": {
+        "meaning": "～する傾向がある / ～したい気がする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する傾向がある・〜したい気がする（後ろに動詞の原形）",
+        "alternatives": [
+          {
+            "text": "tend to",
+            "note": "〜する傾向がある"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be involved in",
+      "translation": "(事件や活動に)関わっている",
+      "exampleEn": "She was involved in the project.",
+      "before": {
+        "meaning": "（事件や活動に）関わっている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事件や活動に）関わっている",
+        "alternatives": [
+          {
+            "text": "be engaged in",
+            "note": "活動などに従事している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "break down",
+      "translation": "故障する / 分解する",
+      "exampleEn": "My car broke down yesterday.",
+      "before": {
+        "meaning": "故障する / 分解する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "故障する / 分解する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "build up",
+      "translation": "(時間をかけて)蓄積する",
+      "exampleEn": "Stress can build up over time.",
+      "before": {
+        "meaning": "（時間をかけて）蓄積する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（時間をかけて）蓄積する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "call for",
+      "translation": "(状況が)必要とする",
+      "exampleEn": "The crisis calls for quick action.",
+      "before": {
+        "meaning": "（状況が）必要とする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（状況が）〜を必要とする／〜を強く求める",
+        "alternatives": [
+          {
+            "text": "require",
+            "note": "〜を必要とする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "carry out",
+      "translation": "(計画を)実行する",
+      "exampleEn": "The researchers carried out the experiment.",
+      "before": {
+        "meaning": "（計画を）実行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（計画・実験など）を実行・実施する",
+        "alternatives": [
+          {
+            "text": "conduct",
+            "note": "調査・実験などを実施する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "catch up with",
+      "translation": "(人や流れに)追いつく",
+      "exampleEn": "I ran to catch up with Ken.",
+      "before": {
+        "meaning": "（人や流れに）追いつく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "遅れを取り戻して〜に追いつく",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "keep up with",
+            "note": "遅れず同じペースでついていく"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come across",
+      "translation": "偶然出会う / ふと見つける",
+      "exampleEn": "I came across an old photo.",
+      "before": {
+        "meaning": "偶然出会う / ふと見つける",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "偶然出会う / ふと見つける",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "come up with",
+      "translation": "思いつく / 考え出す",
+      "exampleEn": "She came up with a good idea.",
+      "before": {
+        "meaning": "思いつく / 考え出す",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "思いつく / 考え出す",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "consist of",
+      "translation": "(要素から)成る",
+      "exampleEn": "The team consists of five members.",
+      "before": {
+        "meaning": "（要素から）成る",
+        "alternatives": [
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（要素から）成る",
+        "alternatives": [
+          {
+            "text": "be made up of",
+            "note": "〜から構成される"
+          },
+          {
+            "text": "be composed of",
+            "note": "〜から成る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "cope with",
+      "translation": "(問題や状況に)対処する",
+      "exampleEn": "She learned to cope with stress.",
+      "before": {
+        "meaning": "（問題や状況に）対処する",
+        "alternatives": [
+          {
+            "text": "deal with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題や状況に）対処する",
+        "alternatives": [
+          {
+            "text": "deal with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "deal with",
+      "translation": "(問題を)扱う / 対処する",
+      "exampleEn": "He dealt with the complaint well.",
+      "before": {
+        "meaning": "（問題を）扱う / 対処する",
+        "alternatives": [
+          {
+            "text": "cope with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題を）扱う / 対処する",
+        "alternatives": [
+          {
+            "text": "cope with",
+            "note": "〜に対処する"
+          },
+          {
+            "text": "handle",
+            "note": "扱う・対処する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "depend on",
+      "translation": "(条件や人に)依存する",
+      "exampleEn": "Success depends on hard work.",
+      "before": {
+        "meaning": "（条件や人に）依存する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（条件や人）に依存する・〜次第である",
+        "alternatives": [
+          {
+            "text": "rely on",
+            "note": "人・支援などに頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "differ from",
+      "translation": "(〜とは)異なる",
+      "exampleEn": "My view differs from yours.",
+      "before": {
+        "meaning": "（〜とは）異なる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（〜とは）異なる",
+        "alternatives": [
+          {
+            "text": "be different from",
+            "note": "〜とは異なる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "distinguish A from B",
+      "translation": "AとBを区別する",
+      "exampleEn": "Can you distinguish fact from opinion?",
+      "before": {
+        "meaning": "AとBを区別する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AとBを見分ける・区別する",
+        "alternatives": [
+          {
+            "text": "tell A from B",
+            "note": "AとBを見分ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "draw attention to",
+      "translation": "注意を向ける / 問題提起する",
+      "exampleEn": "The report draws attention to rural poverty.",
+      "before": {
+        "meaning": "注意を向ける / 問題提起する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "注意を向ける / 問題提起する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "drop out of",
+      "translation": "(学校などを)中退する",
+      "exampleEn": "He dropped out of college.",
+      "before": {
+        "meaning": "（学校などを）中退する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（学校などを）中退する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "engage in",
+      "translation": "(活動に)従事する",
+      "exampleEn": "Many students engage in volunteer work.",
+      "before": {
+        "meaning": "（活動に）従事する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動に）従事する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "figure out",
+      "translation": "理解する / 解決する",
+      "exampleEn": "It took us hours to figure out the cause.",
+      "before": {
+        "meaning": "（考えて）理解する・解決策を見つける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考えて）理解する・解決策を見つける",
+        "alternatives": [
+          {
+            "text": "work out",
+            "note": "考えて答えなどを見つける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "fill in",
+      "translation": "(用紙に)記入する",
+      "exampleEn": "Please fill in this form.",
+      "before": {
+        "meaning": "（用紙に）記入する",
+        "alternatives": [
+          {
+            "text": "fill out",
+            "note": "用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（用紙に）記入する",
+        "alternatives": [
+          {
+            "text": "fill out",
+            "note": "用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "focus on",
+      "translation": "(一点に)集中する / 重点を置く",
+      "exampleEn": "The discussion focused on practical solutions.",
+      "before": {
+        "meaning": "（一点に）集中する / 重点を置く",
+        "alternatives": [
+          {
+            "text": "concentrate on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（一点に）集中する / 重点を置く",
+        "alternatives": [
+          {
+            "text": "concentrate on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "gain access to",
+      "translation": "(情報や場所を)利用できるようになる",
+      "exampleEn": "Only staff can gain access to the room.",
+      "before": {
+        "meaning": "（情報や場所を）利用できるようになる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（情報や場所を）利用できるようになる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "get rid of",
+      "translation": "(不要なものを)取り除いてなくす",
+      "exampleEn": "She finally got rid of the broken printer.",
+      "before": {
+        "meaning": "（不要なものを）取り除いてなくす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（不要なものを）取り除いてなくす",
+        "alternatives": [
+          {
+            "text": "dispose of",
+            "note": "不要な物を処分する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "go through",
+      "translation": "経験する / ひと通り確認する",
+      "exampleEn": "She went through a hard time.",
+      "before": {
+        "meaning": "経験する / ひと通り確認する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "経験する / ひと通り確認する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "hold back",
+      "translation": "抑える / 引き止める",
+      "exampleEn": "Do not hold back your opinion.",
+      "before": {
+        "meaning": "（感情・情報などを）抑える・出さない / 引き止める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（感情・情報などを）抑える・出さない / 引き止める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in accordance with",
+      "translation": "(規則などに)従って",
+      "exampleEn": "The work was done in accordance with the rules.",
+      "before": {
+        "meaning": "（規則などに）従って",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（規則などに）従って",
+        "alternatives": [
+          {
+            "text": "in line with",
+            "note": "規則・方針などに従って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in addition to",
+      "translation": "(〜に)加えて",
+      "exampleEn": "In addition to English, he studies math.",
+      "before": {
+        "meaning": "（〜に）加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（〜に）加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in charge of",
+      "translation": "(仕事を)担当して",
+      "exampleEn": "She is in charge of sales.",
+      "before": {
+        "meaning": "（仕事を）担当して",
+        "alternatives": [
+          {
+            "text": "responsible for",
+            "note": "〜の責任を負って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事を）担当して",
+        "alternatives": [
+          {
+            "text": "responsible for",
+            "note": "〜の責任を負って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in contrast to",
+      "translation": "(〜とは)対照的に",
+      "exampleEn": "In contrast to his brother, he is quiet.",
+      "before": {
+        "meaning": "（〜とは）対照的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（〜とは）対照的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in favor of",
+      "translation": "(案などに)賛成して",
+      "exampleEn": "Most members are in favor of the plan.",
+      "before": {
+        "meaning": "（案などに）賛成して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（案などに）賛成して",
+        "alternatives": [
+          {
+            "text": "supporting",
+            "note": "〜を支持して"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in terms of",
+      "translation": "(〜の観点で)",
+      "exampleEn": "The idea works well in terms of cost.",
+      "before": {
+        "meaning": "～の観点で・～に関して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "～の観点で・～に関して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep up with",
+      "translation": "(変化や人に)遅れずについていく",
+      "exampleEn": "Small firms struggle to keep up with rapid change.",
+      "before": {
+        "meaning": "（変化や人に）遅れずについていく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（変化・人）に遅れず同じペースでついていく",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "catch up with",
+            "note": "遅れていたところから追いつく"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "lead to",
+      "translation": "(結果として)つながる",
+      "exampleEn": "Poor sleep can lead to mistakes.",
+      "before": {
+        "meaning": "（結果として）つながる",
+        "alternatives": [
+          {
+            "text": "result in",
+            "note": "結果として〜になる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果として）つながる",
+        "alternatives": [
+          {
+            "text": "result in",
+            "note": "結果として〜になる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "look into",
+      "translation": "調べる / 検討する",
+      "exampleEn": "The police will look into the case.",
+      "before": {
+        "meaning": "調べる / 検討する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題など）を調査する・検討する",
+        "alternatives": [
+          {
+            "text": "investigate",
+            "note": "問題などを調査する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "make a difference",
+      "translation": "(結果に)変化をもたらす",
+      "exampleEn": "Small steps can make a difference.",
+      "before": {
+        "meaning": "（結果に）違いを生む・効果をもたらす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果に）違いを生む・効果をもたらす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "make up for",
+      "translation": "(損失などを)埋め合わせる",
+      "exampleEn": "I worked late to make up for lost time.",
+      "before": {
+        "meaning": "（損失などを）埋め合わせる",
+        "alternatives": [
+          {
+            "text": "compensate for",
+            "note": "埋め合わせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（損失などを）埋め合わせる",
+        "alternatives": [
+          {
+            "text": "compensate for",
+            "note": "埋め合わせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "object to",
+      "translation": "(提案などに)反対する",
+      "exampleEn": "Some people object to the change.",
+      "before": {
+        "meaning": "（提案などに）反対する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に反対する（後ろに名詞・-ing形）",
+        "alternatives": [
+          {
+            "text": "oppose",
+            "note": "〜に反対する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "participate in",
+      "translation": "(活動や会合に)参加する",
+      "exampleEn": "Many students participate in the event.",
+      "before": {
+        "meaning": "（活動や会合に）参加する",
+        "alternatives": [
+          {
+            "text": "take part in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動や会合に）参加する",
+        "alternatives": [
+          {
+            "text": "take part in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pay attention to",
+      "translation": "(細部に)注意を払う",
+      "exampleEn": "Please pay attention to the signs.",
+      "before": {
+        "meaning": "（細部に）注意を払う",
+        "alternatives": [
+          {
+            "text": "heed",
+            "note": "〜に注意を払う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（対象に）注意を向ける・気を配る",
+        "alternatives": [
+          {
+            "text": "take notice of",
+            "note": "〜に注意を向ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "point out",
+      "translation": "(問題点を)指摘する / 明確に示す",
+      "exampleEn": "She pointed out the main problem.",
+      "before": {
+        "meaning": "（問題点を）指摘する / 明確に示す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題点を）指摘する / 明確に示す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "prevent A from B",
+      "translation": "AがBするのを防ぐ",
+      "exampleEn": "The lock prevents children from opening the door.",
+      "before": {
+        "meaning": "AがBするのを防ぐ（Bは動名詞など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AがBするのを防ぐ（Bは動名詞など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "put off",
+      "translation": "(予定を)延期する",
+      "exampleEn": "We had to put off the meeting.",
+      "before": {
+        "meaning": "（予定を）延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（予定を）延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "recover from",
+      "translation": "(病気や失敗から)回復する",
+      "exampleEn": "He recovered from the flu.",
+      "before": {
+        "meaning": "（病気や失敗から）回復する",
+        "alternatives": [
+          {
+            "text": "get over",
+            "note": "回復・克服する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気や失敗から）回復する",
+        "alternatives": [
+          {
+            "text": "get over",
+            "note": "回復・克服する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "refer to",
+      "translation": "(話題として)言及する / 参照する",
+      "exampleEn": "The guide refers to local customs.",
+      "before": {
+        "meaning": "（話題として）言及する / 参照する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（話題として）言及する / 参照する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "rely on",
+      "translation": "(人や支援に)頼る",
+      "exampleEn": "Many farmers rely on rain.",
+      "before": {
+        "meaning": "（人や支援に）頼る",
+        "alternatives": [
+          {
+            "text": "count on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人や支援に）頼る",
+        "alternatives": [
+          {
+            "text": "count on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "result in",
+      "translation": "(結果として)〜になる",
+      "exampleEn": "Careless driving can result in accidents.",
+      "before": {
+        "meaning": "（結果として）〜になる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果として）〜になる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "result from",
+      "translation": "(〜が原因で)生じる",
+      "exampleEn": "The delay resulted from bad weather.",
+      "before": {
+        "meaning": "（〜が原因で）生じる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（原因として）〜から生じる",
+        "alternatives": [
+          {
+            "text": "stem from",
+            "note": "〜に起因する"
+          }
+        ],
+        "contrasts": [
+          {
+            "text": "result in",
+            "note": "結果として〜につながる"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "run out of",
+      "translation": "(資源などを)使い果たす",
+      "exampleEn": "We ran out of paper.",
+      "before": {
+        "meaning": "（資源などを）使い果たす",
+        "alternatives": [
+          {
+            "text": "use up",
+            "note": "すべて使う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（資源など）の持ち分がなくなる・尽きる",
+        "alternatives": [
+          {
+            "text": "use up",
+            "note": "持っている物を使い切る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "set up",
+      "translation": "(組織を)設立する / (設備を)設置する",
+      "exampleEn": "They set up a small business.",
+      "before": {
+        "meaning": "（組織を）設立する /（設備を）設置する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（組織を）設立する /（設備を）設置する",
+        "alternatives": [
+          {
+            "text": "establish",
+            "note": "組織などを設立する"
+          },
+          {
+            "text": "install",
+            "note": "設備などを設置する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "show up",
+      "translation": "現れる / 姿を見せる",
+      "exampleEn": "Only ten people showed up.",
+      "before": {
+        "meaning": "現れる / 姿を見せる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "現れる / 姿を見せる",
+        "alternatives": [
+          {
+            "text": "turn up",
+            "note": "姿を現す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "stand for",
+      "translation": "表す / 支持する",
+      "exampleEn": "NPO stands for non-profit organization.",
+      "before": {
+        "meaning": "（記号・略語が）表す / （主義・理念を）支持する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（記号・略語が）表す / （主義・理念を）支持する",
+        "alternatives": [
+          {
+            "text": "represent",
+            "note": "記号などが〜を表す"
+          },
+          {
+            "text": "support",
+            "note": "主義などを支持する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "suffer from",
+      "translation": "(病気や問題に)苦しむ",
+      "exampleEn": "Many people suffer from back pain.",
+      "before": {
+        "meaning": "（病気や問題に）苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気や問題に）苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take advantage of",
+      "translation": "(機会を)活用する / 利用する",
+      "exampleEn": "Students should take advantage of this chance.",
+      "before": {
+        "meaning": "（機会・資源を）活用する / （人の弱みなどに）つけ込む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機会・資源を）活用する / （人の弱みなどに）つけ込む",
+        "alternatives": [
+          {
+            "text": "make use of",
+            "note": "機会などを活用する"
+          },
+          {
+            "text": "exploit",
+            "note": "人の弱みなどにつけ込む"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take care of",
+      "translation": "(人や物の)世話をする",
+      "exampleEn": "She takes care of her grandmother.",
+      "before": {
+        "meaning": "（人や物の）世話をする",
+        "alternatives": [
+          {
+            "text": "look after",
+            "note": "世話をする"
+          },
+          {
+            "text": "care for",
+            "note": "世話をする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人や物の）世話をする",
+        "alternatives": [
+          {
+            "text": "look after",
+            "note": "世話をする"
+          },
+          {
+            "text": "care for",
+            "note": "世話をする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take into account",
+      "translation": "(事情を考えて)考慮に入れる / 計算に入れる",
+      "exampleEn": "The judge took his age into account.",
+      "before": {
+        "meaning": "（事情を考えて）考慮に入れる / 計算に入れる",
+        "alternatives": [
+          {
+            "text": "take into consideration",
+            "note": "考慮する"
+          },
+          {
+            "text": "factor in",
+            "note": "計算に入れる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事情を考えて）考慮に入れる / 計算に入れる",
+        "alternatives": [
+          {
+            "text": "take into consideration",
+            "note": "考慮する"
+          },
+          {
+            "text": "factor in",
+            "note": "計算に入れる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take part in",
+      "translation": "(一員として)参加する",
+      "exampleEn": "He took part in the contest.",
+      "before": {
+        "meaning": "（一員として）参加する",
+        "alternatives": [
+          {
+            "text": "participate in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（一員として）参加する",
+        "alternatives": [
+          {
+            "text": "participate in",
+            "note": "〜に参加する"
+          },
+          {
+            "text": "join in",
+            "note": "〜に加わる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take responsibility for",
+      "translation": "(結果に)責任を負う",
+      "exampleEn": "Leaders must take responsibility for mistakes.",
+      "before": {
+        "meaning": "（結果に）責任を負う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果に）責任を負う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn down",
+      "translation": "断る / 音量などを下げる",
+      "exampleEn": "She turned down the offer.",
+      "before": {
+        "meaning": "（申し出を）断る / （音量などを）下げる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（申し出を）断る / （音量などを）下げる",
+        "alternatives": [
+          {
+            "text": "reject",
+            "note": "申し出などを断る"
+          },
+          {
+            "text": "lower",
+            "note": "音量などを下げる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "turn out",
+      "translation": "判明する / 結果的に〜になる",
+      "exampleEn": "The plan turned out well.",
+      "before": {
+        "meaning": "判明する / 結果的に〜になる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "判明する / 結果的に〜になる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "work on",
+      "translation": "(課題に)取り組む / 働きかける",
+      "exampleEn": "We are working on a new app.",
+      "before": {
+        "meaning": "（課題に）取り組む / 働きかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（課題に）取り組む / 働きかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "be aware of",
+      "translation": "(事実に)気づいている",
+      "exampleEn": "You should be aware of the risk.",
+      "before": {
+        "meaning": "（事実に）気づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事実・危険など）を認識している",
+        "alternatives": [
+          {
+            "text": "be conscious of",
+            "note": "〜を意識している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "bear in mind",
+      "translation": "(重要点を)心に留める",
+      "exampleEn": "Bear in mind that time is limited.",
+      "before": {
+        "meaning": "（重要点を）心に留める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（重要点を）心に留める",
+        "alternatives": [
+          {
+            "text": "keep in mind",
+            "note": "心に留めておく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "face criticism",
+      "translation": "批判に直面する / 批判を受ける",
+      "exampleEn": "The company faced criticism online.",
+      "before": {
+        "meaning": "批判に直面する / 批判を受ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "批判に直面する / 批判を受ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "gain popularity",
+      "translation": "(広く)人気を得る",
+      "exampleEn": "The game gained popularity quickly.",
+      "before": {
+        "meaning": "（広く）人気を得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（広く）人気を得る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "have an impact on",
+      "translation": "(結果や社会に)影響を及ぼす",
+      "exampleEn": "The decision had an impact on prices.",
+      "before": {
+        "meaning": "（結果や社会に）影響を及ぼす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果や社会に）影響を及ぼす",
+        "alternatives": [
+          {
+            "text": "affect",
+            "note": "〜に影響を与える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "keep track of",
+      "translation": "(変化や記録を)追う",
+      "exampleEn": "I use an app to keep track of my spending.",
+      "before": {
+        "meaning": "（変化や記録を）追う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（出費・変化など）を追って把握し続ける",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "lose track of",
+            "note": "〜の動きなどが分からなくなる"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "meet a deadline",
+      "translation": "(仕事を)締め切りに間に合わせる",
+      "exampleEn": "We worked late to meet the deadline.",
+      "before": {
+        "meaning": "（仕事を）締め切りに間に合わせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事を）締め切りに間に合わせる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "on behalf of",
+      "translation": "(人や組織を)代表して",
+      "exampleEn": "She spoke on behalf of the team.",
+      "before": {
+        "meaning": "（人や組織を）代表して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・組織）を代表して・〜に代わって",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "代理としての意味も含める。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "play a role in",
+      "translation": "(物事に)役割を果たす",
+      "exampleEn": "Diet plays a role in health.",
+      "before": {
+        "meaning": "（物事に）役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物事に）役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "pose a threat to",
+      "translation": "(安全などへの)脅威となる",
+      "exampleEn": "Plastic waste poses a threat to sea life.",
+      "before": {
+        "meaning": "（安全などへの）脅威となる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（安全などへの）脅威となる",
+        "alternatives": [
+          {
+            "text": "threaten",
+            "note": "〜を脅かす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "raise awareness of",
+      "translation": "(問題への)意識を高める",
+      "exampleEn": "The campaign raised awareness of food waste.",
+      "before": {
+        "meaning": "（問題への）意識を高める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題への）意識を高める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "reach a conclusion",
+      "translation": "(考えた末に)結論に達する",
+      "exampleEn": "The team finally reached a conclusion.",
+      "before": {
+        "meaning": "（考えた末に）結論に達する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考えた末に）結論に達する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "under pressure",
+      "translation": "重圧の中で / 追い詰められて",
+      "exampleEn": "He works well under pressure.",
+      "before": {
+        "meaning": "重圧の中で / 追い詰められて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "重圧の中で / 追い詰められて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "with regard to",
+      "translation": "(話題に)関して",
+      "exampleEn": "I have a question with regard to fees.",
+      "before": {
+        "meaning": "（話題に）関して",
+        "alternatives": [
+          {
+            "text": "regarding",
+            "note": "〜に関して"
+          },
+          {
+            "text": "concerning",
+            "note": "〜に関して"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（話題に）関して",
+        "alternatives": [
+          {
+            "text": "regarding",
+            "note": "〜に関して"
+          },
+          {
+            "text": "concerning",
+            "note": "〜に関して"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "at first glance",
+      "translation": "(ぱっと見て)一見したところ",
+      "exampleEn": "At first glance, the answer seemed easy.",
+      "before": {
+        "meaning": "（ぱっと見て）一見したところ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（ぱっと見て）一見したところ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "for the sake of",
+      "translation": "(利益や目的の)ために",
+      "exampleEn": "They moved for the sake of safety.",
+      "before": {
+        "meaning": "（利益や目的の）ために",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（利益や目的の）ために",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "in the long run",
+      "translation": "(短期でなく)長期的には",
+      "exampleEn": "The change will help in the long run.",
+      "before": {
+        "meaning": "（短期でなく）長期的には",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（短期でなく）長期的には",
+        "alternatives": [
+          {
+            "text": "in the long term",
+            "note": "長期的には"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "out of date",
+      "translation": "時代遅れの / 期限切れの",
+      "exampleEn": "This data is out of date.",
+      "before": {
+        "meaning": "時代遅れの / 期限切れの",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "時代遅れの / 期限切れの",
+        "alternatives": [
+          {
+            "text": "outdated",
+            "note": "時代遅れの"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "take effect",
+      "translation": "効力を生じる / 発効する",
+      "exampleEn": "The new rule takes effect next month.",
+      "before": {
+        "meaning": "効力を生じる / 発効する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（法律などが）効力を生じる／効果が現れる",
+        "alternatives": [
+          {
+            "text": "come into effect",
+            "note": "規則などが効力を持ち始める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "出題の語義を保ちながら、同義表現・対象・文型の比較を短く補う。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "with the exception of",
+      "translation": "(一部を)除いて",
+      "exampleEn": "With the exception of one student, everyone passed.",
+      "before": {
+        "meaning": "（一部を）除いて",
+        "alternatives": [
+          {
+            "text": "except for",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（一部を）除いて",
+        "alternatives": [
+          {
+            "text": "except for",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

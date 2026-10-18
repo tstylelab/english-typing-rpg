@@ -1,0 +1,1928 @@
+{
+  "date": "2026-10-19",
+  "course": "Eiken2",
+  "level": 3,
+  "reviewed": 94,
+  "changed": 26,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "7717b13780db73257aaf6521afda3ceac7137ebb9d011e698e6581e999cb6b80",
+  "sources": [
+    "https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns",
+    "https://dictionary.cambridge.org/grammar/british-grammar/mind"
+  ],
+  "rows": [
+    {
+      "text": "Second, it costs less.",
+      "translation": "第二に、それは費用が少なくて済みます。",
+      "before": {
+        "meaning": "第二に、それは費用が少なくて済みます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "第二に、それは費用がより少なくて済みます。",
+        "alternatives": [
+          {
+            "text": "Secondly",
+            "note": "第二に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "First, it saves us time.",
+      "translation": "第一に、それは私たちの時間を節約します。",
+      "before": {
+        "meaning": "第一に、それは私たちの時間を節約します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "第一に、それは私たちの時間を節約します。",
+        "alternatives": [
+          {
+            "text": "Firstly",
+            "note": "第一に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have two reasons for this.",
+      "translation": "これについて理由が二つあります。",
+      "before": {
+        "meaning": "これについて理由が二つあります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これについて私には二つの理由があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "自分が理由を持つ形で表す"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "As a result, we arrived early.",
+      "translation": "その結果、私たちは早く到着しました。",
+      "before": {
+        "meaning": "その結果、私たちは早く到着しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その結果、私たちは早く到着しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That is why I support the plan.",
+      "translation": "だから私はその計画を支持します。",
+      "before": {
+        "meaning": "だから私はその計画を支持します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "だから私はその計画を支持します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I prefer learning with friends.",
+      "translation": "私は友人と一緒に学ぶ方が好きです。",
+      "before": {
+        "meaning": "私は友人と一緒に学ぶ方が好きです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は友人と一緒に学ぶ方が好きです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have never visited that museum.",
+      "translation": "私はその博物館に一度も行ったことがありません。",
+      "before": {
+        "meaning": "私はその博物館に一度も行ったことがありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "after": {
+        "meaning": "私はその博物館に一度も行ったことがありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have two reasons why I think so.",
+      "translation": "そう考える理由が二つあります。",
+      "before": {
+        "meaning": "そう考える理由が二つあります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私がそう考える理由は二つあります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "理由の後に、自分がそう考えることを節で添える"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "First of all, safety is important.",
+      "translation": "何よりまず、安全が大切です。",
+      "before": {
+        "meaning": "何よりまず、安全が大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何よりまず、安全が大切です。",
+        "alternatives": [
+          {
+            "text": "To begin with",
+            "note": "まず"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If you need help, ask the teacher.",
+      "translation": "助けが必要なら先生に尋ねてください。",
+      "before": {
+        "meaning": "助けが必要なら先生に尋ねてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "助けが必要なら先生に尋ねてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "To begin with, we need a clear plan.",
+      "translation": "まず、明確な計画が必要です。",
+      "before": {
+        "meaning": "まず、明確な計画が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まず、明確な計画が必要です。",
+        "alternatives": [
+          {
+            "text": "First of all",
+            "note": "何よりもまず"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "For example, we can share old books.",
+      "translation": "例えば、古い本を共有できます。",
+      "before": {
+        "meaning": "例えば、古い本を共有できます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "例えば、私たちは古い本を共有できます。",
+        "alternatives": [
+          {
+            "text": "For instance",
+            "note": "例えば"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "For example, we can reuse these bags.",
+      "translation": "例えば、これらの袋を再利用できます。",
+      "before": {
+        "meaning": "例えば、これらの袋を再利用できます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "例えば、私たちはこれらの袋を再利用できます。",
+        "alternatives": [
+          {
+            "text": "For instance",
+            "note": "例えば"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I ride a bike because it saves money.",
+      "translation": "お金を節約できるので私は自転車に乗ります。",
+      "before": {
+        "meaning": "お金を節約できるので私は自転車に乗ります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "お金を節約できるので私は自転車に乗ります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Thanks to her help, I finished on time.",
+      "translation": "彼女の助けのおかげで時間どおりに終えました。",
+      "before": {
+        "meaning": "彼女の助けのおかげで時間どおりに終えました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女の助けのおかげで時間どおりに終えました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is important to protect clean water.",
+      "translation": "きれいな水を守ることは大切です。",
+      "before": {
+        "meaning": "きれいな水を守ることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "きれいな水を守ることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I walk because it is good for my health.",
+      "translation": "健康によいので私は歩きます。",
+      "before": {
+        "meaning": "健康によいので私は歩きます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "健康によいので私は歩きます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If it rains tomorrow, we will stay home.",
+      "translation": "もし明日雨が降ったら、家にいます。",
+      "before": {
+        "meaning": "もし明日雨が降ったら、家にいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "もし明日雨が降ったら、家にいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "These bags are made from recycled paper.",
+      "translation": "これらの袋は再生紙から作られています。",
+      "before": {
+        "meaning": "これらの袋は再生紙から作られています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "これらの袋は再生紙から作られています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I think that reading every day is useful.",
+      "translation": "私は毎日読書することは役に立つと思います。",
+      "before": {
+        "meaning": "私は毎日読書することは役に立つと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "毎日読書することは役に立つと私は思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞を主語にした節を続け、接続詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This is because the buses are often late.",
+      "translation": "これはバスがよく遅れるからです。",
+      "before": {
+        "meaning": "これはバスがよく遅れるからです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これはバスがよく遅れるからです。",
+        "alternatives": [
+          {
+            "text": "frequently",
+            "note": "頻繁に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "これがそうなる理由を、理由の節で説明する"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We need clean energy such as solar power.",
+      "translation": "太陽光発電のようなクリーンなエネルギーが必要です。",
+      "before": {
+        "meaning": "太陽光発電のようなクリーンなエネルギーが必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "太陽光発電のようなクリーンなエネルギーが必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In my opinion, children need time to play.",
+      "translation": "私の意見では、子どもには遊ぶ時間が必要です。",
+      "before": {
+        "meaning": "私の意見では、子どもには遊ぶ時間が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の意見では、子どもには遊ぶ時間が必要です。",
+        "alternatives": [
+          {
+            "text": "From my point of view",
+            "note": "私の考えでは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The game was canceled because of the rain.",
+      "translation": "雨のため試合は中止されました。",
+      "before": {
+        "meaning": "雨のため試合は中止されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "雨のため試合は中止されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Also, children can learn from the experience.",
+      "translation": "また、子どもはその経験から学べます。",
+      "before": {
+        "meaning": "また、子どもはその経験から学べます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "また、子どもはその経験から学べます。",
+        "alternatives": [
+          {
+            "text": "In addition",
+            "note": "さらに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "However, some people do not have enough time.",
+      "translation": "しかし、十分な時間がない人もいます。",
+      "before": {
+        "meaning": "しかし、十分な時間がない人もいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "しかし、十分な時間がない人もいます。",
+        "alternatives": [
+          {
+            "text": "Nevertheless",
+            "note": "それでも"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I think that a library is useful for everyone.",
+      "translation": "図書館は誰にとっても役に立つと思います。",
+      "before": {
+        "meaning": "図書館は誰にとっても役に立つと思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "図書館は誰にとっても役に立つと私は思います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "思う内容を節で続け、接続詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Therefore, we should act now.",
+      "translation": "したがって、私たちは今行動すべきです。",
+      "before": {
+        "meaning": "したがって、私たちは今行動すべきです。",
+        "alternatives": [
+          {
+            "text": "Thus",
+            "note": "したがって"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "したがって、私たちは今行動すべきです。",
+        "alternatives": [
+          {
+            "text": "Thus",
+            "note": "したがって"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She has already sent the email.",
+      "translation": "彼女はもうメールを送りました。",
+      "before": {
+        "meaning": "彼女はもうメールを送りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "after": {
+        "meaning": "彼女はもうメールを送りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We avoided driving in the snow.",
+      "translation": "私たちは雪の中の運転を避けました。",
+      "before": {
+        "meaning": "私たちは雪の中の運転を避けました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "after": {
+        "meaning": "私たちは雪の中の運転を避けました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The bridge was built last year.",
+      "translation": "その橋は昨年建設されました。",
+      "before": {
+        "meaning": "その橋は昨年建設されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "その橋は昨年建設されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "He enjoys working with children.",
+      "translation": "彼は子どもたちと働くのが好きです。",
+      "before": {
+        "meaning": "彼は子どもたちと関わる仕事を楽しんでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "after": {
+        "meaning": "彼は子どもたちと関わる仕事を楽しんでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In addition, we can reduce waste.",
+      "translation": "加えて、私たちはごみを減らせます。",
+      "before": {
+        "meaning": "加えて、私たちはごみを減らせます。",
+        "alternatives": [
+          {
+            "text": "Also",
+            "note": "加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "加えて、私たちはごみを減らせます。",
+        "alternatives": [
+          {
+            "text": "Also",
+            "note": "加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Do you know where this bus stops?",
+      "translation": "このバスがどこに止まるか知っていますか。",
+      "before": {
+        "meaning": "このバスがどこに止まるか知っていますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "after": {
+        "meaning": "このバスがどこに止まるか知っていますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She went to the library to study.",
+      "translation": "彼女は勉強するために図書館へ行きました。",
+      "before": {
+        "meaning": "彼女は勉強するために図書館へ行きました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "after": {
+        "meaning": "彼女は勉強するために図書館へ行きました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The town is becoming more popular.",
+      "translation": "その町はますます人気になっています。",
+      "before": {
+        "meaning": "その町はますます人気になっています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その町はますます人気になっています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I wonder why she changed her mind.",
+      "translation": "彼女がなぜ考えを変えたのか気になります。",
+      "before": {
+        "meaning": "彼女がなぜ考えを変えたのか気になります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "after": {
+        "meaning": "彼女がなぜ考えを変えたのか気になります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I agree that we should save energy.",
+      "translation": "私たちは節電すべきだという考えに賛成です。",
+      "before": {
+        "meaning": "私たちはエネルギーを節約すべきだという考えに賛成です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちはエネルギーを節約すべきだという考えに賛成です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "However, we must consider the cost.",
+      "translation": "しかし、その費用を考える必要があります。",
+      "before": {
+        "meaning": "しかし、その費用を考える必要があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "しかし、私たちはその費用を考慮しなければなりません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": true,
+      "reason": "必要があるという弱い訳を、義務を示す英文に合わせる。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "More and more people work from home.",
+      "translation": "ますます多くの人が在宅で働いています。",
+      "before": {
+        "meaning": "ますます多くの人が在宅で働いています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ますます多くの人が在宅で働いています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "There are many people who need help.",
+      "translation": "助けを必要としている人はたくさんいます。",
+      "before": {
+        "meaning": "助けを必要としている人はたくさんいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "after": {
+        "meaning": "助けを必要としている人はたくさんいます。",
+        "alternatives": [
+          {
+            "text": "a lot of",
+            "note": "たくさんの"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "存在を表す文に、人を説明する関係詞節を付ける"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "These days, many people shop online.",
+      "translation": "近ごろは多くの人がオンラインで買い物をします。",
+      "before": {
+        "meaning": "近ごろは多くの人がオンラインで買い物をします。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "近ごろは多くの人がオンラインで買い物をします。",
+        "alternatives": [
+          {
+            "text": "Nowadays",
+            "note": "近ごろは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We should avoid wasting clean water.",
+      "translation": "私たちはきれいな水を無駄にしないようにすべきです。",
+      "before": {
+        "meaning": "私たちはきれいな水を無駄にしないようにすべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "after": {
+        "meaning": "私たちはきれいな水を無駄にしないようにすべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "動名詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The number of visitors is increasing.",
+      "translation": "訪問者の数は増えています。",
+      "before": {
+        "meaning": "訪問者の数は増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "訪問者の数は増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Unless we leave now, we will be late.",
+      "translation": "今出発しなければ、遅れてしまいます。",
+      "before": {
+        "meaning": "今出発しなければ、遅れてしまいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "今出発しなければ、遅れてしまいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The new rule was announced yesterday.",
+      "translation": "新しい規則は昨日発表されました。",
+      "before": {
+        "meaning": "新しい規則は昨日発表されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "新しい規則は昨日発表されました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "As a result, the river became cleaner.",
+      "translation": "その結果、川はよりきれいになりました。",
+      "before": {
+        "meaning": "その結果、川はよりきれいになりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その結果、川はよりきれいになりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We started a campaign to reduce waste.",
+      "translation": "ごみを減らすための運動を始めました。",
+      "before": {
+        "meaning": "ごみを減らすための運動を始めました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "after": {
+        "meaning": "ごみを減らすための運動を始めました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The results will be announced tomorrow.",
+      "translation": "結果は明日発表されます。",
+      "before": {
+        "meaning": "結果は明日発表されます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "結果は明日発表されます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Therefore, I take the train when I can.",
+      "translation": "だから私はできるときに電車に乗ります。",
+      "before": {
+        "meaning": "だから私はできるときに電車に乗ります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "したがって、私は可能なときは電車に乗ります。",
+        "alternatives": [
+          {
+            "text": "Thus",
+            "note": "したがって"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The company has reduced its energy use.",
+      "translation": "その会社はエネルギー使用量を減らしてきました。",
+      "before": {
+        "meaning": "その会社はエネルギー使用量を減らしてきました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "after": {
+        "meaning": "その会社はエネルギー使用量を減らしてきました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The first reason is that it saves money.",
+      "translation": "第一の理由は、それがお金を節約できることです。",
+      "before": {
+        "meaning": "第一の理由は、それがお金を節約できることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "第一の理由は、それがお金を節約できることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Some people drive, and others use buses.",
+      "translation": "車で行く人もいれば、バスを使う人もいます。",
+      "before": {
+        "meaning": "車で行く人もいれば、バスを使う人もいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "車で行く人もいれば、バスを使う人もいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have lived in this town for ten years.",
+      "translation": "私はこの町に十年間住んでいます。",
+      "before": {
+        "meaning": "私はこの町に十年間住んでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "after": {
+        "meaning": "私はこの町に十年間住んでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "現在完了"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She joined the club to make new friends.",
+      "translation": "彼女は新しい友人を作るためにクラブに入りました。",
+      "before": {
+        "meaning": "彼女は新しい友人を作るためにクラブに入りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "after": {
+        "meaning": "彼女は新しい友人を作るためにクラブに入りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "目的の不定詞"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Another reason is that it is easy to use.",
+      "translation": "もう一つの理由は、それが使いやすいことです。",
+      "before": {
+        "meaning": "もう一つの理由は、それが使いやすいことです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もう一つの理由は、それが使いやすいことです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The new bridge is as wide as the old one.",
+      "translation": "新しい橋は古い橋と同じ幅です。",
+      "before": {
+        "meaning": "新しい橋は古い橋と同じ幅です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "after": {
+        "meaning": "新しい橋は古い橋と同じ幅です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In my opinion, the city needs more parks.",
+      "translation": "私の意見では、その市にはもっと公園が必要です。",
+      "before": {
+        "meaning": "私の意見では、その市にはもっと公園が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の意見では、その市にはもっと公園が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "For these two reasons, I support the plan.",
+      "translation": "これら二つの理由から、私はその計画を支持します。",
+      "before": {
+        "meaning": "これら二つの理由から、私はその計画を支持します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これら二つの理由から、私はその計画を支持します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This is because many children study there.",
+      "translation": "これは多くの子どもがそこで勉強するからです。",
+      "before": {
+        "meaning": "これは多くの子どもがそこで勉強するからです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これは多くの子どもがそこで勉強するからです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In conclusion, the program is worth trying.",
+      "translation": "結論として、そのプログラムは試す価値があります。",
+      "before": {
+        "meaning": "結論として、そのプログラムは試す価値があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結論として、そのプログラムは試す価値があります。",
+        "alternatives": [
+          {
+            "text": "To conclude",
+            "note": "結論として"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The most important thing is to keep trying.",
+      "translation": "最も大切なのは挑戦を続けることです。",
+      "before": {
+        "meaning": "最も大切なのは挑戦を続けることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最も大切なのは挑戦を続けることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This device uses less energy than that one.",
+      "translation": "この装置はあちらの装置よりエネルギーの使用量が少ないです。",
+      "before": {
+        "meaning": "この装置はあちらの装置よりエネルギーの使用量が少ないです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "after": {
+        "meaning": "この装置はあちらの装置よりエネルギーの使用量が少ないです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The number of online classes is increasing.",
+      "translation": "オンライン授業の数は増えています。",
+      "before": {
+        "meaning": "オンライン授業の数は増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "オンライン授業の数は増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Can you tell me how to apply for the program?",
+      "translation": "そのプログラムへの応募方法を教えてくれますか。",
+      "before": {
+        "meaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "after": {
+        "meaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Furthermore, the change will help older people.",
+      "translation": "そのうえ、その変更は高齢者の助けになります。",
+      "before": {
+        "meaning": "そのうえ、その変更は高齢者の助けになります。",
+        "alternatives": [
+          {
+            "text": "Moreover",
+            "note": "そのうえ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そのうえ、その変更は高齢者の助けになります。",
+        "alternatives": [
+          {
+            "text": "Moreover",
+            "note": "そのうえ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I met a student who volunteers at the hospital.",
+      "translation": "病院でボランティアをする生徒に会いました。",
+      "before": {
+        "meaning": "病院でボランティアをする生徒に会いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "after": {
+        "meaning": "私はその病院でボランティアをする生徒に会いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "生徒を関係代名詞の節で説明する"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This method is more effective than the old one.",
+      "translation": "この方法は以前の方法より効果的です。",
+      "before": {
+        "meaning": "この方法は以前の方法より効果的です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "after": {
+        "meaning": "この方法は以前の方法より効果的です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This means that more people can use the service.",
+      "translation": "つまり、より多くの人がそのサービスを利用できます。",
+      "before": {
+        "meaning": "つまり、より多くの人がそのサービスを利用できます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これは、より多くの人がそのサービスを利用できるという意味です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "意味する内容を節で続け、接続詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I disagree with the idea of closing the library.",
+      "translation": "図書館を閉鎖するという考えには反対です。",
+      "before": {
+        "meaning": "図書館を閉鎖するという考えには反対です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "図書館を閉鎖するという考えには反対です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In addition, parks give people a place to relax.",
+      "translation": "さらに、公園は人々にくつろげる場所を提供します。",
+      "before": {
+        "meaning": "さらに、公園は人々にくつろげる場所を提供します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "さらに、公園は人々にくつろげる場所を提供します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is important for children to get enough sleep.",
+      "translation": "子どもが十分な睡眠を取ることは大切です。",
+      "before": {
+        "meaning": "子どもが十分な睡眠を取ることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "子どもが十分な睡眠を取ることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "While cars are convenient, they produce pollution.",
+      "translation": "車は便利ですが、汚染も生みます。",
+      "before": {
+        "meaning": "車は便利ですが、汚染も生みます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "車は便利ですが、汚染も生みます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is important for us to check the source of news.",
+      "translation": "私たちがニュースの情報源を確かめることは大切です。",
+      "before": {
+        "meaning": "私たちがニュースの情報源を確かめることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちがニュースの情報源を確かめることは大切です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I disagree with the idea that tests are unnecessary.",
+      "translation": "試験は不要だという意見には反対です。",
+      "before": {
+        "meaning": "試験は不要だという意見には反対です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "試験は不要だという意見には反対です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Some students prefer books, while others prefer videos.",
+      "translation": "本を好む生徒もいれば、動画を好む生徒もいます。",
+      "before": {
+        "meaning": "本を好む生徒もいれば、動画を好む生徒もいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "本を好む生徒もいれば、動画を好む生徒もいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The woman who spoke to us is a scientist.",
+      "translation": "私たちに話しかけた女性は科学者です。",
+      "before": {
+        "meaning": "私たちに話しかけた女性は科学者です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "after": {
+        "meaning": "私たちに話しかけた女性は科学者です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The book that you recommended was useful.",
+      "translation": "あなたが勧めた本は役に立ちました。",
+      "before": {
+        "meaning": "あなたが勧めた本は役に立ちました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "after": {
+        "meaning": "あなたが勧めた本は役に立ちました。",
+        "alternatives": [
+          {
+            "text": "which",
+            "note": "物を説明する関係代名詞"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "目的語の関係代名詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Furthermore, better transport may create jobs.",
+      "translation": "そのうえ、交通の改善は雇用を生むかもしれません。",
+      "before": {
+        "meaning": "そのうえ、交通の改善は雇用を生むかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そのうえ、交通の改善は雇用を生むかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "As a result, the town attracted more visitors.",
+      "translation": "その結果、町はより多くの訪問者を引きつけました。",
+      "before": {
+        "meaning": "その結果、町はより多くの訪問者を引きつけました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その結果、町はより多くの訪問者を引きつけました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is often said that travel broadens the mind.",
+      "translation": "旅は視野を広げるとよく言われます。",
+      "before": {
+        "meaning": "旅は視野を広げるとよく言われます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "after": {
+        "meaning": "旅は視野を広げるとよく言われます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "受け身"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is necessary for us to protect local nature.",
+      "translation": "私たちが地域の自然を守ることは必要です。",
+      "before": {
+        "meaning": "私たちが地域の自然を守ることは必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちが地域の自然を守ることは必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I believe that education can change a community.",
+      "translation": "教育は地域を変えられると私は信じています。",
+      "before": {
+        "meaning": "教育は地域を変えられると私は信じています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "教育は地域を変えられると私は信じています。",
+        "alternatives": [
+          {
+            "text": "think",
+            "note": "〜と思う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "信じる内容を節で続け、接続詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "One reason is that everyone needs a fair chance.",
+      "translation": "一つの理由は、誰にも公平な機会が必要だからです。",
+      "before": {
+        "meaning": "一つの理由は、誰にも公平な機会が必要だからです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一つの理由は、誰にも公平な機会が必要だからです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is necessary to protect personal data online.",
+      "translation": "オンライン上で個人情報を守ることが必要です。",
+      "before": {
+        "meaning": "オンライン上で個人情報を守ることが必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "オンライン上で個人情報を守ることが必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "More and more people are concerned about privacy.",
+      "translation": "プライバシーを気にする人がますます増えています。",
+      "before": {
+        "meaning": "プライバシーを気にする人がますます増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "プライバシーを気にする人がますます増えています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Although the plan is expensive, it may save energy.",
+      "translation": "その計画には費用がかかりますが、節電につながるかもしれません。",
+      "before": {
+        "meaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I believe that small actions can make a difference.",
+      "translation": "小さな行動でも変化を生めると私は信じています。",
+      "before": {
+        "meaning": "小さな行動でも変化を生めると私は信じています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "小さな行動でも変化を生めると私は信じています。",
+        "alternatives": [
+          {
+            "text": "think",
+            "note": "〜と思う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "信じる内容を節で続け、接続詞を省略しない"
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If the city improves the buses, fewer people may drive.",
+      "translation": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+      "before": {
+        "meaning": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "after": {
+        "meaning": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In conclusion, the benefits are greater than the costs.",
+      "translation": "結論として、利益は費用を上回ります。",
+      "before": {
+        "meaning": "結論として、利益は費用を上回ります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結論として、利益は費用を上回ります。",
+        "alternatives": [
+          {
+            "text": "To conclude",
+            "note": "結論として"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The scientist who spoke at the conference studies climate.",
+      "translation": "会議で話した科学者は気候を研究しています。",
+      "before": {
+        "meaning": "会議で話した科学者は気候を研究しています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "after": {
+        "meaning": "会議で話した科学者は気候を研究しています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "人や物を説明する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Although the device is expensive, it uses less electricity.",
+      "translation": "その機器は高価ですが、電力消費が少ないです。",
+      "before": {
+        "meaning": "その機器は高価ですが、電力消費が少ないです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "after": {
+        "meaning": "その機器は高価ですが、電力消費が少ないです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する"
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The factory closed; as a result, many people lost their jobs.",
+      "translation": "工場が閉鎖し、その結果多くの人が仕事を失いました。",
+      "before": {
+        "meaning": "工場が閉鎖し、その結果多くの人が仕事を失いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "工場が閉鎖し、その結果多くの人が仕事を失いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "In conclusion, we should use public transportation more often.",
+      "translation": "結論として、私たちはもっと公共交通機関を使うべきです。",
+      "before": {
+        "meaning": "結論として、私たちはもっと公共交通機関を使うべきです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結論として、私たちはもっと公共交通機関を使うべきです。",
+        "alternatives": [
+          {
+            "text": "To conclude",
+            "note": "結論として"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}

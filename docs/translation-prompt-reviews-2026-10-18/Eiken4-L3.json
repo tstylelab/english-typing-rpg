@@ -1,0 +1,4551 @@
+{
+  "date": "2026-10-19",
+  "course": "Eiken4",
+  "level": 3,
+  "reviewed": 209,
+  "changed": 14,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "outsidePromptsSha256": "ea8650ec9ec26f1a652d94bc3b09d39c61858567522a91290326a6f27ecb67a5",
+  "sources": [
+    "https://dictionary.cambridge.org/dictionary/english/on-sale",
+    "https://dictionary.cambridge.org/grammar/british-grammar/contractions",
+    "https://dictionary.cambridge.org/grammar/british-grammar/relative-pronouns"
+  ],
+  "rows": [
+    {
+      "text": "Can I help you?",
+      "translation": "お手伝いしましょうか（Can Iを使う）。",
+      "before": {
+        "meaning": "お手伝いしましょうか（申し出）。",
+        "alternatives": [
+          {
+            "text": "may I help you",
+            "note": "手伝いを申し出る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "お手伝いしましょうか（申し出）。",
+        "alternatives": [
+          {
+            "text": "may I help you",
+            "note": "手伝いを申し出る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How much is this shirt?",
+      "translation": "このシャツはいくらですか。",
+      "before": {
+        "meaning": "このシャツはいくらですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "このシャツはいくらですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm looking for a present.",
+      "translation": "私は贈り物を探しています（I'mを使う）。",
+      "before": {
+        "meaning": "私は贈り物を探しています（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "search for",
+            "note": "探す"
+          },
+          {
+            "text": "gift",
+            "note": "贈り物"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は贈り物を探しています（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "search for",
+            "note": "探す"
+          },
+          {
+            "text": "gift",
+            "note": "贈り物"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I want to buy some flowers.",
+      "translation": "花をいくつか買いたいです。",
+      "before": {
+        "meaning": "花をいくつか買いたいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "花をいくつか買いたいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "These are on sale.",
+      "translation": "これらはセール中です。",
+      "before": {
+        "meaning": "これらはセール中です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これらは販売中です／特価で売られています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "販売中と値下げの両用法を残し、文脈がないのにセールと決めつけない。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's two thousand yen.",
+      "translation": "2000円です（It'sを使う）。",
+      "before": {
+        "meaning": "2000円です（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "2000円です（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'll take it.",
+      "translation": "それにします・それを買います（I'llを使う）。",
+      "before": {
+        "meaning": "それにします・それを買います（買い物・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それにします・それを買います（買い物・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Anything else?",
+      "translation": "ほかに何かありますか。",
+      "before": {
+        "meaning": "（注文を聞いた店員が短く）ほかに何か？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（注文を聞いた店員が短く）ほかに何か？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's all, thanks.",
+      "translation": "それで全部です、ありがとう（That'sを使う）。",
+      "before": {
+        "meaning": "それで全部です、ありがとう（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それで全部です、ありがとう（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Here you are.",
+      "translation": "はい、どうぞ。",
+      "before": {
+        "meaning": "はい、どうぞ（物を渡すとき）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "はい、どうぞ（物を渡すとき）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Can I have some more water?",
+      "translation": "水をもう少しいただけますか。",
+      "before": {
+        "meaning": "水をもう少しいただいてもいいですか（許可を求める）。",
+        "alternatives": [
+          {
+            "text": "May I have",
+            "note": "丁寧に求める"
+          },
+          {
+            "text": "Could I have",
+            "note": "丁寧に求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "水をもう少しいただいてもいいですか（許可を求める）。",
+        "alternatives": [
+          {
+            "text": "May I have",
+            "note": "丁寧に求める"
+          },
+          {
+            "text": "Could I have",
+            "note": "丁寧に求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Would you like something to drink?",
+      "translation": "何か飲み物はいかがですか。",
+      "before": {
+        "meaning": "何か飲み物はいかがですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何か飲み物はいかがですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Would you like tea or coffee?",
+      "translation": "紅茶とコーヒーのどちらがよいですか。",
+      "before": {
+        "meaning": "紅茶かコーヒーはいかがですか（丁寧な勧め）。",
+        "alternatives": [
+          {
+            "text": "Do you want",
+            "note": "希望を尋ねる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "紅茶かコーヒーはいかがですか（丁寧な勧め）。",
+        "alternatives": [
+          {
+            "text": "Do you want",
+            "note": "希望を尋ねる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'll have grape juice.",
+      "translation": "ぶどうジュースをください（I'll haveを使う）。",
+      "before": {
+        "meaning": "ぶどうジュースをください（注文・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "I'd like",
+            "note": "丁寧に注文する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ぶどうジュースをください（注文・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "I'd like",
+            "note": "丁寧に注文する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'd like a hot dog.",
+      "translation": "ホットドッグをください（I'd likeを使う）。",
+      "before": {
+        "meaning": "ホットドッグをください（丁寧な希望・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "I'll have",
+            "note": "注文を決める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ホットドッグをください（丁寧な希望・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "I'll have",
+            "note": "注文を決める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It looks good.",
+      "translation": "おいしそうです。",
+      "before": {
+        "meaning": "それはよさそうです（見た感じ）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それはよさそうです（見た感じ）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "No, thank you. I'm full.",
+      "translation": "いいえ、結構です。おなかがいっぱいです（I'mを使う）。",
+      "before": {
+        "meaning": "いいえ、結構です。おなかがいっぱいです（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "いいえ、結構です。おなかがいっぱいです（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Attention, please.",
+      "translation": "ご注意ください。",
+      "before": {
+        "meaning": "みなさん、注目してください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "みなさん、注目してください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's warm today.",
+      "translation": "今日は暖かいです（It'sを使う）。",
+      "before": {
+        "meaning": "今日は暖かいです（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今日は暖かいです（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's going to rain soon.",
+      "translation": "もうすぐ雨が降りそうです（It's going toを使う）。",
+      "before": {
+        "meaning": "もうすぐ雨が降りそうです（兆候からの予測・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もうすぐ雨が降りそうです（兆候からの予測・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Is it raining outside?",
+      "translation": "外では雨が降っていますか。",
+      "before": {
+        "meaning": "外では雨が降っていますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "外では雨が降っていますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It's raining now.",
+      "translation": "今、雨が降っています（It'sを使う）。",
+      "before": {
+        "meaning": "今、雨が降っています（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今、雨が降っています（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How was the weather in New York?",
+      "translation": "ニューヨークの天気はどうでしたか。",
+      "before": {
+        "meaning": "ニューヨークの天気はどうでしたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ニューヨークの天気はどうでしたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It snowed a lot last night.",
+      "translation": "昨夜はたくさん雪が降りました。",
+      "before": {
+        "meaning": "昨夜はたくさん雪が降りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "昨夜はたくさん雪が降りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where is the post office?",
+      "translation": "郵便局はどこですか。",
+      "before": {
+        "meaning": "郵便局はどこですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "郵便局はどこですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Which bus goes to the airport?",
+      "translation": "どのバスが空港へ行きますか。",
+      "before": {
+        "meaning": "どのバスが空港へ行きますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どのバスが空港へ行きますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How can I get to the museum?",
+      "translation": "どうやって博物館へ行けますか。",
+      "before": {
+        "meaning": "どうやって博物館へ行けますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうやって博物館へ行けますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'll show you the way.",
+      "translation": "私があなたに道を案内します（I'llを使う）。",
+      "before": {
+        "meaning": "私があなたに道を案内します（申し出・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私があなたに道を案内します（申し出・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It takes about fifteen minutes.",
+      "translation": "だいたい15分かかります。",
+      "before": {
+        "meaning": "だいたい15分かかります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "だいたい15分かかります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What happened to you?",
+      "translation": "あなた、どうしたのですか。",
+      "before": {
+        "meaning": "あなたの身に何が起こったのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたの身に何が起こったのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What's wrong?",
+      "translation": "どうしましたか（What'sを使う）。",
+      "before": {
+        "meaning": "どうしましたか（不調を尋ねる・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうしましたか（不調を尋ねる・短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I can't find my car key.",
+      "translation": "自分の車の鍵が見つかりません（can'tを使う）。",
+      "before": {
+        "meaning": "自分の車の鍵が見つかりません（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の車の鍵が見つかりません（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I lost my train ticket.",
+      "translation": "自分の電車の切符をなくしました。",
+      "before": {
+        "meaning": "自分の電車の切符をなくしました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の電車の切符をなくしました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How do you feel now?",
+      "translation": "今の気分はどうですか。",
+      "before": {
+        "meaning": "今の気分はどうですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今の気分はどうですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I feel much better, thanks.",
+      "translation": "ずいぶん良くなりました、ありがとう。",
+      "before": {
+        "meaning": "体調がずいぶんよくなりました、ありがとう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "体調がずいぶんよくなりました、ありがとう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Not very good.",
+      "translation": "あまりよくありません。",
+      "before": {
+        "meaning": "あまりよくありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あまりよくありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have a cold.",
+      "translation": "かぜをひいています。",
+      "before": {
+        "meaning": "かぜをひいています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "かぜをひいています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I have to go now.",
+      "translation": "もう行かなければなりません。",
+      "before": {
+        "meaning": "私はもう行かなければなりません（必要性）。",
+        "alternatives": [
+          {
+            "text": "must",
+            "note": "〜しなければならない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はもう行かなければなりません（必要性）。",
+        "alternatives": [
+          {
+            "text": "must",
+            "note": "〜しなければならない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How long will you stay in New York?",
+      "translation": "ニューヨークにはどのくらい滞在する予定ですか。",
+      "before": {
+        "meaning": "ニューヨークにはどのくらい滞在する予定ですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ニューヨークにはどのくらい滞在する予定ですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How often do you practice?",
+      "translation": "どのくらいの頻度で練習しますか。",
+      "before": {
+        "meaning": "どれくらいの間隔で練習しますか（週に何回など）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どれくらいの間隔で練習しますか（週に何回など）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Twice a week.",
+      "translation": "週に二回です。",
+      "before": {
+        "meaning": "週に二回です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "週に二回です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We'll be late for school!",
+      "translation": "私たちは学校に遅れてしまいます（We'llを使う）！",
+      "before": {
+        "meaning": "私たちは学校に遅れてしまいます（短縮形で）！",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは学校に遅れてしまいます（短縮形で）！",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What time will the movie start?",
+      "translation": "映画は何時に始まりますか。",
+      "before": {
+        "meaning": "映画は何時に始まりますか（未来のこと）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "映画は何時に始まりますか（未来のこと）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Just a moment, please.",
+      "translation": "少々お待ちください。",
+      "before": {
+        "meaning": "ほんの少しだけお待ちください（短い依頼）。",
+        "alternatives": [
+          {
+            "text": "wait a moment",
+            "note": "少し待つ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ほんの少しだけお待ちください（短い依頼）。",
+        "alternatives": [
+          {
+            "text": "wait a moment",
+            "note": "少し待つ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'll call back later.",
+      "translation": "あとでかけ直します（I'llを使う）。",
+      "before": {
+        "meaning": "あとでかけ直します（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あとでかけ直します（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm sorry, but I don't know.",
+      "translation": "すみませんが、わかりません（I'mとdon'tを使う）。",
+      "before": {
+        "meaning": "すみませんが、わかりません（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "すみませんが、わかりません（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'm not sure.",
+      "translation": "よくわかりません（I'mを使う）。",
+      "before": {
+        "meaning": "確かではありません（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "certain",
+            "note": "確かな"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "確かではありません（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "certain",
+            "note": "確かな"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I'd like to see a movie.",
+      "translation": "映画を見たいです（I'd likeを使う）。",
+      "before": {
+        "meaning": "映画を見たいです（丁寧な希望・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "want to",
+            "note": "〜したい"
+          },
+          {
+            "text": "watch a film",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "映画を見たいです（丁寧な希望・短縮形で）。",
+        "alternatives": [
+          {
+            "text": "want to",
+            "note": "〜したい"
+          },
+          {
+            "text": "watch a film",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Thank you for your help.",
+      "translation": "手伝ってくれてありがとう（your helpを使う）。",
+      "before": {
+        "meaning": "手伝ってくれてありがとう（手助けへの感謝）。",
+        "alternatives": [
+          {
+            "text": "thanks",
+            "note": "ありがとうの短い表現"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "手伝ってくれてありがとう（手助けへの感謝）。",
+        "alternatives": [
+          {
+            "text": "thanks",
+            "note": "ありがとうの短い表現"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Sounds nice.",
+      "translation": "すてきですね。",
+      "before": {
+        "meaning": "よさそうですね（聞いた印象・主語を省略）。",
+        "alternatives": [
+          {
+            "text": "sounds good",
+            "note": "よさそうだ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "よさそうですね（聞いた印象・主語を省略）。",
+        "alternatives": [
+          {
+            "text": "sounds good",
+            "note": "よさそうだ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's a good idea!",
+      "translation": "それはいい考えですね（That'sを使う）！",
+      "before": {
+        "meaning": "それはいい考えですね（短縮形で）！",
+        "alternatives": [
+          {
+            "text": "great",
+            "note": "すばらしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それはいい考えですね（短縮形で）！",
+        "alternatives": [
+          {
+            "text": "great",
+            "note": "すばらしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "That's too bad.",
+      "translation": "それは残念ですね（That'sを使う）。",
+      "before": {
+        "meaning": "それは残念ですね（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それは残念ですね（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Did you sleep well?",
+      "translation": "よく眠れましたか。",
+      "before": {
+        "meaning": "よく眠れましたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "よく眠れましたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How was your trip to China?",
+      "translation": "あなたの中国旅行はどうでしたか。",
+      "before": {
+        "meaning": "あなたの中国旅行はどうでしたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたの中国旅行はどうでしたか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What do you think of her idea?",
+      "translation": "彼女の考えをどう思いますか。",
+      "before": {
+        "meaning": "彼女の考えをどう思いますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女の考えをどう思いますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What kind of music do you like?",
+      "translation": "どんな音楽が好きですか。",
+      "before": {
+        "meaning": "どんな音楽が好きですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どんな音楽が好きですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What movie do you like the best?",
+      "translation": "どの映画が一番好きですか。",
+      "before": {
+        "meaning": "どの映画が一番好きですか。",
+        "alternatives": [
+          {
+            "text": "film",
+            "note": "映画の別の呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どの映画が一番好きですか。",
+        "alternatives": [
+          {
+            "text": "film",
+            "note": "映画の別の呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where can I buy a ticket?",
+      "translation": "どこで切符を買えますか。",
+      "before": {
+        "meaning": "どこで切符を買えますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どこで切符を買えますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Could you show me your textbook?",
+      "translation": "私にあなたの教科書を見せてくれますか。",
+      "before": {
+        "meaning": "私にあなたの教科書を見せていただけますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私にあなたの教科書を見せていただけますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Do you want to come with us?",
+      "translation": "私たちと一緒に来ますか。",
+      "before": {
+        "meaning": "私たちと一緒に来たいですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちと一緒に来たいですか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Would you like to see a movie tonight?",
+      "translation": "今夜映画を見ませんか。",
+      "before": {
+        "meaning": "今夜映画を見ませんか（丁寧な誘い）。",
+        "alternatives": [
+          {
+            "text": "Do you want to",
+            "note": "〜したいか尋ねる"
+          },
+          {
+            "text": "watch a movie",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今夜映画を見ませんか（丁寧な誘い）。",
+        "alternatives": [
+          {
+            "text": "Do you want to",
+            "note": "〜したいか尋ねる"
+          },
+          {
+            "text": "watch a movie",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let's go and see a movie.",
+      "translation": "映画を見に行きましょう（Let'sを使う）。",
+      "before": {
+        "meaning": "映画を見に行きましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "Shall we",
+            "note": "一緒に〜しましょうか"
+          },
+          {
+            "text": "watch a movie",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "映画を見に行きましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "Shall we",
+            "note": "一緒に〜しましょうか"
+          },
+          {
+            "text": "watch a movie",
+            "note": "映画を見る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let's have lunch.",
+      "translation": "昼食にしましょう（Let'sを使う）。",
+      "before": {
+        "meaning": "昼食にしましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "Shall we",
+            "note": "一緒に〜しましょうか"
+          },
+          {
+            "text": "eat lunch",
+            "note": "昼食を食べる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "昼食にしましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "Shall we",
+            "note": "一緒に〜しましょうか"
+          },
+          {
+            "text": "eat lunch",
+            "note": "昼食を食べる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Shall I open the window?",
+      "translation": "窓を開けましょうか。",
+      "before": {
+        "meaning": "私が窓を開けましょうか（申し出）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私が窓を開けましょうか（申し出）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Shall we go out for dinner tomorrow?",
+      "translation": "明日、夕食を食べに行きませんか。",
+      "before": {
+        "meaning": "明日、一緒に夕食を食べに出かけませんか（相談する誘い）。",
+        "alternatives": [
+          {
+            "text": "Let's",
+            "note": "一緒に〜しよう"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "明日、一緒に夕食を食べに出かけませんか（相談する誘い）。",
+        "alternatives": [
+          {
+            "text": "Let's",
+            "note": "一緒に〜しよう"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Why not?",
+      "translation": "いいですね（提案への返事）。",
+      "before": {
+        "meaning": "（誘いへの返事）断る理由はないですね。いいですよ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（誘いへの返事）断る理由はないですね。いいですよ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Clean your room now.",
+      "translation": "今すぐ自分の部屋を片づけなさい。",
+      "before": {
+        "meaning": "今すぐ自分の部屋を片づけなさい。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今すぐ自分の部屋を掃除しなさい。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "整理整頓だけでなく、汚れを落とす意味を保つ。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Come to my house next Sunday.",
+      "translation": "次の日曜日に私の家に来てください。",
+      "before": {
+        "meaning": "次の日曜日に私の家に来てください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "次の日曜日に私の家に来てください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Don't forget to wash your hands.",
+      "translation": "自分の手を洗うのを忘れないでください（Don'tを使う）。",
+      "before": {
+        "meaning": "自分の手を洗うのを忘れないでください（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の手を洗うのを忘れないでください（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Hurry up, or we'll be late.",
+      "translation": "急ぎなさい、さもないと私たちは遅れます（we'llを使う）。",
+      "before": {
+        "meaning": "急ぎなさい、さもないと私たちは遅れます（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急ぎなさい、さもないと私たちは遅れます（短縮形で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Please write back soon.",
+      "translation": "どうかすぐに返事を書いてください。",
+      "before": {
+        "meaning": "どうかすぐに返事を書いてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうかすぐに返事を書いてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I lived here for two years.",
+      "translation": "私は以前ここに2年間住んでいました。",
+      "before": {
+        "meaning": "私は以前ここに2年間住んでいました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は以前ここに2年間住んでいました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She finished her homework before dinner.",
+      "translation": "彼女は夕食前に自分の宿題を終えました。",
+      "before": {
+        "meaning": "彼女は夕食前に自分の宿題を終えました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女は夕食前に自分の宿題を終えました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Did you visit Kyoto last year?",
+      "translation": "去年、京都を訪れましたか？",
+      "before": {
+        "meaning": "去年、京都を訪れましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "去年、京都を訪れましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I did not see that movie last Sunday.",
+      "translation": "私は先週の日曜日にその映画を見ませんでした（短縮しないdid notを使う）。",
+      "before": {
+        "meaning": "私は先週の日曜日にその映画を見ませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は先週の日曜日にその映画を見ませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My father came home a few minutes ago.",
+      "translation": "私の父は数分前に帰宅しました。",
+      "before": {
+        "meaning": "私の父は数分前に帰宅しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の父は数分前に帰宅しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We met at school three years ago.",
+      "translation": "私たちは3年前に学校で知り合いました。",
+      "before": {
+        "meaning": "私たちは3年前に学校で知り合いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは3年前、学校で会いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "必ず初めて知り合ったという意味ではないため、過剰な限定を外す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I was tired after the game.",
+      "translation": "私は試合の後で疲れていました。",
+      "before": {
+        "meaning": "私は試合の後で疲れていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は試合の後で疲れていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She was cooking dinner then.",
+      "translation": "彼女はそのとき夕食を作っていました。",
+      "before": {
+        "meaning": "彼女はそのとき夕食を作っている途中でした（過去進行形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女はそのとき夕食を作っている途中でした（過去進行形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Were you busy yesterday?",
+      "translation": "あなたは昨日忙しかったですか？",
+      "before": {
+        "meaning": "あなたは昨日忙しかったですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは昨日忙しかったですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What were you doing at seven?",
+      "translation": "あなたは7時に何をしていましたか？",
+      "before": {
+        "meaning": "あなたは7時に何をしていましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは7時に何をしていましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It was raining all day yesterday.",
+      "translation": "昨日は一日中雨が降っていました。",
+      "before": {
+        "meaning": "昨日は一日中雨が降っていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "昨日は一日中雨が降っていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I met him at the station.",
+      "translation": "私は駅で彼に会いました。",
+      "before": {
+        "meaning": "私は駅で彼に会いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は駅で彼に会いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My sister bought a new dress.",
+      "translation": "私の姉（妹）は新しいドレスを買いました。",
+      "before": {
+        "meaning": "私の姉（妹）は新しいドレスを買いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の姉（妹）は新しいドレスを買いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We enjoyed the school festival.",
+      "translation": "私たちは学園祭を楽しみました。",
+      "before": {
+        "meaning": "私たちは学園祭を楽しみました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは学園祭を楽しみました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Did you call your mother?",
+      "translation": "あなたは自分のお母さんに電話しましたか？",
+      "before": {
+        "meaning": "あなたは自分のお母さんに電話しましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは自分のお母さんに電話しましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I will help you tomorrow.",
+      "translation": "私は明日あなたを手伝います。",
+      "before": {
+        "meaning": "私は明日あなたを手伝います（意思・約束）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は明日あなたを手伝います（意思・約束）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It will be sunny this weekend.",
+      "translation": "今週末は晴れるでしょう。",
+      "before": {
+        "meaning": "今週末は晴れるでしょう（予測）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今週末は晴れるでしょう（予測）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Will you come to my party?",
+      "translation": "あなたは私のパーティーに来ますか？",
+      "before": {
+        "meaning": "私のパーティーに来てくれますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私のパーティーに来てくれますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We are going to visit Grandma.",
+      "translation": "私たちは祖母を訪ねる予定です。",
+      "before": {
+        "meaning": "私たちはおばあちゃんを訪ねる予定です（前からの計画）。",
+        "alternatives": [
+          {
+            "text": "grandmother",
+            "note": "祖母・一般的な呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちはおばあちゃんを訪ねる予定です（前からの計画）。",
+        "alternatives": [
+          {
+            "text": "grandmother",
+            "note": "祖母・一般的な呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I am going to clean my room.",
+      "translation": "私は自分の部屋を掃除する予定です。",
+      "before": {
+        "meaning": "私は自分の部屋を掃除する予定です（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は自分の部屋を掃除する予定です（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Are you going to play tennis?",
+      "translation": "あなたはテニスをする予定ですか？",
+      "before": {
+        "meaning": "あなたはテニスをする予定ですか（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたはテニスをする予定ですか（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You should see a doctor.",
+      "translation": "あなたは医者に診てもらうべきです。",
+      "before": {
+        "meaning": "あなたは医者に診てもらったほうがよいです（助言）。",
+        "alternatives": [
+          {
+            "text": "ought to",
+            "note": "〜したほうがよい"
+          },
+          {
+            "text": "consult a doctor",
+            "note": "医師に相談する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは医者に診てもらったほうがよいです（助言）。",
+        "alternatives": [
+          {
+            "text": "ought to",
+            "note": "〜したほうがよい"
+          },
+          {
+            "text": "consult a doctor",
+            "note": "医師に相談する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You must finish this today.",
+      "translation": "あなたは今日これを終えなければなりません。",
+      "before": {
+        "meaning": "あなたは今日これを終えなければなりません（強い義務）。",
+        "alternatives": [
+          {
+            "text": "have to",
+            "note": "〜しなければならない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは今日これを終えなければなりません（強い義務）。",
+        "alternatives": [
+          {
+            "text": "have to",
+            "note": "〜しなければならない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You do not have to hurry.",
+      "translation": "あなたは急ぐ必要はありません（短縮しないdo notを使う）。",
+      "before": {
+        "meaning": "あなたは急ぐ必要はありません（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは急ぐ必要はありません（短縮形なし）。",
+        "alternatives": [
+          {
+            "text": "need not",
+            "note": "〜する必要はない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "May I use your dictionary?",
+      "translation": "あなたの辞書を使ってもよいですか？",
+      "before": {
+        "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Could you open the door?",
+      "translation": "ドアを開けてくれますか？",
+      "before": {
+        "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
+        "alternatives": [
+          {
+            "text": "would you",
+            "note": "丁寧な依頼の別表現"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
+        "alternatives": [
+          {
+            "text": "would you",
+            "note": "丁寧な依頼の別表現"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Would you like to join us?",
+      "translation": "私たちと一緒に来ませんか？",
+      "before": {
+        "meaning": "私たちに加わりませんか（丁寧な誘い）。",
+        "alternatives": [
+          {
+            "text": "do you want to",
+            "note": "〜したいか尋ねる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちに加わりませんか（丁寧な誘い）。",
+        "alternatives": [
+          {
+            "text": "do you want to",
+            "note": "〜したいか尋ねる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Please show me the way.",
+      "translation": "私に道を教えてください。",
+      "before": {
+        "meaning": "私に道を示して案内してください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうか私に道を示して、案内してください。",
+        "alternatives": [
+          {
+            "text": "tell me the way",
+            "note": "私に道順を教える"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Let me carry your bag.",
+      "translation": "あなたのかばんを私に持たせてください。",
+      "before": {
+        "meaning": "あなたのかばんを私に持たせてください（手伝いの申し出）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたのかばんを私に持たせてください（手伝いの申し出）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My bag is heavier than yours.",
+      "translation": "私のかばんはあなたのより重いです。",
+      "before": {
+        "meaning": "私のかばんはあなたのより重いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私のかばんはあなたのより重いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This book is more interesting than that one.",
+      "translation": "この本はあの本より面白いです。",
+      "before": {
+        "meaning": "この本はあの本より面白いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "この本はあの本より面白いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Tokyo is bigger than Osaka.",
+      "translation": "東京は大阪より大きいです。",
+      "before": {
+        "meaning": "東京は大阪より大きいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "東京は大阪より大きいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "He is the fastest runner.",
+      "translation": "彼は最も速い走者です。",
+      "before": {
+        "meaning": "彼は最も速い走者です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼は最も速い走者です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This is the most popular song.",
+      "translation": "これは最も人気のある歌です。",
+      "before": {
+        "meaning": "これは最も人気のある歌です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これは最も人気のある歌です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Which subject do you like best?",
+      "translation": "あなたはどの教科が一番好きですか？",
+      "before": {
+        "meaning": "あなたはどの教科が一番好きですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたはどの教科が一番好きですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I want something cold to drink.",
+      "translation": "私は何か冷たい飲み物が欲しいです。",
+      "before": {
+        "meaning": "私は何か冷たい飲み物が欲しいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は何か冷たい飲み物が欲しいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "There is nobody in the room.",
+      "translation": "部屋には誰もいません。",
+      "before": {
+        "meaning": "部屋には誰もいません（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "部屋には誰もいません（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Something is wrong with my bike.",
+      "translation": "私の自転車はどこか調子が悪いです。",
+      "before": {
+        "meaning": "私の自転車はどこか調子が悪いです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "自転車の略さない呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の自転車はどこか調子が悪いです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "自転車の略さない呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Everyone in my class likes music.",
+      "translation": "私のクラスのみんなは音楽が好きです。",
+      "before": {
+        "meaning": "私のクラスの全員が音楽を好きです。",
+        "alternatives": [
+          {
+            "text": "everybody",
+            "note": "全員・みんな"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私のクラスの全員が音楽を好きです。",
+        "alternatives": [
+          {
+            "text": "everybody",
+            "note": "全員・みんな"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Do you know anyone in London?",
+      "translation": "あなたはロンドンに知り合いがいますか？",
+      "before": {
+        "meaning": "あなたはロンドンに知り合いがいますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたはロンドンに知り合いがいますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Who is running with Ken?",
+      "translation": "だれがケンと一緒に走っていますか？",
+      "before": {
+        "meaning": "だれがケンと一緒に走っていますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "だれがケンと一緒に走っていますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I know the girl in that picture.",
+      "translation": "私はあの写真の女の子を知っています。",
+      "before": {
+        "meaning": "私はあの写真に写っている女の子を知っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はあの写真に写っている女の子を知っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Which book do you want to read?",
+      "translation": "どの本を読みたいですか？",
+      "before": {
+        "meaning": "どの本を読みたいですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どの本を読みたいですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Tell me what happened yesterday.",
+      "translation": "昨日何が起きたか私に話してください。",
+      "before": {
+        "meaning": "昨日何が起きたか私に話してください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "昨日何が起きたか私に話してください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where does he live?",
+      "translation": "彼はどこに住んでいますか？",
+      "before": {
+        "meaning": "彼はどこに住んでいますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼はどこに住んでいますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Please tell me how to get there.",
+      "translation": "そこへの行き方を教えてください。",
+      "before": {
+        "meaning": "そこへの行き方を教えてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうか私に、そこへの行き方を教えてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "疑問の表現の後に不定詞を続ける"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "When did you start studying English?",
+      "translation": "あなたはいつ英語の勉強を始めましたか？",
+      "before": {
+        "meaning": "あなたはいつ英語の勉強を始めましたか？",
+        "alternatives": [
+          {
+            "text": "begin",
+            "note": "始める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたはいつ英語の勉強を始めましたか？",
+        "alternatives": [
+          {
+            "text": "begin",
+            "note": "始める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How often do you go swimming?",
+      "translation": "あなたはどのくらいよく泳ぎに行きますか？",
+      "before": {
+        "meaning": "どれくらいの間隔で泳ぎに行きますか（週に何回など）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どれくらいの間隔で泳ぎに行きますか（週に何回など）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "How long does it take by bus?",
+      "translation": "バスでどのくらいかかりますか？",
+      "before": {
+        "meaning": "バスでどのくらい時間がかかりますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "バスでどのくらい時間がかかりますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Why were you late for school?",
+      "translation": "なぜあなたは学校に遅れたのですか？",
+      "before": {
+        "meaning": "なぜあなたは学校に遅れたのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "なぜあなたは学校に遅れたのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My mother told me to be careful.",
+      "translation": "私の母は私に気をつけるよう言いました。",
+      "before": {
+        "meaning": "私の母は私に気をつけるよう言いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の母は私に気をつけるよう言いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My teacher asked us to be quiet.",
+      "translation": "私の先生は私たちに静かにするよう言いました。",
+      "before": {
+        "meaning": "私の先生は私たちに静かにするよう頼みました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の先生は私たちに静かにするよう頼みました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is important to eat breakfast.",
+      "translation": "朝食を食べることは大切です。",
+      "before": {
+        "meaning": "朝食を食べることは大切です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "朝食を食べることは大切です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is easy for me to read this book.",
+      "translation": "私にとってこの本を読むのは簡単です。",
+      "before": {
+        "meaning": "私にとってこの本を読むのは簡単です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私にとってこの本を読むのは簡単です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I am glad to hear that.",
+      "translation": "それを聞いてうれしいです。",
+      "before": {
+        "meaning": "それを聞いてうれしいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それを聞いてうれしいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "He was happy to see her.",
+      "translation": "彼は彼女に会えてうれしかったです。",
+      "before": {
+        "meaning": "彼は彼女に会えてうれしかったです。",
+        "alternatives": [
+          {
+            "text": "glad",
+            "note": "うれしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼は彼女に会えてうれしかったです。",
+        "alternatives": [
+          {
+            "text": "glad",
+            "note": "うれしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We need to leave right now.",
+      "translation": "私たちは今すぐ出発する必要があります。",
+      "before": {
+        "meaning": "私たちは今すぐ出発する必要があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは今すぐ出発する必要があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Do not forget your umbrella.",
+      "translation": "自分の傘を忘れないでください（短縮しないDo notを使う）。",
+      "before": {
+        "meaning": "自分の傘を忘れないでください（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の傘を忘れないでください（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Please be kind to animals.",
+      "translation": "動物に親切にしてください。",
+      "before": {
+        "meaning": "どうか動物に対して親切でいてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうか動物に対して親切でいてください。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You can borrow my pen.",
+      "translation": "私のペンを借りてよいですよ。",
+      "before": {
+        "meaning": "私のペンを借りてよいですよ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私のペンを借りてよいですよ。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Can you lend me some money?",
+      "translation": "私に少しお金を貸してくれますか？",
+      "before": {
+        "meaning": "私に少しお金を貸してくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "Could you",
+            "note": "丁寧な依頼"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私に少しお金を貸してくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "Could you",
+            "note": "丁寧な依頼"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I left my phone at home.",
+      "translation": "私は自分の携帯電話を家に置いてきました。",
+      "before": {
+        "meaning": "私は自分の携帯電話を家に置いてきました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は自分の携帯電話を家に置いてきました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She left her lunch at school.",
+      "translation": "彼女は自分の昼食を学校に置き忘れました。",
+      "before": {
+        "meaning": "彼女は自分の昼食を学校に置き忘れました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女は自分の昼食を学校に置き忘れました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The train arrived on time.",
+      "translation": "電車は時間どおりに到着しました。",
+      "before": {
+        "meaning": "電車は時間どおりに到着しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "電車は時間どおりに到着しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Our bus was very crowded.",
+      "translation": "私たちのバスはとても混んでいました。",
+      "before": {
+        "meaning": "私たちのバスはとても混んでいました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちのバスはとても混んでいました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I lost my wallet yesterday.",
+      "translation": "私は昨日、自分の財布をなくしました。",
+      "before": {
+        "meaning": "私は昨日、自分の財布をなくしました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は昨日、自分の財布をなくしました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We found a small dog outside.",
+      "translation": "私たちは外で小さな犬を見つけました。",
+      "before": {
+        "meaning": "私たちは外で小さな犬を見つけました。",
+        "alternatives": [
+          {
+            "text": "little",
+            "note": "小さい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは外で小さな犬を見つけました。",
+        "alternatives": [
+          {
+            "text": "little",
+            "note": "小さい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "The store was closed on Monday.",
+      "translation": "その店は月曜日は閉まっていました。",
+      "before": {
+        "meaning": "その店は月曜日は閉まっていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その店は月曜日は閉まっていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I will call you after dinner.",
+      "translation": "私は夕食の後であなたに電話します。",
+      "before": {
+        "meaning": "私は夕食の後であなたに電話します（意思・約束）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は夕食の後であなたに電話します（意思・約束）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "They will arrive before noon.",
+      "translation": "彼らは正午前に到着します。",
+      "before": {
+        "meaning": "彼らは正午前に到着するでしょう（予測）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼らは正午前に到着するでしょう（予測）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I am looking for my glasses.",
+      "translation": "私は自分のめがねを探しています。",
+      "before": {
+        "meaning": "私は自分のめがねを探しています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は自分のめがねを探しています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She is waiting for the bus.",
+      "translation": "彼女はバスを待っています。",
+      "before": {
+        "meaning": "彼女はバスを待っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女はバスを待っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We are having dinner now.",
+      "translation": "私たちは今夕食を食べています。",
+      "before": {
+        "meaning": "私たちは今夕食を食べています。",
+        "alternatives": [
+          {
+            "text": "eating dinner",
+            "note": "夕食を食べている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは今夕食を食べています。",
+        "alternatives": [
+          {
+            "text": "eating dinner",
+            "note": "夕食を食べている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Are they playing in the park?",
+      "translation": "彼らは公園で遊んでいますか？",
+      "before": {
+        "meaning": "彼らは公園で遊んでいますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼らは公園で遊んでいますか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I think this answer is right.",
+      "translation": "私はこの答えが正しいと思います。",
+      "before": {
+        "meaning": "私はこの答えが正しいと思います。",
+        "alternatives": [
+          {
+            "text": "correct",
+            "note": "正しい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はこの答えが正しいと思います。",
+        "alternatives": [
+          {
+            "text": "correct",
+            "note": "正しい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "思う内容を直接続け、接続詞は省く"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My dream is to be a pilot.",
+      "translation": "私の夢はパイロットになることです。",
+      "before": {
+        "meaning": "私の夢はパイロットになることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の夢はパイロットになることです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Reading books is fun for me.",
+      "translation": "本を読むことは私にとって楽しいです。",
+      "before": {
+        "meaning": "本を読むことは私にとって楽しいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "本を読むことは私にとって楽しいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Thank you for inviting me today.",
+      "translation": "今日、私を招いてくれてありがとう。",
+      "before": {
+        "meaning": "今日、私を招いてくれてありがとう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今日、私を招いてくれてありがとう。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I hope you have a nice trip.",
+      "translation": "楽しい旅行になりますように。",
+      "before": {
+        "meaning": "あなたが楽しい旅行をすることを願っています。",
+        "alternatives": [
+          {
+            "text": "good",
+            "note": "良い"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたが楽しい旅行をすることを願っています。",
+        "alternatives": [
+          {
+            "text": "good",
+            "note": "良い"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Did you finish your homework?",
+      "translation": "自分の宿題を終えましたか？",
+      "before": {
+        "meaning": "自分の宿題を終えましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の宿題を終えましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I washed the dishes after dinner.",
+      "translation": "私は夕食後に皿を洗いました。",
+      "before": {
+        "meaning": "私は夕食後に皿を洗いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は夕食後に皿を洗いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My brother rode a horse last summer.",
+      "translation": "私の兄（弟）は去年の夏に馬に乗りました。",
+      "before": {
+        "meaning": "私の兄（弟）は去年の夏に馬に乗りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の兄（弟）は去年の夏に馬に乗りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We became friends last year.",
+      "translation": "私たちは去年、友達になりました。",
+      "before": {
+        "meaning": "私たちは去年、友達になりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは去年、友達になりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She moved to this town three years ago.",
+      "translation": "彼女は3年前にこの町へ引っ越しました。",
+      "before": {
+        "meaning": "彼女は3年前にこの町へ引っ越しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女は3年前にこの町へ引っ越しました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I was reading when you called me.",
+      "translation": "あなたが電話をくれたとき、私は読書をしていました。",
+      "before": {
+        "meaning": "あなたが電話をくれたとき、私は読書をしていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたが私に電話したとき、私は読書をしているところでした。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "読書の動作を過去進行形で表す"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "They were playing soccer after school.",
+      "translation": "彼らは放課後にサッカーをしていました。",
+      "before": {
+        "meaning": "彼らは放課後にサッカーをしていました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼らは放課後、サッカーをしているところでした。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "過去のある時点で進行中の動作"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What were you doing when it started to rain?",
+      "translation": "雨が降り始めたとき、あなたは何をしていましたか？",
+      "before": {
+        "meaning": "雨が降り始めたとき、あなたは何をしていましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "雨が降り始めたとき、あなたは何をしていましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My father was cooking dinner at six.",
+      "translation": "私の父は6時に夕食を作っていました。",
+      "before": {
+        "meaning": "私の父は6時に夕食を作っている途中でした（過去進行形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の父は6時に夕食を作っている途中でした（過去進行形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We were walking home when we saw Ken.",
+      "translation": "私たちは家へ歩いて帰る途中でケンを見かけました。",
+      "before": {
+        "meaning": "私たちは家へ歩いて帰る途中でケンを見かけました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは家へ歩いて帰る途中でケンを見かけました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What will you do after school today?",
+      "translation": "今日、放課後に何をしますか？",
+      "before": {
+        "meaning": "今日の放課後、何をしますか（未来のこと）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今日の放課後、何をしますか（未来のこと）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I will help my mother this evening.",
+      "translation": "私は今晩、自分の母を手伝います。",
+      "before": {
+        "meaning": "私は今日の夕方、自分の母を手伝います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は今日の夕方、自分の母を手伝います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Are you going to visit your grandparents?",
+      "translation": "あなたは自分の祖父母を訪ねる予定ですか？",
+      "before": {
+        "meaning": "あなたは自分の祖父母を訪ねる予定ですか（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは自分の祖父母を訪ねる予定ですか（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We are going to have a picnic on Sunday.",
+      "translation": "私たちは日曜日にピクニックをする予定です。",
+      "before": {
+        "meaning": "私たちは日曜日にピクニックをする予定です（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは日曜日にピクニックをする予定です（前からの計画）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It will be colder tomorrow than today.",
+      "translation": "明日は今日より寒くなるでしょう。",
+      "before": {
+        "meaning": "明日は今日より寒くなるでしょう（予測）。",
+        "alternatives": [
+          {
+            "text": "be going to",
+            "note": "未来を表す別の構文"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "明日は今日より寒くなるでしょう（予測）。",
+        "alternatives": [
+          {
+            "text": "be going to",
+            "note": "未来を表す別の構文"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This bag is lighter than that one.",
+      "translation": "このかばんはあのかばんより軽いです。",
+      "before": {
+        "meaning": "このかばんはあのかばんより軽いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "このかばんはあのかばんより軽いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My new bike is faster than yours.",
+      "translation": "私の新しい自転車はあなたのより速いです。",
+      "before": {
+        "meaning": "私の新しい自転車はあなたのより速いです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "自転車の略さない呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の新しい自転車はあなたのより速いです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "自転車の略さない呼び方"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This is the most exciting game in this store.",
+      "translation": "これはこの店で一番わくわくするゲームです。",
+      "before": {
+        "meaning": "これはこの店で一番わくわくするゲームです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これはこの店で一番わくわくするゲームです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Which season do you like the best?",
+      "translation": "あなたはどの季節が一番好きですか？",
+      "before": {
+        "meaning": "あなたはどの季節が一番好きですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたはどの季節が一番好きですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I want to learn how to cook.",
+      "translation": "私は料理の仕方を学びたいです。",
+      "before": {
+        "meaning": "私は料理の仕方を学びたいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は料理の仕方を学びたいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It is important to keep your room clean.",
+      "translation": "自分の部屋をきれいにしておくことは大切です。",
+      "before": {
+        "meaning": "自分の部屋をきれいにしておくことは大切です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の部屋をきれいにしておくことは大切です（仮の主語を置く）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I was happy to get your letter.",
+      "translation": "あなたの手紙をもらえてうれしかったです。",
+      "before": {
+        "meaning": "あなたの手紙をもらえてうれしかったです。",
+        "alternatives": [
+          {
+            "text": "glad",
+            "note": "うれしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたの手紙をもらえてうれしかったです。",
+        "alternatives": [
+          {
+            "text": "glad",
+            "note": "うれしい"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My teacher told me to study harder.",
+      "translation": "私の先生は私にもっと一生懸命勉強するよう言いました。",
+      "before": {
+        "meaning": "私の先生は私にもっと一生懸命勉強するよう言いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の先生は私にもっと一生懸命勉強するよう言いました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My parents asked me to come home early.",
+      "translation": "私の両親は私に早く帰宅するよう頼みました。",
+      "before": {
+        "meaning": "私の両親は私に早く帰宅するよう頼みました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の両親は私に早く帰宅するよう頼みました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where is the library?",
+      "translation": "図書館はどこですか？",
+      "before": {
+        "meaning": "図書館はどこですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "図書館はどこですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "What time is it now?",
+      "translation": "今、何時ですか？",
+      "before": {
+        "meaning": "今、何時ですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今、何時ですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Why is she crying?",
+      "translation": "彼女はなぜ泣いているのですか？",
+      "before": {
+        "meaning": "彼女はなぜ泣いているのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女はなぜ泣いているのですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Can you tell me how to use this?",
+      "translation": "私にこれの使い方を教えてくれますか。",
+      "before": {
+        "meaning": "これの使い方を私に教えてくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "show me",
+            "note": "私に教える・示す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "これの使い方を私に教えてくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "show me",
+            "note": "私に教える・示す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Who is the girl in the red hat?",
+      "translation": "赤い帽子の女の子はだれですか？",
+      "before": {
+        "meaning": "赤い帽子をかぶった女の子はだれですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "赤い帽子をかぶった女の子はだれですか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where did you find the book?",
+      "translation": "その本をどこで見つけましたか？",
+      "before": {
+        "meaning": "その本をどこで見つけましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "その本をどこで見つけましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Who helped you at the station?",
+      "translation": "駅でだれがあなたを助けてくれましたか？",
+      "before": {
+        "meaning": "駅でだれがあなたを助けてくれましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "駅でだれがあなたを助けてくれましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Where did you meet your best friend?",
+      "translation": "あなたは自分の親友とどこで出会いましたか？",
+      "before": {
+        "meaning": "あなたは自分の親友とどこで出会いましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは自分の親友とどこで出会いましたか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I need something warm to drink.",
+      "translation": "私は温かい飲み物が欲しいです。",
+      "before": {
+        "meaning": "私は何か温かい飲み物が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は何か温かい飲み物が必要です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Nobody in my family likes coffee.",
+      "translation": "私の家族にはコーヒーが好きな人はいません。",
+      "before": {
+        "meaning": "家族の誰もコーヒーが好きではありません。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "家族の誰もコーヒーが好きではありません。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Does anyone know the answer?",
+      "translation": "だれか答えを知っていますか？",
+      "before": {
+        "meaning": "だれか答えを知っていますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "だれか答えを知っていますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "There was no one at the bus stop.",
+      "translation": "バス停にはだれもいませんでした。",
+      "before": {
+        "meaning": "バス停に誰もいませんでした（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "nobody",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "バス停に誰もいませんでした（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "nobody",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Could I borrow your umbrella today?",
+      "translation": "今日あなたの傘を借りてもよいですか？",
+      "before": {
+        "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "may I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "may I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Would you like to go shopping with me?",
+      "translation": "私と一緒に買い物に行きませんか？",
+      "before": {
+        "meaning": "私と一緒に買い物に行きませんか？",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私と一緒に買い物に行きませんか（丁寧な誘い）。",
+        "alternatives": [
+          {
+            "text": "Do you want to",
+            "note": "〜したいですか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "May I ask you a question?",
+      "translation": "あなたに質問してもよいですか。",
+      "before": {
+        "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You should take a break now.",
+      "translation": "今は休憩したほうがよいです。",
+      "before": {
+        "meaning": "あなたは今、休憩したほうがよいです（助言）。",
+        "alternatives": [
+          {
+            "text": "ought to",
+            "note": "〜したほうがよい"
+          },
+          {
+            "text": "have a break",
+            "note": "休憩する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたは今、休憩したほうがよいです（助言）。",
+        "alternatives": [
+          {
+            "text": "ought to",
+            "note": "〜したほうがよい"
+          },
+          {
+            "text": "have a break",
+            "note": "休憩する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You must not use your phone here.",
+      "translation": "ここでは自分の携帯電話を使ってはいけません。",
+      "before": {
+        "meaning": "ここでは自分の携帯電話を使ってはいけません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ここでは自分の携帯電話を使ってはいけません（短縮しない形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "禁止を表す。必要がないという意味ではない"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "You do not have to bring your lunch.",
+      "translation": "自分の昼食を持ってくる必要はありません（短縮しないdo notを使う）。",
+      "before": {
+        "meaning": "自分の昼食を持ってくる必要はありません（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の昼食を持ってくる必要はありません（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I am looking forward to the school festival.",
+      "translation": "私は学園祭を楽しみにしています。",
+      "before": {
+        "meaning": "私は学園祭を楽しみにしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は学園祭を楽しみにしています（短縮しない形）。",
+        "alternatives": [
+          {
+            "text": "anticipating",
+            "note": "〜を楽しみにしている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "My sister is good at drawing pictures.",
+      "translation": "私の姉（妹）は絵を描くのが得意です。",
+      "before": {
+        "meaning": "私の姉（妹）は絵を描くのが得意です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私の姉（妹）は絵を描くのが得意です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We enjoyed talking about our trip.",
+      "translation": "私たちは自分たちの旅行について話すのを楽しみました。",
+      "before": {
+        "meaning": "私たちは自分たちの旅行について話すのを楽しみました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは自分たちの旅行について話すのを楽しみました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "He stopped at a store to buy some water.",
+      "translation": "彼は水を買うために店に立ち寄りました。",
+      "before": {
+        "meaning": "彼は水を買うために店に立ち寄りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼は水を買うために店に立ち寄りました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I forgot to bring my homework today.",
+      "translation": "私は今日、自分の宿題を持ってくるのを忘れました。",
+      "before": {
+        "meaning": "私は今日、自分の宿題を持ってくるのを忘れました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は今日、自分の宿題を持ってくるのを忘れました。",
+        "alternatives": [
+          {
+            "text": "left my homework behind",
+            "note": "自分の宿題を置き忘れた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "忘れた行為を不定詞で続ける"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Thank you for showing me the way.",
+      "translation": "私に道を教えてくれてありがとう。",
+      "before": {
+        "meaning": "道を案内してくれてありがとう。",
+        "alternatives": [
+          {
+            "text": "thanks",
+            "note": "ありがとうの短い表現"
+          },
+          {
+            "text": "guide",
+            "note": "案内する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "道を案内してくれてありがとう。",
+        "alternatives": [
+          {
+            "text": "thanks",
+            "note": "ありがとうの短い表現"
+          },
+          {
+            "text": "guide",
+            "note": "案内する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I hope to see you again soon.",
+      "translation": "また近いうちに会えるといいですね。",
+      "before": {
+        "meaning": "また近いうちにあなたに会えたらと思っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "また近いうちにあなたに会えたらと思っています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "It took us an hour to get there.",
+      "translation": "そこへ行くのに私たちは1時間かかりました。",
+      "before": {
+        "meaning": "そこへ行くのに私たちは1時間かかりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "そこへ行くのに私たちは1時間かかりました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Ken is as tall as Tom.",
+      "translation": "ケンはトムと同じくらい背が高いです。",
+      "before": {
+        "meaning": "ケンはトムと同じくらい背が高いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ケンはトムと同じくらい背が高いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "This bag is not as heavy as yours.",
+      "translation": "このかばんはあなたのほど重くありません（is notを使う）。",
+      "before": {
+        "meaning": "このかばんはあなたのほど重くありません（同等比較・短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "このかばんはあなたのほど重くありません（同等比較・短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I stayed home because I was sick.",
+      "translation": "私は具合が悪かったので家にいました。",
+      "before": {
+        "meaning": "私は具合が悪かったので家にいました。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は具合が悪かったので家にいました。",
+        "alternatives": [
+          {
+            "text": "ill",
+            "note": "具合が悪い"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "家にいたことを先に述べ、理由の節を続ける"
+      },
+      "changed": true,
+      "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "If it rains, I will stay home.",
+      "translation": "もし雨が降ったら、私は家にいます（Ifで始める）。",
+      "before": {
+        "meaning": "もし雨が降ったら、私は家にいます（条件を先に述べる）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もし雨が降ったら、私は家にいます（条件を先に述べる）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "Wash your hands before you eat.",
+      "translation": "食べる前に手を洗ってください（beforeの後ろは文）。",
+      "before": {
+        "meaning": "食べる前に手を洗ってください（時を表す節で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "食べる前に手を洗ってください（時を表す節で）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "She was not busy yesterday.",
+      "translation": "彼女は昨日忙しくありませんでした（was notを使う）。",
+      "before": {
+        "meaning": "彼女は昨日忙しくありませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "彼女は昨日忙しくありませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I was not sleeping then.",
+      "translation": "私はそのとき眠っていませんでした（was notを使う）。",
+      "before": {
+        "meaning": "私はそのとき眠っていませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私はそのとき眠っていませんでした（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "I will not go out tonight.",
+      "translation": "私は今夜は外出しません（will notを使う）。",
+      "before": {
+        "meaning": "私は今夜は外出しません（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私は今夜は外出しません（短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    },
+    {
+      "text": "We are not going to swim today.",
+      "translation": "私たちは今日は泳ぐ予定ではありません（are not going toを使う）。",
+      "before": {
+        "meaning": "私たちは今日は泳ぐ予定ではありません（前からの予定・短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "私たちは今日は泳ぐ予定ではありません（前からの予定・短縮形なし）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "現在の語義・例文・比較情報を点検し、今回の変更は不要と判断。",
+      "review": "英文と現在の和訳・比較情報を確認。疑わしい箇所の例文・語義を重点確認。"
+    }
+  ],
+  "status": "editorial-reviewed",
+  "recheckedOn": "2026-10-19"
+}
