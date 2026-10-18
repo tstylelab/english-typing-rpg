@@ -1,4 +1,4 @@
-import eikenGrade4Json from './questionSets/eiken/grade4.json';
+import eikenGrade4Json from './questionSets/eiken/grade4';
 import { grade4PhraseQuestions } from './grade4PhraseCores';
 import eikenGrade3 from './questionSets/eiken/grade3';
 import eikenPre2 from './questionSets/eiken/pre2';

@@ -1,0 +1,3476 @@
+{
+  "status": "local-implementation",
+  "date": "2026-10-19",
+  "baselineCommit": "2ca14926bf016be9f7cc2e05fbc714c943cf71fb",
+  "sourceQuestionsSha256": "9ddce2396e57db5220371572bf228cc95587bfe8a1fd3ddeae0c713d5882834e",
+  "sourcePromptsSha256": "3075eb36d1626712d6173933d6a671d2b852ec0800fb1818b29fc3ef865ad3b4",
+  "counts": {
+    "before": 209,
+    "retained": 209,
+    "removed": 0,
+    "added": 24,
+    "active": 233,
+    "promptChanges": 13
+  },
+  "bands": [
+    142,
+    183,
+    233
+  ],
+  "changed": [
+    {
+      "question": {
+        "text": "May I use your dictionary?",
+        "translation": "あなたの辞書を使ってもよいですか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "May I use your dictionary?",
+        "translation": "あなたの辞書を使ってもよいですか？",
+        "previousMeaning": "あなたの辞書を使わせていただいてもよいですか（May Iを使う）？",
+        "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "May I use your dictionary?",
+        "translation": "あなたの辞書を使ってもよいですか？",
+        "previousMeaning": "あなたの辞書を使わせていただいてもよいですか（May Iを使う）？",
+        "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Can I",
+            "note": "許可を求める別の形"
+          },
+          {
+            "text": "Could I",
+            "note": "丁寧に許可を求める別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "May I ask you a question?",
+        "translation": "あなたに質問してもよいですか。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "May I ask you a question?",
+        "translation": "あなたに質問してもよいですか。",
+        "previousMeaning": "あなたに質問してもよろしいですか（May Iを使う）？",
+        "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "could I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "May I ask you a question?",
+        "translation": "あなたに質問してもよいですか。",
+        "previousMeaning": "あなたに質問してもよろしいですか（May Iを使う）？",
+        "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Can I",
+            "note": "許可を求める別の形"
+          },
+          {
+            "text": "Could I",
+            "note": "丁寧に許可を求める別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "Could I borrow your umbrella today?",
+        "translation": "今日あなたの傘を借りてもよいですか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Could I borrow your umbrella today?",
+        "translation": "今日あなたの傘を借りてもよいですか？",
+        "previousMeaning": "今日あなたの傘をお借りしてもよいですか（Could I）？",
+        "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "may I",
+            "note": "丁寧に許可を求める"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Could I borrow your umbrella today?",
+        "translation": "今日あなたの傘を借りてもよいですか？",
+        "previousMeaning": "今日あなたの傘をお借りしてもよいですか（Could I）？",
+        "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
+        "alternatives": [
+          {
+            "text": "Can I",
+            "note": "許可を求める別の形"
+          },
+          {
+            "text": "May I",
+            "note": "丁寧に許可を求める別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "Can I have some more water?",
+        "translation": "水をもう少しいただけますか。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Can I have some more water?",
+        "translation": "水をもう少しいただけますか。",
+        "previousMeaning": "水をもう少しいただいてもいいですか（Can I haveを使う）？",
+        "meaning": "水をもう少しいただいてもいいですか（許可を求める）。",
+        "alternatives": [
+          {
+            "text": "May I have",
+            "note": "丁寧に求める"
+          },
+          {
+            "text": "Could I have",
+            "note": "丁寧に求める"
+          }
+        ],
+        "contrasts": [],
+        "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Can I have some more water?",
+        "translation": "水をもう少しいただけますか。",
+        "previousMeaning": "水をもう少しいただいてもいいですか（Can I haveを使う）？",
+        "meaning": "水をもう少しいただいてもいいですか（許可を求める）。",
+        "alternatives": [
+          {
+            "text": "May I have",
+            "note": "丁寧に求める別の形"
+          },
+          {
+            "text": "Could I have",
+            "note": "丁寧に求める別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "Could you open the door?",
+        "translation": "ドアを開けてくれますか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Could you open the door?",
+        "translation": "ドアを開けてくれますか？",
+        "previousMeaning": "ドアを開けていただけますか（Could youで始める）？",
+        "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
+        "alternatives": [
+          {
+            "text": "would you",
+            "note": "丁寧な依頼の別表現"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Could you open the door?",
+        "translation": "ドアを開けてくれますか？",
+        "previousMeaning": "ドアを開けていただけますか（Could youで始める）？",
+        "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
+        "alternatives": [
+          {
+            "text": "Can you",
+            "note": "依頼する別の形"
+          },
+          {
+            "text": "Would you",
+            "note": "丁寧に依頼する別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "Could you show me your textbook?",
+        "translation": "私にあなたの教科書を見せてくれますか。"
+      },
+      "before": null,
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Could you show me your textbook?",
+        "translation": "私にあなたの教科書を見せてくれますか。",
+        "previousMeaning": "私にあなたの教科書を見せていただけますか。",
+        "meaning": "私にあなたの教科書を見せていただけますか。",
+        "alternatives": [
+          {
+            "text": "Can you",
+            "note": "依頼する別の形"
+          },
+          {
+            "text": "Would you",
+            "note": "丁寧に依頼する別の形"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。",
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。"
+      }
+    },
+    {
+      "question": {
+        "text": "Can you lend me some money?",
+        "translation": "私に少しお金を貸してくれますか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Can you lend me some money?",
+        "translation": "私に少しお金を貸してくれますか？",
+        "previousMeaning": "私に少しお金を貸してくれますか（Can youで始める）？",
+        "meaning": "私に少しお金を貸してくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "Could you",
+            "note": "丁寧な依頼"
+          }
+        ],
+        "contrasts": [],
+        "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Can you lend me some money?",
+        "translation": "私に少しお金を貸してくれますか？",
+        "previousMeaning": "私に少しお金を貸してくれますか（Can youで始める）？",
+        "meaning": "私に少しお金を貸してくれますか（依頼）。",
+        "alternatives": [
+          {
+            "text": "Could you",
+            "note": "丁寧に依頼する別の形"
+          },
+          {
+            "text": "Would you",
+            "note": "丁寧に依頼する別の形"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
+      }
+    },
+    {
+      "question": {
+        "text": "There is nobody in the room.",
+        "translation": "部屋には誰もいません。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "There is nobody in the room.",
+        "translation": "部屋には誰もいません。",
+        "previousMeaning": "部屋には誰もいません（There isで始め、「誰も」は1語）。",
+        "meaning": "部屋には誰もいません（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "There is nobody in the room.",
+        "translation": "部屋には誰もいません。",
+        "previousMeaning": "部屋には誰もいません（There isで始め、「誰も」は1語）。",
+        "meaning": "部屋には誰もいません（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "存在を表す文で、だれもいないことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
+      }
+    },
+    {
+      "question": {
+        "text": "There was no one at the bus stop.",
+        "translation": "バス停にはだれもいませんでした。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "There was no one at the bus stop.",
+        "translation": "バス停にはだれもいませんでした。",
+        "previousMeaning": "バス停に誰もいませんでした（There was・「誰も」は2語）。",
+        "meaning": "バス停に誰もいませんでした（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "nobody",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "There was no one at the bus stop.",
+        "translation": "バス停にはだれもいませんでした。",
+        "previousMeaning": "バス停に誰もいませんでした（There was・「誰も」は2語）。",
+        "meaning": "バス停に誰もいませんでした（存在を表す文）。",
+        "alternatives": [
+          {
+            "text": "nobody",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "過去の存在を表す文で、だれもいなかったことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
+      }
+    },
+    {
+      "question": {
+        "text": "Nobody in my family likes coffee.",
+        "translation": "私の家族にはコーヒーが好きな人はいません。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Nobody in my family likes coffee.",
+        "translation": "私の家族にはコーヒーが好きな人はいません。",
+        "previousMeaning": "家族の誰もコーヒーが好きではありません（Nobodyで始める）。",
+        "meaning": "家族の誰もコーヒーが好きではありません。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Nobody in my family likes coffee.",
+        "translation": "私の家族にはコーヒーが好きな人はいません。",
+        "previousMeaning": "家族の誰もコーヒーが好きではありません（Nobodyで始める）。",
+        "meaning": "家族の誰もコーヒーが好きではありません。",
+        "alternatives": [
+          {
+            "text": "no one",
+            "note": "誰も〜ない"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "「だれも〜ない」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。"
+      }
+    },
+    {
+      "question": {
+        "text": "Everyone in my class likes music.",
+        "translation": "私のクラスのみんなは音楽が好きです。"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Everyone in my class likes music.",
+        "translation": "私のクラスのみんなは音楽が好きです。",
+        "previousMeaning": "私のクラスの全員が音楽を好きです（Everyoneで始める）。",
+        "meaning": "私のクラスの全員が音楽を好きです。",
+        "alternatives": [
+          {
+            "text": "everybody",
+            "note": "全員・みんな"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Everyone in my class likes music.",
+        "translation": "私のクラスのみんなは音楽が好きです。",
+        "previousMeaning": "私のクラスの全員が音楽を好きです（Everyoneで始める）。",
+        "meaning": "私のクラスの全員が音楽を好きです。",
+        "alternatives": [
+          {
+            "text": "everybody",
+            "note": "全員・みんな"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "「みんな」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。どちらも動詞は単数扱いです。"
+      }
+    },
+    {
+      "question": {
+        "text": "Do you know anyone in London?",
+        "translation": "あなたはロンドンに知り合いがいますか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Do you know anyone in London?",
+        "translation": "あなたはロンドンに知り合いがいますか？",
+        "previousMeaning": "あなたはロンドンに知り合いがいますか（anyoneを使う）？",
+        "meaning": "あなたはロンドンに知り合いがいますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Do you know anyone in London?",
+        "translation": "あなたはロンドンに知り合いがいますか？",
+        "previousMeaning": "あなたはロンドンに知り合いがいますか（anyoneを使う）？",
+        "meaning": "あなたはロンドンに知り合いがいますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
+      }
+    },
+    {
+      "question": {
+        "text": "Does anyone know the answer?",
+        "translation": "だれか答えを知っていますか？"
+      },
+      "before": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Does anyone know the answer?",
+        "translation": "だれか答えを知っていますか？",
+        "previousMeaning": "だれか答えを知っていますか（anyoneを使う）？",
+        "meaning": "だれか答えを知っていますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
+        "formNote": ""
+      },
+      "after": {
+        "course": "Eiken4",
+        "level": 3,
+        "text": "Does anyone know the answer?",
+        "translation": "だれか答えを知っていますか？",
+        "previousMeaning": "だれか答えを知っていますか（anyoneを使う）？",
+        "meaning": "だれか答えを知っていますか？",
+        "alternatives": [
+          {
+            "text": "anybody",
+            "note": "だれか"
+          }
+        ],
+        "contrasts": [],
+        "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+        "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
+      }
+    }
+  ],
+  "active": [
+    {
+      "number": 1,
+      "question": {
+        "text": "It's two thousand yen.",
+        "translation": "2000円です（It'sを使う）。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "2000円です（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 2,
+      "question": {
+        "text": "It looks good.",
+        "translation": "おいしそうです。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "それはよさそうです（見た感じ）。",
+      "formNote": ""
+    },
+    {
+      "number": 3,
+      "question": {
+        "text": "It's warm today.",
+        "translation": "今日は暖かいです（It'sを使う）。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今日は暖かいです（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 4,
+      "question": {
+        "text": "I have a cold.",
+        "translation": "かぜをひいています。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "かぜをひいています。",
+      "formNote": ""
+    },
+    {
+      "number": 5,
+      "question": {
+        "text": "I'm not sure.",
+        "translation": "よくわかりません（I'mを使う）。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "確かではありません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 6,
+      "question": {
+        "text": "That's a good idea!",
+        "translation": "それはいい考えですね（That'sを使う）！"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "それはいい考えですね（短縮形で）！",
+      "formNote": ""
+    },
+    {
+      "number": 7,
+      "question": {
+        "text": "That's too bad.",
+        "translation": "それは残念ですね（That'sを使う）。"
+      },
+      "card": "foundation",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "それは残念ですね（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 8,
+      "question": {
+        "text": "How much is this shirt?",
+        "translation": "このシャツはいくらですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "このシャツはいくらですか。",
+      "formNote": ""
+    },
+    {
+      "number": 9,
+      "question": {
+        "text": "Where is the post office?",
+        "translation": "郵便局はどこですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "郵便局はどこですか。",
+      "formNote": ""
+    },
+    {
+      "number": 10,
+      "question": {
+        "text": "Which bus goes to the airport?",
+        "translation": "どのバスが空港へ行きますか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どのバスが空港へ行きますか。",
+      "formNote": ""
+    },
+    {
+      "number": 11,
+      "question": {
+        "text": "How can I get to the museum?",
+        "translation": "どうやって博物館へ行けますか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どうやって博物館へ行けますか。",
+      "formNote": ""
+    },
+    {
+      "number": 12,
+      "question": {
+        "text": "What happened to you?",
+        "translation": "あなた、どうしたのですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたの身に何が起こったのですか？",
+      "formNote": ""
+    },
+    {
+      "number": 13,
+      "question": {
+        "text": "What's wrong?",
+        "translation": "どうしましたか（What'sを使う）。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どうしましたか（不調を尋ねる・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 14,
+      "question": {
+        "text": "How do you feel now?",
+        "translation": "今の気分はどうですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今の気分はどうですか。",
+      "formNote": ""
+    },
+    {
+      "number": 15,
+      "question": {
+        "text": "How long will you stay in New York?",
+        "translation": "ニューヨークにはどのくらい滞在する予定ですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "ニューヨークにはどのくらい滞在する予定ですか。",
+      "formNote": ""
+    },
+    {
+      "number": 16,
+      "question": {
+        "text": "How often do you practice?",
+        "translation": "どのくらいの頻度で練習しますか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どれくらいの間隔で練習しますか（週に何回など）。",
+      "formNote": ""
+    },
+    {
+      "number": 17,
+      "question": {
+        "text": "What time will the movie start?",
+        "translation": "映画は何時に始まりますか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "映画は何時に始まりますか（未来のこと）。",
+      "formNote": ""
+    },
+    {
+      "number": 18,
+      "question": {
+        "text": "What kind of music do you like?",
+        "translation": "どんな音楽が好きですか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どんな音楽が好きですか。",
+      "formNote": ""
+    },
+    {
+      "number": 19,
+      "question": {
+        "text": "Where can I buy a ticket?",
+        "translation": "どこで切符を買えますか。"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どこで切符を買えますか。",
+      "formNote": ""
+    },
+    {
+      "number": 20,
+      "question": {
+        "text": "Who is running with Ken?",
+        "translation": "だれがケンと一緒に走っていますか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "だれがケンと一緒に走っていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 21,
+      "question": {
+        "text": "Which book do you want to read?",
+        "translation": "どの本を読みたいですか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どの本を読みたいですか？",
+      "formNote": ""
+    },
+    {
+      "number": 22,
+      "question": {
+        "text": "Where does he live?",
+        "translation": "彼はどこに住んでいますか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼はどこに住んでいますか？",
+      "formNote": ""
+    },
+    {
+      "number": 23,
+      "question": {
+        "text": "When did you start studying English?",
+        "translation": "あなたはいつ英語の勉強を始めましたか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたはいつ英語の勉強を始めましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 24,
+      "question": {
+        "text": "How often do you go swimming?",
+        "translation": "あなたはどのくらいよく泳ぎに行きますか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どれくらいの間隔で泳ぎに行きますか（週に何回など）。",
+      "formNote": ""
+    },
+    {
+      "number": 25,
+      "question": {
+        "text": "Where is the library?",
+        "translation": "図書館はどこですか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "図書館はどこですか？",
+      "formNote": ""
+    },
+    {
+      "number": 26,
+      "question": {
+        "text": "What time is it now?",
+        "translation": "今、何時ですか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今、何時ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 27,
+      "question": {
+        "text": "Why is she crying?",
+        "translation": "彼女はなぜ泣いているのですか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女はなぜ泣いているのですか？",
+      "formNote": ""
+    },
+    {
+      "number": 28,
+      "question": {
+        "text": "Where did you find the book?",
+        "translation": "その本をどこで見つけましたか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "その本をどこで見つけましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 29,
+      "question": {
+        "text": "Who helped you at the station?",
+        "translation": "駅でだれがあなたを助けてくれましたか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "駅でだれがあなたを助けてくれましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 30,
+      "question": {
+        "text": "Where did you meet your best friend?",
+        "translation": "あなたは自分の親友とどこで出会いましたか？"
+      },
+      "card": "questions",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは自分の親友とどこで出会いましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 31,
+      "question": {
+        "text": "These are on sale.",
+        "translation": "これらはセール中です。"
+      },
+      "card": "noun-phrases",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "これらは販売中です／特価で売られています。",
+      "formNote": ""
+    },
+    {
+      "number": 32,
+      "question": {
+        "text": "I know the girl in that picture.",
+        "translation": "私はあの写真の女の子を知っています。"
+      },
+      "card": "noun-phrases",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私はあの写真に写っている女の子を知っています。",
+      "formNote": ""
+    },
+    {
+      "number": 33,
+      "question": {
+        "text": "Who is the girl in the red hat?",
+        "translation": "赤い帽子の女の子はだれですか？"
+      },
+      "card": "noun-phrases",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "赤い帽子をかぶった女の子はだれですか？",
+      "formNote": ""
+    },
+    {
+      "number": 34,
+      "question": {
+        "text": "I'm looking for a present.",
+        "translation": "私は贈り物を探しています（I'mを使う）。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は贈り物を探しています（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 35,
+      "question": {
+        "text": "Is it raining outside?",
+        "translation": "外では雨が降っていますか。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "外では雨が降っていますか。",
+      "formNote": ""
+    },
+    {
+      "number": 36,
+      "question": {
+        "text": "It's raining now.",
+        "translation": "今、雨が降っています（It'sを使う）。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今、雨が降っています（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 37,
+      "question": {
+        "text": "I am looking for my glasses.",
+        "translation": "私は自分のめがねを探しています。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は自分のめがねを探しています。",
+      "formNote": ""
+    },
+    {
+      "number": 38,
+      "question": {
+        "text": "She is waiting for the bus.",
+        "translation": "彼女はバスを待っています。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女はバスを待っています。",
+      "formNote": ""
+    },
+    {
+      "number": 39,
+      "question": {
+        "text": "We are having dinner now.",
+        "translation": "私たちは今夕食を食べています。"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは今夕食を食べています。",
+      "formNote": ""
+    },
+    {
+      "number": 40,
+      "question": {
+        "text": "Are they playing in the park?",
+        "translation": "彼らは公園で遊んでいますか？"
+      },
+      "card": "present-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼らは公園で遊んでいますか？",
+      "formNote": ""
+    },
+    {
+      "number": 41,
+      "question": {
+        "text": "How was the weather in New York?",
+        "translation": "ニューヨークの天気はどうでしたか。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "ニューヨークの天気はどうでしたか。",
+      "formNote": ""
+    },
+    {
+      "number": 42,
+      "question": {
+        "text": "How was your trip to China?",
+        "translation": "あなたの中国旅行はどうでしたか。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたの中国旅行はどうでしたか。",
+      "formNote": ""
+    },
+    {
+      "number": 43,
+      "question": {
+        "text": "I was tired after the game.",
+        "translation": "私は試合の後で疲れていました。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は試合の後で疲れていました。",
+      "formNote": ""
+    },
+    {
+      "number": 44,
+      "question": {
+        "text": "Were you busy yesterday?",
+        "translation": "あなたは昨日忙しかったですか？"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは昨日忙しかったですか？",
+      "formNote": ""
+    },
+    {
+      "number": 45,
+      "question": {
+        "text": "Why were you late for school?",
+        "translation": "なぜあなたは学校に遅れたのですか？"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "なぜあなたは学校に遅れたのですか？",
+      "formNote": ""
+    },
+    {
+      "number": 46,
+      "question": {
+        "text": "Our bus was very crowded.",
+        "translation": "私たちのバスはとても混んでいました。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちのバスはとても混んでいました。",
+      "formNote": ""
+    },
+    {
+      "number": 47,
+      "question": {
+        "text": "The store was closed on Monday.",
+        "translation": "その店は月曜日は閉まっていました。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "その店は月曜日は閉まっていました。",
+      "formNote": ""
+    },
+    {
+      "number": 48,
+      "question": {
+        "text": "She was not busy yesterday.",
+        "translation": "彼女は昨日忙しくありませんでした（was notを使う）。"
+      },
+      "card": "past-be",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女は昨日忙しくありませんでした（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 49,
+      "question": {
+        "text": "It snowed a lot last night.",
+        "translation": "昨夜はたくさん雪が降りました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "昨夜はたくさん雪が降りました。",
+      "formNote": ""
+    },
+    {
+      "number": 50,
+      "question": {
+        "text": "I lost my train ticket.",
+        "translation": "自分の電車の切符をなくしました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の電車の切符をなくしました。",
+      "formNote": ""
+    },
+    {
+      "number": 51,
+      "question": {
+        "text": "Did you sleep well?",
+        "translation": "よく眠れましたか。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "よく眠れましたか。",
+      "formNote": ""
+    },
+    {
+      "number": 52,
+      "question": {
+        "text": "I lived here for two years.",
+        "translation": "私は以前ここに2年間住んでいました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は以前ここに2年間住んでいました。",
+      "formNote": ""
+    },
+    {
+      "number": 53,
+      "question": {
+        "text": "She finished her homework before dinner.",
+        "translation": "彼女は夕食前に自分の宿題を終えました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女は夕食前に自分の宿題を終えました。",
+      "formNote": ""
+    },
+    {
+      "number": 54,
+      "question": {
+        "text": "Did you visit Kyoto last year?",
+        "translation": "去年、京都を訪れましたか？"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "去年、京都を訪れましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 55,
+      "question": {
+        "text": "I did not see that movie last Sunday.",
+        "translation": "私は先週の日曜日にその映画を見ませんでした（短縮しないdid notを使う）。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は先週の日曜日にその映画を見ませんでした（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 56,
+      "question": {
+        "text": "My father came home a few minutes ago.",
+        "translation": "私の父は数分前に帰宅しました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私の父は数分前に帰宅しました。",
+      "formNote": ""
+    },
+    {
+      "number": 57,
+      "question": {
+        "text": "We met at school three years ago.",
+        "translation": "私たちは3年前に学校で知り合いました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは3年前、学校で会いました。",
+      "formNote": ""
+    },
+    {
+      "number": 58,
+      "question": {
+        "text": "I met him at the station.",
+        "translation": "私は駅で彼に会いました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は駅で彼に会いました。",
+      "formNote": ""
+    },
+    {
+      "number": 59,
+      "question": {
+        "text": "My sister bought a new dress.",
+        "translation": "私の姉（妹）は新しいドレスを買いました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私の姉（妹）は新しいドレスを買いました。",
+      "formNote": ""
+    },
+    {
+      "number": 60,
+      "question": {
+        "text": "We enjoyed the school festival.",
+        "translation": "私たちは学園祭を楽しみました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは学園祭を楽しみました。",
+      "formNote": ""
+    },
+    {
+      "number": 61,
+      "question": {
+        "text": "Did you call your mother?",
+        "translation": "あなたは自分のお母さんに電話しましたか？"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは自分のお母さんに電話しましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 62,
+      "question": {
+        "text": "I left my phone at home.",
+        "translation": "私は自分の携帯電話を家に置いてきました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は自分の携帯電話を家に置いてきました。",
+      "formNote": ""
+    },
+    {
+      "number": 63,
+      "question": {
+        "text": "She left her lunch at school.",
+        "translation": "彼女は自分の昼食を学校に置き忘れました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女は自分の昼食を学校に置き忘れました。",
+      "formNote": ""
+    },
+    {
+      "number": 64,
+      "question": {
+        "text": "The train arrived on time.",
+        "translation": "電車は時間どおりに到着しました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "電車は時間どおりに到着しました。",
+      "formNote": ""
+    },
+    {
+      "number": 65,
+      "question": {
+        "text": "I lost my wallet yesterday.",
+        "translation": "私は昨日、自分の財布をなくしました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は昨日、自分の財布をなくしました。",
+      "formNote": ""
+    },
+    {
+      "number": 66,
+      "question": {
+        "text": "We found a small dog outside.",
+        "translation": "私たちは外で小さな犬を見つけました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは外で小さな犬を見つけました。",
+      "formNote": ""
+    },
+    {
+      "number": 67,
+      "question": {
+        "text": "Did you finish your homework?",
+        "translation": "自分の宿題を終えましたか？"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の宿題を終えましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 68,
+      "question": {
+        "text": "I washed the dishes after dinner.",
+        "translation": "私は夕食後に皿を洗いました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は夕食後に皿を洗いました。",
+      "formNote": ""
+    },
+    {
+      "number": 69,
+      "question": {
+        "text": "My brother rode a horse last summer.",
+        "translation": "私の兄（弟）は去年の夏に馬に乗りました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私の兄（弟）は去年の夏に馬に乗りました。",
+      "formNote": ""
+    },
+    {
+      "number": 70,
+      "question": {
+        "text": "We became friends last year.",
+        "translation": "私たちは去年、友達になりました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは去年、友達になりました。",
+      "formNote": ""
+    },
+    {
+      "number": 71,
+      "question": {
+        "text": "She moved to this town three years ago.",
+        "translation": "彼女は3年前にこの町へ引っ越しました。"
+      },
+      "card": "past-verb",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女は3年前にこの町へ引っ越しました。",
+      "formNote": ""
+    },
+    {
+      "number": 72,
+      "question": {
+        "text": "I did not play tennis yesterday.",
+        "translation": "私は昨日テニスをしませんでした。",
+        "grammarPoint": {
+          "label": "一般動詞の過去の否定",
+          "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+          "pattern": "主語 + did not + 動詞の原形"
+        }
+      },
+      "card": "past-verb",
+      "band": 1,
+      "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+      "origin": "add",
+      "meaning": "私は昨日テニスをしませんでした。"
+    },
+    {
+      "number": 73,
+      "question": {
+        "text": "She did not buy that bag.",
+        "translation": "彼女はあのかばんを買いませんでした。",
+        "grammarPoint": {
+          "label": "一般動詞の過去の否定",
+          "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+          "pattern": "主語 + did not + 動詞の原形"
+        }
+      },
+      "card": "past-verb",
+      "band": 1,
+      "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+      "origin": "add",
+      "meaning": "彼女はあのかばんを買いませんでした。"
+    },
+    {
+      "number": 74,
+      "question": {
+        "text": "We did not go to school yesterday.",
+        "translation": "私たちは昨日学校へ行きませんでした。",
+        "grammarPoint": {
+          "label": "一般動詞の過去の否定",
+          "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+          "pattern": "主語 + did not + 動詞の原形"
+        }
+      },
+      "card": "past-verb",
+      "band": 1,
+      "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+      "origin": "add",
+      "meaning": "私たちは昨日学校へ行きませんでした。"
+    },
+    {
+      "number": 75,
+      "question": {
+        "text": "Did he study English last night?",
+        "translation": "彼は昨夜英語を勉強しましたか？",
+        "grammarPoint": {
+          "label": "一般動詞の過去の疑問",
+          "note": "didを主語の前に置き、studyは過去形にしません。",
+          "pattern": "Did + 主語 + 動詞の原形?"
+        }
+      },
+      "card": "past-verb",
+      "band": 1,
+      "formNote": "一般動詞の過去の疑問文。主語の前に過去の疑問を作る語を置き、勉強する動詞はもとの形にします。",
+      "origin": "add",
+      "meaning": "彼は昨夜英語を勉強しましたか？"
+    },
+    {
+      "number": 76,
+      "question": {
+        "text": "He did not come to the party.",
+        "translation": "彼はそのパーティーに来ませんでした。",
+        "grammarPoint": {
+          "label": "一般動詞の過去の否定",
+          "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+          "pattern": "主語 + did not + 動詞の原形"
+        }
+      },
+      "card": "past-verb",
+      "band": 1,
+      "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+      "origin": "add",
+      "meaning": "彼はそのパーティーに来ませんでした。"
+    },
+    {
+      "number": 77,
+      "question": {
+        "text": "She was cooking dinner then.",
+        "translation": "彼女はそのとき夕食を作っていました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼女はそのとき夕食を作っている途中でした（過去進行形）。",
+      "formNote": ""
+    },
+    {
+      "number": 78,
+      "question": {
+        "text": "What were you doing at seven?",
+        "translation": "あなたは7時に何をしていましたか？"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは7時に何をしていましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 79,
+      "question": {
+        "text": "It was raining all day yesterday.",
+        "translation": "昨日は一日中雨が降っていました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "昨日は一日中雨が降っていました。",
+      "formNote": ""
+    },
+    {
+      "number": 80,
+      "question": {
+        "text": "I was reading when you called me.",
+        "translation": "あなたが電話をくれたとき、私は読書をしていました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたが私に電話したとき、私は読書をしているところでした。",
+      "formNote": "読書の動作を過去進行形で表す"
+    },
+    {
+      "number": 81,
+      "question": {
+        "text": "They were playing soccer after school.",
+        "translation": "彼らは放課後にサッカーをしていました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼らは放課後、サッカーをしているところでした。",
+      "formNote": "過去のある時点で進行中の動作"
+    },
+    {
+      "number": 82,
+      "question": {
+        "text": "What were you doing when it started to rain?",
+        "translation": "雨が降り始めたとき、あなたは何をしていましたか？"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "雨が降り始めたとき、あなたは何をしていましたか？",
+      "formNote": ""
+    },
+    {
+      "number": 83,
+      "question": {
+        "text": "My father was cooking dinner at six.",
+        "translation": "私の父は6時に夕食を作っていました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私の父は6時に夕食を作っている途中でした（過去進行形）。",
+      "formNote": ""
+    },
+    {
+      "number": 84,
+      "question": {
+        "text": "We were walking home when we saw Ken.",
+        "translation": "私たちは家へ歩いて帰る途中でケンを見かけました。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは家へ歩いて帰る途中でケンを見かけました。",
+      "formNote": ""
+    },
+    {
+      "number": 85,
+      "question": {
+        "text": "I was not sleeping then.",
+        "translation": "私はそのとき眠っていませんでした（was notを使う）。"
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私はそのとき眠っていませんでした（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 86,
+      "question": {
+        "text": "They were not watching TV then.",
+        "translation": "彼らはそのときテレビを見ていませんでした。",
+        "grammarPoint": {
+          "label": "過去進行形の否定",
+          "note": "複数の主語なのでwereを使い、not＋watchingと続けます。",
+          "pattern": "主語 + were not + 動詞ing"
+        }
+      },
+      "card": "past-progressive",
+      "band": 1,
+      "formNote": "そのとき進行中だった動作を否定します。短縮しない形で。",
+      "origin": "add",
+      "meaning": "彼らはそのときテレビを見ていませんでした。"
+    },
+    {
+      "number": 87,
+      "question": {
+        "text": "I'll take it.",
+        "translation": "それにします・それを買います（I'llを使う）。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "それにします・それを買います（買い物・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 88,
+      "question": {
+        "text": "We'll be late for school!",
+        "translation": "私たちは学校に遅れてしまいます（We'llを使う）！"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは学校に遅れてしまいます（短縮形で）！",
+      "formNote": ""
+    },
+    {
+      "number": 89,
+      "question": {
+        "text": "I'll call back later.",
+        "translation": "あとでかけ直します（I'llを使う）。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あとでかけ直します（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 90,
+      "question": {
+        "text": "I will help you tomorrow.",
+        "translation": "私は明日あなたを手伝います。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は明日あなたを手伝います（意思・約束）。",
+      "formNote": ""
+    },
+    {
+      "number": 91,
+      "question": {
+        "text": "It will be sunny this weekend.",
+        "translation": "今週末は晴れるでしょう。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今週末は晴れるでしょう（予測）。",
+      "formNote": ""
+    },
+    {
+      "number": 92,
+      "question": {
+        "text": "Will you come to my party?",
+        "translation": "あなたは私のパーティーに来ますか？"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私のパーティーに来てくれますか？",
+      "formNote": ""
+    },
+    {
+      "number": 93,
+      "question": {
+        "text": "I will call you after dinner.",
+        "translation": "私は夕食の後であなたに電話します。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は夕食の後であなたに電話します（意思・約束）。",
+      "formNote": ""
+    },
+    {
+      "number": 94,
+      "question": {
+        "text": "They will arrive before noon.",
+        "translation": "彼らは正午前に到着します。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼らは正午前に到着するでしょう（予測）。",
+      "formNote": ""
+    },
+    {
+      "number": 95,
+      "question": {
+        "text": "What will you do after school today?",
+        "translation": "今日、放課後に何をしますか？"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今日の放課後、何をしますか（未来のこと）。",
+      "formNote": ""
+    },
+    {
+      "number": 96,
+      "question": {
+        "text": "I will help my mother this evening.",
+        "translation": "私は今晩、自分の母を手伝います。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は今日の夕方、自分の母を手伝います。",
+      "formNote": ""
+    },
+    {
+      "number": 97,
+      "question": {
+        "text": "I will not go out tonight.",
+        "translation": "私は今夜は外出しません（will notを使う）。"
+      },
+      "card": "future-will",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は今夜は外出しません（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 98,
+      "question": {
+        "text": "It's going to rain soon.",
+        "translation": "もうすぐ雨が降りそうです（It's going toを使う）。"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "もうすぐ雨が降りそうです（兆候からの予測・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 99,
+      "question": {
+        "text": "We are going to visit Grandma.",
+        "translation": "私たちは祖母を訪ねる予定です。"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちはおばあちゃんを訪ねる予定です（前からの計画）。",
+      "formNote": ""
+    },
+    {
+      "number": 100,
+      "question": {
+        "text": "I am going to clean my room.",
+        "translation": "私は自分の部屋を掃除する予定です。"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私は自分の部屋を掃除する予定です（前からの計画）。",
+      "formNote": ""
+    },
+    {
+      "number": 101,
+      "question": {
+        "text": "Are you going to play tennis?",
+        "translation": "あなたはテニスをする予定ですか？"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたはテニスをする予定ですか（前からの計画）。",
+      "formNote": ""
+    },
+    {
+      "number": 102,
+      "question": {
+        "text": "Are you going to visit your grandparents?",
+        "translation": "あなたは自分の祖父母を訪ねる予定ですか？"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは自分の祖父母を訪ねる予定ですか（前からの計画）。",
+      "formNote": ""
+    },
+    {
+      "number": 103,
+      "question": {
+        "text": "We are going to have a picnic on Sunday.",
+        "translation": "私たちは日曜日にピクニックをする予定です。"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは日曜日にピクニックをする予定です（前からの計画）。",
+      "formNote": ""
+    },
+    {
+      "number": 104,
+      "question": {
+        "text": "We are not going to swim today.",
+        "translation": "私たちは今日は泳ぐ予定ではありません（are not going toを使う）。"
+      },
+      "card": "future-going",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私たちは今日は泳ぐ予定ではありません（前からの予定・短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 105,
+      "question": {
+        "text": "Is she going to visit Kyoto tomorrow?",
+        "translation": "彼女は明日京都を訪ねる予定ですか？",
+        "grammarPoint": {
+          "label": "予定の疑問文",
+          "note": "be going toの疑問文では、be動詞を主語の前に出します。",
+          "pattern": "Is + she + going to + 動詞の原形?"
+        }
+      },
+      "card": "future-going",
+      "band": 1,
+      "formNote": "前から決めていた予定を、進行形に似た未来の構文で尋ねます。",
+      "origin": "add",
+      "meaning": "彼女は明日京都を訪ねる予定ですか？"
+    },
+    {
+      "number": 106,
+      "question": {
+        "text": "There is nobody in the room.",
+        "translation": "部屋には誰もいません。"
+      },
+      "card": "there",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "部屋には誰もいません（存在を表す文）。",
+      "formNote": "存在を表す文で、だれもいないことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
+    },
+    {
+      "number": 107,
+      "question": {
+        "text": "There was no one at the bus stop.",
+        "translation": "バス停にはだれもいませんでした。"
+      },
+      "card": "there",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "バス停に誰もいませんでした（存在を表す文）。",
+      "formNote": "過去の存在を表す文で、だれもいなかったことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
+    },
+    {
+      "number": 108,
+      "question": {
+        "text": "I can't find my car key.",
+        "translation": "自分の車の鍵が見つかりません（can'tを使う）。"
+      },
+      "card": "can",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の車の鍵が見つかりません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 109,
+      "question": {
+        "text": "I have to go now.",
+        "translation": "もう行かなければなりません。"
+      },
+      "card": "must",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私はもう行かなければなりません（必要性）。",
+      "formNote": ""
+    },
+    {
+      "number": 110,
+      "question": {
+        "text": "You must finish this today.",
+        "translation": "あなたは今日これを終えなければなりません。"
+      },
+      "card": "must",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは今日これを終えなければなりません（強い義務）。",
+      "formNote": ""
+    },
+    {
+      "number": 111,
+      "question": {
+        "text": "You do not have to hurry.",
+        "translation": "あなたは急ぐ必要はありません（短縮しないdo notを使う）。"
+      },
+      "card": "must",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは急ぐ必要はありません（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 112,
+      "question": {
+        "text": "You must not use your phone here.",
+        "translation": "ここでは自分の携帯電話を使ってはいけません。"
+      },
+      "card": "must",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "ここでは自分の携帯電話を使ってはいけません（短縮しない形）。",
+      "formNote": "禁止を表す。必要がないという意味ではない"
+    },
+    {
+      "number": 113,
+      "question": {
+        "text": "You do not have to bring your lunch.",
+        "translation": "自分の昼食を持ってくる必要はありません（短縮しないdo notを使う）。"
+      },
+      "card": "must",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の昼食を持ってくる必要はありません（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 114,
+      "question": {
+        "text": "You should see a doctor.",
+        "translation": "あなたは医者に診てもらうべきです。"
+      },
+      "card": "should",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは医者に診てもらったほうがよいです（助言）。",
+      "formNote": ""
+    },
+    {
+      "number": 115,
+      "question": {
+        "text": "You should take a break now.",
+        "translation": "今は休憩したほうがよいです。"
+      },
+      "card": "should",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたは今、休憩したほうがよいです（助言）。",
+      "formNote": ""
+    },
+    {
+      "number": 116,
+      "question": {
+        "text": "You should not eat too much.",
+        "translation": "あなたは食べすぎないほうがよいです。",
+        "grammarPoint": {
+          "label": "助言の否定",
+          "note": "should notは「しないほうがよい」。禁止のmust notとは強さが違います。",
+          "pattern": "主語 + should not + 動詞の原形"
+        }
+      },
+      "card": "should",
+      "band": 1,
+      "formNote": "助言を表す助動詞を否定し、食べる動詞、量が多すぎる表現と続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "あなたは食べすぎないほうがよいです。"
+    },
+    {
+      "number": 117,
+      "question": {
+        "text": "You should not stay up late.",
+        "translation": "あなたは夜更かしをしないほうがよいです。",
+        "grammarPoint": {
+          "label": "助言の否定",
+          "note": "should notの後ろにstay up late（夜更かしする）を続けます。",
+          "pattern": "主語 + should not + 動詞の原形"
+        }
+      },
+      "card": "should",
+      "band": 1,
+      "formNote": "助言を表す助動詞を否定します。寝ないで起きていることを表す熟語で夜更かしを伝えます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "あなたは夜更かしをしないほうがよいです。"
+    },
+    {
+      "number": 118,
+      "question": {
+        "text": "Clean your room now.",
+        "translation": "今すぐ自分の部屋を片づけなさい。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "今すぐ自分の部屋を掃除しなさい。",
+      "formNote": ""
+    },
+    {
+      "number": 119,
+      "question": {
+        "text": "Come to my house next Sunday.",
+        "translation": "次の日曜日に私の家に来てください。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "次の日曜日に私の家に来てください。",
+      "formNote": ""
+    },
+    {
+      "number": 120,
+      "question": {
+        "text": "Don't forget to wash your hands.",
+        "translation": "自分の手を洗うのを忘れないでください（Don'tを使う）。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の手を洗うのを忘れないでください（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 121,
+      "question": {
+        "text": "Please write back soon.",
+        "translation": "どうかすぐに返事を書いてください。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どうかすぐに返事を書いてください。",
+      "formNote": ""
+    },
+    {
+      "number": 122,
+      "question": {
+        "text": "Let me carry your bag.",
+        "translation": "あなたのかばんを私に持たせてください。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたのかばんを私に持たせてください（手伝いの申し出）。",
+      "formNote": ""
+    },
+    {
+      "number": 123,
+      "question": {
+        "text": "Do not forget your umbrella.",
+        "translation": "自分の傘を忘れないでください（短縮しないDo notを使う）。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "自分の傘を忘れないでください（短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 124,
+      "question": {
+        "text": "Please be kind to animals.",
+        "translation": "動物に親切にしてください。"
+      },
+      "card": "imperative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どうか動物に対して親切でいてください。",
+      "formNote": ""
+    },
+    {
+      "number": 125,
+      "question": {
+        "text": "I feel much better, thanks.",
+        "translation": "ずいぶん良くなりました、ありがとう。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "体調がずいぶんよくなりました、ありがとう。",
+      "formNote": ""
+    },
+    {
+      "number": 126,
+      "question": {
+        "text": "My bag is heavier than yours.",
+        "translation": "私のかばんはあなたのより重いです。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私のかばんはあなたのより重いです。",
+      "formNote": ""
+    },
+    {
+      "number": 127,
+      "question": {
+        "text": "This book is more interesting than that one.",
+        "translation": "この本はあの本より面白いです。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "この本はあの本より面白いです。",
+      "formNote": ""
+    },
+    {
+      "number": 128,
+      "question": {
+        "text": "Tokyo is bigger than Osaka.",
+        "translation": "東京は大阪より大きいです。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "東京は大阪より大きいです。",
+      "formNote": ""
+    },
+    {
+      "number": 129,
+      "question": {
+        "text": "It will be colder tomorrow than today.",
+        "translation": "明日は今日より寒くなるでしょう。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "明日は今日より寒くなるでしょう（予測）。",
+      "formNote": ""
+    },
+    {
+      "number": 130,
+      "question": {
+        "text": "This bag is lighter than that one.",
+        "translation": "このかばんはあのかばんより軽いです。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "このかばんはあのかばんより軽いです。",
+      "formNote": ""
+    },
+    {
+      "number": 131,
+      "question": {
+        "text": "My new bike is faster than yours.",
+        "translation": "私の新しい自転車はあなたのより速いです。"
+      },
+      "card": "comparison",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "私の新しい自転車はあなたのより速いです。",
+      "formNote": ""
+    },
+    {
+      "number": 132,
+      "question": {
+        "text": "This book is better than that one.",
+        "translation": "この本はあの本よりよいです。",
+        "grammarPoint": {
+          "label": "不規則な比較級",
+          "note": "goodの比較級はbetterです。more goodやgooderにはしません。",
+          "pattern": "better + than + 比べる相手"
+        }
+      },
+      "card": "comparison",
+      "band": 1,
+      "formNote": "「よい」の比較級で。あの本は、同じ名詞の繰り返しを避ける代名詞で表します。短縮しない形で。",
+      "origin": "add",
+      "meaning": "この本はあの本よりよいです。"
+    },
+    {
+      "number": 133,
+      "question": {
+        "text": "What movie do you like the best?",
+        "translation": "どの映画が一番好きですか。"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "どの映画が一番好きですか。",
+      "formNote": ""
+    },
+    {
+      "number": 134,
+      "question": {
+        "text": "He is the fastest runner.",
+        "translation": "彼は最も速い走者です。"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "彼は最も速い走者です。",
+      "formNote": ""
+    },
+    {
+      "number": 135,
+      "question": {
+        "text": "This is the most popular song.",
+        "translation": "これは最も人気のある歌です。"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "これは最も人気のある歌です。",
+      "formNote": ""
+    },
+    {
+      "number": 136,
+      "question": {
+        "text": "Which subject do you like best?",
+        "translation": "あなたはどの教科が一番好きですか？"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたはどの教科が一番好きですか？",
+      "formNote": ""
+    },
+    {
+      "number": 137,
+      "question": {
+        "text": "This is the most exciting game in this store.",
+        "translation": "これはこの店で一番わくわくするゲームです。"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "これはこの店で一番わくわくするゲームです。",
+      "formNote": ""
+    },
+    {
+      "number": 138,
+      "question": {
+        "text": "Which season do you like the best?",
+        "translation": "あなたはどの季節が一番好きですか？"
+      },
+      "card": "superlative",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "あなたはどの季節が一番好きですか？",
+      "formNote": ""
+    },
+    {
+      "number": 139,
+      "question": {
+        "text": "Ken is as tall as Tom.",
+        "translation": "ケンはトムと同じくらい背が高いです。"
+      },
+      "card": "as",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "ケンはトムと同じくらい背が高いです。",
+      "formNote": ""
+    },
+    {
+      "number": 140,
+      "question": {
+        "text": "This bag is not as heavy as yours.",
+        "translation": "このかばんはあなたのほど重くありません（is notを使う）。"
+      },
+      "card": "as",
+      "band": 1,
+      "origin": "keep",
+      "meaning": "このかばんはあなたのほど重くありません（同等比較・短縮形なし）。",
+      "formNote": ""
+    },
+    {
+      "number": 141,
+      "question": {
+        "text": "My bike is as new as yours.",
+        "translation": "私の自転車はあなたのと同じくらい新しいです。",
+        "grammarPoint": {
+          "label": "同等比較",
+          "note": "newをasとasではさみます。yoursはyour bikeを表します。",
+          "pattern": "as + 形容詞の原級 + as"
+        }
+      },
+      "card": "as",
+      "band": 1,
+      "formNote": "同等比較を使い、「あなたの自転車」は所有を表す代名詞で。自転車は短い呼び方を使います。",
+      "origin": "add",
+      "meaning": "私の自転車はあなたのと同じくらい新しいです。"
+    },
+    {
+      "number": 142,
+      "question": {
+        "text": "This test is not as easy as that one.",
+        "translation": "この試験はあの試験ほど簡単ではありません。",
+        "grammarPoint": {
+          "label": "同等比較の否定",
+          "note": "not as … asで比較します。that oneのoneはtestの繰り返しを避ける語です。",
+          "pattern": "not as + 形容詞の原級 + as"
+        }
+      },
+      "card": "as",
+      "band": 1,
+      "formNote": "同等比較を否定する形で。あの試験は、同じ名詞の繰り返しを避ける代名詞で表します。短縮しない形で。",
+      "origin": "add",
+      "meaning": "この試験はあの試験ほど簡単ではありません。"
+    },
+    {
+      "number": 143,
+      "question": {
+        "text": "I want to buy some flowers.",
+        "translation": "花をいくつか買いたいです。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "花をいくつか買いたいです。",
+      "formNote": ""
+    },
+    {
+      "number": 144,
+      "question": {
+        "text": "I'd like to see a movie.",
+        "translation": "映画を見たいです（I'd likeを使う）。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "映画を見たいです（丁寧な希望・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 145,
+      "question": {
+        "text": "Do you want to come with us?",
+        "translation": "私たちと一緒に来ますか。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私たちと一緒に来たいですか。",
+      "formNote": ""
+    },
+    {
+      "number": 146,
+      "question": {
+        "text": "We need to leave right now.",
+        "translation": "私たちは今すぐ出発する必要があります。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私たちは今すぐ出発する必要があります。",
+      "formNote": ""
+    },
+    {
+      "number": 147,
+      "question": {
+        "text": "My dream is to be a pilot.",
+        "translation": "私の夢はパイロットになることです。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私の夢はパイロットになることです。",
+      "formNote": ""
+    },
+    {
+      "number": 148,
+      "question": {
+        "text": "I forgot to bring my homework today.",
+        "translation": "私は今日、自分の宿題を持ってくるのを忘れました。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私は今日、自分の宿題を持ってくるのを忘れました。",
+      "formNote": "忘れた行為を不定詞で続ける"
+    },
+    {
+      "number": 149,
+      "question": {
+        "text": "I hope to see you again soon.",
+        "translation": "また近いうちに会えるといいですね。"
+      },
+      "card": "to-noun",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "また近いうちにあなたに会えたらと思っています。",
+      "formNote": ""
+    },
+    {
+      "number": 150,
+      "question": {
+        "text": "He stopped at a store to buy some water.",
+        "translation": "彼は水を買うために店に立ち寄りました。"
+      },
+      "card": "to-purpose",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "彼は水を買うために店に立ち寄りました。",
+      "formNote": ""
+    },
+    {
+      "number": 151,
+      "question": {
+        "text": "I went to the library to study.",
+        "translation": "私は勉強するために図書館へ行きました。",
+        "grammarPoint": {
+          "label": "目的の不定詞",
+          "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+          "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+        }
+      },
+      "card": "to-purpose",
+      "band": 2,
+      "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。",
+      "origin": "add",
+      "meaning": "私は勉強するために図書館へ行きました。"
+    },
+    {
+      "number": 152,
+      "question": {
+        "text": "She got up early to make breakfast.",
+        "translation": "彼女は朝食を作るために早く起きました。",
+        "grammarPoint": {
+          "label": "目的の不定詞",
+          "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+          "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+        }
+      },
+      "card": "to-purpose",
+      "band": 2,
+      "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。 起きるのは寝床から起きることです。",
+      "origin": "add",
+      "meaning": "彼女は朝食を作るために早く起きました。"
+    },
+    {
+      "number": 153,
+      "question": {
+        "text": "We went to the park to play soccer.",
+        "translation": "私たちはサッカーをするために公園へ行きました。",
+        "grammarPoint": {
+          "label": "目的の不定詞",
+          "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+          "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+        }
+      },
+      "card": "to-purpose",
+      "band": 2,
+      "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。",
+      "origin": "add",
+      "meaning": "私たちはサッカーをするために公園へ行きました。"
+    },
+    {
+      "number": 154,
+      "question": {
+        "text": "I am glad to hear that.",
+        "translation": "それを聞いてうれしいです。"
+      },
+      "card": "to-reason",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "それを聞いてうれしいです。",
+      "formNote": ""
+    },
+    {
+      "number": 155,
+      "question": {
+        "text": "He was happy to see her.",
+        "translation": "彼は彼女に会えてうれしかったです。"
+      },
+      "card": "to-reason",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "彼は彼女に会えてうれしかったです。",
+      "formNote": ""
+    },
+    {
+      "number": 156,
+      "question": {
+        "text": "I was happy to get your letter.",
+        "translation": "あなたの手紙をもらえてうれしかったです。"
+      },
+      "card": "to-reason",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "あなたの手紙をもらえてうれしかったです。",
+      "formNote": ""
+    },
+    {
+      "number": 157,
+      "question": {
+        "text": "Reading books is fun for me.",
+        "translation": "本を読むことは私にとって楽しいです。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "本を読むことは私にとって楽しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 158,
+      "question": {
+        "text": "Thank you for inviting me today.",
+        "translation": "今日、私を招いてくれてありがとう。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "今日、私を招いてくれてありがとう。",
+      "formNote": ""
+    },
+    {
+      "number": 159,
+      "question": {
+        "text": "I am looking forward to the school festival.",
+        "translation": "私は学園祭を楽しみにしています。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私は学園祭を楽しみにしています（短縮しない形）。",
+      "formNote": ""
+    },
+    {
+      "number": 160,
+      "question": {
+        "text": "My sister is good at drawing pictures.",
+        "translation": "私の姉（妹）は絵を描くのが得意です。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私の姉（妹）は絵を描くのが得意です。",
+      "formNote": ""
+    },
+    {
+      "number": 161,
+      "question": {
+        "text": "We enjoyed talking about our trip.",
+        "translation": "私たちは自分たちの旅行について話すのを楽しみました。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私たちは自分たちの旅行について話すのを楽しみました。",
+      "formNote": ""
+    },
+    {
+      "number": 162,
+      "question": {
+        "text": "Thank you for showing me the way.",
+        "translation": "私に道を教えてくれてありがとう。"
+      },
+      "card": "gerund",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "道を案内してくれてありがとう。",
+      "formNote": ""
+    },
+    {
+      "number": 163,
+      "question": {
+        "text": "I want something cold to drink.",
+        "translation": "私は何か冷たい飲み物が欲しいです。"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私は何か冷たい飲み物が欲しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 164,
+      "question": {
+        "text": "Something is wrong with my bike.",
+        "translation": "私の自転車はどこか調子が悪いです。"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私の自転車はどこか調子が悪いです。",
+      "formNote": ""
+    },
+    {
+      "number": 165,
+      "question": {
+        "text": "Everyone in my class likes music.",
+        "translation": "私のクラスのみんなは音楽が好きです。"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私のクラスの全員が音楽を好きです。",
+      "formNote": "「みんな」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。どちらも動詞は単数扱いです。"
+    },
+    {
+      "number": 166,
+      "question": {
+        "text": "Do you know anyone in London?",
+        "translation": "あなたはロンドンに知り合いがいますか？"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "あなたはロンドンに知り合いがいますか？",
+      "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
+    },
+    {
+      "number": 167,
+      "question": {
+        "text": "I need something warm to drink.",
+        "translation": "私は温かい飲み物が欲しいです。"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私は何か温かい飲み物が必要です。",
+      "formNote": ""
+    },
+    {
+      "number": 168,
+      "question": {
+        "text": "Nobody in my family likes coffee.",
+        "translation": "私の家族にはコーヒーが好きな人はいません。"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "家族の誰もコーヒーが好きではありません。",
+      "formNote": "「だれも〜ない」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。"
+    },
+    {
+      "number": 169,
+      "question": {
+        "text": "Does anyone know the answer?",
+        "translation": "だれか答えを知っていますか？"
+      },
+      "card": "something",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "だれか答えを知っていますか？",
+      "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
+    },
+    {
+      "number": 170,
+      "question": {
+        "text": "I'm sorry, but I don't know.",
+        "translation": "すみませんが、わかりません（I'mとdon'tを使う）。"
+      },
+      "card": "connectors",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "すみませんが、わかりません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 171,
+      "question": {
+        "text": "Hurry up, or we'll be late.",
+        "translation": "急ぎなさい、さもないと私たちは遅れます（we'llを使う）。"
+      },
+      "card": "connectors",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "急ぎなさい、さもないと私たちは遅れます（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 172,
+      "question": {
+        "text": "I stayed home because I was sick.",
+        "translation": "私は具合が悪かったので家にいました。"
+      },
+      "card": "connectors",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "私は具合が悪かったので家にいました。",
+      "formNote": "家にいたことを先に述べ、理由の節を続ける"
+    },
+    {
+      "number": 173,
+      "question": {
+        "text": "If it rains, I will stay home.",
+        "translation": "もし雨が降ったら、私は家にいます（Ifで始める）。"
+      },
+      "card": "connectors",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "もし雨が降ったら、私は家にいます（条件を先に述べる）。",
+      "formNote": ""
+    },
+    {
+      "number": 174,
+      "question": {
+        "text": "Wash your hands before you eat.",
+        "translation": "食べる前に手を洗ってください（beforeの後ろは文）。"
+      },
+      "card": "connectors",
+      "band": 2,
+      "origin": "keep",
+      "meaning": "食べる前に手を洗ってください（時を表す節で）。",
+      "formNote": ""
+    },
+    {
+      "number": 175,
+      "question": {
+        "text": "I was late because I missed the bus.",
+        "translation": "私はバスに乗り遅れたので遅刻しました。",
+        "grammarPoint": {
+          "label": "理由をつなぐ",
+          "note": "becauseの後ろに理由となる主語と動詞を続けます。",
+          "pattern": "結果の文 + because + 理由の文"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "結果を先に述べ、理由を表す接続詞の後ろに文を続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "私はバスに乗り遅れたので遅刻しました。"
+    },
+    {
+      "number": 176,
+      "question": {
+        "text": "She is happy because she passed the test.",
+        "translation": "彼女はその試験に合格したのでうれしいです。",
+        "grammarPoint": {
+          "label": "理由をつなぐ",
+          "note": "becauseの後ろに理由となる主語と動詞を続けます。",
+          "pattern": "結果の文 + because + 理由の文"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "結果を先に述べ、理由を表す接続詞の後ろに文を続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "彼女はその試験に合格したのでうれしいです。"
+    },
+    {
+      "number": 177,
+      "question": {
+        "text": "If it is sunny, we will play outside.",
+        "translation": "もし晴れたら、私たちは外で遊びます。",
+        "grammarPoint": {
+          "label": "条件と未来",
+          "note": "ifの節はisのまま。結果を表す節でwillを使います。",
+          "pattern": "If + 主語 + 現在形, 主語 + will + 動詞の原形"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "条件の節を先に置きます。未来の条件でも、その節の動詞は現在形にします。短縮しない形で。",
+      "origin": "add",
+      "meaning": "もし晴れたら、私たちは外で遊びます。"
+    },
+    {
+      "number": 178,
+      "question": {
+        "text": "If you are tired, you should rest.",
+        "translation": "もし疲れているなら、あなたは休んだほうがよいです。",
+        "grammarPoint": {
+          "label": "条件をつなぐ",
+          "note": "ifが未来の条件を表す節では現在形を使い、その結果を後ろに続けます。",
+          "pattern": "If + 主語 + 現在形, 結果の文"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "条件の節を先に置きます。未来の条件でも、その節の動詞は現在形にします。短縮しない形で。 結果の節は助言を表す助動詞で。",
+      "origin": "add",
+      "meaning": "もし疲れているなら、あなたは休んだほうがよいです。"
+    },
+    {
+      "number": 179,
+      "question": {
+        "text": "I will call you after I finish my homework.",
+        "translation": "私は自分の宿題を終えたら、あなたに電話します。",
+        "grammarPoint": {
+          "label": "時をつなぐ",
+          "note": "afterの後ろに名詞だけでなく文を続け、何が済んだ後かを説明します。未来の時を表す節は現在形です。",
+          "pattern": "文 + after + 主語 + 動詞"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "何をするか・したかを先に述べ、その後に「〜した後で」を表す接続詞と文を続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "私は自分の宿題を終えたら、あなたに電話します。"
+    },
+    {
+      "number": 180,
+      "question": {
+        "text": "She went home after she finished her work.",
+        "translation": "彼女は自分の仕事を終えた後で帰宅しました。",
+        "grammarPoint": {
+          "label": "時をつなぐ",
+          "note": "afterの後ろに名詞だけでなく文を続け、何が済んだ後かを説明します。未来の時を表す節は現在形です。",
+          "pattern": "文 + after + 主語 + 動詞"
+        }
+      },
+      "card": "connectors",
+      "band": 2,
+      "formNote": "何をするか・したかを先に述べ、その後に「〜した後で」を表す接続詞と文を続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "彼女は自分の仕事を終えた後で帰宅しました。"
+    },
+    {
+      "number": 181,
+      "question": {
+        "text": "This bag is too heavy for me.",
+        "translation": "このかばんは私には重すぎます。",
+        "grammarPoint": {
+          "label": "程度を表すtoo",
+          "note": "too＋形容詞で「〜すぎる」。for meを添えて、だれにとってそうなのかを示します。",
+          "pattern": "主語 + be動詞 + too + 形容詞 + for 人"
+        }
+      },
+      "card": "too",
+      "band": 2,
+      "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "このかばんは私には重すぎます。"
+    },
+    {
+      "number": 182,
+      "question": {
+        "text": "These shoes are too small for me.",
+        "translation": "これらの靴は私には小さすぎます。",
+        "grammarPoint": {
+          "label": "程度を表すtoo",
+          "note": "too＋形容詞で「〜すぎる」。for meを添えて、だれにとってそうなのかを示します。",
+          "pattern": "主語 + be動詞 + too + 形容詞 + for 人"
+        }
+      },
+      "card": "too",
+      "band": 2,
+      "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "これらの靴は私には小さすぎます。"
+    },
+    {
+      "number": 183,
+      "question": {
+        "text": "This shirt is too big for me.",
+        "translation": "このシャツは私には大きすぎます。",
+        "grammarPoint": {
+          "label": "too＋形容詞",
+          "note": "too bigで「大きすぎる」、for meで「私には」と、基準になる人を伝えます。",
+          "pattern": "be動詞 + too + 形容詞 + for 人"
+        }
+      },
+      "card": "too",
+      "band": 2,
+      "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+      "origin": "add",
+      "meaning": "このシャツは私には大きすぎます。"
+    },
+    {
+      "number": 184,
+      "question": {
+        "text": "Can I have some more water?",
+        "translation": "水をもう少しいただけますか。"
+      },
+      "card": "permission",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "水をもう少しいただいてもいいですか（許可を求める）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+    },
+    {
+      "number": 185,
+      "question": {
+        "text": "May I use your dictionary?",
+        "translation": "あなたの辞書を使ってもよいですか？"
+      },
+      "card": "permission",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+    },
+    {
+      "number": 186,
+      "question": {
+        "text": "You can borrow my pen.",
+        "translation": "私のペンを借りてよいですよ。"
+      },
+      "card": "permission",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私のペンを借りてよいですよ。",
+      "formNote": ""
+    },
+    {
+      "number": 187,
+      "question": {
+        "text": "Could I borrow your umbrella today?",
+        "translation": "今日あなたの傘を借りてもよいですか？"
+      },
+      "card": "permission",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+    },
+    {
+      "number": 188,
+      "question": {
+        "text": "May I ask you a question?",
+        "translation": "あなたに質問してもよいですか。"
+      },
+      "card": "permission",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
+    },
+    {
+      "number": 189,
+      "question": {
+        "text": "Could you show me your textbook?",
+        "translation": "私にあなたの教科書を見せてくれますか。"
+      },
+      "card": "requests",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私にあなたの教科書を見せていただけますか。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
+    },
+    {
+      "number": 190,
+      "question": {
+        "text": "Could you open the door?",
+        "translation": "ドアを開けてくれますか？"
+      },
+      "card": "requests",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
+    },
+    {
+      "number": 191,
+      "question": {
+        "text": "Can you lend me some money?",
+        "translation": "私に少しお金を貸してくれますか？"
+      },
+      "card": "requests",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私に少しお金を貸してくれますか（依頼）。",
+      "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
+    },
+    {
+      "number": 192,
+      "question": {
+        "text": "Can I help you?",
+        "translation": "お手伝いしましょうか（Can Iを使う）。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "お手伝いしましょうか（申し出）。",
+      "formNote": ""
+    },
+    {
+      "number": 193,
+      "question": {
+        "text": "Would you like something to drink?",
+        "translation": "何か飲み物はいかがですか。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "何か飲み物はいかがですか。",
+      "formNote": ""
+    },
+    {
+      "number": 194,
+      "question": {
+        "text": "Would you like tea or coffee?",
+        "translation": "紅茶とコーヒーのどちらがよいですか。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "紅茶かコーヒーはいかがですか（丁寧な勧め）。",
+      "formNote": ""
+    },
+    {
+      "number": 195,
+      "question": {
+        "text": "I'll have grape juice.",
+        "translation": "ぶどうジュースをください（I'll haveを使う）。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "ぶどうジュースをください（注文・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 196,
+      "question": {
+        "text": "I'd like a hot dog.",
+        "translation": "ホットドッグをください（I'd likeを使う）。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "ホットドッグをください（丁寧な希望・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 197,
+      "question": {
+        "text": "Would you like to see a movie tonight?",
+        "translation": "今夜映画を見ませんか。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "今夜映画を見ませんか（丁寧な誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 198,
+      "question": {
+        "text": "Let's go and see a movie.",
+        "translation": "映画を見に行きましょう（Let'sを使う）。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "映画を見に行きましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 199,
+      "question": {
+        "text": "Let's have lunch.",
+        "translation": "昼食にしましょう（Let'sを使う）。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "昼食にしましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 200,
+      "question": {
+        "text": "Shall I open the window?",
+        "translation": "窓を開けましょうか。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私が窓を開けましょうか（申し出）。",
+      "formNote": ""
+    },
+    {
+      "number": 201,
+      "question": {
+        "text": "Shall we go out for dinner tomorrow?",
+        "translation": "明日、夕食を食べに行きませんか。"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "明日、一緒に夕食を食べに出かけませんか（相談する誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 202,
+      "question": {
+        "text": "Would you like to join us?",
+        "translation": "私たちと一緒に来ませんか？"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私たちに加わりませんか（丁寧な誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 203,
+      "question": {
+        "text": "Would you like to go shopping with me?",
+        "translation": "私と一緒に買い物に行きませんか？"
+      },
+      "card": "offer",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私と一緒に買い物に行きませんか（丁寧な誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 204,
+      "question": {
+        "text": "What do you think of her idea?",
+        "translation": "彼女の考えをどう思いますか。"
+      },
+      "card": "opinion",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "彼女の考えをどう思いますか。",
+      "formNote": ""
+    },
+    {
+      "number": 205,
+      "question": {
+        "text": "I think this answer is right.",
+        "translation": "私はこの答えが正しいと思います。"
+      },
+      "card": "opinion",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私はこの答えが正しいと思います。",
+      "formNote": "思う内容を直接続け、接続詞は省く"
+    },
+    {
+      "number": 206,
+      "question": {
+        "text": "I hope you have a nice trip.",
+        "translation": "楽しい旅行になりますように。"
+      },
+      "card": "opinion",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "あなたが楽しい旅行をすることを願っています。",
+      "formNote": ""
+    },
+    {
+      "number": 207,
+      "question": {
+        "text": "I'll show you the way.",
+        "translation": "私があなたに道を案内します（I'llを使う）。"
+      },
+      "card": "give",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私があなたに道を案内します（申し出・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 208,
+      "question": {
+        "text": "Please show me the way.",
+        "translation": "私に道を教えてください。"
+      },
+      "card": "give",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "どうか私に道を示して、案内してください。",
+      "formNote": ""
+    },
+    {
+      "number": 209,
+      "question": {
+        "text": "Tell me what happened yesterday.",
+        "translation": "昨日何が起きたか私に話してください。"
+      },
+      "card": "give",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "昨日何が起きたか私に話してください。",
+      "formNote": ""
+    },
+    {
+      "number": 210,
+      "question": {
+        "text": "My mother told me to be careful.",
+        "translation": "私の母は私に気をつけるよう言いました。"
+      },
+      "card": "tell-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私の母は私に気をつけるよう言いました。",
+      "formNote": ""
+    },
+    {
+      "number": 211,
+      "question": {
+        "text": "My teacher asked us to be quiet.",
+        "translation": "私の先生は私たちに静かにするよう言いました。"
+      },
+      "card": "tell-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私の先生は私たちに静かにするよう頼みました。",
+      "formNote": ""
+    },
+    {
+      "number": 212,
+      "question": {
+        "text": "My teacher told me to study harder.",
+        "translation": "私の先生は私にもっと一生懸命勉強するよう言いました。"
+      },
+      "card": "tell-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私の先生は私にもっと一生懸命勉強するよう言いました。",
+      "formNote": ""
+    },
+    {
+      "number": 213,
+      "question": {
+        "text": "My parents asked me to come home early.",
+        "translation": "私の両親は私に早く帰宅するよう頼みました。"
+      },
+      "card": "tell-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私の両親は私に早く帰宅するよう頼みました。",
+      "formNote": ""
+    },
+    {
+      "number": 214,
+      "question": {
+        "text": "Please tell me how to get there.",
+        "translation": "そこへの行き方を教えてください。"
+      },
+      "card": "how-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "どうか私に、そこへの行き方を教えてください。",
+      "formNote": "疑問の表現の後に不定詞を続ける"
+    },
+    {
+      "number": 215,
+      "question": {
+        "text": "I want to learn how to cook.",
+        "translation": "私は料理の仕方を学びたいです。"
+      },
+      "card": "how-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私は料理の仕方を学びたいです。",
+      "formNote": ""
+    },
+    {
+      "number": 216,
+      "question": {
+        "text": "Can you tell me how to use this?",
+        "translation": "私にこれの使い方を教えてくれますか。"
+      },
+      "card": "how-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "これの使い方を私に教えてくれますか（依頼）。",
+      "formNote": ""
+    },
+    {
+      "number": 217,
+      "question": {
+        "text": "It is important to eat breakfast.",
+        "translation": "朝食を食べることは大切です。"
+      },
+      "card": "it-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "朝食を食べることは大切です（仮の主語を置く）。",
+      "formNote": ""
+    },
+    {
+      "number": 218,
+      "question": {
+        "text": "It is easy for me to read this book.",
+        "translation": "私にとってこの本を読むのは簡単です。"
+      },
+      "card": "it-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "私にとってこの本を読むのは簡単です（仮の主語を置く）。",
+      "formNote": ""
+    },
+    {
+      "number": 219,
+      "question": {
+        "text": "It is important to keep your room clean.",
+        "translation": "自分の部屋をきれいにしておくことは大切です。"
+      },
+      "card": "it-to",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "自分の部屋をきれいにしておくことは大切です（仮の主語を置く）。",
+      "formNote": ""
+    },
+    {
+      "number": 220,
+      "question": {
+        "text": "It takes about fifteen minutes.",
+        "translation": "だいたい15分かかります。"
+      },
+      "card": "take-time",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "だいたい15分かかります。",
+      "formNote": ""
+    },
+    {
+      "number": 221,
+      "question": {
+        "text": "How long does it take by bus?",
+        "translation": "バスでどのくらいかかりますか？"
+      },
+      "card": "take-time",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "バスでどのくらい時間がかかりますか？",
+      "formNote": ""
+    },
+    {
+      "number": 222,
+      "question": {
+        "text": "It took us an hour to get there.",
+        "translation": "そこへ行くのに私たちは1時間かかりました。"
+      },
+      "card": "take-time",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "そこへ行くのに私たちは1時間かかりました。",
+      "formNote": ""
+    },
+    {
+      "number": 223,
+      "question": {
+        "text": "Anything else?",
+        "translation": "ほかに何かありますか。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "（注文を聞いた店員が短く）ほかに何か？",
+      "formNote": ""
+    },
+    {
+      "number": 224,
+      "question": {
+        "text": "That's all, thanks.",
+        "translation": "それで全部です、ありがとう（That'sを使う）。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "それで全部です、ありがとう（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 225,
+      "question": {
+        "text": "Here you are.",
+        "translation": "はい、どうぞ。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "はい、どうぞ（物を渡すとき）。",
+      "formNote": ""
+    },
+    {
+      "number": 226,
+      "question": {
+        "text": "No, thank you. I'm full.",
+        "translation": "いいえ、結構です。おなかがいっぱいです（I'mを使う）。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "いいえ、結構です。おなかがいっぱいです（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 227,
+      "question": {
+        "text": "Attention, please.",
+        "translation": "ご注意ください。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "みなさん、注目してください。",
+      "formNote": ""
+    },
+    {
+      "number": 228,
+      "question": {
+        "text": "Not very good.",
+        "translation": "あまりよくありません。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "あまりよくありません。",
+      "formNote": ""
+    },
+    {
+      "number": 229,
+      "question": {
+        "text": "Twice a week.",
+        "translation": "週に二回です。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "週に二回です。",
+      "formNote": ""
+    },
+    {
+      "number": 230,
+      "question": {
+        "text": "Just a moment, please.",
+        "translation": "少々お待ちください。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "ほんの少しだけお待ちください（短い依頼）。",
+      "formNote": ""
+    },
+    {
+      "number": 231,
+      "question": {
+        "text": "Thank you for your help.",
+        "translation": "手伝ってくれてありがとう（your helpを使う）。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "手伝ってくれてありがとう（手助けへの感謝）。",
+      "formNote": ""
+    },
+    {
+      "number": 232,
+      "question": {
+        "text": "Sounds nice.",
+        "translation": "すてきですね。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "よさそうですね（聞いた印象・主語を省略）。",
+      "formNote": ""
+    },
+    {
+      "number": 233,
+      "question": {
+        "text": "Why not?",
+        "translation": "いいですね（提案への返事）。"
+      },
+      "card": "conversation",
+      "band": 3,
+      "origin": "keep",
+      "meaning": "（誘いへの返事）断る理由はないですね。いいですよ。",
+      "formNote": ""
+    }
+  ]
+}

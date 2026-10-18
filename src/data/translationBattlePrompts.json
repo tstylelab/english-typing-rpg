@@ -6282,16 +6282,16 @@
     "alternatives": [
       {
         "text": "May I have",
-        "note": "丁寧に求める"
+        "note": "丁寧に求める別の形"
       },
       {
         "text": "Could I have",
-        "note": "丁寧に求める"
+        "note": "丁寧に求める別の形"
       }
     ],
     "contrasts": [],
-    "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
   },
   {
     "course": "Eiken4",
@@ -6856,13 +6856,17 @@
     "meaning": "あなたの辞書を使わせていただいてもよいですか（丁寧に許可を求める）。",
     "alternatives": [
       {
+        "text": "Can I",
+        "note": "許可を求める別の形"
+      },
+      {
         "text": "Could I",
-        "note": "丁寧に許可を求める"
+        "note": "丁寧に許可を求める別の形"
       }
     ],
     "contrasts": [],
-    "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
   },
   {
     "course": "Eiken4",
@@ -6873,13 +6877,17 @@
     "meaning": "ドアを開けていただけますか（丁寧な依頼）。",
     "alternatives": [
       {
-        "text": "would you",
-        "note": "丁寧な依頼の別表現"
+        "text": "Can you",
+        "note": "依頼する別の形"
+      },
+      {
+        "text": "Would you",
+        "note": "丁寧に依頼する別の形"
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
   },
   {
     "course": "Eiken4",
@@ -6924,8 +6932,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "「みんな」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。どちらも動詞は単数扱いです。"
   },
   {
     "course": "Eiken4",
@@ -6941,8 +6949,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
   },
   {
     "course": "Eiken4",
@@ -6966,12 +6974,16 @@
     "alternatives": [
       {
         "text": "Could you",
-        "note": "丁寧な依頼"
+        "note": "丁寧に依頼する別の形"
+      },
+      {
+        "text": "Would you",
+        "note": "丁寧に依頼する別の形"
       }
     ],
     "contrasts": [],
-    "reason": "日本語の用法だけでは重なる自然な表現を、短い比較として表示。綴り・文字数のヒントには戻さない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。"
   },
   {
     "course": "Eiken4",
@@ -7086,8 +7098,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "「だれも〜ない」を表す代名詞を主語にします。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。"
   },
   {
     "course": "Eiken4",
@@ -7103,8 +7115,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "「だれか」を表す代名詞で尋ねます。上の別表現とは別の代名詞で練習します。別表現も自然です。"
   },
   {
     "course": "Eiken4",
@@ -7115,13 +7127,17 @@
     "meaning": "あなたに質問してもよろしいですか（丁寧に許可を求める）。",
     "alternatives": [
       {
-        "text": "could I",
-        "note": "丁寧に許可を求める"
+        "text": "Can I",
+        "note": "許可を求める別の形"
+      },
+      {
+        "text": "Could I",
+        "note": "丁寧に許可を求める別の形"
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
   },
   {
     "course": "Eiken4",
@@ -7299,8 +7315,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "存在を表す文で、だれもいないことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
   },
   {
     "course": "Eiken4",
@@ -7316,8 +7332,8 @@
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "過去の存在を表す文で、だれもいなかったことを伝えます。上の別表現とは別の代名詞で練習します。別表現も意味は同じです。短縮しない形で。"
   },
   {
     "course": "Eiken4",
@@ -7328,13 +7344,17 @@
     "meaning": "今日あなたの傘をお借りしてもよいですか（丁寧に許可を求める）。",
     "alternatives": [
       {
-        "text": "may I",
-        "note": "丁寧に許可を求める"
+        "text": "Can I",
+        "note": "許可を求める別の形"
+      },
+      {
+        "text": "May I",
+        "note": "丁寧に許可を求める別の形"
       }
     ],
     "contrasts": [],
-    "reason": "学習対象の意味を短く補足し、重なる別表現を示す。例文の内容には限定しない。",
-    "formNote": ""
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。",
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、許可を求める練習をします。"
   },
   {
     "course": "Eiken4",
@@ -42225,5 +42245,434 @@
     "contrasts": [],
     "formNote": "テニスをする能力があるかを、能力を表す助動詞で尋ねます。",
     "reason": "5級の基本文型の補強：複数の主語でも能力の疑問文の型は同じ。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "Could you show me your textbook?",
+    "translation": "私にあなたの教科書を見せてくれますか。",
+    "previousMeaning": "私にあなたの教科書を見せていただけますか。",
+    "meaning": "私にあなたの教科書を見せていただけますか。",
+    "alternatives": [
+      {
+        "text": "Can you",
+        "note": "依頼する別の形"
+      },
+      {
+        "text": "Would you",
+        "note": "丁寧に依頼する別の形"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "上の別表現も自然な英語です。この問題では、そこに表示した助動詞以外の形で、丁寧に依頼する練習をします。",
+    "reason": "和訳だけでは同じ意味の別表現も成立するため、今回は表示された別表現以外の構文を練習することを明示。別表現を誤りとは扱わない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "I did not play tennis yesterday.",
+    "translation": "私は昨日テニスをしませんでした。",
+    "grammarPoint": {
+      "label": "一般動詞の過去の否定",
+      "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+      "pattern": "主語 + did not + 動詞の原形"
+    },
+    "previousMeaning": "私は昨日テニスをしませんでした。",
+    "meaning": "私は昨日テニスをしませんでした。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "She did not buy that bag.",
+    "translation": "彼女はあのかばんを買いませんでした。",
+    "grammarPoint": {
+      "label": "一般動詞の過去の否定",
+      "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+      "pattern": "主語 + did not + 動詞の原形"
+    },
+    "previousMeaning": "彼女はあのかばんを買いませんでした。",
+    "meaning": "彼女はあのかばんを買いませんでした。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "We did not go to school yesterday.",
+    "translation": "私たちは昨日学校へ行きませんでした。",
+    "grammarPoint": {
+      "label": "一般動詞の過去の否定",
+      "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+      "pattern": "主語 + did not + 動詞の原形"
+    },
+    "previousMeaning": "私たちは昨日学校へ行きませんでした。",
+    "meaning": "私たちは昨日学校へ行きませんでした。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "Did he study English last night?",
+    "translation": "彼は昨夜英語を勉強しましたか？",
+    "grammarPoint": {
+      "label": "一般動詞の過去の疑問",
+      "note": "didを主語の前に置き、studyは過去形にしません。",
+      "pattern": "Did + 主語 + 動詞の原形?"
+    },
+    "previousMeaning": "彼は昨夜英語を勉強しましたか？",
+    "meaning": "彼は昨夜英語を勉強しましたか？",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "一般動詞の過去の疑問文。主語の前に過去の疑問を作る語を置き、勉強する動詞はもとの形にします。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "I went to the library to study.",
+    "translation": "私は勉強するために図書館へ行きました。",
+    "grammarPoint": {
+      "label": "目的の不定詞",
+      "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+      "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+    },
+    "previousMeaning": "私は勉強するために図書館へ行きました。",
+    "meaning": "私は勉強するために図書館へ行きました。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "She got up early to make breakfast.",
+    "translation": "彼女は朝食を作るために早く起きました。",
+    "grammarPoint": {
+      "label": "目的の不定詞",
+      "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+      "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+    },
+    "previousMeaning": "彼女は朝食を作るために早く起きました。",
+    "meaning": "彼女は朝食を作るために早く起きました。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。 起きるのは寝床から起きることです。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "We went to the park to play soccer.",
+    "translation": "私たちはサッカーをするために公園へ行きました。",
+    "grammarPoint": {
+      "label": "目的の不定詞",
+      "note": "to＋動詞の原形で、先に述べた行動の目的を伝えます。",
+      "pattern": "主語 + 動詞 + 場所など + to + 動詞の原形"
+    },
+    "previousMeaning": "私たちはサッカーをするために公園へ行きました。",
+    "meaning": "私たちはサッカーをするために公園へ行きました。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "何をしたかを先に述べ、目的を不定詞で続けます。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "I was late because I missed the bus.",
+    "translation": "私はバスに乗り遅れたので遅刻しました。",
+    "grammarPoint": {
+      "label": "理由をつなぐ",
+      "note": "becauseの後ろに理由となる主語と動詞を続けます。",
+      "pattern": "結果の文 + because + 理由の文"
+    },
+    "previousMeaning": "私はバスに乗り遅れたので遅刻しました。",
+    "meaning": "私はバスに乗り遅れたので遅刻しました。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "結果を先に述べ、理由を表す接続詞の後ろに文を続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "She is happy because she passed the test.",
+    "translation": "彼女はその試験に合格したのでうれしいです。",
+    "grammarPoint": {
+      "label": "理由をつなぐ",
+      "note": "becauseの後ろに理由となる主語と動詞を続けます。",
+      "pattern": "結果の文 + because + 理由の文"
+    },
+    "previousMeaning": "彼女はその試験に合格したのでうれしいです。",
+    "meaning": "彼女はその試験に合格したのでうれしいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "結果を先に述べ、理由を表す接続詞の後ろに文を続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "If it is sunny, we will play outside.",
+    "translation": "もし晴れたら、私たちは外で遊びます。",
+    "grammarPoint": {
+      "label": "条件と未来",
+      "note": "ifの節はisのまま。結果を表す節でwillを使います。",
+      "pattern": "If + 主語 + 現在形, 主語 + will + 動詞の原形"
+    },
+    "previousMeaning": "もし晴れたら、私たちは外で遊びます。",
+    "meaning": "もし晴れたら、私たちは外で遊びます。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "条件の節を先に置きます。未来の条件でも、その節の動詞は現在形にします。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "If you are tired, you should rest.",
+    "translation": "もし疲れているなら、あなたは休んだほうがよいです。",
+    "grammarPoint": {
+      "label": "条件をつなぐ",
+      "note": "ifが未来の条件を表す節では現在形を使い、その結果を後ろに続けます。",
+      "pattern": "If + 主語 + 現在形, 結果の文"
+    },
+    "previousMeaning": "もし疲れているなら、あなたは休んだほうがよいです。",
+    "meaning": "もし疲れているなら、あなたは休んだほうがよいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "条件の節を先に置きます。未来の条件でも、その節の動詞は現在形にします。短縮しない形で。 結果の節は助言を表す助動詞で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "I will call you after I finish my homework.",
+    "translation": "私は自分の宿題を終えたら、あなたに電話します。",
+    "grammarPoint": {
+      "label": "時をつなぐ",
+      "note": "afterの後ろに名詞だけでなく文を続け、何が済んだ後かを説明します。未来の時を表す節は現在形です。",
+      "pattern": "文 + after + 主語 + 動詞"
+    },
+    "previousMeaning": "私は自分の宿題を終えたら、あなたに電話します。",
+    "meaning": "私は自分の宿題を終えたら、あなたに電話します。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "何をするか・したかを先に述べ、その後に「〜した後で」を表す接続詞と文を続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "She went home after she finished her work.",
+    "translation": "彼女は自分の仕事を終えた後で帰宅しました。",
+    "grammarPoint": {
+      "label": "時をつなぐ",
+      "note": "afterの後ろに名詞だけでなく文を続け、何が済んだ後かを説明します。未来の時を表す節は現在形です。",
+      "pattern": "文 + after + 主語 + 動詞"
+    },
+    "previousMeaning": "彼女は自分の仕事を終えた後で帰宅しました。",
+    "meaning": "彼女は自分の仕事を終えた後で帰宅しました。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "何をするか・したかを先に述べ、その後に「〜した後で」を表す接続詞と文を続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "This bag is too heavy for me.",
+    "translation": "このかばんは私には重すぎます。",
+    "grammarPoint": {
+      "label": "程度を表すtoo",
+      "note": "too＋形容詞で「〜すぎる」。for meを添えて、だれにとってそうなのかを示します。",
+      "pattern": "主語 + be動詞 + too + 形容詞 + for 人"
+    },
+    "previousMeaning": "このかばんは私には重すぎます。",
+    "meaning": "このかばんは私には重すぎます。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "These shoes are too small for me.",
+    "translation": "これらの靴は私には小さすぎます。",
+    "grammarPoint": {
+      "label": "程度を表すtoo",
+      "note": "too＋形容詞で「〜すぎる」。for meを添えて、だれにとってそうなのかを示します。",
+      "pattern": "主語 + be動詞 + too + 形容詞 + for 人"
+    },
+    "previousMeaning": "これらの靴は私には小さすぎます。",
+    "meaning": "これらの靴は私には小さすぎます。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "My bike is as new as yours.",
+    "translation": "私の自転車はあなたのと同じくらい新しいです。",
+    "grammarPoint": {
+      "label": "同等比較",
+      "note": "newをasとasではさみます。yoursはyour bikeを表します。",
+      "pattern": "as + 形容詞の原級 + as"
+    },
+    "previousMeaning": "私の自転車はあなたのと同じくらい新しいです。",
+    "meaning": "私の自転車はあなたのと同じくらい新しいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "同等比較を使い、「あなたの自転車」は所有を表す代名詞で。自転車は短い呼び方を使います。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "This test is not as easy as that one.",
+    "translation": "この試験はあの試験ほど簡単ではありません。",
+    "grammarPoint": {
+      "label": "同等比較の否定",
+      "note": "not as … asで比較します。that oneのoneはtestの繰り返しを避ける語です。",
+      "pattern": "not as + 形容詞の原級 + as"
+    },
+    "previousMeaning": "この試験はあの試験ほど簡単ではありません。",
+    "meaning": "この試験はあの試験ほど簡単ではありません。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "同等比較を否定する形で。あの試験は、同じ名詞の繰り返しを避ける代名詞で表します。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "You should not eat too much.",
+    "translation": "あなたは食べすぎないほうがよいです。",
+    "grammarPoint": {
+      "label": "助言の否定",
+      "note": "should notは「しないほうがよい」。禁止のmust notとは強さが違います。",
+      "pattern": "主語 + should not + 動詞の原形"
+    },
+    "previousMeaning": "あなたは食べすぎないほうがよいです。",
+    "meaning": "あなたは食べすぎないほうがよいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "助言を表す助動詞を否定し、食べる動詞、量が多すぎる表現と続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "You should not stay up late.",
+    "translation": "あなたは夜更かしをしないほうがよいです。",
+    "grammarPoint": {
+      "label": "助言の否定",
+      "note": "should notの後ろにstay up late（夜更かしする）を続けます。",
+      "pattern": "主語 + should not + 動詞の原形"
+    },
+    "previousMeaning": "あなたは夜更かしをしないほうがよいです。",
+    "meaning": "あなたは夜更かしをしないほうがよいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "助言を表す助動詞を否定します。寝ないで起きていることを表す熟語で夜更かしを伝えます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "This book is better than that one.",
+    "translation": "この本はあの本よりよいです。",
+    "grammarPoint": {
+      "label": "不規則な比較級",
+      "note": "goodの比較級はbetterです。more goodやgooderにはしません。",
+      "pattern": "better + than + 比べる相手"
+    },
+    "previousMeaning": "この本はあの本よりよいです。",
+    "meaning": "この本はあの本よりよいです。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "「よい」の比較級で。あの本は、同じ名詞の繰り返しを避ける代名詞で表します。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "They were not watching TV then.",
+    "translation": "彼らはそのときテレビを見ていませんでした。",
+    "grammarPoint": {
+      "label": "過去進行形の否定",
+      "note": "複数の主語なのでwereを使い、not＋watchingと続けます。",
+      "pattern": "主語 + were not + 動詞ing"
+    },
+    "previousMeaning": "彼らはそのときテレビを見ていませんでした。",
+    "meaning": "彼らはそのときテレビを見ていませんでした。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "そのとき進行中だった動作を否定します。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "Is she going to visit Kyoto tomorrow?",
+    "translation": "彼女は明日京都を訪ねる予定ですか？",
+    "grammarPoint": {
+      "label": "予定の疑問文",
+      "note": "be going toの疑問文では、be動詞を主語の前に出します。",
+      "pattern": "Is + she + going to + 動詞の原形?"
+    },
+    "previousMeaning": "彼女は明日京都を訪ねる予定ですか？",
+    "meaning": "彼女は明日京都を訪ねる予定ですか？",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "前から決めていた予定を、進行形に似た未来の構文で尋ねます。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "He did not come to the party.",
+    "translation": "彼はそのパーティーに来ませんでした。",
+    "grammarPoint": {
+      "label": "一般動詞の過去の否定",
+      "note": "did notの後ろは動詞の原形です。過去形を重ねません。",
+      "pattern": "主語 + did not + 動詞の原形"
+    },
+    "previousMeaning": "彼はそのパーティーに来ませんでした。",
+    "meaning": "彼はそのパーティーに来ませんでした。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "一般動詞の過去の否定文。否定の部分は短縮しない形で、動作の動詞はもとの形にします。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
+  },
+  {
+    "course": "Eiken4",
+    "level": 3,
+    "text": "This shirt is too big for me.",
+    "translation": "このシャツは私には大きすぎます。",
+    "grammarPoint": {
+      "label": "too＋形容詞",
+      "note": "too bigで「大きすぎる」、for meで「私には」と、基準になる人を伝えます。",
+      "pattern": "be動詞 + too + 形容詞 + for 人"
+    },
+    "previousMeaning": "このシャツは私には大きすぎます。",
+    "meaning": "このシャツは私には大きすぎます。",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "「〜すぎる」を表す副詞、形容詞、「私には」の順に続けます。短縮しない形で。",
+    "reason": "4級の不足する文型の補強。日本語で文法上の条件を示し、正解の綴りは出さない。"
   }
 ]

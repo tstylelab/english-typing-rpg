@@ -1,4 +1,5 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
+import { grade4Foundations } from './questionSets/eiken/grade4';
 import grade3 from './questionSets/eiken/grade3';
 import pre2, { legacyPre2Sentences } from './questionSets/eiken/pre2';
 import grade2 from './questionSets/eiken/grade2';
@@ -6,6 +7,7 @@ import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
 
 // Resolve saved review questions too: older storage normalizers only retain text/meaning.
 const grade3Points = new Map(grade3.levels['3'].map(q => [q.text, q.grammarPoint]));
+const grade4Points = new Map(grade4Foundations.map(entry => [entry.question.text, 'grammarPoint' in entry.question ? entry.question.grammarPoint : undefined]));
 const pre2Points = new Map([...legacyPre2Sentences, ...pre2.levels['3']].map(q => [q.text, q.grammarPoint]));
 const grade2Points = new Map(grade2.levels['3'].map(q => [q.text, q.grammarPoint]));
 const grade1Part1Points = new Map(grade1Part1.levels['3'].map(q => [q.text, q.grammarPoint]));
@@ -18,6 +20,8 @@ export type QuestionGrammarPoint = {
 };
 
 const FIXED_EXPRESSIONS: Record<string, QuestionGrammarPoint> = {
+  'I forgot to bring my homework today.': { label: 'forget to：し忘れる', note: 'forget to＋動詞の原形で、するはずだった行為をし忘れたと伝えます。このto以下は目的ではなく、忘れた行為の内容です。', pattern: 'forget / forgot + to + 動詞の原形' },
+  'My dream is to be a pilot.': { label: '不定詞：夢の内容', note: 'to be a pilotが「パイロットになること」という名詞の働きをして、夢の内容を説明します。', pattern: 'My dream + is + to + 動詞の原形' },
   // New practice has explicit targets, avoiding misleading generic regex labels.
   'Ken is as tall as Tom.': { label: '同等比較', note: '同じくらいの高さをasとasではさんで伝えます。', pattern: 'as + 形容詞 + as' },
   'This bag is not as heavy as yours.': { label: '同等比較の否定', note: 'not as … asで「〜ほど…ではない」と比べます。', pattern: 'not as + 形容詞 + as' },
@@ -220,5 +224,5 @@ export const getQuestionGrammarPoint = (
   if (difficulty === 'Eiken1Part1' && level === 3) return grade1Part1Points.get(question.text) ?? null;
   if (difficulty === 'Eiken1Part2' && level === 3) return grade1Part2Points.get(question.text) ?? null;
   if (difficulty !== 'Eiken4' || level !== 3) return null;
-  return getEiken4Level3GrammarPoint(question.text);
+  return grade4Points.get(question.text) ?? getEiken4Level3GrammarPoint(question.text);
 };

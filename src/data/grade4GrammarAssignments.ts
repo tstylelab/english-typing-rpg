@@ -1,5 +1,7 @@
-// Reviewed per sentence. Do not infer teaching targets from overlapping keywords.
-export const grade4GrammarAssignments: Record<string, string> = {
+import foundationAssignments from './grade4FoundationAssignments.json';
+
+// Reviewed per sentence. Keep all published targets for saved questions and bookmarks.
+export const legacyGrade4GrammarAssignments: Record<string, string> = {
   "It's two thousand yen.": "foundation",
   "It looks good.": "foundation",
   "It's warm today.": "foundation",
@@ -209,4 +211,9 @@ export const grade4GrammarAssignments: Record<string, string> = {
   "I was not sleeping then.": "past-progressive",
   "I will not go out tonight.": "future-will",
   "We are not going to swim today.": "future-going",
+};
+
+export const grade4GrammarAssignments: Record<string, string> = {
+  ...legacyGrade4GrammarAssignments,
+  ...foundationAssignments,
 };

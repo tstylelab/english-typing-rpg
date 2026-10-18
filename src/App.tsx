@@ -24,6 +24,7 @@ import PlaybackSettingsDialog from './PlaybackSettingsDialog';
 import PlaybackTargetsButton from './PlaybackTargetsButton';
 import { getGrade3CurriculumLimit } from './data/questionSets/eiken/grade3';
 import { getGrade5FoundationLimit } from './data/questionSets/eiken/grade5';
+import { getGrade4FoundationLimit } from './data/questionSets/eiken/grade4';
 import { getPre2CurriculumLimit } from './data/questionSets/eiken/pre2';
 import { getGrade2CurriculumLimit } from './data/questionSets/eiken/grade2';
 import { getPre2BaseHp, getPre2BossHpMultiplier, getPre2QuestionLimit, getPre2MissMultiplier } from './data/pre2Balance';
@@ -6703,7 +6704,7 @@ export default function App() {
           : diff === 'Eiken4' && mode === 'guide' && level === 2
             ? (stageIndex < 7 ? 45 : stageIndex < 14 ? 110 : Infinity)
             : diff === 'Eiken4' && mode === 'guide' && level === 3
-              ? (stageIndex < 7 ? 20 : stageIndex < 14 ? 75 : Infinity)
+              ? getGrade4FoundationLimit(stageIndex)
               : Infinity
     );
     const courseList = curriculumLimit === Infinity

@@ -99,7 +99,7 @@ export const grade4GrammarCards: GrammarCard[] = [
   { id:'to-noun', section:2, title:'want to・need to', subtitle:'不定詞：〜したい・〜する必要がある', term:'to＋動詞（不定詞）', pattern:'want / need / hope ＋ to ＋ 動詞のもとの形',
     examples:[['I want to buy some flowers.','花をいくつか買いたいです。'],['My dream is to be a pilot.','私の夢はパイロットになることです。']],
     tip:'to buy＝買うこと、と動作をひとまとまりにします。want＋物は「物がほしい」、want to＋動詞は「〜したい」です。',
-    more:'need to …＝〜する必要がある、hope to …＝〜することを望む。forget to bring … は「持ってくることを忘れる」。to school（学校へ）のtoとは、後ろに続く言葉が違います。' },
+    more:'need to …＝〜する必要がある、hope to …＝〜することを望む。forget to bring … は「持ってくることを忘れる」で、to以下はし忘れた行為の内容です。目的を表す「〜するために」とは区別します。My dream is to be a pilot. のto以下は夢の内容。to school（学校へ）のtoとは、後ろに続く言葉が違います。' },
   { id:'to-purpose', section:2, title:'to buy・to play', subtitle:'不定詞（目的）：〜するために', term:'目的を表す不定詞', pattern:'すること ＋ to ＋ 動詞のもとの形',
     examples:[['He stopped at a store to buy some water.','彼は水を買うために店に立ち寄りました。'],['I went to the park to play tennis.','私はテニスをするために公園へ行きました。']],
     tip:'まず「何をした？」、そのあと「何のために？」と区切ってみましょう。to以下が目的を教えてくれます。',
@@ -149,6 +149,10 @@ export const grade4GrammarCards: GrammarCard[] = [
     examples:[['Here you are.','はい、どうぞ。'],['Why not?','いいですね（提案への返事）。']],
     tip:'短い返事は、前にどんな話をしていたかで意味が決まります。Why not?も、誘いへの返事なら「いいですね」です。',
     more:'Sounds nice. はThat sounds nice. のように主語が省略された形。Anything else?は「ほかに何か？」。Twice a week.は頻度への返事です。省略形を全ての作文にそのまま使うのではなく、会話の場面と結びつけましょう。' },
+  { id:'too', section:1, title:'too heavy・too small', subtitle:'程度：〜すぎる', term:'too＋形容詞', pattern:'too ＋ 形容詞 ＋ for 人',
+    examples:[['This bag is too heavy for me.','このかばんは私には重すぎます。'],['These shoes are too small for me.','これらの靴は私には小さすぎます。']],
+    tip:'very heavyは「とても重い」、too heavyは「重すぎる」と必要な程度を超えています。for meを足すと「私には」と基準になる人を示せます。',
+    more:'単数のbag / shirtにはis、複数のshoesにはareを使います。That’s too bad. は「それは残念」という決まり文句、I like it, too. のtooは「〜も」で、働きが違います。' },
 ];
 
 const byId = new Map(grade4GrammarCards.map(card => [card.id, card]));
