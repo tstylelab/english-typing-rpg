@@ -1,7 +1,8 @@
 // Explicitly reviewed Eiken5 Level 3 links. Text keys keep
 // saved results compatible even when the question order changes.
 // Keep links for the 20 retired overlapping questions so old results still open their guide.
-export const grade5GrammarAssignments: Record<string, string> = {
+import foundationAssignments from './grade5FoundationAssignments.json';
+export const legacyGrade5GrammarAssignments: Record<string, string> = {
   // be
   "I am a student.": 'be',
   "You are kind.": 'be',
@@ -265,3 +266,4 @@ export const grade5GrammarAssignments: Record<string, string> = {
   "It is three o'clock.": 'weather',
   "I am ten years old.": 'wh',
 };
+export const grade5GrammarAssignments: Record<string, string> = { ...legacyGrade5GrammarAssignments, ...foundationAssignments };

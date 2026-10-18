@@ -1,0 +1,1826 @@
+[
+  {
+    "question": {
+      "text": "We are friends.",
+      "translation": "私たちは友達です。"
+    },
+    "card": "subjects",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "They are happy.",
+      "translation": "彼らは幸せです。"
+    },
+    "card": "subjects",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I have a book.",
+      "translation": "私は本を1冊持っています。"
+    },
+    "card": "word-types",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I am a student.",
+      "translation": "私は生徒です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "You are kind.",
+      "translation": "あなたは親切です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He is my teacher.",
+      "translation": "彼は私の先生です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She is a nurse.",
+      "translation": "彼女は看護師です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "It is a dog.",
+      "translation": "それは犬です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My father is busy.",
+      "translation": "私の父は忙しいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My mother is kind.",
+      "translation": "私の母は親切です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "The dog is cute.",
+      "translation": "その犬はかわいいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "The flower is red.",
+      "translation": "その花は赤いです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "His car is new.",
+      "translation": "彼の車は新しいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Her dress is nice.",
+      "translation": "彼女のドレスは素敵です。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Our school is big.",
+      "translation": "私たちの学校は大きいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Their house is small.",
+      "translation": "彼らの家は小さいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My shoes are black.",
+      "translation": "私の靴は黒いです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This book is easy.",
+      "translation": "この本はやさしいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "That room is clean.",
+      "translation": "あの部屋はきれいです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My brother is tall.",
+      "translation": "私の兄（弟）は背が高いです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My sister is young.",
+      "translation": "私の姉（妹）は若いです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My family is nice.",
+      "translation": "私の家族はすてきです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "The library is quiet.",
+      "translation": "その図書館は静かです。"
+    },
+    "card": "be",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I like music.",
+      "translation": "私は音楽が好きです。"
+    },
+    "card": "word-order",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I play tennis.",
+      "translation": "私はテニスをします。"
+    },
+    "card": "word-order",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This is a pen.",
+      "translation": "これはペンです。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "That is a bird.",
+      "translation": "あれは鳥です。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This is my favorite book.",
+      "translation": "これは私の好きな本です。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "That is a very big dog.",
+      "translation": "あれはとても大きな犬です。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "These flowers are beautiful.",
+      "translation": "これらの花は美しいです。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Those apples are red.",
+      "translation": "あのりんご（複数）は赤いです。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "These are books.",
+      "translation": "これらは本です。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Those are birds.",
+      "translation": "あれらは鳥です。"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Is that a cat?",
+      "translation": "あれは猫ですか？"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "What are these?",
+      "translation": "これらは何ですか？"
+    },
+    "card": "demonstratives",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I'm a student.",
+      "translation": "私は生徒です（I amの短い形で）。"
+    },
+    "card": "contractions",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "You're kind.",
+      "translation": "あなたは親切です（You areの短い形で）。"
+    },
+    "card": "contractions",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I am from Japan.",
+      "translation": "私は日本出身です。"
+    },
+    "card": "from",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Where are you from?",
+      "translation": "あなたはどこの出身ですか？"
+    },
+    "card": "from",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Is she from Canada?",
+      "translation": "彼女はカナダ出身ですか？"
+    },
+    "card": "from",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "We study English.",
+      "translation": "私たちは英語を勉強します。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "They play soccer.",
+      "translation": "彼らはサッカーをします。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I want a bike.",
+      "translation": "私は自転車が1台欲しいです。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I like apples.",
+      "translation": "私はりんごが好きです。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "We have a cat.",
+      "translation": "私たちは猫を1匹飼っています。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I walk to the park.",
+      "translation": "私は公園まで歩きます。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I read every night.",
+      "translation": "私は毎晩読書をします。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "We eat breakfast together.",
+      "translation": "私たちは一緒に朝食を食べます。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I drink milk every day.",
+      "translation": "私は毎日牛乳を飲みます。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I need a new pencil.",
+      "translation": "私は新しいえんぴつが1本必要です。"
+    },
+    "card": "verb",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He runs fast.",
+      "translation": "彼は速く走ります。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She cooks well.",
+      "translation": "彼女は上手に料理します。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He lives in Tokyo.",
+      "translation": "彼は東京に住んでいます。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She goes to school.",
+      "translation": "彼女は学校へ行きます。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Our school has a library.",
+      "translation": "私たちの学校には図書館があります。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She gets up early.",
+      "translation": "彼女は早く起きます。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He goes to bed early.",
+      "translation": "彼は早く寝ます。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She likes orange juice.",
+      "translation": "彼女はオレンジジュースが好きです。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He wants some cake.",
+      "translation": "彼はケーキを少し欲しがっています。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My father likes coffee.",
+      "translation": "私の父はコーヒーが好きです。"
+    },
+    "card": "third",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I have two dogs.",
+      "translation": "私は犬を2匹飼っています。"
+    },
+    "card": "noun",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I have a new bag.",
+      "translation": "私は新しいかばんを1つ持っています。"
+    },
+    "card": "noun",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "The children are happy.",
+      "translation": "その子どもたちはうれしそうです。"
+    },
+    "card": "noun",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This is Tom's bag.",
+      "translation": "これはトムのかばんです。"
+    },
+    "card": "noun",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "These boxes are heavy.",
+      "translation": "これらの箱は重いです。"
+    },
+    "card": "noun",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This is an egg.",
+      "translation": "これは卵です。"
+    },
+    "card": "articles",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Is this yours?",
+      "translation": "これはあなたのですか？"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "This bag is mine.",
+      "translation": "このかばんは私のものです。"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "That bike is hers.",
+      "translation": "あの自転車は彼女のものです。"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Please help him.",
+      "translation": "彼を助けてください。"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Come with us.",
+      "translation": "私たちといっしょに来てください。"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I like them.",
+      "translation": "私は彼らが好きです。"
+    },
+    "card": "pronouns",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I don't know.",
+      "translation": "私は知りません（don'tを使う）。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I am not a teacher.",
+      "translation": "私は先生ではありません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He is not busy.",
+      "translation": "彼は忙しくありません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I don't like coffee.",
+      "translation": "私はコーヒーが好きではありません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She doesn't play tennis.",
+      "translation": "彼女はテニスをしません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I am not tired.",
+      "translation": "私は疲れていません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She is not my teacher.",
+      "translation": "彼女は私の先生ではありません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "We are not hungry.",
+      "translation": "私たちはお腹が空いていません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "They are not in the classroom.",
+      "translation": "彼らは教室にいません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I don't drink coffee.",
+      "translation": "私はコーヒーを飲みません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "He doesn't like apples.",
+      "translation": "彼はりんごが好きではありません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "She doesn't have a bike.",
+      "translation": "彼女は自転車を持っていません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "My brother doesn't play soccer.",
+      "translation": "私の兄（弟）はサッカーをしません。"
+    },
+    "card": "negative",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Are you hungry?",
+      "translation": "お腹が空いていますか？"
+    },
+    "card": "be-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Are you tired?",
+      "translation": "疲れていますか？"
+    },
+    "card": "be-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Is he your brother?",
+      "translation": "彼はあなたの兄弟ですか？"
+    },
+    "card": "be-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Are they in the classroom?",
+      "translation": "彼らは教室にいますか？"
+    },
+    "card": "be-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Do you like cats?",
+      "translation": "あなたは猫が好きですか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Do you have a pen?",
+      "translation": "ペンを1本持っていますか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Do you play soccer?",
+      "translation": "あなたはサッカーをしますか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Does he have a bike?",
+      "translation": "彼は自転車を1台持っていますか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Does she like dogs?",
+      "translation": "彼女は犬が好きですか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Do they study English?",
+      "translation": "彼らは英語を勉強しますか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Does your brother play soccer?",
+      "translation": "あなたの兄（弟）はサッカーをしますか？"
+    },
+    "card": "do-question",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Yes, I am.",
+      "translation": "「あなたは生徒ですか？」に「はい、そうです」。"
+    },
+    "card": "short-answers",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "No, I'm not.",
+      "translation": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。"
+    },
+    "card": "short-answers",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Yes, she does.",
+      "translation": "「彼女は犬が好きですか？」に「はい、好きです」。"
+    },
+    "card": "short-answers",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "No, he doesn't.",
+      "translation": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。"
+    },
+    "card": "short-answers",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Who is he?",
+      "translation": "彼は誰ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "What is this?",
+      "translation": "これは何ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Where is my bag?",
+      "translation": "私のかばんはどこですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "When is your birthday?",
+      "translation": "あなたの誕生日はいつですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "How are you?",
+      "translation": "元気ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "What time is it?",
+      "translation": "何時ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Why are you sad?",
+      "translation": "なぜ悲しいのですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Whose bag is this?",
+      "translation": "これは誰のかばんですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Where is the station?",
+      "translation": "駅はどこですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "What is your name?",
+      "translation": "あなたの名前は何ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "What color is it?",
+      "translation": "それは何色ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Who is your teacher?",
+      "translation": "あなたの先生は誰ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "How old are you?",
+      "translation": "あなたは何歳ですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "How is the weather?",
+      "translation": "天気はどうですか？"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "I am ten years old.",
+      "translation": "私は10歳です（years oldを使って）。"
+    },
+    "card": "wh",
+    "band": 1
+  },
+  {
+    "question": {
+      "text": "Yes, I can.",
+      "translation": "「あなたは泳げますか？」に「はい、泳げます」。"
+    },
+    "card": "short-answers",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "No, I can't.",
+      "translation": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。"
+    },
+    "card": "short-answers",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What do you do after school?",
+      "translation": "放課後は何をしますか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Where do you live?",
+      "translation": "どこに住んでいますか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "When do you study?",
+      "translation": "いつ勉強しますか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "How do you come to school?",
+      "translation": "どうやって学校に来ますか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Which color do you like?",
+      "translation": "どの色が好きですか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What time do you go to bed?",
+      "translation": "あなたは何時に寝床に入りますか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Why do you like cats?",
+      "translation": "あなたはなぜ猫が好きなのですか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Whose shoes are these?",
+      "translation": "これらは誰の靴ですか？"
+    },
+    "card": "wh",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Where does he live?",
+      "translation": "彼はどこに住んでいますか？"
+    },
+    "card": "wh-does",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What does she want?",
+      "translation": "彼女は何がほしいですか？"
+    },
+    "card": "wh-does",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What time does she get up?",
+      "translation": "彼女は何時に起きますか？"
+    },
+    "card": "wh-does",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "How does your brother go to school?",
+      "translation": "あなたの兄（弟）はどうやって学校へ行きますか？"
+    },
+    "card": "wh-does",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What does he do after school?",
+      "translation": "彼は放課後に何をしますか？"
+    },
+    "card": "wh-does",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "How many books do you have?",
+      "translation": "あなたは本を何冊持っていますか？"
+    },
+    "card": "quantity",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "How much is it?",
+      "translation": "いくらですか？"
+    },
+    "card": "quantity",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I need some water.",
+      "translation": "私は水が少し必要です。"
+    },
+    "card": "amounts",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I don't have any pencils.",
+      "translation": "私はえんぴつを1本も持っていません。"
+    },
+    "card": "amounts",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Do you have any brothers?",
+      "translation": "あなたには男のきょうだいがいますか？"
+    },
+    "card": "amounts",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Can you swim?",
+      "translation": "あなたは泳げますか？"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I can't play the piano.",
+      "translation": "私はピアノが弾けません（can'tを使う）。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I can ride a bike.",
+      "translation": "私は自転車に乗れます。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Can she sing well?",
+      "translation": "彼女は上手に歌えますか？"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Can he use a computer?",
+      "translation": "彼はコンピューターを使えますか？"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I cannot run fast.",
+      "translation": "私は速く走れません（短縮しないcannotを使う）。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "She cannot swim today.",
+      "translation": "彼女は今日泳げません（短縮しないcannotを使う）。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "My mother can cook well.",
+      "translation": "私の母は上手に料理できます。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "He can swim.",
+      "translation": "彼は泳げます。"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Can they play tennis?",
+      "translation": "彼らはテニスができますか？"
+    },
+    "card": "can",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Open the door.",
+      "translation": "ドアを開けてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Close your book.",
+      "translation": "あなたの本を閉じてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Stand up, please.",
+      "translation": "立ってください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Sit down, please.",
+      "translation": "座ってください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Look at the sky.",
+      "translation": "空を見てください (視線を向ける)。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Listen to me.",
+      "translation": "私の話を聞いてください (耳を傾ける)。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Wash your hands.",
+      "translation": "あなたの手を洗ってください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Don't run here.",
+      "translation": "ここで走ってはいけません（Don'tで始める）。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please help me.",
+      "translation": "私を助けてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Give me a pen.",
+      "translation": "私にペンを1本ください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Show me your picture.",
+      "translation": "私にあなたの写真を見せてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Tell me the truth.",
+      "translation": "私に本当のことを話してください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Have a nice day.",
+      "translation": "よい一日を。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please close the window.",
+      "translation": "窓を閉めてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please come in.",
+      "translation": "入ってください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please wait for me.",
+      "translation": "私を待ってください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Put your bag here.",
+      "translation": "あなたのかばんをここに置いてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please give me some water.",
+      "translation": "私に水を少しください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Have a good weekend.",
+      "translation": "よい週末を。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Please help my friend.",
+      "translation": "私の友だちを助けてください。"
+    },
+    "card": "imperative",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's go home.",
+      "translation": "家に帰りましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's play baseball.",
+      "translation": "野球をしましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's eat lunch.",
+      "translation": "昼食を食べましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's study together.",
+      "translation": "一緒に勉強しましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's play in the park.",
+      "translation": "公園で遊びましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Let's go to the zoo.",
+      "translation": "動物園へ行きましょう（Let'sを使う）。"
+    },
+    "card": "lets",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I am reading a book.",
+      "translation": "私は本を1冊読んでいます。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "He is playing soccer.",
+      "translation": "彼はサッカーをしています。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "She is watching TV.",
+      "translation": "彼女はテレビを見ています。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What are you doing?",
+      "translation": "何をしていますか？"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "She is reading now.",
+      "translation": "彼女は今読書をしています。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "He is cooking dinner.",
+      "translation": "彼は夕食を作っています。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "They are playing outside.",
+      "translation": "彼らは外で遊んでいます。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Are you watching TV?",
+      "translation": "あなたはテレビを見ていますか？"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I am doing my homework.",
+      "translation": "私は自分の宿題をしています。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "They are not reading.",
+      "translation": "彼らは今、読書をしていません。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Is he playing soccer?",
+      "translation": "彼は今、サッカーをしていますか？"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "She is not watching TV.",
+      "translation": "彼女は今、テレビを見ていません。"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "What is she reading?",
+      "translation": "彼女は今、何を読んでいますか？"
+    },
+    "card": "progressive",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "The cat is under the table.",
+      "translation": "その猫はテーブルの下にいます。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "The ball is in the box.",
+      "translation": "そのボールは箱の中にあります。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "The park is near here.",
+      "translation": "その公園はこの近くにあります。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I go to school by bus.",
+      "translation": "私はバスで学校へ行きます。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "We play after school.",
+      "translation": "私たちは放課後に遊びます。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "My class starts at nine.",
+      "translation": "私の授業は9時に始まります。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "The store opens at ten.",
+      "translation": "その店は10時に開きます。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "They are in the classroom.",
+      "translation": "彼らは教室にいます。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I play tennis on Sundays.",
+      "translation": "私は毎週日曜日にテニスをします。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "My birthday is in July.",
+      "translation": "私の誕生日は7月です。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "The clock is on the wall.",
+      "translation": "その時計は壁にかかっています。"
+    },
+    "card": "place",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "My bag is heavy.",
+      "translation": "私のかばんは重いです。"
+    },
+    "card": "modifiers",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I always walk to school.",
+      "translation": "私はいつも歩いて学校へ行きます。"
+    },
+    "card": "modifiers",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "She is usually happy.",
+      "translation": "彼女はたいてい機嫌がよいです。"
+    },
+    "card": "modifiers",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is sunny today.",
+      "translation": "今日は晴れです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is hot today.",
+      "translation": "今日は暑いです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is cold now.",
+      "translation": "今は寒いです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is rainy today.",
+      "translation": "今日は雨です。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is windy outside.",
+      "translation": "外は風が強いです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is warm today.",
+      "translation": "今日は暖かいです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is cool this evening.",
+      "translation": "今晩は涼しいです。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Today is my birthday.",
+      "translation": "今日は私の誕生日です。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Tomorrow is Sunday.",
+      "translation": "明日は日曜日です。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "It is three o'clock.",
+      "translation": "3時です。"
+    },
+    "card": "weather",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "I like dogs and cats.",
+      "translation": "私は犬と猫が好きです。"
+    },
+    "card": "conjunctions",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "He is small but strong.",
+      "translation": "彼は体は小さいけれど力は強いです。"
+    },
+    "card": "conjunctions",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "Do you want tea or coffee?",
+      "translation": "あなたは紅茶とコーヒーのどちらがほしいですか？"
+    },
+    "card": "conjunctions",
+    "band": 2
+  },
+  {
+    "question": {
+      "text": "There is a cat.",
+      "translation": "猫が1匹います。"
+    },
+    "card": "there",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "There are two birds.",
+      "translation": "鳥が2羽います。"
+    },
+    "card": "there",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "There is a book on the desk.",
+      "translation": "机の上に本が1冊あります。"
+    },
+    "card": "there",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "There are three chairs.",
+      "translation": "いすが3脚あります。"
+    },
+    "card": "there",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "There is no milk.",
+      "translation": "牛乳がありません。"
+    },
+    "card": "there",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "I want to be a doctor.",
+      "translation": "私は医者になりたいです。"
+    },
+    "card": "to",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "I want to go.",
+      "translation": "私は行きたいです。"
+    },
+    "card": "to",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "I like to swim.",
+      "translation": "私は泳ぐことが好きです。"
+    },
+    "card": "to",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "Can I use this pen?",
+      "translation": "このペンを使ってもよいですか？"
+    },
+    "card": "permission",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "May I come in?",
+      "translation": "入ってもよいですか？"
+    },
+    "card": "permission",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "Thank you very much.",
+      "translation": "本当にありがとう。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "You are welcome.",
+      "translation": "どういたしまして。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "Nice to meet you.",
+      "translation": "はじめまして。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "Thank you for your help.",
+      "translation": "あなたの手助けに感謝します。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "I am sorry I am late.",
+      "translation": "遅れてすみません。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "Excuse me.",
+      "translation": "すみません。"
+    },
+    "card": "greetings",
+    "band": 3
+  },
+  {
+    "question": {
+      "text": "See you next week.",
+      "translation": "また来週。"
+    },
+    "card": "greetings",
+    "band": 3
+  }
+]

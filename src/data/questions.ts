@@ -4,7 +4,7 @@ import eikenGrade3 from './questionSets/eiken/grade3';
 import eikenPre2 from './questionSets/eiken/pre2';
 import eikenGrade2 from './questionSets/eiken/grade2';
 import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
-import eikenGrade5Json from './questionSets/eiken/grade5.json';
+import eikenGrade5Json from './questionSets/eiken/grade5';
 import eikenGradePre1Part1Json from './questionSets/eiken/gradepre1-part1.json';
 import eikenGradePre1Part2Json from './questionSets/eiken/gradepre1-part2.json';
 import conversationBeginnerJson from './questionSets/conversation/beginner.json';

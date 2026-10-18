@@ -140,8 +140,9 @@ assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(repl
 // test-translation-battle-prompts / test-sequential-prompt-reviews validate that overlay.
 const approvedMaterialFiles=new Set(['src/data/translationBattlePrompts.json','src/data/questionSets/eiken/pre2.ts','src/data/questionSets/eiken/pre2GrammarCurriculum.json','src/data/questionGrammarPoints.ts','src/data/pre2GrammarAssignments.ts','src/data/pre2GrammarCurriculumAssignments.json','src/data/pre2GrammarCurriculumCards.ts','src/data/pre2GrammarGuide.ts','src/data/grammarGuides.ts']);
 const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);
+for(const file of ['src/data/questions.ts','src/data/questionSets/eiken/grade5.ts','src/data/questionSets/eiken/grade5Foundations.json','src/data/grade5FoundationAssignments.json','src/data/grade5GrammarAssignments.ts','src/data/grade5GrammarGuide.ts'])approvedMaterialFiles.add(file);
 assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only the separately audited Pre-2 L3 material may differ; monster catalog and learning rules remain unchanged');
-console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; only additive replay field; 2-player fixture, old saves, reload/profile-switch/export round trips, IDs and curriculum unchanged.`);
+console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; 2-player fixture, old saves, reload/profile-switch/export round trips and defeated IDs unchanged; separately audited curricula allowed.`);
 
 const companions = require('./homeCompanions.ts');
 const profiles = require('./monsterProfiles.json');

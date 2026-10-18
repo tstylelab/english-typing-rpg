@@ -1,0 +1,6656 @@
+{
+  "status": "approved-for-release",
+  "baselineCommit": "386d421",
+  "date": "2026-10-19",
+  "sourceQuestionsSha256": "9579d247962624ca98552d1186c79445c079996f8729fe9a8713c0770a24651a",
+  "sourcePromptsSha256": "1beeb27da7d2a4a7df5479d02362bfb4da9b88e31732ef502b647e715f6f90cb",
+  "counts": {
+    "before": 221,
+    "retained": 200,
+    "reference": 21,
+    "added": 28,
+    "active": 228
+  },
+  "bands": [
+    115,
+    96,
+    17
+  ],
+  "sources": [
+    [
+      "英検5級の位置付け",
+      "https://www.eiken.or.jp/eiken/exam/grade_5/"
+    ],
+    [
+      "疑問・否定の型",
+      "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/questions-negatives"
+    ]
+  ],
+  "existing": [
+    {
+      "number": 1,
+      "text": "I am a student.",
+      "translation": "私は生徒です。",
+      "meaning": "私は生徒です（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am a student.",
+        "translation": "私は生徒です。",
+        "previousMeaning": "私は生徒です。",
+        "meaning": "私は生徒です（短縮形を使わずに）。",
+        "alternatives": [
+          {
+            "text": "pupil",
+            "note": "学校の生徒"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 2,
+      "text": "You are kind.",
+      "translation": "あなたは親切です。",
+      "meaning": "あなたは親切です（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "You are kind.",
+        "translation": "あなたは親切です。",
+        "previousMeaning": "あなたは親切です。",
+        "meaning": "あなたは親切です（短縮形を使わずに）。",
+        "alternatives": [
+          {
+            "text": "considerate",
+            "note": "思いやりがある"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 3,
+      "text": "He is my teacher.",
+      "translation": "彼は私の先生です。",
+      "meaning": "彼は私の先生です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He is my teacher.",
+        "translation": "彼は私の先生です。",
+        "previousMeaning": "彼は私の先生です。",
+        "meaning": "彼は私の先生です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 4,
+      "text": "She is a nurse.",
+      "translation": "彼女は看護師です。",
+      "meaning": "彼女は看護師です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She is a nurse.",
+        "translation": "彼女は看護師です。",
+        "previousMeaning": "彼女は看護師です。",
+        "meaning": "彼女は看護師です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 5,
+      "text": "It is a dog.",
+      "translation": "それは犬です。",
+      "meaning": "それは犬です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is a dog.",
+        "translation": "それは犬です。",
+        "previousMeaning": "それは犬です。",
+        "meaning": "それは犬です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 6,
+      "text": "This is a pen.",
+      "translation": "これはペンです。",
+      "meaning": "これはペンです。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 7,
+      "text": "That is a bird.",
+      "translation": "あれは鳥です。",
+      "meaning": "あれは鳥です。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 8,
+      "text": "We are friends.",
+      "translation": "私たちは友達です。",
+      "meaning": "私たちは友達です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "We are friends.",
+        "translation": "私たちは友達です。",
+        "previousMeaning": "私たちは友達です。",
+        "meaning": "私たちは友達です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "subjects",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 9,
+      "text": "They are happy.",
+      "translation": "彼らは幸せです。",
+      "meaning": "彼らは幸せです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "They are happy.",
+        "translation": "彼らは幸せです。",
+        "previousMeaning": "彼らは幸せです。",
+        "meaning": "彼らは幸せです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "subjects",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 10,
+      "text": "I like music.",
+      "translation": "私は音楽が好きです。",
+      "meaning": "私は音楽が好きです。",
+      "prompt": null,
+      "card": "word-order",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 11,
+      "text": "I play tennis.",
+      "translation": "私はテニスをします。",
+      "meaning": "私はテニスをします。",
+      "prompt": null,
+      "card": "word-order",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 12,
+      "text": "I have a book.",
+      "translation": "私は本を1冊持っています。",
+      "meaning": "私は本を1冊持っています。",
+      "prompt": null,
+      "card": "word-types",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 13,
+      "text": "He runs fast.",
+      "translation": "彼は速く走ります。",
+      "meaning": "彼は速く走ります。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He runs fast.",
+        "translation": "彼は速く走ります。",
+        "previousMeaning": "彼は速く走ります。",
+        "meaning": "彼は速く走ります。",
+        "alternatives": [
+          {
+            "text": "quickly",
+            "note": "素早く"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 14,
+      "text": "She cooks well.",
+      "translation": "彼女は上手に料理します。",
+      "meaning": "彼女は上手に料理します。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She cooks well.",
+        "translation": "彼女は上手に料理します。",
+        "previousMeaning": "彼女は上手に料理します。",
+        "meaning": "彼女は上手に料理します。",
+        "alternatives": [
+          {
+            "text": "skillfully",
+            "note": "上手に"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 15,
+      "text": "We study English.",
+      "translation": "私たちは英語を勉強します。",
+      "meaning": "私たちは英語を勉強します。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "We study English.",
+        "translation": "私たちは英語を勉強します。",
+        "previousMeaning": "私たちは英語を勉強します。",
+        "meaning": "私たちは英語を勉強します。",
+        "alternatives": [
+          {
+            "text": "learn",
+            "note": "学ぶ"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 16,
+      "text": "They play soccer.",
+      "translation": "彼らはサッカーをします。",
+      "meaning": "彼らはサッカーをします。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 17,
+      "text": "Do you like cats?",
+      "translation": "あなたは猫が好きですか？",
+      "meaning": "あなたは猫が好きですか？",
+      "prompt": null,
+      "card": "do-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 18,
+      "text": "Can you swim?",
+      "translation": "あなたは泳げますか？",
+      "meaning": "あなたは泳げますか？",
+      "prompt": null,
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 19,
+      "text": "Is this yours?",
+      "translation": "これはあなたのですか？",
+      "meaning": "これはあなたのものですか？",
+      "prompt": null,
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 20,
+      "text": "Who is he?",
+      "translation": "彼は誰ですか？",
+      "meaning": "彼は誰ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 21,
+      "text": "What is this?",
+      "translation": "これは何ですか？",
+      "meaning": "これは何ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 22,
+      "text": "Where is my bag?",
+      "translation": "私のかばんはどこですか？",
+      "meaning": "私のかばんはどこですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 23,
+      "text": "When is your birthday?",
+      "translation": "あなたの誕生日はいつですか？",
+      "meaning": "あなたの誕生日はいつですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 24,
+      "text": "How are you?",
+      "translation": "元気ですか？",
+      "meaning": "元気ですか（調子を尋ねる）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "How are you?",
+        "translation": "元気ですか？",
+        "previousMeaning": "元気ですか？",
+        "meaning": "元気ですか（調子を尋ねる）。",
+        "alternatives": [
+          {
+            "text": "how are you doing",
+            "note": "調子を尋ねる別表現"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 25,
+      "text": "What time is it?",
+      "translation": "何時ですか？",
+      "meaning": "何時ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 26,
+      "text": "How many books do you have?",
+      "translation": "あなたは本を何冊持っていますか？",
+      "meaning": "あなたは本を何冊持っていますか？",
+      "prompt": null,
+      "card": "quantity",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 27,
+      "text": "How much is it?",
+      "translation": "いくらですか？",
+      "meaning": "それはいくらですか？",
+      "prompt": null,
+      "card": "quantity",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 28,
+      "text": "Open the door.",
+      "translation": "ドアを開けてください。",
+      "meaning": "ドアを開けなさい。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Open the door.",
+        "translation": "ドアを開けてください。",
+        "previousMeaning": "ドアを開けてください。",
+        "meaning": "ドアを開けなさい。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "丁寧な依頼の言葉を添えない命令文",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 29,
+      "text": "Close your book.",
+      "translation": "あなたの本を閉じてください。",
+      "meaning": "自分の本を閉じなさい。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Close your book.",
+        "translation": "あなたの本を閉じてください。",
+        "previousMeaning": "あなたの本を閉じてください。",
+        "meaning": "自分の本を閉じなさい。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "丁寧な依頼の言葉を添えない命令文",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 30,
+      "text": "Let's go home.",
+      "translation": "家に帰りましょう（Let'sを使う）。",
+      "meaning": "家に帰りましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's go home.",
+        "translation": "家に帰りましょう（Let'sを使う）。",
+        "previousMeaning": "家に帰りましょう（Let'sを使う）。",
+        "meaning": "家に帰りましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 31,
+      "text": "Let's play baseball.",
+      "translation": "野球をしましょう（Let'sを使う）。",
+      "meaning": "野球をしましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's play baseball.",
+        "translation": "野球をしましょう（Let'sを使う）。",
+        "previousMeaning": "野球をしましょう（Let'sを使う）。",
+        "meaning": "野球をしましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 32,
+      "text": "Stand up, please.",
+      "translation": "立ってください。",
+      "meaning": "立ってください。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Stand up, please.",
+        "translation": "立ってください。",
+        "previousMeaning": "立ってください。",
+        "meaning": "立ってください。",
+        "alternatives": [
+          {
+            "text": "rise",
+            "note": "立ち上がる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "丁寧に頼む言葉を文末に添える",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 33,
+      "text": "Sit down, please.",
+      "translation": "座ってください。",
+      "meaning": "座ってください。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Sit down, please.",
+        "translation": "座ってください。",
+        "previousMeaning": "座ってください。",
+        "meaning": "座ってください。",
+        "alternatives": [
+          {
+            "text": "have a seat",
+            "note": "席に着く"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "丁寧に頼む言葉を文末に添える",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 34,
+      "text": "Thank you very much.",
+      "translation": "本当にありがとう。",
+      "meaning": "本当にありがとう。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Thank you very much.",
+        "translation": "本当にありがとう。",
+        "previousMeaning": "本当にありがとう。",
+        "meaning": "本当にありがとう。",
+        "alternatives": [
+          {
+            "text": "thanks a lot",
+            "note": "ありがとうの別表現"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 35,
+      "text": "You are welcome.",
+      "translation": "どういたしまして。",
+      "meaning": "どういたしまして（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "You are welcome.",
+        "translation": "どういたしまして。",
+        "previousMeaning": "どういたしまして。",
+        "meaning": "どういたしまして（短縮形を使わずに）。",
+        "alternatives": [
+          {
+            "text": "not at all",
+            "note": "お礼への返答"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 36,
+      "text": "Nice to meet you.",
+      "translation": "はじめまして。",
+      "meaning": "はじめまして。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Nice to meet you.",
+        "translation": "はじめまして。",
+        "previousMeaning": "はじめまして。",
+        "meaning": "はじめまして。",
+        "alternatives": [
+          {
+            "text": "pleased to meet you",
+            "note": "初対面のあいさつ"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 37,
+      "text": "I want a bike.",
+      "translation": "私は自転車が1台欲しいです。",
+      "meaning": "私は自転車が1台欲しいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I want a bike.",
+        "translation": "私は自転車が1台欲しいです。",
+        "previousMeaning": "私は自転車が1台欲しいです。",
+        "meaning": "私は自転車が1台欲しいです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "略さない呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 38,
+      "text": "I need some water.",
+      "translation": "私は水が少し必要です。",
+      "meaning": "私は水が少し必要です。",
+      "prompt": null,
+      "card": "amounts",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 39,
+      "text": "He lives in Tokyo.",
+      "translation": "彼は東京に住んでいます。",
+      "meaning": "彼は東京に住んでいます。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 40,
+      "text": "She goes to school.",
+      "translation": "彼女は学校へ行きます。",
+      "meaning": "彼女は学校へ行きます。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 41,
+      "text": "My father is busy.",
+      "translation": "私の父は忙しいです。",
+      "meaning": "私の父は忙しいです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 42,
+      "text": "My mother is kind.",
+      "translation": "私の母は親切です。",
+      "meaning": "私の母は親切です。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 43,
+      "text": "I have two dogs.",
+      "translation": "私は犬を2匹飼っています。",
+      "meaning": "私は犬を2匹飼っています。",
+      "prompt": null,
+      "card": "noun",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 44,
+      "text": "Do you have a pen?",
+      "translation": "ペンを1本持っていますか？",
+      "meaning": "ペンを1本持っていますか？",
+      "prompt": null,
+      "card": "do-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 45,
+      "text": "I don't know.",
+      "translation": "私は知りません（don'tを使う）。",
+      "meaning": "私は知りません（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I don't know.",
+        "translation": "私は知りません（don'tを使う）。",
+        "previousMeaning": "私は知りません（don'tを使う）。",
+        "meaning": "私は知りません（短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "negative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 46,
+      "text": "I can't play the piano.",
+      "translation": "私はピアノが弾けません（can'tを使う）。",
+      "meaning": "私はピアノが弾けません（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I can't play the piano.",
+        "translation": "私はピアノが弾けません（can'tを使う）。",
+        "previousMeaning": "私はピアノが弾けません（can'tを使う）。",
+        "meaning": "私はピアノが弾けません（短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 47,
+      "text": "It is sunny today.",
+      "translation": "今日は晴れです。",
+      "meaning": "今日は晴れです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is sunny today.",
+        "translation": "今日は晴れです。",
+        "previousMeaning": "今日は晴れです。",
+        "meaning": "今日は晴れです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 48,
+      "text": "It is hot today.",
+      "translation": "今日は暑いです。",
+      "meaning": "今日は暑いです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is hot today.",
+        "translation": "今日は暑いです。",
+        "previousMeaning": "今日は暑いです。",
+        "meaning": "今日は暑いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 49,
+      "text": "It is cold now.",
+      "translation": "今は寒いです。",
+      "meaning": "今は寒いです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is cold now.",
+        "translation": "今は寒いです。",
+        "previousMeaning": "今は寒いです。",
+        "meaning": "今は寒いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 50,
+      "text": "Look at the sky.",
+      "translation": "空を見てください (視線を向ける)。",
+      "meaning": "空を見てください（視線を向ける）。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 51,
+      "text": "Listen to me.",
+      "translation": "私の話を聞いてください (耳を傾ける)。",
+      "meaning": "私の話を聞いてください（耳を傾ける）。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 52,
+      "text": "Wash your hands.",
+      "translation": "あなたの手を洗ってください。",
+      "meaning": "あなたの手を洗ってください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 53,
+      "text": "Don't run here.",
+      "translation": "ここで走ってはいけません（Don'tで始める）。",
+      "meaning": "ここで走ってはいけません（禁止・短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Don't run here.",
+        "translation": "ここで走ってはいけません（Don'tで始める）。",
+        "previousMeaning": "ここで走ってはいけません（Don'tで始める）。",
+        "meaning": "ここで走ってはいけません（禁止・短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 54,
+      "text": "Let's eat lunch.",
+      "translation": "昼食を食べましょう（Let'sを使う）。",
+      "meaning": "昼食を食べましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's eat lunch.",
+        "translation": "昼食を食べましょう（Let'sを使う）。",
+        "previousMeaning": "昼食を食べましょう（Let'sを使う）。",
+        "meaning": "昼食を食べましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          },
+          {
+            "text": "have lunch",
+            "note": "昼食を食べる"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 55,
+      "text": "Let's study together.",
+      "translation": "一緒に勉強しましょう（Let'sを使う）。",
+      "meaning": "一緒に勉強しましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's study together.",
+        "translation": "一緒に勉強しましょう（Let'sを使う）。",
+        "previousMeaning": "一緒に勉強しましょう（Let'sを使う）。",
+        "meaning": "一緒に勉強しましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 56,
+      "text": "Are you hungry?",
+      "translation": "お腹が空いていますか？",
+      "meaning": "お腹が空いていますか？",
+      "prompt": null,
+      "card": "be-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 57,
+      "text": "Are you tired?",
+      "translation": "疲れていますか？",
+      "meaning": "疲れていますか？",
+      "prompt": null,
+      "card": "be-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 58,
+      "text": "Is he your brother?",
+      "translation": "彼はあなたの兄弟ですか？",
+      "meaning": "彼はあなたのお兄さんか弟ですか？",
+      "prompt": null,
+      "card": "be-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 59,
+      "text": "What do you do after school?",
+      "translation": "放課後は何をしますか？",
+      "meaning": "放課後は何をしますか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 60,
+      "text": "Where do you live?",
+      "translation": "どこに住んでいますか？",
+      "meaning": "どこに住んでいますか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 61,
+      "text": "When do you study?",
+      "translation": "いつ勉強しますか？",
+      "meaning": "いつ勉強しますか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 62,
+      "text": "Why are you sad?",
+      "translation": "なぜ悲しいのですか？",
+      "meaning": "なぜ悲しいのですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 63,
+      "text": "How do you come to school?",
+      "translation": "どうやって学校に来ますか？",
+      "meaning": "どうやって学校に来ますか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 64,
+      "text": "Whose bag is this?",
+      "translation": "これは誰のかばんですか？",
+      "meaning": "これは誰のかばんですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 65,
+      "text": "Which color do you like?",
+      "translation": "どの色が好きですか？",
+      "meaning": "どの色が好きですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 66,
+      "text": "I went to the park.",
+      "translation": "私は公園に行きました。",
+      "meaning": "私は公園に行きました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 67,
+      "text": "I saw a movie.",
+      "translation": "私は映画を1本見ました。",
+      "meaning": "私は映画を1本見ました。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I saw a movie.",
+        "translation": "私は映画を1本見ました。",
+        "previousMeaning": "私は映画を1本見ました。",
+        "meaning": "私は映画を1本見ました。",
+        "alternatives": [
+          {
+            "text": "watched",
+            "note": "映画などを見た"
+          },
+          {
+            "text": "film",
+            "note": "映画"
+          }
+        ],
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 68,
+      "text": "He came here.",
+      "translation": "彼はここに来ました。",
+      "meaning": "彼はここに来ました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 69,
+      "text": "She bought a pen.",
+      "translation": "彼女はペンを1本買いました。",
+      "meaning": "彼女はペンを1本買いました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 70,
+      "text": "Did you enjoy it?",
+      "translation": "楽しみましたか？",
+      "meaning": "楽しみましたか？",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 71,
+      "text": "Yes, I did.",
+      "translation": "はい、しました。",
+      "meaning": "はい、しました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 72,
+      "text": "No, I didn't.",
+      "translation": "いいえ、しませんでした（didn'tを使う）。",
+      "meaning": "いいえ、しませんでした（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "No, I didn't.",
+        "translation": "いいえ、しませんでした（didn'tを使う）。",
+        "previousMeaning": "いいえ、しませんでした（didn'tを使う）。",
+        "meaning": "いいえ、しませんでした（短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 73,
+      "text": "I will go there.",
+      "translation": "私はそこへ行くつもりです（willを使う）。",
+      "meaning": "私はそこへ行くつもりです（今決めた意思）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I will go there.",
+        "translation": "私はそこへ行くつもりです（willを使う）。",
+        "previousMeaning": "私はそこへ行くつもりです（willを使う）。",
+        "meaning": "私はそこへ行くつもりです（今決めた意思）。",
+        "alternatives": [],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [
+          {
+            "text": "be going to",
+            "note": "前からの予定など"
+          }
+        ],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "future",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 74,
+      "text": "It will rain tomorrow.",
+      "translation": "明日は雨が降るでしょう。",
+      "meaning": "明日は雨が降るでしょう。",
+      "prompt": null,
+      "card": "future",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 75,
+      "text": "I am reading a book.",
+      "translation": "私は本を1冊読んでいます。",
+      "meaning": "私は本を1冊読んでいます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am reading a book.",
+        "translation": "私は本を1冊読んでいます。",
+        "previousMeaning": "私は本を1冊読んでいます。",
+        "meaning": "私は本を1冊読んでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 76,
+      "text": "He is playing soccer.",
+      "translation": "彼はサッカーをしています。",
+      "meaning": "彼はサッカーをしています。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He is playing soccer.",
+        "translation": "彼はサッカーをしています。",
+        "previousMeaning": "彼はサッカーをしています。",
+        "meaning": "彼はサッカーをしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 77,
+      "text": "She is watching TV.",
+      "translation": "彼女はテレビを見ています。",
+      "meaning": "彼女はテレビを見ています。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She is watching TV.",
+        "translation": "彼女はテレビを見ています。",
+        "previousMeaning": "彼女はテレビを見ています。",
+        "meaning": "彼女はテレビを見ています。",
+        "alternatives": [
+          {
+            "text": "watching television",
+            "note": "テレビを見ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 78,
+      "text": "What are you doing?",
+      "translation": "何をしていますか？",
+      "meaning": "何をしていますか？",
+      "prompt": null,
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 79,
+      "text": "There is a cat.",
+      "translation": "猫が1匹います。",
+      "meaning": "猫が1匹います。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "There is a cat.",
+        "translation": "猫が1匹います。",
+        "previousMeaning": "猫が1匹います。",
+        "meaning": "猫が1匹います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "there",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 80,
+      "text": "There are two birds.",
+      "translation": "鳥が2羽います。",
+      "meaning": "鳥が2羽います。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "There are two birds.",
+        "translation": "鳥が2羽います。",
+        "previousMeaning": "鳥が2羽います。",
+        "meaning": "鳥が2羽います。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "there",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 81,
+      "text": "The dog is cute.",
+      "translation": "その犬はかわいいです。",
+      "meaning": "その犬はかわいいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "The dog is cute.",
+        "translation": "その犬はかわいいです。",
+        "previousMeaning": "その犬はかわいいです。",
+        "meaning": "その犬はかわいいです。",
+        "alternatives": [
+          {
+            "text": "adorable",
+            "note": "とてもかわいい"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 82,
+      "text": "The flower is red.",
+      "translation": "その花は赤いです。",
+      "meaning": "その花は赤いです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 83,
+      "text": "My bag is heavy.",
+      "translation": "私のかばんは重いです。",
+      "meaning": "私のかばんは重いです。",
+      "prompt": null,
+      "card": "modifiers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 84,
+      "text": "His car is new.",
+      "translation": "彼の車は新しいです。",
+      "meaning": "彼の車は新しいです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 85,
+      "text": "Her dress is nice.",
+      "translation": "彼女のドレスは素敵です。",
+      "meaning": "彼女のドレスは素敵です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Her dress is nice.",
+        "translation": "彼女のドレスは素敵です。",
+        "previousMeaning": "彼女のドレスは素敵です。",
+        "meaning": "彼女のドレスは素敵です。",
+        "alternatives": [
+          {
+            "text": "lovely",
+            "note": "すてきな"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 86,
+      "text": "Our school is big.",
+      "translation": "私たちの学校は大きいです。",
+      "meaning": "私たちの学校は大きいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Our school is big.",
+        "translation": "私たちの学校は大きいです。",
+        "previousMeaning": "私たちの学校は大きいです。",
+        "meaning": "私たちの学校は大きいです。",
+        "alternatives": [
+          {
+            "text": "large",
+            "note": "大きい"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 87,
+      "text": "Their house is small.",
+      "translation": "彼らの家は小さいです。",
+      "meaning": "彼らの家は小さいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Their house is small.",
+        "translation": "彼らの家は小さいです。",
+        "previousMeaning": "彼らの家は小さいです。",
+        "meaning": "彼らの家は小さいです。",
+        "alternatives": [
+          {
+            "text": "little",
+            "note": "小さい"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 88,
+      "text": "I like apples.",
+      "translation": "私はりんごが好きです。",
+      "meaning": "私はりんごが好きです。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 89,
+      "text": "I want to be a doctor.",
+      "translation": "私は医者になりたいです。",
+      "meaning": "私は医者になりたいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I want to be a doctor.",
+        "translation": "私は医者になりたいです。",
+        "previousMeaning": "私は医者になりたいです。",
+        "meaning": "私は医者になりたいです。",
+        "alternatives": [
+          {
+            "text": "become",
+            "note": "〜になる"
+          },
+          {
+            "text": "physician",
+            "note": "医師"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "to",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 90,
+      "text": "I want to go.",
+      "translation": "私は行きたいです。",
+      "meaning": "私は行きたいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I want to go.",
+        "translation": "私は行きたいです。",
+        "previousMeaning": "私は行きたいです。",
+        "meaning": "私は行きたいです。",
+        "alternatives": [
+          {
+            "text": "would like to",
+            "note": "丁寧に「〜したい」"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "to",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 91,
+      "text": "I like to swim.",
+      "translation": "私は泳ぐことが好きです。",
+      "meaning": "私は泳ぐことが好きです（不定詞で動作を表す）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I like to swim.",
+        "translation": "私は泳ぐことが好きです。",
+        "previousMeaning": "私は泳ぐことが好きです。",
+        "meaning": "私は泳ぐことが好きです（不定詞で動作を表す）。",
+        "alternatives": [
+          {
+            "text": "enjoy swimming",
+            "note": "泳ぐことを楽しむ"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "to",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 92,
+      "text": "It is fun to play.",
+      "translation": "遊ぶことは楽しいです。",
+      "meaning": "遊ぶことは楽しいです（仮の主語を置く文）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is fun to play.",
+        "translation": "遊ぶことは楽しいです。",
+        "previousMeaning": "遊ぶことは楽しいです。",
+        "meaning": "遊ぶことは楽しいです（仮の主語を置く文）。",
+        "alternatives": [
+          {
+            "text": "enjoyable",
+            "note": "楽しい"
+          }
+        ],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "to",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 93,
+      "text": "Please help me.",
+      "translation": "私を助けてください。",
+      "meaning": "私を助けてください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 94,
+      "text": "Give me a pen.",
+      "translation": "私にペンを1本ください。",
+      "meaning": "私にペンを1本ください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 95,
+      "text": "Show me your picture.",
+      "translation": "私にあなたの写真を見せてください。",
+      "meaning": "私にあなたの絵・写真を見せてください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 96,
+      "text": "Tell me the truth.",
+      "translation": "私に本当のことを話してください。",
+      "meaning": "私に本当のことを話してください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 97,
+      "text": "Have a nice day.",
+      "translation": "よい一日を。",
+      "meaning": "よい一日を。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Have a nice day.",
+        "translation": "よい一日を。",
+        "previousMeaning": "よい一日を。",
+        "meaning": "よい一日を。",
+        "alternatives": [
+          {
+            "text": "good",
+            "note": "良い"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 98,
+      "text": "I have a new bag.",
+      "translation": "私は新しいかばんを1つ持っています。",
+      "meaning": "私は新しいかばんを1つ持っています。",
+      "prompt": null,
+      "card": "noun",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 99,
+      "text": "My shoes are black.",
+      "translation": "私の靴は黒いです。",
+      "meaning": "私の靴は黒いです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 100,
+      "text": "This book is easy.",
+      "translation": "この本はやさしいです。",
+      "meaning": "この本は内容がやさしいです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 101,
+      "text": "That room is clean.",
+      "translation": "あの部屋はきれいです。",
+      "meaning": "あの部屋は汚れがなく、きれいです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 102,
+      "text": "My brother is tall.",
+      "translation": "私の兄（弟）は背が高いです。",
+      "meaning": "私の兄（弟）は背が高いです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 103,
+      "text": "My sister is young.",
+      "translation": "私の姉（妹）は若いです。",
+      "meaning": "私の姉（妹）は若いです。",
+      "prompt": null,
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 104,
+      "text": "My family is nice.",
+      "translation": "私の家族はすてきです。",
+      "meaning": "私の家族はすてきです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "My family is nice.",
+        "translation": "私の家族はすてきです。",
+        "previousMeaning": "私の家族はすてきです。",
+        "meaning": "私の家族はすてきです。",
+        "alternatives": [
+          {
+            "text": "lovely",
+            "note": "すてきな"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 105,
+      "text": "We have a cat.",
+      "translation": "私たちは猫を1匹飼っています。",
+      "meaning": "私たちは猫を1匹飼っています。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 106,
+      "text": "The cat is under the table.",
+      "translation": "その猫はテーブルの下にいます。",
+      "meaning": "その猫はテーブルの下にいます。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 107,
+      "text": "The ball is in the box.",
+      "translation": "そのボールは箱の中にあります。",
+      "meaning": "そのボールは箱の中にあります。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 108,
+      "text": "The park is near here.",
+      "translation": "その公園はこの近くにあります。",
+      "meaning": "その公園はこの近くにあります。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 109,
+      "text": "Our school has a library.",
+      "translation": "私たちの学校には図書館があります。",
+      "meaning": "私たちの学校には図書館があります。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 110,
+      "text": "The library is quiet.",
+      "translation": "その図書館は静かです。",
+      "meaning": "その図書館は静かです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "The library is quiet.",
+        "translation": "その図書館は静かです。",
+        "previousMeaning": "その図書館は静かです。",
+        "meaning": "その図書館は静かです。",
+        "alternatives": [
+          {
+            "text": "silent",
+            "note": "音を出さない"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "be",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 111,
+      "text": "I go to school by bus.",
+      "translation": "私はバスで学校へ行きます。",
+      "meaning": "私はバスで学校へ行きます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I go to school by bus.",
+        "translation": "私はバスで学校へ行きます。",
+        "previousMeaning": "私はバスで学校へ行きます。",
+        "meaning": "私はバスで学校へ行きます。",
+        "alternatives": [
+          {
+            "text": "take a bus",
+            "note": "バスで移動する"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 112,
+      "text": "I walk to the park.",
+      "translation": "私は公園まで歩きます。",
+      "meaning": "私は公園まで歩きます。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 113,
+      "text": "We play after school.",
+      "translation": "私たちは放課後に遊びます。",
+      "meaning": "私たちは放課後に遊びます。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 114,
+      "text": "I read every night.",
+      "translation": "私は毎晩読書をします。",
+      "meaning": "私は毎晩読書をします。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 115,
+      "text": "She gets up early.",
+      "translation": "彼女は早く起きます。",
+      "meaning": "彼女は早く（寝床から）起きます。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 116,
+      "text": "He goes to bed early.",
+      "translation": "彼は早く寝ます。",
+      "meaning": "彼は早く（寝床に入って）寝ます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He goes to bed early.",
+        "translation": "彼は早く寝ます。",
+        "previousMeaning": "彼は早く（寝床に入って）寝ます。",
+        "meaning": "彼は早く（寝床に入って）寝ます。",
+        "alternatives": [],
+        "reason": "従来の短い括弧が、意味と対象・補足を分けて読みやすくしていたため維持。",
+        "contrasts": [
+          {
+            "text": "go to sleep",
+            "note": "眠りにつく"
+          }
+        ],
+        "formNote": ""
+      },
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 117,
+      "text": "We eat breakfast together.",
+      "translation": "私たちは一緒に朝食を食べます。",
+      "meaning": "私たちは一緒に朝食を食べます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "We eat breakfast together.",
+        "translation": "私たちは一緒に朝食を食べます。",
+        "previousMeaning": "私たちは一緒に朝食を食べます。",
+        "meaning": "私たちは一緒に朝食を食べます。",
+        "alternatives": [
+          {
+            "text": "have breakfast",
+            "note": "朝食を食べる"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 118,
+      "text": "I drink milk every day.",
+      "translation": "私は毎日牛乳を飲みます。",
+      "meaning": "私は毎日牛乳を飲みます。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 119,
+      "text": "She likes orange juice.",
+      "translation": "彼女はオレンジジュースが好きです。",
+      "meaning": "彼女はオレンジジュースが好きです。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 120,
+      "text": "He wants some cake.",
+      "translation": "彼はケーキを少し欲しがっています。",
+      "meaning": "彼はケーキを少し欲しがっています。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 121,
+      "text": "I can ride a bike.",
+      "translation": "私は自転車に乗れます。",
+      "meaning": "私は自転車に乗れます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I can ride a bike.",
+        "translation": "私は自転車に乗れます。",
+        "previousMeaning": "私は自転車に乗れます。",
+        "meaning": "私は自転車に乗れます。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "略さない呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 122,
+      "text": "Can she sing well?",
+      "translation": "彼女は上手に歌えますか？",
+      "meaning": "彼女は上手に歌えますか？",
+      "prompt": null,
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 123,
+      "text": "Can he use a computer?",
+      "translation": "彼はコンピューターを使えますか？",
+      "meaning": "彼はコンピューターを使えますか？",
+      "prompt": null,
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 124,
+      "text": "I cannot run fast.",
+      "translation": "私は速く走れません（短縮しないcannotを使う）。",
+      "meaning": "私は速く走れません（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I cannot run fast.",
+        "translation": "私は速く走れません（短縮しないcannotを使う）。",
+        "previousMeaning": "私は速く走れません（短縮しないcannotを使う）。",
+        "meaning": "私は速く走れません（短縮形を使わずに）。",
+        "alternatives": [
+          {
+            "text": "quickly",
+            "note": "素早く"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 125,
+      "text": "She cannot swim today.",
+      "translation": "彼女は今日泳げません（短縮しないcannotを使う）。",
+      "meaning": "彼女は今日泳げません（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She cannot swim today.",
+        "translation": "彼女は今日泳げません（短縮しないcannotを使う）。",
+        "previousMeaning": "彼女は今日泳げません（短縮しないcannotを使う）。",
+        "meaning": "彼女は今日泳げません（短縮形を使わずに）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 126,
+      "text": "Do you play soccer?",
+      "translation": "あなたはサッカーをしますか？",
+      "meaning": "あなたはサッカーをしますか？",
+      "prompt": null,
+      "card": "do-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 127,
+      "text": "Does he have a bike?",
+      "translation": "彼は自転車を1台持っていますか？",
+      "meaning": "彼は自転車を1台持っていますか？",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Does he have a bike?",
+        "translation": "彼は自転車を1台持っていますか？",
+        "previousMeaning": "彼は自転車を1台持っていますか？",
+        "meaning": "彼は自転車を1台持っていますか？",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "略さない呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "do-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 128,
+      "text": "Does she like dogs?",
+      "translation": "彼女は犬が好きですか？",
+      "meaning": "彼女は犬が好きですか？",
+      "prompt": null,
+      "card": "do-question",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 129,
+      "text": "Where is the station?",
+      "translation": "駅はどこですか？",
+      "meaning": "駅はどこですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 130,
+      "text": "What is your name?",
+      "translation": "あなたの名前は何ですか？",
+      "meaning": "あなたの名前は何ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 131,
+      "text": "What color is it?",
+      "translation": "それは何色ですか？",
+      "meaning": "それは何色ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 132,
+      "text": "Who is your teacher?",
+      "translation": "あなたの先生は誰ですか？",
+      "meaning": "あなたの先生は誰ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 133,
+      "text": "How old are you?",
+      "translation": "あなたは何歳ですか？",
+      "meaning": "あなたは何歳ですか？",
+      "prompt": null,
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 134,
+      "text": "How is the weather?",
+      "translation": "天気はどうですか？",
+      "meaning": "天気はどうですか？",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "How is the weather?",
+        "translation": "天気はどうですか？",
+        "previousMeaning": "天気はどうですか？",
+        "meaning": "天気はどうですか？",
+        "alternatives": [
+          {
+            "text": "What is the weather like?",
+            "note": "天気はどうですか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 135,
+      "text": "Please close the window.",
+      "translation": "窓を閉めてください。",
+      "meaning": "窓を閉めてください。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Please close the window.",
+        "translation": "窓を閉めてください。",
+        "previousMeaning": "窓を閉めてください。",
+        "meaning": "窓を閉めてください。",
+        "alternatives": [
+          {
+            "text": "shut",
+            "note": "閉める"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 136,
+      "text": "Please come in.",
+      "translation": "入ってください。",
+      "meaning": "入ってください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 137,
+      "text": "Please wait for me.",
+      "translation": "私を待ってください。",
+      "meaning": "私を待ってください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 138,
+      "text": "Put your bag here.",
+      "translation": "あなたのかばんをここに置いてください。",
+      "meaning": "あなたのかばんをここに置いてください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 139,
+      "text": "Let's play in the park.",
+      "translation": "公園で遊びましょう（Let'sを使う）。",
+      "meaning": "公園で遊びましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's play in the park.",
+        "translation": "公園で遊びましょう（Let'sを使う）。",
+        "previousMeaning": "公園で遊びましょう（Let'sを使う）。",
+        "meaning": "公園で遊びましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 140,
+      "text": "Let's go to the zoo.",
+      "translation": "動物園へ行きましょう（Let'sを使う）。",
+      "meaning": "動物園へ行きましょう（自分も含む誘い）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Let's go to the zoo.",
+        "translation": "動物園へ行きましょう（Let'sを使う）。",
+        "previousMeaning": "動物園へ行きましょう（Let'sを使う）。",
+        "meaning": "動物園へ行きましょう（自分も含む誘い）。",
+        "alternatives": [
+          {
+            "text": "shall we",
+            "note": "一緒に〜しましょうか"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "lets",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 141,
+      "text": "It is rainy today.",
+      "translation": "今日は雨です。",
+      "meaning": "今日は雨です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is rainy today.",
+        "translation": "今日は雨です。",
+        "previousMeaning": "今日は雨です。",
+        "meaning": "今日は雨です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 142,
+      "text": "It is windy outside.",
+      "translation": "外は風が強いです。",
+      "meaning": "外は風が強いです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is windy outside.",
+        "translation": "外は風が強いです。",
+        "previousMeaning": "外は風が強いです。",
+        "meaning": "外は風が強いです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 143,
+      "text": "It is warm today.",
+      "translation": "今日は暖かいです。",
+      "meaning": "今日は暖かいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is warm today.",
+        "translation": "今日は暖かいです。",
+        "previousMeaning": "今日は暖かいです。",
+        "meaning": "今日は暖かいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 144,
+      "text": "It is cool this evening.",
+      "translation": "今晩は涼しいです。",
+      "meaning": "今日の夕方は涼しいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is cool this evening.",
+        "translation": "今晩は涼しいです。",
+        "previousMeaning": "今日の夕方は涼しいです。",
+        "meaning": "今日の夕方は涼しいです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 145,
+      "text": "Today is my birthday.",
+      "translation": "今日は私の誕生日です。",
+      "meaning": "今日は私の誕生日です。",
+      "prompt": null,
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 146,
+      "text": "Tomorrow is Sunday.",
+      "translation": "明日は日曜日です。",
+      "meaning": "明日は日曜日です。",
+      "prompt": null,
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 147,
+      "text": "My class starts at nine.",
+      "translation": "私の授業は9時に始まります。",
+      "meaning": "私の授業は9時に始まります。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "My class starts at nine.",
+        "translation": "私の授業は9時に始まります。",
+        "previousMeaning": "私の授業は9時に始まります。",
+        "meaning": "私の授業は9時に始まります。",
+        "alternatives": [
+          {
+            "text": "begin",
+            "note": "始まる"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 148,
+      "text": "The store opens at ten.",
+      "translation": "その店は10時に開きます。",
+      "meaning": "その店は10時に開きます。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 149,
+      "text": "I went home early.",
+      "translation": "私は早く家に帰りました。",
+      "meaning": "私は早く家に帰りました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 150,
+      "text": "We watched a movie.",
+      "translation": "私たちは映画を見ました。",
+      "meaning": "私たちは映画を見ました。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "We watched a movie.",
+        "translation": "私たちは映画を見ました。",
+        "previousMeaning": "私たちは映画を見ました。",
+        "meaning": "私たちは映画を見ました。",
+        "alternatives": [
+          {
+            "text": "film",
+            "note": "映画の別の呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 151,
+      "text": "He played tennis yesterday.",
+      "translation": "彼は昨日テニスをしました。",
+      "meaning": "彼は昨日テニスをしました。",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 152,
+      "text": "She cleaned her room.",
+      "translation": "彼女は自分の部屋を掃除しました。",
+      "meaning": "彼女は自分の部屋の汚れを落とし、掃除しました。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She cleaned her room.",
+        "translation": "彼女は自分の部屋を掃除しました。",
+        "previousMeaning": "彼女は自分の部屋を掃除しました。",
+        "meaning": "彼女は自分の部屋の汚れを落とし、掃除しました。",
+        "alternatives": [
+          {
+            "text": "washed",
+            "note": "洗った"
+          }
+        ],
+        "reason": "掃除する表現を、整理整頓だけの別表現と同じに扱わない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 153,
+      "text": "I ate lunch with Mom.",
+      "translation": "私はお母さんと昼食を食べました。",
+      "meaning": "私はお母さんと昼食を食べました。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I ate lunch with Mom.",
+        "translation": "私はお母さんと昼食を食べました。",
+        "previousMeaning": "私はお母さんと昼食を食べました。",
+        "meaning": "私はお母さんと昼食を食べました。",
+        "alternatives": [
+          {
+            "text": "had lunch",
+            "note": "昼食を食べた"
+          },
+          {
+            "text": "Mum",
+            "note": "英国などでの呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 154,
+      "text": "Did you go shopping?",
+      "translation": "あなたは買い物に行きましたか？",
+      "meaning": "あなたは買い物に行きましたか？",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 155,
+      "text": "Did she call you?",
+      "translation": "彼女はあなたに電話しましたか？",
+      "meaning": "彼女はあなたに電話しましたか？",
+      "prompt": null,
+      "card": "past",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 156,
+      "text": "I will study tonight.",
+      "translation": "私は今夜勉強します。",
+      "meaning": "私は今夜勉強します。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I will study tonight.",
+        "translation": "私は今夜勉強します。",
+        "previousMeaning": "私は今夜勉強します。",
+        "meaning": "私は今夜勉強します。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "future",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 157,
+      "text": "We will go by train.",
+      "translation": "私たちは電車で行きます。",
+      "meaning": "私たちは電車で行きます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "We will go by train.",
+        "translation": "私たちは電車で行きます。",
+        "previousMeaning": "私たちは電車で行きます。",
+        "meaning": "私たちは電車で行きます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "future",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 158,
+      "text": "Will it be sunny tomorrow?",
+      "translation": "明日は晴れるでしょうか？",
+      "meaning": "明日は晴れるでしょうか？",
+      "prompt": null,
+      "card": "future",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 159,
+      "text": "She is reading now.",
+      "translation": "彼女は今読書をしています。",
+      "meaning": "彼女は今読書をしています。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She is reading now.",
+        "translation": "彼女は今読書をしています。",
+        "previousMeaning": "彼女は今読書をしています。",
+        "meaning": "彼女は今読書をしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 160,
+      "text": "He is cooking dinner.",
+      "translation": "彼は夕食を作っています。",
+      "meaning": "彼は夕食を作っています。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He is cooking dinner.",
+        "translation": "彼は夕食を作っています。",
+        "previousMeaning": "彼は夕食を作っています。",
+        "meaning": "彼は夕食を作っています。",
+        "alternatives": [
+          {
+            "text": "making dinner",
+            "note": "夕食を作っている"
+          }
+        ],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 161,
+      "text": "They are playing outside.",
+      "translation": "彼らは外で遊んでいます。",
+      "meaning": "彼らは外で遊んでいます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "They are playing outside.",
+        "translation": "彼らは外で遊んでいます。",
+        "previousMeaning": "彼らは外で遊んでいます。",
+        "meaning": "彼らは外で遊んでいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 162,
+      "text": "Are you watching TV?",
+      "translation": "あなたはテレビを見ていますか？",
+      "meaning": "あなたはテレビを見ていますか？",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Are you watching TV?",
+        "translation": "あなたはテレビを見ていますか？",
+        "previousMeaning": "あなたはテレビを見ていますか？",
+        "meaning": "あなたはテレビを見ていますか？",
+        "alternatives": [
+          {
+            "text": "watching television",
+            "note": "テレビを見ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 163,
+      "text": "I am doing my homework.",
+      "translation": "私は自分の宿題をしています。",
+      "meaning": "私は自分の宿題をしています。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am doing my homework.",
+        "translation": "私は自分の宿題をしています。",
+        "previousMeaning": "私は自分の宿題をしています。",
+        "meaning": "私は自分の宿題をしています。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 164,
+      "text": "There is a book on the desk.",
+      "translation": "机の上に本が1冊あります。",
+      "meaning": "机の上に本が1冊あります。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "There is a book on the desk.",
+        "translation": "机の上に本が1冊あります。",
+        "previousMeaning": "机の上に本が1冊あります。",
+        "meaning": "机の上に本が1冊あります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "there",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 165,
+      "text": "There are three chairs.",
+      "translation": "いすが3脚あります。",
+      "meaning": "いすが3脚あります。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "There are three chairs.",
+        "translation": "いすが3脚あります。",
+        "previousMeaning": "いすが3脚あります。",
+        "meaning": "いすが3脚あります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "there",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 166,
+      "text": "There is no milk.",
+      "translation": "牛乳がありません。",
+      "meaning": "牛乳がありません。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "There is no milk.",
+        "translation": "牛乳がありません。",
+        "previousMeaning": "牛乳がありません。",
+        "meaning": "牛乳がありません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "there",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 167,
+      "text": "This is my favorite book.",
+      "translation": "これは私の好きな本です。",
+      "meaning": "これは私のお気に入りの本です。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 168,
+      "text": "That is a very big dog.",
+      "translation": "あれはとても大きな犬です。",
+      "meaning": "あれはとても大きな犬です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "That is a very big dog.",
+        "translation": "あれはとても大きな犬です。",
+        "previousMeaning": "あれはとても大きな犬です。",
+        "meaning": "あれはとても大きな犬です。",
+        "alternatives": [
+          {
+            "text": "large",
+            "note": "大きい"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 169,
+      "text": "These flowers are beautiful.",
+      "translation": "これらの花は美しいです。",
+      "meaning": "これらの花は美しいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "These flowers are beautiful.",
+        "translation": "これらの花は美しいです。",
+        "previousMeaning": "これらの花は美しいです。",
+        "meaning": "これらの花は美しいです。",
+        "alternatives": [
+          {
+            "text": "pretty",
+            "note": "きれいな"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 170,
+      "text": "Those apples are red.",
+      "translation": "あのりんご（複数）は赤いです。",
+      "meaning": "あのりんご（複数）は赤いです。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 171,
+      "text": "My father likes coffee.",
+      "translation": "私の父はコーヒーが好きです。",
+      "meaning": "私の父はコーヒーが好きです。",
+      "prompt": null,
+      "card": "third",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 172,
+      "text": "My mother can cook well.",
+      "translation": "私の母は上手に料理できます。",
+      "meaning": "私の母は上手に料理できます。",
+      "prompt": null,
+      "card": "can",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 173,
+      "text": "They are in the classroom.",
+      "translation": "彼らは教室にいます。",
+      "meaning": "彼らは教室にいます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "They are in the classroom.",
+        "translation": "彼らは教室にいます。",
+        "previousMeaning": "彼らは教室にいます。",
+        "meaning": "彼らは教室にいます。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 174,
+      "text": "Please give me some water.",
+      "translation": "私に水を少しください。",
+      "meaning": "私に水を少しください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 175,
+      "text": "Can I use this pen?",
+      "translation": "このペンを使ってもよいですか？",
+      "meaning": "このペンを使ってもよいですか？",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Can I use this pen?",
+        "translation": "このペンを使ってもよいですか？",
+        "previousMeaning": "このペンを使ってもよいですか？",
+        "meaning": "このペンを使ってもよいですか？",
+        "alternatives": [
+          {
+            "text": "May I",
+            "note": "〜してもよいですか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "permission",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 176,
+      "text": "May I come in?",
+      "translation": "入ってもよいですか？",
+      "meaning": "入ってもよいですか？",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "May I come in?",
+        "translation": "入ってもよいですか？",
+        "previousMeaning": "入ってもよいですか？",
+        "meaning": "入ってもよいですか？",
+        "alternatives": [
+          {
+            "text": "Can I",
+            "note": "〜してもよいですか"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "和訳から文の形と語義を想起しやすくし、自然な別表現の重なりも示す。"
+      },
+      "card": "permission",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 177,
+      "text": "Thank you for your help.",
+      "translation": "あなたの手助けに感謝します。",
+      "meaning": "手伝ってくれて、ありがとう。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "Thank you for your help.",
+        "translation": "あなたの手助けに感謝します。",
+        "previousMeaning": "手伝ってくれて、ありがとう。",
+        "meaning": "手伝ってくれて、ありがとう。",
+        "alternatives": [
+          {
+            "text": "thanks",
+            "note": "ありがとうの短い表現"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 178,
+      "text": "I am sorry I am late.",
+      "translation": "遅れてすみません。",
+      "meaning": "私は遅れてすみません（短縮しない形）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am sorry I am late.",
+        "translation": "遅れてすみません。",
+        "previousMeaning": "遅れてすみません。",
+        "meaning": "私は遅れてすみません（短縮しない形）。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "文中の二か所とも短縮しない形であることを示す。"
+      },
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 179,
+      "text": "Excuse me.",
+      "translation": "すみません。",
+      "meaning": "すみません（呼びかけるとき）。",
+      "prompt": null,
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 180,
+      "text": "See you next week.",
+      "translation": "また来週。",
+      "meaning": "また来週。",
+      "prompt": null,
+      "card": "greetings",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 181,
+      "text": "Have a good weekend.",
+      "translation": "よい週末を。",
+      "meaning": "よい週末を。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 182,
+      "text": "I need a new pencil.",
+      "translation": "私は新しいえんぴつが1本必要です。",
+      "meaning": "私は新しいえんぴつが1本必要です。",
+      "prompt": null,
+      "card": "verb",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 183,
+      "text": "Please help my friend.",
+      "translation": "私の友だちを助けてください。",
+      "meaning": "私の友だちを助けてください。",
+      "prompt": null,
+      "card": "imperative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 184,
+      "text": "I am happy to see you.",
+      "translation": "あなたに会えてうれしいです。",
+      "meaning": "あなたに会えてうれしいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am happy to see you.",
+        "translation": "あなたに会えてうれしいです。",
+        "previousMeaning": "あなたに会えてうれしいです。",
+        "meaning": "あなたに会えてうれしいです。",
+        "alternatives": [
+          {
+            "text": "glad",
+            "note": "うれしい"
+          }
+        ],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "to",
+      "status": "reference",
+      "reason": "発展寄りの型。通常出題から外し、以前の記録・解説参照を保持。"
+    },
+    {
+      "number": 185,
+      "text": "This bag is mine.",
+      "translation": "このかばんは私のものです。",
+      "meaning": "このかばんは私のものです。",
+      "prompt": null,
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 186,
+      "text": "That bike is hers.",
+      "translation": "あの自転車は彼女のものです。",
+      "meaning": "あの自転車は彼女のものです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "That bike is hers.",
+        "translation": "あの自転車は彼女のものです。",
+        "previousMeaning": "あの自転車は彼女のものです。",
+        "meaning": "あの自転車は彼女のものです。",
+        "alternatives": [
+          {
+            "text": "bicycle",
+            "note": "略さない呼び方"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 187,
+      "text": "Please help him.",
+      "translation": "彼を助けてください。",
+      "meaning": "彼を助けてください。",
+      "prompt": null,
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 188,
+      "text": "Come with us.",
+      "translation": "私たちといっしょに来てください。",
+      "meaning": "私たちといっしょに来てください。",
+      "prompt": null,
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 189,
+      "text": "I like them.",
+      "translation": "私は彼らが好きです。",
+      "meaning": "私は彼らが好きです。",
+      "prompt": null,
+      "card": "pronouns",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 190,
+      "text": "This is an egg.",
+      "translation": "これは卵です。",
+      "meaning": "これは卵です。",
+      "prompt": null,
+      "card": "articles",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 191,
+      "text": "The children are happy.",
+      "translation": "その子どもたちはうれしそうです。",
+      "meaning": "その子どもたちはうれしい・幸せな気分です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "The children are happy.",
+        "translation": "その子どもたちはうれしそうです。",
+        "previousMeaning": "その子どもたちはうれしそうです。",
+        "meaning": "その子どもたちはうれしい・幸せな気分です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "",
+        "reason": "見た目の推量を示すそうを除き、英文の状態を保つ。"
+      },
+      "card": "noun",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 192,
+      "text": "I am not a teacher.",
+      "translation": "私は先生ではありません。",
+      "meaning": "私は先生ではありません（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am not a teacher.",
+        "translation": "私は先生ではありません。",
+        "previousMeaning": "私は先生ではありません。",
+        "meaning": "私は先生ではありません（短縮形を使わずに）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "negative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 193,
+      "text": "He is not busy.",
+      "translation": "彼は忙しくありません。",
+      "meaning": "彼は忙しくありません（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He is not busy.",
+        "translation": "彼は忙しくありません。",
+        "previousMeaning": "彼は忙しくありません。",
+        "meaning": "彼は忙しくありません（短縮形を使わずに）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "negative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 194,
+      "text": "I don't like coffee.",
+      "translation": "私はコーヒーが好きではありません。",
+      "meaning": "私はコーヒーが好きではありません（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I don't like coffee.",
+        "translation": "私はコーヒーが好きではありません。",
+        "previousMeaning": "私はコーヒーが好きではありません。",
+        "meaning": "私はコーヒーが好きではありません（短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "negative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 195,
+      "text": "She doesn't play tennis.",
+      "translation": "彼女はテニスをしません。",
+      "meaning": "彼女はテニスをしません（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She doesn't play tennis.",
+        "translation": "彼女はテニスをしません。",
+        "previousMeaning": "彼女はテニスをしません。",
+        "meaning": "彼女はテニスをしません（短縮形で）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "negative",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 196,
+      "text": "They are not reading.",
+      "translation": "彼らは今、読書をしていません。",
+      "meaning": "彼らは今、読書をしていません（短縮形を使わずに）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "They are not reading.",
+        "translation": "彼らは今、読書をしていません。",
+        "previousMeaning": "彼らは今、読書をしていません。",
+        "meaning": "彼らは今、読書をしていません（短縮形を使わずに）。",
+        "alternatives": [],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "progressive",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 197,
+      "text": "I always walk to school.",
+      "translation": "私はいつも歩いて学校へ行きます。",
+      "meaning": "私はいつも歩いて学校へ行きます。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I always walk to school.",
+        "translation": "私はいつも歩いて学校へ行きます。",
+        "previousMeaning": "私はいつも歩いて学校へ行きます。",
+        "meaning": "私はいつも歩いて学校へ行きます。",
+        "alternatives": [
+          {
+            "text": "go to school on foot",
+            "note": "歩いて学校へ行く"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "modifiers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 198,
+      "text": "She is usually happy.",
+      "translation": "彼女はたいてい機嫌がよいです。",
+      "meaning": "彼女はたいてい機嫌がよいです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "She is usually happy.",
+        "translation": "彼女はたいてい機嫌がよいです。",
+        "previousMeaning": "彼女はたいてい機嫌がよいです。",
+        "meaning": "彼女はたいてい機嫌がよいです。",
+        "alternatives": [
+          {
+            "text": "normally",
+            "note": "ふつうは"
+          }
+        ],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "modifiers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 199,
+      "text": "I like dogs and cats.",
+      "translation": "私は犬と猫が好きです。",
+      "meaning": "私は犬と猫が好きです。",
+      "prompt": null,
+      "card": "conjunctions",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 200,
+      "text": "He is small but strong.",
+      "translation": "彼は体は小さいけれど力は強いです。",
+      "meaning": "彼は体は小さいけれど力は強いです。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "He is small but strong.",
+        "translation": "彼は体は小さいけれど力は強いです。",
+        "previousMeaning": "彼は体は小さいけれど力は強いです。",
+        "meaning": "彼は体は小さいけれど力は強いです。",
+        "alternatives": [
+          {
+            "text": "little",
+            "note": "小さい"
+          },
+          {
+            "text": "powerful",
+            "note": "強力な"
+          }
+        ],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "conjunctions",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 201,
+      "text": "Do you want tea or coffee?",
+      "translation": "あなたは紅茶とコーヒーのどちらがほしいですか？",
+      "meaning": "あなたは紅茶とコーヒーのどちらがほしいですか？",
+      "prompt": null,
+      "card": "conjunctions",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 202,
+      "text": "I play tennis on Sundays.",
+      "translation": "私は毎週日曜日にテニスをします。",
+      "meaning": "私は毎週日曜日にテニスをします。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I play tennis on Sundays.",
+        "translation": "私は毎週日曜日にテニスをします。",
+        "previousMeaning": "私は毎週日曜日にテニスをします。",
+        "meaning": "私は毎週日曜日にテニスをします。",
+        "alternatives": [
+          {
+            "text": "every Sunday",
+            "note": "毎週日曜日に"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 203,
+      "text": "My birthday is in July.",
+      "translation": "私の誕生日は7月です。",
+      "meaning": "私の誕生日は7月です。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 204,
+      "text": "The clock is on the wall.",
+      "translation": "その時計は壁にかかっています。",
+      "meaning": "その時計は壁にかかっています。",
+      "prompt": null,
+      "card": "place",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 205,
+      "text": "This is Tom's bag.",
+      "translation": "これはトムのかばんです。",
+      "meaning": "これはトムのかばんです。",
+      "prompt": null,
+      "card": "noun",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 206,
+      "text": "These boxes are heavy.",
+      "translation": "これらの箱は重いです。",
+      "meaning": "これらの箱は重いです。",
+      "prompt": null,
+      "card": "noun",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 207,
+      "text": "These are books.",
+      "translation": "これらは本です。",
+      "meaning": "これらは本です。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 208,
+      "text": "Those are birds.",
+      "translation": "あれらは鳥です。",
+      "meaning": "あれらは鳥です。",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 209,
+      "text": "Is that a cat?",
+      "translation": "あれは猫ですか？",
+      "meaning": "あれは猫ですか？",
+      "prompt": null,
+      "card": "demonstratives",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 210,
+      "text": "I'm a student.",
+      "translation": "私は生徒です（I amの短い形で）。",
+      "meaning": "私は生徒です（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I'm a student.",
+        "translation": "私は生徒です（I amの短い形で）。",
+        "previousMeaning": "私は生徒です（I amの短い形で）。",
+        "meaning": "私は生徒です（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "pupil",
+            "note": "学校の生徒"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "contractions",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 211,
+      "text": "You're kind.",
+      "translation": "あなたは親切です（You areの短い形で）。",
+      "meaning": "あなたは親切です（短縮形で）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "You're kind.",
+        "translation": "あなたは親切です（You areの短い形で）。",
+        "previousMeaning": "あなたは親切です（You areの短い形で）。",
+        "meaning": "あなたは親切です（短縮形で）。",
+        "alternatives": [
+          {
+            "text": "considerate",
+            "note": "思いやりがある"
+          }
+        ],
+        "reason": "和訳の意味を保ち、文の種類・短縮形や自然な別表現を補足する。文全体の唯一解を保証するものではない。",
+        "contrasts": [],
+        "formNote": ""
+      },
+      "card": "contractions",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 212,
+      "text": "Yes, I am.",
+      "translation": "「あなたは生徒ですか？」に「はい、そうです」。",
+      "meaning": "「あなたは生徒ですか？」に「はい、そうです」。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 213,
+      "text": "No, I'm not.",
+      "translation": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。",
+      "meaning": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 214,
+      "text": "Yes, she does.",
+      "translation": "「彼女は犬が好きですか？」に「はい、好きです」。",
+      "meaning": "「彼女は犬が好きですか？」に「はい、好きです」。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 215,
+      "text": "No, he doesn't.",
+      "translation": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。",
+      "meaning": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 216,
+      "text": "Yes, I can.",
+      "translation": "「あなたは泳げますか？」に「はい、泳げます」。",
+      "meaning": "「あなたは泳げますか？」に「はい、泳げます」。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 217,
+      "text": "No, I can't.",
+      "translation": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。",
+      "meaning": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。",
+      "prompt": null,
+      "card": "short-answers",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 218,
+      "text": "I don't have any pencils.",
+      "translation": "私はえんぴつを1本も持っていません。",
+      "meaning": "私はえんぴつを1本も持っていません。",
+      "prompt": null,
+      "card": "amounts",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 219,
+      "text": "Do you have any brothers?",
+      "translation": "あなたには男のきょうだいがいますか？",
+      "meaning": "あなたには男のきょうだいがいますか？",
+      "prompt": null,
+      "card": "amounts",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 220,
+      "text": "It is three o'clock.",
+      "translation": "3時です。",
+      "meaning": "3時です。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "It is three o'clock.",
+        "translation": "3時です。",
+        "previousMeaning": "3時です。",
+        "meaning": "3時です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "短縮しない形で表す",
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。"
+      },
+      "card": "weather",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    },
+    {
+      "number": 221,
+      "text": "I am ten years old.",
+      "translation": "私は10歳です（years oldを使って）。",
+      "meaning": "私は10歳です（年齢の単位まで添えて）。",
+      "prompt": {
+        "course": "Eiken5",
+        "level": 3,
+        "text": "I am ten years old.",
+        "translation": "私は10歳です（years oldを使って）。",
+        "previousMeaning": "私は10歳です（years oldを使って）。",
+        "meaning": "私は10歳です（年齢の単位まで添えて）。",
+        "alternatives": [],
+        "reason": "意味が同じ短縮形との違いを、日本語の文型情報として示す。",
+        "contrasts": [],
+        "formNote": "短縮しない形で表す"
+      },
+      "card": "wh",
+      "status": "keep",
+      "reason": "英文・元和訳・保存キーを保持し、段階を整理。"
+    }
+  ],
+  "active": [
+    {
+      "number": 1,
+      "question": {
+        "text": "We are friends.",
+        "translation": "私たちは友達です。"
+      },
+      "card": "subjects",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちは友達です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 2,
+      "question": {
+        "text": "They are happy.",
+        "translation": "彼らは幸せです。"
+      },
+      "card": "subjects",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らは幸せです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 3,
+      "question": {
+        "text": "I have a book.",
+        "translation": "私は本を1冊持っています。"
+      },
+      "card": "word-types",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は本を1冊持っています。",
+      "formNote": ""
+    },
+    {
+      "number": 4,
+      "question": {
+        "text": "I am a student.",
+        "translation": "私は生徒です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は生徒です（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 5,
+      "question": {
+        "text": "You are kind.",
+        "translation": "あなたは親切です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは親切です（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 6,
+      "question": {
+        "text": "He is my teacher.",
+        "translation": "彼は私の先生です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は私の先生です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 7,
+      "question": {
+        "text": "She is a nurse.",
+        "translation": "彼女は看護師です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は看護師です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 8,
+      "question": {
+        "text": "It is a dog.",
+        "translation": "それは犬です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "それは犬です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 9,
+      "question": {
+        "text": "My father is busy.",
+        "translation": "私の父は忙しいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の父は忙しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 10,
+      "question": {
+        "text": "My mother is kind.",
+        "translation": "私の母は親切です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の母は親切です。",
+      "formNote": ""
+    },
+    {
+      "number": 11,
+      "question": {
+        "text": "The dog is cute.",
+        "translation": "その犬はかわいいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その犬はかわいいです。",
+      "formNote": ""
+    },
+    {
+      "number": 12,
+      "question": {
+        "text": "The flower is red.",
+        "translation": "その花は赤いです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その花は赤いです。",
+      "formNote": ""
+    },
+    {
+      "number": 13,
+      "question": {
+        "text": "His car is new.",
+        "translation": "彼の車は新しいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼の車は新しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 14,
+      "question": {
+        "text": "Her dress is nice.",
+        "translation": "彼女のドレスは素敵です。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女のドレスは素敵です。",
+      "formNote": ""
+    },
+    {
+      "number": 15,
+      "question": {
+        "text": "Our school is big.",
+        "translation": "私たちの学校は大きいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちの学校は大きいです。",
+      "formNote": ""
+    },
+    {
+      "number": 16,
+      "question": {
+        "text": "Their house is small.",
+        "translation": "彼らの家は小さいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らの家は小さいです。",
+      "formNote": ""
+    },
+    {
+      "number": 17,
+      "question": {
+        "text": "My shoes are black.",
+        "translation": "私の靴は黒いです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の靴は黒いです。",
+      "formNote": ""
+    },
+    {
+      "number": 18,
+      "question": {
+        "text": "This book is easy.",
+        "translation": "この本はやさしいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "この本は内容がやさしいです。",
+      "formNote": ""
+    },
+    {
+      "number": 19,
+      "question": {
+        "text": "That room is clean.",
+        "translation": "あの部屋はきれいです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あの部屋は汚れがなく、きれいです。",
+      "formNote": ""
+    },
+    {
+      "number": 20,
+      "question": {
+        "text": "My brother is tall.",
+        "translation": "私の兄（弟）は背が高いです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の兄（弟）は背が高いです。",
+      "formNote": ""
+    },
+    {
+      "number": 21,
+      "question": {
+        "text": "My sister is young.",
+        "translation": "私の姉（妹）は若いです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の姉（妹）は若いです。",
+      "formNote": ""
+    },
+    {
+      "number": 22,
+      "question": {
+        "text": "My family is nice.",
+        "translation": "私の家族はすてきです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の家族はすてきです。",
+      "formNote": ""
+    },
+    {
+      "number": 23,
+      "question": {
+        "text": "The library is quiet.",
+        "translation": "その図書館は静かです。"
+      },
+      "card": "be",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その図書館は静かです。",
+      "formNote": ""
+    },
+    {
+      "number": 24,
+      "question": {
+        "text": "I like music.",
+        "translation": "私は音楽が好きです。"
+      },
+      "card": "word-order",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は音楽が好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 25,
+      "question": {
+        "text": "I play tennis.",
+        "translation": "私はテニスをします。"
+      },
+      "card": "word-order",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はテニスをします。",
+      "formNote": ""
+    },
+    {
+      "number": 26,
+      "question": {
+        "text": "This is a pen.",
+        "translation": "これはペンです。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これはペンです。",
+      "formNote": ""
+    },
+    {
+      "number": 27,
+      "question": {
+        "text": "That is a bird.",
+        "translation": "あれは鳥です。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あれは鳥です。",
+      "formNote": ""
+    },
+    {
+      "number": 28,
+      "question": {
+        "text": "This is my favorite book.",
+        "translation": "これは私の好きな本です。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これは私のお気に入りの本です。",
+      "formNote": ""
+    },
+    {
+      "number": 29,
+      "question": {
+        "text": "That is a very big dog.",
+        "translation": "あれはとても大きな犬です。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あれはとても大きな犬です。",
+      "formNote": ""
+    },
+    {
+      "number": 30,
+      "question": {
+        "text": "These flowers are beautiful.",
+        "translation": "これらの花は美しいです。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これらの花は美しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 31,
+      "question": {
+        "text": "Those apples are red.",
+        "translation": "あのりんご（複数）は赤いです。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あのりんご（複数）は赤いです。",
+      "formNote": ""
+    },
+    {
+      "number": 32,
+      "question": {
+        "text": "These are books.",
+        "translation": "これらは本です。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これらは本です。",
+      "formNote": ""
+    },
+    {
+      "number": 33,
+      "question": {
+        "text": "Those are birds.",
+        "translation": "あれらは鳥です。"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あれらは鳥です。",
+      "formNote": ""
+    },
+    {
+      "number": 34,
+      "question": {
+        "text": "Is that a cat?",
+        "translation": "あれは猫ですか？"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あれは猫ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 35,
+      "question": {
+        "text": "What are these?",
+        "translation": "これらは何ですか？"
+      },
+      "card": "demonstratives",
+      "band": 1,
+      "formNote": "近くにある複数の物について尋ねます。短縮しない形で。",
+      "focus": "これと、これらの数の違いを疑問文でも確認する。",
+      "origin": "add",
+      "meaning": "これらは何ですか？"
+    },
+    {
+      "number": 36,
+      "question": {
+        "text": "I'm a student.",
+        "translation": "私は生徒です（I amの短い形で）。"
+      },
+      "card": "contractions",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は生徒です（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 37,
+      "question": {
+        "text": "You're kind.",
+        "translation": "あなたは親切です（You areの短い形で）。"
+      },
+      "card": "contractions",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは親切です（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 38,
+      "question": {
+        "text": "I am from Japan.",
+        "translation": "私は日本出身です。"
+      },
+      "card": "from",
+      "band": 1,
+      "formNote": "出身を「〜です」の文で表す練習です。短縮しない形で。",
+      "focus": "出身を伝える基本の型。",
+      "origin": "add",
+      "meaning": "私は日本出身です。"
+    },
+    {
+      "number": 39,
+      "question": {
+        "text": "Where are you from?",
+        "translation": "あなたはどこの出身ですか？"
+      },
+      "card": "from",
+      "band": 1,
+      "formNote": "出身を「〜です」の文で表す練習です。短縮しない形で。",
+      "focus": "出身地を場所の疑問詞で尋ねる。",
+      "origin": "add",
+      "meaning": "あなたはどこの出身ですか？"
+    },
+    {
+      "number": 40,
+      "question": {
+        "text": "Is she from Canada?",
+        "translation": "彼女はカナダ出身ですか？"
+      },
+      "card": "from",
+      "band": 1,
+      "formNote": "出身を「〜です」の文で表す練習です。短縮しない形で。",
+      "focus": "出身を伝える文を疑問文にする。",
+      "origin": "add",
+      "meaning": "彼女はカナダ出身ですか？"
+    },
+    {
+      "number": 41,
+      "question": {
+        "text": "We study English.",
+        "translation": "私たちは英語を勉強します。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちは英語を勉強します。",
+      "formNote": ""
+    },
+    {
+      "number": 42,
+      "question": {
+        "text": "They play soccer.",
+        "translation": "彼らはサッカーをします。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らはサッカーをします。",
+      "formNote": ""
+    },
+    {
+      "number": 43,
+      "question": {
+        "text": "I want a bike.",
+        "translation": "私は自転車が1台欲しいです。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は自転車が1台欲しいです。",
+      "formNote": ""
+    },
+    {
+      "number": 44,
+      "question": {
+        "text": "I like apples.",
+        "translation": "私はりんごが好きです。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はりんごが好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 45,
+      "question": {
+        "text": "We have a cat.",
+        "translation": "私たちは猫を1匹飼っています。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちは猫を1匹飼っています。",
+      "formNote": ""
+    },
+    {
+      "number": 46,
+      "question": {
+        "text": "I walk to the park.",
+        "translation": "私は公園まで歩きます。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は公園まで歩きます。",
+      "formNote": ""
+    },
+    {
+      "number": 47,
+      "question": {
+        "text": "I read every night.",
+        "translation": "私は毎晩読書をします。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は毎晩読書をします。",
+      "formNote": ""
+    },
+    {
+      "number": 48,
+      "question": {
+        "text": "We eat breakfast together.",
+        "translation": "私たちは一緒に朝食を食べます。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちは一緒に朝食を食べます。",
+      "formNote": ""
+    },
+    {
+      "number": 49,
+      "question": {
+        "text": "I drink milk every day.",
+        "translation": "私は毎日牛乳を飲みます。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は毎日牛乳を飲みます。",
+      "formNote": ""
+    },
+    {
+      "number": 50,
+      "question": {
+        "text": "I need a new pencil.",
+        "translation": "私は新しいえんぴつが1本必要です。"
+      },
+      "card": "verb",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は新しいえんぴつが1本必要です。",
+      "formNote": ""
+    },
+    {
+      "number": 51,
+      "question": {
+        "text": "He runs fast.",
+        "translation": "彼は速く走ります。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は速く走ります。",
+      "formNote": ""
+    },
+    {
+      "number": 52,
+      "question": {
+        "text": "She cooks well.",
+        "translation": "彼女は上手に料理します。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は上手に料理します。",
+      "formNote": ""
+    },
+    {
+      "number": 53,
+      "question": {
+        "text": "He lives in Tokyo.",
+        "translation": "彼は東京に住んでいます。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は東京に住んでいます。",
+      "formNote": ""
+    },
+    {
+      "number": 54,
+      "question": {
+        "text": "She goes to school.",
+        "translation": "彼女は学校へ行きます。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は学校へ行きます。",
+      "formNote": ""
+    },
+    {
+      "number": 55,
+      "question": {
+        "text": "Our school has a library.",
+        "translation": "私たちの学校には図書館があります。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちの学校には図書館があります。",
+      "formNote": ""
+    },
+    {
+      "number": 56,
+      "question": {
+        "text": "She gets up early.",
+        "translation": "彼女は早く起きます。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は早く（寝床から）起きます。",
+      "formNote": ""
+    },
+    {
+      "number": 57,
+      "question": {
+        "text": "He goes to bed early.",
+        "translation": "彼は早く寝ます。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は早く（寝床に入って）寝ます。",
+      "formNote": ""
+    },
+    {
+      "number": 58,
+      "question": {
+        "text": "She likes orange juice.",
+        "translation": "彼女はオレンジジュースが好きです。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女はオレンジジュースが好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 59,
+      "question": {
+        "text": "He wants some cake.",
+        "translation": "彼はケーキを少し欲しがっています。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼はケーキを少し欲しがっています。",
+      "formNote": ""
+    },
+    {
+      "number": 60,
+      "question": {
+        "text": "My father likes coffee.",
+        "translation": "私の父はコーヒーが好きです。"
+      },
+      "card": "third",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の父はコーヒーが好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 61,
+      "question": {
+        "text": "I have two dogs.",
+        "translation": "私は犬を2匹飼っています。"
+      },
+      "card": "noun",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は犬を2匹飼っています。",
+      "formNote": ""
+    },
+    {
+      "number": 62,
+      "question": {
+        "text": "I have a new bag.",
+        "translation": "私は新しいかばんを1つ持っています。"
+      },
+      "card": "noun",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は新しいかばんを1つ持っています。",
+      "formNote": ""
+    },
+    {
+      "number": 63,
+      "question": {
+        "text": "The children are happy.",
+        "translation": "その子どもたちはうれしそうです。"
+      },
+      "card": "noun",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その子どもたちはうれしい・幸せな気分です。",
+      "formNote": ""
+    },
+    {
+      "number": 64,
+      "question": {
+        "text": "This is Tom's bag.",
+        "translation": "これはトムのかばんです。"
+      },
+      "card": "noun",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これはトムのかばんです。",
+      "formNote": ""
+    },
+    {
+      "number": 65,
+      "question": {
+        "text": "These boxes are heavy.",
+        "translation": "これらの箱は重いです。"
+      },
+      "card": "noun",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これらの箱は重いです。",
+      "formNote": ""
+    },
+    {
+      "number": 66,
+      "question": {
+        "text": "This is an egg.",
+        "translation": "これは卵です。"
+      },
+      "card": "articles",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これは卵です。",
+      "formNote": ""
+    },
+    {
+      "number": 67,
+      "question": {
+        "text": "Is this yours?",
+        "translation": "これはあなたのですか？"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これはあなたのものですか？",
+      "formNote": ""
+    },
+    {
+      "number": 68,
+      "question": {
+        "text": "This bag is mine.",
+        "translation": "このかばんは私のものです。"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "このかばんは私のものです。",
+      "formNote": ""
+    },
+    {
+      "number": 69,
+      "question": {
+        "text": "That bike is hers.",
+        "translation": "あの自転車は彼女のものです。"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あの自転車は彼女のものです。",
+      "formNote": ""
+    },
+    {
+      "number": 70,
+      "question": {
+        "text": "Please help him.",
+        "translation": "彼を助けてください。"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼を助けてください。",
+      "formNote": ""
+    },
+    {
+      "number": 71,
+      "question": {
+        "text": "Come with us.",
+        "translation": "私たちといっしょに来てください。"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちといっしょに来てください。",
+      "formNote": ""
+    },
+    {
+      "number": 72,
+      "question": {
+        "text": "I like them.",
+        "translation": "私は彼らが好きです。"
+      },
+      "card": "pronouns",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は彼らが好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 73,
+      "question": {
+        "text": "I don't know.",
+        "translation": "私は知りません（don'tを使う）。"
+      },
+      "card": "negative",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は知りません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 74,
+      "question": {
+        "text": "I am not a teacher.",
+        "translation": "私は先生ではありません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は先生ではありません（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 75,
+      "question": {
+        "text": "He is not busy.",
+        "translation": "彼は忙しくありません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は忙しくありません（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 76,
+      "question": {
+        "text": "I don't like coffee.",
+        "translation": "私はコーヒーが好きではありません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はコーヒーが好きではありません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 77,
+      "question": {
+        "text": "She doesn't play tennis.",
+        "translation": "彼女はテニスをしません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女はテニスをしません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 78,
+      "question": {
+        "text": "I am not tired.",
+        "translation": "私は疲れていません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "「〜です」の否定文を練習します。短縮しない形で。",
+      "focus": "状態を伝える文を否定にする。",
+      "origin": "add",
+      "meaning": "私は疲れていません。"
+    },
+    {
+      "number": 79,
+      "question": {
+        "text": "She is not my teacher.",
+        "translation": "彼女は私の先生ではありません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "「〜です」の否定文を練習します。短縮しない形で。",
+      "focus": "人についての説明を否定にする。",
+      "origin": "add",
+      "meaning": "彼女は私の先生ではありません。"
+    },
+    {
+      "number": 80,
+      "question": {
+        "text": "We are not hungry.",
+        "translation": "私たちはお腹が空いていません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "「〜です」の否定文を練習します。短縮しない形で。",
+      "focus": "複数の主語の状態を否定する。",
+      "origin": "add",
+      "meaning": "私たちはお腹が空いていません。"
+    },
+    {
+      "number": 81,
+      "question": {
+        "text": "They are not in the classroom.",
+        "translation": "彼らは教室にいません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "「〜です」の否定文を練習します。短縮しない形で。",
+      "focus": "所在の否定にも同じ動詞の型を使う。",
+      "origin": "add",
+      "meaning": "彼らは教室にいません。"
+    },
+    {
+      "number": 82,
+      "question": {
+        "text": "I don't drink coffee.",
+        "translation": "私はコーヒーを飲みません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "ふだんのことを表す一般動詞の否定文。否定の部分は短縮形で。",
+      "focus": "飲まない習慣を、好みの否定と区別する。",
+      "origin": "add",
+      "meaning": "私はコーヒーを飲みません。"
+    },
+    {
+      "number": 83,
+      "question": {
+        "text": "He doesn't like apples.",
+        "translation": "彼はりんごが好きではありません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "ふだんのことを表す一般動詞の否定文。否定の部分は短縮形で。",
+      "focus": "三人称単数の好みを否定する。",
+      "origin": "add",
+      "meaning": "彼はりんごが好きではありません。"
+    },
+    {
+      "number": 84,
+      "question": {
+        "text": "She doesn't have a bike.",
+        "translation": "彼女は自転車を持っていません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "ふだんのことを表す一般動詞の否定文。否定の部分は短縮形で。",
+      "focus": "三人称単数でも否定の後ろは動詞のもとの形。",
+      "origin": "add",
+      "meaning": "彼女は自転車を持っていません。"
+    },
+    {
+      "number": 85,
+      "question": {
+        "text": "My brother doesn't play soccer.",
+        "translation": "私の兄（弟）はサッカーをしません。"
+      },
+      "card": "negative",
+      "band": 1,
+      "formNote": "ふだんのことを表す一般動詞の否定文。否定の部分は短縮形で。",
+      "focus": "人を表す名詞の主語でも、否定の型を選ぶ。",
+      "origin": "add",
+      "meaning": "私の兄（弟）はサッカーをしません。"
+    },
+    {
+      "number": 86,
+      "question": {
+        "text": "Are you hungry?",
+        "translation": "お腹が空いていますか？"
+      },
+      "card": "be-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "お腹が空いていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 87,
+      "question": {
+        "text": "Are you tired?",
+        "translation": "疲れていますか？"
+      },
+      "card": "be-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "疲れていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 88,
+      "question": {
+        "text": "Is he your brother?",
+        "translation": "彼はあなたの兄弟ですか？"
+      },
+      "card": "be-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼はあなたのお兄さんか弟ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 89,
+      "question": {
+        "text": "Are they in the classroom?",
+        "translation": "彼らは教室にいますか？"
+      },
+      "card": "be-question",
+      "band": 1,
+      "formNote": "場所を表す「〜です」の動詞を、主語の前に出して尋ねます。",
+      "focus": "所在の肯定・否定・疑問を比べる。",
+      "origin": "add",
+      "meaning": "彼らは教室にいますか？"
+    },
+    {
+      "number": 90,
+      "question": {
+        "text": "Do you like cats?",
+        "translation": "あなたは猫が好きですか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは猫が好きですか？",
+      "formNote": ""
+    },
+    {
+      "number": 91,
+      "question": {
+        "text": "Do you have a pen?",
+        "translation": "ペンを1本持っていますか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "ペンを1本持っていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 92,
+      "question": {
+        "text": "Do you play soccer?",
+        "translation": "あなたはサッカーをしますか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたはサッカーをしますか？",
+      "formNote": ""
+    },
+    {
+      "number": 93,
+      "question": {
+        "text": "Does he have a bike?",
+        "translation": "彼は自転車を1台持っていますか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は自転車を1台持っていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 94,
+      "question": {
+        "text": "Does she like dogs?",
+        "translation": "彼女は犬が好きですか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は犬が好きですか？",
+      "formNote": ""
+    },
+    {
+      "number": 95,
+      "question": {
+        "text": "Do they study English?",
+        "translation": "彼らは英語を勉強しますか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "formNote": "ふだんのことを表す一般動詞の疑問文です。",
+      "focus": "複数の主語の一般動詞を質問にする。",
+      "origin": "add",
+      "meaning": "彼らは英語を勉強しますか？"
+    },
+    {
+      "number": 96,
+      "question": {
+        "text": "Does your brother play soccer?",
+        "translation": "あなたの兄（弟）はサッカーをしますか？"
+      },
+      "card": "do-question",
+      "band": 1,
+      "formNote": "一人についての一般動詞の疑問文。動作の動詞はもとの形にします。",
+      "focus": "名詞の主語でも三人称単数の疑問文を作る。",
+      "origin": "add",
+      "meaning": "あなたの兄（弟）はサッカーをしますか？"
+    },
+    {
+      "number": 97,
+      "question": {
+        "text": "Yes, I am.",
+        "translation": "「あなたは生徒ですか？」に「はい、そうです」。"
+      },
+      "card": "short-answers",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「あなたは生徒ですか？」に「はい、そうです」。",
+      "formNote": ""
+    },
+    {
+      "number": 98,
+      "question": {
+        "text": "No, I'm not.",
+        "translation": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。"
+      },
+      "card": "short-answers",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「あなたは生徒ですか？」に「いいえ、違います」（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 99,
+      "question": {
+        "text": "Yes, she does.",
+        "translation": "「彼女は犬が好きですか？」に「はい、好きです」。"
+      },
+      "card": "short-answers",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「彼女は犬が好きですか？」に「はい、好きです」。",
+      "formNote": ""
+    },
+    {
+      "number": 100,
+      "question": {
+        "text": "No, he doesn't.",
+        "translation": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。"
+      },
+      "card": "short-answers",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「彼は犬が好きですか？」に「いいえ」（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 101,
+      "question": {
+        "text": "Who is he?",
+        "translation": "彼は誰ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は誰ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 102,
+      "question": {
+        "text": "What is this?",
+        "translation": "これは何ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これは何ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 103,
+      "question": {
+        "text": "Where is my bag?",
+        "translation": "私のかばんはどこですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私のかばんはどこですか？",
+      "formNote": ""
+    },
+    {
+      "number": 104,
+      "question": {
+        "text": "When is your birthday?",
+        "translation": "あなたの誕生日はいつですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたの誕生日はいつですか？",
+      "formNote": ""
+    },
+    {
+      "number": 105,
+      "question": {
+        "text": "How are you?",
+        "translation": "元気ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "元気ですか（調子を尋ねる）。",
+      "formNote": ""
+    },
+    {
+      "number": 106,
+      "question": {
+        "text": "What time is it?",
+        "translation": "何時ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "何時ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 107,
+      "question": {
+        "text": "Why are you sad?",
+        "translation": "なぜ悲しいのですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "なぜ悲しいのですか？",
+      "formNote": ""
+    },
+    {
+      "number": 108,
+      "question": {
+        "text": "Whose bag is this?",
+        "translation": "これは誰のかばんですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "これは誰のかばんですか？",
+      "formNote": ""
+    },
+    {
+      "number": 109,
+      "question": {
+        "text": "Where is the station?",
+        "translation": "駅はどこですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "駅はどこですか？",
+      "formNote": ""
+    },
+    {
+      "number": 110,
+      "question": {
+        "text": "What is your name?",
+        "translation": "あなたの名前は何ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたの名前は何ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 111,
+      "question": {
+        "text": "What color is it?",
+        "translation": "それは何色ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "それは何色ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 112,
+      "question": {
+        "text": "Who is your teacher?",
+        "translation": "あなたの先生は誰ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたの先生は誰ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 113,
+      "question": {
+        "text": "How old are you?",
+        "translation": "あなたは何歳ですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは何歳ですか？",
+      "formNote": ""
+    },
+    {
+      "number": 114,
+      "question": {
+        "text": "How is the weather?",
+        "translation": "天気はどうですか？"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "天気はどうですか？",
+      "formNote": ""
+    },
+    {
+      "number": 115,
+      "question": {
+        "text": "I am ten years old.",
+        "translation": "私は10歳です（years oldを使って）。"
+      },
+      "card": "wh",
+      "band": 1,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は10歳です（年齢の単位まで添えて）。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 116,
+      "question": {
+        "text": "Yes, I can.",
+        "translation": "「あなたは泳げますか？」に「はい、泳げます」。"
+      },
+      "card": "short-answers",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「あなたは泳げますか？」に「はい、泳げます」。",
+      "formNote": ""
+    },
+    {
+      "number": 117,
+      "question": {
+        "text": "No, I can't.",
+        "translation": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。"
+      },
+      "card": "short-answers",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "「あなたは泳げますか？」に「いいえ、泳げません」（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 118,
+      "question": {
+        "text": "What do you do after school?",
+        "translation": "放課後は何をしますか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "放課後は何をしますか？",
+      "formNote": ""
+    },
+    {
+      "number": 119,
+      "question": {
+        "text": "Where do you live?",
+        "translation": "どこに住んでいますか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "どこに住んでいますか？",
+      "formNote": ""
+    },
+    {
+      "number": 120,
+      "question": {
+        "text": "When do you study?",
+        "translation": "いつ勉強しますか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "いつ勉強しますか？",
+      "formNote": ""
+    },
+    {
+      "number": 121,
+      "question": {
+        "text": "How do you come to school?",
+        "translation": "どうやって学校に来ますか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "どうやって学校に来ますか？",
+      "formNote": ""
+    },
+    {
+      "number": 122,
+      "question": {
+        "text": "Which color do you like?",
+        "translation": "どの色が好きですか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "どの色が好きですか？",
+      "formNote": ""
+    },
+    {
+      "number": 123,
+      "question": {
+        "text": "What time do you go to bed?",
+        "translation": "あなたは何時に寝床に入りますか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "formNote": "具体的な時刻を尋ねます。眠りにつく時刻ではなく、寝床に入る時刻です。",
+      "focus": "就寝の動作と時刻の疑問文を組み合わせる。",
+      "origin": "add",
+      "meaning": "あなたは何時に寝床に入りますか？"
+    },
+    {
+      "number": 124,
+      "question": {
+        "text": "Why do you like cats?",
+        "translation": "あなたはなぜ猫が好きなのですか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "formNote": "理由を尋ねる、一般動詞の疑問文です。",
+      "focus": "理由の疑問詞を、好みを尋ねる文に付ける。",
+      "origin": "add",
+      "meaning": "あなたはなぜ猫が好きなのですか？"
+    },
+    {
+      "number": 125,
+      "question": {
+        "text": "Whose shoes are these?",
+        "translation": "これらは誰の靴ですか？"
+      },
+      "card": "wh",
+      "band": 2,
+      "formNote": "持ち主を尋ねます。靴を先に言ってから「これら」を置く語順で練習します。",
+      "focus": "持ち主の疑問詞・名詞・複数形の語順。",
+      "origin": "add",
+      "meaning": "これらは誰の靴ですか？"
+    },
+    {
+      "number": 126,
+      "question": {
+        "text": "Where does he live?",
+        "translation": "彼はどこに住んでいますか？"
+      },
+      "card": "wh-does",
+      "band": 2,
+      "formNote": "彼・彼女など、一人についての疑問文。疑問詞の後ろに疑問文を続け、動作の動詞はもとの形にします。",
+      "focus": "場所を尋ねる疑問詞と三人称単数の疑問文。",
+      "origin": "add",
+      "meaning": "彼はどこに住んでいますか？"
+    },
+    {
+      "number": 127,
+      "question": {
+        "text": "What does she want?",
+        "translation": "彼女は何がほしいですか？"
+      },
+      "card": "wh-does",
+      "band": 2,
+      "formNote": "彼・彼女など、一人についての疑問文。疑問詞の後ろに疑問文を続け、動作の動詞はもとの形にします。",
+      "focus": "ほしい物を尋ねる疑問詞と三人称単数の疑問文。",
+      "origin": "add",
+      "meaning": "彼女は何がほしいですか？"
+    },
+    {
+      "number": 128,
+      "question": {
+        "text": "What time does she get up?",
+        "translation": "彼女は何時に起きますか？"
+      },
+      "card": "wh-does",
+      "band": 2,
+      "formNote": "彼・彼女など、一人についての疑問文。疑問詞の後ろに疑問文を続け、動作の動詞はもとの形にします。 起きるのは、寝床から起きることです。",
+      "focus": "具体的な時刻を尋ね、起床する動作を伝える。",
+      "origin": "add",
+      "meaning": "彼女は何時に起きますか？"
+    },
+    {
+      "number": 129,
+      "question": {
+        "text": "How does your brother go to school?",
+        "translation": "あなたの兄（弟）はどうやって学校へ行きますか？"
+      },
+      "card": "wh-does",
+      "band": 2,
+      "formNote": "彼・彼女など、一人についての疑問文。疑問詞の後ろに疑問文を続け、動作の動詞はもとの形にします。",
+      "focus": "交通手段を尋ねる疑問詞と名詞の主語。",
+      "origin": "add",
+      "meaning": "あなたの兄（弟）はどうやって学校へ行きますか？"
+    },
+    {
+      "number": 130,
+      "question": {
+        "text": "What does he do after school?",
+        "translation": "彼は放課後に何をしますか？"
+      },
+      "card": "wh-does",
+      "band": 2,
+      "formNote": "彼・彼女など、一人についての疑問文。疑問詞の後ろに疑問文を続け、動作の動詞はもとの形にします。",
+      "focus": "疑問文を作る語と「する」という動作を表す語を両方置く。",
+      "origin": "add",
+      "meaning": "彼は放課後に何をしますか？"
+    },
+    {
+      "number": 131,
+      "question": {
+        "text": "How many books do you have?",
+        "translation": "あなたは本を何冊持っていますか？"
+      },
+      "card": "quantity",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは本を何冊持っていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 132,
+      "question": {
+        "text": "How much is it?",
+        "translation": "いくらですか？"
+      },
+      "card": "quantity",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "それはいくらですか？",
+      "formNote": ""
+    },
+    {
+      "number": 133,
+      "question": {
+        "text": "I need some water.",
+        "translation": "私は水が少し必要です。"
+      },
+      "card": "amounts",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は水が少し必要です。",
+      "formNote": ""
+    },
+    {
+      "number": 134,
+      "question": {
+        "text": "I don't have any pencils.",
+        "translation": "私はえんぴつを1本も持っていません。"
+      },
+      "card": "amounts",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はえんぴつを1本も持っていません。",
+      "formNote": ""
+    },
+    {
+      "number": 135,
+      "question": {
+        "text": "Do you have any brothers?",
+        "translation": "あなたには男のきょうだいがいますか？"
+      },
+      "card": "amounts",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたには男のきょうだいがいますか？",
+      "formNote": ""
+    },
+    {
+      "number": 136,
+      "question": {
+        "text": "Can you swim?",
+        "translation": "あなたは泳げますか？"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは泳げますか？",
+      "formNote": ""
+    },
+    {
+      "number": 137,
+      "question": {
+        "text": "I can't play the piano.",
+        "translation": "私はピアノが弾けません（can'tを使う）。"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はピアノが弾けません（短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 138,
+      "question": {
+        "text": "I can ride a bike.",
+        "translation": "私は自転車に乗れます。"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は自転車に乗れます。",
+      "formNote": ""
+    },
+    {
+      "number": 139,
+      "question": {
+        "text": "Can she sing well?",
+        "translation": "彼女は上手に歌えますか？"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は上手に歌えますか？",
+      "formNote": ""
+    },
+    {
+      "number": 140,
+      "question": {
+        "text": "Can he use a computer?",
+        "translation": "彼はコンピューターを使えますか？"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼はコンピューターを使えますか？",
+      "formNote": ""
+    },
+    {
+      "number": 141,
+      "question": {
+        "text": "I cannot run fast.",
+        "translation": "私は速く走れません（短縮しないcannotを使う）。"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は速く走れません（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 142,
+      "question": {
+        "text": "She cannot swim today.",
+        "translation": "彼女は今日泳げません（短縮しないcannotを使う）。"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は今日泳げません（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 143,
+      "question": {
+        "text": "My mother can cook well.",
+        "translation": "私の母は上手に料理できます。"
+      },
+      "card": "can",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の母は上手に料理できます。",
+      "formNote": ""
+    },
+    {
+      "number": 144,
+      "question": {
+        "text": "He can swim.",
+        "translation": "彼は泳げます。"
+      },
+      "card": "can",
+      "band": 2,
+      "formNote": "泳ぐ能力があることを、能力を表す助動詞で伝えます。",
+      "focus": "能力を表す肯定文から疑問・否定につなげる。",
+      "origin": "add",
+      "meaning": "彼は泳げます。"
+    },
+    {
+      "number": 145,
+      "question": {
+        "text": "Can they play tennis?",
+        "translation": "彼らはテニスができますか？"
+      },
+      "card": "can",
+      "band": 2,
+      "formNote": "テニスをする能力があるかを、能力を表す助動詞で尋ねます。",
+      "focus": "複数の主語でも能力の疑問文の型は同じ。",
+      "origin": "add",
+      "meaning": "彼らはテニスができますか？"
+    },
+    {
+      "number": 146,
+      "question": {
+        "text": "Open the door.",
+        "translation": "ドアを開けてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "ドアを開けなさい。",
+      "formNote": "丁寧な依頼の言葉を添えない命令文"
+    },
+    {
+      "number": 147,
+      "question": {
+        "text": "Close your book.",
+        "translation": "あなたの本を閉じてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "自分の本を閉じなさい。",
+      "formNote": "丁寧な依頼の言葉を添えない命令文"
+    },
+    {
+      "number": 148,
+      "question": {
+        "text": "Stand up, please.",
+        "translation": "立ってください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "立ってください。",
+      "formNote": "丁寧に頼む言葉を文末に添える"
+    },
+    {
+      "number": 149,
+      "question": {
+        "text": "Sit down, please.",
+        "translation": "座ってください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "座ってください。",
+      "formNote": "丁寧に頼む言葉を文末に添える"
+    },
+    {
+      "number": 150,
+      "question": {
+        "text": "Look at the sky.",
+        "translation": "空を見てください (視線を向ける)。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "空を見てください（視線を向ける）。",
+      "formNote": ""
+    },
+    {
+      "number": 151,
+      "question": {
+        "text": "Listen to me.",
+        "translation": "私の話を聞いてください (耳を傾ける)。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の話を聞いてください（耳を傾ける）。",
+      "formNote": ""
+    },
+    {
+      "number": 152,
+      "question": {
+        "text": "Wash your hands.",
+        "translation": "あなたの手を洗ってください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたの手を洗ってください。",
+      "formNote": ""
+    },
+    {
+      "number": 153,
+      "question": {
+        "text": "Don't run here.",
+        "translation": "ここで走ってはいけません（Don'tで始める）。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "ここで走ってはいけません（禁止・短縮形で）。",
+      "formNote": ""
+    },
+    {
+      "number": 154,
+      "question": {
+        "text": "Please help me.",
+        "translation": "私を助けてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私を助けてください。",
+      "formNote": ""
+    },
+    {
+      "number": 155,
+      "question": {
+        "text": "Give me a pen.",
+        "translation": "私にペンを1本ください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私にペンを1本ください。",
+      "formNote": ""
+    },
+    {
+      "number": 156,
+      "question": {
+        "text": "Show me your picture.",
+        "translation": "私にあなたの写真を見せてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私にあなたの絵・写真を見せてください。",
+      "formNote": ""
+    },
+    {
+      "number": 157,
+      "question": {
+        "text": "Tell me the truth.",
+        "translation": "私に本当のことを話してください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私に本当のことを話してください。",
+      "formNote": ""
+    },
+    {
+      "number": 158,
+      "question": {
+        "text": "Have a nice day.",
+        "translation": "よい一日を。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "よい一日を。",
+      "formNote": ""
+    },
+    {
+      "number": 159,
+      "question": {
+        "text": "Please close the window.",
+        "translation": "窓を閉めてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "窓を閉めてください。",
+      "formNote": ""
+    },
+    {
+      "number": 160,
+      "question": {
+        "text": "Please come in.",
+        "translation": "入ってください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "入ってください。",
+      "formNote": ""
+    },
+    {
+      "number": 161,
+      "question": {
+        "text": "Please wait for me.",
+        "translation": "私を待ってください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私を待ってください。",
+      "formNote": ""
+    },
+    {
+      "number": 162,
+      "question": {
+        "text": "Put your bag here.",
+        "translation": "あなたのかばんをここに置いてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたのかばんをここに置いてください。",
+      "formNote": ""
+    },
+    {
+      "number": 163,
+      "question": {
+        "text": "Please give me some water.",
+        "translation": "私に水を少しください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私に水を少しください。",
+      "formNote": ""
+    },
+    {
+      "number": 164,
+      "question": {
+        "text": "Have a good weekend.",
+        "translation": "よい週末を。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "よい週末を。",
+      "formNote": ""
+    },
+    {
+      "number": 165,
+      "question": {
+        "text": "Please help my friend.",
+        "translation": "私の友だちを助けてください。"
+      },
+      "card": "imperative",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の友だちを助けてください。",
+      "formNote": ""
+    },
+    {
+      "number": 166,
+      "question": {
+        "text": "Let's go home.",
+        "translation": "家に帰りましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "家に帰りましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 167,
+      "question": {
+        "text": "Let's play baseball.",
+        "translation": "野球をしましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "野球をしましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 168,
+      "question": {
+        "text": "Let's eat lunch.",
+        "translation": "昼食を食べましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "昼食を食べましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 169,
+      "question": {
+        "text": "Let's study together.",
+        "translation": "一緒に勉強しましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "一緒に勉強しましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 170,
+      "question": {
+        "text": "Let's play in the park.",
+        "translation": "公園で遊びましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "公園で遊びましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 171,
+      "question": {
+        "text": "Let's go to the zoo.",
+        "translation": "動物園へ行きましょう（Let'sを使う）。"
+      },
+      "card": "lets",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "動物園へ行きましょう（自分も含む誘い）。",
+      "formNote": ""
+    },
+    {
+      "number": 172,
+      "question": {
+        "text": "I am reading a book.",
+        "translation": "私は本を1冊読んでいます。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は本を1冊読んでいます。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 173,
+      "question": {
+        "text": "He is playing soccer.",
+        "translation": "彼はサッカーをしています。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼はサッカーをしています。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 174,
+      "question": {
+        "text": "She is watching TV.",
+        "translation": "彼女はテレビを見ています。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女はテレビを見ています。",
+      "formNote": ""
+    },
+    {
+      "number": 175,
+      "question": {
+        "text": "What are you doing?",
+        "translation": "何をしていますか？"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "何をしていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 176,
+      "question": {
+        "text": "She is reading now.",
+        "translation": "彼女は今読書をしています。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女は今読書をしています。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 177,
+      "question": {
+        "text": "He is cooking dinner.",
+        "translation": "彼は夕食を作っています。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は夕食を作っています。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 178,
+      "question": {
+        "text": "They are playing outside.",
+        "translation": "彼らは外で遊んでいます。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らは外で遊んでいます。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 179,
+      "question": {
+        "text": "Are you watching TV?",
+        "translation": "あなたはテレビを見ていますか？"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたはテレビを見ていますか？",
+      "formNote": ""
+    },
+    {
+      "number": 180,
+      "question": {
+        "text": "I am doing my homework.",
+        "translation": "私は自分の宿題をしています。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は自分の宿題をしています。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 181,
+      "question": {
+        "text": "They are not reading.",
+        "translation": "彼らは今、読書をしていません。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らは今、読書をしていません（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 182,
+      "question": {
+        "text": "Is he playing soccer?",
+        "translation": "彼は今、サッカーをしていますか？"
+      },
+      "card": "progressive",
+      "band": 2,
+      "formNote": "今している動作を尋ねる進行形です。",
+      "focus": "三人称単数の進行形を疑問文にする。",
+      "origin": "add",
+      "meaning": "彼は今、サッカーをしていますか？"
+    },
+    {
+      "number": 183,
+      "question": {
+        "text": "She is not watching TV.",
+        "translation": "彼女は今、テレビを見ていません。"
+      },
+      "card": "progressive",
+      "band": 2,
+      "formNote": "今の動作を否定する進行形です。短縮しない形で。",
+      "focus": "進行形の否定で、否定する語を置く位置。",
+      "origin": "add",
+      "meaning": "彼女は今、テレビを見ていません。"
+    },
+    {
+      "number": 184,
+      "question": {
+        "text": "What is she reading?",
+        "translation": "彼女は今、何を読んでいますか？"
+      },
+      "card": "progressive",
+      "band": 2,
+      "formNote": "今している動作を尋ねる進行形です。",
+      "focus": "何をしているかという疑問と進行形を組み合わせる。",
+      "origin": "add",
+      "meaning": "彼女は今、何を読んでいますか？"
+    },
+    {
+      "number": 185,
+      "question": {
+        "text": "The cat is under the table.",
+        "translation": "その猫はテーブルの下にいます。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その猫はテーブルの下にいます。",
+      "formNote": ""
+    },
+    {
+      "number": 186,
+      "question": {
+        "text": "The ball is in the box.",
+        "translation": "そのボールは箱の中にあります。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "そのボールは箱の中にあります。",
+      "formNote": ""
+    },
+    {
+      "number": 187,
+      "question": {
+        "text": "The park is near here.",
+        "translation": "その公園はこの近くにあります。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その公園はこの近くにあります。",
+      "formNote": ""
+    },
+    {
+      "number": 188,
+      "question": {
+        "text": "I go to school by bus.",
+        "translation": "私はバスで学校へ行きます。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はバスで学校へ行きます。",
+      "formNote": ""
+    },
+    {
+      "number": 189,
+      "question": {
+        "text": "We play after school.",
+        "translation": "私たちは放課後に遊びます。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私たちは放課後に遊びます。",
+      "formNote": ""
+    },
+    {
+      "number": 190,
+      "question": {
+        "text": "My class starts at nine.",
+        "translation": "私の授業は9時に始まります。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の授業は9時に始まります。",
+      "formNote": ""
+    },
+    {
+      "number": 191,
+      "question": {
+        "text": "The store opens at ten.",
+        "translation": "その店は10時に開きます。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その店は10時に開きます。",
+      "formNote": ""
+    },
+    {
+      "number": 192,
+      "question": {
+        "text": "They are in the classroom.",
+        "translation": "彼らは教室にいます。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼らは教室にいます。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 193,
+      "question": {
+        "text": "I play tennis on Sundays.",
+        "translation": "私は毎週日曜日にテニスをします。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は毎週日曜日にテニスをします。",
+      "formNote": ""
+    },
+    {
+      "number": 194,
+      "question": {
+        "text": "My birthday is in July.",
+        "translation": "私の誕生日は7月です。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私の誕生日は7月です。",
+      "formNote": ""
+    },
+    {
+      "number": 195,
+      "question": {
+        "text": "The clock is on the wall.",
+        "translation": "その時計は壁にかかっています。"
+      },
+      "card": "place",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "その時計は壁にかかっています。",
+      "formNote": ""
+    },
+    {
+      "number": 196,
+      "question": {
+        "text": "My bag is heavy.",
+        "translation": "私のかばんは重いです。"
+      },
+      "card": "modifiers",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私のかばんは重いです。",
+      "formNote": ""
+    },
+    {
+      "number": 197,
+      "question": {
+        "text": "I always walk to school.",
+        "translation": "私はいつも歩いて学校へ行きます。"
+      },
+      "card": "modifiers",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私はいつも歩いて学校へ行きます。",
+      "formNote": ""
+    },
+    {
+      "number": 198,
+      "question": {
+        "text": "She is usually happy.",
+        "translation": "彼女はたいてい機嫌がよいです。"
+      },
+      "card": "modifiers",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼女はたいてい機嫌がよいです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 199,
+      "question": {
+        "text": "It is sunny today.",
+        "translation": "今日は晴れです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日は晴れです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 200,
+      "question": {
+        "text": "It is hot today.",
+        "translation": "今日は暑いです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日は暑いです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 201,
+      "question": {
+        "text": "It is cold now.",
+        "translation": "今は寒いです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今は寒いです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 202,
+      "question": {
+        "text": "It is rainy today.",
+        "translation": "今日は雨です。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日は雨です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 203,
+      "question": {
+        "text": "It is windy outside.",
+        "translation": "外は風が強いです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "外は風が強いです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 204,
+      "question": {
+        "text": "It is warm today.",
+        "translation": "今日は暖かいです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日は暖かいです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 205,
+      "question": {
+        "text": "It is cool this evening.",
+        "translation": "今晩は涼しいです。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日の夕方は涼しいです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 206,
+      "question": {
+        "text": "Today is my birthday.",
+        "translation": "今日は私の誕生日です。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "今日は私の誕生日です。",
+      "formNote": ""
+    },
+    {
+      "number": 207,
+      "question": {
+        "text": "Tomorrow is Sunday.",
+        "translation": "明日は日曜日です。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "明日は日曜日です。",
+      "formNote": ""
+    },
+    {
+      "number": 208,
+      "question": {
+        "text": "It is three o'clock.",
+        "translation": "3時です。"
+      },
+      "card": "weather",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "3時です。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 209,
+      "question": {
+        "text": "I like dogs and cats.",
+        "translation": "私は犬と猫が好きです。"
+      },
+      "card": "conjunctions",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は犬と猫が好きです。",
+      "formNote": ""
+    },
+    {
+      "number": 210,
+      "question": {
+        "text": "He is small but strong.",
+        "translation": "彼は体は小さいけれど力は強いです。"
+      },
+      "card": "conjunctions",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "彼は体は小さいけれど力は強いです。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 211,
+      "question": {
+        "text": "Do you want tea or coffee?",
+        "translation": "あなたは紅茶とコーヒーのどちらがほしいですか？"
+      },
+      "card": "conjunctions",
+      "band": 2,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "あなたは紅茶とコーヒーのどちらがほしいですか？",
+      "formNote": ""
+    },
+    {
+      "number": 212,
+      "question": {
+        "text": "There is a cat.",
+        "translation": "猫が1匹います。"
+      },
+      "card": "there",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "猫が1匹います。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 213,
+      "question": {
+        "text": "There are two birds.",
+        "translation": "鳥が2羽います。"
+      },
+      "card": "there",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "鳥が2羽います。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 214,
+      "question": {
+        "text": "There is a book on the desk.",
+        "translation": "机の上に本が1冊あります。"
+      },
+      "card": "there",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "机の上に本が1冊あります。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 215,
+      "question": {
+        "text": "There are three chairs.",
+        "translation": "いすが3脚あります。"
+      },
+      "card": "there",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "いすが3脚あります。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 216,
+      "question": {
+        "text": "There is no milk.",
+        "translation": "牛乳がありません。"
+      },
+      "card": "there",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "牛乳がありません。",
+      "formNote": "短縮しない形で表す"
+    },
+    {
+      "number": 217,
+      "question": {
+        "text": "I want to be a doctor.",
+        "translation": "私は医者になりたいです。"
+      },
+      "card": "to",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は医者になりたいです。",
+      "formNote": ""
+    },
+    {
+      "number": 218,
+      "question": {
+        "text": "I want to go.",
+        "translation": "私は行きたいです。"
+      },
+      "card": "to",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は行きたいです。",
+      "formNote": ""
+    },
+    {
+      "number": 219,
+      "question": {
+        "text": "I like to swim.",
+        "translation": "私は泳ぐことが好きです。"
+      },
+      "card": "to",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は泳ぐことが好きです（不定詞で動作を表す）。",
+      "formNote": ""
+    },
+    {
+      "number": 220,
+      "question": {
+        "text": "Can I use this pen?",
+        "translation": "このペンを使ってもよいですか？"
+      },
+      "card": "permission",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "このペンを使ってもよいですか？",
+      "formNote": ""
+    },
+    {
+      "number": 221,
+      "question": {
+        "text": "May I come in?",
+        "translation": "入ってもよいですか？"
+      },
+      "card": "permission",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "入ってもよいですか？",
+      "formNote": ""
+    },
+    {
+      "number": 222,
+      "question": {
+        "text": "Thank you very much.",
+        "translation": "本当にありがとう。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "本当にありがとう。",
+      "formNote": ""
+    },
+    {
+      "number": 223,
+      "question": {
+        "text": "You are welcome.",
+        "translation": "どういたしまして。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "どういたしまして（短縮形を使わずに）。",
+      "formNote": ""
+    },
+    {
+      "number": 224,
+      "question": {
+        "text": "Nice to meet you.",
+        "translation": "はじめまして。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "はじめまして。",
+      "formNote": ""
+    },
+    {
+      "number": 225,
+      "question": {
+        "text": "Thank you for your help.",
+        "translation": "あなたの手助けに感謝します。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "手伝ってくれて、ありがとう。",
+      "formNote": ""
+    },
+    {
+      "number": 226,
+      "question": {
+        "text": "I am sorry I am late.",
+        "translation": "遅れてすみません。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "私は遅れてすみません（短縮しない形）。",
+      "formNote": ""
+    },
+    {
+      "number": 227,
+      "question": {
+        "text": "Excuse me.",
+        "translation": "すみません。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "すみません（呼びかけるとき）。",
+      "formNote": ""
+    },
+    {
+      "number": 228,
+      "question": {
+        "text": "See you next week.",
+        "translation": "また来週。"
+      },
+      "card": "greetings",
+      "band": 3,
+      "focus": "既存の基礎練習を保持。",
+      "origin": "keep",
+      "meaning": "また来週。",
+      "formNote": ""
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "activeQuestions": 228,
+    "originalIdentities": 200,
+    "added": 28,
+    "reference": 21,
+    "grammarCards": 34,
+    "viewportWidths": [
+      1366,
+      820,
+      390,
+      320
+    ],
+    "actualBattleInputs": [
+      "Where does he live?",
+      "She is not watching TV.",
+      "Where are you from?",
+      "He doesn't like apples."
+    ],
+    "progress": "Correct-answer status, daily total, prior 229 statuses and defeated IDs retained; archived past-card bookmark survives reload",
+    "balance": {
+      "stageConfigurations": 828,
+      "damageAndHintChecks": 857900,
+      "outOfScopeCalculations": 387504,
+      "pairedSimulations": 12420
+    },
+    "build": "passed",
+    "lint": "0 errors, 1 pre-existing hook warning",
+    "limitations": [
+      "Actual mobile soft keyboard and audio not tested",
+      "Scoring still expects the specified sentence; no semantic alternative-answer engine"
+    ]
+  },
+  "approvedDate": "2026-10-19"
+}

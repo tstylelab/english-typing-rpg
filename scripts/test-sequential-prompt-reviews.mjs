@@ -3,11 +3,11 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {load} from './lib/load-typescript-data.mjs';
 import {hash,identity} from './lib/apply-translation-prompt-review.mjs';
-import {withLegacyPre2Level3} from './lib/legacy-pre2-question-snapshot.mjs';
+import {withHistoricalReviewedQuestions} from './lib/historical-question-snapshot.mjs';
 const dir='docs/translation-prompt-reviews-2026-10-18';
 const audits=fs.readdirSync(dir).filter(f=>/^Eiken.*-L[123]\.json$/.test(f)).map(f=>JSON.parse(fs.readFileSync(dir+'/'+f,'utf8')));
 const {QUESTIONS}=load('src/data/questions.ts');
-const historicalQuestions=withLegacyPre2Level3(QUESTIONS);
+const historicalQuestions=withHistoricalReviewedQuestions(QUESTIONS);
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
 const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const {getGrade4VocabularySynonyms}=load('src/data/grade4VocabularyPrompts.ts');
@@ -36,7 +36,9 @@ const before=new Map(baseline.map(e=>[key(e),e])),after=new Map(entries.map(e=>[
 for(const [id,e] of before)assert.ok(after.has(id),'Do not remove a previously reviewed prompt');
 const approved=JSON.parse(fs.readFileSync('docs/pre2-level3-grammar-proposal-2026-10-19/proposal.json','utf8'));
 const newTargets=new Set(approved.proposed.filter(q=>q.origin!=='keep').map(q=>q.text));
-for(const [id,e] of after){if(allowed.has(id))continue;if(e.course==='EikenPre2'&&e.level===3&&newTargets.has(e.text))continue;assert.deepEqual(e,before.get(id),'Unreviewed prompt changed: '+id);}
+const grade5Review=JSON.parse(fs.readFileSync('docs/grade5-level3-foundations-2026-10-19/review.json','utf8'));
+const newGrade5Targets=new Set(grade5Review.active.filter(r=>r.origin==='add').map(r=>r.question.text));
+for(const [id,e] of after){if(allowed.has(id))continue;if(e.course==='EikenPre2'&&e.level===3&&newTargets.has(e.text))continue;if(e.course==='Eiken5'&&e.level===3&&newGrade5Targets.has(e.text))continue;assert.deepEqual(e,before.get(id),'Unreviewed prompt changed: '+id);}
 const p=(c,text)=>getTranslationBattlePrompt(QUESTIONS[c][2].find(q=>q.text===text),c,2);
 assert.ok(p('Eiken2','be willing to').meaning.includes('いとわない'));
 assert.ok(p('Eiken2','make sure that').meaning.includes('確実にする'));

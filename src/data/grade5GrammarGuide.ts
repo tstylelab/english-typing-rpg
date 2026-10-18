@@ -12,7 +12,7 @@ export type GrammarCard = {
 export const grade5GrammarSections = [
   { title: 'まずは、文の土台', note: '「だれが・何が」の後ろに、伝えたいことを続けます。' },
   { title: 'たずねる・伝える', note: '知っている文を、質問やお願いに変えてみましょう！' },
-  { title: '収録文でもう一歩', note: '過去・未来などの発展表現。今は「こんな型もあるんだ」で大丈夫です。' },
+  { title: '動作・場所・会話へ広げる', note: '進行形や会話の型を確認します。以前の問題の過去・未来などの解説も参照できます。' },
 ];
 
 export const grade5GrammarCards: GrammarCard[] = [
@@ -164,6 +164,16 @@ export const grade5GrammarCards: GrammarCard[] = [
     more:'Nice to meet you. は初対面のあいさつ。You’re welcome. はお礼への返事です。I am sorry I am late. は「遅れてすみません」と、sorry の後ろに理由となる文が続きます。' },
 ];
 
+grade5GrammarCards.push(
+  { id:'from',section:0,title:'出身を伝える・尋ねる',term:'be from',pattern:'主語＋am / is / are＋from＋場所',
+    examples:[['I am from Japan.','私は日本出身です。'],['Where are you from?','あなたはどこの出身ですか？']],
+    tip:'出身を「〜です」の文で伝えます。どこの出身かを尋ねるときは、whereの後ろにare you fromと続けます。',
+    more:'Is she from Canada?も同じ型の質問です。She comes from Canada.などの言い方も自然です。日本語だけで英語が一通りに決まるわけではないため、この練習ではbe動詞の型を条件にしています。' },
+  { id:'wh-does',section:1,title:'彼・彼女について「どこ・何・どうやって？」',term:'疑問詞＋doesの疑問文',pattern:'疑問詞＋does＋主語＋動詞のもとの形？',
+    examples:[['Where does he live?','彼はどこに住んでいますか？'],['What does she want?','彼女は何がほしいですか？']],
+    tip:'He lives here.を尋ねるなら、doesを使い、livesをliveに戻します。whereなどの疑問詞は質問の先頭に置きます。',
+    more:'How does your brother go to school?も、主語が一人なのでdoesを使います。What does he do after school?ではdoesが疑問文を作る役、doが「する」という動作の役です。主語そのものを尋ねるWho lives here?とは型が違います。' },
+);
 const byId = new Map(grade5GrammarCards.map(card => [card.id, card]));
 // Explicit reviewed links, not keyword guesses: a permission question must not
 // accidentally open an ability explanation. Unknown/new sentences get no link.

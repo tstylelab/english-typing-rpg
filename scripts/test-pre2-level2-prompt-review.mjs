@@ -2,13 +2,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {load} from './lib/load-typescript-data.mjs';
-import {withLegacyPre2Level3} from './lib/legacy-pre2-question-snapshot.mjs';
+import {withHistoricalReviewedQuestions} from './lib/historical-question-snapshot.mjs';
 const audit=JSON.parse(fs.readFileSync('docs/pre2-level2-prompt-review-2026-10-18.json','utf8'));
 const {QUESTIONS}=load('src/data/questions.ts');
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
 const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
-assert.equal(hash(withLegacyPre2Level3(QUESTIONS)),audit.questionsSha256,'Other scopes remain intact; the separately approved Pre-2 L3 curriculum has its own checks');
+assert.equal(hash(withHistoricalReviewedQuestions(QUESTIONS)),audit.questionsSha256,'Other scopes remain intact; the separately approved Pre-2 L3 curriculum has its own checks');
 // Later, separately audited course reviews may change other prompt entries.
 // Their scope is checked by test-sequential-prompt-reviews.mjs; keep this
 // regression focused on the published Pre-2 questions and exact display data.

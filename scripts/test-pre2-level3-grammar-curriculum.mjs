@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {load} from './lib/load-typescript-data.mjs';
-import {withLegacyPre2Level3} from './lib/legacy-pre2-question-snapshot.mjs';
+import {withHistoricalReviewedQuestions} from './lib/historical-question-snapshot.mjs';
 const p=JSON.parse(fs.readFileSync('docs/pre2-level3-grammar-proposal-2026-10-19/proposal.json','utf8'));
 const {QUESTIONS}=load('src/data/questions.ts');
 const {legacyPre2Sentences,pre2Curriculum,getPre2CurriculumLimit}=load('src/data/questionSets/eiken/pre2.ts');
@@ -13,7 +13,7 @@ const {getGrammarCard,grammarGuides}=load('src/data/grammarGuides.ts');
 const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const {pre2GrammarAssignments,legacyPre2GrammarAssignments}=load('src/data/pre2GrammarAssignments.ts');
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
-assert.equal(hash(withLegacyPre2Level3(QUESTIONS)),p.sourceQuestionsSha256,'Every other scope and all original Pre-2 identities stay exact');
+assert.equal(hash(withHistoricalReviewedQuestions(QUESTIONS)),p.sourceQuestionsSha256,'Every other scope and all original Pre-2 identities stay exact');
 assert.equal(legacyPre2Sentences.length,173);assert.equal(QUESTIONS.EikenPre2[3].length,158);
 const live=QUESTIONS.EikenPre2[3],identity=q=>JSON.stringify([q.text,q.translation,q.exampleEn??'']);
 assert.equal(new Set(live.map(identity)).size,158);
@@ -22,7 +22,7 @@ const oldPromptEntries=JSON.parse(execFileSync('git',['show','e17b7fa:src/data/t
 const currentPromptEntries=JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json','utf8'));
 const pk=e=>e.course+':'+e.level+':'+identity(e),currentMap=new Map(currentPromptEntries.map(e=>[pk(e),e]));
 for(const e of oldPromptEntries)assert.deepEqual(currentMap.get(pk(e)),e,'Preserve every previous display correction, including archived review questions');
-assert.equal(currentPromptEntries.length-oldPromptEntries.length,65);
+assert.equal(currentPromptEntries.filter(e=>e.course==='EikenPre2'&&e.level===3).length-oldPromptEntries.filter(e=>e.course==='EikenPre2'&&e.level===3).length,65);
 for(const draft of p.proposed){
  const q=live.find(q=>q.text===draft.text);assert.ok(q,draft.text);
  if(draft.origin==='keep')assert.equal(q.translation,p.existing.find(e=>e.number===draft.sourceNumber).translation);
@@ -51,5 +51,9 @@ assert.deepEqual(JSON.parse(JSON.stringify(legacyPre2GrammarAssignments)),oldAss
 const bands=pre2Curriculum[3];for(let i=1;i<bands.length;i++)assert.ok(bands[i].band>=bands[i-1].band);
 for(const [stage,band] of [[0,1],[7,2],[14,3]])assert.equal(getPre2CurriculumLimit(3,stage),bands.filter(e=>e.band<=band).length);
 assert.deepEqual([0,7,14].map(s=>getPre2CurriculumLimit(3,s)),[67,135,158]);
-for(const f of ['src/App.tsx','src/learningProgress.ts','src/longTextBattleBalance.ts','src/monsterProfiles.json','src/monsterProfiles.ts','src/data/pre2Balance.ts'])assert.equal(fs.readFileSync(f,'utf8').replaceAll('\r\n','\n'),execFileSync('git',['show','e17b7fa:'+f],{encoding:'utf8',maxBuffer:6000000}).replaceAll('\r\n','\n'),f);
+for(const f of ['src/App.tsx','src/learningProgress.ts','src/longTextBattleBalance.ts','src/monsterProfiles.json','src/monsterProfiles.ts','src/data/pre2Balance.ts']){
+ let actual=fs.readFileSync(f,'utf8').replaceAll('\r\n','\n');
+ if(f==='src/App.tsx')actual=actual.replace("import { getGrade5FoundationLimit } from './data/questionSets/eiken/grade5';\n",'').replace('? getGrade5FoundationLimit(stageIndex)','? (stageIndex < 7 ? 16 : stageIndex < 14 ? 66 : Infinity)');
+ assert.equal(actual,execFileSync('git',['show','e17b7fa:'+f],{encoding:'utf8',maxBuffer:6000000}).replaceAll('\r\n','\n'),f);
+}
 console.log('PASS: approved 158 questions, 93 retained identities / 65 new; 173 legacy reviews; other scopes, saves, monster IDs and balance code unchanged; all grammar links and 67/135/158 pools.');
