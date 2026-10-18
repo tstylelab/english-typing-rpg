@@ -15,7 +15,7 @@ export const grammarGuides = {
   Eiken3: { grade: '3級', cards: grade3GrammarCards, sections: grade3GrammarSections,
     intro: '文の土台から、現在完了・受け身・関係代名詞へ。似た形の違いを見比べ、長い文も意味のまとまりに分けて確かめましょう。' },
   EikenPre2: { grade: '準2級', cards: pre2GrammarCards, sections: pre2GrammarSections,
-    intro: '会話の返事から、to・ing、関係詞、完了形、意見の組み立てへ。似た形の違いと、文の中での役割を見比べましょう。' },
+    intro: '完了形・受け身から、toとing、関係詞、仮定・発言の伝達へ。短い文で文法を組み立て、似た形の意味の違いを確かめましょう。' },
   Eiken2: { grade: '2級', cards: grade2GrammarCards, sections: grade2GrammarSections,
     intro: '意見・理由・具体例をつなぐ表現から、長い文の骨組みへ。収録文の文法と、考えを伝える組み立てを確かめましょう。' },
   EikenPre1Part1: { grade: '準1級①', cards: pre1GrammarCardsByCourse.EikenPre1Part1, sections: pre1GrammarSections,

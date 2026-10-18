@@ -1,12 +1,12 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import grade3 from './questionSets/eiken/grade3';
-import pre2 from './questionSets/eiken/pre2';
+import pre2, { legacyPre2Sentences } from './questionSets/eiken/pre2';
 import grade2 from './questionSets/eiken/grade2';
 import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
 
 // Resolve saved review questions too: older storage normalizers only retain text/meaning.
 const grade3Points = new Map(grade3.levels['3'].map(q => [q.text, q.grammarPoint]));
-const pre2Points = new Map(pre2.levels['3'].map(q => [q.text, q.grammarPoint]));
+const pre2Points = new Map([...legacyPre2Sentences, ...pre2.levels['3']].map(q => [q.text, q.grammarPoint]));
 const grade2Points = new Map(grade2.levels['3'].map(q => [q.text, q.grammarPoint]));
 const grade1Part1Points = new Map(grade1Part1.levels['3'].map(q => [q.text, q.grammarPoint]));
 const grade1Part2Points = new Map(grade1Part2.levels['3'].map(q => [q.text, q.grammarPoint]));

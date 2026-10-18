@@ -1,5 +1,6 @@
 // Exact-text links reviewed against all Pre-2 Level 3 sentences.
-export const pre2GrammarAssignments: Record<string, string> = {
+import curriculumAssignments from './pre2GrammarCurriculumAssignments.json';
+export const legacyPre2GrammarAssignments: Record<string, string> = {
   "Either will do.": "either",
   "By all means.": "responses",
   "Calm down, please.": "imperatives",
@@ -174,3 +175,4 @@ export const pre2GrammarAssignments: Record<string, string> = {
   "It is important to respect different opinions.": "it-to",
   "In conclusion, small actions can make a difference.": "result-conclusion"
 };
+export const pre2GrammarAssignments: Record<string, string> = { ...legacyPre2GrammarAssignments, ...curriculumAssignments };

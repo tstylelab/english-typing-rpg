@@ -1,15 +1,16 @@
 import type { GrammarCard } from './grade5GrammarGuide';
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import { pre2GrammarAssignments } from './pre2GrammarAssignments';
+import { pre2GrammarCurriculumCards } from './pre2GrammarCurriculumCards';
 
 export const pre2GrammarSections = [
-  { title: '会話で尋ねる・気持ちを伝える', note: '依頼・許可・返事は、誰が何をするかと場面をセットに。短い決まり文句も確認します。' },
+  { title: '助動詞・会話の語順', note: '推量・依頼・許可・同意を確認。以前の会話表現の解説も参照できます。' },
   { title: '動詞の後ろ・名詞の後ろを読む', note: 'toとing、関係詞、間接疑問。文を意味のまとまりに分けて、語順を確かめましょう。' },
   { title: '時・比較・条件を伝える', note: '現在完了から過去完了へ。受け身、比較、現実と違う仮定などを見比べます。' },
   { title: '意見・理由・具体例をつなぐ', note: '自分の考えと理由を分け、例や対比を添えて、相手に伝わる流れを作ります。' },
 ];
 
-export const pre2GrammarCards: GrammarCard[] = [
+const legacyPre2GrammarCards: GrammarCard[] = [
   { id:'greetings', section:0, title:"I'm home・What's up?", subtitle:'場面に合う挨拶・話の切り出し', term:'会話の定型表現・省略', pattern:"I'm home! ／ What's up? ／ The same to you.",
     examples:[["I'm home!",'ただいま！'],['The same to you.','あなたもね。']],
     tip:'帰宅を知らせるI\'m home!、親しい人への「最近どう？」や「どうしたの？」というWhat\'s up?などは、使う場面ごと覚えます。The same to you.は「よい休日を」などの願いを返す言い方です。',
@@ -308,7 +309,10 @@ export const pre2GrammarCards: GrammarCard[] = [
     more:'自分の意見を述べるならIn my opinionが自然で、According to meとは通常言いません。prices are risingは進行する変化、children enjoyは一般的な傾向です。同じ説明文でも伝えたいことに合わせて時制を選びます。' },
 ];
 
-const byId = new Map(pre2GrammarCards.map(card => [card.id, card]));
+const allCards = [...legacyPre2GrammarCards, ...pre2GrammarCurriculumCards];
+// Keep prior reference cards visible so old bookmarks and review links still open.
+export const pre2GrammarCards = allCards;
+const byId = new Map(allCards.map(card => [card.id, card]));
 export function getPre2GrammarCard(difficulty: DifficultyKey, level: LevelKey, question: Pick<Question, 'text'>) {
   if (difficulty !== 'EikenPre2' || level !== 3) return undefined;
   return byId.get(pre2GrammarAssignments[question.text]);

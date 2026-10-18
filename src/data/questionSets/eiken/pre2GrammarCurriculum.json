@@ -1,0 +1,2056 @@
+[
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "I have just finished my application.",
+      "translation": "申請書をちょうど書き終えたところです。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "have just＋過去分詞で、今ちょうど完了したことを表す。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "Have you ever taken part in a debate?",
+      "translation": "討論に参加したことはありますか。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "have＋主語＋ever＋過去分詞で経験を尋ねる。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "He has not replied to my message yet.",
+      "translation": "彼はまだ私のメッセージに返事をしていません。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "has not＋過去分詞とyetで、今も未完了であることを表す。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "She has worked here since she graduated.",
+      "translation": "彼女は卒業してからここで働いています。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "現在までの継続に現在完了、始点となる卒業にはsince＋過去形。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "How long have you lived in this neighborhood?",
+      "translation": "この近所にどのくらい住んでいますか。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "How long＋現在完了で、今までの継続期間を尋ねる。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "I lost my key yesterday.",
+      "translation": "私は昨日、鍵をなくしました。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "yesterdayという過去の時点には過去形を使う。 今の状況を伝えるI have lost my key ...と比較する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "01",
+    "question": {
+      "text": "I have lost my key, so I cannot open the door.",
+      "translation": "鍵をなくしてしまったので、私はドアを開けられません。",
+      "grammarPoint": {
+        "label": "完了形と過去形",
+        "pattern": "have / has + 過去分詞 ／ 動詞の過去形",
+        "note": "紛失の結果が今に残ることを現在完了で表す。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "02",
+    "question": {
+      "text": "We have been waiting for thirty minutes.",
+      "translation": "私たちは三十分間ずっと待っています。",
+      "grammarPoint": {
+        "label": "現在完了進行形",
+        "pattern": "have / has been + 動詞ing",
+        "note": "have been＋ingとfor＋期間で、今まで続く活動を述べる。 現在完了の使い分け"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "02",
+    "question": {
+      "text": "Prices have been rising since last summer.",
+      "translation": "物価は去年の夏からずっと上がり続けています。",
+      "grammarPoint": {
+        "label": "現在完了進行形",
+        "pattern": "have / has been + 動詞ing",
+        "note": "今まで続く変化と、始まった時点を表す。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "02",
+    "question": {
+      "text": "She has been studying for two hours.",
+      "translation": "彼女は二時間ずっと勉強しています。",
+      "grammarPoint": {
+        "label": "現在完了進行形",
+        "pattern": "have / has been + 動詞ing",
+        "note": "過去から今まで続く活動とfor＋期間。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "02",
+    "question": {
+      "text": "How long have you been learning English?",
+      "translation": "あなたはどのくらいの間、英語を学び続けていますか。",
+      "grammarPoint": {
+        "label": "現在完了進行形",
+        "pattern": "have / has been + 動詞ing",
+        "note": "現在完了進行形の疑問文と語順。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "03",
+    "question": {
+      "text": "The train had left when we arrived.",
+      "translation": "私たちが着いたとき電車は出発した後でした。",
+      "grammarPoint": {
+        "label": "過去完了",
+        "pattern": "had + 過去分詞",
+        "note": "到着した過去より前の出発を、had＋過去分詞で示す。 過去より前の出来事"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "03",
+    "question": {
+      "text": "She had already eaten when I called.",
+      "translation": "電話したとき彼女はもう食事を済ませていました。",
+      "grammarPoint": {
+        "label": "過去完了",
+        "pattern": "had + 過去分詞",
+        "note": "電話した時点より前に済んでいた食事を過去完了で述べる。 過去より前の出来事"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "03",
+    "question": {
+      "text": "I had never seen snow before I moved here.",
+      "translation": "ここへ越すまで雪を見たことがありませんでした。",
+      "grammarPoint": {
+        "label": "過去完了",
+        "pattern": "had + 過去分詞",
+        "note": "引っ越した時点までの未経験をhad never＋過去分詞で表す。 過去より前の出来事"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "03",
+    "question": {
+      "text": "He had not finished his homework when I called.",
+      "translation": "私が電話したとき、彼はまだ宿題を終えていませんでした。",
+      "grammarPoint": {
+        "label": "過去完了",
+        "pattern": "had + 過去分詞",
+        "note": "過去の基準時より前の未完了をhad notで表す。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "04",
+    "question": {
+      "text": "It could take a while.",
+      "translation": "少し時間がかかるかもしれません。",
+      "grammarPoint": {
+        "label": "助動詞による推量",
+        "pattern": "must / might / could / cannot + 動詞の原形",
+        "note": "couldが過去ではなく、時間がかかる可能性を表す。 可能性を柔らかく伝える"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "04",
+    "question": {
+      "text": "This must be the wrong address.",
+      "translation": "これはきっと間違った住所に違いありません。",
+      "grammarPoint": {
+        "label": "助動詞による推量",
+        "pattern": "must / might / could / cannot + 動詞の原形",
+        "note": "mustが義務ではなく強い推量を表す。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "04",
+    "question": {
+      "text": "She might be at the library.",
+      "translation": "彼女は図書館にいるかもしれません。",
+      "grammarPoint": {
+        "label": "助動詞による推量",
+        "pattern": "must / might / could / cannot + 動詞の原形",
+        "note": "確信が弱い現在の可能性。mayも自然な別表現。 She may be at the library. も自然。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "04",
+    "question": {
+      "text": "He cannot be at home. I just saw him at school.",
+      "translation": "彼が家にいるはずはありません。私はたった今、学校で彼を見かけました。",
+      "grammarPoint": {
+        "label": "助動詞による推量",
+        "pattern": "must / might / could / cannot + 動詞の原形",
+        "note": "cannotが能力ではなく、根拠のある否定の推量を表す。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "Why was the meeting put off?",
+      "translation": "なぜ会議は延期されたのですか。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "why＋be動詞＋主語＋過去分詞で、延期された理由を尋ねる。 情報を尋ねる"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "The broken window must be replaced.",
+      "translation": "割れた窓は取り替える必要があります。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "mustの後ろをbe＋過去分詞にする。brokenは名詞の前の分詞。 分詞による説明"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "When will the results be announced?",
+      "translation": "結果はいつ発表されますか。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "will＋主語＋be＋過去分詞という受け身の疑問文を作る。 情報を尋ねる"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "This form must be signed by a parent.",
+      "translation": "この用紙には保護者の署名が必要です。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "署名される用紙を主語にし、must be signedとする。 受け身"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "These products are made from recycled paper.",
+      "translation": "これらの製品は再生紙で作られています。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "製品を主語にして、原料から作られる受け身を表す。 受け身"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "The concert was canceled because of the storm.",
+      "translation": "嵐のためにコンサートは中止されました。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "中止されたコンサートを主語にし、理由をbecause of＋名詞で添える。 受け身"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "05",
+    "question": {
+      "text": "It is said that the town is very old.",
+      "translation": "その町はとても古いと言われています。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "It is said thatの受け身で、伝えられている内容を述べる。 受け身"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "05",
+    "question": {
+      "text": "The new hospital will be built next year.",
+      "translation": "新しい病院は来年建設されます。",
+      "grammarPoint": {
+        "label": "助動詞と受け身",
+        "pattern": "助動詞 + be + 過去分詞",
+        "note": "will＋be＋過去分詞で、今後建設されるものを主語にする。 受け身"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "06",
+    "question": {
+      "text": "The room is being cleaned now.",
+      "translation": "部屋は今清掃されているところです。",
+      "grammarPoint": {
+        "label": "進行形の受け身",
+        "pattern": "be動詞 + being + 過去分詞",
+        "note": "今清掃されている作業を、is being cleanedと表す。 受け身"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "06",
+    "question": {
+      "text": "The road is being repaired today.",
+      "translation": "その道路は今日、修理が行われているところです。",
+      "grammarPoint": {
+        "label": "進行形の受け身",
+        "pattern": "be動詞 + being + 過去分詞",
+        "note": "進行中の作業を受け身で述べる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "06",
+    "question": {
+      "text": "Our computers are being checked now.",
+      "translation": "私たちのコンピューターは今、点検されているところです。",
+      "grammarPoint": {
+        "label": "進行形の受け身",
+        "pattern": "be動詞 + being + 過去分詞",
+        "note": "複数主語とare beingを合わせる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "06",
+    "question": {
+      "text": "Is the meeting room being used now?",
+      "translation": "会議室は今、使われているところですか。",
+      "grammarPoint": {
+        "label": "進行形の受け身",
+        "pattern": "be動詞 + being + 過去分詞",
+        "note": "進行形の受け身を疑問文にする。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "07",
+    "question": {
+      "text": "I would like you to check this form.",
+      "translation": "あなたにこの用紙を確認していただきたいです。",
+      "grammarPoint": {
+        "label": "人に行動を求める形",
+        "pattern": "動詞 + 人 + to + 原形",
+        "note": "would like＋人＋toで、相手にしてほしい行動を述べる。 人に〜するよう求める"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "07",
+    "question": {
+      "text": "They do not allow us to use phones here.",
+      "translation": "ここでは私たちが電話を使うことは許されません。",
+      "grammarPoint": {
+        "label": "人に行動を求める形",
+        "pattern": "動詞 + 人 + to + 原形",
+        "note": "allow＋人＋toの形を否定文で使う。 彼らを主語にして、人への許可を否定する"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "07",
+    "question": {
+      "text": "Please remind me to send the invitation.",
+      "translation": "招待状を送るのを忘れないよう言ってください。",
+      "grammarPoint": {
+        "label": "人に行動を求める形",
+        "pattern": "動詞 + 人 + to + 原形",
+        "note": "remind＋人＋toで、これからすることを思い出させる。 人に〜するよう求める"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "07",
+    "question": {
+      "text": "My teacher encouraged me to enter the contest.",
+      "translation": "先生は私に大会への参加を勧めました。",
+      "grammarPoint": {
+        "label": "人に行動を求める形",
+        "pattern": "動詞 + 人 + to + 原形",
+        "note": "encourage＋人＋toで、参加するよう勧める。 人に〜するよう求める"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "07",
+    "question": {
+      "text": "Learning English allows us to talk with people abroad.",
+      "translation": "英語を学ぶことで、私たちは海外の人たちと話せるようになります。",
+      "grammarPoint": {
+        "label": "人に行動を求める形",
+        "pattern": "動詞 + 人 + to + 原形",
+        "note": "Learningを一つの活動として主語にし、allows us toを続ける。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "08",
+    "question": {
+      "text": "It is necessary for us to save water.",
+      "translation": "私たちが水を節約することは必要です。",
+      "grammarPoint": {
+        "label": "仮の主語と不定詞",
+        "pattern": "It is + 形容詞 + (for 人) + to + 原形",
+        "note": "形式的な主語it、行う人for us、内容to saveの順にする。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "08",
+    "question": {
+      "text": "It is important to respect different opinions.",
+      "translation": "異なる意見を尊重することは大切です。",
+      "grammarPoint": {
+        "label": "仮の主語と不定詞",
+        "pattern": "It is + 形容詞 + (for 人) + to + 原形",
+        "note": "it＋形容詞＋toの形で、何が重要かを説明する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "08",
+    "question": {
+      "text": "It was difficult for me to understand the instructions.",
+      "translation": "その指示を理解することは、私には難しかったです。",
+      "grammarPoint": {
+        "label": "仮の主語と不定詞",
+        "pattern": "It is + 形容詞 + (for 人) + to + 原形",
+        "note": "仮主語itと過去形、for＋人＋toを組み合わせる。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "08",
+    "question": {
+      "text": "It is not safe for children to swim here.",
+      "translation": "ここで泳ぐことは、子供たちにとって安全ではありません。",
+      "grammarPoint": {
+        "label": "仮の主語と不定詞",
+        "pattern": "It is + 形容詞 + (for 人) + to + 原形",
+        "note": "仮主語の文を否定形にする。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "Please feel free to ask questions.",
+      "translation": "どうぞ遠慮なく質問してください。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "feel freeの後ろをto＋原形にする。 遠慮なくどうぞ"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "The book is worth reading twice.",
+      "translation": "その本は二度読む価値があります。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "be worthの後ろには動名詞を置く。twiceは読む回数。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "I was surprised to hear the news.",
+      "translation": "その知らせを聞いて驚きました。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "to hearが、驚いた理由を表す。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "She avoided driving in heavy snow.",
+      "translation": "彼女は大雪の中での運転を避けました。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "avoidの後ろは動名詞。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "I happened to meet her at the station.",
+      "translation": "駅で偶然彼女に会いました。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "happen to＋原形で、偶然行動したことを表す。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "She went to the library to do research.",
+      "translation": "彼女は調査をするため図書館へ行きました。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "図書館へ行った目的をto doで表す。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "Taking the bus saves us money.",
+      "translation": "バスを利用することは私たちのお金の節約になります。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "動名詞を主語にし、savesの三人称単数にも注意する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "We should avoid using too much plastic.",
+      "translation": "私たちはプラスチックを使いすぎることを避けるべきです。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "助動詞の後ろの原形と、avoidの後ろのingを区別する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "There is no reason to cancel the trip.",
+      "translation": "その旅行を中止する理由はありません。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "reasonをto cancelが後ろから説明する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "She decided to study abroad.",
+      "translation": "彼女は留学することを決めました。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "decideの後ろにto＋原形を続ける。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "09",
+    "question": {
+      "text": "She enjoys learning new languages.",
+      "translation": "彼女は新しい言語を学ぶことを楽しんでいます。",
+      "grammarPoint": {
+        "label": "不定詞・動名詞",
+        "pattern": "動詞 + to不定詞 / 動名詞",
+        "note": "enjoyの後ろに動名詞を続ける。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "I am used to getting up early.",
+      "translation": "私は早起きすることに慣れています。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "慣れているbe used toの後ろには動名詞を置く。過去の習慣と比較する。 慣れている状態。後ろは動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "Thank you for helping me move.",
+      "translation": "引っ越しを手伝ってくれてありがとう。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "thank you forの後ろを動名詞にし、help＋人＋動詞も確認する。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "He left without saying goodbye.",
+      "translation": "彼はさよならを言わずに立ち去りました。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "withoutの後ろに動名詞を続け、しなかった行動を表す。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "What do you say to going for a walk?",
+      "translation": "散歩に行くのはどうですか（提案）。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "提案のWhat do you say to ...?のtoは前置詞なので後ろは動名詞。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "We look forward to hearing from you.",
+      "translation": "あなたからのご連絡を楽しみにしています。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "look forward toのtoは前置詞。後ろはhearing。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "When it comes to cooking, she is an expert.",
+      "translation": "料理のことなら彼女は専門家です。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "When it comes toのtoは前置詞。後ろを動名詞にする。 動名詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "10",
+    "question": {
+      "text": "I used to walk to school.",
+      "translation": "私は以前、歩いて学校に通っていました。",
+      "grammarPoint": {
+        "label": "前置詞の後ろ・過去の習慣との比較",
+        "pattern": "前置詞 + 動名詞 ／ used to + 原形",
+        "note": "過去の習慣のused to＋原形と、慣れているbe used to＋ingを対比する。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "11",
+    "question": {
+      "text": "He stopped talking when the teacher arrived.",
+      "translation": "先生が来たとき、彼は話すのをやめました。",
+      "grammarPoint": {
+        "label": "後ろの形で変わる意味",
+        "pattern": "stop / remember + to不定詞 / 動名詞",
+        "note": "やめた対象をingで表す。 He stopped to talk to the teacher. は「先生と話すために立ち止まった」。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "11",
+    "question": {
+      "text": "He stopped to talk to the teacher.",
+      "translation": "彼は先生と話すために立ち止まりました。",
+      "grammarPoint": {
+        "label": "後ろの形で変わる意味",
+        "pattern": "stop / remember + to不定詞 / 動名詞",
+        "note": "立ち止まった目的をtoで表す。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "11",
+    "question": {
+      "text": "Please remember to lock the door.",
+      "translation": "忘れずにドアに鍵をかけてください。",
+      "grammarPoint": {
+        "label": "後ろの形で変わる意味",
+        "pattern": "stop / remember + to不定詞 / 動名詞",
+        "note": "これからする行動を忘れない、というremember＋to。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "11",
+    "question": {
+      "text": "I remember locking the door.",
+      "translation": "私はドアに鍵をかけたことを覚えています。",
+      "grammarPoint": {
+        "label": "後ろの形で変わる意味",
+        "pattern": "stop / remember + to不定詞 / 動名詞",
+        "note": "すでにした行動の記憶をremember＋ingで表す。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "12",
+    "question": {
+      "text": "Let me check the schedule.",
+      "translation": "予定を確認させてください。",
+      "grammarPoint": {
+        "label": "人に行動させる・助ける形",
+        "pattern": "let / make / help + 人 + 原形",
+        "note": "let＋人＋原形で、自分がすることを申し出る。 確認を申し出る"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "12",
+    "question": {
+      "text": "The movie made me feel happy.",
+      "translation": "その映画で私は幸せな気分になりました。",
+      "grammarPoint": {
+        "label": "人に行動させる・助ける形",
+        "pattern": "let / make / help + 人 + 原形",
+        "note": "make＋人＋原形と、feel＋形容詞を組み合わせる。 映画を主語にして、私への働きかけを表す"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "12",
+    "question": {
+      "text": "My parents let me choose my own clothes.",
+      "translation": "両親は私に自分の服を選ばせてくれます。",
+      "grammarPoint": {
+        "label": "人に行動させる・助ける形",
+        "pattern": "let / make / help + 人 + 原形",
+        "note": "letの後ろに、人とtoのない原形を置く。 使役・知覚"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "12",
+    "question": {
+      "text": "Walking to school helps me stay healthy.",
+      "translation": "歩いて学校に通うことは、私が健康を保つ助けになります。",
+      "grammarPoint": {
+        "label": "人に行動させる・助ける形",
+        "pattern": "let / make / help + 人 + 原形",
+        "note": "主語Walkingとhelps、help＋人＋動詞を確認する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "12",
+    "question": {
+      "text": "Learning languages helps us understand different cultures.",
+      "translation": "言語を学ぶことは、私たちが異なる文化を理解する助けになります。",
+      "grammarPoint": {
+        "label": "人に行動させる・助ける形",
+        "pattern": "let / make / help + 人 + 原形",
+        "note": "複数形languagesに引かれず、活動を表す主語にhelpsを合わせる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "13",
+    "question": {
+      "text": "I saw him crossing the street.",
+      "translation": "彼が道路を渡っているところを見ました。",
+      "grammarPoint": {
+        "label": "知覚動詞の後ろの形",
+        "pattern": "see / hear / watch + 人 + 原形 / 動詞ing",
+        "note": "see＋人＋ingで、動作が進行しているところを捉える。 使役・知覚"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "13",
+    "question": {
+      "text": "We heard someone calling for help.",
+      "translation": "私たちは誰かが助けを呼んでいるのを聞きました。",
+      "grammarPoint": {
+        "label": "知覚動詞の後ろの形",
+        "pattern": "see / hear / watch + 人 + 原形 / 動詞ing",
+        "note": "聞こえてきた進行中の動作をingで説明する。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "13",
+    "question": {
+      "text": "I watched her cross the street.",
+      "translation": "私は彼女が通りを渡るのを見届けました。",
+      "grammarPoint": {
+        "label": "知覚動詞の後ろの形",
+        "pattern": "see / hear / watch + 人 + 原形 / 動詞ing",
+        "note": "一まとまりの動作を原形で捉える。 crossingなら、渡っている途中を見ていたという捉え方ができる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "13",
+    "question": {
+      "text": "Did you see him leave the building?",
+      "translation": "彼がその建物を出るのを見ましたか。",
+      "grammarPoint": {
+        "label": "知覚動詞の後ろの形",
+        "pattern": "see / hear / watch + 人 + 原形 / 動詞ing",
+        "note": "知覚動詞の文を疑問文にし、目的語の後ろに原形を置く。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "14",
+    "question": {
+      "text": "Please keep the door closed.",
+      "translation": "ドアは閉まった状態にしておいてください。",
+      "grammarPoint": {
+        "label": "目的語の状態を説明する形",
+        "pattern": "動詞 + 目的語 + 補語",
+        "note": "閉まった状態を保つkeep＋目的語＋補語。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "14",
+    "question": {
+      "text": "The news made her happy.",
+      "translation": "その知らせは彼女を幸せな気持ちにしました。",
+      "grammarPoint": {
+        "label": "目的語の状態を説明する形",
+        "pattern": "動詞 + 目的語 + 補語",
+        "note": "make＋目的語＋形容詞で状態の変化を表す。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "14",
+    "question": {
+      "text": "I found the instructions difficult to understand.",
+      "translation": "私はその指示が理解しにくいと感じました。",
+      "grammarPoint": {
+        "label": "目的語の状態を説明する形",
+        "pattern": "動詞 + 目的語 + 補語",
+        "note": "find＋目的語＋形容詞と、それを補う不定詞。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "14",
+    "question": {
+      "text": "Please leave the window open.",
+      "translation": "窓は開けたままにしておいてください。",
+      "grammarPoint": {
+        "label": "目的語の状態を説明する形",
+        "pattern": "動詞 + 目的語 + 補語",
+        "note": "leave＋目的語＋形容詞で、ある状態のままにする。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "15",
+    "question": {
+      "text": "Look at the girl carrying a red bag.",
+      "translation": "赤いかばんを持っている女の子を見て。",
+      "grammarPoint": {
+        "label": "分詞による名詞の説明",
+        "pattern": "名詞 + 動詞ing / 過去分詞",
+        "note": "girlの後ろのcarryingが、女の子自身の動作を説明する。 分詞による説明"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "15",
+    "question": {
+      "text": "The language spoken in Brazil is Portuguese.",
+      "translation": "ブラジルで話される言語はポルトガル語です。",
+      "grammarPoint": {
+        "label": "分詞による名詞の説明",
+        "pattern": "名詞 + 動詞ing / 過去分詞",
+        "note": "languageの後ろに、話されるという過去分詞の説明を置く。 分詞による説明"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "15",
+    "question": {
+      "text": "The man waiting outside is our coach.",
+      "translation": "外で待っている男性は私たちのコーチです。",
+      "grammarPoint": {
+        "label": "分詞による名詞の説明",
+        "pattern": "名詞 + 動詞ing / 過去分詞",
+        "note": "自分で待っている人をingで説明する。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "15",
+    "question": {
+      "text": "The pictures taken by my mother are beautiful.",
+      "translation": "私の母が撮った写真は美しいです。",
+      "grammarPoint": {
+        "label": "分詞による名詞の説明",
+        "pattern": "名詞 + 動詞ing / 過去分詞",
+        "note": "撮られた写真を過去分詞で説明し、複数主語に動詞を合わせる。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "16",
+    "question": {
+      "text": "The woman who lives next door is a nurse.",
+      "translation": "隣に住んでいる女性は看護師です。",
+      "grammarPoint": {
+        "label": "関係代名詞",
+        "pattern": "名詞 + who / which / that + 節",
+        "note": "主格のwhoの後ろにlivesを続け、先行詞womanを説明する。 女性を主語の関係代名詞で説明する"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "16",
+    "question": {
+      "text": "This is the camera that I bought yesterday.",
+      "translation": "これが昨日買ったカメラです。",
+      "grammarPoint": {
+        "label": "関係代名詞",
+        "pattern": "名詞 + who / which / that + 節",
+        "note": "目的格thatの後ろをI boughtで続け、cameraを説明する。 目的語の関係代名詞を省略しない"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "16",
+    "question": {
+      "text": "The student who won the prize is in my class.",
+      "translation": "賞を取った生徒は私と同じクラスにいます。",
+      "grammarPoint": {
+        "label": "関係代名詞",
+        "pattern": "名詞 + who / which / that + 節",
+        "note": "主格の関係代名詞の後ろに動詞を続ける。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "16",
+    "question": {
+      "text": "The book that you lent me was interesting.",
+      "translation": "あなたが私に貸してくれた本は面白かったです。",
+      "grammarPoint": {
+        "label": "関係代名詞",
+        "pattern": "名詞 + who / which / that + 節",
+        "note": "目的格の関係代名詞の後ろに主語＋動詞を続ける。 thatの省略やwhichも自然。構文練習としての想定解。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "17",
+    "question": {
+      "text": "I know a boy whose father is a pilot.",
+      "translation": "父親がパイロットの少年を知っています。",
+      "grammarPoint": {
+        "label": "所有を表す関係詞",
+        "pattern": "名詞 + whose + 名詞 + 動詞",
+        "note": "whose＋fatherを主語にした節で、少年と父親を結び付ける。 関係詞"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "17",
+    "question": {
+      "text": "The girl whose mother teaches English is my friend.",
+      "translation": "母親が英語を教えている少女は私の友達です。",
+      "grammarPoint": {
+        "label": "所有を表す関係詞",
+        "pattern": "名詞 + whose + 名詞 + 動詞",
+        "note": "whose＋名詞で、人とその家族を結び付ける。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "17",
+    "question": {
+      "text": "I helped a boy whose bicycle was broken.",
+      "translation": "私は自転車が壊れていた少年を手伝いました。",
+      "grammarPoint": {
+        "label": "所有を表す関係詞",
+        "pattern": "名詞 + whose + 名詞 + 動詞",
+        "note": "所有物の説明をwhose節にする。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "17",
+    "question": {
+      "text": "Do you know the woman whose son lives abroad?",
+      "translation": "息子が海外に住んでいる女性を知っていますか。",
+      "grammarPoint": {
+        "label": "所有を表す関係詞",
+        "pattern": "名詞 + whose + 名詞 + 動詞",
+        "note": "whose節を含む文を疑問文にする。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "18",
+    "question": {
+      "text": "This is the town where I grew up.",
+      "translation": "ここは私が育った町です。",
+      "grammarPoint": {
+        "label": "場所・時を説明する関係詞",
+        "pattern": "場所 / 時 + where / when + 節",
+        "note": "townをwhereの節で説明し、そこで育ったことを伝える。 関係詞"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "18",
+    "question": {
+      "text": "I remember the day when we first met.",
+      "translation": "初めて会った日のことを覚えています。",
+      "grammarPoint": {
+        "label": "場所・時を説明する関係詞",
+        "pattern": "場所 / 時 + where / when + 節",
+        "note": "dayの後ろに、初めて会った時をwhenの節で説明する。 関係詞"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "18",
+    "question": {
+      "text": "This is the library where I usually study.",
+      "translation": "ここは私がふだん勉強する図書館です。",
+      "grammarPoint": {
+        "label": "場所・時を説明する関係詞",
+        "pattern": "場所 / 時 + where / when + 節",
+        "note": "場所とそこでの活動をwhereで結び付ける。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "18",
+    "question": {
+      "text": "I will never forget the day when we met.",
+      "translation": "私たちが出会った日のことを、私は決して忘れません。",
+      "grammarPoint": {
+        "label": "場所・時を説明する関係詞",
+        "pattern": "場所 / 時 + where / when + 節",
+        "note": "日をwhenの節で説明し、否定の未来と組み合わせる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "19",
+    "question": {
+      "text": "Could you tell me where the bus stops?",
+      "translation": "バスがどこに停まるか教えていただけますか。",
+      "grammarPoint": {
+        "label": "間接疑問の語順",
+        "pattern": "疑問詞 + 主語 + 動詞 ／ 疑問詞 + to + 原形",
+        "note": "whereの後ろをthe bus stopsの語順にし、doesを入れない。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "19",
+    "question": {
+      "text": "I have no idea where it is.",
+      "translation": "それがどこにあるか全くわかりません。",
+      "grammarPoint": {
+        "label": "間接疑問の語順",
+        "pattern": "疑問詞 + 主語 + 動詞 ／ 疑問詞 + to + 原形",
+        "note": "have no ideaの後ろに、where＋主語＋動詞を続ける。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "19",
+    "question": {
+      "text": "I wonder why he changed his mind.",
+      "translation": "なぜ彼が気を変えたのかと思います。",
+      "grammarPoint": {
+        "label": "間接疑問の語順",
+        "pattern": "疑問詞 + 主語 + 動詞 ／ 疑問詞 + to + 原形",
+        "note": "whyの後ろをhe changedの語順にする。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "19",
+    "question": {
+      "text": "We haven't decided which bus to take.",
+      "translation": "どのバスに乗るかまだ決めていません。",
+      "grammarPoint": {
+        "label": "間接疑問の語順",
+        "pattern": "疑問詞 + 主語 + 動詞 ／ 疑問詞 + to + 原形",
+        "note": "have not decidedと、which＋名詞＋toを組み合わせる。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "19",
+    "question": {
+      "text": "Do you know how much this ticket costs?",
+      "translation": "この切符がいくらか知っていますか。",
+      "grammarPoint": {
+        "label": "間接疑問の語順",
+        "pattern": "疑問詞 + 主語 + 動詞 ／ 疑問詞 + to + 原形",
+        "note": "間接疑問の中ではthis ticket costsの語順にする。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "20",
+    "question": {
+      "text": "I'm wondering if you can help me.",
+      "translation": "手伝っていただけないかと思っています。",
+      "grammarPoint": {
+        "label": "〜かどうかを表す節",
+        "pattern": "if / whether + 主語 + 動詞",
+        "note": "wonderingの後ろに、〜かどうかを表すif＋主語＋動詞を続ける。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "20",
+    "question": {
+      "text": "I'd like to know if the room is free.",
+      "translation": "その部屋が空いているか知りたいです。",
+      "grammarPoint": {
+        "label": "〜かどうかを表す節",
+        "pattern": "if / whether + 主語 + 動詞",
+        "note": "knowの後ろのifは条件ではなく、〜かどうかを表す。 間接疑問"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "20",
+    "question": {
+      "text": "Tell me whether or not you can come.",
+      "translation": "来られるかどうか教えてください。",
+      "grammarPoint": {
+        "label": "〜かどうかを表す節",
+        "pattern": "if / whether + 主語 + 動詞",
+        "note": "whether or notの後ろに、来られるかどうかを平叙文の語順で続ける。 可能な場合と不可能な場合の両方を、明示して尋ねる"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "20",
+    "question": {
+      "text": "I don't know if he will come tomorrow.",
+      "translation": "彼が明日来るかどうか、私は分かりません。",
+      "grammarPoint": {
+        "label": "〜かどうかを表す節",
+        "pattern": "if / whether + 主語 + 動詞",
+        "note": "〜かどうかのif節では、未来のwillを使える。 条件を表すIf he comes tomorrow, ...との違いを確認する。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "20",
+    "question": {
+      "text": "I wonder whether the museum is open today.",
+      "translation": "その博物館は今日開いているのだろうかと思います。",
+      "grammarPoint": {
+        "label": "〜かどうかを表す節",
+        "pattern": "if / whether + 主語 + 動詞",
+        "note": "whether＋主語＋動詞で、〜かどうかを表す。 ifも自然な別表現。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "21",
+    "question": {
+      "text": "The new train is twice as fast as the bus.",
+      "translation": "新しい電車はバスの二倍の速さです。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "twice＋as＋形容詞＋asで、二倍の速さを表す。 比較"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "21",
+    "question": {
+      "text": "This is one of the oldest temples in Japan.",
+      "translation": "これは日本で最も古い寺の一つです。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "one of＋the＋最上級＋複数名詞の形を使う。 比較"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "21",
+    "question": {
+      "text": "This method is much easier than the old one.",
+      "translation": "この方法は以前の方法よりずっと簡単です。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "比較級を強めるmuchと、比較対象を示すthanを使う。 比較"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "21",
+    "question": {
+      "text": "I prefer reading to watching television.",
+      "translation": "私はテレビを見るより読書が好きです。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "prefer A to Bで、同じ動名詞の形を比べる。 比較"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "21",
+    "question": {
+      "text": "The more you practice, the better you get.",
+      "translation": "練習すればするほど上達します。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "the＋比較級を二回使い、変化が連動することを表す。 比較"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "21",
+    "question": {
+      "text": "This bag is not as heavy as mine.",
+      "translation": "このかばんは私のものほど重くありません。",
+      "grammarPoint": {
+        "label": "比較の形",
+        "pattern": "as ... as ／ 比較級 + than ／ 最上級",
+        "note": "否定を伴うas ... asと、所有代名詞mineを確認する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "22",
+    "question": {
+      "text": "He is old enough to travel alone.",
+      "translation": "彼は一人で旅行できる年齢です。",
+      "grammarPoint": {
+        "label": "程度と不定詞",
+        "pattern": "too + 形容詞 + to ／ 形容詞 + enough + to",
+        "note": "old＋enough＋toの語順で、行動できる十分な年齢を表す。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "22",
+    "question": {
+      "text": "The box is too heavy for me to carry.",
+      "translation": "その箱は重すぎて私には運べません。",
+      "grammarPoint": {
+        "label": "程度と不定詞",
+        "pattern": "too + 形容詞 + to ／ 形容詞 + enough + to",
+        "note": "too＋形容詞＋for人＋toで、できないほどの程度を表す。 不定詞"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "22",
+    "question": {
+      "text": "The instructions are easy enough for children to follow.",
+      "translation": "その指示は、子供たちでも従えるほど簡単です。",
+      "grammarPoint": {
+        "label": "程度と不定詞",
+        "pattern": "too + 形容詞 + to ／ 形容詞 + enough + to",
+        "note": "形容詞＋enough＋for人＋toの順序。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "22",
+    "question": {
+      "text": "It was too dark for us to see the path.",
+      "translation": "暗すぎて、私たちは小道を見ることができませんでした。",
+      "grammarPoint": {
+        "label": "程度と不定詞",
+        "pattern": "too + 形容詞 + to ／ 形容詞 + enough + to",
+        "note": "too＋形容詞＋for人＋toで程度と不可能を結ぶ。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "Is it OK if I sit here?",
+      "translation": "ここに座っても大丈夫ですか。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "Is it OK if ...?の中に、自分がしてよいか尋ねる行動を置く。 大丈夫かを尋ねる文に、もし私が〜したらという節を付ける"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "You can stay here if you like.",
+      "translation": "よかったらここにいてもいいですよ。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "if you likeの条件を添えて、相手に選択を任せる。 相手の希望に任せる"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "Please call me as soon as you arrive.",
+      "translation": "到着したらすぐに電話してください。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "未来の到着でも、時を表すas soon asの節は現在形。 条件・時"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "If I have time tomorrow, I will help you.",
+      "translation": "明日時間があれば手伝います。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "未来の条件でもif節は現在形、主節はwill＋原形。 条件・時"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "We will stay inside unless the rain stops.",
+      "translation": "雨がやまない限り私たちは中にいます。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "unlessが否定の条件を表す。unless節の未来は現在形にする。 条件・時"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "We should listen carefully before we answer.",
+      "translation": "私たちは答える前に、注意深く話を聞くべきです。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "should＋原形とbefore＋文を確認する。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "We need to consider the cost before we decide.",
+      "translation": "私たちは決める前に、費用を考慮する必要があります。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "need＋toとbeforeの節を組み合わせる。"
+      }
+    }
+  },
+  {
+    "band": 1,
+    "topic": "23",
+    "question": {
+      "text": "If he comes tomorrow, I will tell him.",
+      "translation": "もし彼が明日来たら、私は彼に伝えます。",
+      "grammarPoint": {
+        "label": "時・条件を表す節",
+        "pattern": "if / when / before など + 主語 + 現在形",
+        "note": "未来でも条件を表すif節は現在形を使う。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "I listened to music while I was cooking.",
+      "translation": "料理をしている間、音楽を聞いていました。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "whileの節で、その時進行していた別の動作を過去進行形にする。 文をつなぐ"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "Although it was cold, we enjoyed the walk.",
+      "translation": "寒かったけれど散歩を楽しみました。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "althoughで、予想とは反対の出来事を結び付ける。 文をつなぐ"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "Now that we are ready, let's begin.",
+      "translation": "もう準備ができたので始めましょう。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "Now thatで、今は準備が整ったことを理由にする。 今や〜なので"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "Some students walk, while others take a bus.",
+      "translation": "歩く生徒もいればバスに乗る生徒もいます。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "二つの集団の違いをwhileで対比し、some / othersを使う。 文をつなぐ"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "We stayed home because the roads were icy.",
+      "translation": "道路が凍っていたので、私たちは家にいました。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "becauseの前後をどちらも主語＋動詞で組み立てる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "We chose this hotel because it was near the station.",
+      "translation": "私たちは、そのホテルが駅の近くにあったので、このホテルを選びました。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "主節と理由の節の両方で過去形を使う。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "24",
+    "question": {
+      "text": "Cars are convenient, but they can cause pollution.",
+      "translation": "車は便利ですが、汚染を引き起こすことがあります。",
+      "grammarPoint": {
+        "label": "理由・譲歩・対比",
+        "pattern": "because / although / while / but + 節",
+        "note": "butで対比し、代名詞theyがcarsを受ける。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "25",
+    "question": {
+      "text": "The bag was so heavy that I could not lift it.",
+      "translation": "かばんがとても重くて持ち上げられませんでした。",
+      "grammarPoint": {
+        "label": "目的と結果の表し分け",
+        "pattern": "so that + 節 ／ so + 形容詞 + that + 節",
+        "note": "so＋形容詞＋thatで、程度から生じた結果を説明する。 文をつなぐ"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "25",
+    "question": {
+      "text": "I spoke slowly so that everyone could understand.",
+      "translation": "みんなが理解できるようにゆっくり話しました。",
+      "grammarPoint": {
+        "label": "目的と結果の表し分け",
+        "pattern": "so that + 節 ／ so + 形容詞 + that + 節",
+        "note": "so thatで、理解してもらう目的を表す。 文をつなぐ"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "25",
+    "question": {
+      "text": "I wrote it down so that I would not forget it.",
+      "translation": "それを忘れないように、私は書き留めました。",
+      "grammarPoint": {
+        "label": "目的と結果の表し分け",
+        "pattern": "so that + 節 ／ so + 形容詞 + that + 節",
+        "note": "so thatの目的節で否定を使う。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "25",
+    "question": {
+      "text": "The music was so loud that we could not talk.",
+      "translation": "音楽がとても大きかったので、私たちは話すことができませんでした。",
+      "grammarPoint": {
+        "label": "目的と結果の表し分け",
+        "pattern": "so that + 節 ／ so + 形容詞 + that + 節",
+        "note": "so＋形容詞＋thatで、程度の結果を表す。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "26",
+    "question": {
+      "text": "What would you do in this situation?",
+      "translation": "この状況ならあなたはどうしますか。",
+      "grammarPoint": {
+        "label": "現実と違う仮定",
+        "pattern": "If + 過去形, 主語 + would + 原形",
+        "note": "仮定した場面での行動をwouldの疑問文で尋ねる。 情報を尋ねる 仮定した場面について尋ねるwouldの疑問文。状況の具体例は実装時に補う。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "26",
+    "question": {
+      "text": "If I were you, I would ask the teacher.",
+      "translation": "私があなたなら先生に尋ねます。",
+      "grammarPoint": {
+        "label": "現実と違う仮定",
+        "pattern": "If + 過去形, 主語 + would + 原形",
+        "note": "現実と違う立場If I were youとwouldで助言する。 現実と違う願い・仮定"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "26",
+    "question": {
+      "text": "If I had more time, I would travel abroad.",
+      "translation": "もっと時間があれば海外へ旅行するのに。",
+      "grammarPoint": {
+        "label": "現実と違う仮定",
+        "pattern": "If + 過去形, 主語 + would + 原形",
+        "note": "今は時間が十分でない仮定を、if＋過去形とwouldで表す。 現実と違う願い・仮定"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "26",
+    "question": {
+      "text": "If I lived near the station, I would walk there.",
+      "translation": "もし駅の近くに住んでいたら、私はそこまで歩くのですが。",
+      "grammarPoint": {
+        "label": "現実と違う仮定",
+        "pattern": "If + 過去形, 主語 + would + 原形",
+        "note": "現実と違う今の条件を過去形とwouldで表す。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "27",
+    "question": {
+      "text": "I wish I could speak French.",
+      "translation": "フランス語を話せたらいいのに。",
+      "grammarPoint": {
+        "label": "現実と違う願い・様子",
+        "pattern": "wish / as if + 主語 + 過去形 / could",
+        "note": "今はできない願いを、wish＋couldで表す。 現実と違う願い・仮定"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "27",
+    "question": {
+      "text": "He talks as if he knew everything.",
+      "translation": "彼は何でも知っているかのように話します。",
+      "grammarPoint": {
+        "label": "現実と違う願い・様子",
+        "pattern": "wish / as if + 主語 + 過去形 / could",
+        "note": "as if＋過去形で、実際とは違うかのような様子を表す。 まるで〜のように as ifは常に仮定法になるわけではない。この文は現実と違うかのような言い方として扱う。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "27",
+    "question": {
+      "text": "I wish I had more time to practice.",
+      "translation": "練習する時間がもっとあればいいのにと思います。",
+      "grammarPoint": {
+        "label": "現実と違う願い・様子",
+        "pattern": "wish / as if + 主語 + 過去形 / could",
+        "note": "今、十分な時間がないという願いに過去形hadを使う。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "27",
+    "question": {
+      "text": "I wish our town had a larger library.",
+      "translation": "私たちの町に、もっと大きな図書館があればいいのにと思います。",
+      "grammarPoint": {
+        "label": "現実と違う願い・様子",
+        "pattern": "wish / as if + 主語 + 過去形 / could",
+        "note": "主節と異なる主語を置いたwish＋過去形。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "28",
+    "question": {
+      "text": "I hear that a new library will open.",
+      "translation": "新しい図書館が開くそうです。",
+      "grammarPoint": {
+        "label": "発言・質問を伝える形",
+        "pattern": "said / told / asked + 内容の節",
+        "note": "現在のI hearから内容を伝える。that節を機械的に過去へ変えない。 人の発言を伝える"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "28",
+    "question": {
+      "text": "She asked me where I lived.",
+      "translation": "彼女は私にどこに住んでいるか尋ねました。",
+      "grammarPoint": {
+        "label": "発言・質問を伝える形",
+        "pattern": "said / told / asked + 内容の節",
+        "note": "伝えられた質問のwhereの後ろは、疑問文ではなくI livedの語順。 住んでいる人も一人称。間接疑問と時制の一致"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "28",
+    "question": {
+      "text": "He told me that he would return soon.",
+      "translation": "彼はすぐ戻ると私に言いました。",
+      "grammarPoint": {
+        "label": "発言・質問を伝える形",
+        "pattern": "said / told / asked + 内容の節",
+        "note": "過去に聞いた未来の発言をwouldで伝える。 人の発言を伝える"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "28",
+    "question": {
+      "text": "She said that she was looking for a job.",
+      "translation": "彼女は仕事を探していると言いました。",
+      "grammarPoint": {
+        "label": "発言・質問を伝える形",
+        "pattern": "said / told / asked + 内容の節",
+        "note": "過去の発言時点で進行していた動作をwas lookingで伝える。 人の発言を伝える"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "29",
+    "question": {
+      "text": "Does that mean we can leave now?",
+      "translation": "それは今出発できるという意味ですか。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "疑問になっている外側と、meanの後ろの平叙文を区別する。 意味を確かめる"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "29",
+    "question": {
+      "text": "This means that we need a new plan.",
+      "translation": "これは新しい計画が必要だという意味です。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "meanの後ろに、意味する内容をthat節で置く。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "29",
+    "question": {
+      "text": "I think that students need more sleep.",
+      "translation": "生徒にはもっと睡眠が必要だと思います。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "thinkの目的語にthat節を置き、その中でneedを使う。"
+      }
+    }
+  },
+  {
+    "band": 3,
+    "topic": "29",
+    "question": {
+      "text": "I do not think that all homework is unnecessary.",
+      "translation": "すべての宿題が不要だとは思いません。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "not thinkとall ... unnecessaryの組合せで、全面否定との違いを確認する。 思うことを否定し、内容を示す接続詞を省略しない 全部が不要だとは思わない、という否定の範囲。二重の否定を含むため総合復習寄り。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "29",
+    "question": {
+      "text": "One advantage of cycling is that it saves energy.",
+      "translation": "自転車に乗ることの利点の一つは、エネルギーを節約できることです。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "of＋動名詞と、補語となるthat節を組み立てる。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "29",
+    "question": {
+      "text": "I agree that protecting nature is important.",
+      "translation": "私は、自然を守ることが大切だという意見に賛成です。",
+      "grammarPoint": {
+        "label": "内容を表す節と否定の範囲",
+        "pattern": "動詞 / be動詞 + that節",
+        "note": "that節の中でprotecting natureが主語、isが動詞。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "Neither do I.",
+      "translation": "私もそうではありません。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "一般動詞の否定への同意で、neither＋do＋主語の順にする。 否定への同意 前提：相手が「私はその映画が好きではありません」と言った場面。一般動詞の否定への同意を練習する。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "He is not only kind but also brave.",
+      "translation": "彼は親切なだけでなく勇敢でもあります。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "not only A but also Bで、二つの形容詞を並べる。 両方を強調する"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "She plays the guitar as well as the piano.",
+      "translation": "彼女はピアノだけでなくギターも弾きます。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "as well asで、同じ前置詞の目的語となる二つの楽器を並べる。 〜だけでなく"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "So can I.",
+      "translation": "私もできます。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "肯定への同意ではso＋助動詞＋主語。 前提：相手が「私は泳げます」と言った場面。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "Neither can I.",
+      "translation": "私もできません。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "否定への同意ではneither＋助動詞＋主語。 前提：相手が「私は泳げません」と言った場面。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "30",
+    "question": {
+      "text": "Both Ken and I enjoy cooking.",
+      "translation": "ケンも私も、料理をすることを楽しんでいます。",
+      "grammarPoint": {
+        "label": "並列・省略・同意の語順",
+        "pattern": "neither / so + 助動詞 + 主語 ／ both A and B",
+        "note": "both A and Bで主語を並列にし、複数として扱う。"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "31",
+    "question": {
+      "text": "Would you mind waiting outside?",
+      "translation": "外で待っていただけますか（気にしますか）。",
+      "grammarPoint": {
+        "label": "依頼と許可の区別",
+        "pattern": "Would you mind + 動詞ing? ／ Do you mind if + 文?",
+        "note": "相手にしてほしいことを、Would you mind＋ingで依頼する。 相手が嫌でないか尋ねる形の依頼。後ろは動名詞"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "31",
+    "question": {
+      "text": "Would you mind closing the door?",
+      "translation": "ドアを閉めていただけますか（気にしますか）。",
+      "grammarPoint": {
+        "label": "依頼と許可の区別",
+        "pattern": "Would you mind + 動詞ing? ／ Do you mind if + 文?",
+        "note": "mindの後ろの動名詞と、依頼に応じる際の否定の返事の意味を確認する。 相手が嫌でないか尋ねる形の依頼。後ろは動名詞"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "31",
+    "question": {
+      "text": "Do you mind if I open the window?",
+      "translation": "窓を開けても構いませんか（気にしますか）。",
+      "grammarPoint": {
+        "label": "依頼と許可の区別",
+        "pattern": "Would you mind + 動詞ing? ／ Do you mind if + 文?",
+        "note": "自分の行動への許可を、Do you mind if＋文で尋ねる。 相手に差し支えがあるか、もし私が〜したらという節で尋ねる"
+      }
+    }
+  },
+  {
+    "band": 2,
+    "topic": "31",
+    "question": {
+      "text": "Would you mind helping me carry this box?",
+      "translation": "この箱を運ぶのを手伝っていただけますか。",
+      "grammarPoint": {
+        "label": "依頼と許可の区別",
+        "pattern": "Would you mind + 動詞ing? ／ Do you mind if + 文?",
+        "note": "相手に行動を依頼するmind＋ing。helpの後ろも確認する。"
+      }
+    }
+  }
+]

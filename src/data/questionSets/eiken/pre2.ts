@@ -3,6 +3,7 @@ import { reviewUpperPhraseEntries } from '../../upperPhraseCoreRules';
 import { pre2VocabularyRows } from './pre2Vocabulary';
 import { pre2PhraseRows } from './pre2Phrases';
 import { pre2SentenceRows, pre2Grammar, pre2ExpressionPoints } from './pre2Sentences';
+import grammarCurriculum from './pre2GrammarCurriculum.json';
 
 type Entry = { band: number; sourceId?: number; question: Question };
 const lines = (rows: string) => rows.split('\n').map(line => line.split('|'));
@@ -19,7 +20,9 @@ const sentences: Entry[] = lines(pre2SentenceRows).map(([band, sourceId, grammar
 // Concrete daily language precedes broader uses and abstract/complex language.
 const ordered = (entries: Entry[]) => [...entries].sort((a, b) => a.band - b.band || a.question.text.length - b.question.text.length);
 export const legacyPre2Phrases = ordered(phrases).map(entry => entry.question);
-export const pre2Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered(sentences) };
+// Retain old saved review objects and their grammar; normal play uses the approved curriculum.
+export const legacyPre2Sentences = ordered(sentences).map(entry => entry.question);
+export const pre2Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered(grammarCurriculum) };
 export const getPre2CurriculumLimit = (level: 1 | 2 | 3, stageIndex: number) => {
   const band = stageIndex < 7 ? 1 : stageIndex < 14 ? 2 : 3;
   return pre2Curriculum[level].filter(entry => entry.band <= band).length;

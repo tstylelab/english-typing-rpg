@@ -1,0 +1,145 @@
+{
+  "method": "Production tuning before/after swapping only the approved curriculum in an isolated VM. No player storage.",
+  "rows": [
+    {
+      "stage": 1,
+      "input": "text-only",
+      "before": {
+        "monsterHp": 460,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 460,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 1,
+      "input": "voice-only",
+      "before": {
+        "monsterHp": 500,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 500,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 10,
+      "input": "text-only",
+      "before": {
+        "monsterHp": 690,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 690,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 10,
+      "input": "voice-only",
+      "before": {
+        "monsterHp": 750,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 750,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 19,
+      "input": "text-only",
+      "before": {
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 19,
+      "input": "voice-only",
+      "before": {
+        "monsterHp": 833,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 833,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 20,
+      "input": "text-only",
+      "before": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 20,
+      "input": "voice-only",
+      "before": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 23,
+      "input": "text-only",
+      "before": {
+        "monsterHp": 1850,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 1850,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      }
+    },
+    {
+      "stage": 23,
+      "input": "voice-only",
+      "before": {
+        "monsterHp": 2010,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "after": {
+        "monsterHp": 2010,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      }
+    }
+  ]
+}

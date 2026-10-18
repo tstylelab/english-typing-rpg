@@ -3,9 +3,11 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {load} from './lib/load-typescript-data.mjs';
 import {hash,identity} from './lib/apply-translation-prompt-review.mjs';
+import {withLegacyPre2Level3} from './lib/legacy-pre2-question-snapshot.mjs';
 const dir='docs/translation-prompt-reviews-2026-10-18';
 const audits=fs.readdirSync(dir).filter(f=>/^Eiken.*-L[123]\.json$/.test(f)).map(f=>JSON.parse(fs.readFileSync(dir+'/'+f,'utf8')));
 const {QUESTIONS}=load('src/data/questions.ts');
+const historicalQuestions=withLegacyPre2Level3(QUESTIONS);
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
 const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const {getGrade4VocabularySynonyms}=load('src/data/grade4VocabularyPrompts.ts');
@@ -14,12 +16,12 @@ const baseline=JSON.parse(execFileSync('git',['show','4637b24:src/data/translati
 const key=e=>`${e.course}:${e.level}:${identity(e)}`;
 const allowed=new Set();let checked=0,changed=0;
 for(const a of audits){
- assert.equal(hash(QUESTIONS),a.questionsSha256,'All source questions, ordering, examples and saved identities stay intact');
- assert.equal(a.rows.length,QUESTIONS[a.course][a.level].length);
+ assert.equal(hash(historicalQuestions),a.questionsSha256,'Only the separately approved Pre-2 L3 curriculum may differ from the historical audit');
+ assert.equal(a.rows.length,historicalQuestions[a.course][a.level].length);
  assert.equal(a.changed,a.rows.filter(r=>r.changed).length);
  assert.equal(new Set(a.rows.map(identity)).size,a.rows.length);
  for(const r of a.rows){
-  const q=QUESTIONS[a.course][a.level].find(q=>identity(q)===identity(r));assert.ok(q,r.text);
+  const q=historicalQuestions[a.course][a.level].find(q=>identity(q)===identity(r));assert.ok(q,r.text);
   const prompt=getTranslationBattlePrompt(q,a.course,a.level);
   assert.equal(getQuestionMeaning(q,a.course),r.after.meaning);
   assert.equal(getQuestionMeaning(JSON.parse(JSON.stringify(q)),a.course),r.after.meaning);
@@ -32,7 +34,9 @@ for(const a of audits){
 }
 const before=new Map(baseline.map(e=>[key(e),e])),after=new Map(entries.map(e=>[key(e),e]));
 for(const [id,e] of before)assert.ok(after.has(id),'Do not remove a previously reviewed prompt');
-for(const [id,e] of after){if(allowed.has(id))continue;assert.deepEqual(e,before.get(id),'Unreviewed prompt changed: '+id);}
+const approved=JSON.parse(fs.readFileSync('docs/pre2-level3-grammar-proposal-2026-10-19/proposal.json','utf8'));
+const newTargets=new Set(approved.proposed.filter(q=>q.origin!=='keep').map(q=>q.text));
+for(const [id,e] of after){if(allowed.has(id))continue;if(e.course==='EikenPre2'&&e.level===3&&newTargets.has(e.text))continue;assert.deepEqual(e,before.get(id),'Unreviewed prompt changed: '+id);}
 const p=(c,text)=>getTranslationBattlePrompt(QUESTIONS[c][2].find(q=>q.text===text),c,2);
 assert.ok(p('Eiken2','be willing to').meaning.includes('いとわない'));
 assert.ok(p('Eiken2','make sure that').meaning.includes('確実にする'));

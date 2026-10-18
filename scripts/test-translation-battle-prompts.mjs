@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {load} from './lib/load-typescript-data.mjs';
 import {getPriorMeaning} from './lib/translation-prompt-baseline.mjs';
 const {QUESTIONS}=load('src/data/questions.ts');
+const {legacyPre2Sentences}=load('src/data/questionSets/eiken/pre2.ts');
 const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
 const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
 const {getGrade3VocabularyAnswerCue}=load('src/data/grade3VocabularyPrompts.ts');
@@ -39,7 +40,7 @@ for(const [course,levels]of Object.entries(QUESTIONS))for(const[level,qs]of Obje
  checked++;
 }
 assert.equal(createHash('sha256').update(JSON.stringify(QUESTIONS.Eiken3[1])).digest('hex'),'1514b432902ba3931d3cf618afa76ca02bc10f35df8bfcc1e349b86fdecb1552');
-for(const e of entries)assert.ok(QUESTIONS[e.course][e.level].some(q=>id(q)===id(e)),'No stale corrections');
+for(const e of entries)assert.ok(QUESTIONS[e.course][e.level].some(q=>id(q)===id(e))||(e.course==='EikenPre2'&&e.level===3&&legacyPre2Sentences.some(q=>id(q)===id(e))),'Correction must match active or explicitly retained legacy identity');
 const first=QUESTIONS.Eiken3[2].find(q=>q.text==='for the first time');
 assert.equal(getQuestionMeaning(first,'Eiken3'),'初めて（その経験・行為の初回に）');
 assert.ok(getTranslationBattlePrompt(first,'Eiken3',2).contrasts.some(t=>t.text==='at first'));

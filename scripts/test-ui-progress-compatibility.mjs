@@ -93,12 +93,14 @@ vm.runInContext(ts.transpile(`${declarationsText}\n${mapLoop.getText(after.ast)}
 const api = ctx.api, json = value=>JSON.parse(JSON.stringify(value));
 const q = { text:'banana', translation:'バナナ' };
 const qKey = api.getQuestionStatusKey('Eiken5',1,q);
+const retiredPre2 = {text:'No way!',translation:'まさか！・絶対に嫌だ！'};
+const retiredKey = api.getQuestionStatusKey('EikenPre2',3,retiredPre2);
 const defeats = ['Eiken5:1:guide:voice-text:m1_1','Eiken3:3:challenge:voice-only:c3_13','EikenPre1:2:guide:text-only:m2_3','Eiken1Part2:3:challenge:text-only:c3_23'];
 const fixture = [{id:'existing-child',name:'既存プレイヤー',updatedAt:1728000000000,data:{
   defeatedMonsterIds:defeats,bestScores:{[defeats[1]]:12345},maxKeystrokes:456,
-  weakQuestions:[q],weakQuestionStats:{banana:{missCount:3,lastMissedAt:1728000000000,consecutiveCorrect:1}},
-  manualQuestionStatuses:{[qKey]:{learningLevel:3,practiceLevel:3,listeningLevel:2,battleLevel:3,excluded:true,updatedAt:1728000000000}},
-  reviewQueue:[{difficulty:'Eiken5',level:1,question:q,remainingQuestions:2,missCount:3}],
+  weakQuestions:[q,retiredPre2],weakQuestionStats:{banana:{missCount:3,lastMissedAt:1728000000000,consecutiveCorrect:1}},
+  manualQuestionStatuses:{[qKey]:{learningLevel:3,practiceLevel:3,listeningLevel:2,battleLevel:3,excluded:true,updatedAt:1728000000000},[retiredKey]:{learningLevel:3,practiceLevel:3,listeningLevel:3,battleLevel:3,excluded:true,updatedAt:1728000000000}},
+  reviewQueue:[{difficulty:'Eiken5',level:1,question:q,remainingQuestions:2,missCount:3},{difficulty:'EikenPre2',level:3,question:retiredPre2,remainingQuestions:1,missCount:2}],
   dailyProgress:{date:'2026-10-15',questionCount:218},dailyActivityHistory:{'2026-10-14':{answered:30,skipped:2}},
   autoPlaySettings:{source:'marked',playbackScope:'selected',playbackDifficulties:['Eiken3','Eiken2'],playText:true,playTranslation:true,playExample:true,repeat:true,shuffle:true},
   selectedQuestionKeysByScope:{'Eiken5:1':[qKey]},markedQuestionKeysByScope:{'Eiken5:1':[qKey]},reviewHistoryKeysByScope:{'Eiken5:1':[qKey]},
@@ -112,6 +114,9 @@ const d=normalized[0].data;
 assert.equal(d.bestScores[defeats[1]],12345); assert.equal(d.maxKeystrokes,456);
 assert.equal(d.manualQuestionStatuses[qKey].excluded,true); assert.equal(d.manualQuestionStatuses[qKey].learningLevel,3);
 assert.equal(d.weakQuestionStats.banana.missCount,3); assert.equal(d.reviewQueue[0].remainingQuestions,2);
+assert.equal(d.manualQuestionStatuses[retiredKey].battleLevel,3);
+assert.equal(d.reviewQueue[1].question.text,retiredPre2.text);
+assert.ok(d.weakQuestions.some(q=>q.text===retiredPre2.text),'Retired curriculum records must not be deleted');
 assert.equal(d.dailyActivityHistory['2026-10-14'].answered,30); assert.equal(d.dailyProgress.questionCount,218);
 for (const field of ['selectedQuestionKeysByScope','markedQuestionKeysByScope','reviewHistoryKeysByScope','savedSelectionLists']) assert.deepEqual(d[field],fixture[0].data[field]);
 assert.equal(d.autoPlaySettings.playbackScope,'selected'); assert.deepEqual(d.autoPlaySettings.playbackDifficulties,['Eiken3','Eiken2']);
@@ -133,8 +138,9 @@ for (const profile of [replayProfiles[0], replayProfiles[1], replayProfiles[0]])
 assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(replayProfiles)))),replayProfiles, 'Export/import retains cursor and progress');
 // Reviewed display overlays can change without changing question identities or saves.
 // test-translation-battle-prompts / test-sequential-prompt-reviews validate that overlay.
-const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data',':(exclude)src/data/translationBattlePrompts.json','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim();
-assert.equal(dataDiff,'','Question identity, monster catalog and learning rules must remain unchanged in UI integration');
+const approvedMaterialFiles=new Set(['src/data/translationBattlePrompts.json','src/data/questionSets/eiken/pre2.ts','src/data/questionSets/eiken/pre2GrammarCurriculum.json','src/data/questionGrammarPoints.ts','src/data/pre2GrammarAssignments.ts','src/data/pre2GrammarCurriculumAssignments.json','src/data/pre2GrammarCurriculumCards.ts','src/data/pre2GrammarGuide.ts','src/data/grammarGuides.ts']);
+const dataDiff = execFileSync('git',['diff','--name-only',baseline,'--','src/data','src/monsterProfiles.json','src/monsterProfiles.ts','src/learningProgress.ts'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);
+assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only the separately audited Pre-2 L3 material may differ; monster catalog and learning rules remain unchanged');
 console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; only additive replay field; 2-player fixture, old saves, reload/profile-switch/export round trips, IDs and curriculum unchanged.`);
 
 const companions = require('./homeCompanions.ts');
