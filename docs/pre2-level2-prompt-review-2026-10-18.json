@@ -1,0 +1,5218 @@
+{
+  "date": "2026-10-18",
+  "course": "EikenPre2",
+  "level": 2,
+  "reviewed": 223,
+  "changed": 83,
+  "questionsSha256": "2c2e9765718e0f240d2d0b8db67e82b2adf02c64ecf1482b51ce73d919403a57",
+  "unrelatedPromptsSha256": "563b136c99d9d728d4369185f914a7a2861fc1a9d54f71ebf4c11e7b0d0d8692",
+  "rows": [
+    {
+      "text": "as well",
+      "translation": "〜もまた（文末で）",
+      "exampleEn": "She speaks French as well.",
+      "before": {
+        "meaning": "〜もまた（文末で）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜もまた（文末に添えて、追加を表す）",
+        "alternatives": [
+          {
+            "text": "too",
+            "note": "〜もまた"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "line up",
+      "translation": "列に並ぶ",
+      "exampleEn": "Please line up here.",
+      "before": {
+        "meaning": "列に並ぶ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一列に並ぶ・列を作る",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "in line",
+            "note": "列に並んでいる状態"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "列を作る動作と、列にいる状態を区別する。"
+    },
+    {
+      "text": "be over",
+      "translation": "終わっている",
+      "exampleEn": "The show will be over soon.",
+      "before": {
+        "meaning": "終わっている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（行事・出来事などが）終わっている",
+        "alternatives": [
+          {
+            "text": "be finished",
+            "note": "終わっている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be away",
+      "translation": "留守にしている",
+      "exampleEn": "He will be away tomorrow.",
+      "before": {
+        "meaning": "留守にしている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（家・職場などを）留守にしている",
+        "alternatives": [
+          {
+            "text": "be absent",
+            "note": "不在である"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in line",
+      "translation": "列に並んで",
+      "exampleEn": "We waited in line.",
+      "before": {
+        "meaning": "列に並んで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "列に並んでいる状態で",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "line up",
+            "note": "列を作る動作"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "列を作る動作と、列にいる状態を区別する。"
+    },
+    {
+      "text": "eat out",
+      "translation": "外食する",
+      "exampleEn": "We will eat out tonight.",
+      "before": {
+        "meaning": "外食する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "外食する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "at first",
+      "translation": "最初は",
+      "exampleEn": "At first, I was nervous.",
+      "before": {
+        "meaning": "最初は",
+        "alternatives": [
+          {
+            "text": "in the beginning",
+            "note": "初めのうちは"
+          },
+          {
+            "text": "initially",
+            "note": "初めは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最初は",
+        "alternatives": [
+          {
+            "text": "in the beginning",
+            "note": "初めのうちは"
+          },
+          {
+            "text": "initially",
+            "note": "初めは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "get lost",
+      "translation": "道に迷う",
+      "exampleEn": "It is easy to get lost here.",
+      "before": {
+        "meaning": "道に迷う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "道に迷う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "come out",
+      "translation": "外に出る・発売される",
+      "exampleEn": "Her new book will come out soon.",
+      "before": {
+        "meaning": "外に出る・発売される",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "外に出る・発売される",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "check in",
+      "translation": "ホテルなどで到着手続きをする",
+      "exampleEn": "We can check in at three.",
+      "before": {
+        "meaning": "（ホテルなどで）到着手続きをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（ホテルなどで）到着手続きをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "for long",
+      "translation": "長い間（主に否定・疑問文）",
+      "exampleEn": "I will not stay for long.",
+      "before": {
+        "meaning": "長い間（主に否定・疑問文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "長い間（主に否定・疑問文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in shape",
+      "translation": "体の調子がよくて",
+      "exampleEn": "Swimming keeps me in shape.",
+      "before": {
+        "meaning": "体の調子がよくて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "体の調子がよくて・体が鍛えられて",
+        "alternatives": [
+          {
+            "text": "fit",
+            "note": "健康で体力がある"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "speak up",
+      "translation": "もっと大きな声で話す",
+      "exampleEn": "Please speak up.",
+      "before": {
+        "meaning": "もっと大きな声で話す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "相手に聞こえるよう、もっと大きな声で話す",
+        "alternatives": [
+          {
+            "text": "speak louder",
+            "note": "もっと大きな声で話す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "dress up",
+      "translation": "着飾る・仮装する",
+      "exampleEn": "The children dressed up for the party.",
+      "before": {
+        "meaning": "着飾る・仮装する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "着飾る・仮装する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "on board",
+      "translation": "乗り物に乗って",
+      "exampleEn": "There are fifty people on board.",
+      "before": {
+        "meaning": "乗り物に乗って",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "船・飛行機などに乗って",
+        "alternatives": [
+          {
+            "text": "aboard",
+            "note": "船・飛行機などに乗って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "come down",
+      "translation": "下へ降りてくる",
+      "exampleEn": "Please come down for dinner.",
+      "before": {
+        "meaning": "下へ降りてくる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "下へ降りてくる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "and so on",
+      "translation": "〜など（列挙の続き）",
+      "exampleEn": "We sell pens, paper, and so on.",
+      "before": {
+        "meaning": "〜など（列挙の続き）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜など（同じ種類のものを列挙した後に）",
+        "alternatives": [
+          {
+            "text": "and so forth",
+            "note": "〜など"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "check out",
+      "translation": "ホテルで出発手続きをする",
+      "exampleEn": "We must check out by eleven.",
+      "before": {
+        "meaning": "（ホテルで）出発手続きをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（ホテルで）出発手続きをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in public",
+      "translation": "人前で・公の場で",
+      "exampleEn": "She dislikes speaking in public.",
+      "before": {
+        "meaning": "人前で・公の場で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "人前で・公の場で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "with care",
+      "translation": "注意して・丁寧に",
+      "exampleEn": "Handle the glass with care.",
+      "before": {
+        "meaning": "注意して・丁寧に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "注意を払って・丁寧に",
+        "alternatives": [
+          {
+            "text": "carefully",
+            "note": "注意して"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in danger",
+      "translation": "危険な状態で",
+      "exampleEn": "Some animals are in danger.",
+      "before": {
+        "meaning": "危険な状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "危険な状態で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by mistake",
+      "translation": "間違って・うっかり",
+      "exampleEn": "I took your bag by mistake.",
+      "before": {
+        "meaning": "間違って・うっかり",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "取り違えたり判断を誤ったりして、間違って",
+        "alternatives": [
+          {
+            "text": "mistakenly",
+            "note": "誤って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "on purpose",
+      "translation": "わざと・故意に",
+      "exampleEn": "I did not do it on purpose.",
+      "before": {
+        "meaning": "わざと・故意に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "偶然ではなく、わざと・故意に",
+        "alternatives": [
+          {
+            "text": "intentionally",
+            "note": "意図的に"
+          },
+          {
+            "text": "deliberately",
+            "note": "故意に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "break down",
+      "translation": "機械などが故障する",
+      "exampleEn": "Our car broke down.",
+      "before": {
+        "meaning": "（機械などが）故障する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機械などが）故障する・動かなくなる",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "out of order",
+            "note": "故障している状態"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "故障が起きる変化と、故障中の状態を区別する。"
+    },
+    {
+      "text": "in advance",
+      "translation": "前もって・事前に",
+      "exampleEn": "Please book in advance.",
+      "before": {
+        "meaning": "前もって・事前に",
+        "alternatives": [
+          {
+            "text": "beforehand",
+            "note": "前もって"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "前もって・事前に",
+        "alternatives": [
+          {
+            "text": "beforehand",
+            "note": "前もって"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in the past",
+      "translation": "過去には",
+      "exampleEn": "People traveled slowly in the past.",
+      "before": {
+        "meaning": "過去には",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "過去には",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "fall asleep",
+      "translation": "眠りに落ちる",
+      "exampleEn": "I fell asleep on the train.",
+      "before": {
+        "meaning": "眠りに落ちる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "眠りに落ちる・眠り始める",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "be asleep",
+            "note": "眠っている状態"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "眠りに入る変化と、眠っている状態を区別する。"
+    },
+    {
+      "text": "as you know",
+      "translation": "ご存じのように",
+      "exampleEn": "As you know, the shop is closed today.",
+      "before": {
+        "meaning": "ご存じのように",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ご存じのように",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "take a bite",
+      "translation": "一口かじる",
+      "exampleEn": "Take a bite of this apple.",
+      "before": {
+        "meaning": "一口かじる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一口かじる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "see off",
+      "translation": "（人を）見送る",
+      "exampleEn": "We went to the station to see her off.",
+      "before": {
+        "meaning": "（人を）見送る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）見送る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "get injured",
+      "translation": "けがをする",
+      "exampleEn": "He got injured during the game.",
+      "before": {
+        "meaning": "けがをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（事故・運動などで）けがをする",
+        "alternatives": [
+          {
+            "text": "get hurt",
+            "note": "けがをする"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "by accident",
+      "translation": "偶然に・意図せず",
+      "exampleEn": "I found the photo by accident.",
+      "before": {
+        "meaning": "（意図せず）偶然に・うっかり",
+        "alternatives": [
+          {
+            "text": "by chance",
+            "note": "偶然に"
+          },
+          {
+            "text": "accidentally",
+            "note": "偶然・うっかりと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（意図せず）偶然に・うっかり",
+        "alternatives": [
+          {
+            "text": "by chance",
+            "note": "偶然に"
+          },
+          {
+            "text": "accidentally",
+            "note": "偶然・うっかりと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "from now on",
+      "translation": "今からずっと・今後は",
+      "exampleEn": "I will be more careful from now on.",
+      "before": {
+        "meaning": "今からずっと・今後は",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今からずっと・今後は",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "live on",
+      "translation": "〜を主食にする・〜で生計を立てる",
+      "exampleEn": "Many people live on rice.",
+      "before": {
+        "meaning": "〜を主食にする・〜で生計を立てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を主食にする・〜で生計を立てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "out of order",
+      "translation": "機械などが故障中で",
+      "exampleEn": "The elevator is out of order.",
+      "before": {
+        "meaning": "（機械などが）故障している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（機械などが）故障していて使えない",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "break down",
+            "note": "故障して動かなくなる"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "故障中の状態を明確にする。"
+    },
+    {
+      "text": "feel at home",
+      "translation": "くつろいだ気分になる",
+      "exampleEn": "I feel at home here.",
+      "before": {
+        "meaning": "くつろいだ気分になる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分の家にいるように、くつろいだ気分になる",
+        "alternatives": [
+          {
+            "text": "feel comfortable",
+            "note": "居心地よく感じる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "for a change",
+      "translation": "気分を変えて・たまには",
+      "exampleEn": "Let's eat outside for a change.",
+      "before": {
+        "meaning": "気分を変えて・たまには",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "気分を変えて・たまには",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "go on a tour",
+      "translation": "ツアーに参加する",
+      "exampleEn": "We went on a tour of the city.",
+      "before": {
+        "meaning": "ツアーに参加する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ツアーに参加する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "one at a time",
+      "translation": "一度に一つずつ",
+      "exampleEn": "Take one at a time.",
+      "before": {
+        "meaning": "一度に一つずつ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一度に一つずつ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "at the moment",
+      "translation": "ちょうど今・現在は",
+      "exampleEn": "She is busy at the moment.",
+      "before": {
+        "meaning": "ちょうど今・現在は",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ちょうど今・現在のところ",
+        "alternatives": [
+          {
+            "text": "right now",
+            "note": "今この瞬間に"
+          },
+          {
+            "text": "currently",
+            "note": "現在は"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "do A a favor",
+      "translation": "Aの頼みを聞く（Aは人）",
+      "exampleEn": "Could you do me a favor?",
+      "before": {
+        "meaning": "Aの頼みを聞く（Aは人）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "Aのためにひと肌脱ぐ・頼みを聞いてあげる（Aは人）",
+        "alternatives": [
+          {
+            "text": "help A out",
+            "note": "困っている人を助ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "over and over",
+      "translation": "何度も何度も",
+      "exampleEn": "I read the letter over and over.",
+      "before": {
+        "meaning": "何度も何度も",
+        "alternatives": [
+          {
+            "text": "again and again",
+            "note": "何度も"
+          },
+          {
+            "text": "repeatedly",
+            "note": "繰り返し"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "何度も何度も",
+        "alternatives": [
+          {
+            "text": "again and again",
+            "note": "何度も"
+          },
+          {
+            "text": "repeatedly",
+            "note": "繰り返し"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "put out a fire",
+      "translation": "火を消す",
+      "exampleEn": "They put out the fire quickly.",
+      "before": {
+        "meaning": "火を消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "火を消す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make a mistake",
+      "translation": "間違いをする",
+      "exampleEn": "Anyone can make a mistake.",
+      "before": {
+        "meaning": "間違いをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "間違いをする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "all year round",
+      "translation": "一年中ずっと",
+      "exampleEn": "It is warm here all year round.",
+      "before": {
+        "meaning": "一年中ずっと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一年中ずっと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "do the laundry",
+      "translation": "洗濯をする",
+      "exampleEn": "I do the laundry on Sundays.",
+      "before": {
+        "meaning": "洗濯をする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "洗濯をする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "plenty of",
+      "translation": "十分な・たっぷりの〜",
+      "exampleEn": "We have plenty of time.",
+      "before": {
+        "meaning": "十分な・たっぷりの〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "十分な量の・たっぷりの〜",
+        "alternatives": [
+          {
+            "text": "more than enough",
+            "note": "十分すぎるほどの"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "take your time",
+      "translation": "焦らずゆっくりする",
+      "exampleEn": "Take your time and read carefully.",
+      "before": {
+        "meaning": "焦らずゆっくりする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "急がずに、必要なだけ時間をかける",
+        "alternatives": [
+          {
+            "text": "do not rush",
+            "note": "急がないで"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "keep a promise",
+      "translation": "約束を守る",
+      "exampleEn": "It is important to keep a promise.",
+      "before": {
+        "meaning": "約束を守る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "約束を守る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "fill out",
+      "translation": "（用紙）に記入する",
+      "exampleEn": "Please fill out a form.",
+      "before": {
+        "meaning": "（用紙）に記入する",
+        "alternatives": [
+          {
+            "text": "fill in",
+            "note": "空欄・用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（用紙）に記入する",
+        "alternatives": [
+          {
+            "text": "fill in",
+            "note": "空欄・用紙に記入する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "some other time",
+      "translation": "また別の機会に",
+      "exampleEn": "Let's meet some other time.",
+      "before": {
+        "meaning": "また別の機会に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "また別の機会に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "lose one's balance",
+      "translation": "バランスを崩す（one'sはmy・yourなど）",
+      "exampleEn": "I almost lost my balance.",
+      "before": {
+        "meaning": "バランスを崩す（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "バランスを崩す（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "go into",
+      "translation": "〜の中に入る",
+      "exampleEn": "Please go into the room.",
+      "before": {
+        "meaning": "〜の中に入る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の中に入る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "add A to B",
+      "translation": "AをBに加える",
+      "exampleEn": "Do you add sugar to tea?",
+      "before": {
+        "meaning": "AをBに加える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBに加える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "put down",
+      "translation": "（物を）下に置く",
+      "exampleEn": "Please put down the bag.",
+      "before": {
+        "meaning": "（物を）下に置く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物を）下に置く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "fill up",
+      "translation": "〜を満タンにする",
+      "exampleEn": "Please fill up the tank.",
+      "before": {
+        "meaning": "〜を満タンにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を満タンにする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "hand in",
+      "translation": "（書類など）を提出する",
+      "exampleEn": "Hand in your homework tomorrow.",
+      "before": {
+        "meaning": "（書類など）を提出する",
+        "alternatives": [
+          {
+            "text": "turn in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（書類など）を提出する",
+        "alternatives": [
+          {
+            "text": "turn in",
+            "note": "提出する"
+          },
+          {
+            "text": "submit",
+            "note": "提出する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "work on",
+      "translation": "（課題など）に取り組む",
+      "exampleEn": "We work on a project together.",
+      "before": {
+        "meaning": "（課題など）に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（課題など）に取り組む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "run after",
+      "translation": "〜を走って追いかける",
+      "exampleEn": "Do not run after the dog.",
+      "before": {
+        "meaning": "〜を走って追いかける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・動物など）を走って追いかける",
+        "alternatives": [
+          {
+            "text": "chase",
+            "note": "追いかける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "stop by",
+      "translation": "〜にちょっと立ち寄る",
+      "exampleEn": "I will stop by the store.",
+      "before": {
+        "meaning": "〜にちょっと立ち寄る",
+        "alternatives": [
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          },
+          {
+            "text": "drop in",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜にちょっと立ち寄る",
+        "alternatives": [
+          {
+            "text": "drop by",
+            "note": "ふらりと寄る"
+          },
+          {
+            "text": "drop in",
+            "note": "ふらりと寄る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "pass by",
+      "translation": "〜の前を通り過ぎる",
+      "exampleEn": "I pass by the house every day.",
+      "before": {
+        "meaning": "〜の前を通り過ぎる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の前を通り過ぎる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make a reservation",
+      "translation": "予約を入れる",
+      "exampleEn": "I want to make a reservation.",
+      "before": {
+        "meaning": "予約を入れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "席・部屋などを確保するため、予約を入れる",
+        "alternatives": [
+          {
+            "text": "make a booking",
+            "note": "予約を入れる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "面会の日時を約束する予約との典型的な場面の違いを示す。"
+    },
+    {
+      "text": "earlier than usual",
+      "translation": "いつもより早く",
+      "exampleEn": "I got up earlier than usual.",
+      "before": {
+        "meaning": "いつもより早く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "いつもより早く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be tired from",
+      "translation": "〜で疲れている（疲れの原因）",
+      "exampleEn": "We were tired from walking.",
+      "before": {
+        "meaning": "〜で疲れている（疲れの原因）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（運動・作業など）で体が疲れている",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "be tired of",
+            "note": "〜にうんざりしている"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "身体的な疲労と、飽き・うんざりを区別する。"
+    },
+    {
+      "text": "have a sore throat",
+      "translation": "のどが痛い",
+      "exampleEn": "I have a sore throat.",
+      "before": {
+        "meaning": "のどが痛い",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "のどが痛い",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "a bunch of flowers",
+      "translation": "一束の花",
+      "exampleEn": "She gave me a bunch of flowers.",
+      "before": {
+        "meaning": "一束の花",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "一束の花・花束",
+        "alternatives": [
+          {
+            "text": "a bouquet",
+            "note": "花束"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "leave behind",
+      "translation": "（物を）置き忘れる",
+      "exampleEn": "I left my bag behind.",
+      "before": {
+        "meaning": "（物を）置き忘れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "持っていく物をその場に置き忘れる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": ""
+    },
+    {
+      "text": "watch out for",
+      "translation": "〜に気をつける",
+      "exampleEn": "Watch out for cars.",
+      "before": {
+        "meaning": "〜に気をつける",
+        "alternatives": [
+          {
+            "text": "look out for",
+            "note": "注意して見ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に気をつける",
+        "alternatives": [
+          {
+            "text": "look out for",
+            "note": "注意して見ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "bring back",
+      "translation": "（物を）持ち帰る・返しに来る",
+      "exampleEn": "Please bring back the book tomorrow.",
+      "before": {
+        "meaning": "（物を）持ち帰る・返しに来る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（物を）持ち帰る・返しに来る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make an appointment",
+      "translation": "面会・診察の予約をする",
+      "exampleEn": "I need to make an appointment.",
+      "before": {
+        "meaning": "面会・診察の予約をする",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "診察・面会などの日時を予約する",
+        "alternatives": [
+          {
+            "text": "arrange an appointment",
+            "note": "面会などの日時を決める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "send out",
+      "translation": "（招待状・通知など）を発送する",
+      "exampleEn": "We sent out invitations yesterday.",
+      "before": {
+        "meaning": "（招待状・通知など）を発送する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（招待状・通知など）を発送する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "across from",
+      "translation": "〜の向かいに",
+      "exampleEn": "The cafe is across from the bank.",
+      "before": {
+        "meaning": "〜の向かいに",
+        "alternatives": [
+          {
+            "text": "opposite",
+            "note": "〜の向かいに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の向かいに",
+        "alternatives": [
+          {
+            "text": "opposite",
+            "note": "〜の向かいに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "take after",
+      "translation": "（家族など）に似ている",
+      "exampleEn": "I take after my father.",
+      "before": {
+        "meaning": "（家族など）に似ている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（親・親族と）顔や性格が似ている",
+        "alternatives": [
+          {
+            "text": "resemble",
+            "note": "〜に似ている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "head for",
+      "translation": "〜へ向かう",
+      "exampleEn": "We headed for the station.",
+      "before": {
+        "meaning": "〜へ向かう",
+        "alternatives": [
+          {
+            "text": "make for",
+            "note": "〜へ向かう"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜へ向かう",
+        "alternatives": [
+          {
+            "text": "make for",
+            "note": "〜へ向かう"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be popular with",
+      "translation": "〜に人気がある",
+      "exampleEn": "This game is popular with children.",
+      "before": {
+        "meaning": "〜に人気がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に人気がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "start with",
+      "translation": "〜から始める",
+      "exampleEn": "Let's start with a question.",
+      "before": {
+        "meaning": "〜から始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最初のものとして〜から始める",
+        "alternatives": [
+          {
+            "text": "begin with",
+            "note": "〜から始める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "by the side of",
+      "translation": "〜の脇に",
+      "exampleEn": "A car stopped by the side of the road.",
+      "before": {
+        "meaning": "〜の脇に",
+        "alternatives": [
+          {
+            "text": "beside",
+            "note": "〜の脇に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の脇に",
+        "alternatives": [
+          {
+            "text": "beside",
+            "note": "〜の脇に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "stay away from",
+      "translation": "〜に近づかない",
+      "exampleEn": "Stay away from the edge.",
+      "before": {
+        "meaning": "〜に近づかない",
+        "alternatives": [
+          {
+            "text": "stay off",
+            "note": "〜に近づかない"
+          },
+          {
+            "text": "keep away from",
+            "note": "〜に近づかない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に近づかない・〜から離れている",
+        "alternatives": [
+          {
+            "text": "keep away from",
+            "note": "〜に近づかない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "場所・人の両方に使える比較を残し、範囲の狭い別表現を削る。"
+    },
+    {
+      "text": "take A out of B",
+      "translation": "AをBから取り出す",
+      "exampleEn": "She took a book out of a bag.",
+      "before": {
+        "meaning": "AをBから取り出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBから取り出す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "so far",
+      "translation": "今までのところ",
+      "exampleEn": "Everything is fine so far.",
+      "before": {
+        "meaning": "今までのところ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "今までのところ・ここまでの時点では",
+        "alternatives": [
+          {
+            "text": "up to now",
+            "note": "今までのところ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in turn",
+      "translation": "順番に・交代で",
+      "exampleEn": "Each student spoke in turn.",
+      "before": {
+        "meaning": "順番に・交代で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "順番に・交代で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "at most",
+      "translation": "多くとも・最大限で",
+      "exampleEn": "It will take ten minutes at most.",
+      "before": {
+        "meaning": "多くとも・最大限で",
+        "alternatives": [
+          {
+            "text": "no more than",
+            "note": "多くても"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "多くても〜・最大でも〜（数量の上限）",
+        "alternatives": [
+          {
+            "text": "no more than",
+            "note": "多くても〜"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "show off",
+      "translation": "見せびらかす・自慢する",
+      "exampleEn": "He likes to show off his new shoes.",
+      "before": {
+        "meaning": "見せびらかす・自慢する",
+        "alternatives": [
+          {
+            "text": "flaunt",
+            "note": "誇示する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "見せびらかす・得意げに自慢する",
+        "alternatives": [
+          {
+            "text": "boast",
+            "note": "自慢する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "go wrong",
+      "translation": "うまくいかなくなる",
+      "exampleEn": "Something went wrong with the printer.",
+      "before": {
+        "meaning": "うまくいかなくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "うまくいかなくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "for sure",
+      "translation": "確実に・間違いなく",
+      "exampleEn": "I do not know for sure.",
+      "before": {
+        "meaning": "確実に・間違いなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "確実に・間違いなく（確信を表す）",
+        "alternatives": [
+          {
+            "text": "for certain",
+            "note": "確実に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "break up",
+      "translation": "解散する・関係が終わる",
+      "exampleEn": "The band decided to break up.",
+      "before": {
+        "meaning": "解散する・関係が終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "解散する・関係が終わる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by chance",
+      "translation": "偶然に",
+      "exampleEn": "We met by chance.",
+      "before": {
+        "meaning": "偶然に（意図せず起きること）",
+        "alternatives": [
+          {
+            "text": "by accident",
+            "note": "偶然に"
+          },
+          {
+            "text": "accidentally",
+            "note": "偶然・うっかりと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "偶然に（意図せず起きること）",
+        "alternatives": [
+          {
+            "text": "by accident",
+            "note": "偶然に"
+          },
+          {
+            "text": "accidentally",
+            "note": "偶然・うっかりと"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by nature",
+      "translation": "生まれつき・本来",
+      "exampleEn": "She is cheerful by nature.",
+      "before": {
+        "meaning": "生まれつき・本来",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "生まれつき・本来",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "no longer",
+      "translation": "もはや〜ない",
+      "exampleEn": "He no longer lives here.",
+      "before": {
+        "meaning": "もはや〜ない",
+        "alternatives": [
+          {
+            "text": "not anymore",
+            "note": "もう〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "もはや〜ない",
+        "alternatives": [
+          {
+            "text": "not anymore",
+            "note": "もう〜ない"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "after all",
+      "translation": "結局・考えてみれば",
+      "exampleEn": "We decided to go after all.",
+      "before": {
+        "meaning": "結局・考えてみれば",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結局は（予想・心配に反して）／だって・何と言っても",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": ""
+    },
+    {
+      "text": "with luck",
+      "translation": "運がよければ",
+      "exampleEn": "With luck, we will catch the train.",
+      "before": {
+        "meaning": "運がよければ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "運がよければ",
+        "alternatives": [
+          {
+            "text": "if we are lucky",
+            "note": "私たちの運がよければ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "on demand",
+      "translation": "要求があり次第・好きな時に",
+      "exampleEn": "You can watch the lessons on demand.",
+      "before": {
+        "meaning": "要求があり次第・好きな時に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "要求があり次第・好きな時に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "stand out",
+      "translation": "目立つ・際立つ",
+      "exampleEn": "The red sign stands out.",
+      "before": {
+        "meaning": "目立つ・際立つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "周囲より目立つ・際立つ",
+        "alternatives": [
+          {
+            "text": "be noticeable",
+            "note": "目につく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "on my own",
+      "translation": "独力で・一人だけで",
+      "exampleEn": "I made this on my own.",
+      "before": {
+        "meaning": "独力で・一人だけで",
+        "alternatives": [
+          {
+            "text": "by myself",
+            "note": "一人で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "独力で・一人だけで",
+        "alternatives": [
+          {
+            "text": "by myself",
+            "note": "一人で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in the end",
+      "translation": "結局は・最後には",
+      "exampleEn": "We agreed in the end.",
+      "before": {
+        "meaning": "結局は・最後には",
+        "alternatives": [
+          {
+            "text": "finally",
+            "note": "ついに・最後に"
+          },
+          {
+            "text": "eventually",
+            "note": "最終的に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結局は・最後には",
+        "alternatives": [
+          {
+            "text": "finally",
+            "note": "ついに・最後に"
+          },
+          {
+            "text": "eventually",
+            "note": "最終的に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "on average",
+      "translation": "平均して",
+      "exampleEn": "We walk five kilometers on average.",
+      "before": {
+        "meaning": "平均して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "平均して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make sense",
+      "translation": "意味が通る・筋が通る",
+      "exampleEn": "Your explanation makes sense.",
+      "before": {
+        "meaning": "意味が通る・筋が通る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "意味が通る・筋が通る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "before long",
+      "translation": "まもなく・ほどなく",
+      "exampleEn": "Spring will come before long.",
+      "before": {
+        "meaning": "まもなく・ほどなく",
+        "alternatives": [
+          {
+            "text": "shortly",
+            "note": "まもなく"
+          },
+          {
+            "text": "soon",
+            "note": "まもなく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まもなく・ほどなく",
+        "alternatives": [
+          {
+            "text": "shortly",
+            "note": "まもなく"
+          },
+          {
+            "text": "soon",
+            "note": "まもなく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "out of date",
+      "translation": "時代遅れの・期限切れの",
+      "exampleEn": "This map is out of date.",
+      "before": {
+        "meaning": "時代遅れの・期限切れの",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "時代遅れの・期限切れの",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "stand by",
+      "translation": "（人の）味方でいる・支える",
+      "exampleEn": "Thank you for standing by me.",
+      "before": {
+        "meaning": "（人の）味方でいる・支える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の）味方でいる・支える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "come to life",
+      "translation": "活気を帯びる・生き生きし始める",
+      "exampleEn": "The town comes to life at night.",
+      "before": {
+        "meaning": "活気を帯びる・生き生きし始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "活気を帯びる・生き生きし始める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "let down",
+      "translation": "（人を）がっかりさせる",
+      "exampleEn": "I do not want to let her down.",
+      "before": {
+        "meaning": "（人を）がっかりさせる",
+        "alternatives": [
+          {
+            "text": "disappoint",
+            "note": "がっかりさせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）がっかりさせる",
+        "alternatives": [
+          {
+            "text": "disappoint",
+            "note": "がっかりさせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "lose control",
+      "translation": "制御できなくなる",
+      "exampleEn": "The driver lost control of the car.",
+      "before": {
+        "meaning": "制御できなくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "制御できなくなる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "without fail",
+      "translation": "必ず・間違いなく",
+      "exampleEn": "Call me tomorrow without fail.",
+      "before": {
+        "meaning": "必ず・間違いなく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "必ず・欠かさず（実行を確実にする）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": ""
+    },
+    {
+      "text": "mean to",
+      "translation": "〜するつもりである（後ろに動詞の原形）",
+      "exampleEn": "I meant to call you yesterday.",
+      "before": {
+        "meaning": "〜するつもりである（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するつもりである（後ろに動詞の原形）",
+        "alternatives": [
+          {
+            "text": "intend to",
+            "note": "〜するつもりである"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "set up",
+      "translation": "（設備）を設置する・（組織）を設立する",
+      "exampleEn": "We set up a tent by the lake.",
+      "before": {
+        "meaning": "（設備）を設置する・（組織）を設立する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（設備）を設置する・（組織）を設立する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in particular",
+      "translation": "とりわけ・特に",
+      "exampleEn": "I like this song in particular.",
+      "before": {
+        "meaning": "とりわけ・特に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "とりわけ・特に",
+        "alternatives": [
+          {
+            "text": "especially",
+            "note": "特に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be about to",
+      "translation": "まさに〜しようとしている（後ろに動詞の原形）",
+      "exampleEn": "We are about to leave.",
+      "before": {
+        "meaning": "まさに〜しようとしている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まさに〜しようとしている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be typical of",
+      "translation": "いかにも〜らしい",
+      "exampleEn": "That is typical of him.",
+      "before": {
+        "meaning": "いかにも〜らしい",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "いかにも〜らしい",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be based on",
+      "translation": "〜に基づいている",
+      "exampleEn": "The story is based on facts.",
+      "before": {
+        "meaning": "〜に基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に基づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in other words",
+      "translation": "言い換えれば",
+      "exampleEn": "He is my uncle; in other words, my father's brother.",
+      "before": {
+        "meaning": "言い換えれば",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "言い換えれば",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "learn by heart",
+      "translation": "暗記する（心に覚える）",
+      "exampleEn": "We learned the poem by heart.",
+      "before": {
+        "meaning": "（すっかり）暗記する",
+        "alternatives": [
+          {
+            "text": "memorize",
+            "note": "暗記する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（すっかり）暗記する",
+        "alternatives": [
+          {
+            "text": "memorize",
+            "note": "暗記する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "look up to",
+      "translation": "（人を）尊敬する",
+      "exampleEn": "Many students look up to her.",
+      "before": {
+        "meaning": "（人を）尊敬する",
+        "alternatives": [
+          {
+            "text": "respect",
+            "note": "尊敬する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人を）尊敬する",
+        "alternatives": [
+          {
+            "text": "respect",
+            "note": "尊敬する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be busy with",
+      "translation": "〜で忙しい",
+      "exampleEn": "She is busy with work.",
+      "before": {
+        "meaning": "〜で忙しい",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜で忙しい",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make an effort",
+      "translation": "努力する",
+      "exampleEn": "We must make an effort to improve.",
+      "before": {
+        "meaning": "努力する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "目標に向かって努力する",
+        "alternatives": [
+          {
+            "text": "try hard",
+            "note": "懸命に努力する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "to my surprise",
+      "translation": "驚いたことに",
+      "exampleEn": "To my surprise, she remembered me.",
+      "before": {
+        "meaning": "驚いたことに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "驚いたことに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be sure to",
+      "translation": "忘れずに必ず〜する（後ろに動詞の原形）",
+      "exampleEn": "Be sure to call your parents.",
+      "before": {
+        "meaning": "忘れずに必ず〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "忘れずに必ず〜する（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "apply for",
+      "translation": "（仕事・許可など）に応募する・申請する",
+      "exampleEn": "I will apply for a job.",
+      "before": {
+        "meaning": "（仕事・許可など）に応募する・申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事・許可など）に応募する・申請する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "due to",
+      "translation": "〜のために（原因、dueを使う）",
+      "exampleEn": "The match was canceled due to the rain.",
+      "before": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "because of",
+            "note": "〜のために"
+          },
+          {
+            "text": "owing to",
+            "note": "〜が原因で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜のために（原因）",
+        "alternatives": [
+          {
+            "text": "because of",
+            "note": "〜のために"
+          },
+          {
+            "text": "owing to",
+            "note": "〜が原因で"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "see if",
+      "translation": "〜かどうか確かめる（後ろに文）",
+      "exampleEn": "Let's see if it works.",
+      "before": {
+        "meaning": "〜かどうか確かめる（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実際に調べて〜かどうか確かめる（後ろに文）",
+        "alternatives": [
+          {
+            "text": "check whether",
+            "note": "〜かどうか確認する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "make up one's mind",
+      "translation": "決心する（one'sはmy・yourなど）",
+      "exampleEn": "I need to make up my mind.",
+      "before": {
+        "meaning": "決心する（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "どうするか決心する（one'sはmy・yourなど）",
+        "alternatives": [
+          {
+            "text": "decide",
+            "note": "決める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be free from",
+      "translation": "（心配・害など）がない",
+      "exampleEn": "I want to be free from worry.",
+      "before": {
+        "meaning": "（心配・害など）がない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（心配・害など）がない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "get over",
+      "translation": "（病気・困難など）から回復する・乗り越える",
+      "exampleEn": "It took a week to get over a cold.",
+      "before": {
+        "meaning": "（病気・困難など）から回復する・乗り越える",
+        "alternatives": [
+          {
+            "text": "recover from",
+            "note": "〜から回復する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気・困難など）から回復する・乗り越える",
+        "alternatives": [
+          {
+            "text": "recover from",
+            "note": "〜から回復する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "stand for",
+      "translation": "〜を表す",
+      "exampleEn": "The white dove stands for peace.",
+      "before": {
+        "meaning": "〜を表す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（記号・印などが）〜を意味する・象徴する",
+        "alternatives": [
+          {
+            "text": "represent",
+            "note": "〜を表す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "even if",
+      "translation": "たとえ〜でも（後ろに文）",
+      "exampleEn": "We will go even if it rains.",
+      "before": {
+        "meaning": "たとえ〜でも（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "たとえ〜でも（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "search for",
+      "translation": "〜を探し回る",
+      "exampleEn": "We searched for a key.",
+      "before": {
+        "meaning": "〜を探し回る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "見つけようとして〜を探す",
+        "alternatives": [
+          {
+            "text": "look for",
+            "note": "〜を探す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "必ずしも歩き回るとは限らないため、探し回るという限定を外す。"
+    },
+    {
+      "text": "decide on",
+      "translation": "〜を決める",
+      "exampleEn": "We need to decide on a date.",
+      "before": {
+        "meaning": "〜を決める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "候補の中から〜に決める",
+        "alternatives": [
+          {
+            "text": "choose",
+            "note": "〜を選ぶ"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "up to",
+      "translation": "最大〜まで",
+      "exampleEn": "The boat holds up to ten people.",
+      "before": {
+        "meaning": "最大〜まで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "最大〜まで",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "go over",
+      "translation": "（計画・内容など）をよく見直す",
+      "exampleEn": "Let's go over the plan.",
+      "before": {
+        "meaning": "（計画・内容など）をよく見直す",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（内容・計画など）をよく確認する・復習する",
+        "alternatives": [
+          {
+            "text": "review",
+            "note": "見直す・復習する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in case",
+      "translation": "〜の場合に備えて（後ろに文）",
+      "exampleEn": "Take an umbrella in case it rains.",
+      "before": {
+        "meaning": "〜の場合に備えて（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の場合に備えて（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "of one's own",
+      "translation": "自分専用の〜（名詞の後、one'sはmyなど）",
+      "exampleEn": "I want a room of my own.",
+      "before": {
+        "meaning": "自分専用の〜（名詞の後、one'sはmyなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "自分専用の〜（名詞の後、one'sはmyなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "do without",
+      "translation": "〜なしで済ませる",
+      "exampleEn": "We can do without a car here.",
+      "before": {
+        "meaning": "〜なしで済ませる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜がなくても、なんとか済ませる",
+        "alternatives": [
+          {
+            "text": "manage without",
+            "note": "〜なしでやっていく"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "carry out",
+      "translation": "（計画・調査など）を実行する",
+      "exampleEn": "We are ready to carry out the plan.",
+      "before": {
+        "meaning": "（計画・調査など）を実行する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（計画・調査など）を実行する",
+        "alternatives": [
+          {
+            "text": "perform",
+            "note": "仕事などを実行する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in the beginning",
+      "translation": "初めのうちは",
+      "exampleEn": "It was difficult in the beginning.",
+      "before": {
+        "meaning": "初めのうちは",
+        "alternatives": [
+          {
+            "text": "at first",
+            "note": "初めのうちは"
+          },
+          {
+            "text": "initially",
+            "note": "初めは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "初めのうちは",
+        "alternatives": [
+          {
+            "text": "at first",
+            "note": "初めのうちは"
+          },
+          {
+            "text": "initially",
+            "note": "初めは"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be unable to",
+      "translation": "〜することができない（後ろに動詞の原形）",
+      "exampleEn": "I am unable to attend the meeting.",
+      "before": {
+        "meaning": "〜することができない（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜することができない（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "had better",
+      "translation": "〜した方がよい（忠告、後ろに動詞の原形）",
+      "exampleEn": "We had better leave now.",
+      "before": {
+        "meaning": "〜した方がよい（忠告、後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜した方がよい（忠告、後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in order to",
+      "translation": "〜するために（後ろに動詞の原形）",
+      "exampleEn": "I ask questions in order to learn.",
+      "before": {
+        "meaning": "〜するために（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜するために（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "a variety of",
+      "translation": "さまざまな種類の〜",
+      "exampleEn": "They sell a variety of food.",
+      "before": {
+        "meaning": "さまざまな種類の〜",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "さまざまな種類の〜",
+        "alternatives": [
+          {
+            "text": "various kinds of",
+            "note": "いろいろな種類の"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "cut down on",
+      "translation": "（摂取量・使用量など）を減らす",
+      "exampleEn": "I want to cut down on sugar.",
+      "before": {
+        "meaning": "（摂取量・使用量など）を減らす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（摂取量・使用量など）を減らす",
+        "alternatives": [
+          {
+            "text": "reduce",
+            "note": "量などを減らす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "cut off",
+      "translation": "（供給など）を止める",
+      "exampleEn": "They cut off the water.",
+      "before": {
+        "meaning": "（供給など）を止める",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（水・電気などの供給）を止める・遮断する",
+        "alternatives": [
+          {
+            "text": "shut off",
+            "note": "供給などを止める"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "focus on",
+      "translation": "〜に集中する",
+      "exampleEn": "Focus on the task in front of you.",
+      "before": {
+        "meaning": "〜に集中する",
+        "alternatives": [
+          {
+            "text": "concentrate on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に集中する",
+        "alternatives": [
+          {
+            "text": "concentrate on",
+            "note": "〜に集中する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be related to",
+      "translation": "〜に関連している",
+      "exampleEn": "We discussed issues related to health.",
+      "before": {
+        "meaning": "〜に関連している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に関連している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "against the rules",
+      "translation": "規則に反して",
+      "exampleEn": "That is against the rules.",
+      "before": {
+        "meaning": "規則に反して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "規則に反して",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "bring up",
+      "translation": "（子どもを）育てる",
+      "exampleEn": "They brought up three children.",
+      "before": {
+        "meaning": "（子どもを）育てる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（子どもを）育てる",
+        "alternatives": [
+          {
+            "text": "raise",
+            "note": "子どもなどを育てる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "ahead of schedule",
+      "translation": "予定より早く",
+      "exampleEn": "We finished ahead of schedule.",
+      "before": {
+        "meaning": "予定より早く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "予定より早く",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "catch up with",
+      "translation": "〜に追いつく",
+      "exampleEn": "I ran to catch up with her.",
+      "before": {
+        "meaning": "〜に追いつく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "先にいる人や、進んだ水準に追いつく",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "keep up with",
+            "note": "遅れずに同じペースを保つ"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "遅れを取り戻す動作と、同じペースを維持する動作を区別する。"
+    },
+    {
+      "text": "make a difference",
+      "translation": "違いを生む・役に立つ",
+      "exampleEn": "Your help can make a difference.",
+      "before": {
+        "meaning": "違いを生む・役に立つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "違いを生む・役に立つ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "think about",
+      "translation": "〜を検討する・〜について考える",
+      "exampleEn": "We are thinking about moving.",
+      "before": {
+        "meaning": "〜を検討する・〜について考える",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜について考える・〜を検討する",
+        "alternatives": [
+          {
+            "text": "consider",
+            "note": "〜を検討する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "a number of",
+      "translation": "かなりの数の〜（後ろに複数名詞）",
+      "exampleEn": "A number of people came.",
+      "before": {
+        "meaning": "かなりの数の〜（後ろに複数名詞）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "かなりの数の〜（後ろに複数名詞）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by the end of",
+      "translation": "〜の終わりまでに",
+      "exampleEn": "Finish it by the end of June.",
+      "before": {
+        "meaning": "〜の終わりまでに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の終わりまでに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be sure of",
+      "translation": "〜を確信している",
+      "exampleEn": "Are you sure of the answer?",
+      "before": {
+        "meaning": "〜を確信している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜について確信している",
+        "alternatives": [
+          {
+            "text": "be certain of",
+            "note": "〜を確信している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "feel sorry for",
+      "translation": "〜を気の毒に思う",
+      "exampleEn": "I feel sorry for him.",
+      "before": {
+        "meaning": "〜を気の毒に思う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（つらい立場の人など）を気の毒に思う",
+        "alternatives": [
+          {
+            "text": "pity",
+            "note": "〜を気の毒に思う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "go out of business",
+      "translation": "廃業する",
+      "exampleEn": "The shop went out of business.",
+      "before": {
+        "meaning": "廃業する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "廃業する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "come across",
+      "translation": "（人・物）に偶然出会う",
+      "exampleEn": "I came across an interesting book.",
+      "before": {
+        "meaning": "（人・物）に偶然出会う",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人・物）に偶然出会う",
+        "alternatives": [
+          {
+            "text": "run into",
+            "note": "偶然会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "rely on",
+      "translation": "〜を頼りにする",
+      "exampleEn": "I can rely on my friends.",
+      "before": {
+        "meaning": "〜を頼りにする",
+        "alternatives": [
+          {
+            "text": "count on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を頼りにする",
+        "alternatives": [
+          {
+            "text": "count on",
+            "note": "〜を頼る"
+          },
+          {
+            "text": "depend on",
+            "note": "〜を頼る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be expected to",
+      "translation": "〜すると見込まれている（後ろに動詞の原形）",
+      "exampleEn": "The train is expected to arrive soon.",
+      "before": {
+        "meaning": "〜すると見込まれている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜すると見込まれている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in addition to",
+      "translation": "〜に加えて",
+      "exampleEn": "I study art in addition to math.",
+      "before": {
+        "meaning": "〜に加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に加えて",
+        "alternatives": [
+          {
+            "text": "besides",
+            "note": "〜に加えて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "put off",
+      "translation": "（予定など）を延期する",
+      "exampleEn": "We had to put off the meeting.",
+      "before": {
+        "meaning": "（予定など）を延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（予定など）を延期する",
+        "alternatives": [
+          {
+            "text": "postpone",
+            "note": "延期する"
+          },
+          {
+            "text": "defer",
+            "note": "後に延ばす"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "point out",
+      "translation": "（問題点など）を指摘する",
+      "exampleEn": "She pointed out a mistake.",
+      "before": {
+        "meaning": "（問題点など）を指摘する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（問題点など）を指摘する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "lead to",
+      "translation": "（結果として）〜につながる",
+      "exampleEn": "Careless driving can lead to an accident.",
+      "before": {
+        "meaning": "（結果として）〜につながる",
+        "alternatives": [
+          {
+            "text": "result in",
+            "note": "結果として〜になる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果として）〜につながる",
+        "alternatives": [
+          {
+            "text": "result in",
+            "note": "結果として〜になる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be aware of",
+      "translation": "〜に気づいている",
+      "exampleEn": "Are you aware of the danger?",
+      "before": {
+        "meaning": "〜に気づいている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に気づいている・〜を認識している",
+        "alternatives": [
+          {
+            "text": "be conscious of",
+            "note": "〜を意識している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "lead A to B",
+      "translation": "AをBへ案内する（Aは人、Bは場所）",
+      "exampleEn": "The guide led us to the exit.",
+      "before": {
+        "meaning": "AをBへ案内する（Aは人、Bは場所）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBへ案内する（Aは人、Bは場所）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "come up with",
+      "translation": "（考え・案）を思いつく",
+      "exampleEn": "She came up with an idea.",
+      "before": {
+        "meaning": "（考え・案）を思いつく",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（考え・案）を思いつく",
+        "alternatives": [
+          {
+            "text": "think of",
+            "note": "思いつく"
+          },
+          {
+            "text": "dream up",
+            "note": "考え出す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "spend A on B",
+      "translation": "AをBに使う（Aはお金・時間など）",
+      "exampleEn": "I spend money on books.",
+      "before": {
+        "meaning": "AをBに使う（Aはお金・時間など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBに使う（Aはお金・時間など）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "look over",
+      "translation": "（書類など）にざっと目を通す",
+      "exampleEn": "Please look over the report.",
+      "before": {
+        "meaning": "（書類など）にざっと目を通す",
+        "alternatives": [
+          {
+            "text": "look through",
+            "note": "ひと通り目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（書類など）にざっと目を通す",
+        "alternatives": [
+          {
+            "text": "look through",
+            "note": "ひと通り目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "provide A with B",
+      "translation": "AにBを提供する",
+      "exampleEn": "They provided us with food.",
+      "before": {
+        "meaning": "AにBを提供する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AにBを提供する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "along with",
+      "translation": "〜と一緒に",
+      "exampleEn": "I joined along with my friends.",
+      "before": {
+        "meaning": "〜と一緒に",
+        "alternatives": [
+          {
+            "text": "together with",
+            "note": "〜と一緒に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜と一緒に",
+        "alternatives": [
+          {
+            "text": "together with",
+            "note": "〜と一緒に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by the time",
+      "translation": "〜する時までには（後ろに文）",
+      "exampleEn": "It will be dark by the time we arrive.",
+      "before": {
+        "meaning": "〜する時までには（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する時までには（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "suffer from",
+      "translation": "（病気・問題など）に苦しむ",
+      "exampleEn": "Many people suffer from this disease.",
+      "before": {
+        "meaning": "（病気・問題など）に苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（病気・問題など）に苦しむ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "keep an eye on",
+      "translation": "〜を見ている・見守る",
+      "exampleEn": "Please keep an eye on my bag.",
+      "before": {
+        "meaning": "〜を見ている・見守る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜から目を離さず、様子を見ている",
+        "alternatives": [
+          {
+            "text": "watch",
+            "note": "様子を見守る"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "succeed in",
+      "translation": "〜に成功する（後ろに名詞・-ing形）",
+      "exampleEn": "We succeeded in finding it.",
+      "before": {
+        "meaning": "〜に成功する（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に成功する（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in charge of",
+      "translation": "〜を担当して",
+      "exampleEn": "She is in charge of the team.",
+      "before": {
+        "meaning": "〜を担当して",
+        "alternatives": [
+          {
+            "text": "responsible for",
+            "note": "〜の責任を負って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を担当して",
+        "alternatives": [
+          {
+            "text": "responsible for",
+            "note": "〜の責任を負って"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "hope for",
+      "translation": "〜を望む",
+      "exampleEn": "We hope for good weather.",
+      "before": {
+        "meaning": "〜を望む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を望む",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "except for",
+      "translation": "〜を除いて",
+      "exampleEn": "It was perfect except for one mistake.",
+      "before": {
+        "meaning": "〜を除いて",
+        "alternatives": [
+          {
+            "text": "with the exception of",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を除いて",
+        "alternatives": [
+          {
+            "text": "with the exception of",
+            "note": "〜を除いて"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "translate into",
+      "translation": "〜語に翻訳する",
+      "exampleEn": "Can you translate it into English?",
+      "before": {
+        "meaning": "〜語に翻訳する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜語に翻訳する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "keep up with",
+      "translation": "〜に遅れずについていく",
+      "exampleEn": "I study daily to keep up with the class.",
+      "before": {
+        "meaning": "〜に遅れずについていく",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に遅れず、同じペースについていく",
+        "alternatives": [],
+        "contrasts": [
+          {
+            "text": "catch up with",
+            "note": "遅れていたところから追いつく"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "同じペースの維持と、遅れを取り戻す動作を区別する。"
+    },
+    {
+      "text": "take over",
+      "translation": "（事業など）を引き継ぐ",
+      "exampleEn": "She will take over the business.",
+      "before": {
+        "meaning": "（事業など）を引き継ぐ",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（仕事・事業など）を引き継ぐ",
+        "alternatives": [
+          {
+            "text": "assume control of",
+            "note": "管理・責任を引き受ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "grow up to be",
+      "translation": "成長して〜になる",
+      "exampleEn": "She grew up to be a doctor.",
+      "before": {
+        "meaning": "成長して〜になる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "成長して〜になる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be responsible for",
+      "translation": "〜に責任がある",
+      "exampleEn": "We are responsible for safety.",
+      "before": {
+        "meaning": "〜に責任がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に責任がある",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "lose sight of",
+      "translation": "〜を見失う",
+      "exampleEn": "We lost sight of the boat.",
+      "before": {
+        "meaning": "〜を見失う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜を見失う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "have a chance to",
+      "translation": "〜する機会がある（後ろに動詞の原形）",
+      "exampleEn": "Everyone will have a chance to speak.",
+      "before": {
+        "meaning": "〜する機会がある（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する機会がある（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "run into",
+      "translation": "（人に）偶然会う",
+      "exampleEn": "I ran into an old friend.",
+      "before": {
+        "meaning": "（人に）偶然会う",
+        "alternatives": [
+          {
+            "text": "come across",
+            "note": "偶然出会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人に）偶然会う",
+        "alternatives": [
+          {
+            "text": "come across",
+            "note": "偶然出会う"
+          },
+          {
+            "text": "bump into",
+            "note": "偶然会う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "get rid of",
+      "translation": "（不要なもの）を処分する",
+      "exampleEn": "I need to get rid of old clothes.",
+      "before": {
+        "meaning": "（不要なもの）を処分する",
+        "alternatives": [
+          {
+            "text": "dispose of",
+            "note": "処分する"
+          },
+          {
+            "text": "discard",
+            "note": "捨てる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（不要なもの）を処分する",
+        "alternatives": [
+          {
+            "text": "dispose of",
+            "note": "処分する"
+          },
+          {
+            "text": "discard",
+            "note": "捨てる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be grateful for",
+      "translation": "〜に感謝している",
+      "exampleEn": "I am grateful for your help.",
+      "before": {
+        "meaning": "〜に感謝している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（助け・親切など）に感謝している",
+        "alternatives": [
+          {
+            "text": "be thankful for",
+            "note": "〜に感謝している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be jealous of",
+      "translation": "〜をうらやんでいる",
+      "exampleEn": "He was jealous of her success.",
+      "before": {
+        "meaning": "〜をうらやんでいる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の成功・持ち物など）をうらやんでいる",
+        "alternatives": [
+          {
+            "text": "be envious of",
+            "note": "〜をうらやんでいる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "reach out for",
+      "translation": "〜に手を伸ばす",
+      "exampleEn": "He reached out for the rope.",
+      "before": {
+        "meaning": "〜に手を伸ばす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に手を伸ばす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "pay attention to",
+      "translation": "〜に注意を向ける",
+      "exampleEn": "Pay attention to the signs.",
+      "before": {
+        "meaning": "〜に注意を向ける",
+        "alternatives": [
+          {
+            "text": "heed",
+            "note": "〜に注意を払う"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に注意を向ける・気を配る",
+        "alternatives": [
+          {
+            "text": "take notice of",
+            "note": "〜に注意を向ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "go through",
+      "translation": "（つらいことなど）を経験する",
+      "exampleEn": "She went through a hard time.",
+      "before": {
+        "meaning": "（つらいことなど）を経験する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（つらいことなど）を経験する",
+        "alternatives": [
+          {
+            "text": "experience",
+            "note": "〜を経験する"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in return for",
+      "translation": "〜のお返しに",
+      "exampleEn": "I cooked dinner in return for your help.",
+      "before": {
+        "meaning": "〜のお返しに",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "受けた〜へのお返しとして",
+        "alternatives": [
+          {
+            "text": "in exchange for",
+            "note": "〜と引き換えに"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "look through",
+      "translation": "（書類など）にひと通り目を通す",
+      "exampleEn": "Please look through the papers.",
+      "before": {
+        "meaning": "（書類など）にひと通り目を通す",
+        "alternatives": [
+          {
+            "text": "look over",
+            "note": "ざっと目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（書類など）にひと通り目を通す",
+        "alternatives": [
+          {
+            "text": "look over",
+            "note": "ざっと目を通す"
+          },
+          {
+            "text": "glance over",
+            "note": "ざっと目を通す"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be involved in",
+      "translation": "〜に関わっている",
+      "exampleEn": "Many students are involved in the project.",
+      "before": {
+        "meaning": "〜に関わっている",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（活動・出来事など）に関わっている",
+        "alternatives": [
+          {
+            "text": "be engaged in",
+            "note": "活動などに従事している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be impressed with",
+      "translation": "〜に感心している",
+      "exampleEn": "I was impressed with the work.",
+      "before": {
+        "meaning": "〜に感心している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（出来栄え・能力など）に感心している",
+        "alternatives": [
+          {
+            "text": "be impressed by",
+            "note": "〜に感銘を受けている"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "complain about",
+      "translation": "〜について苦情を言う",
+      "exampleEn": "Neighbors complained about the noise.",
+      "before": {
+        "meaning": "〜について苦情を言う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜について苦情を言う",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be satisfied with",
+      "translation": "〜に満足している",
+      "exampleEn": "We are satisfied with the result.",
+      "before": {
+        "meaning": "〜に満足している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（結果・状況など）に満足している",
+        "alternatives": [
+          {
+            "text": "be content with",
+            "note": "〜に満足している"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "take A back to B",
+      "translation": "AにBを思い出させる（Aは人、Bは過去の時期）",
+      "exampleEn": "This song takes me back to childhood.",
+      "before": {
+        "meaning": "AにBを思い出させる（Aは人、Bは過去の時期）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AにBを思い出させる（Aは人、Bは過去の時期）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "compare A with B",
+      "translation": "AをBと比べる",
+      "exampleEn": "Let's compare my plan with yours.",
+      "before": {
+        "meaning": "AをBと比べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBと比べる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "separate A from B",
+      "translation": "AをBから分ける",
+      "exampleEn": "Separate paper from plastic.",
+      "before": {
+        "meaning": "AをBから分ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "AをBから分ける",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "at length",
+      "translation": "詳しく・長い時間をかけて",
+      "exampleEn": "We discussed the problem at length.",
+      "before": {
+        "meaning": "詳しく・長い時間をかけて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "詳しく・長い時間をかけて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in a sense",
+      "translation": "ある意味では",
+      "exampleEn": "In a sense, you are right.",
+      "before": {
+        "meaning": "ある意味では",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "ある意味では・ある見方をすれば",
+        "alternatives": [
+          {
+            "text": "in a way",
+            "note": "ある意味では"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in reality",
+      "translation": "実際には・現実には",
+      "exampleEn": "It sounds easy, but in reality it is hard.",
+      "before": {
+        "meaning": "実際には・現実には",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "実際には・現実には（見かけや想像と違って）",
+        "alternatives": [
+          {
+            "text": "in fact",
+            "note": "実際には"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in contrast",
+      "translation": "対照的に",
+      "exampleEn": "This room is bright; in contrast, that one is dark.",
+      "before": {
+        "meaning": "対照的に",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "それに対して・対照的に",
+        "alternatives": [
+          {
+            "text": "by contrast",
+            "note": "対照的に"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "to the point",
+      "translation": "要点をついて",
+      "exampleEn": "Keep your answer to the point.",
+      "before": {
+        "meaning": "要点をついて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "話の要点を的確について",
+        "alternatives": [
+          {
+            "text": "relevant",
+            "note": "本題に関係のある"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in conclusion",
+      "translation": "結論として・最後にまとめると",
+      "exampleEn": "In conclusion, we need more time.",
+      "before": {
+        "meaning": "結論として・最後にまとめると",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結論として・最後にまとめると",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "by far",
+      "translation": "群を抜いて・はるかに（最上級などを強める）",
+      "exampleEn": "This is by far the best plan.",
+      "before": {
+        "meaning": "群を抜いて・はるかに（最上級などを強める）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "群を抜いて・はるかに（最上級などを強める）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "against one's will",
+      "translation": "意志に反して（one'sはmy・yourなど）",
+      "exampleEn": "I was sent there against my will.",
+      "before": {
+        "meaning": "意志に反して（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "意志に反して（one'sはmy・yourなど）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "in the long run",
+      "translation": "長い目で見ると",
+      "exampleEn": "This will save money in the long run.",
+      "before": {
+        "meaning": "長い目で見ると",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "長い目で見ると・長期的には",
+        "alternatives": [
+          {
+            "text": "in the long term",
+            "note": "長期的には"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "result in",
+      "translation": "結果として〜につながる",
+      "exampleEn": "Careful planning can result in success.",
+      "before": {
+        "meaning": "結果として〜につながる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "結果として〜につながる",
+        "alternatives": [
+          {
+            "text": "lead to",
+            "note": "〜につながる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "no more than",
+      "translation": "わずか〜・〜にすぎない",
+      "exampleEn": "There were no more than five people.",
+      "before": {
+        "meaning": "わずか〜・〜にすぎない",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "わずか〜・〜にすぎない／多くても〜",
+        "alternatives": [
+          {
+            "text": "only",
+            "note": "わずか〜という意味"
+          },
+          {
+            "text": "at most",
+            "note": "数量の上限という意味"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "少なさを強調する用法と上限を表す用法の両方を残す。"
+    },
+    {
+      "text": "make out",
+      "translation": "（文字など）をなんとか読み取る",
+      "exampleEn": "I cannot make out the words.",
+      "before": {
+        "meaning": "（文字など）をなんとか読み取る",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（見えにくい文字など）をなんとか判別する",
+        "alternatives": [
+          {
+            "text": "discern",
+            "note": "なんとか見分ける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "be said to",
+      "translation": "〜すると言われている（後ろに動詞の原形）",
+      "exampleEn": "This food is said to be healthy.",
+      "before": {
+        "meaning": "〜すると言われている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜すると言われている（後ろに動詞の原形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "turn out to be",
+      "translation": "〜であると判明する",
+      "exampleEn": "The story turned out to be true.",
+      "before": {
+        "meaning": "〜であると判明する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "後になって〜であると分かる",
+        "alternatives": [
+          {
+            "text": "prove to be",
+            "note": "〜であると分かる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "at risk of",
+      "translation": "〜の危険にさらされて",
+      "exampleEn": "This town is at risk of flooding.",
+      "before": {
+        "meaning": "〜の危険にさらされて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜の危険にさらされて",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "out of the question",
+      "translation": "まったく不可能で・論外で",
+      "exampleEn": "Traveling today is out of the question.",
+      "before": {
+        "meaning": "まったく不可能で・論外で",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "まったく不可能で・考慮の余地がなくて",
+        "alternatives": [
+          {
+            "text": "impossible",
+            "note": "不可能な"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "as long as",
+      "translation": "〜する限り（後ろに文）",
+      "exampleEn": "You can use the room as long as you stay.",
+      "before": {
+        "meaning": "〜する限り（後ろに文）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する限り（条件・期間、後ろに文）",
+        "alternatives": [
+          {
+            "text": "so long as",
+            "note": "〜する限り"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "in spite of",
+      "translation": "〜にもかかわらず",
+      "exampleEn": "We played in spite of the rain.",
+      "before": {
+        "meaning": "〜にもかかわらず",
+        "alternatives": [
+          {
+            "text": "despite",
+            "note": "〜にもかかわらず"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜にもかかわらず",
+        "alternatives": [
+          {
+            "text": "despite",
+            "note": "〜にもかかわらず"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be capable of",
+      "translation": "〜する能力がある（後ろに名詞・-ing形）",
+      "exampleEn": "She is capable of solving it.",
+      "before": {
+        "meaning": "〜する能力がある（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜する能力がある（後ろに名詞・-ing形）",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "be independent of",
+      "translation": "〜から自立している",
+      "exampleEn": "She wants to be independent of others.",
+      "before": {
+        "meaning": "〜から自立している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜に頼らず自立している",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": ""
+    },
+    {
+      "text": "none of your business",
+      "translation": "あなたには関係のないこと",
+      "exampleEn": "My age is none of your business.",
+      "before": {
+        "meaning": "あなたには関係のないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "あなたには関係のないこと",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "make sense of",
+      "translation": "〜を理解する",
+      "exampleEn": "Can you make sense of the map?",
+      "before": {
+        "meaning": "〜を理解する",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（分かりにくいもの）の意味を理解する",
+        "alternatives": [
+          {
+            "text": "understand",
+            "note": "〜を理解する"
+          }
+        ],
+        "contrasts": [
+          {
+            "text": "make sense",
+            "note": "意味が通る・筋が通る"
+          }
+        ],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味を理解する動作と、意味が通っていることを区別する。"
+    },
+    {
+      "text": "make up for",
+      "translation": "（遅れ・損失など）を埋め合わせる",
+      "exampleEn": "We worked hard to make up for lost time.",
+      "before": {
+        "meaning": "（遅れ・損失など）を埋め合わせる",
+        "alternatives": [
+          {
+            "text": "compensate for",
+            "note": "埋め合わせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（遅れ・損失など）を埋め合わせる",
+        "alternatives": [
+          {
+            "text": "compensate for",
+            "note": "埋め合わせる"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "appeal to",
+      "translation": "（人の心）に訴える・気に入られる",
+      "exampleEn": "The design appeals to young people.",
+      "before": {
+        "meaning": "（人の心）に訴える・気に入られる",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "（人の心）をひきつける・気に入られる",
+        "alternatives": [
+          {
+            "text": "attract",
+            "note": "〜をひきつける"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    },
+    {
+      "text": "play an important role",
+      "translation": "重要な役割を果たす",
+      "exampleEn": "Sleep plays an important role in health.",
+      "before": {
+        "meaning": "重要な役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "重要な役割を果たす",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": false,
+      "reason": "既存の意味・文型・類義表現を確認し、今回の変更は不要と判断。"
+    },
+    {
+      "text": "as a result of",
+      "translation": "〜の結果として",
+      "exampleEn": "Roads closed as a result of the storm.",
+      "before": {
+        "meaning": "〜の結果として",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "after": {
+        "meaning": "〜が原因となって・〜の結果として",
+        "alternatives": [
+          {
+            "text": "because of",
+            "note": "〜のために"
+          }
+        ],
+        "contrasts": [],
+        "formNote": ""
+      },
+      "changed": true,
+      "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+    }
+  ]
+}

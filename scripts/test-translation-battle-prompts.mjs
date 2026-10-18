@@ -73,6 +73,6 @@ assert.equal(aliasTexts('EikenPre1Part2',3,"I'm not sure what to make of that.")
 assert.equal(prompt('Eiken3',3,'It is easy for me to swim.').formNote,'仮の主語','Keep useful grammar guidance');
 assert.ok(!entries.some(e=>['賛成','まだ','可能性・提案','情報を加える'].includes(e.formNote)));
 
-const app=fs.readFileSync('src/App.tsx','utf8');assert.ok(!app.includes('battle-answer-cue'));assert.ok(app.includes("gameState.inputMode === 'text-only'\n      ? getTranslationBattlePrompt"));
+const app=fs.readFileSync('src/App.tsx','utf8').replace(/\r\n/g,'\n');assert.ok(!app.includes('battle-answer-cue'));assert.ok(app.includes("gameState.inputMode === 'text-only'\n      ? getTranslationBattlePrompt"));
 assert.ok(!app.includes('表示した語以外で答えよう'));
 console.log('PASS',checked,'questions;',entries.length,'reviewed prompt entries;',changed,'changed meanings; legacy identities, import round trips, course/level scope and no spelling cues.');

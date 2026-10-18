@@ -15323,12 +15323,8 @@
     "translation": "〜に近づかない",
     "exampleEn": "Stay away from the edge.",
     "previousMeaning": "〜に近づかない",
-    "meaning": "〜に近づかない",
+    "meaning": "〜に近づかない・〜から離れている",
     "alternatives": [
-      {
-        "text": "stay off",
-        "note": "〜に近づかない"
-      },
       {
         "text": "keep away from",
         "note": "〜に近づかない"
@@ -15336,7 +15332,7 @@
     ],
     "contrasts": [],
     "formNote": "",
-    "reason": "和訳のこの意味で候補となる類義語・別表現を併記。例文には合わせず、元の語義・短い括弧を維持。"
+    "reason": "場所・人の両方に使える比較を残し、範囲の狭い別表現を削る。"
   },
   {
     "course": "EikenPre2",
@@ -15345,16 +15341,16 @@
     "translation": "多くとも・最大限で",
     "exampleEn": "It will take ten minutes at most.",
     "previousMeaning": "多くとも・最大限で",
-    "meaning": "多くとも・最大限で",
+    "meaning": "多くても〜・最大でも〜（数量の上限）",
     "alternatives": [
       {
         "text": "no more than",
-        "note": "多くても"
+        "note": "多くても〜"
       }
     ],
     "contrasts": [],
     "formNote": "",
-    "reason": "和訳のこの意味で候補となる類義語・別表現を併記。例文には合わせず、元の語義・短い括弧を維持。"
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
   },
   {
     "course": "EikenPre2",
@@ -15363,16 +15359,16 @@
     "translation": "見せびらかす・自慢する",
     "exampleEn": "He likes to show off his new shoes.",
     "previousMeaning": "見せびらかす・自慢する",
-    "meaning": "見せびらかす・自慢する",
+    "meaning": "見せびらかす・得意げに自慢する",
     "alternatives": [
       {
-        "text": "flaunt",
-        "note": "誇示する"
+        "text": "boast",
+        "note": "自慢する"
       }
     ],
     "contrasts": [],
     "formNote": "",
-    "reason": "和訳のこの意味で候補となる類義語・別表現を併記。例文には合わせず、元の語義・短い括弧を維持。"
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
   },
   {
     "course": "EikenPre2",
@@ -15861,16 +15857,16 @@
     "translation": "〜に注意を向ける",
     "exampleEn": "Pay attention to the signs.",
     "previousMeaning": "〜に注意を向ける",
-    "meaning": "〜に注意を向ける",
+    "meaning": "〜に注意を向ける・気を配る",
     "alternatives": [
       {
-        "text": "heed",
-        "note": "〜に注意を払う"
+        "text": "take notice of",
+        "note": "〜に注意を向ける"
       }
     ],
     "contrasts": [],
     "formNote": "",
-    "reason": "和訳のこの意味で候補となる類義語・別表現を併記。例文には合わせず、元の語義・短い括弧を維持。"
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
   },
   {
     "course": "EikenPre2",
@@ -26680,5 +26676,1424 @@
     "contrasts": [],
     "formNote": "",
     "reason": "長い英文の言い換えを、迷いやすい表現の部分だけに短縮。文全体の自由英訳の唯一解とは扱わない。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "as well",
+    "translation": "〜もまた（文末で）",
+    "exampleEn": "She speaks French as well.",
+    "previousMeaning": "〜もまた（文末で）",
+    "meaning": "〜もまた（文末に添えて、追加を表す）",
+    "alternatives": [
+      {
+        "text": "too",
+        "note": "〜もまた"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "line up",
+    "translation": "列に並ぶ",
+    "exampleEn": "Please line up here.",
+    "previousMeaning": "列に並ぶ",
+    "meaning": "一列に並ぶ・列を作る",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "in line",
+        "note": "列に並んでいる状態"
+      }
+    ],
+    "formNote": "",
+    "reason": "列を作る動作と、列にいる状態を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be over",
+    "translation": "終わっている",
+    "exampleEn": "The show will be over soon.",
+    "previousMeaning": "終わっている",
+    "meaning": "（行事・出来事などが）終わっている",
+    "alternatives": [
+      {
+        "text": "be finished",
+        "note": "終わっている"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be away",
+    "translation": "留守にしている",
+    "exampleEn": "He will be away tomorrow.",
+    "previousMeaning": "留守にしている",
+    "meaning": "（家・職場などを）留守にしている",
+    "alternatives": [
+      {
+        "text": "be absent",
+        "note": "不在である"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in line",
+    "translation": "列に並んで",
+    "exampleEn": "We waited in line.",
+    "previousMeaning": "列に並んで",
+    "meaning": "列に並んでいる状態で",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "line up",
+        "note": "列を作る動作"
+      }
+    ],
+    "formNote": "",
+    "reason": "列を作る動作と、列にいる状態を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in shape",
+    "translation": "体の調子がよくて",
+    "exampleEn": "Swimming keeps me in shape.",
+    "previousMeaning": "体の調子がよくて",
+    "meaning": "体の調子がよくて・体が鍛えられて",
+    "alternatives": [
+      {
+        "text": "fit",
+        "note": "健康で体力がある"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "speak up",
+    "translation": "もっと大きな声で話す",
+    "exampleEn": "Please speak up.",
+    "previousMeaning": "もっと大きな声で話す",
+    "meaning": "相手に聞こえるよう、もっと大きな声で話す",
+    "alternatives": [
+      {
+        "text": "speak louder",
+        "note": "もっと大きな声で話す"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "on board",
+    "translation": "乗り物に乗って",
+    "exampleEn": "There are fifty people on board.",
+    "previousMeaning": "乗り物に乗って",
+    "meaning": "船・飛行機などに乗って",
+    "alternatives": [
+      {
+        "text": "aboard",
+        "note": "船・飛行機などに乗って"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "and so on",
+    "translation": "〜など（列挙の続き）",
+    "exampleEn": "We sell pens, paper, and so on.",
+    "previousMeaning": "〜など（列挙の続き）",
+    "meaning": "〜など（同じ種類のものを列挙した後に）",
+    "alternatives": [
+      {
+        "text": "and so forth",
+        "note": "〜など"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "with care",
+    "translation": "注意して・丁寧に",
+    "exampleEn": "Handle the glass with care.",
+    "previousMeaning": "注意して・丁寧に",
+    "meaning": "注意を払って・丁寧に",
+    "alternatives": [
+      {
+        "text": "carefully",
+        "note": "注意して"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "by mistake",
+    "translation": "間違って・うっかり",
+    "exampleEn": "I took your bag by mistake.",
+    "previousMeaning": "間違って・うっかり",
+    "meaning": "取り違えたり判断を誤ったりして、間違って",
+    "alternatives": [
+      {
+        "text": "mistakenly",
+        "note": "誤って"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "on purpose",
+    "translation": "わざと・故意に",
+    "exampleEn": "I did not do it on purpose.",
+    "previousMeaning": "わざと・故意に",
+    "meaning": "偶然ではなく、わざと・故意に",
+    "alternatives": [
+      {
+        "text": "intentionally",
+        "note": "意図的に"
+      },
+      {
+        "text": "deliberately",
+        "note": "故意に"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "break down",
+    "translation": "機械などが故障する",
+    "exampleEn": "Our car broke down.",
+    "previousMeaning": "（機械などが）故障する",
+    "meaning": "（機械などが）故障する・動かなくなる",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "out of order",
+        "note": "故障している状態"
+      }
+    ],
+    "formNote": "",
+    "reason": "故障が起きる変化と、故障中の状態を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "fall asleep",
+    "translation": "眠りに落ちる",
+    "exampleEn": "I fell asleep on the train.",
+    "previousMeaning": "眠りに落ちる",
+    "meaning": "眠りに落ちる・眠り始める",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "be asleep",
+        "note": "眠っている状態"
+      }
+    ],
+    "formNote": "",
+    "reason": "眠りに入る変化と、眠っている状態を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "get injured",
+    "translation": "けがをする",
+    "exampleEn": "He got injured during the game.",
+    "previousMeaning": "けがをする",
+    "meaning": "（事故・運動などで）けがをする",
+    "alternatives": [
+      {
+        "text": "get hurt",
+        "note": "けがをする"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "out of order",
+    "translation": "機械などが故障中で",
+    "exampleEn": "The elevator is out of order.",
+    "previousMeaning": "（機械などが）故障している",
+    "meaning": "（機械などが）故障していて使えない",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "break down",
+        "note": "故障して動かなくなる"
+      }
+    ],
+    "formNote": "",
+    "reason": "故障中の状態を明確にする。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "feel at home",
+    "translation": "くつろいだ気分になる",
+    "exampleEn": "I feel at home here.",
+    "previousMeaning": "くつろいだ気分になる",
+    "meaning": "自分の家にいるように、くつろいだ気分になる",
+    "alternatives": [
+      {
+        "text": "feel comfortable",
+        "note": "居心地よく感じる"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "at the moment",
+    "translation": "ちょうど今・現在は",
+    "exampleEn": "She is busy at the moment.",
+    "previousMeaning": "ちょうど今・現在は",
+    "meaning": "ちょうど今・現在のところ",
+    "alternatives": [
+      {
+        "text": "right now",
+        "note": "今この瞬間に"
+      },
+      {
+        "text": "currently",
+        "note": "現在は"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "do A a favor",
+    "translation": "Aの頼みを聞く（Aは人）",
+    "exampleEn": "Could you do me a favor?",
+    "previousMeaning": "Aの頼みを聞く（Aは人）",
+    "meaning": "Aのためにひと肌脱ぐ・頼みを聞いてあげる（Aは人）",
+    "alternatives": [
+      {
+        "text": "help A out",
+        "note": "困っている人を助ける"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "plenty of",
+    "translation": "十分な・たっぷりの〜",
+    "exampleEn": "We have plenty of time.",
+    "previousMeaning": "十分な・たっぷりの〜",
+    "meaning": "十分な量の・たっぷりの〜",
+    "alternatives": [
+      {
+        "text": "more than enough",
+        "note": "十分すぎるほどの"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "take your time",
+    "translation": "焦らずゆっくりする",
+    "exampleEn": "Take your time and read carefully.",
+    "previousMeaning": "焦らずゆっくりする",
+    "meaning": "急がずに、必要なだけ時間をかける",
+    "alternatives": [
+      {
+        "text": "do not rush",
+        "note": "急がないで"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "run after",
+    "translation": "〜を走って追いかける",
+    "exampleEn": "Do not run after the dog.",
+    "previousMeaning": "〜を走って追いかける",
+    "meaning": "（人・動物など）を走って追いかける",
+    "alternatives": [
+      {
+        "text": "chase",
+        "note": "追いかける"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make a reservation",
+    "translation": "予約を入れる",
+    "exampleEn": "I want to make a reservation.",
+    "previousMeaning": "予約を入れる",
+    "meaning": "席・部屋などを確保するため、予約を入れる",
+    "alternatives": [
+      {
+        "text": "make a booking",
+        "note": "予約を入れる"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "面会の日時を約束する予約との典型的な場面の違いを示す。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be tired from",
+    "translation": "〜で疲れている（疲れの原因）",
+    "exampleEn": "We were tired from walking.",
+    "previousMeaning": "〜で疲れている（疲れの原因）",
+    "meaning": "（運動・作業など）で体が疲れている",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "be tired of",
+        "note": "〜にうんざりしている"
+      }
+    ],
+    "formNote": "",
+    "reason": "身体的な疲労と、飽き・うんざりを区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "a bunch of flowers",
+    "translation": "一束の花",
+    "exampleEn": "She gave me a bunch of flowers.",
+    "previousMeaning": "一束の花",
+    "meaning": "一束の花・花束",
+    "alternatives": [
+      {
+        "text": "a bouquet",
+        "note": "花束"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "leave behind",
+    "translation": "（物を）置き忘れる",
+    "exampleEn": "I left my bag behind.",
+    "previousMeaning": "（物を）置き忘れる",
+    "meaning": "持っていく物をその場に置き忘れる",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "",
+    "reason": ""
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make an appointment",
+    "translation": "面会・診察の予約をする",
+    "exampleEn": "I need to make an appointment.",
+    "previousMeaning": "面会・診察の予約をする",
+    "meaning": "診察・面会などの日時を予約する",
+    "alternatives": [
+      {
+        "text": "arrange an appointment",
+        "note": "面会などの日時を決める"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "take after",
+    "translation": "（家族など）に似ている",
+    "exampleEn": "I take after my father.",
+    "previousMeaning": "（家族など）に似ている",
+    "meaning": "（親・親族と）顔や性格が似ている",
+    "alternatives": [
+      {
+        "text": "resemble",
+        "note": "〜に似ている"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "start with",
+    "translation": "〜から始める",
+    "exampleEn": "Let's start with a question.",
+    "previousMeaning": "〜から始める",
+    "meaning": "最初のものとして〜から始める",
+    "alternatives": [
+      {
+        "text": "begin with",
+        "note": "〜から始める"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "so far",
+    "translation": "今までのところ",
+    "exampleEn": "Everything is fine so far.",
+    "previousMeaning": "今までのところ",
+    "meaning": "今までのところ・ここまでの時点では",
+    "alternatives": [
+      {
+        "text": "up to now",
+        "note": "今までのところ"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "for sure",
+    "translation": "確実に・間違いなく",
+    "exampleEn": "I do not know for sure.",
+    "previousMeaning": "確実に・間違いなく",
+    "meaning": "確実に・間違いなく（確信を表す）",
+    "alternatives": [
+      {
+        "text": "for certain",
+        "note": "確実に"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "after all",
+    "translation": "結局・考えてみれば",
+    "exampleEn": "We decided to go after all.",
+    "previousMeaning": "結局・考えてみれば",
+    "meaning": "結局は（予想・心配に反して）／だって・何と言っても",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "",
+    "reason": ""
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "with luck",
+    "translation": "運がよければ",
+    "exampleEn": "With luck, we will catch the train.",
+    "previousMeaning": "運がよければ",
+    "meaning": "運がよければ",
+    "alternatives": [
+      {
+        "text": "if we are lucky",
+        "note": "私たちの運がよければ"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "stand out",
+    "translation": "目立つ・際立つ",
+    "exampleEn": "The red sign stands out.",
+    "previousMeaning": "目立つ・際立つ",
+    "meaning": "周囲より目立つ・際立つ",
+    "alternatives": [
+      {
+        "text": "be noticeable",
+        "note": "目につく"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "without fail",
+    "translation": "必ず・間違いなく",
+    "exampleEn": "Call me tomorrow without fail.",
+    "previousMeaning": "必ず・間違いなく",
+    "meaning": "必ず・欠かさず（実行を確実にする）",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "",
+    "reason": ""
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "mean to",
+    "translation": "〜するつもりである（後ろに動詞の原形）",
+    "exampleEn": "I meant to call you yesterday.",
+    "previousMeaning": "〜するつもりである（後ろに動詞の原形）",
+    "meaning": "〜するつもりである（後ろに動詞の原形）",
+    "alternatives": [
+      {
+        "text": "intend to",
+        "note": "〜するつもりである"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in particular",
+    "translation": "とりわけ・特に",
+    "exampleEn": "I like this song in particular.",
+    "previousMeaning": "とりわけ・特に",
+    "meaning": "とりわけ・特に",
+    "alternatives": [
+      {
+        "text": "especially",
+        "note": "特に"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make an effort",
+    "translation": "努力する",
+    "exampleEn": "We must make an effort to improve.",
+    "previousMeaning": "努力する",
+    "meaning": "目標に向かって努力する",
+    "alternatives": [
+      {
+        "text": "try hard",
+        "note": "懸命に努力する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "see if",
+    "translation": "〜かどうか確かめる（後ろに文）",
+    "exampleEn": "Let's see if it works.",
+    "previousMeaning": "〜かどうか確かめる（後ろに文）",
+    "meaning": "実際に調べて〜かどうか確かめる（後ろに文）",
+    "alternatives": [
+      {
+        "text": "check whether",
+        "note": "〜かどうか確認する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make up one's mind",
+    "translation": "決心する（one'sはmy・yourなど）",
+    "exampleEn": "I need to make up my mind.",
+    "previousMeaning": "決心する（one'sはmy・yourなど）",
+    "meaning": "どうするか決心する（one'sはmy・yourなど）",
+    "alternatives": [
+      {
+        "text": "decide",
+        "note": "決める"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "stand for",
+    "translation": "〜を表す",
+    "exampleEn": "The white dove stands for peace.",
+    "previousMeaning": "〜を表す",
+    "meaning": "（記号・印などが）〜を意味する・象徴する",
+    "alternatives": [
+      {
+        "text": "represent",
+        "note": "〜を表す"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "search for",
+    "translation": "〜を探し回る",
+    "exampleEn": "We searched for a key.",
+    "previousMeaning": "〜を探し回る",
+    "meaning": "見つけようとして〜を探す",
+    "alternatives": [
+      {
+        "text": "look for",
+        "note": "〜を探す"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "必ずしも歩き回るとは限らないため、探し回るという限定を外す。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "decide on",
+    "translation": "〜を決める",
+    "exampleEn": "We need to decide on a date.",
+    "previousMeaning": "〜を決める",
+    "meaning": "候補の中から〜に決める",
+    "alternatives": [
+      {
+        "text": "choose",
+        "note": "〜を選ぶ"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "go over",
+    "translation": "（計画・内容など）をよく見直す",
+    "exampleEn": "Let's go over the plan.",
+    "previousMeaning": "（計画・内容など）をよく見直す",
+    "meaning": "（内容・計画など）をよく確認する・復習する",
+    "alternatives": [
+      {
+        "text": "review",
+        "note": "見直す・復習する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "do without",
+    "translation": "〜なしで済ませる",
+    "exampleEn": "We can do without a car here.",
+    "previousMeaning": "〜なしで済ませる",
+    "meaning": "〜がなくても、なんとか済ませる",
+    "alternatives": [
+      {
+        "text": "manage without",
+        "note": "〜なしでやっていく"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "carry out",
+    "translation": "（計画・調査など）を実行する",
+    "exampleEn": "We are ready to carry out the plan.",
+    "previousMeaning": "（計画・調査など）を実行する",
+    "meaning": "（計画・調査など）を実行する",
+    "alternatives": [
+      {
+        "text": "perform",
+        "note": "仕事などを実行する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "a variety of",
+    "translation": "さまざまな種類の〜",
+    "exampleEn": "They sell a variety of food.",
+    "previousMeaning": "さまざまな種類の〜",
+    "meaning": "さまざまな種類の〜",
+    "alternatives": [
+      {
+        "text": "various kinds of",
+        "note": "いろいろな種類の"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "cut down on",
+    "translation": "（摂取量・使用量など）を減らす",
+    "exampleEn": "I want to cut down on sugar.",
+    "previousMeaning": "（摂取量・使用量など）を減らす",
+    "meaning": "（摂取量・使用量など）を減らす",
+    "alternatives": [
+      {
+        "text": "reduce",
+        "note": "量などを減らす"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "cut off",
+    "translation": "（供給など）を止める",
+    "exampleEn": "They cut off the water.",
+    "previousMeaning": "（供給など）を止める",
+    "meaning": "（水・電気などの供給）を止める・遮断する",
+    "alternatives": [
+      {
+        "text": "shut off",
+        "note": "供給などを止める"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "bring up",
+    "translation": "（子どもを）育てる",
+    "exampleEn": "They brought up three children.",
+    "previousMeaning": "（子どもを）育てる",
+    "meaning": "（子どもを）育てる",
+    "alternatives": [
+      {
+        "text": "raise",
+        "note": "子どもなどを育てる"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "catch up with",
+    "translation": "〜に追いつく",
+    "exampleEn": "I ran to catch up with her.",
+    "previousMeaning": "〜に追いつく",
+    "meaning": "先にいる人や、進んだ水準に追いつく",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "keep up with",
+        "note": "遅れずに同じペースを保つ"
+      }
+    ],
+    "formNote": "",
+    "reason": "遅れを取り戻す動作と、同じペースを維持する動作を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "think about",
+    "translation": "〜を検討する・〜について考える",
+    "exampleEn": "We are thinking about moving.",
+    "previousMeaning": "〜を検討する・〜について考える",
+    "meaning": "〜について考える・〜を検討する",
+    "alternatives": [
+      {
+        "text": "consider",
+        "note": "〜を検討する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be sure of",
+    "translation": "〜を確信している",
+    "exampleEn": "Are you sure of the answer?",
+    "previousMeaning": "〜を確信している",
+    "meaning": "〜について確信している",
+    "alternatives": [
+      {
+        "text": "be certain of",
+        "note": "〜を確信している"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "feel sorry for",
+    "translation": "〜を気の毒に思う",
+    "exampleEn": "I feel sorry for him.",
+    "previousMeaning": "〜を気の毒に思う",
+    "meaning": "（つらい立場の人など）を気の毒に思う",
+    "alternatives": [
+      {
+        "text": "pity",
+        "note": "〜を気の毒に思う"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be aware of",
+    "translation": "〜に気づいている",
+    "exampleEn": "Are you aware of the danger?",
+    "previousMeaning": "〜に気づいている",
+    "meaning": "〜に気づいている・〜を認識している",
+    "alternatives": [
+      {
+        "text": "be conscious of",
+        "note": "〜を意識している"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "keep an eye on",
+    "translation": "〜を見ている・見守る",
+    "exampleEn": "Please keep an eye on my bag.",
+    "previousMeaning": "〜を見ている・見守る",
+    "meaning": "〜から目を離さず、様子を見ている",
+    "alternatives": [
+      {
+        "text": "watch",
+        "note": "様子を見守る"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "keep up with",
+    "translation": "〜に遅れずについていく",
+    "exampleEn": "I study daily to keep up with the class.",
+    "previousMeaning": "〜に遅れずについていく",
+    "meaning": "〜に遅れず、同じペースについていく",
+    "alternatives": [],
+    "contrasts": [
+      {
+        "text": "catch up with",
+        "note": "遅れていたところから追いつく"
+      }
+    ],
+    "formNote": "",
+    "reason": "同じペースの維持と、遅れを取り戻す動作を区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "take over",
+    "translation": "（事業など）を引き継ぐ",
+    "exampleEn": "She will take over the business.",
+    "previousMeaning": "（事業など）を引き継ぐ",
+    "meaning": "（仕事・事業など）を引き継ぐ",
+    "alternatives": [
+      {
+        "text": "assume control of",
+        "note": "管理・責任を引き受ける"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be grateful for",
+    "translation": "〜に感謝している",
+    "exampleEn": "I am grateful for your help.",
+    "previousMeaning": "〜に感謝している",
+    "meaning": "（助け・親切など）に感謝している",
+    "alternatives": [
+      {
+        "text": "be thankful for",
+        "note": "〜に感謝している"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be jealous of",
+    "translation": "〜をうらやんでいる",
+    "exampleEn": "He was jealous of her success.",
+    "previousMeaning": "〜をうらやんでいる",
+    "meaning": "（人の成功・持ち物など）をうらやんでいる",
+    "alternatives": [
+      {
+        "text": "be envious of",
+        "note": "〜をうらやんでいる"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "go through",
+    "translation": "（つらいことなど）を経験する",
+    "exampleEn": "She went through a hard time.",
+    "previousMeaning": "（つらいことなど）を経験する",
+    "meaning": "（つらいことなど）を経験する",
+    "alternatives": [
+      {
+        "text": "experience",
+        "note": "〜を経験する"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in return for",
+    "translation": "〜のお返しに",
+    "exampleEn": "I cooked dinner in return for your help.",
+    "previousMeaning": "〜のお返しに",
+    "meaning": "受けた〜へのお返しとして",
+    "alternatives": [
+      {
+        "text": "in exchange for",
+        "note": "〜と引き換えに"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be involved in",
+    "translation": "〜に関わっている",
+    "exampleEn": "Many students are involved in the project.",
+    "previousMeaning": "〜に関わっている",
+    "meaning": "（活動・出来事など）に関わっている",
+    "alternatives": [
+      {
+        "text": "be engaged in",
+        "note": "活動などに従事している"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be impressed with",
+    "translation": "〜に感心している",
+    "exampleEn": "I was impressed with the work.",
+    "previousMeaning": "〜に感心している",
+    "meaning": "（出来栄え・能力など）に感心している",
+    "alternatives": [
+      {
+        "text": "be impressed by",
+        "note": "〜に感銘を受けている"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be satisfied with",
+    "translation": "〜に満足している",
+    "exampleEn": "We are satisfied with the result.",
+    "previousMeaning": "〜に満足している",
+    "meaning": "（結果・状況など）に満足している",
+    "alternatives": [
+      {
+        "text": "be content with",
+        "note": "〜に満足している"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in a sense",
+    "translation": "ある意味では",
+    "exampleEn": "In a sense, you are right.",
+    "previousMeaning": "ある意味では",
+    "meaning": "ある意味では・ある見方をすれば",
+    "alternatives": [
+      {
+        "text": "in a way",
+        "note": "ある意味では"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in reality",
+    "translation": "実際には・現実には",
+    "exampleEn": "It sounds easy, but in reality it is hard.",
+    "previousMeaning": "実際には・現実には",
+    "meaning": "実際には・現実には（見かけや想像と違って）",
+    "alternatives": [
+      {
+        "text": "in fact",
+        "note": "実際には"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in contrast",
+    "translation": "対照的に",
+    "exampleEn": "This room is bright; in contrast, that one is dark.",
+    "previousMeaning": "対照的に",
+    "meaning": "それに対して・対照的に",
+    "alternatives": [
+      {
+        "text": "by contrast",
+        "note": "対照的に"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "to the point",
+    "translation": "要点をついて",
+    "exampleEn": "Keep your answer to the point.",
+    "previousMeaning": "要点をついて",
+    "meaning": "話の要点を的確について",
+    "alternatives": [
+      {
+        "text": "relevant",
+        "note": "本題に関係のある"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "in the long run",
+    "translation": "長い目で見ると",
+    "exampleEn": "This will save money in the long run.",
+    "previousMeaning": "長い目で見ると",
+    "meaning": "長い目で見ると・長期的には",
+    "alternatives": [
+      {
+        "text": "in the long term",
+        "note": "長期的には"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "no more than",
+    "translation": "わずか〜・〜にすぎない",
+    "exampleEn": "There were no more than five people.",
+    "previousMeaning": "わずか〜・〜にすぎない",
+    "meaning": "わずか〜・〜にすぎない／多くても〜",
+    "alternatives": [
+      {
+        "text": "only",
+        "note": "わずか〜という意味"
+      },
+      {
+        "text": "at most",
+        "note": "数量の上限という意味"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "少なさを強調する用法と上限を表す用法の両方を残す。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make out",
+    "translation": "（文字など）をなんとか読み取る",
+    "exampleEn": "I cannot make out the words.",
+    "previousMeaning": "（文字など）をなんとか読み取る",
+    "meaning": "（見えにくい文字など）をなんとか判別する",
+    "alternatives": [
+      {
+        "text": "discern",
+        "note": "なんとか見分ける"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "turn out to be",
+    "translation": "〜であると判明する",
+    "exampleEn": "The story turned out to be true.",
+    "previousMeaning": "〜であると判明する",
+    "meaning": "後になって〜であると分かる",
+    "alternatives": [
+      {
+        "text": "prove to be",
+        "note": "〜であると分かる"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "out of the question",
+    "translation": "まったく不可能で・論外で",
+    "exampleEn": "Traveling today is out of the question.",
+    "previousMeaning": "まったく不可能で・論外で",
+    "meaning": "まったく不可能で・考慮の余地がなくて",
+    "alternatives": [
+      {
+        "text": "impossible",
+        "note": "不可能な"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "as long as",
+    "translation": "〜する限り（後ろに文）",
+    "exampleEn": "You can use the room as long as you stay.",
+    "previousMeaning": "〜する限り（後ろに文）",
+    "meaning": "〜する限り（条件・期間、後ろに文）",
+    "alternatives": [
+      {
+        "text": "so long as",
+        "note": "〜する限り"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "be independent of",
+    "translation": "〜から自立している",
+    "exampleEn": "She wants to be independent of others.",
+    "previousMeaning": "〜から自立している",
+    "meaning": "〜に頼らず自立している",
+    "alternatives": [],
+    "contrasts": [],
+    "formNote": "",
+    "reason": ""
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "make sense of",
+    "translation": "〜を理解する",
+    "exampleEn": "Can you make sense of the map?",
+    "previousMeaning": "〜を理解する",
+    "meaning": "（分かりにくいもの）の意味を理解する",
+    "alternatives": [
+      {
+        "text": "understand",
+        "note": "〜を理解する"
+      }
+    ],
+    "contrasts": [
+      {
+        "text": "make sense",
+        "note": "意味が通る・筋が通る"
+      }
+    ],
+    "formNote": "",
+    "reason": "意味を理解する動作と、意味が通っていることを区別する。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "appeal to",
+    "translation": "（人の心）に訴える・気に入られる",
+    "exampleEn": "The design appeals to young people.",
+    "previousMeaning": "（人の心）に訴える・気に入られる",
+    "meaning": "（人の心）をひきつける・気に入られる",
+    "alternatives": [
+      {
+        "text": "attract",
+        "note": "〜をひきつける"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 2,
+    "text": "as a result of",
+    "translation": "〜の結果として",
+    "exampleEn": "Roads closed as a result of the storm.",
+    "previousMeaning": "〜の結果として",
+    "meaning": "〜が原因となって・〜の結果として",
+    "alternatives": [
+      {
+        "text": "because of",
+        "note": "〜のために"
+      }
+    ],
+    "contrasts": [],
+    "formNote": "",
+    "reason": "意味が重なる自然な別表現を示し、和訳だけで一意に決まるという誤解を減らす。"
   }
 ]
