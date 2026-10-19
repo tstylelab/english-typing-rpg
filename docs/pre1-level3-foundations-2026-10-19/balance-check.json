@@ -1,0 +1,1666 @@
+{
+  "calculations": 91908,
+  "questionCount": 222,
+  "allStagesErrorPerCharacterCanWin": false,
+  "bossError30pctCanWin": false,
+  "limitsChanged": 16,
+  "limitations": "Isolated actual answer handler; corrected wrong keystrokes per character, not percentage of wrong questions. Real learning effort is not measured. No player storage or balance code edited.",
+  "stages": [
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 460
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 460,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 92
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 498
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 498,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 99.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 537
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 537,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 107.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 560
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 560,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 112
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 583
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 583,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 116.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 606
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 606,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 121.2
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 628
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 628,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 125.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 652
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 652,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 130.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 675
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 675,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 135
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 690
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 690,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 138
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 705
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 705,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 141
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 713
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 713,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 142.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 721
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 721,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 144.2
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 728
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 728,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 145.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 736
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 736,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 147.2
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 743
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 743,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 148.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 752
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 752,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 150.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 759
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 759,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 151.8
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 767
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 9,
+        "monsterHp": 1366
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 151.75
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 10,
+        "monsterHp": 1533
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1380,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.33333333333334
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 12,
+        "monsterHp": 1853
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1699,
+        "maxQuestions": 11,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 154.45454545454547
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "text-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 14,
+        "monsterHp": 2158
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1850,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 154.16666666666666
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 500
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 500,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 100
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 542
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 542,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 108.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 583
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 583,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 116.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 608
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 608,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 121.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 633
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 633,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 126.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 658
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 658,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 131.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 683
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 683,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 136.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 708
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 708,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 141.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 733
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 733,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 146.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 750
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 750,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 150
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 767
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 775
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 775,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 155
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 783
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 783,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 156.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 792
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 792,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 158.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 800
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 800,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 160
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 808
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 808,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 161.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 817
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 817,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 163.4
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 825
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 825,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 165
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 5,
+        "monsterHp": 833
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 833,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 166.6
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 9,
+        "monsterHp": 1485
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 165
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 10,
+        "monsterHp": 1667
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1500,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 166.66666666666666
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 12,
+        "monsterHp": 2014
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 1846,
+        "maxQuestions": 11,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 167.8181818181818
+    },
+    {
+      "course": "EikenPre1Part1",
+      "input": "voice-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "meanLength": 27.653333333333332,
+        "maxQuestions": 14,
+        "monsterHp": 2345
+      },
+      "after": {
+        "meanLength": 34.11711711711712,
+        "monsterHp": 2010,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 167.5
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 460
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 460,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 92
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 498
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 498,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 99.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 537
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 537,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 107.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 560
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 560,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 112
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 583
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 583,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 116.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 606
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 606,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 121.2
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 628
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 628,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 125.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 652
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 652,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 130.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 675
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 675,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 135
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 690
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 690,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 138
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 705
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 705,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 141
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 713
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 713,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 142.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 721
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 721,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 144.2
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 728
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 728,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 145.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 736
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 736,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 147.2
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 743
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 743,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 148.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 752
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 752,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 150.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 759
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 759,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 151.8
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 767
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 9,
+        "monsterHp": 1366
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 151.75
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 10,
+        "monsterHp": 1533
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1380,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.33333333333334
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 12,
+        "monsterHp": 1853
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1699,
+        "maxQuestions": 11,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 154.45454545454547
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "text-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 14,
+        "monsterHp": 2158
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1850,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 154.16666666666666
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 500
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 500,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 100
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 542
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 542,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 108.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 583
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 583,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 116.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 608
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 608,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 121.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 633
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 633,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 126.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 658
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 658,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 131.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 683
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 683,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 136.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 708
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 708,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 141.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 733
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 733,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 146.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 750
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 750,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 150
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 767
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 767,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 153.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 775
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 775,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 155
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 783
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 783,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 156.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 792
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 792,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 158.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 800
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 800,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 160
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 808
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 808,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 161.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 817
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 817,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 163.4
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 825
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 825,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 165
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 5,
+        "monsterHp": 833
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 833,
+        "maxQuestions": 5,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 166.6
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 9,
+        "monsterHp": 1485
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 165
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 10,
+        "monsterHp": 1667
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1500,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 166.66666666666666
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 12,
+        "monsterHp": 2014
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 1846,
+        "maxQuestions": 11,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 167.8181818181818
+    },
+    {
+      "course": "EikenPre1Part2",
+      "input": "voice-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "meanLength": 28.613333333333333,
+        "maxQuestions": 14,
+        "monsterHp": 2345
+      },
+      "after": {
+        "meanLength": 34.4954954954955,
+        "monsterHp": 2010,
+        "maxQuestions": 12,
+        "damageMultiplier": 1
+      },
+      "requiredDamagePerQuestion": 167.5
+    }
+  ]
+}

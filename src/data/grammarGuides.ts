@@ -19,13 +19,13 @@ export const grammarGuides = {
   Eiken2: { grade: '2級', cards: grade2GrammarCards, sections: grade2GrammarSections,
     intro: '意見・理由の組み立てから、完了形・仮定法・分詞・関係詞の応用へ。短い文で形と意味の違いを確かめましょう。' },
   EikenPre1Part1: { grade: '準1級①', cards: pre1GrammarCardsByCourse.EikenPre1Part1, sections: pre1GrammarSections,
-    intro: '相手の話を確かめ、同意する範囲や判断の強さを伝えます。会話の前置きは、後ろに内容を続けた例でも確認しましょう。' },
+    intro: '会話の理解・留保から、名詞節・関係詞・分詞・過去の推量へ。短い文で構文を組み立て、現在と過去の仮定も見比べます。' },
   EikenPre1Part2: { grade: '準1級②', cards: pre1GrammarCardsByCourse.EikenPre1Part2, sections: pre1GrammarSections,
-    intro: '留保・可能性・提案を伝える会話の形を学びます。否定の範囲や、会話で省かれている部分にも注目しましょう。' },
+    intro: '会話の留保・提案から、譲歩条件・否定の範囲・理由結果へ。間接疑問・倍数比較・過去への後悔も、文の形と意味を結び付けます。' },
   Eiken1Part1: { grade: '1級①', cards: grade1GrammarCardsByCourse.Eiken1Part1, sections: grade1GrammarSections,
-    intro: '社会や科学についての収録文を、対比・条件・原因のつながりから読みます。長い主語を区切り、判断の強さや比較の基準を確かめましょう。' },
+    intro: '社会や科学の短い文で、受け身・関係詞・分詞・提案の形を組み立てます。発展では情報の焦点と倒置も確かめましょう。' },
   Eiken1Part2: { grade: '1級②', cards: grade1GrammarCardsByCourse.Eiken1Part2, sections: grade1GrammarSections,
-    intro: '収録文の報告・主張・因果関係を読み分けます。誰が何をしたのか、いつ起きたのかを、関係詞や過去完了から確かめましょう。' },
+    intro: '仮定の時点、譲歩、否定の範囲、比較の程度を組み立てます。過去の行動への評価と、条件・倒置の語順も見比べましょう。' },
 };
 export type GrammarCourse = keyof typeof grammarGuides;
 export function getGrammarGuideCourse(value: string | null): GrammarCourse | undefined {

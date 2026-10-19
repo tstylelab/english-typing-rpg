@@ -1,0 +1,756 @@
+{
+  "EikenPre1Part1": {
+    "I can see why you feel that way.": {
+      "label": "文の中に入る疑問の内容",
+      "pattern": "動詞 + why/how/where + 主語 + 動詞",
+      "note": "疑問詞から始まるまとまりが、理解する・確かめる内容です。その内側は普通の主語と動詞の順にします。"
+    },
+    "That makes a lot of sense.": {
+      "label": "定型表現の比喩的な意味",
+      "pattern": "make sense / add up / see the logic",
+      "note": "説明の意味が通る、筋道が理解できるという表現です。物理的な視覚や数の加算としてだけ読まないようにします。"
+    },
+    "I see what you're getting at.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "You may have a point there.": {
+      "label": "助動詞と現在のhave",
+      "pattern": "may + have + a point",
+      "note": "have a pointは一理あるという現在の内容です。haveの後ろが名詞なので、助動詞と完了形の組合せではありません。"
+    },
+    "I agree up to a point.": {
+      "label": "同意する範囲を限定する",
+      "pattern": "up to a point / partly / in a way",
+      "note": "全面的な賛成とせず、範囲や見方を限定しています。限定する表現が、賛成・正しさのどこに掛かるかを見ます。"
+    },
+    "I'm with you on that.": {
+      "label": "同意する点を示す",
+      "pattern": "be with + 人 + on + 内容",
+      "note": "この文では、相手と意見が同じだと述べます。on thatで、どの点について同意するかを示しています。"
+    },
+    "I can relate to that.": {
+      "label": "経験・気持ちへの理解",
+      "pattern": "relate to / know what ... is like",
+      "note": "似た経験や状況を理解できるという表現です。理解できることと、相手の行動すべてに賛成することは別です。"
+    },
+    "That's a fair point.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "I hadn't thought of it that way.": {
+      "label": "過去の基準以前を振り返る",
+      "pattern": "had not + 過去分詞",
+      "note": "相手の説明を聞いた時点などを基準に、それ以前にはそう考えていなかったと振り返ります。"
+    },
+    "That's a good way to put it.": {
+      "label": "名詞を説明する不定詞",
+      "pattern": "way/time + to + 動詞の原形",
+      "note": "to以下が、どんな方法・何をする時間かを名詞の後ろから説明します。動詞の目的を直接述べる不定詞とは区別します。"
+    },
+    "I'm not entirely sure about that.": {
+      "label": "否定の及ぶ範囲",
+      "pattern": "not + always/entirely/fully/quite",
+      "note": "いつもとは限らない、完全にとは言えない、ぴったり一致しないという否定です。全否定と同じには扱いません。"
+    },
+    "I'm not so sure I agree.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "That's not always the case.": {
+      "label": "否定の及ぶ範囲",
+      "pattern": "not + always/entirely/fully/quite",
+      "note": "いつもとは限らない、完全にとは言えない、ぴったり一致しないという否定です。全否定と同じには扱いません。"
+    },
+    "I wouldn't go that far.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "I'm not convinced that's true.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "That may be true in some cases.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    },
+    "I see it a little differently.": {
+      "label": "見方を示す副詞",
+      "pattern": "see + 目的語 + 副詞",
+      "note": "seeはこの文ではどのように物事を捉えるかという意味です。differentlyが見方の違いを示し、a littleがその程度を添えます。"
+    },
+    "That depends on the situation.": {
+      "label": "判断の条件と前置詞",
+      "pattern": "depend on + 名詞/疑問詞節",
+      "note": "onの後ろに判断が何によるかを置きます。疑問詞節なら、その中は普通の主語と動詞の語順です。"
+    },
+    "It depends on how you define it.": {
+      "label": "判断の条件と前置詞",
+      "pattern": "depend on + 名詞/疑問詞節",
+      "note": "onの後ろに判断が何によるかを置きます。疑問詞節なら、その中は普通の主語と動詞の語順です。"
+    },
+    "It's hard to say for sure.": {
+      "label": "形式主語と不定詞",
+      "pattern": "It is + 形容詞 + to + 動詞の原形",
+      "note": "先に仮の主語itを置き、後ろの不定詞で評価する行動を示しています。"
+    },
+    "I'd have to think about that.": {
+      "label": "仮の判断と必要性",
+      "pattern": "would + have to + 動詞の原形",
+      "note": "I'dはI would。have to thinkは考える必要があるという意味で、would haveと過去分詞の完了形ではありません。"
+    },
+    "That's an interesting question.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "I'm still figuring that out.": {
+      "label": "句動詞の進行形と代名詞",
+      "pattern": "be figuring + 代名詞 + out",
+      "note": "figure outは考えて分かる・答えを見つける意味。目的語が代名詞thatなので、figuringとoutの間に置きます。"
+    },
+    "I need a little time to think.": {
+      "label": "名詞を説明する不定詞",
+      "pattern": "way/time + to + 動詞の原形",
+      "note": "to以下が、どんな方法・何をする時間かを名詞の後ろから説明します。動詞の目的を直接述べる不定詞とは区別します。"
+    },
+    "That's a tough one.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "What exactly do you mean?": {
+      "label": "目的語を尋ねる疑問文",
+      "pattern": "What + do + 主語 + mean?",
+      "note": "youが主語で、meanの内容をwhatで尋ねます。exactlyはどの意味かを具体的に確かめる副詞です。"
+    },
+    "Could you be a bit more specific?": {
+      "label": "助動詞を使う依頼",
+      "pattern": "Could/Can you + 動詞の原形?",
+      "note": "相手に説明や行動を頼む形です。couldはこの依頼では過去の能力を述べていません。"
+    },
+    "Can you give me an example?": {
+      "label": "助動詞を使う依頼",
+      "pattern": "Could/Can you + 動詞の原形?",
+      "note": "相手に説明や行動を頼む形です。couldはこの依頼では過去の能力を述べていません。"
+    },
+    "What makes you say that?": {
+      "label": "使役動詞と行動する人",
+      "pattern": "What makes + 人 + 動詞の原形?",
+      "note": "whatが原因を尋ねる主語です。makesの後ろに行動する人、その後ろに原形の動詞を置きます。"
+    },
+    "Are you saying that it's unavoidable?": {
+      "label": "発言・考えの内容節",
+      "pattern": "think/say + (that) + 主語 + 動詞",
+      "note": "考えや発言の中身を節で続けています。省略できる接続詞のthatと、物事を指す主語のthatを区別します。"
+    },
+    "Let me make sure I understand.": {
+      "label": "自分に行動させてもらう",
+      "pattern": "Let me + 動詞の原形",
+      "note": "行動をする人はmeです。letに人と動詞の原形を続け、自分が考える・確認する・言い直すことを申し出ます。"
+    },
+    "So what you're saying is this.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "If I understand you correctly.": {
+      "label": "内容が続く前置きの節",
+      "pattern": "If/When + 主語 + 動詞, 主節",
+      "note": "会話では前置きだけで反応を含ませられます。文章の骨組みを考えるときは、後ろに主節を続ける形も確認します。"
+    },
+    "To put it simply.": {
+      "label": "言い換えを導く不定詞の前置き",
+      "pattern": "To put it + 説明の仕方, 文",
+      "note": "どう説明するかを前置きする定型表現です。後ろに説明内容を続ける形も練習し、目的の不定詞だけに当てはめません。"
+    },
+    "To put it another way.": {
+      "label": "言い換えを導く不定詞の前置き",
+      "pattern": "To put it + 説明の仕方, 文",
+      "note": "どう説明するかを前置きする定型表現です。後ろに説明内容を続ける形も練習し、目的の不定詞だけに当てはめません。"
+    },
+    "What I mean is this.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "When you put it that way.": {
+      "label": "内容が続く前置きの節",
+      "pattern": "If/When + 主語 + 動詞, 主節",
+      "note": "会話では前置きだけで反応を含ませられます。文章の骨組みを考えるときは、後ろに主節を続ける形も確認します。"
+    },
+    "What I'm getting at is this.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "That's basically what I'm saying.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "Let me rephrase that.": {
+      "label": "自分に行動させてもらう",
+      "pattern": "Let me + 動詞の原形",
+      "note": "行動をする人はmeです。letに人と動詞の原形を続け、自分が考える・確認する・言い直すことを申し出ます。"
+    },
+    "Maybe I didn't make that clear.": {
+      "label": "目的語の状態を述べる補語",
+      "pattern": "make + 目的語 + clear",
+      "note": "目的語の内容を明確な状態にする形です。clearは形容詞で、makes you sayの原形の動詞とは区別します。"
+    },
+    "That's not quite what I meant.": {
+      "label": "否定の及ぶ範囲",
+      "pattern": "not + always/entirely/fully/quite",
+      "note": "いつもとは限らない、完全にとは言えない、ぴったり一致しないという否定です。全否定と同じには扱いません。"
+    },
+    "If you ask me.": {
+      "label": "判断の立場・根拠を示す前置き",
+      "pattern": "意見・根拠の前置き, 主語 + 動詞",
+      "note": "自分の見方や分かる範囲を前置きしています。この収録文は前置きだけで、判断の中身は会話の文脈に委ねられています。"
+    },
+    "From what I can tell.": {
+      "label": "判断の立場・根拠を示す前置き",
+      "pattern": "意見・根拠の前置き, 主語 + 動詞",
+      "note": "自分の見方や分かる範囲を前置きしています。この収録文は前置きだけで、判断の中身は会話の文脈に委ねられています。"
+    },
+    "I think it's worth a try.": {
+      "label": "価値のある対象・行動",
+      "pattern": "be worth + 名詞/動名詞",
+      "note": "worthの後ろに名詞や動詞のing形を続けます。worth to doという形にはしません。"
+    },
+    "The way I see it.": {
+      "label": "判断の立場・根拠を示す前置き",
+      "pattern": "意見・根拠の前置き, 主語 + 動詞",
+      "note": "自分の見方や分かる範囲を前置きしています。この収録文は前置きだけで、判断の中身は会話の文脈に委ねられています。"
+    },
+    "I tend to think so too.": {
+      "label": "傾向・やや傾いた判断",
+      "pattern": "tend to / be inclined to + 動詞の原形",
+      "note": "習慣や考えの傾向を示します。いつでも必ずそうだと断定するのではなく、判断の強さを調整しています。"
+    },
+    "I'm inclined to agree.": {
+      "label": "傾向・やや傾いた判断",
+      "pattern": "tend to / be inclined to + 動詞の原形",
+      "note": "習慣や考えの傾向を示します。いつでも必ずそうだと断定するのではなく、判断の強さを調整しています。"
+    },
+    "I've come to think that lately.": {
+      "label": "変化と現在完了",
+      "pattern": "have come to + 動詞の原形",
+      "note": "考えが変わって、今はそう思うようになっていることを述べます。comeの後ろにto不定詞を続けています。"
+    },
+    "On the one hand that's true.": {
+      "label": "前の内容を受けて別の面を示す",
+      "pattern": "on the other hand / still / even so",
+      "note": "前に認めた内容に対して別の面や留保を続ける表現です。何と何を対比しているかを会話の中で確かめます。"
+    },
+    "On the other hand we should be careful.": {
+      "label": "前の内容を受けて別の面を示す",
+      "pattern": "on the other hand / still / even so",
+      "note": "前に認めた内容に対して別の面や留保を続ける表現です。何と何を対比しているかを会話の中で確かめます。"
+    },
+    "At the same time I understand your concern.": {
+      "label": "前の内容を受けて別の面を示す",
+      "pattern": "on the other hand / still / even so",
+      "note": "前に認めた内容に対して別の面や留保を続ける表現です。何と何を対比しているかを会話の中で確かめます。"
+    },
+    "Still, we can't ignore the risks.": {
+      "label": "前の内容を受けて別の面を示す",
+      "pattern": "on the other hand / still / even so",
+      "note": "前に認めた内容に対して別の面や留保を続ける表現です。何と何を対比しているかを会話の中で確かめます。"
+    },
+    "Even so I wouldn't give up yet.": {
+      "label": "前の内容を受けて別の面を示す",
+      "pattern": "on the other hand / still / even so",
+      "note": "前に認めた内容に対して別の面や留保を続ける表現です。何と何を対比しているかを会話の中で確かめます。"
+    },
+    "You're right in a way.": {
+      "label": "同意する範囲を限定する",
+      "pattern": "up to a point / partly / in a way",
+      "note": "全面的な賛成とせず、範囲や見方を限定しています。限定する表現が、賛成・正しさのどこに掛かるかを見ます。"
+    },
+    "For that reason I'm hesitant.": {
+      "label": "理由を受ける前置詞句",
+      "pattern": "For that reason, 主語 + 動詞",
+      "note": "前に述べた事情を理由として受け、判断を続けます。この句だけでは、具体的な理由の内容は分かりません。"
+    },
+    "That's partly true.": {
+      "label": "同意する範囲を限定する",
+      "pattern": "up to a point / partly / in a way",
+      "note": "全面的な賛成とせず、範囲や見方を限定しています。限定する表現が、賛成・正しさのどこに掛かるかを見ます。"
+    },
+    "I can understand how you feel.": {
+      "label": "文の中に入る疑問の内容",
+      "pattern": "動詞 + why/how/where + 主語 + 動詞",
+      "note": "疑問詞から始まるまとまりが、理解する・確かめる内容です。その内側は普通の主語と動詞の順にします。"
+    },
+    "That must have been difficult.": {
+      "label": "過去の出来事を推量する",
+      "pattern": "must have been + 形容詞",
+      "note": "haveの後ろにbeの過去分詞beenがあり、過去の大変さを強く推量しています。have a pointのhaveとは形が違います。"
+    },
+    "That sounds a bit stressful.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "I don't blame you for feeling that way.": {
+      "label": "理由の前置詞と動名詞",
+      "pattern": "blame + 人 + for + 動詞-ing",
+      "note": "責める理由をfor以下に続けます。forは前置詞なので、行動や感情を動詞で述べるならing形を使います。"
+    },
+    "I've felt the same way before.": {
+      "label": "現在までの経験",
+      "pattern": "have + 過去分詞 + before",
+      "note": "現在までに同じ感情を経験したことがあると述べています。特定の過去の時だけを指定する過去形とは視点が違います。"
+    },
+    "That would bother me too.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "I know what that's like.": {
+      "label": "経験に基づく理解",
+      "pattern": "know + what + 主語 + be like",
+      "note": "what that is likeが、どんなものかという内容です。ここでは経験があるのでその状況が分かる、と伝えます。"
+    },
+    "That doesn't sound easy.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "You're probably not the only one.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "It's not as simple as it sounds.": {
+      "label": "比較する程度と基準",
+      "pattern": "not as + 原級 + as / 比較級 + than",
+      "note": "同じ程度かどうか、またはどちらの程度が上かを比べます。比較の基準が何かも確認します。"
+    },
+    "It's a little more complicated than that.": {
+      "label": "比較する程度と基準",
+      "pattern": "not as + 原級 + as / 比較級 + than",
+      "note": "同じ程度かどうか、またはどちらの程度が上かを比べます。比較の基準が何かも確認します。"
+    },
+    "There's more to it than that.": {
+      "label": "表面に出ていない事情",
+      "pattern": "There is more to ... than ...",
+      "note": "すでに述べられた説明に加えて、さらに事情があることを示します。単に物の個数だけを比べていません。"
+    },
+    "That's one way to look at it.": {
+      "label": "名詞を説明する不定詞",
+      "pattern": "way/time + to + 動詞の原形",
+      "note": "to以下が、どんな方法・何をする時間かを名詞の後ろから説明します。動詞の目的を直接述べる不定詞とは区別します。"
+    },
+    "I wouldn't rule that out.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "That might actually work.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    },
+    "It's worth thinking about.": {
+      "label": "価値のある対象・行動",
+      "pattern": "be worth + 名詞/動名詞",
+      "note": "worthの後ろに名詞や動詞のing形を続けます。worth to doという形にはしません。"
+    },
+    "I wouldn't dismiss that idea.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "That could be part of the problem.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    }
+  },
+  "EikenPre1Part2": {
+    "That seems reasonable to me.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "I'd rather not jump to conclusions.": {
+      "label": "好む行動と原形",
+      "pattern": "would rather (not) + 動詞の原形",
+      "note": "自分がどちらを望むかを述べます。自分の行動を続けるこの形では、動詞を不定詞や動名詞にしません。"
+    },
+    "We should keep an open mind.": {
+      "label": "望ましい対応の提案",
+      "pattern": "should + 動詞の原形",
+      "note": "今どの対応が望ましいかを提案します。過去への後悔を表すshould haveとは形が違います。"
+    },
+    "I think we need more information.": {
+      "label": "発言・考えの内容節",
+      "pattern": "think/say + (that) + 主語 + 動詞",
+      "note": "考えや発言の中身を節で続けています。省略できる接続詞のthatと、物事を指す主語のthatを区別します。"
+    },
+    "We may be missing something important.": {
+      "label": "助動詞と進行形",
+      "pattern": "may/might + be + 動詞-ing",
+      "note": "今していることや一時的な状態について、断定せず可能性を述べます。"
+    },
+    "It's too early to tell.": {
+      "label": "程度と実現しにくさ",
+      "pattern": "too + 形容詞 + to + 動詞の原形",
+      "note": "判断できないほど早いという程度を示します。tellはここでは分かる・判断するという意味です。"
+    },
+    "I wouldn't be surprised if that were true.": {
+      "label": "事実から距離を置く仮定",
+      "pattern": "would + 原形 + if + 主語 + 過去形",
+      "note": "仮にその内容が本当だとしても驚かない、という判断です。実際に過去に起きたことを述べる形とは区別します。"
+    },
+    "That's certainly a possibility.": {
+      "label": "可能性の内容を名詞で示す",
+      "pattern": "a chance + (that) + 文 / a possibility",
+      "note": "chanceやpossibilityで可能性を表します。後ろの節があれば、それがどんな可能性かという中身です。"
+    },
+    "There's a chance we're overthinking it.": {
+      "label": "可能性の内容を名詞で示す",
+      "pattern": "a chance + (that) + 文 / a possibility",
+      "note": "chanceやpossibilityで可能性を表します。後ろの節があれば、それがどんな可能性かという中身です。"
+    },
+    "I wouldn't take that at face value.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "It's better to be cautious.": {
+      "label": "形式主語と不定詞",
+      "pattern": "It is + 形容詞 + to + 動詞の原形",
+      "note": "先に仮の主語itを置き、後ろの不定詞で評価する行動を示しています。"
+    },
+    "I can see where you're coming from.": {
+      "label": "比喩的な方向と疑問詞節",
+      "pattern": "see/get + where + 主語 + 動詞",
+      "note": "where以下は話の背景や行き先を表す比喩です。理解することと、その意見への賛成は同じとは限りません。"
+    },
+    "That doesn't necessarily mean it's wrong.": {
+      "label": "必然性の部分否定",
+      "pattern": "not necessarily mean + (that) + 文",
+      "note": "二つの内容が必ず結び付くとは限らないという意味です。後ろの内容を全面的に否定しているわけではありません。"
+    },
+    "I'm not saying it's impossible.": {
+      "label": "発言内容の否定と範囲",
+      "pattern": "be not saying + (that) + 文",
+      "note": "その内容を主張しているわけではない、と発言の受け取られ方を訂正します。内容を直接否定する文とは分けて考えます。"
+    },
+    "We should look at the bigger picture.": {
+      "label": "望ましい対応の提案",
+      "pattern": "should + 動詞の原形",
+      "note": "今どの対応が望ましいかを提案します。過去への後悔を表すshould haveとは形が違います。"
+    },
+    "That's easier said than done.": {
+      "label": "比較級と過去分詞",
+      "pattern": "be easier said than done",
+      "note": "言う容易さと実行する容易さを比べる定型表現です。saidとdoneが過去分詞でも、この文全体は過去の話ではありません。"
+    },
+    "I'm not ready to rule it out.": {
+      "label": "行動の準備と句動詞",
+      "pattern": "be not ready to + rule + 代名詞 + out",
+      "note": "可能性を外す判断をする準備がまだないと述べます。rule outの目的語itは二つの語の間に置いています。"
+    },
+    "That may not be the best approach.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    },
+    "I can see the logic behind that.": {
+      "label": "理解のseeと名詞句",
+      "pattern": "see + the logic behind + 内容",
+      "note": "目的語はthe logic。behind thatがどの考えの筋道かを説明しています。理解できることと賛成は同じではありません。"
+    },
+    "That sounds good in theory.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "I'm not sure that's the main issue.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "We need to be realistic about this.": {
+      "label": "必要性と不定詞",
+      "pattern": "need to + be + 形容詞",
+      "note": "needの後ろにto be realisticを続け、現実的である必要を述べています。beは動詞の原形です。"
+    },
+    "That could lead to misunderstandings.": {
+      "label": "可能性と結果を表す前置詞",
+      "pattern": "could lead to + 名詞",
+      "note": "起こり得る結果をlead toの後ろに置きます。このtoは前置詞で、動詞の原形を導くto不定詞ではありません。"
+    },
+    "I'd rather focus on what we can do now.": {
+      "label": "好む行動と原形",
+      "pattern": "would rather (not) + 動詞の原形",
+      "note": "自分がどちらを望むかを述べます。自分の行動を続けるこの形では、動詞を不定詞や動名詞にしません。"
+    },
+    "I think that's a step in the right direction.": {
+      "label": "発言・考えの内容節",
+      "pattern": "think/say + (that) + 主語 + 動詞",
+      "note": "考えや発言の中身を節で続けています。省略できる接続詞のthatと、物事を指す主語のthatを区別します。"
+    },
+    "Sounds about right.": {
+      "label": "会話での主語の省略",
+      "pattern": "(That/It) sounds + 形容詞",
+      "note": "会話で分かる主語を省いた自然な返答です。aboutはここでは程度をやわらげ、だいたい正しそうだと伝えます。"
+    },
+    "That works for me.": {
+      "label": "提案への返答と比喩的な意味",
+      "pattern": "work for / work with / be more like",
+      "note": "提案・条件が自分に合うか、期待していた状態に近いかを述べます。どの予定や条件の話かは文脈で補います。"
+    },
+    "I'm not ruling it out.": {
+      "label": "進行・一時的な取り組み",
+      "pattern": "be + 動詞-ing",
+      "note": "今取り組んでいることや一時的な姿勢を進行形で示します。動作の機械的な進行だけに限りません。"
+    },
+    "That's not a bad idea.": {
+      "label": "否定による控えめな肯定",
+      "pattern": "not a bad + 名詞",
+      "note": "悪くはないという否定で、一定の肯定を伝えます。どれほど強い賛成かは口調や文脈にもよります。"
+    },
+    "I was just thinking that.": {
+      "label": "過去の時点での思考",
+      "pattern": "was + 動詞-ing",
+      "note": "過去のある時点で思っていたことを述べています。justが、ちょうどそのときだったことを添えます。"
+    },
+    "That crossed my mind too.": {
+      "label": "考えが浮かぶ表現と過去形",
+      "pattern": "主語 + crossed + 人のmind",
+      "note": "考えが頭をよぎったという意味です。crossedは過去形で、物理的に何かを横断したという意味ではありません。"
+    },
+    "I don't quite see it that way.": {
+      "label": "否定の及ぶ範囲",
+      "pattern": "not + always/entirely/fully/quite",
+      "note": "いつもとは限らない、完全にとは言えない、ぴったり一致しないという否定です。全否定と同じには扱いません。"
+    },
+    "I'm not fully convinced.": {
+      "label": "否定の及ぶ範囲",
+      "pattern": "not + always/entirely/fully/quite",
+      "note": "いつもとは限らない、完全にとは言えない、ぴったり一致しないという否定です。全否定と同じには扱いません。"
+    },
+    "I'm on the fence about it.": {
+      "label": "決めかねる状態と前置詞句",
+      "pattern": "be on the fence about + 内容",
+      "note": "賛否や選択を決めかねているという慣用表現です。aboutの後ろが迷っている対象です。"
+    },
+    "That's a tough call.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "It could go either way.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    },
+    "That's a valid concern.": {
+      "label": "名詞句と代用語",
+      "pattern": "a/an + 形容詞 + 名詞 / the only one",
+      "note": "冠詞・形容詞・名詞で評価する対象を示します。oneがあれば、前に出た数えられる名詞を代わりに表す役割も確認します。"
+    },
+    "I get the point you're making.": {
+      "label": "目的格関係代名詞の省略",
+      "pattern": "名詞 + (that) + 主語 + 動詞",
+      "note": "名詞を説明する節で目的語が欠け、その内容が前の名詞に当たります。ここでは目的格の関係代名詞が省かれています。"
+    },
+    "I'm not sure I follow.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "Could you walk me through that?": {
+      "label": "助動詞を使う依頼",
+      "pattern": "Could/Can you + 動詞の原形?",
+      "note": "相手に説明や行動を頼む形です。couldはこの依頼では過去の能力を述べていません。"
+    },
+    "What makes you feel that way?": {
+      "label": "使役動詞と行動する人",
+      "pattern": "What makes + 人 + 動詞の原形?",
+      "note": "whatが原因を尋ねる主語です。makesの後ろに行動する人、その後ろに原形の動詞を置きます。"
+    },
+    "What brought you to that conclusion?": {
+      "label": "主語を尋ねる疑問文",
+      "pattern": "What + brought + 人 + to + 結論?",
+      "note": "whatが結論へ導いた要因を尋ねる主語です。broughtはbringの過去形で、この形にdidを足す必要はありません。"
+    },
+    "I get where you're going with this.": {
+      "label": "比喩的な方向と疑問詞節",
+      "pattern": "see/get + where + 主語 + 動詞",
+      "note": "where以下は話の背景や行き先を表す比喩です。理解することと、その意見への賛成は同じとは限りません。"
+    },
+    "I wouldn't count on it.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "I wouldn't read too much into that.": {
+      "label": "仮の立場・状況からの判断",
+      "pattern": "would / would not + 動詞の原形",
+      "note": "自分なら、そういう状況なら、という判断を控えめに示します。単に過去の出来事を述べる形とは限りません。"
+    },
+    "That doesn't sound like the whole story.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "I'm not sure it works that way.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "That might be pushing it.": {
+      "label": "助動詞と進行形",
+      "pattern": "may/might + be + 動詞-ing",
+      "note": "今していることや一時的な状態について、断定せず可能性を述べます。"
+    },
+    "I don't know if that's fair.": {
+      "label": "〜かどうかを表すif節",
+      "pattern": "know + if + 主語 + 動詞",
+      "note": "if節が分からない内容を表します。この文のifは、もし〜ならという条件ではありません。"
+    },
+    "I'm not against it.": {
+      "label": "同意・容認・反対を表す",
+      "pattern": "be with / be for / be against / go with",
+      "note": "前置詞や動詞の組合せで判断の立場を表します。積極的な賛成、受け入れられること、反対ではないことの強さを区別します。"
+    },
+    "I'm all for that.": {
+      "label": "同意・容認・反対を表す",
+      "pattern": "be with / be for / be against / go with",
+      "note": "前置詞や動詞の組合せで判断の立場を表します。積極的な賛成、受け入れられること、反対ではないことの強さを区別します。"
+    },
+    "I can go with that.": {
+      "label": "同意・容認・反対を表す",
+      "pattern": "be with / be for / be against / go with",
+      "note": "前置詞や動詞の組合せで判断の立場を表します。積極的な賛成、受け入れられること、反対ではないことの強さを区別します。"
+    },
+    "I'm not ready to commit to that.": {
+      "label": "準備を表す不定詞と前置詞",
+      "pattern": "be not ready to commit to + 内容",
+      "note": "最初のto commitは不定詞、次のto thatはcommitの対象を示す前置詞句です。二つのtoの役割を分けます。"
+    },
+    "Let's not get ahead of ourselves.": {
+      "label": "行動をしない提案",
+      "pattern": "Let us not + 動詞の原形",
+      "note": "自分も含めた行動について、しないようにしようと提案します。主語weに対応する再帰代名詞も確かめます。"
+    },
+    "Let's see how it goes.": {
+      "label": "文の中に入る疑問の内容",
+      "pattern": "動詞 + why/how/where + 主語 + 動詞",
+      "note": "疑問詞から始まるまとまりが、理解する・確かめる内容です。その内側は普通の主語と動詞の順にします。"
+    },
+    "Let's see where this goes.": {
+      "label": "文の中に入る疑問の内容",
+      "pattern": "動詞 + why/how/where + 主語 + 動詞",
+      "note": "疑問詞から始まるまとまりが、理解する・確かめる内容です。その内側は普通の主語と動詞の順にします。"
+    },
+    "I'm keeping an open mind.": {
+      "label": "進行・一時的な取り組み",
+      "pattern": "be + 動詞-ing",
+      "note": "今取り組んでいることや一時的な姿勢を進行形で示します。動作の機械的な進行だけに限りません。"
+    },
+    "That seems about right to me.": {
+      "label": "印象を表す補語",
+      "pattern": "sound/seem + 形容詞 / sound like + 名詞",
+      "note": "聞いた印象や見込まれる様子を述べます。形容詞を続ける形と、likeの後ろに名詞を置く形を区別します。"
+    },
+    "That adds up.": {
+      "label": "定型表現の比喩的な意味",
+      "pattern": "make sense / add up / see the logic",
+      "note": "説明の意味が通る、筋道が理解できるという表現です。物理的な視覚や数の加算としてだけ読まないようにします。"
+    },
+    "I can work with that.": {
+      "label": "提案への返答と比喩的な意味",
+      "pattern": "work for / work with / be more like",
+      "note": "提案・条件が自分に合うか、期待していた状態に近いかを述べます。どの予定や条件の話かは文脈で補います。"
+    },
+    "That's more like it.": {
+      "label": "提案への返答と比喩的な意味",
+      "pattern": "work for / work with / be more like",
+      "note": "提案・条件が自分に合うか、期待していた状態に近いかを述べます。どの予定や条件の話かは文脈で補います。"
+    },
+    "I'm not making excuses.": {
+      "label": "進行・一時的な取り組み",
+      "pattern": "be + 動詞-ing",
+      "note": "今取り組んでいることや一時的な姿勢を進行形で示します。動作の機械的な進行だけに限りません。"
+    },
+    "I'm just being realistic.": {
+      "label": "一時的な振る舞い・態度",
+      "pattern": "be being + 形容詞",
+      "note": "今そういう態度を取っていると述べます。be beingは、すべての状態を表す形容詞と自由に使えるわけではありません。"
+    },
+    "I'm trying to be careful.": {
+      "label": "努力を表す進行形と不定詞",
+      "pattern": "be trying to + be + 形容詞",
+      "note": "今、慎重であろうと心がけています。tryingの後ろのto beが目指す状態を示しています。"
+    },
+    "That's not what I'm getting at.": {
+      "label": "what節が表す内容",
+      "pattern": "what + 主語 + 動詞",
+      "note": "what以下を「〜すること」というひとまとまりとして使います。文全体の主語・目的語・補語のどの位置にあるかを確認します。"
+    },
+    "Let me think for a second.": {
+      "label": "自分に行動させてもらう",
+      "pattern": "Let me + 動詞の原形",
+      "note": "行動をする人はmeです。letに人と動詞の原形を続け、自分が考える・確認する・言い直すことを申し出ます。"
+    },
+    "I'm still not convinced.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "I can see that happening.": {
+      "label": "目的語の様子を表す分詞",
+      "pattern": "see + 目的語 + 動詞-ing",
+      "note": "thatは起こる事柄を指す目的語、happeningはその様子を表す分詞です。この文では起こる場面を想像できるという意味です。"
+    },
+    "I can see why that matters.": {
+      "label": "文の中に入る疑問の内容",
+      "pattern": "動詞 + why/how/where + 主語 + 動詞",
+      "note": "疑問詞から始まるまとまりが、理解する・確かめる内容です。その内側は普通の主語と動詞の順にします。"
+    },
+    "I'm not saying you're wrong.": {
+      "label": "発言内容の否定と範囲",
+      "pattern": "be not saying + (that) + 文",
+      "note": "その内容を主張しているわけではない、と発言の受け取られ方を訂正します。内容を直接否定する文とは分けて考えます。"
+    },
+    "I'm trying to look at both sides.": {
+      "label": "努力を表す進行形と不定詞",
+      "pattern": "be trying to + 動詞の原形",
+      "note": "今、両方の立場から見るように努めています。bothは二つの立場のどちらも、という意味です。"
+    },
+    "I'm not sure I'm with you there.": {
+      "label": "同意・理解への留保",
+      "pattern": "be not sure + (that) + 文",
+      "note": "内側のI am with youは、同意している場合にも、説明についていける場合にも使えます。今回の表示和訳は同意への留保です。"
+    },
+    "I'm not sure that's enough.": {
+      "label": "確信できない内容と省略",
+      "pattern": "be not sure/convinced + (that) + 文",
+      "note": "確信できない内容を節で続けたり、文脈から分かる内容を省いたりします。否定している範囲に注目します。"
+    },
+    "That may be part of it.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may/might/could + 動詞の原形",
+      "note": "あり得ることを断定せず述べます。助動詞どうしの確率を固定の数字で区別しません。"
+    },
+    "I'm not sure what to make of that.": {
+      "label": "疑問詞と不定詞",
+      "pattern": "what + to + 動詞の原形",
+      "note": "どう解釈すればよいかという内容を、疑問詞と不定詞で表します。make ofは作ることではなく、解釈・評価する意味です。"
+    }
+  }
+}

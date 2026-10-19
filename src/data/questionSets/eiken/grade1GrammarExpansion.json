@@ -1,0 +1,1566 @@
+{
+  "Eiken1Part1": [
+    {
+      "targetId": "perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The safety rules have been revised in response to complaints.",
+        "translation": "苦情を受けて、安全規則は改訂されています。",
+        "grammarPoint": {
+          "label": "現在完了の受け身",
+          "pattern": "has/have been + 過去分詞",
+          "note": "過去の行為の結果が今につながることを、行為を受ける対象から述べます。"
+        }
+      }
+    },
+    {
+      "targetId": "perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "Several errors have been identified in the original report.",
+        "translation": "元の報告書で、いくつかの誤りが見つかっています。",
+        "grammarPoint": {
+          "label": "現在完了の受け身",
+          "pattern": "has/have been + 過去分詞",
+          "note": "過去の行為の結果が今につながることを、行為を受ける対象から述べます。"
+        }
+      }
+    },
+    {
+      "targetId": "perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The proposal has been approved by an independent committee.",
+        "translation": "その提案は、独立した委員会によって承認されています。",
+        "grammarPoint": {
+          "label": "現在完了の受け身",
+          "pattern": "has/have been + 過去分詞",
+          "note": "過去の行為の結果が今につながることを、行為を受ける対象から述べます。"
+        }
+      }
+    },
+    {
+      "targetId": "progressive-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The new system is being tested under realistic conditions.",
+        "translation": "新しいシステムは、実際に近い条件下で試験されているところです。",
+        "grammarPoint": {
+          "label": "進行形の受け身",
+          "pattern": "is/are being + 過去分詞",
+          "note": "対象が現在処理されている最中だと伝えます。単に処理済みという結果と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "progressive-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The remaining samples are being examined for contamination.",
+        "translation": "残りの試料は、汚染がないか調べられているところです。",
+        "grammarPoint": {
+          "label": "進行形の受け身",
+          "pattern": "is/are being + 過去分詞",
+          "note": "対象が現在処理されている最中だと伝えます。単に処理済みという結果と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "progressive-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The disputed figures are being reviewed by outside experts.",
+        "translation": "疑義のある数値は、外部の専門家によって検証されているところです。",
+        "grammarPoint": {
+          "label": "進行形の受け身",
+          "pattern": "is/are being + 過去分詞",
+          "note": "対象が現在処理されている最中だと伝えます。単に処理済みという結果と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The researchers may have overlooked an important variable.",
+        "translation": "研究者たちは、重要な変数を見落としていたのかもしれません。",
+        "grammarPoint": {
+          "label": "過去への推量",
+          "pattern": "may have + 過去分詞",
+          "note": "過去に何かをした可能性を述べます。mayの後ろはhave、その後ろが過去分詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The agency may have underestimated the cost of maintenance.",
+        "translation": "その機関は、維持費を過小評価していたのかもしれません。",
+        "grammarPoint": {
+          "label": "過去への推量",
+          "pattern": "may have + 過去分詞",
+          "note": "過去に何かをした可能性を述べます。mayの後ろはhave、その後ろが過去分詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The witnesses may have confused the order of events.",
+        "translation": "目撃者たちは、出来事の順序を取り違えていたのかもしれません。",
+        "grammarPoint": {
+          "label": "過去への推量",
+          "pattern": "may have + 過去分詞",
+          "note": "過去に何かをした可能性を述べます。mayの後ろはhave、その後ろが過去分詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The risks should have been disclosed before the trial began.",
+        "translation": "その危険性は、試験が始まる前に開示されるべきでした。",
+        "grammarPoint": {
+          "label": "過去の対応を振り返る受け身",
+          "pattern": "should have been + 過去分詞",
+          "note": "過去にされるべきだったのにされなかった対応を、受け身で振り返ります。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "Local residents should have been consulted before construction.",
+        "translation": "地元の住民は、建設前に意見を聞かれるべきでした。",
+        "grammarPoint": {
+          "label": "過去の対応を振り返る受け身",
+          "pattern": "should have been + 過去分詞",
+          "note": "過去にされるべきだったのにされなかった対応を、受け身で振り返ります。"
+        }
+      }
+    },
+    {
+      "targetId": "modal-perfect-passive",
+      "priority": "優先",
+      "question": {
+        "text": "The conflicting results should have been examined more closely.",
+        "translation": "食い違う結果は、もっと詳しく検討されるべきでした。",
+        "grammarPoint": {
+          "label": "過去の対応を振り返る受け身",
+          "pattern": "should have been + 過去分詞",
+          "note": "過去にされるべきだったのにされなかった対応を、受け身で振り返ります。"
+        }
+      }
+    },
+    {
+      "targetId": "impersonal-report",
+      "priority": "優先",
+      "question": {
+        "text": "It is believed that output fell before prices increased.",
+        "translation": "価格が上がる前に、生産量が減ったと考えられています。",
+        "grammarPoint": {
+          "label": "形式主語を使う伝達の受け身",
+          "pattern": "It is believed that + 文",
+          "note": "誰かの判断・報告を受け身で伝え、that節を内容にします。話し手による事実の保証とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "impersonal-report",
+      "priority": "優先",
+      "question": {
+        "text": "It is believed that the species once inhabited this valley.",
+        "translation": "その種は、かつてこの谷に生息していたと考えられています。",
+        "grammarPoint": {
+          "label": "形式主語を使う伝達の受け身",
+          "pattern": "It is believed that + 文",
+          "note": "誰かの判断・報告を受け身で伝え、that節を内容にします。話し手による事実の保証とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "impersonal-report",
+      "priority": "優先",
+      "question": {
+        "text": "It is believed that poor drainage contributed to the damage.",
+        "translation": "排水の悪さが、その被害の一因になったと考えられています。",
+        "grammarPoint": {
+          "label": "形式主語を使う伝達の受け身",
+          "pattern": "It is believed that + 文",
+          "note": "誰かの判断・報告を受け身で伝え、that節を内容にします。話し手による事実の保証とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "personal-report-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The settlement is believed to have existed for centuries.",
+        "translation": "その集落は、何世紀にもわたって存在していたと考えられています。",
+        "grammarPoint": {
+          "label": "伝達の受け身と完了不定詞",
+          "pattern": "主語 + is believed to have + 過去分詞",
+          "note": "現在の見解と、それ以前の出来事を分けます。to have以下は主語について信じられている過去の内容です。"
+        }
+      }
+    },
+    {
+      "targetId": "personal-report-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The policy is believed to have reduced access to housing.",
+        "translation": "その政策は、住宅を利用できる機会を減らしたと考えられています。",
+        "grammarPoint": {
+          "label": "伝達の受け身と完了不定詞",
+          "pattern": "主語 + is believed to have + 過去分詞",
+          "note": "現在の見解と、それ以前の出来事を分けます。to have以下は主語について信じられている過去の内容です。"
+        }
+      }
+    },
+    {
+      "targetId": "personal-report-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The leak is believed to have originated in an old pipeline.",
+        "translation": "その漏出は、古い配管で発生したと考えられています。",
+        "grammarPoint": {
+          "label": "伝達の受け身と完了不定詞",
+          "pattern": "主語 + is believed to have + 過去分詞",
+          "note": "現在の見解と、それ以前の出来事を分けます。to have以下は主語について信じられている過去の内容です。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-verb",
+      "priority": "優先",
+      "question": {
+        "text": "The panel recommended that the agency publish the full report.",
+        "translation": "委員会は、その機関が報告書の全文を公表することを勧告しました。",
+        "grammarPoint": {
+          "label": "提案を表す節の原形",
+          "pattern": "recommend that + 主語 + 原形",
+          "note": "提案の内容をthat節に入れ、その節では三人称単数でも原形にする形を練習します。shouldを使う形も自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-verb",
+      "priority": "優先",
+      "question": {
+        "text": "The auditors recommended that the firm revise its procedures.",
+        "translation": "監査担当者たちは、その会社が手順を見直すことを勧告しました。",
+        "grammarPoint": {
+          "label": "提案を表す節の原形",
+          "pattern": "recommend that + 主語 + 原形",
+          "note": "提案の内容をthat節に入れ、その節では三人称単数でも原形にする形を練習します。shouldを使う形も自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-verb",
+      "priority": "優先",
+      "question": {
+        "text": "The adviser recommended that each applicant submit a summary.",
+        "translation": "助言者は、各応募者が要約を提出することを勧めました。",
+        "grammarPoint": {
+          "label": "提案を表す節の原形",
+          "pattern": "recommend that + 主語 + 原形",
+          "note": "提案の内容をthat節に入れ、その節では三人称単数でも原形にする形を練習します。shouldを使う形も自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-adjective",
+      "priority": "優先",
+      "question": {
+        "text": "It is essential that every participant be fully informed.",
+        "translation": "すべての参加者が十分な説明を受けていることが不可欠です。",
+        "grammarPoint": {
+          "label": "必要性を表す節の原形",
+          "pattern": "It is essential that + 主語 + 原形",
+          "note": "必要だと判断する内容を節で示します。この型のbeはis/areにせず原形で使います。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-adjective",
+      "priority": "優先",
+      "question": {
+        "text": "It is essential that the evidence be preserved for review.",
+        "translation": "再検証のために証拠を保全しておくことが不可欠です。",
+        "grammarPoint": {
+          "label": "必要性を表す節の原形",
+          "pattern": "It is essential that + 主語 + 原形",
+          "note": "必要だと判断する内容を節で示します。この型のbeはis/areにせず原形で使います。"
+        }
+      }
+    },
+    {
+      "targetId": "mandative-adjective",
+      "priority": "優先",
+      "question": {
+        "text": "It is essential that each region have access to clean water.",
+        "translation": "各地域できれいな水を利用できることが不可欠です。",
+        "grammarPoint": {
+          "label": "必要性を表す節の原形",
+          "pattern": "It is essential that + 主語 + 原形",
+          "note": "必要だと判断する内容を節で示します。この型のbeはis/areにせず原形で使います。"
+        }
+      }
+    },
+    {
+      "targetId": "relative-object",
+      "priority": "優先",
+      "question": {
+        "text": "The evidence that the team collected contradicted the claim.",
+        "translation": "そのチームが集めた証拠は、その主張と矛盾していました。",
+        "grammarPoint": {
+          "label": "目的格の関係代名詞",
+          "pattern": "名詞 + that + 主語 + 動詞",
+          "note": "関係節の中に目的語が欠けており、その内容が前の名詞です。主格の関係詞との違いを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "relative-object",
+      "priority": "優先",
+      "question": {
+        "text": "The restrictions that the council imposed remain controversial.",
+        "translation": "議会が課した制限は、今も議論を呼んでいます。",
+        "grammarPoint": {
+          "label": "目的格の関係代名詞",
+          "pattern": "名詞 + that + 主語 + 動詞",
+          "note": "関係節の中に目的語が欠けており、その内容が前の名詞です。主格の関係詞との違いを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "relative-object",
+      "priority": "優先",
+      "question": {
+        "text": "The resources that the project requires are not yet available.",
+        "translation": "その事業が必要とする資源は、まだ利用できません。",
+        "grammarPoint": {
+          "label": "目的格の関係代名詞",
+          "pattern": "名詞 + that + 主語 + 動詞",
+          "note": "関係節の中に目的語が欠けており、その内容が前の名詞です。主格の関係詞との違いを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "nonrestrictive",
+      "priority": "優先",
+      "question": {
+        "text": "The new database, which is freely accessible, needs updating.",
+        "translation": "その新しいデータベースは更新が必要です。なお、無料で利用できます。",
+        "grammarPoint": {
+          "label": "名詞への非制限の補足",
+          "pattern": "主語の名詞, which + 補足, 主節の続き",
+          "note": "すでに特定された対象にコンマで補足を挟みます。対象を絞り込む関係節とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "nonrestrictive",
+      "priority": "優先",
+      "question": {
+        "text": "The coastal road, which floods frequently, will be rebuilt.",
+        "translation": "その海岸沿いの道路は再整備されます。なお、頻繁に浸水します。",
+        "grammarPoint": {
+          "label": "名詞への非制限の補足",
+          "pattern": "主語の名詞, which + 補足, 主節の続き",
+          "note": "すでに特定された対象にコンマで補足を挟みます。対象を絞り込む関係節とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "nonrestrictive",
+      "priority": "優先",
+      "question": {
+        "text": "The revised policy, which takes effect in May, has critics.",
+        "translation": "その改訂された政策には批判者がいます。なお、5月に施行されます。",
+        "grammarPoint": {
+          "label": "名詞への非制限の補足",
+          "pattern": "主語の名詞, which + 補足, 主節の続き",
+          "note": "すでに特定された対象にコンマで補足を挟みます。対象を絞り込む関係節とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "sentential-which",
+      "priority": "優先",
+      "question": {
+        "text": "The agency withheld the results, which angered local residents.",
+        "translation": "その機関は結果を公表しませんでした。そのことが地元の住民を怒らせました。",
+        "grammarPoint": {
+          "label": "前の内容全体を受ける関係詞",
+          "pattern": "主節, which + 動詞 ...",
+          "note": "whichが直前の名詞だけでなく、前の節全体が述べる出来事を受けます。単数の出来事として扱います。"
+        }
+      }
+    },
+    {
+      "targetId": "sentential-which",
+      "priority": "優先",
+      "question": {
+        "text": "The team shared its methods, which improved public confidence.",
+        "translation": "そのチームは方法を公開しました。そのことが人々の信頼を高めました。",
+        "grammarPoint": {
+          "label": "前の内容全体を受ける関係詞",
+          "pattern": "主節, which + 動詞 ...",
+          "note": "whichが直前の名詞だけでなく、前の節全体が述べる出来事を受けます。単数の出来事として扱います。"
+        }
+      }
+    },
+    {
+      "targetId": "sentential-which",
+      "priority": "優先",
+      "question": {
+        "text": "The cost doubled in a year, which forced a review of the plan.",
+        "translation": "費用は1年で2倍になりました。そのため、計画の再検討を余儀なくされました。",
+        "grammarPoint": {
+          "label": "前の内容全体を受ける関係詞",
+          "pattern": "主節, which + 動詞 ...",
+          "note": "whichが直前の名詞だけでなく、前の節全体が述べる出来事を受けます。単数の出来事として扱います。"
+        }
+      }
+    },
+    {
+      "targetId": "preposition-relative",
+      "priority": "優先",
+      "question": {
+        "text": "The standards against which we assess safety are changing.",
+        "translation": "私たちが安全性を評価する際の基準は、変わりつつあります。",
+        "grammarPoint": {
+          "label": "前置詞を伴う関係詞",
+          "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+          "note": "節の中の動詞や意味に合う前置詞を、whichの前に置きます。名詞だけで前置詞を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "preposition-relative",
+      "priority": "優先",
+      "question": {
+        "text": "The conditions under which the test was conducted were unusual.",
+        "translation": "その試験が行われた条件は、通常とは異なっていました。",
+        "grammarPoint": {
+          "label": "前置詞を伴う関係詞",
+          "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+          "note": "節の中の動詞や意味に合う前置詞を、whichの前に置きます。名詞だけで前置詞を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "preposition-relative",
+      "priority": "優先",
+      "question": {
+        "text": "The evidence on which the judgment rests has been challenged.",
+        "translation": "その判断の根拠となる証拠には、異議が唱えられています。",
+        "grammarPoint": {
+          "label": "前置詞を伴う関係詞",
+          "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+          "note": "節の中の動詞や意味に合う前置詞を、whichの前に置きます。名詞だけで前置詞を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "perfect-participle",
+      "priority": "優先",
+      "question": {
+        "text": "Having examined the evidence, the panel rejected the claim.",
+        "translation": "証拠を調べた後で、委員会はその主張を退けました。",
+        "grammarPoint": {
+          "label": "完了形の分詞構文",
+          "pattern": "Having + 過去分詞, 主節",
+          "note": "主節より先に済んだ行為を分詞構文で示します。二つの行為の主体が同じかを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "perfect-participle",
+      "priority": "優先",
+      "question": {
+        "text": "Having secured funding, the team began the survey.",
+        "translation": "資金を確保した後で、そのチームは調査を始めました。",
+        "grammarPoint": {
+          "label": "完了形の分詞構文",
+          "pattern": "Having + 過去分詞, 主節",
+          "note": "主節より先に済んだ行為を分詞構文で示します。二つの行為の主体が同じかを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "perfect-participle",
+      "priority": "優先",
+      "question": {
+        "text": "Having consulted residents, the council revised the proposal.",
+        "translation": "住民の意見を聞いた後で、議会は提案を修正しました。",
+        "grammarPoint": {
+          "label": "完了形の分詞構文",
+          "pattern": "Having + 過去分詞, 主節",
+          "note": "主節より先に済んだ行為を分詞構文で示します。二つの行為の主体が同じかを確かめます。"
+        }
+      }
+    },
+    {
+      "targetId": "result-participle",
+      "priority": "優先",
+      "question": {
+        "text": "The bridge collapsed, cutting off access to several villages.",
+        "translation": "橋が崩落し、その結果、いくつかの村への道が断たれました。",
+        "grammarPoint": {
+          "label": "結果を付け足す分詞構文",
+          "pattern": "主節, 動詞-ing ...",
+          "note": "前の節で起きたことから生じる結果を、コンマの後ろの分詞で続けます。目的を表す不定詞と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "result-participle",
+      "priority": "優先",
+      "question": {
+        "text": "The rules changed abruptly, leaving many applicants confused.",
+        "translation": "規則が突然変わり、その結果、多くの応募者が混乱しました。",
+        "grammarPoint": {
+          "label": "結果を付け足す分詞構文",
+          "pattern": "主節, 動詞-ing ...",
+          "note": "前の節で起きたことから生じる結果を、コンマの後ろの分詞で続けます。目的を表す不定詞と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "result-participle",
+      "priority": "優先",
+      "question": {
+        "text": "The plant closed, forcing hundreds of workers to relocate.",
+        "translation": "工場が閉鎖し、その結果、何百人もの労働者が転居を強いられました。",
+        "grammarPoint": {
+          "label": "結果を付け足す分詞構文",
+          "pattern": "主節, 動詞-ing ...",
+          "note": "前の節で起きたことから生じる結果を、コンマの後ろの分詞で続けます。目的を表す不定詞と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-subject-whether",
+      "priority": "優先",
+      "question": {
+        "text": "It remains unclear whether the benefits will outweigh the costs.",
+        "translation": "恩恵が費用を上回るかどうかは、依然として不明です。",
+        "grammarPoint": {
+          "label": "形式主語と未確定の内容",
+          "pattern": "It remains unclear whether + 文",
+          "note": "itを仮の主語にし、何が不明なのかをwhether節で示します。条件のif節とは役割が違います。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-subject-whether",
+      "priority": "優先",
+      "question": {
+        "text": "It remains unclear whether the policy has improved access.",
+        "translation": "その政策が利用の機会を改善したかどうかは、依然として不明です。",
+        "grammarPoint": {
+          "label": "形式主語と未確定の内容",
+          "pattern": "It remains unclear whether + 文",
+          "note": "itを仮の主語にし、何が不明なのかをwhether節で示します。条件のif節とは役割が違います。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-subject-whether",
+      "priority": "優先",
+      "question": {
+        "text": "It remains unclear whether the damage can be reversed.",
+        "translation": "その被害を元に戻せるかどうかは、依然として不明です。",
+        "grammarPoint": {
+          "label": "形式主語と未確定の内容",
+          "pattern": "It remains unclear whether + 文",
+          "note": "itを仮の主語にし、何が不明なのかをwhether節で示します。条件のif節とは役割が違います。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-object",
+      "priority": "優先",
+      "question": {
+        "text": "We consider it vital to protect access to reliable information.",
+        "translation": "私たちは、信頼できる情報へのアクセスを守ることが極めて重要だと考えています。",
+        "grammarPoint": {
+          "label": "形式目的語と不定詞",
+          "pattern": "consider + it + 形容詞 + to不定詞",
+          "note": "目的語itを先に置き、何を重要だと考えるかを不定詞で後ろに示します。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-object",
+      "priority": "優先",
+      "question": {
+        "text": "They consider it vital to preserve the original records.",
+        "translation": "彼らは、元の記録を保存しておくことが極めて重要だと考えています。",
+        "grammarPoint": {
+          "label": "形式目的語と不定詞",
+          "pattern": "consider + it + 形容詞 + to不定詞",
+          "note": "目的語itを先に置き、何を重要だと考えるかを不定詞で後ろに示します。"
+        }
+      }
+    },
+    {
+      "targetId": "formal-object",
+      "priority": "優先",
+      "question": {
+        "text": "She considers it vital to consult those affected by the policy.",
+        "translation": "彼女は、その政策の影響を受ける人々に意見を聞くことが極めて重要だと考えています。",
+        "grammarPoint": {
+          "label": "形式目的語と不定詞",
+          "pattern": "consider + it + 形容詞 + to不定詞",
+          "note": "目的語itを先に置き、何を重要だと考えるかを不定詞で後ろに示します。"
+        }
+      }
+    },
+    {
+      "targetId": "not-until",
+      "priority": "発展",
+      "question": {
+        "text": "Not until June did the agency release the full results.",
+        "translation": "6月になって初めて、その機関は結果の全体を公表しました。",
+        "grammarPoint": {
+          "label": "時を否定する語句と倒置",
+          "pattern": "Not until + 時, 助動詞 + 主語 + 原形",
+          "note": "否定を含む時の語句を前に置き、主節を倒置します。過去の一般動詞にはdidを補います。"
+        }
+      }
+    },
+    {
+      "targetId": "not-until",
+      "priority": "発展",
+      "question": {
+        "text": "Not until the hearing did officials acknowledge the error.",
+        "translation": "公聴会になって初めて、当局者たちは誤りを認めました。",
+        "grammarPoint": {
+          "label": "時を否定する語句と倒置",
+          "pattern": "Not until + 時, 助動詞 + 主語 + 原形",
+          "note": "否定を含む時の語句を前に置き、主節を倒置します。過去の一般動詞にはdidを補います。"
+        }
+      }
+    },
+    {
+      "targetId": "not-until",
+      "priority": "発展",
+      "question": {
+        "text": "Not until the final review did the team discover the flaw.",
+        "translation": "最終審査になって初めて、そのチームは欠陥を発見しました。",
+        "grammarPoint": {
+          "label": "時を否定する語句と倒置",
+          "pattern": "Not until + 時, 助動詞 + 主語 + 原形",
+          "note": "否定を含む時の語句を前に置き、主節を倒置します。過去の一般動詞にはdidを補います。"
+        }
+      }
+    },
+    {
+      "targetId": "cleft",
+      "priority": "発展",
+      "question": {
+        "text": "It was public pressure that prompted the investigation.",
+        "translation": "その調査のきっかけとなったのは、世論の圧力でした。",
+        "grammarPoint": {
+          "label": "強調構文で焦点を示す",
+          "pattern": "It was + 焦点 + that + 残りの文",
+          "note": "強調する原因や対象をIt wasとthatの間に置きます。形式主語とは異なる構造です。"
+        }
+      }
+    },
+    {
+      "targetId": "cleft",
+      "priority": "発展",
+      "question": {
+        "text": "It was a lack of oversight that allowed the fraud to continue.",
+        "translation": "不正を続かせることになったのは、監督の欠如でした。",
+        "grammarPoint": {
+          "label": "強調構文で焦点を示す",
+          "pattern": "It was + 焦点 + that + 残りの文",
+          "note": "強調する原因や対象をIt wasとthatの間に置きます。形式主語とは異なる構造です。"
+        }
+      }
+    },
+    {
+      "targetId": "cleft",
+      "priority": "発展",
+      "question": {
+        "text": "It was the unexpected cost that forced the project to close.",
+        "translation": "その事業を終了に追い込んだのは、予期しない費用でした。",
+        "grammarPoint": {
+          "label": "強調構文で焦点を示す",
+          "pattern": "It was + 焦点 + that + 残りの文",
+          "note": "強調する原因や対象をIt wasとthatの間に置きます。形式主語とは異なる構造です。"
+        }
+      }
+    },
+    {
+      "targetId": "had-inversion",
+      "priority": "発展",
+      "question": {
+        "text": "Had the warnings been heeded, the damage would have been less.",
+        "translation": "もし警告が聞き入れられていたら、被害はもっと小さかったでしょう。",
+        "grammarPoint": {
+          "label": "過去の反実仮想と条件倒置",
+          "pattern": "Had + 主語 + 過去分詞, would have + 過去分詞",
+          "note": "実際とは違う過去をifなしで仮定します。hadを主語の前に置く条件節は、疑問文ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "had-inversion",
+      "priority": "発展",
+      "question": {
+        "text": "Had funding continued, the study would have been completed.",
+        "translation": "もし資金提供が続いていたら、その研究は完了していたでしょう。",
+        "grammarPoint": {
+          "label": "過去の反実仮想と条件倒置",
+          "pattern": "Had + 主語 + 過去分詞, would have + 過去分詞",
+          "note": "実際とは違う過去をifなしで仮定します。hadを主語の前に置く条件節は、疑問文ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "had-inversion",
+      "priority": "発展",
+      "question": {
+        "text": "Had the records been preserved, we would have found the cause.",
+        "translation": "もし記録が保存されていたら、私たちは原因を突き止めていたでしょう。",
+        "grammarPoint": {
+          "label": "過去の反実仮想と条件倒置",
+          "pattern": "Had + 主語 + 過去分詞, would have + 過去分詞",
+          "note": "実際とは違う過去をifなしで仮定します。hadを主語の前に置く条件節は、疑問文ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "concessive-as",
+      "priority": "発展",
+      "question": {
+        "text": "Limited as the funds were, the team completed the survey.",
+        "translation": "資金は限られていましたが、そのチームは調査を完了しました。",
+        "grammarPoint": {
+          "label": "形容詞を前に置く譲歩",
+          "pattern": "形容詞 + as + 主語 + be, 主節",
+          "note": "形容詞をasの前に出して、認める事実と予想に反する結果を結びます。理由のasとは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "concessive-as",
+      "priority": "発展",
+      "question": {
+        "text": "Useful as the model is, it cannot predict every outcome.",
+        "translation": "そのモデルは有用ですが、すべての結果を予測することはできません。",
+        "grammarPoint": {
+          "label": "形容詞を前に置く譲歩",
+          "pattern": "形容詞 + as + 主語 + be, 主節",
+          "note": "形容詞をasの前に出して、認める事実と予想に反する結果を結びます。理由のasとは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "concessive-as",
+      "priority": "発展",
+      "question": {
+        "text": "Severe as the damage was, essential services were restored.",
+        "translation": "被害は深刻でしたが、不可欠なサービスは復旧しました。",
+        "grammarPoint": {
+          "label": "形容詞を前に置く譲歩",
+          "pattern": "形容詞 + as + 主語 + be, 主節",
+          "note": "形容詞をasの前に出して、認める事実と予想に反する結果を結びます。理由のasとは区別します。"
+        }
+      }
+    }
+  ],
+  "Eiken1Part2": [
+    {
+      "targetId": "unreal-present",
+      "priority": "優先",
+      "question": {
+        "text": "If access were more equitable, the policy would gain support.",
+        "translation": "もし利用の機会がもっと公平なら、その政策は支持を得るでしょう。",
+        "grammarPoint": {
+          "label": "現在と異なる仮定",
+          "pattern": "If + 主語 + 過去形, would + 原形",
+          "note": "現在の事実から距離を置く条件と、そこから想像する結果を組み合わせます。"
+        }
+      }
+    },
+    {
+      "targetId": "unreal-present",
+      "priority": "優先",
+      "question": {
+        "text": "If the process were transparent, public trust would improve.",
+        "translation": "もし手続きが透明なら、人々の信頼は高まるでしょう。",
+        "grammarPoint": {
+          "label": "現在と異なる仮定",
+          "pattern": "If + 主語 + 過去形, would + 原形",
+          "note": "現在の事実から距離を置く条件と、そこから想像する結果を組み合わせます。"
+        }
+      }
+    },
+    {
+      "targetId": "unreal-present",
+      "priority": "優先",
+      "question": {
+        "text": "If reliable data were available, we would revise the estimate.",
+        "translation": "もし信頼できるデータがあれば、私たちは推定値を修正するでしょう。",
+        "grammarPoint": {
+          "label": "現在と異なる仮定",
+          "pattern": "If + 主語 + 過去形, would + 原形",
+          "note": "現在の事実から距離を置く条件と、そこから想像する結果を組み合わせます。"
+        }
+      }
+    },
+    {
+      "targetId": "unreal-past",
+      "priority": "優先",
+      "question": {
+        "text": "If the rules had been enforced, the losses would have been lower.",
+        "translation": "もし規則が徹底されていたら、損失はもっと少なかったでしょう。",
+        "grammarPoint": {
+          "label": "過去と異なる仮定",
+          "pattern": "If + had + 過去分詞, would have + 過去分詞",
+          "note": "過去の事実とは違う条件を仮定し、実際とは違う過去の結果を想像します。"
+        }
+      }
+    },
+    {
+      "targetId": "unreal-past",
+      "priority": "優先",
+      "question": {
+        "text": "If the council had consulted residents, it would have avoided delays.",
+        "translation": "もし議会が住民の意見を聞いていたら、遅れを避けられたでしょう。",
+        "grammarPoint": {
+          "label": "過去と異なる仮定",
+          "pattern": "If + had + 過去分詞, would have + 過去分詞",
+          "note": "過去の事実とは違う条件を仮定し、実際とは違う過去の結果を想像します。"
+        }
+      }
+    },
+    {
+      "targetId": "unreal-past",
+      "priority": "優先",
+      "question": {
+        "text": "If the evidence had been shared, the review would have been fairer.",
+        "translation": "もし証拠が共有されていたら、審査はもっと公平だったでしょう。",
+        "grammarPoint": {
+          "label": "過去と異なる仮定",
+          "pattern": "If + had + 過去分詞, would have + 過去分詞",
+          "note": "過去の事実とは違う条件を仮定し、実際とは違う過去の結果を想像します。"
+        }
+      }
+    },
+    {
+      "targetId": "mixed-conditional",
+      "priority": "優先",
+      "question": {
+        "text": "If we had invested earlier, the network would be safer now.",
+        "translation": "もしもっと早く投資していたら、そのネットワークは今もっと安全でしょう。",
+        "grammarPoint": {
+          "label": "過去の仮定と現在の結果",
+          "pattern": "If + had + 過去分詞, would + 原形 + now",
+          "note": "条件は過去、結果は現在という二つの時点を分けます。結果まで過去完了にしません。"
+        }
+      }
+    },
+    {
+      "targetId": "mixed-conditional",
+      "priority": "優先",
+      "question": {
+        "text": "If she had accepted the post, she would be leading the inquiry now.",
+        "translation": "もし彼女がその職を引き受けていたら、今その調査を率いているでしょう。",
+        "grammarPoint": {
+          "label": "過去の仮定と現在の結果",
+          "pattern": "If + had + 過去分詞, would + 原形 + now",
+          "note": "条件は過去、結果は現在という二つの時点を分けます。結果まで過去完了にしません。"
+        }
+      }
+    },
+    {
+      "targetId": "mixed-conditional",
+      "priority": "優先",
+      "question": {
+        "text": "If the plant had closed, the town would have fewer jobs now.",
+        "translation": "もしその工場が閉鎖していたら、その町では今、雇用がもっと少ないでしょう。",
+        "grammarPoint": {
+          "label": "過去の仮定と現在の結果",
+          "pattern": "If + had + 過去分詞, would + 原形 + now",
+          "note": "条件は過去、結果は現在という二つの時点を分けます。結果まで過去完了にしません。"
+        }
+      }
+    },
+    {
+      "targetId": "provided",
+      "priority": "優先",
+      "question": {
+        "text": "The scheme can succeed provided that oversight remains independent.",
+        "translation": "監督の独立性が保たれるという条件なら、その制度は成功できます。",
+        "grammarPoint": {
+          "label": "満たす必要のある条件",
+          "pattern": "主節 + provided that + 文",
+          "note": "条件が満たされる場合に限るという意味を、主節の後ろの節で示します。providing thatなども自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "provided",
+      "priority": "優先",
+      "question": {
+        "text": "We will share the data provided that privacy is protected.",
+        "translation": "プライバシーが守られるという条件なら、私たちはデータを共有します。",
+        "grammarPoint": {
+          "label": "満たす必要のある条件",
+          "pattern": "主節 + provided that + 文",
+          "note": "条件が満たされる場合に限るという意味を、主節の後ろの節で示します。providing thatなども自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "provided",
+      "priority": "優先",
+      "question": {
+        "text": "The trial may proceed provided that every participant consents.",
+        "translation": "すべての参加者が同意するという条件なら、試験を進めても構いません。",
+        "grammarPoint": {
+          "label": "満たす必要のある条件",
+          "pattern": "主節 + provided that + 文",
+          "note": "条件が満たされる場合に限るという意味を、主節の後ろの節で示します。providing thatなども自然です。"
+        }
+      }
+    },
+    {
+      "targetId": "even-if",
+      "priority": "優先",
+      "question": {
+        "text": "Even if demand recovers, some firms will need further support.",
+        "translation": "たとえ需要が回復しても、一部の企業には追加の支援が必要になるでしょう。",
+        "grammarPoint": {
+          "label": "仮の条件を認める譲歩",
+          "pattern": "Even if + 文, 主節",
+          "note": "その条件が起きても主節の判断は変わらないと述べます。事実を認めるeven thoughとの役割を比べます。"
+        }
+      }
+    },
+    {
+      "targetId": "even-if",
+      "priority": "優先",
+      "question": {
+        "text": "Even if the evidence is incomplete, we must assess the risks.",
+        "translation": "たとえ証拠が不完全でも、私たちは危険性を評価しなければなりません。",
+        "grammarPoint": {
+          "label": "仮の条件を認める譲歩",
+          "pattern": "Even if + 文, 主節",
+          "note": "その条件が起きても主節の判断は変わらないと述べます。事実を認めるeven thoughとの役割を比べます。"
+        }
+      }
+    },
+    {
+      "targetId": "even-if",
+      "priority": "優先",
+      "question": {
+        "text": "Even if costs fall, equal access will remain a challenge.",
+        "translation": "たとえ費用が下がっても、公平な利用機会の確保は課題として残るでしょう。",
+        "grammarPoint": {
+          "label": "仮の条件を認める譲歩",
+          "pattern": "Even if + 文, 主節",
+          "note": "その条件が起きても主節の判断は変わらないと述べます。事実を認めるeven thoughとの役割を比べます。"
+        }
+      }
+    },
+    {
+      "targetId": "whether-or",
+      "priority": "優先",
+      "question": {
+        "text": "Whether the policy succeeds or not, its effects must be monitored.",
+        "translation": "その政策が成功してもしなくても、影響を監視しなければなりません。",
+        "grammarPoint": {
+          "label": "どちらの場合でもという譲歩",
+          "pattern": "Whether + 文 + or not, 主節",
+          "note": "肯定・否定のどちらでも主節が成り立つことを述べます。疑問の内容を動詞の目的語にする用法とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "whether-or",
+      "priority": "優先",
+      "question": {
+        "text": "Whether funding increases or not, essential services must continue.",
+        "translation": "資金が増えても増えなくても、不可欠なサービスは続けなければなりません。",
+        "grammarPoint": {
+          "label": "どちらの場合でもという譲歩",
+          "pattern": "Whether + 文 + or not, 主節",
+          "note": "肯定・否定のどちらでも主節が成り立つことを述べます。疑問の内容を動詞の目的語にする用法とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "whether-or",
+      "priority": "優先",
+      "question": {
+        "text": "Whether demand rises or not, safety standards must be maintained.",
+        "translation": "需要が増えても増えなくても、安全基準は維持しなければなりません。",
+        "grammarPoint": {
+          "label": "どちらの場合でもという譲歩",
+          "pattern": "Whether + 文 + or not, 主節",
+          "note": "肯定・否定のどちらでも主節が成り立つことを述べます。疑問の内容を動詞の目的語にする用法とは区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "however-degree",
+      "priority": "優先",
+      "question": {
+        "text": "However convincing the claim is, it requires independent scrutiny.",
+        "translation": "その主張がどれほど説得力を持っていても、独立した検証が必要です。",
+        "grammarPoint": {
+          "label": "程度にかかわらない譲歩",
+          "pattern": "However + 形容詞 + 主語 + be, 主節",
+          "note": "どれほどその性質が強くても、という意味でhoweverの後ろに形容詞を置きます。単なる逆接のhoweverと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "however-degree",
+      "priority": "優先",
+      "question": {
+        "text": "However urgent the need is, consent cannot be ignored.",
+        "translation": "その必要性がどれほど差し迫っていても、同意を無視することはできません。",
+        "grammarPoint": {
+          "label": "程度にかかわらない譲歩",
+          "pattern": "However + 形容詞 + 主語 + be, 主節",
+          "note": "どれほどその性質が強くても、という意味でhoweverの後ろに形容詞を置きます。単なる逆接のhoweverと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "however-degree",
+      "priority": "優先",
+      "question": {
+        "text": "However severe the crisis is, basic rights must be protected.",
+        "translation": "危機がどれほど深刻であっても、基本的な権利は守らなければなりません。",
+        "grammarPoint": {
+          "label": "程度にかかわらない譲歩",
+          "pattern": "However + 形容詞 + 主語 + be, 主節",
+          "note": "どれほどその性質が強くても、という意味でhoweverの後ろに形容詞を置きます。単なる逆接のhoweverと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "regardless-whether",
+      "priority": "優先",
+      "question": {
+        "text": "Regardless of whether it is profitable, the service is essential.",
+        "translation": "利益が出るかどうかにかかわらず、そのサービスは不可欠です。",
+        "grammarPoint": {
+          "label": "二つの可能性に左右されない",
+          "pattern": "Regardless of whether + 文, 主節",
+          "note": "前置詞ofの後ろに、どちらの可能性かというwhether節を置きます。名詞の後ろを説明する関係詞ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "regardless-whether",
+      "priority": "優先",
+      "question": {
+        "text": "Regardless of whether costs rise, the contract remains binding.",
+        "translation": "費用が増えるかどうかにかかわらず、その契約の拘束力は続きます。",
+        "grammarPoint": {
+          "label": "二つの可能性に左右されない",
+          "pattern": "Regardless of whether + 文, 主節",
+          "note": "前置詞ofの後ろに、どちらの可能性かというwhether節を置きます。名詞の後ろを説明する関係詞ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "regardless-whether",
+      "priority": "優先",
+      "question": {
+        "text": "Regardless of whether they agree, we must record their objections.",
+        "translation": "彼らが同意するかどうかにかかわらず、私たちは異議を記録しなければなりません。",
+        "grammarPoint": {
+          "label": "二つの可能性に左右されない",
+          "pattern": "Regardless of whether + 文, 主節",
+          "note": "前置詞ofの後ろに、どちらの可能性かというwhether節を置きます。名詞の後ろを説明する関係詞ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "partial-negative",
+      "priority": "優先",
+      "question": {
+        "text": "Not all policies that reduce costs improve public welfare.",
+        "translation": "費用を減らす政策が、すべて人々の福祉を向上させるわけではありません。",
+        "grammarPoint": {
+          "label": "すべてではないという否定",
+          "pattern": "Not all + 複数名詞 + 動詞",
+          "note": "全体について成り立つことを否定します。一つも成り立たないという全面否定と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "partial-negative",
+      "priority": "優先",
+      "question": {
+        "text": "Not all changes that increase efficiency benefit employees.",
+        "translation": "効率を高める変化が、すべて従業員の利益になるわけではありません。",
+        "grammarPoint": {
+          "label": "すべてではないという否定",
+          "pattern": "Not all + 複数名詞 + 動詞",
+          "note": "全体について成り立つことを否定します。一つも成り立たないという全面否定と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "partial-negative",
+      "priority": "優先",
+      "question": {
+        "text": "Not all claims that attract attention are supported by evidence.",
+        "translation": "注目を集める主張が、すべて証拠に裏付けられているわけではありません。",
+        "grammarPoint": {
+          "label": "すべてではないという否定",
+          "pattern": "Not all + 複数名詞 + 動詞",
+          "note": "全体について成り立つことを否定します。一つも成り立たないという全面否定と区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "not-necessarily",
+      "priority": "優先",
+      "question": {
+        "text": "Economic growth does not necessarily reduce inequality.",
+        "translation": "経済成長が、必ずしも格差を縮めるとは限りません。",
+        "grammarPoint": {
+          "label": "必ずそうなるとは限らない",
+          "pattern": "主語 + do/does not necessarily + 原形",
+          "note": "必然的な結び付きの否定で、結果そのものをすべて否定するのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "not-necessarily",
+      "priority": "優先",
+      "question": {
+        "text": "Greater transparency does not necessarily eliminate bias.",
+        "translation": "透明性が高まれば、必ず偏りがなくなるというわけではありません。",
+        "grammarPoint": {
+          "label": "必ずそうなるとは限らない",
+          "pattern": "主語 + do/does not necessarily + 原形",
+          "note": "必然的な結び付きの否定で、結果そのものをすべて否定するのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "not-necessarily",
+      "priority": "優先",
+      "question": {
+        "text": "Higher expenditure does not necessarily improve access.",
+        "translation": "支出が増えれば、必ず利用の機会が改善するというわけではありません。",
+        "grammarPoint": {
+          "label": "必ずそうなるとは限らない",
+          "pattern": "主語 + do/does not necessarily + 原形",
+          "note": "必然的な結び付きの否定で、結果そのものをすべて否定するのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "neither-nor",
+      "priority": "優先",
+      "question": {
+        "text": "Neither the report nor the testimony provides clear evidence.",
+        "translation": "その報告書も証言も、明確な証拠を示していません。",
+        "grammarPoint": {
+          "label": "二つの対象の両方を否定する",
+          "pattern": "Neither + A + nor + B + 動詞",
+          "note": "二つの主語を結び、どちらも当てはまらないと述べます。今回は両方とも単数名詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "neither-nor",
+      "priority": "優先",
+      "question": {
+        "text": "Neither the agency nor the contractor accepts responsibility.",
+        "translation": "その機関も請負業者も、責任を認めていません。",
+        "grammarPoint": {
+          "label": "二つの対象の両方を否定する",
+          "pattern": "Neither + A + nor + B + 動詞",
+          "note": "二つの主語を結び、どちらも当てはまらないと述べます。今回は両方とも単数名詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "neither-nor",
+      "priority": "優先",
+      "question": {
+        "text": "Neither the model nor the estimate accounts for local variation.",
+        "translation": "そのモデルも推定も、地域ごとの違いを考慮していません。",
+        "grammarPoint": {
+          "label": "二つの対象の両方を否定する",
+          "pattern": "Neither + A + nor + B + 動詞",
+          "note": "二つの主語を結び、どちらも当てはまらないと述べます。今回は両方とも単数名詞です。"
+        }
+      }
+    },
+    {
+      "targetId": "appositive-that",
+      "priority": "優先",
+      "question": {
+        "text": "The fact that the figures differ does not prove dishonesty.",
+        "translation": "数値が異なるという事実は、不正直であることの証明にはなりません。",
+        "grammarPoint": {
+          "label": "名詞の内容を示す節",
+          "pattern": "The fact that + 完全文 + 主節",
+          "note": "that節に文の要素の欠けがなく、前の名詞factの中身を表します。関係代名詞のthatと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "appositive-that",
+      "priority": "優先",
+      "question": {
+        "text": "The fact that costs fell does not justify every decision.",
+        "translation": "費用が下がったという事実は、すべての決定を正当化するものではありません。",
+        "grammarPoint": {
+          "label": "名詞の内容を示す節",
+          "pattern": "The fact that + 完全文 + 主節",
+          "note": "that節に文の要素の欠けがなく、前の名詞factの中身を表します。関係代名詞のthatと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "appositive-that",
+      "priority": "優先",
+      "question": {
+        "text": "The fact that the trial failed does not invalidate the theory.",
+        "translation": "試験が失敗したという事実は、その理論を無効にするものではありません。",
+        "grammarPoint": {
+          "label": "名詞の内容を示す節",
+          "pattern": "The fact that + 完全文 + 主節",
+          "note": "that節に文の要素の欠けがなく、前の名詞factの中身を表します。関係代名詞のthatと区別します。"
+        }
+      }
+    },
+    {
+      "targetId": "need-not-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "The agency need not have withheld the entire report.",
+        "translation": "その機関は報告書の全文を非公開にする必要はなかったのに、そうしてしまいました。",
+        "grammarPoint": {
+          "label": "実際にしたが不要だった行為",
+          "pattern": "need not have + 過去分詞",
+          "note": "する必要がなかったのに実際にはした、という過去の行為を振り返ります。did not need toだけでは実行の有無は決まりません。"
+        }
+      }
+    },
+    {
+      "targetId": "need-not-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "They need not have repeated the survey at such expense.",
+        "translation": "彼らはそこまで費用をかけて再調査する必要はなかったのに、そうしてしまいました。",
+        "grammarPoint": {
+          "label": "実際にしたが不要だった行為",
+          "pattern": "need not have + 過去分詞",
+          "note": "する必要がなかったのに実際にはした、という過去の行為を振り返ります。did not need toだけでは実行の有無は決まりません。"
+        }
+      }
+    },
+    {
+      "targetId": "need-not-perfect",
+      "priority": "優先",
+      "question": {
+        "text": "We need not have postponed the review for so long.",
+        "translation": "私たちはそんなに長く再検討を延期する必要はなかったのに、そうしてしまいました。",
+        "grammarPoint": {
+          "label": "実際にしたが不要だった行為",
+          "pattern": "need not have + 過去分詞",
+          "note": "する必要がなかったのに実際にはした、という過去の行為を振り返ります。did not need toだけでは実行の有無は決まりません。"
+        }
+      }
+    },
+    {
+      "targetId": "multiple-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The revised process is twice as efficient as the original one.",
+        "translation": "改訂後の工程の効率は、元の工程の2倍です。",
+        "grammarPoint": {
+          "label": "倍数を使う比較",
+          "pattern": "倍数 + as + 原級 + as + 比較相手",
+          "note": "形容詞や副詞の程度を倍数で比べます。比較級や数字の大小だけで文の形を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "multiple-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The new cells last three times as long as the earlier ones.",
+        "translation": "新しい電池は、以前のものの3倍長持ちします。",
+        "grammarPoint": {
+          "label": "倍数を使う比較",
+          "pattern": "倍数 + as + 原級 + as + 比較相手",
+          "note": "形容詞や副詞の程度を倍数で比べます。比較級や数字の大小だけで文の形を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "multiple-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The current network is twice as extensive as the old one.",
+        "translation": "現在のネットワークの広がりは、古いものの2倍です。",
+        "grammarPoint": {
+          "label": "倍数を使う比較",
+          "pattern": "倍数 + as + 原級 + as + 比較相手",
+          "note": "形容詞や副詞の程度を倍数で比べます。比較級や数字の大小だけで文の形を決めません。"
+        }
+      }
+    },
+    {
+      "targetId": "correlative-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The longer the delay lasts, the harder recovery becomes.",
+        "translation": "遅れが長引くほど、回復は難しくなります。",
+        "grammarPoint": {
+          "label": "二つの変化の対応",
+          "pattern": "The + 比較級 + 文, the + 比較級 + 文",
+          "note": "〜すればするほど、という対応を示します。この構文だけで統計的な因果関係が証明されるわけではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "correlative-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The more widely data is shared, the easier verification becomes.",
+        "translation": "データが広く共有されるほど、検証は容易になります。",
+        "grammarPoint": {
+          "label": "二つの変化の対応",
+          "pattern": "The + 比較級 + 文, the + 比較級 + 文",
+          "note": "〜すればするほど、という対応を示します。この構文だけで統計的な因果関係が証明されるわけではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "correlative-comparison",
+      "priority": "優先",
+      "question": {
+        "text": "The less reliable the source is, the more caution we need.",
+        "translation": "情報源の信頼性が低いほど、私たちはより慎重になる必要があります。",
+        "grammarPoint": {
+          "label": "二つの変化の対応",
+          "pattern": "The + 比較級 + 文, the + 比較級 + 文",
+          "note": "〜すればするほど、という対応を示します。この構文だけで統計的な因果関係が証明されるわけではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "rather-than-parallel",
+      "priority": "優先",
+      "question": {
+        "text": "The council chose to revise the plan rather than abandon it.",
+        "translation": "議会は、計画を断念するのではなく修正することを選びました。",
+        "grammarPoint": {
+          "label": "行動の選択と並列",
+          "pattern": "主語 + chose to + 原形 + rather than + 原形",
+          "note": "二つの行動を対比し、実際に選んだ行動を先に述べます。rather thanの後ろの原形を対応させます。"
+        }
+      }
+    },
+    {
+      "targetId": "rather-than-parallel",
+      "priority": "優先",
+      "question": {
+        "text": "The firm chose to retrain staff rather than dismiss them.",
+        "translation": "その会社は、職員を解雇するのではなく再訓練することを選びました。",
+        "grammarPoint": {
+          "label": "行動の選択と並列",
+          "pattern": "主語 + chose to + 原形 + rather than + 原形",
+          "note": "二つの行動を対比し、実際に選んだ行動を先に述べます。rather thanの後ろの原形を対応させます。"
+        }
+      }
+    },
+    {
+      "targetId": "rather-than-parallel",
+      "priority": "優先",
+      "question": {
+        "text": "The team chose to disclose the error rather than conceal it.",
+        "translation": "そのチームは、誤りを隠すのではなく開示することを選びました。",
+        "grammarPoint": {
+          "label": "行動の選択と並列",
+          "pattern": "主語 + chose to + 原形 + rather than + 原形",
+          "note": "二つの行動を対比し、実際に選んだ行動を先に述べます。rather thanの後ろの原形を対応させます。"
+        }
+      }
+    },
+    {
+      "targetId": "no-sooner",
+      "priority": "発展",
+      "question": {
+        "text": "No sooner had the rules changed than new problems emerged.",
+        "translation": "規則が変わるやいなや、新しい問題が起きました。",
+        "grammarPoint": {
+          "label": "直後の出来事と倒置",
+          "pattern": "No sooner had + 主語 + 過去分詞 + than + 文",
+          "note": "先の出来事の直後に次が起こることを述べます。前半の過去完了と倒置、後半を導くthanを確認します。"
+        }
+      }
+    },
+    {
+      "targetId": "no-sooner",
+      "priority": "発展",
+      "question": {
+        "text": "No sooner had the inquiry begun than key records disappeared.",
+        "translation": "調査が始まるやいなや、重要な記録がなくなりました。",
+        "grammarPoint": {
+          "label": "直後の出来事と倒置",
+          "pattern": "No sooner had + 主語 + 過去分詞 + than + 文",
+          "note": "先の出来事の直後に次が起こることを述べます。前半の過去完了と倒置、後半を導くthanを確認します。"
+        }
+      }
+    },
+    {
+      "targetId": "no-sooner",
+      "priority": "発展",
+      "question": {
+        "text": "No sooner had funding resumed than the project faced delays.",
+        "translation": "資金提供が再開するやいなや、その事業に遅れが生じました。",
+        "grammarPoint": {
+          "label": "直後の出来事と倒置",
+          "pattern": "No sooner had + 主語 + 過去分詞 + than + 文",
+          "note": "先の出来事の直後に次が起こることを述べます。前半の過去完了と倒置、後半を導くthanを確認します。"
+        }
+      }
+    },
+    {
+      "targetId": "negative-fronting",
+      "priority": "発展",
+      "question": {
+        "text": "Under no circumstances should private records be made public.",
+        "translation": "どのような事情があっても、私的な記録を公表すべきではありません。",
+        "grammarPoint": {
+          "label": "否定の語句を前に出す強調",
+          "pattern": "Under no circumstances + 助動詞 + 主語 + 原形",
+          "note": "強い否定の条件を前に出し、助動詞を主語の前に置きます。疑問文として尋ねているのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "negative-fronting",
+      "priority": "発展",
+      "question": {
+        "text": "Under no circumstances should consent be taken for granted.",
+        "translation": "どのような事情があっても、同意があると決めつけるべきではありません。",
+        "grammarPoint": {
+          "label": "否定の語句を前に出す強調",
+          "pattern": "Under no circumstances + 助動詞 + 主語 + 原形",
+          "note": "強い否定の条件を前に出し、助動詞を主語の前に置きます。疑問文として尋ねているのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "negative-fronting",
+      "priority": "発展",
+      "question": {
+        "text": "Under no circumstances should the evidence be destroyed.",
+        "translation": "どのような事情があっても、証拠を破棄すべきではありません。",
+        "grammarPoint": {
+          "label": "否定の語句を前に出す強調",
+          "pattern": "Under no circumstances + 助動詞 + 主語 + 原形",
+          "note": "強い否定の条件を前に出し、助動詞を主語の前に置きます。疑問文として尋ねているのではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "should-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Should further evidence emerge, the inquiry will be reopened.",
+        "translation": "万一さらに証拠が出てきた場合には、その調査は再開されます。",
+        "grammarPoint": {
+          "label": "万一の条件を倒置で示す",
+          "pattern": "Should + 主語 + 原形, 主節",
+          "note": "万一起きた場合を控えめに仮定します。義務のshouldとは異なり、条件節のifを省いた形です。"
+        }
+      }
+    },
+    {
+      "targetId": "should-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Should demand exceed supply, priority will be given to hospitals.",
+        "translation": "万一需要が供給を上回った場合には、病院が優先されます。",
+        "grammarPoint": {
+          "label": "万一の条件を倒置で示す",
+          "pattern": "Should + 主語 + 原形, 主節",
+          "note": "万一起きた場合を控えめに仮定します。義務のshouldとは異なり、条件節のifを省いた形です。"
+        }
+      }
+    },
+    {
+      "targetId": "should-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Should the talks fail, an independent mediator will intervene.",
+        "translation": "万一協議が不調に終わった場合には、独立した仲介者が介入します。",
+        "grammarPoint": {
+          "label": "万一の条件を倒置で示す",
+          "pattern": "Should + 主語 + 原形, 主節",
+          "note": "万一起きた場合を控えめに仮定します。義務のshouldとは異なり、条件節のifを省いた形です。"
+        }
+      }
+    },
+    {
+      "targetId": "were-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Were the scheme to fail, public confidence would suffer.",
+        "translation": "仮にその制度が失敗すれば、人々の信頼は損なわれるでしょう。",
+        "grammarPoint": {
+          "label": "実現を距離を置いて仮定する",
+          "pattern": "Were + 主語 + to + 原形, would + 原形",
+          "note": "現実から距離を置く未来の仮定を、were toと条件倒置で表します。不可能だと断定する形ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "were-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Were funding to cease, several research teams would disband.",
+        "translation": "仮に資金提供が途絶えれば、いくつかの研究チームは解散するでしょう。",
+        "grammarPoint": {
+          "label": "実現を距離を置いて仮定する",
+          "pattern": "Were + 主語 + to + 原形, would + 原形",
+          "note": "現実から距離を置く未来の仮定を、were toと条件倒置で表します。不可能だと断定する形ではありません。"
+        }
+      }
+    },
+    {
+      "targetId": "were-condition",
+      "priority": "発展",
+      "question": {
+        "text": "Were the treaty to lapse, the region would face greater uncertainty.",
+        "translation": "仮に条約が失効すれば、その地域はさらに不確実な状況に直面するでしょう。",
+        "grammarPoint": {
+          "label": "実現を距離を置いて仮定する",
+          "pattern": "Were + 主語 + to + 原形, would + 原形",
+          "note": "現実から距離を置く未来の仮定を、were toと条件倒置で表します。不可能だと断定する形ではありません。"
+        }
+      }
+    }
+  ]
+}

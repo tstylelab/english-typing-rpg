@@ -1,0 +1,802 @@
+[
+  {
+    "id": "exp-a-perfect-passive",
+    "section": 3,
+    "title": "現在完了の受け身",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "現在完了の受け身",
+    "pattern": "has/have been + 過去分詞",
+    "tip": "過去の行為の結果が今につながることを、行為を受ける対象から述べます。",
+    "more": "have been revisedは受け身の現在完了です。過去形were revisedとの意味の重なりはありますが、ここでは現在につながる処理の結果を確かめます。",
+    "examples": [
+      [
+        "The safety rules have been revised in response to complaints.",
+        "苦情を受けて、安全規則は改訂されています。"
+      ],
+      [
+        "Several errors have been identified in the original report.",
+        "元の報告書で、いくつかの誤りが見つかっています。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-progressive-passive",
+    "section": 3,
+    "title": "進行形の受け身",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "進行形の受け身",
+    "pattern": "is/are being + 過去分詞",
+    "tip": "対象が現在処理されている最中だと伝えます。単に処理済みという結果と区別します。",
+    "more": "is being testedは現在進んでいる受け身です。has been testedなら試験済みの結果に焦点があり、同じ時点の説明とは限りません。",
+    "examples": [
+      [
+        "The new system is being tested under realistic conditions.",
+        "新しいシステムは、実際に近い条件下で試験されているところです。"
+      ],
+      [
+        "The remaining samples are being examined for contamination.",
+        "残りの試料は、汚染がないか調べられているところです。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-modal-perfect",
+    "section": 3,
+    "title": "過去への推量",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "過去への推量",
+    "pattern": "may have + 過去分詞",
+    "tip": "過去に何かをした可能性を述べます。mayの後ろはhave、その後ろが過去分詞です。",
+    "more": "may haveとmight haveはどちらも自然な可能性の表現です。この文脈で確率を固定の数字にして区別する必要はありません。",
+    "examples": [
+      [
+        "The researchers may have overlooked an important variable.",
+        "研究者たちは、重要な変数を見落としていたのかもしれません。"
+      ],
+      [
+        "The agency may have underestimated the cost of maintenance.",
+        "その機関は、維持費を過小評価していたのかもしれません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-modal-perfect-passive",
+    "section": 3,
+    "title": "過去の対応を振り返る受け身",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "過去の対応を振り返る受け身",
+    "pattern": "should have been + 過去分詞",
+    "tip": "過去にされるべきだったのにされなかった対応を、受け身で振り返ります。",
+    "more": "should have been disclosedでは、過去に開示されるべきだった対応を述べます。ought to have beenも自然です。単に現在開示すべきだというshould beとは時点が違います。",
+    "examples": [
+      [
+        "The risks should have been disclosed before the trial began.",
+        "その危険性は、試験が始まる前に開示されるべきでした。"
+      ],
+      [
+        "Local residents should have been consulted before construction.",
+        "地元の住民は、建設前に意見を聞かれるべきでした。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-impersonal-report",
+    "section": 3,
+    "title": "形式主語を使う伝達の受け身",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "形式主語を使う伝達の受け身",
+    "pattern": "It is believed that + 文",
+    "tip": "誰かの判断・報告を受け身で伝え、that節を内容にします。話し手による事実の保証とは区別します。",
+    "more": "It is believed thatは信じられている内容の報告です。その内容が証明されたという意味ではありません。that節の過去形と、現在の見解を示すisを分けます。",
+    "examples": [
+      [
+        "It is believed that output fell before prices increased.",
+        "価格が上がる前に、生産量が減ったと考えられています。"
+      ],
+      [
+        "It is believed that the species once inhabited this valley.",
+        "その種は、かつてこの谷に生息していたと考えられています。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-personal-report-perfect",
+    "section": 3,
+    "title": "伝達の受け身と完了不定詞",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "伝達の受け身と完了不定詞",
+    "pattern": "主語 + is believed to have + 過去分詞",
+    "tip": "現在の見解と、それ以前の出来事を分けます。to have以下は主語について信じられている過去の内容です。",
+    "more": "is believedは現在の見解、to have existedなどはそれより前の内容です。It is believed that ...という別の語順でも表せます。",
+    "examples": [
+      [
+        "The settlement is believed to have existed for centuries.",
+        "その集落は、何世紀にもわたって存在していたと考えられています。"
+      ],
+      [
+        "The policy is believed to have reduced access to housing.",
+        "その政策は、住宅を利用できる機会を減らしたと考えられています。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-mandative-verb",
+    "section": 3,
+    "title": "提案を表す節の原形",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "提案を表す節の原形",
+    "pattern": "recommend that + 主語 + 原形",
+    "tip": "提案の内容をthat節に入れ、その節では三人称単数でも原形にする形を練習します。shouldを使う形も自然です。",
+    "more": "recommend thatの後ろの原形は、提案の内容を示す形です。should publishのようにshouldを使う形も自然です。主語が単数だからと機械的にpublishesへ変えません。",
+    "examples": [
+      [
+        "The panel recommended that the agency publish the full report.",
+        "委員会は、その機関が報告書の全文を公表することを勧告しました。"
+      ],
+      [
+        "The auditors recommended that the firm revise its procedures.",
+        "監査担当者たちは、その会社が手順を見直すことを勧告しました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-mandative-adjective",
+    "section": 3,
+    "title": "必要性を表す節の原形",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "必要性を表す節の原形",
+    "pattern": "It is essential that + 主語 + 原形",
+    "tip": "必要だと判断する内容を節で示します。この型のbeはis/areにせず原形で使います。",
+    "more": "be informedは受け身、have accessは利用できるという意味のhaveです。that節のbeをisにしない原形の型を練習しています。shouldを使う型もあります。",
+    "examples": [
+      [
+        "It is essential that every participant be fully informed.",
+        "すべての参加者が十分な説明を受けていることが不可欠です。"
+      ],
+      [
+        "It is essential that the evidence be preserved for review.",
+        "再検証のために証拠を保全しておくことが不可欠です。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-relative-object",
+    "section": 3,
+    "title": "目的格の関係代名詞",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "目的格の関係代名詞",
+    "pattern": "名詞 + that + 主語 + 動詞",
+    "tip": "関係節の中に目的語が欠けており、その内容が前の名詞です。主格の関係詞との違いを確かめます。",
+    "more": "the team collectedの中では、集めたものを目的語として繰り返しません。whichも自然で、目的格のthat/whichを省略できる場合もあります。",
+    "examples": [
+      [
+        "The evidence that the team collected contradicted the claim.",
+        "そのチームが集めた証拠は、その主張と矛盾していました。"
+      ],
+      [
+        "The restrictions that the council imposed remain controversial.",
+        "議会が課した制限は、今も議論を呼んでいます。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-nonrestrictive",
+    "section": 3,
+    "title": "名詞への非制限の補足",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "名詞への非制限の補足",
+    "pattern": "主語の名詞, which + 補足, 主節の続き",
+    "tip": "すでに特定された対象にコンマで補足を挟みます。対象を絞り込む関係節とは区別します。",
+    "more": "コンマで補足するwhichをthatに置き換えることはできません。主語と主節の動詞の間に補足が挟まるので、まず主節の骨組みを確かめます。",
+    "examples": [
+      [
+        "The new database, which is freely accessible, needs updating.",
+        "その新しいデータベースは更新が必要です。なお、無料で利用できます。"
+      ],
+      [
+        "The coastal road, which floods frequently, will be rebuilt.",
+        "その海岸沿いの道路は再整備されます。なお、頻繁に浸水します。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-sentential-which",
+    "section": 3,
+    "title": "前の内容全体を受ける関係詞",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "前の内容全体を受ける関係詞",
+    "pattern": "主節, which + 動詞 ...",
+    "tip": "whichが直前の名詞だけでなく、前の節全体が述べる出来事を受けます。単数の出来事として扱います。",
+    "more": "which angered ...は、前の節が述べる出来事を受けます。直前の名詞を必ずwhichの先行詞にする、と決めつけないようにします。",
+    "examples": [
+      [
+        "The agency withheld the results, which angered local residents.",
+        "その機関は結果を公表しませんでした。そのことが地元の住民を怒らせました。"
+      ],
+      [
+        "The team shared its methods, which improved public confidence.",
+        "そのチームは方法を公開しました。そのことが人々の信頼を高めました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-preposition-relative",
+    "section": 3,
+    "title": "前置詞を伴う関係詞",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "前置詞を伴う関係詞",
+    "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+    "tip": "節の中の動詞や意味に合う前置詞を、whichの前に置きます。名詞だけで前置詞を決めません。",
+    "more": "assess against、conduct under、rest onなど、元の意味の結び付きを確認します。前置詞の直後のwhichをthatに替えることはできません。",
+    "examples": [
+      [
+        "The standards against which we assess safety are changing.",
+        "私たちが安全性を評価する際の基準は、変わりつつあります。"
+      ],
+      [
+        "The conditions under which the test was conducted were unusual.",
+        "その試験が行われた条件は、通常とは異なっていました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-perfect-participle",
+    "section": 3,
+    "title": "完了形の分詞構文",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "完了形の分詞構文",
+    "pattern": "Having + 過去分詞, 主節",
+    "tip": "主節より先に済んだ行為を分詞構文で示します。二つの行為の主体が同じかを確かめます。",
+    "more": "Having examinedでは、調べたのも主張を退けたのもpanelです。先に終わった行為を表し、having以下だけで独立した過去の主節にはなりません。",
+    "examples": [
+      [
+        "Having examined the evidence, the panel rejected the claim.",
+        "証拠を調べた後で、委員会はその主張を退けました。"
+      ],
+      [
+        "Having secured funding, the team began the survey.",
+        "資金を確保した後で、そのチームは調査を始めました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-result-participle",
+    "section": 3,
+    "title": "結果を付け足す分詞構文",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "結果を付け足す分詞構文",
+    "pattern": "主節, 動詞-ing ...",
+    "tip": "前の節で起きたことから生じる結果を、コンマの後ろの分詞で続けます。目的を表す不定詞と区別します。",
+    "more": "cutting offやleaving以下は、主節の出来事がもたらした結果です。これから達成する目的を表すto不定詞と取り違えないようにします。",
+    "examples": [
+      [
+        "The bridge collapsed, cutting off access to several villages.",
+        "橋が崩落し、その結果、いくつかの村への道が断たれました。"
+      ],
+      [
+        "The rules changed abruptly, leaving many applicants confused.",
+        "規則が突然変わり、その結果、多くの応募者が混乱しました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-formal-subject-whether",
+    "section": 3,
+    "title": "形式主語と未確定の内容",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "形式主語と未確定の内容",
+    "pattern": "It remains unclear whether + 文",
+    "tip": "itを仮の主語にし、何が不明なのかをwhether節で示します。条件のif節とは役割が違います。",
+    "more": "whether以下が、不明だと評価している内容です。条件のif節を後ろに付けているのではありません。It remains unclear if ...とする文も自然です。",
+    "examples": [
+      [
+        "It remains unclear whether the benefits will outweigh the costs.",
+        "恩恵が費用を上回るかどうかは、依然として不明です。"
+      ],
+      [
+        "It remains unclear whether the policy has improved access.",
+        "その政策が利用の機会を改善したかどうかは、依然として不明です。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-formal-object",
+    "section": 3,
+    "title": "形式目的語と不定詞",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "形式目的語と不定詞",
+    "pattern": "consider + it + 形容詞 + to不定詞",
+    "tip": "目的語itを先に置き、何を重要だと考えるかを不定詞で後ろに示します。",
+    "more": "itは前に出た具体的な物でなく、後ろのto以下の内容を先に受ける形式目的語です。considerの主語がsheならconsidersとなります。",
+    "examples": [
+      [
+        "We consider it vital to protect access to reliable information.",
+        "私たちは、信頼できる情報へのアクセスを守ることが極めて重要だと考えています。"
+      ],
+      [
+        "They consider it vital to preserve the original records.",
+        "彼らは、元の記録を保存しておくことが極めて重要だと考えています。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-not-until",
+    "section": 4,
+    "title": "時を否定する語句と倒置",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "時を否定する語句と倒置",
+    "pattern": "Not until + 時, 助動詞 + 主語 + 原形",
+    "tip": "否定を含む時の語句を前に置き、主節を倒置します。過去の一般動詞にはdidを補います。",
+    "more": "until以下の時が来るまでは起きなかったという意味です。過去の一般動詞にはdidを補い、その後ろの動詞は原形に戻します。",
+    "examples": [
+      [
+        "Not until June did the agency release the full results.",
+        "6月になって初めて、その機関は結果の全体を公表しました。"
+      ],
+      [
+        "Not until the hearing did officials acknowledge the error.",
+        "公聴会になって初めて、当局者たちは誤りを認めました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-cleft",
+    "section": 4,
+    "title": "強調構文で焦点を示す",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "強調構文で焦点を示す",
+    "pattern": "It was + 焦点 + that + 残りの文",
+    "tip": "強調する原因や対象をIt wasとthatの間に置きます。形式主語とは異なる構造です。",
+    "more": "It wasとthatの間が強調する部分です。that以下に、原因となった主語をもう一度書き足しません。形式主語It is essential that ...とは役割が違います。",
+    "examples": [
+      [
+        "It was public pressure that prompted the investigation.",
+        "その調査のきっかけとなったのは、世論の圧力でした。"
+      ],
+      [
+        "It was a lack of oversight that allowed the fraud to continue.",
+        "不正を続かせることになったのは、監督の欠如でした。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-had-inversion",
+    "section": 4,
+    "title": "過去の反実仮想と条件倒置",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "過去の反実仮想と条件倒置",
+    "pattern": "Had + 主語 + 過去分詞, would have + 過去分詞",
+    "tip": "実際とは違う過去をifなしで仮定します。hadを主語の前に置く条件節は、疑問文ではありません。",
+    "more": "Had the warnings been heededはIf the warnings had been heededに対応します。前半のhadと、後半のwould haveの位置を混同しません。",
+    "examples": [
+      [
+        "Had the warnings been heeded, the damage would have been less.",
+        "もし警告が聞き入れられていたら、被害はもっと小さかったでしょう。"
+      ],
+      [
+        "Had funding continued, the study would have been completed.",
+        "もし資金提供が続いていたら、その研究は完了していたでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-a-concessive-as",
+    "section": 4,
+    "title": "形容詞を前に置く譲歩",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "形容詞を前に置く譲歩",
+    "pattern": "形容詞 + as + 主語 + be, 主節",
+    "tip": "形容詞をasの前に出して、認める事実と予想に反する結果を結びます。理由のasとは区別します。",
+    "more": "形容詞を前に置いたasはここでは譲歩です。thoughでもこの形を作れますが、通常のAlthough the funds were limited ...とは語順が異なります。",
+    "examples": [
+      [
+        "Limited as the funds were, the team completed the survey.",
+        "資金は限られていましたが、そのチームは調査を完了しました。"
+      ],
+      [
+        "Useful as the model is, it cannot predict every outcome.",
+        "そのモデルは有用ですが、すべての結果を予測することはできません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-unreal-present",
+    "section": 3,
+    "title": "現在と異なる仮定",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "現在と異なる仮定",
+    "pattern": "If + 主語 + 過去形, would + 原形",
+    "tip": "現在の事実から距離を置く条件と、そこから想像する結果を組み合わせます。",
+    "more": "wereは現在の現実から距離を置く形です。主節のwould gainなどと組み合わせます。wereの代わりにwasを使う文脈もありますが、ここではwereの型を練習します。",
+    "examples": [
+      [
+        "If access were more equitable, the policy would gain support.",
+        "もし利用の機会がもっと公平なら、その政策は支持を得るでしょう。"
+      ],
+      [
+        "If the process were transparent, public trust would improve.",
+        "もし手続きが透明なら、人々の信頼は高まるでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-unreal-past",
+    "section": 3,
+    "title": "過去と異なる仮定",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "過去と異なる仮定",
+    "pattern": "If + had + 過去分詞, would have + 過去分詞",
+    "tip": "過去の事実とは違う条件を仮定し、実際とは違う過去の結果を想像します。",
+    "more": "条件節はhad been/consultedなど、結果はwould have been/avoidedなどです。現在の仮定で使うwould＋原形だけの形とは時点が異なります。",
+    "examples": [
+      [
+        "If the rules had been enforced, the losses would have been lower.",
+        "もし規則が徹底されていたら、損失はもっと少なかったでしょう。"
+      ],
+      [
+        "If the council had consulted residents, it would have avoided delays.",
+        "もし議会が住民の意見を聞いていたら、遅れを避けられたでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-mixed-conditional",
+    "section": 3,
+    "title": "過去の仮定と現在の結果",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "過去の仮定と現在の結果",
+    "pattern": "If + had + 過去分詞, would + 原形 + now",
+    "tip": "条件は過去、結果は現在という二つの時点を分けます。結果まで過去完了にしません。",
+    "more": "would have fewer jobsのhaveは「雇用がある」という一般動詞で、後ろは名詞です。would have＋過去分詞の過去の結果と混同しません。nowが現在を明示しています。",
+    "examples": [
+      [
+        "If we had invested earlier, the network would be safer now.",
+        "もしもっと早く投資していたら、そのネットワークは今もっと安全でしょう。"
+      ],
+      [
+        "If she had accepted the post, she would be leading the inquiry now.",
+        "もし彼女がその職を引き受けていたら、今その調査を率いているでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-provided",
+    "section": 3,
+    "title": "満たす必要のある条件",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "満たす必要のある条件",
+    "pattern": "主節 + provided that + 文",
+    "tip": "条件が満たされる場合に限るという意味を、主節の後ろの節で示します。providing thatなども自然です。",
+    "more": "provided thatとproviding thatはどちらも条件を述べられます。主節のcanは可能性、may proceedはこの文では進めてよいという許可です。",
+    "examples": [
+      [
+        "The scheme can succeed provided that oversight remains independent.",
+        "監督の独立性が保たれるという条件なら、その制度は成功できます。"
+      ],
+      [
+        "We will share the data provided that privacy is protected.",
+        "プライバシーが守られるという条件なら、私たちはデータを共有します。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-even-if",
+    "section": 3,
+    "title": "仮の条件を認める譲歩",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "仮の条件を認める譲歩",
+    "pattern": "Even if + 文, 主節",
+    "tip": "その条件が起きても主節の判断は変わらないと述べます。事実を認めるeven thoughとの役割を比べます。",
+    "more": "even ifは仮の条件を認めても結果・判断が変わらないことを示します。事実として認めるeven thoughと意味が重なる日本語でも、場面を確認します。",
+    "examples": [
+      [
+        "Even if demand recovers, some firms will need further support.",
+        "たとえ需要が回復しても、一部の企業には追加の支援が必要になるでしょう。"
+      ],
+      [
+        "Even if the evidence is incomplete, we must assess the risks.",
+        "たとえ証拠が不完全でも、私たちは危険性を評価しなければなりません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-whether-or",
+    "section": 3,
+    "title": "どちらの場合でもという譲歩",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "どちらの場合でもという譲歩",
+    "pattern": "Whether + 文 + or not, 主節",
+    "tip": "肯定・否定のどちらでも主節が成り立つことを述べます。疑問の内容を動詞の目的語にする用法とは区別します。",
+    "more": "このwhether節は「成功するかどうかを知る」という目的語でなく、成功してもしなくてもという譲歩です。主節がどちらの場合にも成り立ちます。",
+    "examples": [
+      [
+        "Whether the policy succeeds or not, its effects must be monitored.",
+        "その政策が成功してもしなくても、影響を監視しなければなりません。"
+      ],
+      [
+        "Whether funding increases or not, essential services must continue.",
+        "資金が増えても増えなくても、不可欠なサービスは続けなければなりません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-however-degree",
+    "section": 3,
+    "title": "程度にかかわらない譲歩",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "程度にかかわらない譲歩",
+    "pattern": "However + 形容詞 + 主語 + be, 主節",
+    "tip": "どれほどその性質が強くても、という意味でhoweverの後ろに形容詞を置きます。単なる逆接のhoweverと区別します。",
+    "more": "howeverの直後のconvincing/urgent/severeが程度を表します。No matter how ...とも言い換えられます。文頭のHowever, ...という逆接とは語順が違います。",
+    "examples": [
+      [
+        "However convincing the claim is, it requires independent scrutiny.",
+        "その主張がどれほど説得力を持っていても、独立した検証が必要です。"
+      ],
+      [
+        "However urgent the need is, consent cannot be ignored.",
+        "その必要性がどれほど差し迫っていても、同意を無視することはできません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-regardless-whether",
+    "section": 3,
+    "title": "二つの可能性に左右されない",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "二つの可能性に左右されない",
+    "pattern": "Regardless of whether + 文, 主節",
+    "tip": "前置詞ofの後ろに、どちらの可能性かというwhether節を置きます。名詞の後ろを説明する関係詞ではありません。",
+    "more": "regardless ofのofは前置詞で、その後ろにwhether節を続けます。Whether ... or not, ...の譲歩や、名詞だけを続けるregardless of the costとも比べられます。",
+    "examples": [
+      [
+        "Regardless of whether it is profitable, the service is essential.",
+        "利益が出るかどうかにかかわらず、そのサービスは不可欠です。"
+      ],
+      [
+        "Regardless of whether costs rise, the contract remains binding.",
+        "費用が増えるかどうかにかかわらず、その契約の拘束力は続きます。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-partial-negative",
+    "section": 3,
+    "title": "すべてではないという否定",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "すべてではないという否定",
+    "pattern": "Not all + 複数名詞 + 動詞",
+    "tip": "全体について成り立つことを否定します。一つも成り立たないという全面否定と区別します。",
+    "more": "Not allは「すべてに当てはまる」の否定です。「どれも当てはまらない」と断定していません。主語を説明するthat節と、主節の動詞も分けます。",
+    "examples": [
+      [
+        "Not all policies that reduce costs improve public welfare.",
+        "費用を減らす政策が、すべて人々の福祉を向上させるわけではありません。"
+      ],
+      [
+        "Not all changes that increase efficiency benefit employees.",
+        "効率を高める変化が、すべて従業員の利益になるわけではありません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-not-necessarily",
+    "section": 3,
+    "title": "必ずそうなるとは限らない",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "必ずそうなるとは限らない",
+    "pattern": "主語 + do/does not necessarily + 原形",
+    "tip": "必然的な結び付きの否定で、結果そのものをすべて否定するのではありません。",
+    "more": "necessarilyを置くことで、結果が必ず生じるという結び付きを否定します。主語がEconomic growthなど単数のまとまりなのでdoesを使います。",
+    "examples": [
+      [
+        "Economic growth does not necessarily reduce inequality.",
+        "経済成長が、必ずしも格差を縮めるとは限りません。"
+      ],
+      [
+        "Greater transparency does not necessarily eliminate bias.",
+        "透明性が高まれば、必ず偏りがなくなるというわけではありません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-neither-nor",
+    "section": 3,
+    "title": "二つの対象の両方を否定する",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "二つの対象の両方を否定する",
+    "pattern": "Neither + A + nor + B + 動詞",
+    "tip": "二つの主語を結び、どちらも当てはまらないと述べます。今回は両方とも単数名詞です。",
+    "more": "今回の三つの文は、二つの主語がどちらも単数なのでprovides/accepts/accountsです。複数の要素が混ざる場合まで同じ一致規則で決めるものではありません。",
+    "examples": [
+      [
+        "Neither the report nor the testimony provides clear evidence.",
+        "その報告書も証言も、明確な証拠を示していません。"
+      ],
+      [
+        "Neither the agency nor the contractor accepts responsibility.",
+        "その機関も請負業者も、責任を認めていません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-appositive-that",
+    "section": 3,
+    "title": "名詞の内容を示す節",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "名詞の内容を示す節",
+    "pattern": "The fact that + 完全文 + 主節",
+    "tip": "that節に文の要素の欠けがなく、前の名詞factの中身を表します。関係代名詞のthatと区別します。",
+    "more": "the figures differという節は、factの中身を示す完全文です。the figures that we checkedならcheckedの目的語が欠ける関係節で、役割が異なります。",
+    "examples": [
+      [
+        "The fact that the figures differ does not prove dishonesty.",
+        "数値が異なるという事実は、不正直であることの証明にはなりません。"
+      ],
+      [
+        "The fact that costs fell does not justify every decision.",
+        "費用が下がったという事実は、すべての決定を正当化するものではありません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-need-not-perfect",
+    "section": 3,
+    "title": "実際にしたが不要だった行為",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "実際にしたが不要だった行為",
+    "pattern": "need not have + 過去分詞",
+    "tip": "する必要がなかったのに実際にはした、という過去の行為を振り返ります。did not need toだけでは実行の有無は決まりません。",
+    "more": "need not haveは、実際には行ったが不要だったという振り返りです。did not need toだけなら、その行為を実際にしたかどうかは文脈で判断します。",
+    "examples": [
+      [
+        "The agency need not have withheld the entire report.",
+        "その機関は報告書の全文を非公開にする必要はなかったのに、そうしてしまいました。"
+      ],
+      [
+        "They need not have repeated the survey at such expense.",
+        "彼らはそこまで費用をかけて再調査する必要はなかったのに、そうしてしまいました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-multiple-comparison",
+    "section": 3,
+    "title": "倍数を使う比較",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "倍数を使う比較",
+    "pattern": "倍数 + as + 原級 + as + 比較相手",
+    "tip": "形容詞や副詞の程度を倍数で比べます。比較級や数字の大小だけで文の形を決めません。",
+    "more": "twice/three timesの後ろは原級を挟むas ... asです。last as longのlongは時間の副詞、efficient/extensiveは主語の性質を表す形容詞です。",
+    "examples": [
+      [
+        "The revised process is twice as efficient as the original one.",
+        "改訂後の工程の効率は、元の工程の2倍です。"
+      ],
+      [
+        "The new cells last three times as long as the earlier ones.",
+        "新しい電池は、以前のものの3倍長持ちします。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-correlative-comparison",
+    "section": 3,
+    "title": "二つの変化の対応",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "二つの変化の対応",
+    "pattern": "The + 比較級 + 文, the + 比較級 + 文",
+    "tip": "〜すればするほど、という対応を示します。この構文だけで統計的な因果関係が証明されるわけではありません。",
+    "more": "The longer ...とthe harder ...のように、二つの程度の変化を対応させます。less reliableは信頼性の低さを表し、more cautionは必要な慎重さの量です。",
+    "examples": [
+      [
+        "The longer the delay lasts, the harder recovery becomes.",
+        "遅れが長引くほど、回復は難しくなります。"
+      ],
+      [
+        "The more widely data is shared, the easier verification becomes.",
+        "データが広く共有されるほど、検証は容易になります。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-rather-than-parallel",
+    "section": 3,
+    "title": "行動の選択と並列",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "行動の選択と並列",
+    "pattern": "主語 + chose to + 原形 + rather than + 原形",
+    "tip": "二つの行動を対比し、実際に選んだ行動を先に述べます。rather thanの後ろの原形を対応させます。",
+    "more": "chose to revise rather than abandonでは、二つの行動が並びます。rather thanの後ろを原形にして対応させる型です。別の文脈にはingを用いる形もあります。",
+    "examples": [
+      [
+        "The council chose to revise the plan rather than abandon it.",
+        "議会は、計画を断念するのではなく修正することを選びました。"
+      ],
+      [
+        "The firm chose to retrain staff rather than dismiss them.",
+        "その会社は、職員を解雇するのではなく再訓練することを選びました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-no-sooner",
+    "section": 4,
+    "title": "直後の出来事と倒置",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "直後の出来事と倒置",
+    "pattern": "No sooner had + 主語 + 過去分詞 + than + 文",
+    "tip": "先の出来事の直後に次が起こることを述べます。前半の過去完了と倒置、後半を導くthanを確認します。",
+    "more": "この型では前半が過去完了の倒置、後半がthanです。hardly ... whenという自然な別の型と混ぜないようにします。no soonerに続く時制が常に過去完了に限られる、という意味ではありません。",
+    "examples": [
+      [
+        "No sooner had the rules changed than new problems emerged.",
+        "規則が変わるやいなや、新しい問題が起きました。"
+      ],
+      [
+        "No sooner had the inquiry begun than key records disappeared.",
+        "調査が始まるやいなや、重要な記録がなくなりました。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-negative-fronting",
+    "section": 4,
+    "title": "否定の語句を前に出す強調",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "否定の語句を前に出す強調",
+    "pattern": "Under no circumstances + 助動詞 + 主語 + 原形",
+    "tip": "強い否定の条件を前に出し、助動詞を主語の前に置きます。疑問文として尋ねているのではありません。",
+    "more": "Under no circumstancesは否定の条件を前に出した形です。shouldの後ろは主語、その後ろに動詞を置きます。文の途中の主語自体を否定しているのではありません。",
+    "examples": [
+      [
+        "Under no circumstances should private records be made public.",
+        "どのような事情があっても、私的な記録を公表すべきではありません。"
+      ],
+      [
+        "Under no circumstances should consent be taken for granted.",
+        "どのような事情があっても、同意があると決めつけるべきではありません。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-should-condition",
+    "section": 4,
+    "title": "万一の条件を倒置で示す",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "万一の条件を倒置で示す",
+    "pattern": "Should + 主語 + 原形, 主節",
+    "tip": "万一起きた場合を控えめに仮定します。義務のshouldとは異なり、条件節のifを省いた形です。",
+    "more": "Should further evidence emergeはIf further evidence should emergeに対応します。shouldはここでは義務の「すべき」でなく、万一の場合の条件を示します。",
+    "examples": [
+      [
+        "Should further evidence emerge, the inquiry will be reopened.",
+        "万一さらに証拠が出てきた場合には、その調査は再開されます。"
+      ],
+      [
+        "Should demand exceed supply, priority will be given to hospitals.",
+        "万一需要が供給を上回った場合には、病院が優先されます。"
+      ]
+    ]
+  },
+  {
+    "id": "exp-b-were-condition",
+    "section": 4,
+    "title": "実現を距離を置いて仮定する",
+    "subtitle": "短い文で形・時点・意味を組み立てる",
+    "term": "実現を距離を置いて仮定する",
+    "pattern": "Were + 主語 + to + 原形, would + 原形",
+    "tip": "現実から距離を置く未来の仮定を、were toと条件倒置で表します。不可能だと断定する形ではありません。",
+    "more": "Were the scheme to failはIf the scheme were to failに対応します。実現から距離を置く仮定で、実際に必ず失敗する・絶対に失敗しないと断定していません。",
+    "examples": [
+      [
+        "Were the scheme to fail, public confidence would suffer.",
+        "仮にその制度が失敗すれば、人々の信頼は損なわれるでしょう。"
+      ],
+      [
+        "Were funding to cease, several research teams would disband.",
+        "仮に資金提供が途絶えれば、いくつかの研究チームは解散するでしょう。"
+      ]
+    ]
+  }
+]

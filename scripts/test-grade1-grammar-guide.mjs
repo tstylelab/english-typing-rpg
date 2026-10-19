@@ -5,15 +5,17 @@ import {load} from './lib/load-typescript-data.mjs';
 const {QUESTIONS}=load('src/data/questions.ts');
 const {grammarGuides,getGrammarCard,getGrammarGuideCourse}=load('src/data/grammarGuides.ts');
 const {grade1GrammarCards}=load('src/data/grade1GrammarGuide.ts');
-const {grade1GrammarAssignments}=load('src/data/grade1GrammarAssignments.ts');
+const oldAssignments=load('src/data/grade1GrammarAssignments.ts').grade1GrammarAssignments;
+const newAssignments=load('src/data/grade1GrammarExpansionAssignments.json');
+const grade1GrammarAssignments=Object.fromEntries(Object.keys(oldAssignments).map(c=>[c,{...oldAssignments[c],...newAssignments[c]}]));
 const {readGrammarBookmarks,toggleGrammarBookmark}=load('src/grammarBookmarks.ts');
 const {buildGrammarQuestion}=load('src/grammarAiPrompt.ts');
 for(const file of ['src/data/questionSets/eiken/grade1Sentences.ts','src/App.tsx'])
-  assert.equal(readFileSync(file,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','14d0826:'+file],{encoding:'utf8',maxBuffer:16e6}).replace(/\r\n/g,'\n'),'Question material/gameplay unchanged: '+file);
-assert.equal(grade1GrammarCards.length,25);
-for(const [course,count] of [['Eiken1Part1',17],['Eiken1Part2',21]]){
+  assert.equal(readFileSync(file,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show',(file.endsWith('App.tsx')?'ba9f47d':'14d0826')+':'+file],{encoding:'utf8',maxBuffer:16e6}).replace(/\r\n/g,'\n'),'Question material/gameplay unchanged: '+file);
+assert.equal(grade1GrammarCards.length,65);
+for(const [course,count] of [['Eiken1Part1',37],['Eiken1Part2',41]]){
   const qs=QUESTIONS[course][3];const guide=grammarGuides[course];
-  assert.equal(qs.length,40);assert.equal(guide.cards.length,count);
+  assert.equal(qs.length,100);assert.equal(guide.cards.length,count);
   assert.equal(getGrammarGuideCourse(course.toLowerCase()),course);
   assert.deepEqual(Object.keys(grade1GrammarAssignments[course]).sort(),Array.from(qs,q=>q.text).sort());
   for(const q of qs){
@@ -59,4 +61,4 @@ toggleGrammarBookmark(storage,'one','relative-subject','Eiken1Part1');
 assert.deepEqual(Array.from(readGrammarBookmarks(storage,'one','Eiken1Part1')),[]);
 assert.deepEqual(Array.from(readGrammarBookmarks(storage,'one','Eiken1Part2')),['relative-subject']);
 assert.deepEqual(Array.from(readGrammarBookmarks(storage,'other','Eiken1Part2')),[]);
-console.log('PASS: Grade-1 80 exact links, 17/21 cards (25 shared topics), semantic distinctions, unchanged source/gameplay, bookmarks and AI context');
+console.log('PASS: Grade-1 200 exact links, 37/41 cards (65 unique topics), semantic distinctions, unchanged source/gameplay, bookmarks and AI context');

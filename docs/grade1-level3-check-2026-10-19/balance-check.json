@@ -1,0 +1,1850 @@
+{
+  "status": "isolated-existing-and-proposed-simulation",
+  "calculations": 115920,
+  "changedLimits": 2,
+  "bossError30PercentCanWin": false,
+  "allStagesErrorPerCharacterCanWin": false,
+  "stages": [
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "monsterHp": 368,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 368,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 92,
+        "proposed": 92
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "monsterHp": 399,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 399,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 99.75,
+        "proposed": 99.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "monsterHp": 429,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 429,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 107.25,
+        "proposed": 107.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "monsterHp": 448,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 448,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 112,
+        "proposed": 112
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "monsterHp": 466,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 466,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 116.5,
+        "proposed": 116.5
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "monsterHp": 485,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 485,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 121.25,
+        "proposed": 121.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "monsterHp": 503,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 503,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 125.75,
+        "proposed": 125.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "monsterHp": 521,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 521,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 130.25,
+        "proposed": 130.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "monsterHp": 540,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 540,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 135,
+        "proposed": 135
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "monsterHp": 552,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 552,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 138,
+        "proposed": 138
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "monsterHp": 564,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 564,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 141,
+        "proposed": 141
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "monsterHp": 571,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 571,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 142.75,
+        "proposed": 142.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "monsterHp": 577,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 577,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 144.25,
+        "proposed": 144.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "monsterHp": 583,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 583,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 145.75,
+        "proposed": 145.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "monsterHp": 589,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 589,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 147.25,
+        "proposed": 147.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "monsterHp": 595,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 595,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 148.75,
+        "proposed": 148.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "monsterHp": 601,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 601,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 150.25,
+        "proposed": 150.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "monsterHp": 607,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 607,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 151.75,
+        "proposed": 151.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.25,
+        "proposed": 153.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 151.75,
+        "proposed": 151.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "monsterHp": 1227,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1227,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.375,
+        "proposed": 153.375
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "monsterHp": 1390,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1390,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 154.44444444444446,
+        "proposed": 154.44444444444446
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "text-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "monsterHp": 1541,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1541,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 154.1,
+        "proposed": 154.1
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "monsterHp": 400,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 400,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 100,
+        "proposed": 100
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "monsterHp": 433,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 433,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 108.25,
+        "proposed": 108.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "monsterHp": 467,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 467,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 116.75,
+        "proposed": 116.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "monsterHp": 487,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 487,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 121.75,
+        "proposed": 121.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "monsterHp": 507,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 507,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 126.75,
+        "proposed": 126.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "monsterHp": 527,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 527,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 131.75,
+        "proposed": 131.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "monsterHp": 547,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 547,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 136.75,
+        "proposed": 136.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "monsterHp": 567,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 567,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 141.75,
+        "proposed": 141.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "monsterHp": 587,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 587,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 146.75,
+        "proposed": 146.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "monsterHp": 600,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 600,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 150,
+        "proposed": 150
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.25,
+        "proposed": 153.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "monsterHp": 620,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 620,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 155,
+        "proposed": 155
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "monsterHp": 627,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 627,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 156.75,
+        "proposed": 156.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "monsterHp": 633,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 633,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 158.25,
+        "proposed": 158.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "monsterHp": 640,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 640,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 160,
+        "proposed": 160
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "monsterHp": 647,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 647,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 161.75,
+        "proposed": 161.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "monsterHp": 653,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 653,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 163.25,
+        "proposed": 163.25
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "monsterHp": 660,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 660,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 165,
+        "proposed": 165
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "monsterHp": 667,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 667,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 166.75,
+        "proposed": 166.75
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 165,
+        "proposed": 165
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "monsterHp": 1333,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1333,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 166.625,
+        "proposed": 166.625
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "monsterHp": 1511,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1511,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 167.88888888888889,
+        "proposed": 167.88888888888889
+      }
+    },
+    {
+      "course": "Eiken1Part1",
+      "input": "voice-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "monsterHp": 1675,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1675,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 167.5,
+        "proposed": 167.5
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "monsterHp": 368,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 368,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 92,
+        "proposed": 92
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "monsterHp": 399,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 399,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 99.75,
+        "proposed": 99.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "monsterHp": 429,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 429,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 107.25,
+        "proposed": 107.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "monsterHp": 448,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 448,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 112,
+        "proposed": 112
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "monsterHp": 466,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 466,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 116.5,
+        "proposed": 116.5
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "monsterHp": 485,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 485,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 121.25,
+        "proposed": 121.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "monsterHp": 503,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 503,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 125.75,
+        "proposed": 125.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "monsterHp": 521,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 521,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 130.25,
+        "proposed": 130.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "monsterHp": 540,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 540,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 135,
+        "proposed": 135
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "monsterHp": 552,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 552,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 138,
+        "proposed": 138
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "monsterHp": 564,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 564,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 141,
+        "proposed": 141
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "monsterHp": 571,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 571,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 142.75,
+        "proposed": 142.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "monsterHp": 577,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 577,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 144.25,
+        "proposed": 144.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "monsterHp": 583,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 583,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 145.75,
+        "proposed": 145.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "monsterHp": 589,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 589,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 147.25,
+        "proposed": 147.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "monsterHp": 595,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 595,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 148.75,
+        "proposed": 148.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "monsterHp": 601,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 601,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 150.25,
+        "proposed": 150.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "monsterHp": 607,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 607,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 151.75,
+        "proposed": 151.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.25,
+        "proposed": 153.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1214,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 151.75,
+        "proposed": 151.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "monsterHp": 1227,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1227,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.375,
+        "proposed": 153.375
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "monsterHp": 1390,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1235,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 154.44444444444446,
+        "proposed": 154.375
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "text-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "monsterHp": 1541,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1541,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 154.1,
+        "proposed": 154.1
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 1,
+      "boss": 0,
+      "before": {
+        "monsterHp": 400,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 400,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 100,
+        "proposed": 100
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 2,
+      "boss": 0,
+      "before": {
+        "monsterHp": 433,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 433,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 108.25,
+        "proposed": 108.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 3,
+      "boss": 0,
+      "before": {
+        "monsterHp": 467,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 467,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 116.75,
+        "proposed": 116.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 4,
+      "boss": 0,
+      "before": {
+        "monsterHp": 487,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 487,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 121.75,
+        "proposed": 121.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 5,
+      "boss": 0,
+      "before": {
+        "monsterHp": 507,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 507,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 126.75,
+        "proposed": 126.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 6,
+      "boss": 0,
+      "before": {
+        "monsterHp": 527,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 527,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 131.75,
+        "proposed": 131.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 7,
+      "boss": 0,
+      "before": {
+        "monsterHp": 547,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 547,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 136.75,
+        "proposed": 136.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 8,
+      "boss": 0,
+      "before": {
+        "monsterHp": 567,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 567,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 141.75,
+        "proposed": 141.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 9,
+      "boss": 0,
+      "before": {
+        "monsterHp": 587,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 587,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 146.75,
+        "proposed": 146.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 10,
+      "boss": 0,
+      "before": {
+        "monsterHp": 600,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 600,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 150,
+        "proposed": 150
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 11,
+      "boss": 0,
+      "before": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 613,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 153.25,
+        "proposed": 153.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 12,
+      "boss": 0,
+      "before": {
+        "monsterHp": 620,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 620,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 155,
+        "proposed": 155
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 13,
+      "boss": 0,
+      "before": {
+        "monsterHp": 627,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 627,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 156.75,
+        "proposed": 156.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 14,
+      "boss": 0,
+      "before": {
+        "monsterHp": 633,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 633,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 158.25,
+        "proposed": 158.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 15,
+      "boss": 0,
+      "before": {
+        "monsterHp": 640,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 640,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 160,
+        "proposed": 160
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 16,
+      "boss": 0,
+      "before": {
+        "monsterHp": 647,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 647,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 161.75,
+        "proposed": 161.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 17,
+      "boss": 0,
+      "before": {
+        "monsterHp": 653,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 653,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 163.25,
+        "proposed": 163.25
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 18,
+      "boss": 0,
+      "before": {
+        "monsterHp": 660,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 660,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 165,
+        "proposed": 165
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 19,
+      "boss": 0,
+      "before": {
+        "monsterHp": 667,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 667,
+        "maxQuestions": 4,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 166.75,
+        "proposed": 166.75
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 20,
+      "boss": 1,
+      "before": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1320,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 165,
+        "proposed": 165
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 21,
+      "boss": 2,
+      "before": {
+        "monsterHp": 1333,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1333,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 166.625,
+        "proposed": 166.625
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 22,
+      "boss": 3,
+      "before": {
+        "monsterHp": 1511,
+        "maxQuestions": 9,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1343,
+        "maxQuestions": 8,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 167.88888888888889,
+        "proposed": 167.875
+      }
+    },
+    {
+      "course": "Eiken1Part2",
+      "input": "voice-only",
+      "stage": 23,
+      "boss": 4,
+      "before": {
+        "monsterHp": 1675,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "proposed": {
+        "monsterHp": 1675,
+        "maxQuestions": 10,
+        "damageMultiplier": 1
+      },
+      "requiredPerQuestion": {
+        "before": 167.5,
+        "proposed": 167.5
+      }
+    }
+  ],
+  "limitations": "実際の回答計算を隔離VMで使用。間違えた問題の割合ではなく、完成までの誤打鍵数/文字数。問題を完成できずスキップする挙動は別。体感や語彙・構文の難しさの実測ではない。提案120問を採用した場合の計算であり本体未変更。"
+}

@@ -1,0 +1,1266 @@
+{
+  "status": "approved-for-publication",
+  "date": "2026-10-19",
+  "baseline": {
+    "head": "ba9f47d41857b6774fdc9e9190b024914bdf5cc8",
+    "sourceHashes": {
+      "src/App.tsx": "04c94d712cfd88045ad41256ebc3b1ae0d0fa46a956676f594f45403beb91e7f",
+      "src/data/questionSets/eiken/gradepre1-part1.json": "0f653ee65a14d6127b158ea98d1b689607f7e6488658cd09018f42a4bec9587a",
+      "src/data/questionSets/eiken/gradepre1-part2.json": "53a05a577a04f87cf93603f2548909b795cff8d2feb43f0c7d24fa88c00dadd7",
+      "src/data/translationBattlePrompts.json": "52505a94ae0900d223d29e278f557d94b143f42162c75cb05680e140a4afbee1"
+    },
+    "promptCount": 2600,
+    "questionsSha256": "03a526d230f85ed92a121f5e95735a48343d82ff0beba9f042d44aa3eda0c264"
+  },
+  "courses": [
+    {
+      "course": "EikenPre1Part1",
+      "title": "準1級①",
+      "retained": 75,
+      "added": 36,
+      "total": 111,
+      "removed": 0,
+      "targets": 12,
+      "addedRows": [
+        {
+          "topic": "what節を主語にする",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "What matters most is how the funds are used.",
+            "translation": "最も大切なのは、その資金がどのように使われるかです。",
+            "grammarPoint": {
+              "label": "what節を主語にする",
+              "pattern": "What + 文 + is + 内容",
+              "note": "what節全体を文の主語にします。isの後ろは、何が必要・重要・心配かという内容です。"
+            }
+          },
+          "formNote": "関係代名詞から始まる節全体を主語にし、後半でその内容を示します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "what節を主語にする",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "What concerns us is whether the water is safe.",
+            "translation": "私たちが心配しているのは、その水が安全かどうかです。",
+            "grammarPoint": {
+              "label": "what節を主語にする",
+              "pattern": "What + 文 + is + 内容",
+              "note": "what節全体を文の主語にします。isの後ろは、何が必要・重要・心配かという内容です。"
+            }
+          },
+          "formNote": "関係代名詞から始まる節全体を主語にし、後半でその内容を示します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "what節を主語にする",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "What we need is a plan that everyone can follow.",
+            "translation": "私たちに必要なのは、誰でも従える計画です。",
+            "grammarPoint": {
+              "label": "what節を主語にする",
+              "pattern": "What + 文 + is + 内容",
+              "note": "what節全体を文の主語にします。isの後ろは、何が必要・重要・心配かという内容です。"
+            }
+          },
+          "formNote": "関係代名詞から始まる節全体を主語にし、後半でその内容を示します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "whateverで選択の範囲を広げる",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "Whatever we decide will affect local families.",
+            "translation": "私たちが何を決めても、地元の家族に影響します。",
+            "grammarPoint": {
+              "label": "whateverで選択の範囲を広げる",
+              "pattern": "Whatever + 主語 + 動詞 / Whatever + 動詞",
+              "note": "whateverで何を選んでも・何が起きてもという範囲を含め、節全体を主語にします。"
+            }
+          },
+          "formNote": "何を選んでも・何が起きてもという内容全体を、複合関係代名詞の節として主語にします。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "whateverで選択の範囲を広げる",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "Whatever she recommends deserves consideration.",
+            "translation": "彼女が何を勧めても、検討する価値があります。",
+            "grammarPoint": {
+              "label": "whateverで選択の範囲を広げる",
+              "pattern": "Whatever + 主語 + 動詞 / Whatever + 動詞",
+              "note": "whateverで何を選んでも・何が起きてもという範囲を含め、節全体を主語にします。"
+            }
+          },
+          "formNote": "何を選んでも・何が起きてもという内容全体を、複合関係代名詞の節として主語にします。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "whateverで選択の範囲を広げる",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "Whatever happens will be recorded automatically.",
+            "translation": "何が起きても、自動的に記録されます。",
+            "grammarPoint": {
+              "label": "whateverで選択の範囲を広げる",
+              "pattern": "Whatever + 主語 + 動詞 / Whatever + 動詞",
+              "note": "whateverで何を選んでも・何が起きてもという範囲を含め、節全体を主語にします。"
+            }
+          },
+          "formNote": "何を選んでも・何が起きてもという内容全体を、複合関係代名詞の節として主語にします。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "非制限用法で補足する",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "The new clinic, which opens in June, needs staff.",
+            "translation": "その新しい診療所は職員を必要としています。ちなみに、6月に開業します。",
+            "grammarPoint": {
+              "label": "非制限用法で補足する",
+              "pattern": "主語の名詞, which + 補足, 主節の動詞 + 続き",
+              "note": "すでに特定されているものについて、コンマで区切る関係詞節で情報を補足します。"
+            }
+          },
+          "formNote": "すでに特定されたものを、コンマで区切る関係代名詞の節で補足します。物を絞り込む用法にはしません。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "非制限用法で補足する",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "Our main office, which is near the station, is small.",
+            "translation": "私たちの本社は小さいです。ちなみに、駅の近くにあります。",
+            "grammarPoint": {
+              "label": "非制限用法で補足する",
+              "pattern": "主語の名詞, which + 補足, 主節の動詞 + 続き",
+              "note": "すでに特定されているものについて、コンマで区切る関係詞節で情報を補足します。"
+            }
+          },
+          "formNote": "すでに特定されたものを、コンマで区切る関係代名詞の節で補足します。物を絞り込む用法にはしません。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "非制限用法で補足する",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "This device, which uses little power, is reliable.",
+            "translation": "この装置は信頼できます。ちなみに、消費電力が少ないです。",
+            "grammarPoint": {
+              "label": "非制限用法で補足する",
+              "pattern": "主語の名詞, which + 補足, 主節の動詞 + 続き",
+              "note": "すでに特定されているものについて、コンマで区切る関係詞節で情報を補足します。"
+            }
+          },
+          "formNote": "すでに特定されたものを、コンマで区切る関係代名詞の節で補足します。物を絞り込む用法にはしません。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "前置詞と関係代名詞",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "The method by which we collect data has changed.",
+            "translation": "私たちがデータを集める方法は変わりました。",
+            "grammarPoint": {
+              "label": "前置詞と関係代名詞",
+              "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+              "note": "関係詞節の中の動詞や意味に合う前置詞を、whichの直前に置きます。"
+            }
+          },
+          "formNote": "動詞や意味に合う前置詞を、関係代名詞の直前に置く形で練習します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "前置詞と関係代名詞",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "The system on which we depend is being upgraded.",
+            "translation": "私たちが頼っているシステムは、改良されているところです。",
+            "grammarPoint": {
+              "label": "前置詞と関係代名詞",
+              "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+              "note": "関係詞節の中の動詞や意味に合う前置詞を、whichの直前に置きます。"
+            }
+          },
+          "formNote": "動詞や意味に合う前置詞を、関係代名詞の直前に置く形で練習します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "前置詞と関係代名詞",
+          "group": "名詞節・関係詞",
+          "question": {
+            "text": "The rules under which they operate are unclear.",
+            "translation": "彼らが従って活動する規則は不明確です。",
+            "grammarPoint": {
+              "label": "前置詞と関係代名詞",
+              "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+              "note": "関係詞節の中の動詞や意味に合う前置詞を、whichの直前に置きます。"
+            }
+          },
+          "formNote": "動詞や意味に合う前置詞を、関係代名詞の直前に置く形で練習します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "受け身の分詞構文",
+          "group": "分詞・省略",
+          "question": {
+            "text": "Asked about the cost, she gave a clear answer.",
+            "translation": "費用について尋ねられ、彼女は明確に答えました。",
+            "grammarPoint": {
+              "label": "受け身の分詞構文",
+              "pattern": "過去分詞のまとまり, 主節",
+              "note": "文頭の過去分詞のまとまりが主節の主語の状況・理由・条件を添えます。省略された主語の対応を確認します。"
+            }
+          },
+          "formNote": "前半を受け身の意味の分詞構文にします。その状態・行動の主体は主節の主語と同じです。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "受け身の分詞構文",
+          "group": "分詞・省略",
+          "question": {
+            "text": "Given enough time, we could solve the problem.",
+            "translation": "十分な時間が与えられれば、私たちはその問題を解決できるでしょう。",
+            "grammarPoint": {
+              "label": "受け身の分詞構文",
+              "pattern": "過去分詞のまとまり, 主節",
+              "note": "文頭の過去分詞のまとまりが主節の主語の状況・理由・条件を添えます。省略された主語の対応を確認します。"
+            }
+          },
+          "formNote": "前半を受け身の意味の分詞構文にします。その状態・行動の主体は主節の主語と同じです。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "受け身の分詞構文",
+          "group": "分詞・省略",
+          "question": {
+            "text": "Delayed by the storm, we arrived after midnight.",
+            "translation": "嵐で足止めされ、私たちは真夜中を過ぎて到着しました。",
+            "grammarPoint": {
+              "label": "受け身の分詞構文",
+              "pattern": "過去分詞のまとまり, 主節",
+              "note": "文頭の過去分詞のまとまりが主節の主語の状況・理由・条件を添えます。省略された主語の対応を確認します。"
+            }
+          },
+          "formNote": "前半を受け身の意味の分詞構文にします。その状態・行動の主体は主節の主語と同じです。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "接続詞と省略された主語",
+          "group": "分詞・省略",
+          "question": {
+            "text": "While reviewing the budget, we found an error.",
+            "translation": "予算を見直している間に、私たちは誤りを見つけました。",
+            "grammarPoint": {
+              "label": "接続詞と省略された主語",
+              "pattern": "While/When + 分詞のまとまり, 主節",
+              "note": "主節と同じ主語について、接続詞の後ろを分詞のまとまりに縮めます。能動と受け身で分詞の形が変わります。"
+            }
+          },
+          "formNote": "同じ主体が行う二つのことです。時を表す接続詞の後ろで主語と動詞の一部を省く形を練習します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "接続詞と省略された主語",
+          "group": "分詞・省略",
+          "question": {
+            "text": "When asked for details, he referred to the report.",
+            "translation": "詳細を尋ねられると、彼はその報告書に言及しました。",
+            "grammarPoint": {
+              "label": "接続詞と省略された主語",
+              "pattern": "While/When + 分詞のまとまり, 主節",
+              "note": "主節と同じ主語について、接続詞の後ろを分詞のまとまりに縮めます。能動と受け身で分詞の形が変わります。"
+            }
+          },
+          "formNote": "主節と同じ人が尋ねられています。時の接続詞の後ろで、受け身の節の主語と動詞の一部を省く形です。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "接続詞と省略された主語",
+          "group": "分詞・省略",
+          "question": {
+            "text": "While waiting for approval, she revised the budget.",
+            "translation": "承認を待つ間、彼女は予算を修正しました。",
+            "grammarPoint": {
+              "label": "接続詞と省略された主語",
+              "pattern": "While/When + 分詞のまとまり, 主節",
+              "note": "主節と同じ主語について、接続詞の後ろを分詞のまとまりに縮めます。能動と受け身で分詞の形が変わります。"
+            }
+          },
+          "formNote": "同じ主体が行う二つのことです。時を表す接続詞の後ろで主語と動詞の一部を省く形を練習します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "過去完了進行形",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "They had been working for hours when I arrived.",
+            "translation": "私が着いたとき、彼らはすでに何時間も働き続けていました。",
+            "grammarPoint": {
+              "label": "過去完了進行形",
+              "pattern": "had been + 動詞-ing + 過去の基準",
+              "note": "過去の基準時点まで続いていた動作を、had beenとing形で表します。"
+            }
+          },
+          "formNote": "過去の基準時点まで続いていた動作を過去完了進行形で表します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "過去完了進行形",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "We had been discussing the issue when she called.",
+            "translation": "彼女から電話が来たとき、私たちはその問題についてそれまで話し合いを続けていました。",
+            "grammarPoint": {
+              "label": "過去完了進行形",
+              "pattern": "had been + 動詞-ing + 過去の基準",
+              "note": "過去の基準時点まで続いていた動作を、had beenとing形で表します。"
+            }
+          },
+          "formNote": "過去の基準時点まで続いていた動作を過去完了進行形で表します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "過去完了進行形",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "He had been saving for years before he bought a home.",
+            "translation": "彼は家を買う前、それまで何年も貯金を続けていました。",
+            "grammarPoint": {
+              "label": "過去完了進行形",
+              "pattern": "had been + 動詞-ing + 過去の基準",
+              "note": "過去の基準時点まで続いていた動作を、had beenとing形で表します。"
+            }
+          },
+          "formNote": "過去の基準時点まで続いていた動作を過去完了進行形で表します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "過去についての否定の推量",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "She cannot have approved such a risky plan.",
+            "translation": "彼女がそんな危険な計画を承認したはずがありません。",
+            "grammarPoint": {
+              "label": "過去についての否定の推量",
+              "pattern": "cannot have + 過去分詞",
+              "note": "過去の出来事について、したはずがないという強い否定の推量を述べます。"
+            }
+          },
+          "formNote": "過去にしたはずがないという強い否定の推量です。助動詞と完了形を使い、短縮しない形で練習します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "過去についての否定の推量",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "They cannot have received the goods so quickly.",
+            "translation": "彼らがそんなに早く品物を受け取ったはずがありません。",
+            "grammarPoint": {
+              "label": "過去についての否定の推量",
+              "pattern": "cannot have + 過去分詞",
+              "note": "過去の出来事について、したはずがないという強い否定の推量を述べます。"
+            }
+          },
+          "formNote": "過去にしたはずがないという強い否定の推量です。助動詞と完了形を使い、短縮しない形で練習します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "過去についての否定の推量",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "He cannot have read the entire report in a minute.",
+            "translation": "彼が1分で報告書全体を読んだはずがありません。",
+            "grammarPoint": {
+              "label": "過去についての否定の推量",
+              "pattern": "cannot have + 過去分詞",
+              "note": "過去の出来事について、したはずがないという強い否定の推量を述べます。"
+            }
+          },
+          "formNote": "過去にしたはずがないという強い否定の推量です。助動詞と完了形を使い、短縮しない形で練習します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "助動詞と完了受け身",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "The file may have been deleted by mistake.",
+            "translation": "そのファイルは誤って削除されたのかもしれません。",
+            "grammarPoint": {
+              "label": "助動詞と完了受け身",
+              "pattern": "may have been + 過去分詞",
+              "note": "過去に何かがされた可能性を、助動詞・完了形・受け身で組み立てます。"
+            }
+          },
+          "formNote": "過去に何かがされた可能性を表します。下の別表現も自然ですが、今回はそれ以外の助動詞で練習します。",
+          "sampleNumber": 1,
+          "alternatives": [
+            {
+              "text": "The file might have been deleted by mistake.",
+              "note": "過去の可能性を表す自然な別表現"
+            }
+          ]
+        },
+        {
+          "topic": "助動詞と完了受け身",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "The figures may have been entered incorrectly.",
+            "translation": "その数値は、間違って入力されたのかもしれません。",
+            "grammarPoint": {
+              "label": "助動詞と完了受け身",
+              "pattern": "may have been + 過去分詞",
+              "note": "過去に何かがされた可能性を、助動詞・完了形・受け身で組み立てます。"
+            }
+          },
+          "formNote": "過去に何かがされた可能性を表します。下の別表現も自然ですが、今回はそれ以外の助動詞で練習します。",
+          "sampleNumber": 2,
+          "alternatives": [
+            {
+              "text": "The figures might have been entered incorrectly.",
+              "note": "過去の可能性を表す自然な別表現"
+            }
+          ]
+        },
+        {
+          "topic": "助動詞と完了受け身",
+          "group": "時制・助動詞",
+          "question": {
+            "text": "The meeting may have been postponed again.",
+            "translation": "その会議は、また延期されたのかもしれません。",
+            "grammarPoint": {
+              "label": "助動詞と完了受け身",
+              "pattern": "may have been + 過去分詞",
+              "note": "過去に何かがされた可能性を、助動詞・完了形・受け身で組み立てます。"
+            }
+          },
+          "formNote": "過去に何かがされた可能性を表します。下の別表現も自然ですが、今回はそれ以外の助動詞で練習します。",
+          "sampleNumber": 3,
+          "alternatives": [
+            {
+              "text": "The meeting might have been postponed again.",
+              "note": "過去の可能性を表す自然な別表現"
+            }
+          ]
+        },
+        {
+          "topic": "過去の仮定と現在の結果",
+          "group": "仮定・条件",
+          "question": {
+            "text": "If I had accepted the offer, I would work here now.",
+            "translation": "もしその申し出を受けていたら、私は今ここで働いているでしょう。",
+            "grammarPoint": {
+              "label": "過去の仮定と現在の結果",
+              "pattern": "If + had + 過去分詞, would + 原形 + now",
+              "note": "条件は実際とは違う過去、結果は現在です。混合仮定法として二つの時点を分けます。"
+            }
+          },
+          "formNote": "条件は実際と違う過去、結果は現在です。条件節を先に置き、時点を使い分けます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "過去の仮定と現在の結果",
+          "group": "仮定・条件",
+          "question": {
+            "text": "If we had invested sooner, we would be safer now.",
+            "translation": "もしもっと早く投資していたら、私たちは今もっと安全な状況にいるでしょう。",
+            "grammarPoint": {
+              "label": "過去の仮定と現在の結果",
+              "pattern": "If + had + 過去分詞, would + 原形 + now",
+              "note": "条件は実際とは違う過去、結果は現在です。混合仮定法として二つの時点を分けます。"
+            }
+          },
+          "formNote": "条件は実際と違う過去、結果は現在です。条件節を先に置き、時点を使い分けます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "過去の仮定と現在の結果",
+          "group": "仮定・条件",
+          "question": {
+            "text": "If she had taken the job, she would live abroad now.",
+            "translation": "もしその仕事を引き受けていたら、彼女は今外国で暮らしているでしょう。",
+            "grammarPoint": {
+              "label": "過去の仮定と現在の結果",
+              "pattern": "If + had + 過去分詞, would + 原形 + now",
+              "note": "条件は実際とは違う過去、結果は現在です。混合仮定法として二つの時点を分けます。"
+            }
+          },
+          "formNote": "条件は実際と違う過去、結果は現在です。条件節を先に置き、時点を使い分けます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "助けがなかった場合を仮定する",
+          "group": "仮定・条件",
+          "question": {
+            "text": "But for your advice, I would have signed it.",
+            "translation": "あなたの助言がなかったら、私はそれに署名してしまっていたでしょう。",
+            "grammarPoint": {
+              "label": "助けがなかった場合を仮定する",
+              "pattern": "But for + 名詞, would have + 過去分詞",
+              "note": "もしその助けや出来事がなかったら、という仮定を前置詞句で示します。後半は実際とは異なる過去の結果です。"
+            }
+          },
+          "formNote": "もし〜がなかったらという前置詞句を先に置き、過去の反実仮想を続けます。下の別表現以外の句で練習します。",
+          "sampleNumber": 1,
+          "alternatives": [
+            {
+              "text": "Without your advice, I would have signed it.",
+              "note": "助けがない仮定を表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "助けがなかった場合を仮定する",
+          "group": "仮定・条件",
+          "question": {
+            "text": "But for the grant, the study would have ended.",
+            "translation": "その助成金がなかったら、その研究は終わってしまっていたでしょう。",
+            "grammarPoint": {
+              "label": "助けがなかった場合を仮定する",
+              "pattern": "But for + 名詞, would have + 過去分詞",
+              "note": "もしその助けや出来事がなかったら、という仮定を前置詞句で示します。後半は実際とは異なる過去の結果です。"
+            }
+          },
+          "formNote": "もし〜がなかったらという前置詞句を先に置き、過去の反実仮想を続けます。下の別表現以外の句で練習します。",
+          "sampleNumber": 2,
+          "alternatives": [
+            {
+              "text": "Without the grant, the study would have ended.",
+              "note": "助けがない仮定を表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "助けがなかった場合を仮定する",
+          "group": "仮定・条件",
+          "question": {
+            "text": "But for the warning, we would have used that road.",
+            "translation": "その警告がなかったら、私たちはその道を使っていたでしょう。",
+            "grammarPoint": {
+              "label": "助けがなかった場合を仮定する",
+              "pattern": "But for + 名詞, would have + 過去分詞",
+              "note": "もしその助けや出来事がなかったら、という仮定を前置詞句で示します。後半は実際とは異なる過去の結果です。"
+            }
+          },
+          "formNote": "もし〜がなかったらという前置詞句を先に置き、過去の反実仮想を続けます。下の別表現以外の句で練習します。",
+          "sampleNumber": 3,
+          "alternatives": [
+            {
+              "text": "Without the warning, we would have used that road.",
+              "note": "助けがない仮定を表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "形式目的語と不定詞",
+          "group": "形式構文・受け身",
+          "question": {
+            "text": "We found it difficult to obtain reliable data.",
+            "translation": "私たちは、信頼できるデータを入手するのが難しいと分かりました。",
+            "grammarPoint": {
+              "label": "形式目的語と不定詞",
+              "pattern": "find/consider + it + 形容詞 + to不定詞",
+              "note": "仮の目的語itを先に置き、後ろの不定詞で何が難しい・重要・不可能かという内容を示します。"
+            }
+          },
+          "formNote": "仮の目的語を先に置き、評価の内容を後ろの不定詞で示します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "形式目的語と不定詞",
+          "group": "形式構文・受け身",
+          "question": {
+            "text": "She considers it important to protect local jobs.",
+            "translation": "彼女は、地元の雇用を守ることが重要だと考えています。",
+            "grammarPoint": {
+              "label": "形式目的語と不定詞",
+              "pattern": "find/consider + it + 形容詞 + to不定詞",
+              "note": "仮の目的語itを先に置き、後ろの不定詞で何が難しい・重要・不可能かという内容を示します。"
+            }
+          },
+          "formNote": "仮の目的語を先に置き、評価の内容を後ろの不定詞で示します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "形式目的語と不定詞",
+          "group": "形式構文・受け身",
+          "question": {
+            "text": "They found it impossible to meet the deadline.",
+            "translation": "彼らは、その締め切りを守ることは不可能だと分かりました。",
+            "grammarPoint": {
+              "label": "形式目的語と不定詞",
+              "pattern": "find/consider + it + 形容詞 + to不定詞",
+              "note": "仮の目的語itを先に置き、後ろの不定詞で何が難しい・重要・不可能かという内容を示します。"
+            }
+          },
+          "formNote": "仮の目的語を先に置き、評価の内容を後ろの不定詞で示します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        }
+      ]
+    },
+    {
+      "course": "EikenPre1Part2",
+      "title": "準1級②",
+      "retained": 75,
+      "added": 36,
+      "total": 111,
+      "removed": 0,
+      "targets": 12,
+      "addedRows": [
+        {
+          "topic": "たとえ〜でもという条件",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "Even if costs rise, we will continue the project.",
+            "translation": "たとえ費用が上がっても、私たちはその事業を続けます。",
+            "grammarPoint": {
+              "label": "たとえ〜でもという条件",
+              "pattern": "Even if + 文, 主節",
+              "note": "事実だとは確定していない条件を認めても、主節の判断・行動は変わらないと伝えます。"
+            }
+          },
+          "formNote": "事実だとは断定しない譲歩の条件を先に置きます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "たとえ〜でもという条件",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "Even if they object, we will explain our reasons.",
+            "translation": "たとえ彼らが反対しても、私たちは理由を説明します。",
+            "grammarPoint": {
+              "label": "たとえ〜でもという条件",
+              "pattern": "Even if + 文, 主節",
+              "note": "事実だとは確定していない条件を認めても、主節の判断・行動は変わらないと伝えます。"
+            }
+          },
+          "formNote": "事実だとは断定しない譲歩の条件を先に置きます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "たとえ〜でもという条件",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "Even if demand falls, the service will remain.",
+            "translation": "たとえ需要が減っても、そのサービスは存続します。",
+            "grammarPoint": {
+              "label": "たとえ〜でもという条件",
+              "pattern": "Even if + 文, 主節",
+              "note": "事実だとは確定していない条件を認めても、主節の判断・行動は変わらないと伝えます。"
+            }
+          },
+          "formNote": "事実だとは断定しない譲歩の条件を先に置きます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "条件を明示する接続表現",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "We can proceed provided that everyone agrees.",
+            "translation": "全員が同意するという条件なら、私たちは先に進めます。",
+            "grammarPoint": {
+              "label": "条件を明示する接続表現",
+              "pattern": "主節 + provided that + 文",
+              "note": "ある条件が満たされる場合に限って、許可や協力などを述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件を明示する接続表現の節を続けます。下の別表現以外の形で練習します。",
+          "sampleNumber": 1,
+          "alternatives": [
+            {
+              "text": "We can proceed providing that everyone agrees.",
+              "note": "同じ条件を表せる接続表現"
+            }
+          ]
+        },
+        {
+          "topic": "条件を明示する接続表現",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "You may attend provided that you register first.",
+            "translation": "先に登録するという条件なら、参加して構いません。",
+            "grammarPoint": {
+              "label": "条件を明示する接続表現",
+              "pattern": "主節 + provided that + 文",
+              "note": "ある条件が満たされる場合に限って、許可や協力などを述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件を明示する接続表現の節を続けます。下の別表現以外の形で練習します。",
+          "sampleNumber": 2,
+          "alternatives": [
+            {
+              "text": "You may attend providing that you register first.",
+              "note": "同じ条件を表せる接続表現"
+            }
+          ]
+        },
+        {
+          "topic": "条件を明示する接続表現",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "They will help provided that we share the costs.",
+            "translation": "私たちが費用を分担するという条件なら、彼らは協力してくれます。",
+            "grammarPoint": {
+              "label": "条件を明示する接続表現",
+              "pattern": "主節 + provided that + 文",
+              "note": "ある条件が満たされる場合に限って、許可や協力などを述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件を明示する接続表現の節を続けます。下の別表現以外の形で練習します。",
+          "sampleNumber": 3,
+          "alternatives": [
+            {
+              "text": "They will help providing that we share the costs.",
+              "note": "同じ条件を表せる接続表現"
+            }
+          ]
+        },
+        {
+          "topic": "満たすべき条件の範囲",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "You may use the room as long as you leave it clean.",
+            "translation": "使った後きれいな状態にしておくなら、その部屋を使って構いません。",
+            "grammarPoint": {
+              "label": "満たすべき条件の範囲",
+              "pattern": "主節 + as long as + 文",
+              "note": "条件が満たされればという意味で許可や同意を述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件が満たされればという意味の節を後ろに続けます。期間の長さを述べる用法とは区別します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "満たすべき条件の範囲",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "We can agree as long as the terms are fair.",
+            "translation": "条件が公平であれば、私たちは同意できます。",
+            "grammarPoint": {
+              "label": "満たすべき条件の範囲",
+              "pattern": "主節 + as long as + 文",
+              "note": "条件が満たされればという意味で許可や同意を述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件が満たされればという意味の節を後ろに続けます。期間の長さを述べる用法とは区別します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "満たすべき条件の範囲",
+          "group": "譲歩・条件",
+          "question": {
+            "text": "You can borrow it as long as you return it today.",
+            "translation": "今日返すのであれば、それを借りて構いません。",
+            "grammarPoint": {
+              "label": "満たすべき条件の範囲",
+              "pattern": "主節 + as long as + 文",
+              "note": "条件が満たされればという意味で許可や同意を述べます。"
+            }
+          },
+          "formNote": "主節を先に置き、条件が満たされればという意味の節を後ろに続けます。期間の長さを述べる用法とは区別します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "すべてではないという部分否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "Not all residents support the new policy.",
+            "translation": "住民全員がその新しい方針を支持しているわけではありません。",
+            "grammarPoint": {
+              "label": "すべてではないという部分否定",
+              "pattern": "Not all + 複数名詞・不可算名詞 / Not every + 単数名詞",
+              "note": "全員・全部が当てはまるわけではないという部分否定です。誰も・何も当てはまらないと断定する形とは違います。"
+            }
+          },
+          "formNote": "全員が支持しないという全面否定ではなく、全員ではないと表します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "すべてではないという部分否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "Not every applicant meets the requirements.",
+            "translation": "すべての応募者が要件を満たしているわけではありません。",
+            "grammarPoint": {
+              "label": "すべてではないという部分否定",
+              "pattern": "Not all + 複数名詞・不可算名詞 / Not every + 単数名詞",
+              "note": "全員・全部が当てはまるわけではないという部分否定です。誰も・何も当てはまらないと断定する形とは違います。"
+            }
+          },
+          "formNote": "全員ではないという部分否定です。一人ひとりを表す語に単数名詞を続けます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "すべてではないという部分否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "Not all the evidence supports that conclusion.",
+            "translation": "すべての証拠がその結論を裏付けているわけではありません。",
+            "grammarPoint": {
+              "label": "すべてではないという部分否定",
+              "pattern": "Not all + 複数名詞・不可算名詞 / Not every + 単数名詞",
+              "note": "全員・全部が当てはまるわけではないという部分否定です。誰も・何も当てはまらないと断定する形とは違います。"
+            }
+          },
+          "formNote": "証拠全体が当てはまるわけではないという部分否定です。証拠は不可算名詞で表します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "必然的なつながりの否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "Higher fees do not necessarily mean better service.",
+            "translation": "料金が高いことは、必ずしもサービスの良さを意味しません。",
+            "grammarPoint": {
+              "label": "必然的なつながりの否定",
+              "pattern": "主語 + do/does not necessarily + 動詞",
+              "note": "必ずそうなる、必ずそう結び付くという必然性を否定します。"
+            }
+          },
+          "formNote": "二つのことが必ず結び付くとは限らない、という部分否定で表します。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "必然的なつながりの否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "More spending does not necessarily solve the problem.",
+            "translation": "支出を増やすことが、必ずしも問題を解決するとは限りません。",
+            "grammarPoint": {
+              "label": "必然的なつながりの否定",
+              "pattern": "主語 + do/does not necessarily + 動詞",
+              "note": "必ずそうなる、必ずそう結び付くという必然性を否定します。"
+            }
+          },
+          "formNote": "二つのことが必ず結び付くとは限らない、という部分否定で表します。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "必然的なつながりの否定",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "A delay does not necessarily mean failure.",
+            "translation": "遅れは、必ずしも失敗を意味するわけではありません。",
+            "grammarPoint": {
+              "label": "必然的なつながりの否定",
+              "pattern": "主語 + do/does not necessarily + 動詞",
+              "note": "必ずそうなる、必ずそう結び付くという必然性を否定します。"
+            }
+          },
+          "formNote": "二つのことが必ず結び付くとは限らない、という部分否定で表します。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "二つの内容を対比する",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "The issue is not the price but the quality.",
+            "translation": "問題は価格ではなく品質です。",
+            "grammarPoint": {
+              "label": "二つの内容を対比する",
+              "pattern": "not + A + but + B",
+              "note": "AではなくBという対比で、何が問題・目標・責める対象なのかを示します。"
+            }
+          },
+          "formNote": "二つの名詞句を対比します。前半の名詞句を否定し、後半を対比の接続詞で続けます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "二つの内容を対比する",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "Our goal is not growth but long-term stability.",
+            "translation": "私たちの目標は成長ではなく長期的な安定です。",
+            "grammarPoint": {
+              "label": "二つの内容を対比する",
+              "pattern": "not + A + but + B",
+              "note": "AではなくBという対比で、何が問題・目標・責める対象なのかを示します。"
+            }
+          },
+          "formNote": "二つの名詞句を対比します。前半の名詞句を否定し、後半を対比の接続詞で続けます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "二つの内容を対比する",
+          "group": "対比・否定の範囲",
+          "question": {
+            "text": "She blamed not the staff but the system.",
+            "translation": "彼女は職員ではなくシステムを責めました。",
+            "grammarPoint": {
+              "label": "二つの内容を対比する",
+              "pattern": "not + A + but + B",
+              "note": "AではなくBという対比で、何が問題・目標・責める対象なのかを示します。"
+            }
+          },
+          "formNote": "二つの名詞句を対比します。前半の名詞句を否定し、後半を対比の接続詞で続けます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "状況が変わったことを理由にする",
+          "group": "理由・結果",
+          "question": {
+            "text": "Now that the road is open, traffic is improving.",
+            "translation": "その道路が開通した今では、交通状況が改善しています。",
+            "grammarPoint": {
+              "label": "状況が変わったことを理由にする",
+              "pattern": "Now that + 文, 主節",
+              "note": "新しく成立した状況を理由にして、その結果可能になることや変化を述べます。"
+            }
+          },
+          "formNote": "新しく成立した状況を理由にする節を先に置きます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "状況が変わったことを理由にする",
+          "group": "理由・結果",
+          "question": {
+            "text": "Now that funding is secure, we can hire more staff.",
+            "translation": "資金が確保された今では、私たちは職員を増やせます。",
+            "grammarPoint": {
+              "label": "状況が変わったことを理由にする",
+              "pattern": "Now that + 文, 主節",
+              "note": "新しく成立した状況を理由にして、その結果可能になることや変化を述べます。"
+            }
+          },
+          "formNote": "新しく成立した状況を理由にする節を先に置きます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "状況が変わったことを理由にする",
+          "group": "理由・結果",
+          "question": {
+            "text": "Now that everyone is here, we can begin.",
+            "translation": "全員がここにそろったので、私たちは始められます。",
+            "grammarPoint": {
+              "label": "状況が変わったことを理由にする",
+              "pattern": "Now that + 文, 主節",
+              "note": "新しく成立した状況を理由にして、その結果可能になることや変化を述べます。"
+            }
+          },
+          "formNote": "新しく成立した状況を理由にする節を先に置きます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "程度と結果を節でつなぐ",
+          "group": "理由・結果",
+          "question": {
+            "text": "The rent was so high that we had to move.",
+            "translation": "家賃があまりにも高かったので、私たちは引っ越さなければなりませんでした。",
+            "grammarPoint": {
+              "label": "程度と結果を節でつなぐ",
+              "pattern": "so + 形容詞 + that + 結果の文",
+              "note": "形容詞の程度を強め、その程度から生じた結果をthat節で述べます。"
+            }
+          },
+          "formNote": "形容詞の程度を強め、その結果を接続詞の節で続けます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "程度と結果を節でつなぐ",
+          "group": "理由・結果",
+          "question": {
+            "text": "The report was so clear that no one had questions.",
+            "translation": "報告書がとても明確だったので、誰からも質問が出ませんでした。",
+            "grammarPoint": {
+              "label": "程度と結果を節でつなぐ",
+              "pattern": "so + 形容詞 + that + 結果の文",
+              "note": "形容詞の程度を強め、その程度から生じた結果をthat節で述べます。"
+            }
+          },
+          "formNote": "形容詞の程度を強め、その結果を接続詞の節で続けます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "程度と結果を節でつなぐ",
+          "group": "理由・結果",
+          "question": {
+            "text": "The demand was so great that supplies ran out.",
+            "translation": "需要がとても大きかったので、物資が底をつきました。",
+            "grammarPoint": {
+              "label": "程度と結果を節でつなぐ",
+              "pattern": "so + 形容詞 + that + 結果の文",
+              "note": "形容詞の程度を強め、その程度から生じた結果をthat節で述べます。"
+            }
+          },
+          "formNote": "形容詞の程度を強め、その結果を接続詞の節で続けます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "名詞句の程度と結果",
+          "group": "理由・結果",
+          "question": {
+            "text": "It was such a useful course that I recommended it.",
+            "translation": "それはとても役立つ講座だったので、私は人に勧めました。",
+            "grammarPoint": {
+              "label": "名詞句の程度と結果",
+              "pattern": "such + a/an + 形容詞 + 名詞 + that + 文",
+              "note": "形容詞と名詞を含むまとまりの程度を強め、結果をthat節で続けます。"
+            }
+          },
+          "formNote": "冠詞・形容詞・名詞を含むまとまりの程度を強め、その結果を節で続けます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "名詞句の程度と結果",
+          "group": "理由・結果",
+          "question": {
+            "text": "It was such a complex issue that we needed advice.",
+            "translation": "それはとても複雑な問題だったので、私たちは助言を必要としました。",
+            "grammarPoint": {
+              "label": "名詞句の程度と結果",
+              "pattern": "such + a/an + 形容詞 + 名詞 + that + 文",
+              "note": "形容詞と名詞を含むまとまりの程度を強め、結果をthat節で続けます。"
+            }
+          },
+          "formNote": "冠詞・形容詞・名詞を含むまとまりの程度を強め、その結果を節で続けます。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "名詞句の程度と結果",
+          "group": "理由・結果",
+          "question": {
+            "text": "She gave such a clear explanation that we agreed.",
+            "translation": "彼女はとても明確に説明したので、私たちは同意しました。",
+            "grammarPoint": {
+              "label": "名詞句の程度と結果",
+              "pattern": "such + a/an + 形容詞 + 名詞 + that + 文",
+              "note": "形容詞と名詞を含むまとまりの程度を強め、結果をthat節で続けます。"
+            }
+          },
+          "formNote": "冠詞・形容詞・名詞を含むまとまりの程度を強め、その結果を節で続けます。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "過去の疑問を伝える",
+          "group": "発言・提案",
+          "question": {
+            "text": "She asked whether we had received the payment.",
+            "translation": "彼女は、私たちがその支払いを受け取っていたかどうか尋ねました。",
+            "grammarPoint": {
+              "label": "過去の疑問を伝える",
+              "pattern": "asked + whether + 主語 + had + 過去分詞",
+              "note": "過去に尋ねた内容を間接疑問で伝え、それより前の完了を過去完了で示します。"
+            }
+          },
+          "formNote": "尋ねた時点より前の完了を過去完了にし、その内容を間接疑問で伝えます。下の別表現以外で練習します。",
+          "sampleNumber": 1,
+          "alternatives": [
+            {
+              "text": "She asked if we had received the payment.",
+              "note": "〜かどうかを表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "過去の疑問を伝える",
+          "group": "発言・提案",
+          "question": {
+            "text": "He asked whether the deadline had been extended.",
+            "translation": "彼は、締め切りが延長されていたかどうか尋ねました。",
+            "grammarPoint": {
+              "label": "過去の疑問を伝える",
+              "pattern": "asked + whether + 主語 + had + 過去分詞",
+              "note": "過去に尋ねた内容を間接疑問で伝え、それより前の完了を過去完了で示します。"
+            }
+          },
+          "formNote": "尋ねた時点より前の完了を過去完了にし、その内容を間接疑問で伝えます。下の別表現以外で練習します。",
+          "sampleNumber": 2,
+          "alternatives": [
+            {
+              "text": "He asked if the deadline had been extended.",
+              "note": "〜かどうかを表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "過去の疑問を伝える",
+          "group": "発言・提案",
+          "question": {
+            "text": "They asked whether we had checked the figures.",
+            "translation": "彼らは、私たちが数値を確認していたかどうか尋ねました。",
+            "grammarPoint": {
+              "label": "過去の疑問を伝える",
+              "pattern": "asked + whether + 主語 + had + 過去分詞",
+              "note": "過去に尋ねた内容を間接疑問で伝え、それより前の完了を過去完了で示します。"
+            }
+          },
+          "formNote": "尋ねた時点より前の完了を過去完了にし、その内容を間接疑問で伝えます。下の別表現以外で練習します。",
+          "sampleNumber": 3,
+          "alternatives": [
+            {
+              "text": "They asked if we had checked the figures.",
+              "note": "〜かどうかを表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "程度の倍数比較",
+          "group": "比較・数量",
+          "question": {
+            "text": "This method is more than twice as efficient.",
+            "translation": "この方法は、比べている方法の2倍を超える効率です。",
+            "grammarPoint": {
+              "label": "程度の倍数比較",
+              "pattern": "倍数 + as + 形容詞/副詞 + as + 比較相手",
+              "note": "程度・時間の長さを倍数で比べます。2倍を超える場合はmore than twiceです。"
+            }
+          },
+          "formNote": "従来の方法との効率の比較です。同等比較の形を使い、倍率が２倍を上回ると表します。比較相手は文中では省きます。",
+          "sampleNumber": 1,
+          "alternatives": []
+        },
+        {
+          "topic": "程度の倍数比較",
+          "group": "比較・数量",
+          "question": {
+            "text": "The new battery lasts twice as long as the old one.",
+            "translation": "その新しい電池は、古いものの2倍長持ちします。",
+            "grammarPoint": {
+              "label": "程度の倍数比較",
+              "pattern": "倍数 + as + 形容詞/副詞 + as + 比較相手",
+              "note": "程度・時間の長さを倍数で比べます。2倍を超える場合はmore than twiceです。"
+            }
+          },
+          "formNote": "同等比較の形で倍数を述べます。時間の長さには副詞、広さには形容詞の原級を使います。",
+          "sampleNumber": 2,
+          "alternatives": []
+        },
+        {
+          "topic": "程度の倍数比較",
+          "group": "比較・数量",
+          "question": {
+            "text": "This hall is three times as large as that one.",
+            "translation": "このホールは、あのホールの3倍の広さです。",
+            "grammarPoint": {
+              "label": "程度の倍数比較",
+              "pattern": "倍数 + as + 形容詞/副詞 + as + 比較相手",
+              "note": "程度・時間の長さを倍数で比べます。2倍を超える場合はmore than twiceです。"
+            }
+          },
+          "formNote": "同等比較の形で倍数を述べます。時間の長さには副詞、広さには形容詞の原級を使います。",
+          "sampleNumber": 3,
+          "alternatives": []
+        },
+        {
+          "topic": "過去にすべきだったこと",
+          "group": "過去の行動への評価",
+          "question": {
+            "text": "We should have consulted local residents first.",
+            "translation": "私たちはまず地元の住民に相談しておくべきでした。",
+            "grammarPoint": {
+              "label": "過去にすべきだったこと",
+              "pattern": "should have + 過去分詞",
+              "note": "実際にはしなかった行動について、しておくべきだったと振り返る3文です。"
+            }
+          },
+          "formNote": "実際にはしなかった行動への後悔を、助動詞と完了形で述べます。下の別表現以外の助動詞で練習します。",
+          "sampleNumber": 1,
+          "alternatives": [
+            {
+              "text": "We ought to have consulted local residents first.",
+              "note": "過去への後悔を表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "過去にすべきだったこと",
+          "group": "過去の行動への評価",
+          "question": {
+            "text": "She should have checked the source before sharing it.",
+            "translation": "彼女はそれを共有する前に、情報源を確認しておくべきでした。",
+            "grammarPoint": {
+              "label": "過去にすべきだったこと",
+              "pattern": "should have + 過去分詞",
+              "note": "実際にはしなかった行動について、しておくべきだったと振り返る3文です。"
+            }
+          },
+          "formNote": "実際にはしなかった行動への後悔を、助動詞と完了形で述べます。下の別表現以外の助動詞で練習します。",
+          "sampleNumber": 2,
+          "alternatives": [
+            {
+              "text": "She ought to have checked the source before sharing it.",
+              "note": "過去への後悔を表す別表現"
+            }
+          ]
+        },
+        {
+          "topic": "過去にすべきだったこと",
+          "group": "過去の行動への評価",
+          "question": {
+            "text": "They should have warned us about the risks.",
+            "translation": "彼らは、その危険について私たちに警告しておくべきでした。",
+            "grammarPoint": {
+              "label": "過去にすべきだったこと",
+              "pattern": "should have + 過去分詞",
+              "note": "実際にはしなかった行動について、しておくべきだったと振り返る3文です。"
+            }
+          },
+          "formNote": "実際にはしなかった行動への後悔を、助動詞と完了形で述べます。下の別表現以外の助動詞で練習します。",
+          "sampleNumber": 3,
+          "alternatives": [
+            {
+              "text": "They ought to have warned us about the risks.",
+              "note": "過去への後悔を表す別表現"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

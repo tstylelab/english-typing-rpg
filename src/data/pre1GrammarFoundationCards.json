@@ -1,0 +1,482 @@
+[
+  {
+    "id": "core-a-01",
+    "section": 3,
+    "title": "what節を主語にする",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "what節を主語にする",
+    "pattern": "What + 文 + is + 内容",
+    "tip": "what節全体を文の主語にします。isの後ろは、何が必要・重要・心配かという内容です。",
+    "more": "この3文ではwhat節全体を単数として扱います。whetherは〜かどうかという内容を導き、関係代名詞のwhatとは役割が異なります。",
+    "examples": [
+      [
+        "What matters most is how the funds are used.",
+        "最も大切なのは、その資金がどのように使われるかです。"
+      ],
+      [
+        "What concerns us is whether the water is safe.",
+        "私たちが心配しているのは、その水が安全かどうかです。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-02",
+    "section": 3,
+    "title": "whateverで選択の範囲を広げる",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "whateverで選択の範囲を広げる",
+    "pattern": "Whatever + 主語 + 動詞 / Whatever + 動詞",
+    "tip": "whateverで何を選んでも・何が起きてもという範囲を含め、節全体を主語にします。",
+    "more": "Whatever she recommendsではsheが主語、Whatever happensではwhatever自体が主語です。後半の動詞の一致と節の役割を確認します。",
+    "examples": [
+      [
+        "Whatever we decide will affect local families.",
+        "私たちが何を決めても、地元の家族に影響します。"
+      ],
+      [
+        "Whatever she recommends deserves consideration.",
+        "彼女が何を勧めても、検討する価値があります。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-03",
+    "section": 3,
+    "title": "非制限用法で補足する",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "非制限用法で補足する",
+    "pattern": "主語の名詞, which + 補足, 主節の動詞 + 続き",
+    "tip": "すでに特定されているものについて、コンマで区切る関係詞節で情報を補足します。",
+    "more": "主節と補足の二つの動詞を見分けます。この非制限用法のwhichをthatに置き換えることはできません。",
+    "examples": [
+      [
+        "The new clinic, which opens in June, needs staff.",
+        "その新しい診療所は職員を必要としています。ちなみに、6月に開業します。"
+      ],
+      [
+        "Our main office, which is near the station, is small.",
+        "私たちの本社は小さいです。ちなみに、駅の近くにあります。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-04",
+    "section": 3,
+    "title": "前置詞と関係代名詞",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "前置詞と関係代名詞",
+    "pattern": "名詞 + 前置詞 + which + 主語 + 動詞",
+    "tip": "関係詞節の中の動詞や意味に合う前置詞を、whichの直前に置きます。",
+    "more": "depend on、operate under、手段のbyなど、元の結び付きを確かめます。場所や物の名詞を見て、前置詞を機械的に決めるわけではありません。",
+    "examples": [
+      [
+        "The method by which we collect data has changed.",
+        "私たちがデータを集める方法は変わりました。"
+      ],
+      [
+        "The system on which we depend is being upgraded.",
+        "私たちが頼っているシステムは、改良されているところです。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-05",
+    "section": 3,
+    "title": "受け身の分詞構文",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "受け身の分詞構文",
+    "pattern": "過去分詞のまとまり, 主節",
+    "tip": "文頭の過去分詞のまとまりが主節の主語の状況・理由・条件を添えます。省略された主語の対応を確認します。",
+    "more": "Askedは尋ねられた人、Givenは時間を与えられる側、Delayedは遅れさせられた人です。動詞の形だけでなく、主節の主語が行動を受ける側かを確かめます。",
+    "examples": [
+      [
+        "Asked about the cost, she gave a clear answer.",
+        "費用について尋ねられ、彼女は明確に答えました。"
+      ],
+      [
+        "Given enough time, we could solve the problem.",
+        "十分な時間が与えられれば、私たちはその問題を解決できるでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-06",
+    "section": 3,
+    "title": "接続詞と省略された主語",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "接続詞と省略された主語",
+    "pattern": "While/When + 分詞のまとまり, 主節",
+    "tip": "主節と同じ主語について、接続詞の後ろを分詞のまとまりに縮めます。能動と受け身で分詞の形が変わります。",
+    "more": "while reviewingでは自分が見直し、when askedでは自分が尋ねられます。主語の異なる節を同じように縮めないようにします。",
+    "examples": [
+      [
+        "While reviewing the budget, we found an error.",
+        "予算を見直している間に、私たちは誤りを見つけました。"
+      ],
+      [
+        "When asked for details, he referred to the report.",
+        "詳細を尋ねられると、彼はその報告書に言及しました。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-07",
+    "section": 3,
+    "title": "過去完了進行形",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "過去完了進行形",
+    "pattern": "had been + 動詞-ing + 過去の基準",
+    "tip": "過去の基準時点まで続いていた動作を、had beenとing形で表します。",
+    "more": "過去完了had workedとの意味の重なりはありますが、ここでは続けていた活動に注目します。when/beforeの節は基準となる出来事を示します。",
+    "examples": [
+      [
+        "They had been working for hours when I arrived.",
+        "私が着いたとき、彼らはすでに何時間も働き続けていました。"
+      ],
+      [
+        "We had been discussing the issue when she called.",
+        "彼女から電話が来たとき、私たちはその問題についてそれまで話し合いを続けていました。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-08",
+    "section": 3,
+    "title": "過去についての否定の推量",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "過去についての否定の推量",
+    "pattern": "cannot have + 過去分詞",
+    "tip": "過去の出来事について、したはずがないという強い否定の推量を述べます。",
+    "more": "cannot haveは推量であり、単にそのとき能力がなかったという意味とは違います。can't haveも自然な短縮形です。",
+    "examples": [
+      [
+        "She cannot have approved such a risky plan.",
+        "彼女がそんな危険な計画を承認したはずがありません。"
+      ],
+      [
+        "They cannot have received the goods so quickly.",
+        "彼らがそんなに早く品物を受け取ったはずがありません。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-09",
+    "section": 3,
+    "title": "助動詞と完了受け身",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "助動詞と完了受け身",
+    "pattern": "may have been + 過去分詞",
+    "tip": "過去に何かがされた可能性を、助動詞・完了形・受け身で組み立てます。",
+    "more": "may haveは過去の可能性、beenと過去分詞は受け身です。might have beenも自然で、確率だけを理由に誤りとしません。",
+    "examples": [
+      [
+        "The file may have been deleted by mistake.",
+        "そのファイルは誤って削除されたのかもしれません。"
+      ],
+      [
+        "The figures may have been entered incorrectly.",
+        "その数値は、間違って入力されたのかもしれません。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-10",
+    "section": 3,
+    "title": "過去の仮定と現在の結果",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "過去の仮定と現在の結果",
+    "pattern": "If + had + 過去分詞, would + 原形 + now",
+    "tip": "条件は実際とは違う過去、結果は現在です。混合仮定法として二つの時点を分けます。",
+    "more": "過去の結果ならwould haveと過去分詞にする形がありますが、この3文はnowで現在の状態を明示しています。",
+    "examples": [
+      [
+        "If I had accepted the offer, I would work here now.",
+        "もしその申し出を受けていたら、私は今ここで働いているでしょう。"
+      ],
+      [
+        "If we had invested sooner, we would be safer now.",
+        "もしもっと早く投資していたら、私たちは今もっと安全な状況にいるでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-11",
+    "section": 3,
+    "title": "助けがなかった場合を仮定する",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "助けがなかった場合を仮定する",
+    "pattern": "But for + 名詞, would have + 過去分詞",
+    "tip": "もしその助けや出来事がなかったら、という仮定を前置詞句で示します。後半は実際とは異なる過去の結果です。",
+    "more": "withoutやIf it had not been forでも自然に表せます。文頭のBut forは、普通の文を逆接でつなぐbutとは構造が違います。",
+    "examples": [
+      [
+        "But for your advice, I would have signed it.",
+        "あなたの助言がなかったら、私はそれに署名してしまっていたでしょう。"
+      ],
+      [
+        "But for the grant, the study would have ended.",
+        "その助成金がなかったら、その研究は終わってしまっていたでしょう。"
+      ]
+    ]
+  },
+  {
+    "id": "core-a-12",
+    "section": 3,
+    "title": "形式目的語と不定詞",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "形式目的語と不定詞",
+    "pattern": "find/consider + it + 形容詞 + to不定詞",
+    "tip": "仮の目的語itを先に置き、後ろの不定詞で何が難しい・重要・不可能かという内容を示します。",
+    "more": "We found it difficult to obtain ...では、目的語itは後ろのto以下の内容を先に受けています。itを必ず前に出た物を指す「それ」として訳す必要はありません。",
+    "examples": [
+      [
+        "We found it difficult to obtain reliable data.",
+        "私たちは、信頼できるデータを入手するのが難しいと分かりました。"
+      ],
+      [
+        "She considers it important to protect local jobs.",
+        "彼女は、地元の雇用を守ることが重要だと考えています。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-01",
+    "section": 3,
+    "title": "たとえ〜でもという条件",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "たとえ〜でもという条件",
+    "pattern": "Even if + 文, 主節",
+    "tip": "事実だとは確定していない条件を認めても、主節の判断・行動は変わらないと伝えます。",
+    "more": "Even thoughはすでに認める事実についての譲歩にも使います。日本語の「〜ても」だけで選ばせず、仮の条件かどうかを補足します。",
+    "examples": [
+      [
+        "Even if costs rise, we will continue the project.",
+        "たとえ費用が上がっても、私たちはその事業を続けます。"
+      ],
+      [
+        "Even if they object, we will explain our reasons.",
+        "たとえ彼らが反対しても、私たちは理由を説明します。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-02",
+    "section": 3,
+    "title": "条件を明示する接続表現",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "条件を明示する接続表現",
+    "pattern": "主節 + provided that + 文",
+    "tip": "ある条件が満たされる場合に限って、許可や協力などを述べます。",
+    "more": "providing that、if、on condition thatなども文脈により自然です。今回練習する接続の形と、同義の別表現を区別します。",
+    "examples": [
+      [
+        "We can proceed provided that everyone agrees.",
+        "全員が同意するという条件なら、私たちは先に進めます。"
+      ],
+      [
+        "You may attend provided that you register first.",
+        "先に登録するという条件なら、参加して構いません。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-03",
+    "section": 3,
+    "title": "満たすべき条件の範囲",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "満たすべき条件の範囲",
+    "pattern": "主節 + as long as + 文",
+    "tip": "条件が満たされればという意味で許可や同意を述べます。",
+    "more": "as long asには期間の意味もありますが、この3文は条件です。別の接続詞でも表せることと、今回の練習する型を分けます。",
+    "examples": [
+      [
+        "You may use the room as long as you leave it clean.",
+        "使った後きれいな状態にしておくなら、その部屋を使って構いません。"
+      ],
+      [
+        "We can agree as long as the terms are fair.",
+        "条件が公平であれば、私たちは同意できます。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-04",
+    "section": 3,
+    "title": "すべてではないという部分否定",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "すべてではないという部分否定",
+    "pattern": "Not all + 複数名詞・不可算名詞 / Not every + 単数名詞",
+    "tip": "全員・全部が当てはまるわけではないという部分否定です。誰も・何も当てはまらないと断定する形とは違います。",
+    "more": "not every applicantでは中心の名詞が単数なのでmeets。evidenceはこの意味で不可算名詞なのでsupportsとします。",
+    "examples": [
+      [
+        "Not all residents support the new policy.",
+        "住民全員がその新しい方針を支持しているわけではありません。"
+      ],
+      [
+        "Not every applicant meets the requirements.",
+        "すべての応募者が要件を満たしているわけではありません。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-05",
+    "section": 3,
+    "title": "必然的なつながりの否定",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "必然的なつながりの否定",
+    "pattern": "主語 + do/does not necessarily + 動詞",
+    "tip": "必ずそうなる、必ずそう結び付くという必然性を否定します。",
+    "more": "meanの後ろは名詞句でも構いません。more spendingが主語なら、活動全体を受けてdoesとなります。",
+    "examples": [
+      [
+        "Higher fees do not necessarily mean better service.",
+        "料金が高いことは、必ずしもサービスの良さを意味しません。"
+      ],
+      [
+        "More spending does not necessarily solve the problem.",
+        "支出を増やすことが、必ずしも問題を解決するとは限りません。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-06",
+    "section": 3,
+    "title": "二つの内容を対比する",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "二つの内容を対比する",
+    "pattern": "not + A + but + B",
+    "tip": "AではなくBという対比で、何が問題・目標・責める対象なのかを示します。",
+    "more": "AとBはこの3文では名詞句です。The issue is not ...なら補語、She blamed not ...なら目的語の位置で、二つの内容を対比しています。",
+    "examples": [
+      [
+        "The issue is not the price but the quality.",
+        "問題は価格ではなく品質です。"
+      ],
+      [
+        "Our goal is not growth but long-term stability.",
+        "私たちの目標は成長ではなく長期的な安定です。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-07",
+    "section": 3,
+    "title": "状況が変わったことを理由にする",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "状況が変わったことを理由にする",
+    "pattern": "Now that + 文, 主節",
+    "tip": "新しく成立した状況を理由にして、その結果可能になることや変化を述べます。",
+    "more": "becauseやsinceで言い換えることもできます。now thatは、今その状況が成立したことを理由に、次の行動や変化へ話を進める表現です。",
+    "examples": [
+      [
+        "Now that the road is open, traffic is improving.",
+        "その道路が開通した今では、交通状況が改善しています。"
+      ],
+      [
+        "Now that funding is secure, we can hire more staff.",
+        "資金が確保された今では、私たちは職員を増やせます。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-08",
+    "section": 3,
+    "title": "程度と結果を節でつなぐ",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "程度と結果を節でつなぐ",
+    "pattern": "so + 形容詞 + that + 結果の文",
+    "tip": "形容詞の程度を強め、その程度から生じた結果をthat節で述べます。",
+    "more": "so high/clear/greatではsoの直後が形容詞です。so thatだけで目的を示す文と区別します。",
+    "examples": [
+      [
+        "The rent was so high that we had to move.",
+        "家賃があまりにも高かったので、私たちは引っ越さなければなりませんでした。"
+      ],
+      [
+        "The report was so clear that no one had questions.",
+        "報告書がとても明確だったので、誰からも質問が出ませんでした。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-09",
+    "section": 3,
+    "title": "名詞句の程度と結果",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "名詞句の程度と結果",
+    "pattern": "such + a/an + 形容詞 + 名詞 + that + 文",
+    "tip": "形容詞と名詞を含むまとまりの程度を強め、結果をthat節で続けます。",
+    "more": "a useful courseはusefulの最初の音が子音なのでaです。so useful a courseという別の語順もありますが、今回はsuchの型を練習します。",
+    "examples": [
+      [
+        "It was such a useful course that I recommended it.",
+        "それはとても役立つ講座だったので、私は人に勧めました。"
+      ],
+      [
+        "It was such a complex issue that we needed advice.",
+        "それはとても複雑な問題だったので、私たちは助言を必要としました。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-10",
+    "section": 3,
+    "title": "過去の疑問を伝える",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "過去の疑問を伝える",
+    "pattern": "asked + whether + 主語 + had + 過去分詞",
+    "tip": "過去に尋ねた内容を間接疑問で伝え、それより前の完了を過去完了で示します。",
+    "more": "whether節の内側を疑問文の語順にしません。ifも〜かどうかの意味で使える場合があるので、条件のifとの違いも含めて説明します。",
+    "examples": [
+      [
+        "She asked whether we had received the payment.",
+        "彼女は、私たちがその支払いを受け取っていたかどうか尋ねました。"
+      ],
+      [
+        "He asked whether the deadline had been extended.",
+        "彼は、締め切りが延長されていたかどうか尋ねました。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-11",
+    "section": 3,
+    "title": "程度の倍数比較",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "程度の倍数比較",
+    "pattern": "倍数 + as + 形容詞/副詞 + as + 比較相手",
+    "tip": "程度・時間の長さを倍数で比べます。2倍を超える場合はmore than twiceです。",
+    "more": "asの後ろの形容詞・副詞は比較級ではなく原級です。比較相手を省く文では、出題時の場面にどの方法と比べるかを示します。",
+    "examples": [
+      [
+        "This method is more than twice as efficient.",
+        "この方法は、比べている方法の2倍を超える効率です。"
+      ],
+      [
+        "The new battery lasts twice as long as the old one.",
+        "その新しい電池は、古いものの2倍長持ちします。"
+      ]
+    ]
+  },
+  {
+    "id": "core-b-12",
+    "section": 3,
+    "title": "過去にすべきだったこと",
+    "subtitle": "短い文で意味と形を組み立てる",
+    "term": "過去にすべきだったこと",
+    "pattern": "should have + 過去分詞",
+    "tip": "実際にはしなかった行動について、しておくべきだったと振り返る3文です。",
+    "more": "should haveは文脈によって「もう着いているはずだ」という予想にもなります。この練習では後悔の意味であることを日本語に明示します。",
+    "examples": [
+      [
+        "We should have consulted local residents first.",
+        "私たちはまず地元の住民に相談しておくべきでした。"
+      ],
+      [
+        "She should have checked the source before sharing it.",
+        "彼女はそれを共有する前に、情報源を確認しておくべきでした。"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "status": "installed-runtime-verified",
+  "calculations": 82800,
+  "stagesMatchApprovedProposal": true,
+  "allStagesLargeMistakesFail": true,
+  "boss30PercentMistakesFail": true,
+  "questionCount": 200,
+  "limitations": "実際の回答計算を隔離VMで使用。間違えた問題の割合ではなく、完成までの誤打鍵数/文字数。問題を完成できずスキップする挙動は別。体感や語彙・構文の難しさの実測ではない。提案120問を採用した場合の計算であり本体未変更。"
+}

@@ -3,6 +3,7 @@ import { grade4Foundations } from './questionSets/eiken/grade4';
 import grade3 from './questionSets/eiken/grade3';
 import pre2, { legacyPre2Sentences } from './questionSets/eiken/pre2';
 import grade2 from './questionSets/eiken/grade2';
+import { pre1Part1, pre1Part2 } from './questionSets/eiken/pre1';
 import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
 
 // Resolve saved review questions too: older storage normalizers only retain text/meaning.
@@ -10,6 +11,8 @@ const grade3Points = new Map(grade3.levels['3'].map(q => [q.text, q.grammarPoint
 const grade4Points = new Map(grade4Foundations.map(entry => [entry.question.text, 'grammarPoint' in entry.question ? entry.question.grammarPoint : undefined]));
 const pre2Points = new Map([...legacyPre2Sentences, ...pre2.levels['3']].map(q => [q.text, q.grammarPoint]));
 const grade2Points = new Map(grade2.levels['3'].map(q => [q.text, q.grammarPoint]));
+const pre1Part1Points = new Map(pre1Part1.levels['3'].map(q => [q.text, q.grammarPoint]));
+const pre1Part2Points = new Map(pre1Part2.levels['3'].map(q => [q.text, q.grammarPoint]));
 const grade1Part1Points = new Map(grade1Part1.levels['3'].map(q => [q.text, q.grammarPoint]));
 const grade1Part2Points = new Map(grade1Part2.levels['3'].map(q => [q.text, q.grammarPoint]));
 
@@ -221,6 +224,8 @@ export const getQuestionGrammarPoint = (
   if (difficulty === 'Eiken3' && level === 3) return grade3Points.get(question.text) ?? null;
   if (difficulty === 'EikenPre2' && level === 3) return pre2Points.get(question.text) ?? null;
   if (difficulty === 'Eiken2' && level === 3) return grade2Points.get(question.text) ?? null;
+  if (difficulty === 'EikenPre1Part1' && level === 3) return pre1Part1Points.get(question.text) ?? null;
+  if (difficulty === 'EikenPre1Part2' && level === 3) return pre1Part2Points.get(question.text) ?? null;
   if (difficulty === 'Eiken1Part1' && level === 3) return grade1Part1Points.get(question.text) ?? null;
   if (difficulty === 'Eiken1Part2' && level === 3) return grade1Part2Points.get(question.text) ?? null;
   if (difficulty !== 'Eiken4' || level !== 3) return null;

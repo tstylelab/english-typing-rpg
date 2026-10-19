@@ -1,11 +1,15 @@
 import type { GrammarCard } from './grade5GrammarGuide';
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import { grade1GrammarAssignments } from './grade1GrammarAssignments';
+import expansionCards from './grade1GrammarExpansionCards.json';
+import expansionAssignments from './grade1GrammarExpansionAssignments.json';
 
 export const grade1GrammarSections = [
   { title: '対比・条件・原因をつなぐ', note: '出来事どうしの関係を捉え、何が理由で、どこが主張なのかを読み取ります。' },
   { title: '対象を説明する・受け身で伝える', note: '長い主語の中心と説明部分を分け、誰が何をしたのかを確かめます。' },
   { title: '判断・比較・報告を読み分ける', note: '断定の強さ、比較の基準、出来事の時間の順序に注目します。' },
+  { title: '文の形・時点・意味を組み立てる', note: '受け身や関係詞、条件・否定・比較を、異なる場面で使います。' },
+  { title: '発展：焦点と倒置を使い分ける', note: '同じ内容の別の語順を比べ、情報の焦点と仮定の時点を確かめます。' },
 ];
 
 // Explanations for the actual short sentences in this app, not an exam syllabus.
@@ -136,12 +140,17 @@ export const grade1GrammarCards: GrammarCard[] = [
     chunks:[['The inquiry revealed','調査で明らかになった'],['that officials','職員たちが〜したと'],['had ignored warnings.','それ以前に警告を無視していた']] },
 ];
 
+grade1GrammarCards.push(...expansionCards as GrammarCard[]);
+const allAssignments: typeof grade1GrammarAssignments = {
+  Eiken1Part1: { ...grade1GrammarAssignments.Eiken1Part1, ...expansionAssignments.Eiken1Part1 },
+  Eiken1Part2: { ...grade1GrammarAssignments.Eiken1Part2, ...expansionAssignments.Eiken1Part2 },
+};
 export const grade1GrammarCardsByCourse = {
-  Eiken1Part1: grade1GrammarCards.filter(card => Object.values(grade1GrammarAssignments.Eiken1Part1).includes(card.id)),
-  Eiken1Part2: grade1GrammarCards.filter(card => Object.values(grade1GrammarAssignments.Eiken1Part2).includes(card.id)),
+  Eiken1Part1: grade1GrammarCards.filter(card => Object.values(allAssignments.Eiken1Part1).includes(card.id)),
+  Eiken1Part2: grade1GrammarCards.filter(card => Object.values(allAssignments.Eiken1Part2).includes(card.id)),
 };
 export function getGrade1GrammarCard(difficulty: DifficultyKey, level: LevelKey, question: Pick<Question, 'text'>) {
   if ((difficulty !== 'Eiken1Part1' && difficulty !== 'Eiken1Part2') || level !== 3) return undefined;
-  const id = grade1GrammarAssignments[difficulty][question.text];
+  const id = allAssignments[difficulty][question.text];
   return grade1GrammarCardsByCourse[difficulty].find(card => card.id === id);
 }

@@ -5,19 +5,21 @@ import {load} from './lib/load-typescript-data.mjs';
 const {QUESTIONS}=load('src/data/questions.ts');
 const {grammarGuides,getGrammarCard,getGrammarGuideCourse}=load('src/data/grammarGuides.ts');
 const {pre1GrammarCards,getPre1GrammarCard}=load('src/data/pre1GrammarGuide.ts');
-const {pre1GrammarAssignments}=load('src/data/pre1GrammarAssignments.ts');
+const originalAssignments=load('src/data/pre1GrammarAssignments.ts').pre1GrammarAssignments;
+const additions=load('src/data/pre1GrammarFoundationAssignments.json');
+const pre1GrammarAssignments=Object.fromEntries(Object.keys(originalAssignments).map(course=>[course,{...originalAssignments[course],...additions[course]}]));
 const {readGrammarBookmarks,toggleGrammarBookmark,grammarBookmarkKey}=load('src/grammarBookmarks.ts');
 const {buildGrammarQuestion}=load('src/grammarAiPrompt.ts');
 for(const file of ['src/data/questionSets/eiken/gradepre1-part1.json','src/data/questionSets/eiken/gradepre1-part2.json','src/data/pre1SentenceMeaningCorrections.json','src/App.tsx']) {
   // Autoplay/history changes were committed separately after the original material baseline.
-  const baseline = file === 'src/App.tsx' ? '14d0826' : '4c6731c';
+  const baseline = file === 'src/App.tsx' ? 'ba9f47d' : '4c6731c';
   assert.equal(readFileSync(file,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show',baseline+':'+file],{encoding:'utf8',maxBuffer:16e6}).replace(/\r\n/g,'\n'),file+' unchanged');
 }
-for(const [course,count] of [['EikenPre1Part1',37],['EikenPre1Part2',40]]) {
+for(const [course,count] of [['EikenPre1Part1',49],['EikenPre1Part2',52]]) {
   const guide=grammarGuides[course];const qs=QUESTIONS[course][3];
-  assert.equal(qs.length,75);assert.equal(guide.cards.length,count);
+  assert.equal(qs.length,111);assert.equal(guide.cards.length,count);
   assert.equal(getGrammarGuideCourse(course.toLowerCase()),course);
-  assert.deepEqual(Object.keys(pre1GrammarAssignments[course]).sort(),qs.map(q=>q.text).sort());
+  assert.deepEqual(Object.keys(pre1GrammarAssignments[course]).sort(),Array.from(qs,q=>q.text).sort());
   for(const q of qs){
     assert.ok(getGrammarCard(course,3,q),q.text);
     for(const level of [1,2])assert.equal(getGrammarCard(course,level,q),undefined);
@@ -60,4 +62,4 @@ for(const course of ['EikenPre1Part1','EikenPre1Part2']){
   const prompt=buildGrammarQuestion(guide.grade,getGrammarCard(course,3,q),q.text);
   assert.ok(prompt.includes('英検'+guide.grade+'に挑戦する学習者')&&prompt.includes('ゲームで出た文：'+q.text));
 }
-console.log('PASS: Pre-1 150 exact links, 37/40 cards, meaning and fragment distinctions, original material/gameplay, part/player isolation and AI context');
+console.log('PASS: Pre-1 222 exact links, 49/52 cards, meaning and fragment distinctions, original material/gameplay, part/player isolation and AI context');

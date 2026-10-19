@@ -1,0 +1,14 @@
+{
+  "head": "ba9f47d41857b6774fdc9e9190b024914bdf5cc8",
+  "questionsSha256": "6d8d82fed1a9efff143198ff16a27b075087be95db16cf205481878f5393708f",
+  "sourceHashes": {
+    "src/App.tsx": "04c94d712cfd88045ad41256ebc3b1ae0d0fa46a956676f594f45403beb91e7f",
+    "src/data/questionSets/eiken/grade1.ts": "0a640d78ccc04bde7923c1de8e531b8117ab19ac6d8238424009835003692459",
+    "src/data/questionSets/eiken/grade1Sentences.ts": "0be1123c7c433ef4bbd795dc36e891d891ec4e5727620e63767c710f2d170913",
+    "src/data/grade1GrammarGuide.ts": "4a4f7cd4bcdacbdd5835e2b75ee61ae19e80d43010def09b8582dc2f7dae6025",
+    "src/data/grade1GrammarAssignments.ts": "2800cd3edf74e1b2bc510ebbdffdfb9bbf121b0996039b4e51f288fd18813e52",
+    "src/data/questionGrammarPoints.ts": "1edcb61ae3aba9fd88d10f208da9dea091cf0b3a541dd60b3f804e2c015b88ef",
+    "src/data/translationBattlePrompts.json": "70f3e5d6e7e5ff925f43e8a959ee4e4620be24e8a42f245ea19f1f2f059e550e",
+    "src/data/questions.ts": "b8ccce0ba2619803371a78c92229a30ddc40c394fb3cc7fe893ca58d61f0c63a"
+  }
+}

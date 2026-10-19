@@ -5,8 +5,7 @@ import eikenPre2 from './questionSets/eiken/pre2';
 import eikenGrade2 from './questionSets/eiken/grade2';
 import { grade1Part1, grade1Part2 } from './questionSets/eiken/grade1';
 import eikenGrade5Json from './questionSets/eiken/grade5';
-import eikenGradePre1Part1Json from './questionSets/eiken/gradepre1-part1.json';
-import eikenGradePre1Part2Json from './questionSets/eiken/gradepre1-part2.json';
+import { pre1Part1, pre1Part2 } from './questionSets/eiken/pre1';
 import conversationBeginnerJson from './questionSets/conversation/beginner.json';
 
 export type Question = {
@@ -39,8 +38,8 @@ const questionSetLibrary = {
     grade3: eikenGrade3,
     pre2: eikenPre2,
     grade2: eikenGrade2,
-    gradepre1Part1: eikenGradePre1Part1Json as QuestionSetFile,
-    gradepre1Part2: eikenGradePre1Part2Json as QuestionSetFile,
+    gradepre1Part1: pre1Part1,
+    gradepre1Part2: pre1Part2,
     grade1Part1,
     grade1Part2,
   },

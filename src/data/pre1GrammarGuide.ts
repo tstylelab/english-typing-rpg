@@ -1,11 +1,14 @@
 import type { GrammarCard } from './grade5GrammarGuide';
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import { pre1GrammarAssignments } from './pre1GrammarAssignments';
+import foundationCards from './pre1GrammarFoundationCards.json';
+import foundationAssignments from './pre1GrammarFoundationAssignments.json';
 
 export const pre1GrammarSections = [
   { title: '相手の話を理解する・確認する', note: '文の中に入る疑問や内容を読み取り、説明を求めたり言い換えたりします。' },
   { title: '賛成・留保・可能性を伝える', note: '同意する範囲、確信の強さ、判断を保留する言い方を見比べます。' },
   { title: '時間・形・会話の省略を読む', note: '完了形、進行形、比較、前置きや会話の省略を、具体的な文で確かめます。' },
+  { title: '短い文で構文を組み立てる', note: '名詞節・関係詞・分詞、条件・否定・比較などを、異なる場面で使い分けます。' },
 ];
 
 // Shared explanations are shown only in the part that contains a linked question.
@@ -272,12 +275,17 @@ export const pre1GrammarCards: GrammarCard[] = [
     more:'What do you make of that?と直接尋ねることもできます。ofを落とすと「何を作るか」という別の意味になり得るので、make ofをひとまとまりで確認します。' },
 ];
 
+pre1GrammarCards.push(...foundationCards as GrammarCard[]);
+const allAssignments: typeof pre1GrammarAssignments = {
+  EikenPre1Part1: { ...pre1GrammarAssignments.EikenPre1Part1, ...foundationAssignments.EikenPre1Part1 },
+  EikenPre1Part2: { ...pre1GrammarAssignments.EikenPre1Part2, ...foundationAssignments.EikenPre1Part2 },
+};
 export const pre1GrammarCardsByCourse = {
-  EikenPre1Part1: pre1GrammarCards.filter(card => Object.values(pre1GrammarAssignments.EikenPre1Part1).includes(card.id)),
-  EikenPre1Part2: pre1GrammarCards.filter(card => Object.values(pre1GrammarAssignments.EikenPre1Part2).includes(card.id)),
+  EikenPre1Part1: pre1GrammarCards.filter(card => Object.values(allAssignments.EikenPre1Part1).includes(card.id)),
+  EikenPre1Part2: pre1GrammarCards.filter(card => Object.values(allAssignments.EikenPre1Part2).includes(card.id)),
 };
 export function getPre1GrammarCard(difficulty: DifficultyKey, level: LevelKey, question: Pick<Question, 'text'>) {
   if ((difficulty !== 'EikenPre1Part1' && difficulty !== 'EikenPre1Part2') || level !== 3) return undefined;
-  const id = pre1GrammarAssignments[difficulty][question.text];
+  const id = allAssignments[difficulty][question.text];
   return pre1GrammarCardsByCourse[difficulty].find(card => card.id === id);
 }

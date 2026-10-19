@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-19",
+  "status": "approved-for-publication",
+  "questions": {
+    "EikenPre1Part1": 111,
+    "EikenPre1Part2": 111,
+    "oldRetained": 150,
+    "new": 72
+  },
+  "grammar": {
+    "shortAnnotations": 222,
+    "detailedCards": [
+      49,
+      52
+    ],
+    "newCards": 24
+  },
+  "passed": [
+    "test-pre1-level3-foundations: 91908 actual damage calculations, original identities, all other questions, old prompts and App unchanged",
+    "test-pre1-grammar-guide: 222 links, saved-card isolation, original IDs",
+    "test-ui-progress-compatibility: 11 persistence functions / 47 dependencies / two players / export-import round trips",
+    "test-translation-battle-prompts: 7530 questions / 2672 reviewed entries",
+    "test-long-text-battle-balance: 828 stages / 913100 damage-hint checks / 387504 out-of-scope / 12420 comparisons",
+    "test-pre1-level3-foundations-ui: review 72/150/222, filters, hidden answers, URL reload, widths 1366/820/390/320; actual battles at 1366 and 390, result annotations/guide saves/reload and prior records",
+    "Actual guide section recheck: both courses, 49/52 cards",
+    "npm run build",
+    "targeted eslint",
+    "git diff --check"
+  ],
+  "limitations": [
+    "No production publish, commit or push in this change",
+    "No subjective learning-effort measurement, physical phone keyboard or audio listening test",
+    "Japanese prompts specify training forms and natural alternatives; grading remains exact-answer typing",
+    "Build still reports existing large-bundle/plugin timing warnings"
+  ],
+  "runtimeSha256": {
+    "src/App.tsx": "04c94d712cfd88045ad41256ebc3b1ae0d0fa46a956676f594f45403beb91e7f",
+    "src/data/questions.ts": "b8ccce0ba2619803371a78c92229a30ddc40c394fb3cc7fe893ca58d61f0c63a",
+    "src/data/questionSets/eiken/pre1.ts": "7525f7dd4630195fddcee532f69cc117f0432c2ea9d0546b44f731fb65791cae",
+    "src/data/questionSets/eiken/pre1GrammarFoundations.json": "ea8a7a46e43e4493caec4951c9c716aaf833d36a0d7f8bcb8f873ec5d0124e9c",
+    "src/data/pre1GrammarPointOverrides.json": "fd1e4b327c7a66f1c7c73393a97133b68952915aa79f292c4d065fe0a2a075a7",
+    "src/data/pre1GrammarFoundationCards.json": "d520fe9d54d7b44d9582746a6feaa36a6d10827e2fda80b5d15c464919e20676",
+    "src/data/pre1GrammarFoundationAssignments.json": "515d93b9345bdcfe7729bde025c7abe082eec1f7b99cfc518c92182b4c28c5cd",
+    "src/data/pre1GrammarGuide.ts": "fc9c42075ce1daea2ee09ea5a2ab44144061d0671a263ad90fbc5f1166ae790e",
+    "src/data/questionGrammarPoints.ts": "1edcb61ae3aba9fd88d10f208da9dea091cf0b3a541dd60b3f804e2c015b88ef",
+    "src/data/translationBattlePrompts.json": "70f3e5d6e7e5ff925f43e8a959ee4e4620be24e8a42f245ea19f1f2f059e550e"
+  },
+  "checkpoint": "Pre-1 standalone checks before Grade-1 integration; combined release adds separate Grade-1 and preservation audits."
+}

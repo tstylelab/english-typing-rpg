@@ -1,0 +1,406 @@
+{
+  "Eiken1Part1": {
+    "Poor housing can increase the risk of illness.": {
+      "label": "無生物主語と可能性",
+      "pattern": "原因 + can + 他動詞 + 目的語",
+      "note": "住環境を原因の主語にし、canで起こり得る影響を述べます。すべての場合に病気になるという断定ではありません。"
+    },
+    "The new rules led to a sharp drop in pollution.": {
+      "label": "lead to・前置詞to",
+      "pattern": "原因 ＋ lead to ＋ 結果を表す名詞",
+      "note": "ledはleadの過去形。toの後ろのa sharp dropは「急な減少」という名詞のまとまりです。a drop in pollutionで、何が減ったかをin以下で示しています。"
+    },
+    "The results were published before the election.": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "最初の文は主節もafter節も受け身です。afterがあるため、記録の再調査→無実の証明という順序が分かります。二つ目のuntilは延期が続く区切りを示します。"
+    },
+    "The new method uses less energy than the old one.": {
+      "label": "数えられない量と代用語",
+      "pattern": "use + less + 不可算名詞 + than ...",
+      "note": "energyの量の少なさをlessで表します。oneは前にあるmethodの繰り返しを避ける代用語です。"
+    },
+    "Rural areas have fewer doctors than large cities.": {
+      "label": "数えられる名詞の数量比較",
+      "pattern": "have + fewer + 複数名詞 + than ...",
+      "note": "doctorsは数えられる複数名詞で、数の少なさをfewerで表します。数えられない量のlessと区別します。"
+    },
+    "The survey shows that public opinion has shifted.": {
+      "label": "内容節と現在完了",
+      "pattern": "show that + 主語 + has + 過去分詞",
+      "note": "that節が示された内容で、has shiftedは変化が現在につながる現在完了です。"
+    },
+    "The report was reviewed by independent scientists.": {
+      "label": "過去の受け身",
+      "pattern": "主語 ＋ was / were ＋ 過去分詞（＋ by …）",
+      "note": "reportは検証する側ではなく、検証される対象です。by以下は行為をした人や、被害をもたらした原因。主語が複数のvillagesならwereを使います。"
+    },
+    "Several villages were damaged by the sudden flood.": {
+      "label": "過去の受け身",
+      "pattern": "主語 ＋ was / were ＋ 過去分詞（＋ by …）",
+      "note": "reportは検証する側ではなく、検証される対象です。by以下は行為をした人や、被害をもたらした原因。主語が複数のvillagesならwereを使います。"
+    },
+    "The benefits are greater than the immediate costs.": {
+      "label": "形容詞の比較級",
+      "pattern": "主語 + be + greater than + 比較相手",
+      "note": "greaterが大きさを比較する補語です。outweighのように比較を動詞で述べる形とは異なります。"
+    },
+    "The closure left hundreds of workers without jobs.": {
+      "label": "leave＋目的語＋補語",
+      "pattern": "leave ＋ 人・物 ＋ 形容詞 / 前置詞句",
+      "note": "leftはleaveの過去形ですが、ここでは主語が場所を去る意味ではありません。workersがwithout jobsという状態に、roadsがimpassableという状態になったと説明しています。"
+    },
+    "The river is cleaner now than it was a decade ago.": {
+      "label": "比較級＋than",
+      "pattern": "比較級 ＋ than ＋ 比較対象",
+      "note": "more effectiveは効果が上、less costlyは費用のかかり方が下、という比較です。thanの後ろに何を基準に比べたかを置きます。stronger / greater / cleanerのように-erを付ける形もあります。"
+    },
+    "The program that supports small farms has expanded.": {
+      "label": "主格関係節と現在完了",
+      "pattern": "主語 + that + 動詞 ... + has + 過去分詞",
+      "note": "that supports small farmsがprogramを説明します。文全体の動詞はhas expandedで、現在につながる拡大を表します。"
+    },
+    "The device that monitors air quality is easy to use.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "The senator who proposed the bill defended its aims.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "A small error could undermine the entire experiment.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may / could ＋ 動詞の原形",
+      "note": "may needは「必要があるかもしれない」。needの後ろにto changeが続きます。could alterは、ここでは過去の能力ではなく、解釈が変わる可能性です。"
+    },
+    "The drought forced many families to leave the region.": {
+      "label": "目的語＋to不定詞・無生物主語",
+      "pattern": "原因 ＋ force / drive ＋ 人 ＋ to ＋ 原形",
+      "note": "行動するのは目的語のfamilies / peopleです。主語のdroughtは、その行動を引き起こす事情。forceは強制、driveは追い立てる力を表し、人が直接命令する場合に限りません。"
+    },
+    "Local governments should prepare for extreme weather.": {
+      "label": "提案・助言のshould",
+      "pattern": "should ＋ 動詞の原形",
+      "note": "このshouldは、望ましい対応を示す助動詞です。後ろはprepare / addressの原形。二つ目のrather thanは、対処する対象をthe symptomよりthe causeに置く対比です。"
+    },
+    "The company may need to change its safety procedures.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may / could ＋ 動詞の原形",
+      "note": "may needは「必要があるかもしれない」。needの後ろにto changeが続きます。could alterは、ここでは過去の能力ではなく、解釈が変わる可能性です。"
+    },
+    "Unless the budget rises, the project cannot continue.": {
+      "label": "unless・否定の条件",
+      "pattern": "Unless ＋ 主語＋動詞, 主節",
+      "note": "unlessはここではif … notに相当します。Unless we conserve waterは「節水しなければ」。unlessに否定の意味があるため、conserveをさらに否定する必要はありません。"
+    },
+    "Unless we conserve water, shortages may become common.": {
+      "label": "unless・否定の条件",
+      "pattern": "Unless ＋ 主語＋動詞, 主節",
+      "note": "unlessはここではif … notに相当します。Unless we conserve waterは「節水しなければ」。unlessに否定の意味があるため、conserveをさらに否定する必要はありません。"
+    },
+    "We should distinguish facts from political propaganda.": {
+      "label": "提案・助言のshould",
+      "pattern": "should ＋ 動詞の原形",
+      "note": "このshouldは、望ましい対応を示す助動詞です。後ろはprepare / addressの原形。二つ目のrather thanは、対処する対象をthe symptomよりthe causeに置く対比です。"
+    },
+    "If both sides cooperate, they can resolve the dispute.": {
+      "label": "現実的な条件・主節の助動詞",
+      "pattern": "If ＋ 主語＋現在形, 主語＋will / can / should …",
+      "note": "if以下は条件、後ろが条件に応じた結果や判断です。未来の可能性を述べる場合でも、この形のif節は現在形growsを使います。主節はwillだけでなくcanやshouldなども使えます。"
+    },
+    "Experts warn that the current system is unsustainable.": {
+      "label": "動詞＋内容を表すthat節",
+      "pattern": "主語 ＋ 報告・判断の動詞 ＋ that ＋ 主語＋動詞",
+      "note": "that以下が、示されたこと・警告されたことの中身です。showsとwarnのように外側の動詞も読むと、結果の報告なのか、話し手の判断や警告なのかが分かります。"
+    },
+    "The data suggests that the disease is spreading slowly.": {
+      "label": "内容節と進行形",
+      "pattern": "suggest that + 主語 + is + 動詞ing",
+      "note": "that節で示された内容を述べ、is spreadingで今進行している変化を表します。dataはこの文では集合として単数扱いです。"
+    },
+    "This treatment is more effective than the previous one.": {
+      "label": "比較級＋than",
+      "pattern": "比較級 ＋ than ＋ 比較対象",
+      "note": "more effectiveは効果が上、less costlyは費用のかかり方が下、という比較です。thanの後ろに何を基準に比べたかを置きます。stronger / greater / cleanerのように-erを付ける形もあります。"
+    },
+    "The researcher who developed the test received an award.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "The study found that children benefit from outdoor play.": {
+      "label": "動詞＋内容を表すthat節",
+      "pattern": "主語 ＋ 報告・判断の動詞 ＋ that ＋ 主語＋動詞",
+      "note": "that以下が、示されたこと・警告されたことの中身です。showsとwarnのように外側の動詞も読むと、結果の報告なのか、話し手の判断や警告なのかが分かります。"
+    },
+    "If the evidence is weak, the case should be reconsidered.": {
+      "label": "現実的な条件・主節の助動詞",
+      "pattern": "If ＋ 主語＋現在形, 主語＋will / can / should …",
+      "note": "if以下は条件、後ろが条件に応じた結果や判断です。未来の可能性を述べる場合でも、この形のif節は現在形growsを使います。主節はwillだけでなくcanやshouldなども使えます。"
+    },
+    "The law that protects workers will take effect next year.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "Public trust declined because the agency hid the results.": {
+      "label": "理由の接続詞because",
+      "pattern": "結果の文 ＋ because ＋ 理由の文",
+      "note": "becauseの後ろにはthe agency hid …という理由の文が入ります。hidはhideの過去形。何が起きたかと、なぜ起きたかを分けると長い文も追いやすくなります。"
+    },
+    "The ancient site was discovered during road construction.": {
+      "label": "過去の受け身",
+      "pattern": "主語 ＋ was / were ＋ 過去分詞（＋ by …）",
+      "note": "reportは検証する側ではなく、検証される対象です。by以下は行為をした人や、被害をもたらした原因。主語が複数のvillagesならwereを使います。"
+    },
+    "If the population grows, the city will need more schools.": {
+      "label": "現実的な条件・主節の助動詞",
+      "pattern": "If ＋ 主語＋現在形, 主語＋will / can / should …",
+      "note": "if以下は条件、後ろが条件に応じた結果や判断です。未来の可能性を述べる場合でも、この形のif節は現在形growsを使います。主節はwillだけでなくcanやshouldなども使えます。"
+    },
+    "While the trial failed, it revealed an important problem.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "Governments must protect the rights of indigenous people.": {
+      "label": "義務・必要のmust・before＋ing",
+      "pattern": "must ＋ 原形 ／ before ＋ 動詞ing",
+      "note": "ここでのmustは強い必要性を示します。二つ目はverifyが確認、publishingが公表で、beforeにより確認→公表の順になります。themは前のthe figuresを指します。"
+    },
+    "Although the policy reduced costs, it also limited access.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "Many voters believe that the reform will improve fairness.": {
+      "label": "動詞＋内容を表すthat節",
+      "pattern": "主語 ＋ 報告・判断の動詞 ＋ that ＋ 主語＋動詞",
+      "note": "that以下が、示されたこと・警告されたことの中身です。showsとwarnのように外側の動詞も読むと、結果の報告なのか、話し手の判断や警告なのかが分かります。"
+    },
+    "While the plan is ambitious, its funding remains uncertain.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "Although the vaccine is safe, some people remain concerned.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "The accused person was released after new evidence emerged.": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "最初の文は主節もafter節も受け身です。afterがあるため、記録の再調査→無実の証明という順序が分かります。二つ目のuntilは延期が続く区切りを示します。"
+    },
+    "Although the evidence is limited, the risk cannot be ignored.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    }
+  },
+  "Eiken1Part2": {
+    "The court may overturn the earlier conviction.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may / could ＋ 動詞の原形",
+      "note": "may needは「必要があるかもしれない」。needの後ろにto changeが続きます。could alterは、ここでは過去の能力ではなく、解釈が変わる可能性です。"
+    },
+    "Repeated delays eroded confidence in the project.": {
+      "label": "無生物主語・他動詞の目的語",
+      "pattern": "原因・出来事 ＋ 動詞 ＋ 影響を受けるもの",
+      "note": "sparkedは引き起こした、erodedは徐々に損なった、という動詞です。becauseがなくても、主語の出来事が目的語に与える影響を述べられます。"
+    },
+    "If officials act now, they can stave off a crisis.": {
+      "label": "現実的な条件・主節の助動詞",
+      "pattern": "If ＋ 主語＋現在形, 主語＋will / can / should …",
+      "note": "if以下は条件、後ろが条件に応じた結果や判断です。未来の可能性を述べる場合でも、この形のif節は現在形growsを使います。主節はwillだけでなくcanやshouldなども使えます。"
+    },
+    "The false claim sparked a wave of public criticism.": {
+      "label": "無生物主語・他動詞の目的語",
+      "pattern": "原因・出来事 ＋ 動詞 ＋ 影響を受けるもの",
+      "note": "sparkedは引き起こした、erodedは徐々に損なった、という動詞です。becauseがなくても、主語の出来事が目的語に与える影響を述べられます。"
+    },
+    "The drought drove more people to migrate to cities.": {
+      "label": "目的語＋to不定詞・無生物主語",
+      "pattern": "原因 ＋ force / drive ＋ 人 ＋ to ＋ 原形",
+      "note": "行動するのは目的語のfamilies / peopleです。主語のdroughtは、その行動を引き起こす事情。forceは強制、driveは追い立てる力を表し、人が直接命令する場合に限りません。"
+    },
+    "The potential harm outweighs the short-term benefit.": {
+      "label": "比較の意味を持つ他動詞",
+      "pattern": "A ＋ outweigh ＋ B",
+      "note": "outweigh自体に上回るという比較の意味があるので、後ろにthanは置かず、比較されるBを直接続けます。ここでは実際の重さでなく、重要性や影響を比べています。"
+    },
+    "A loophole allowed the firm to avoid the restriction.": {
+      "label": "allow＋目的語＋to不定詞",
+      "pattern": "allow ＋ 人・組織 ＋ to ＋ 原形",
+      "note": "allowは許可する意味に加え、何かを可能にする意味でも使います。the firmがavoidする側です。抜け穴が誰かに正式な許可を与えた、と読む必要はありません。"
+    },
+    "Researchers concluded that the species was endangered.": {
+      "label": "動詞＋内容を表すthat節",
+      "pattern": "主語 ＋ 報告・判断の動詞 ＋ that ＋ 主語＋動詞",
+      "note": "that以下が、示されたこと・警告されたことの中身です。showsとwarnのように外側の動詞も読むと、結果の報告なのか、話し手の判断や警告なのかが分かります。"
+    },
+    "Unless emissions fall, the damage may be irreversible.": {
+      "label": "unless・否定の条件",
+      "pattern": "Unless ＋ 主語＋動詞, 主節",
+      "note": "unlessはここではif … notに相当します。Unless we conserve waterは「節水しなければ」。unlessに否定の意味があるため、conserveをさらに否定する必要はありません。"
+    },
+    "Thousands were displaced when the conflict intensified.": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "最初の文は主節もafter節も受け身です。afterがあるため、記録の再調査→無実の証明という順序が分かります。二つ目のuntilは延期が続く区切りを示します。"
+    },
+    "While aid arrived quickly, clean water remained scarce.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "The families whose homes were flooded received support.": {
+      "label": "所有を示す関係代名詞whose",
+      "pattern": "人・物 ＋ whose ＋ 名詞 ＋ 動詞 …",
+      "note": "whose homesはその家族の家というまとまりです。関係節の主語はhomesで、were floodedと受け身になります。文全体の主語はfamilies、主な動詞はreceivedです。"
+    },
+    "Although the measure is unpopular, it may reduce waste.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "The committee agreed that more oversight was necessary.": {
+      "label": "動詞＋内容を表すthat節",
+      "pattern": "主語 ＋ 報告・判断の動詞 ＋ that ＋ 主語＋動詞",
+      "note": "that以下が、示されたこと・警告されたことの中身です。showsとwarnのように外側の動詞も読むと、結果の報告なのか、話し手の判断や警告なのかが分かります。"
+    },
+    "The proposal is less costly than a complete replacement.": {
+      "label": "比較級＋than",
+      "pattern": "比較級 ＋ than ＋ 比較対象",
+      "note": "more effectiveは効果が上、less costlyは費用のかかり方が下、という比較です。thanの後ろに何を基準に比べたかを置きます。stronger / greater / cleanerのように-erを付ける形もあります。"
+    },
+    "The new law offers stronger protection than the old one.": {
+      "label": "比較級＋than",
+      "pattern": "比較級 ＋ than ＋ 比較対象",
+      "note": "more effectiveは効果が上、less costlyは費用のかかり方が下、という比較です。thanの後ろに何を基準に比べたかを置きます。stronger / greater / cleanerのように-erを付ける形もあります。"
+    },
+    "The journalist who exposed the scandal received threats.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "Leaders should address the cause rather than the symptom.": {
+      "label": "提案・助言のshould",
+      "pattern": "should ＋ 動詞の原形",
+      "note": "このshouldは、望ましい対応を示す助動詞です。後ろはprepare / addressの原形。二つ目のrather thanは、対処する対象をthe symptomよりthe causeに置く対比です。"
+    },
+    "New evidence could alter our interpretation of the event.": {
+      "label": "可能性を表す助動詞",
+      "pattern": "may / could ＋ 動詞の原形",
+      "note": "may needは「必要があるかもしれない」。needの後ろにto changeが続きます。could alterは、ここでは過去の能力ではなく、解釈が変わる可能性です。"
+    },
+    "This explanation is more convincing than the earlier one.": {
+      "label": "比較級＋than",
+      "pattern": "比較級 ＋ than ＋ 比較対象",
+      "note": "more effectiveは効果が上、less costlyは費用のかかり方が下、という比較です。thanの後ろに何を基準に比べたかを置きます。stronger / greater / cleanerのように-erを付ける形もあります。"
+    },
+    "The inquiry revealed that officials had ignored warnings.": {
+      "label": "内容のthat節・過去完了",
+      "pattern": "過去の報告 ＋ that ＋ 主語＋had＋過去分詞",
+      "note": "had ignored / had alteredは、調査で判明したり目撃者が主張したりした過去の時点より、さらに前の行為です。revealedとclaimedは報告の性質も違うので、外側の動詞を飛ばさず読みます。"
+    },
+    "Policy makers should consider the long-term consequences.": {
+      "label": "提案・助言のshould",
+      "pattern": "should ＋ 動詞の原形",
+      "note": "このshouldは、望ましい対応を示す助動詞です。後ろはprepare / addressの原形。二つ目のrather thanは、対処する対象をthe symptomよりthe causeに置く対比です。"
+    },
+    "Unless the treaty is enforced, illegal trade will persist.": {
+      "label": "unless・否定の条件",
+      "pattern": "Unless ＋ 主語＋動詞, 主節",
+      "note": "unlessはここではif … notに相当します。Unless we conserve waterは「節水しなければ」。unlessに否定の意味があるため、conserveをさらに否定する必要はありません。"
+    },
+    "If the data is accurate, the policy needs urgent revision.": {
+      "label": "現実的な条件・主節の助動詞",
+      "pattern": "If ＋ 主語＋現在形, 主語＋will / can / should …",
+      "note": "if以下は条件、後ろが条件に応じた結果や判断です。未来の可能性を述べる場合でも、この形のif節は現在形growsを使います。主節はwillだけでなくcanやshouldなども使えます。"
+    },
+    "The agency must verify the figures before publishing them.": {
+      "label": "必要性と時のing表現",
+      "pattern": "must + 原形 + 目的語 + before + 動詞ing",
+      "note": "mustが必要性を示します。beforeの後ろはpublishingというing形で、公表する主体は主節と同じagencyです。"
+    },
+    "Witnesses claimed that the officer had altered the report.": {
+      "label": "内容のthat節・過去完了",
+      "pattern": "過去の報告 ＋ that ＋ 主語＋had＋過去分詞",
+      "note": "had ignored / had alteredは、調査で判明したり目撃者が主張したりした過去の時点より、さらに前の行為です。revealedとclaimedは報告の性質も違うので、外側の動詞を飛ばさず読みます。"
+    },
+    "The damage was far more severe than officials had expected.": {
+      "label": "比較級の強調・過去完了",
+      "pattern": "far ＋ 比較級 ＋ than ＋ 主語＋had＋過去分詞",
+      "note": "farはここでは距離でなく、比較の差が大きいことを表します。had expectedは被害を確認した過去の時点より前の予想。実際の程度と以前の見込みを比べています。"
+    },
+    "Although both sides sought peace, neither would compromise.": {
+      "label": "neitherによる否定・過去の意志のwould",
+      "pattern": "neither ＋ would ＋ 原形",
+      "note": "最初のneitherは双方のどちらも〜ないという主語です。would compromiseには譲歩する意志があるという意味があり、neitherがそれを否定します。notをさらに重ねる必要はありません。"
+    },
+    "The minister was accused of withholding crucial information.": {
+      "label": "受け身・前置詞of＋動名詞",
+      "pattern": "be accused of ＋ 名詞 / 動詞ing",
+      "note": "accuse 人 of 行為を受け身にした形です。ofは前置詞なので、その後に動詞を置くならwithholdingのようなing形にします。隠したと非難されたことと、実際に隠したと確定したことは別です。"
+    },
+    "The evidence that supported the claim was later discredited.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "While the technology is promising, its risks remain unclear.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "The officials who approved the contract faced investigation.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "The findings were challenged by several independent experts.": {
+      "label": "過去の受け身",
+      "pattern": "主語 ＋ was / were ＋ 過去分詞（＋ by …）",
+      "note": "reportは検証する側ではなく、検証される対象です。by以下は行為をした人や、被害をもたらした原因。主語が複数のvillagesならwereを使います。"
+    },
+    "The suspect was exonerated after the records were reexamined.": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "最初の文は主節もafter節も受け身です。afterがあるため、記録の再調査→無実の証明という順序が分かります。二つ目のuntilは延期が続く区切りを示します。"
+    },
+    "The study which examined rural hospitals revealed a shortage.": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workersはlawの説明で、文全体の中心はThe law will take effectです。二つ目もthat supported the claimをいったん分けると、The evidence was discreditedという受け身の骨組みが見えます。"
+    },
+    "Although the economy recovered, inequality continued to widen.": {
+      "label": "譲歩・対比の接続詞",
+      "pattern": "Although / While ＋ 主語＋動詞, 主節",
+      "note": "although以下を認めたうえで、後ろの主節に予想と異なる面を示します。whileもここでは「〜している間」ではなく対比。後ろにある問題点まで読んで主張を捉えます。"
+    },
+    "The campaign helped dispel the stigma surrounding the illness.": {
+      "label": "help＋原形・現在分詞の後置修飾",
+      "pattern": "help（to）＋ 原形 ／ 名詞 ＋ 動詞ing …",
+      "note": "helpedの後ろのdispelは原形で、to dispelとしても使えます。一方、surrounding the illnessはstigmaを後ろから説明するまとまり。どちらも動詞由来ですが、役割が異なります。"
+    },
+    "The findings indicate that the treatment has long-term effects.": {
+      "label": "内容節と一般動詞のhave",
+      "pattern": "indicate that + 主語 + has + 名詞",
+      "note": "that節のhasの後ろはeffectsという名詞なので、現在完了ではありません。治療に長期的な影響があることを表します。"
+    },
+    "The final decision was postponed until further evidence arrived.": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "最初の文は主節もafter節も受け身です。afterがあるため、記録の再調査→無実の証明という順序が分かります。二つ目のuntilは延期が続く区切りを示します。"
+    },
+    "Unless the parties reach an agreement, the strike will continue.": {
+      "label": "unless・否定の条件",
+      "pattern": "Unless ＋ 主語＋動詞, 主節",
+      "note": "unlessはここではif … notに相当します。Unless we conserve waterは「節水しなければ」。unlessに否定の意味があるため、conserveをさらに否定する必要はありません。"
+    }
+  }
+}

@@ -3,6 +3,8 @@ import { reviewUpperPhraseEntries } from '../../upperPhraseCoreRules';
 import { grade1VocabularyRows, grade1AdvancedVocabularyRows } from './grade1Vocabulary';
 import { grade1PhraseRows } from './grade1Phrases';
 import { grade1Grammar, grade1SentenceRows } from './grade1Sentences';
+import expansion from './grade1GrammarExpansion.json';
+import pointOverrides from '../../grade1GrammarPointOverrides.json';
 
 type RankedQuestion = { rank: string; sourceId?: number; question: Question };
 const lines = (rows: string) => rows.split('\n').map(line => line.split('|'));
@@ -28,13 +30,25 @@ export const legacyGrade1Phrases = {
   Eiken1Part1: order(phrases.filter(entry => entry.part === 1)),
   Eiken1Part2: order(phrases.filter(entry => entry.part === 2)),
 };
+export const legacyGrade1Sentences = {
+  Eiken1Part1: order(sentences.filter(entry => entry.part === 1)),
+  Eiken1Part2: order(sentences.filter(entry => entry.part === 2)),
+};
+const expandedSentences = (part: 1 | 2): Question[] => {
+  const course = part === 1 ? 'Eiken1Part1' : 'Eiken1Part2';
+  const points: Record<string, Question['grammarPoint']> = pointOverrides[course];
+  return [
+    ...legacyGrade1Sentences[course].map(question => ({ ...question, grammarPoint: points[question.text] })),
+    ...expansion[course].map(entry => entry.question),
+  ];
+};
 const makeCourse = (part: 1 | 2): QuestionSetFile => ({
   category: 'eiken', series: '英検', difficultyKey: part === 1 ? 'Eiken1Part1' : 'Eiken1Part2',
   displayName: `英検1級${part === 1 ? '①' : '②'}`,
   levels: {
     1: order(words.filter(entry => part === 1 ? entry.rank === 'A' : entry.rank !== 'A')),
     2: reviewUpperPhraseEntries(legacyGrade1Phrases[part === 1 ? 'Eiken1Part1' : 'Eiken1Part2'].map(question => ({ question }))).map(entry => entry.question),
-    3: order(sentences.filter(entry => entry.part === part)),
+    3: expandedSentences(part),
   },
 });
 
