@@ -5,26 +5,28 @@ import { load } from './lib/load-typescript-data.mjs';
 const { QUESTIONS } = load('src/data/questions.ts');
 const { grammarGuides, getGrammarCard, getGrammarGuideCourse } = load('src/data/grammarGuides.ts');
 const { grade2GrammarAssignments: assignments } = load('src/data/grade2GrammarAssignments.ts');
+const expansionAssignments = JSON.parse(readFileSync('src/data/grade2GrammarExpansionAssignments.json','utf8'));
+const allAssignments = {...assignments,...expansionAssignments};
 const { readGrammarBookmarks, toggleGrammarBookmark, grammarBookmarkKey } = load('src/grammarBookmarks.ts');
 const { buildGrammarQuestion } = load('src/grammarAiPrompt.ts');
 const questions = QUESTIONS.Eiken2[3];
 const { cards, sections } = grammarGuides.Eiken2;
-for (const file of ['grade2.ts','grade2Sentences.ts','grade2Vocabulary.ts','grade2Phrases.ts','grade2Supplement.ts']) {
+for (const file of ['grade2Sentences.ts','grade2Vocabulary.ts','grade2Phrases.ts','grade2Supplement.ts']) {
   const path = 'src/data/questionSets/eiken/' + file;
   assert.equal(readFileSync(path,'utf8').replace(/\r\n/g,'\n'),execFileSync('git',['show','7f1e34b:'+path],{encoding:'utf8'}).replace(/\r\n/g,'\n'), 'Published questions stay unchanged: '+file);
 }
-assert.equal(questions.length,94);
+assert.equal(questions.length,166);
 assert.equal(new Set(cards.map(c=>c.id)).size,cards.length);
-assert.deepEqual(Object.keys(assignments).sort(),Array.from(questions,q=>q.text).sort());
+assert.deepEqual(Object.keys(allAssignments).sort(),Array.from(questions,q=>q.text).sort());
 for (const q of questions) {
-  assert.equal(getGrammarCard('Eiken2',3,q)?.id,assignments[q.text],q.text);
+  assert.equal(getGrammarCard('Eiken2',3,q)?.id,allAssignments[q.text],q.text);
   for (const level of [1,2]) assert.equal(getGrammarCard('Eiken2',level,q),undefined);
 }
 for (const card of cards) {
   assert.ok(sections[card.section]);
   for (const key of ['title','subtitle','term','pattern','tip','more']) assert.ok(card[key]?.trim(), card.id+': '+key);
   assert.equal(card.examples.length,2);
-  assert.ok(Object.values(assignments).includes(card.id),'Unused card: '+card.id);
+  assert.ok(Object.values(allAssignments).includes(card.id),'Unused card: '+card.id);
   for (const pair of [...card.examples,...(card.compare||[]),...(card.chunks||[])]) assert.ok(pair.length===2 && pair.every(v=>v.trim()));
 }
 for (const [text,id] of [

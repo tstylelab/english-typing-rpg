@@ -1,0 +1,472 @@
+{
+  "Second, it costs less.": {
+    "label": "順序を示す前置き",
+    "pattern": "Second, 主語 + 動詞",
+    "note": "文頭の表現で話の順序を示し、コンマの後ろに理由や判断を続けます。前後の理由とつなげて使います。"
+  },
+  "First, it saves us time.": {
+    "label": "順序を示す前置き",
+    "pattern": "First, 主語 + 動詞",
+    "note": "文頭の表現で話の順序を示し、コンマの後ろに理由や判断を続けます。前後の理由とつなげて使います。"
+  },
+  "I have two reasons for this.": {
+    "label": "理由を名詞で示す",
+    "pattern": "have + 数 + reasons for + 名詞",
+    "note": "for thisで何についての理由かを名詞句で示します。becauseの節は使っていません。"
+  },
+  "As a result, we arrived early.": {
+    "label": "出来事の結果・判断",
+    "pattern": "As a result, 主語 + 動詞",
+    "note": "出来事から生じた結果をas a resultで示します。"
+  },
+  "That is why I support the plan.": {
+    "label": "結論・理由を受けた判断",
+    "pattern": "That is why + 主語 + 動詞",
+    "note": "why節で、前に述べた事情から導かれる結果・判断を示します。"
+  },
+  "I prefer learning with friends.": {
+    "label": "preferと動名詞",
+    "pattern": "prefer + 動詞-ing",
+    "note": "learning with friendsが好みの対象です。この文には比較相手は明示されていません。"
+  },
+  "I have never visited that museum.": {
+    "label": "現在完了・経験・ever / never",
+    "pattern": "have / has ＋ never ＋ 過去分詞",
+    "note": "今までの経験の有無を表します。never自体に「一度も〜ない」という否定の意味があるので、have not neverと否定を重ねません。"
+  },
+  "I have two reasons why I think so.": {
+    "label": "理由を説明するwhy節",
+    "pattern": "reasons why + 主語 + 動詞",
+    "note": "why I think soがreasonsの内容を後ろから説明します。whyの後ろは疑問文の語順にしません。"
+  },
+  "First of all, safety is important.": {
+    "label": "順序を示す前置き",
+    "pattern": "First of all, 主語 + 動詞",
+    "note": "文頭の表現で話の順序を示し、コンマの後ろに理由や判断を続けます。前後の理由とつなげて使います。"
+  },
+  "If you need help, ask the teacher.": {
+    "label": "条件の節",
+    "pattern": "If + 現在形の文, 主節",
+    "note": "if節が条件、後半が行動・結果です。未来に起こりうる条件では、if節の中を通常は現在形にします。"
+  },
+  "To begin with, we need a clear plan.": {
+    "label": "順序を示す前置き",
+    "pattern": "To begin with, 主語 + 動詞",
+    "note": "文頭の表現で話の順序を示し、コンマの後ろに理由や判断を続けます。前後の理由とつなげて使います。"
+  },
+  "For example, we can share old books.": {
+    "label": "具体例を示す",
+    "pattern": "For example, 主語 + 動詞",
+    "note": "For exampleは文全体への前置き、such asの後ろには具体例の名詞を続けます。この文でどちらを使っているかを確かめます。"
+  },
+  "For example, we can reuse these bags.": {
+    "label": "具体例を示す",
+    "pattern": "For example, 主語 + 動詞",
+    "note": "For exampleは文全体への前置き、such asの後ろには具体例の名詞を続けます。この文でどちらを使っているかを確かめます。"
+  },
+  "I ride a bike because it saves money.": {
+    "label": "理由を表すbecause節",
+    "pattern": "結果 ＋ because ＋ 理由の文",
+    "note": "becauseの後ろには「何がどうなのか」という文が来ます。I walkが行動、it is good for my healthが理由です。This is becauseでは、Thisが直前に述べた状況を受けます。"
+  },
+  "Thanks to her help, I finished on time.": {
+    "label": "原因を表す前置詞句",
+    "pattern": "because of / thanks to ＋ 名詞・名詞のまとまり",
+    "note": "because ofの後ろはthe rainのような名詞のまとまり。because it rainedなら、主語と動詞がある文です。thanks to her helpは、助けをよい結果の原因として示しています。"
+  },
+  "It is important to protect clean water.": {
+    "label": "形式主語と不定詞",
+    "pattern": "It is + 形容詞 + to 動詞",
+    "note": "itは仮の主語で、後ろのto以下が評価される行為の内容です。この文では行為を行う人をforで明示していません。"
+  },
+  "I walk because it is good for my health.": {
+    "label": "理由を表すbecause節",
+    "pattern": "結果 ＋ because ＋ 理由の文",
+    "note": "becauseの後ろには「何がどうなのか」という文が来ます。I walkが行動、it is good for my healthが理由です。This is becauseでは、Thisが直前に述べた状況を受けます。"
+  },
+  "If it rains tomorrow, we will stay home.": {
+    "label": "条件の節",
+    "pattern": "If + 現在形の文, 主節",
+    "note": "if節が条件、後半が行動・結果です。未来に起こりうる条件では、if節の中を通常は現在形にします。"
+  },
+  "These bags are made from recycled paper.": {
+    "label": "受け身",
+    "pattern": "be made from + 材料",
+    "note": "主語は行為を受ける側です。未来ではwill be、過去ではwas/wereを使います。made fromのfromは材料を示します。"
+  },
+  "I think that reading every day is useful.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "I think that + 文",
+    "note": "that以下が思う・信じる内容です。thatはここでは省略せず書いています。"
+  },
+  "This is because the buses are often late.": {
+    "label": "理由を表すbecause節",
+    "pattern": "結果 ＋ because ＋ 理由の文",
+    "note": "becauseの後ろには「何がどうなのか」という文が来ます。I walkが行動、it is good for my healthが理由です。This is becauseでは、Thisが直前に述べた状況を受けます。"
+  },
+  "We need clean energy such as solar power.": {
+    "label": "具体例を示す",
+    "pattern": "名詞 + such as + 具体例の名詞",
+    "note": "For exampleは文全体への前置き、such asの後ろには具体例の名詞を続けます。この文でどちらを使っているかを確かめます。"
+  },
+  "In my opinion, children need time to play.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "In my opinion, 主語 + 動詞",
+    "note": "前置詞句で自分の意見だと前置きし、後ろに意見の文を置きます。"
+  },
+  "The game was canceled because of the rain.": {
+    "label": "原因を表す前置詞句",
+    "pattern": "because of / thanks to ＋ 名詞・名詞のまとまり",
+    "note": "because ofの後ろはthe rainのような名詞のまとまり。because it rainedなら、主語と動詞がある文です。thanks to her helpは、助けをよい結果の原因として示しています。"
+  },
+  "Also, children can learn from the experience.": {
+    "label": "情報を追加する前置き",
+    "pattern": "Also, 主語 + 動詞",
+    "note": "文頭の表現は情報を加える合図です。後ろの文に、追加する行動・理由・結果を述べます。"
+  },
+  "However, some people do not have enough time.": {
+    "label": "文をつなぐ逆接の副詞",
+    "pattern": "However, 主語 + 動詞",
+    "note": "Howeverは前の話と異なる面を導く副詞です。コンマの後ろに独立した文を続けます。"
+  },
+  "I think that a library is useful for everyone.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "I think that + 文",
+    "note": "that以下が思う・信じる内容です。thatはここでは省略せず書いています。"
+  },
+  "Therefore, we should act now.": {
+    "label": "出来事の結果・判断",
+    "pattern": "Therefore, 主語 + 動詞",
+    "note": "根拠から導いた判断・行動をThereforeで示します。"
+  },
+  "She has already sent the email.": {
+    "label": "現在完了・結果・already",
+    "pattern": "have / has ＋（already）＋ 過去分詞",
+    "note": "has sentは送信が済んだことを現在につなげます。has reducedはこれまでに減らしてきた変化です。「いつしたか」を中心にする過去形と、話の焦点が違います。"
+  },
+  "We avoided driving in the snow.": {
+    "label": "動詞の後ろの動名詞",
+    "pattern": "avoid + 動詞-ing",
+    "note": "enjoyやavoidの対象となる活動は、動詞のing形で続けます。前の動詞に合わせた形を選びます。"
+  },
+  "The bridge was built last year.": {
+    "label": "受け身",
+    "pattern": "was/were + 過去分詞",
+    "note": "主語は行為を受ける側です。未来ではwill be、過去ではwas/wereを使います。made fromのfromは材料を示します。"
+  },
+  "He enjoys working with children.": {
+    "label": "動詞の後ろの動名詞",
+    "pattern": "enjoy + 動詞-ing",
+    "note": "enjoyやavoidの対象となる活動は、動詞のing形で続けます。前の動詞に合わせた形を選びます。"
+  },
+  "In addition, we can reduce waste.": {
+    "label": "情報を追加する前置き",
+    "pattern": "In addition, 主語 + 動詞",
+    "note": "文頭の表現は情報を加える合図です。後ろの文に、追加する行動・理由・結果を述べます。"
+  },
+  "Do you know where this bus stops?": {
+    "label": "間接疑問・疑問詞＋主語＋動詞",
+    "pattern": "know / wonder ＋ 疑問詞 ＋ 主語＋動詞",
+    "note": "Where does this bus stop?をknowの中に入れると、where this bus stopsになります。外側はDo you know …?という質問でも、内側は普通の主語→動詞の順です。"
+  },
+  "She went to the library to study.": {
+    "label": "目的を表すto不定詞",
+    "pattern": "行動の文 ＋ to ＋ 動詞の原形",
+    "note": "行った・入ったという行動に、目的をto以下で添えています。「何のために？」と尋ねて、後ろの部分が答えになるか確かめましょう。"
+  },
+  "The town is becoming more popular.": {
+    "label": "変化を表す進行形",
+    "pattern": "主語 + be becoming + 比較級",
+    "note": "is becomingで変化の途中を、more popularで人気の高まりを表します。"
+  },
+  "I wonder why she changed her mind.": {
+    "label": "間接疑問・疑問詞＋主語＋動詞",
+    "pattern": "know / wonder ＋ 疑問詞 ＋ 主語＋動詞",
+    "note": "Where does this bus stop?をknowの中に入れると、where this bus stopsになります。外側はDo you know …?という質問でも、内側は普通の主語→動詞の順です。"
+  },
+  "I agree that we should save energy.": {
+    "label": "賛否とその内容",
+    "pattern": "agree that + 文",
+    "note": "that節に賛成する内容を続けます。"
+  },
+  "However, we must consider the cost.": {
+    "label": "文をつなぐ逆接の副詞",
+    "pattern": "However, 主語 + 動詞",
+    "note": "Howeverは前の話と異なる面を導く副詞です。コンマの後ろに独立した文を続けます。"
+  },
+  "More and more people work from home.": {
+    "label": "比較級の反復と複数主語",
+    "pattern": "more and more + 複数名詞 + 動詞",
+    "note": "人数の増加をmore and more peopleで表し、peopleを主語にworkを続けます。主語はnumberではありません。"
+  },
+  "There are many people who need help.": {
+    "label": "主格の関係代名詞who",
+    "pattern": "名詞 ＋ who ＋ 動詞 …",
+    "note": "who以下が、どの人のことかを説明します。whoが説明部分の主語なので、who she spokeのように主語を重ねません。文全体の動詞も別に探しましょう。"
+  },
+  "These days, many people shop online.": {
+    "label": "近ごろの習慣と現在形",
+    "pattern": "These days, 主語 + 現在形",
+    "note": "近ごろの習慣をshopという現在形で表しています。時代の傾向だから必ず進行形になるわけではありません。"
+  },
+  "We should avoid wasting clean water.": {
+    "label": "動詞の後ろの動名詞",
+    "pattern": "avoid + 動詞-ing",
+    "note": "enjoyやavoidの対象となる活動は、動詞のing形で続けます。前の動詞に合わせた形を選びます。"
+  },
+  "The number of visitors is increasing.": {
+    "label": "主語の中心・単数複数・進行形",
+    "pattern": "The number of ＋ 複数名詞 ＋ is increasing",
+    "note": "主語の中心はvisitorsではなく「数」というnumberです。そのためisを使います。of visitorsは何の数かを説明し、is increasingは増加の流れを表します。"
+  },
+  "Unless we leave now, we will be late.": {
+    "label": "条件の節",
+    "pattern": "Unless + 現在形の文, 主節",
+    "note": "unlessで「もし〜しなければ」。未来の条件もこの節の中では現在形を使います。"
+  },
+  "The new rule was announced yesterday.": {
+    "label": "受け身",
+    "pattern": "was/were + 過去分詞",
+    "note": "主語は行為を受ける側です。未来ではwill be、過去ではwas/wereを使います。made fromのfromは材料を示します。"
+  },
+  "As a result, the river became cleaner.": {
+    "label": "出来事の結果・判断",
+    "pattern": "As a result, 主語 + 動詞",
+    "note": "出来事から生じた結果をas a resultで示します。"
+  },
+  "We started a campaign to reduce waste.": {
+    "label": "目的を表すto不定詞",
+    "pattern": "行動の文 ＋ to ＋ 動詞の原形",
+    "note": "行った・入ったという行動に、目的をto以下で添えています。「何のために？」と尋ねて、後ろの部分が答えになるか確かめましょう。"
+  },
+  "The results will be announced tomorrow.": {
+    "label": "受け身",
+    "pattern": "will be + 過去分詞",
+    "note": "主語は行為を受ける側です。未来ではwill be、過去ではwas/wereを使います。made fromのfromは材料を示します。"
+  },
+  "Therefore, I take the train when I can.": {
+    "label": "出来事の結果・判断",
+    "pattern": "Therefore, 主語 + 動詞",
+    "note": "根拠から導いた判断・行動をThereforeで示します。"
+  },
+  "The company has reduced its energy use.": {
+    "label": "現在完了・結果・already",
+    "pattern": "have / has ＋（already）＋ 過去分詞",
+    "note": "has sentは送信が済んだことを現在につなげます。has reducedはこれまでに減らしてきた変化です。「いつしたか」を中心にする過去形と、話の焦点が違います。"
+  },
+  "The first reason is that it saves money.": {
+    "label": "理由の内容をthat節で示す",
+    "pattern": "理由を表す主語 + is that + 文",
+    "note": "isの後ろのthat節が理由の中身です。becauseを直接続ける型とは区別します。"
+  },
+  "Some people drive, and others use buses.": {
+    "label": "譲歩・対比の節",
+    "pattern": "Some + 名詞 + 動詞, and others + 動詞",
+    "note": "someとothersで二つの集団を比べます。othersの後ろにも動詞を置きます。"
+  },
+  "I have lived in this town for ten years.": {
+    "label": "現在完了・継続・forとsince",
+    "pattern": "have / has ＋ 過去分詞 ＋ for 期間 / since 起点",
+    "note": "住み始めた過去と今をつなぐ形です。for ten yearsは期間の長さ、since 2016は始まった時点です。どちらも現在までのつながりを考えます。"
+  },
+  "She joined the club to make new friends.": {
+    "label": "目的を表すto不定詞",
+    "pattern": "行動の文 ＋ to ＋ 動詞の原形",
+    "note": "行った・入ったという行動に、目的をto以下で添えています。「何のために？」と尋ねて、後ろの部分が答えになるか確かめましょう。"
+  },
+  "Another reason is that it is easy to use.": {
+    "label": "理由の内容をthat節で示す",
+    "pattern": "理由を表す主語 + is that + 文",
+    "note": "isの後ろのthat節が理由の中身です。becauseを直接続ける型とは区別します。"
+  },
+  "The new bridge is as wide as the old one.": {
+    "label": "比較する形",
+    "pattern": "as + 形容詞の原級 + as",
+    "note": "wideを二つのasではさみ、同じ幅だと比べます。oneはbridgeの繰り返しを避ける代名詞です。"
+  },
+  "In my opinion, the city needs more parks.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "In my opinion, 主語 + 動詞",
+    "note": "前置詞句で自分の意見だと前置きし、後ろに意見の文を置きます。"
+  },
+  "For these two reasons, I support the plan.": {
+    "label": "結論・理由を受けた判断",
+    "pattern": "For these two reasons, 主語 + 動詞",
+    "note": "前に述べた内容を受け、結論となる判断を続けます。"
+  },
+  "This is because many children study there.": {
+    "label": "理由を表すbecause節",
+    "pattern": "結果 ＋ because ＋ 理由の文",
+    "note": "becauseの後ろには「何がどうなのか」という文が来ます。I walkが行動、it is good for my healthが理由です。This is becauseでは、Thisが直前に述べた状況を受けます。"
+  },
+  "In conclusion, the program is worth trying.": {
+    "label": "worth＋動名詞",
+    "pattern": "主語 ＋ be worth ＋ 動詞ing",
+    "note": "worthの後ろにはtrying・readingのようなingを続けます。worth to tryとはしません。This book is worth reading.では、読む対象が主語のThis bookです。"
+  },
+  "The most important thing is to keep trying.": {
+    "label": "補語になる不定詞・keepと動名詞",
+    "pattern": "The most important thing is to + 動詞 / keep + 動詞-ing",
+    "note": "to keep tryingは大切なことの中身を示す補語。keepの後ろではtryingと動名詞を使います。"
+  },
+  "This device uses less energy than that one.": {
+    "label": "比較する形",
+    "pattern": "less + 不可算名詞 + than",
+    "note": "何と何を比べるかをthanで示します。lessは量の少なさ、moreは程度が上であることを表します。"
+  },
+  "The number of online classes is increasing.": {
+    "label": "主語の中心・単数複数・進行形",
+    "pattern": "The number of ＋ 複数名詞 ＋ is increasing",
+    "note": "主語の中心はvisitorsではなく「数」というnumberです。そのためisを使います。of visitorsは何の数かを説明し、is increasingは増加の流れを表します。"
+  },
+  "Can you tell me how to apply for the program?": {
+    "label": "疑問詞と不定詞",
+    "pattern": "tell + 人 + how to + 動詞の原形",
+    "note": "how to applyが応募の仕方を表します。疑問詞の後ろに主語と動詞を続ける間接疑問の節とは形が違います。"
+  },
+  "Furthermore, the change will help older people.": {
+    "label": "情報を追加する前置き",
+    "pattern": "Furthermore, 主語 + 動詞",
+    "note": "文頭の表現は情報を加える合図です。後ろの文に、追加する行動・理由・結果を述べます。"
+  },
+  "I met a student who volunteers at the hospital.": {
+    "label": "主格の関係代名詞who",
+    "pattern": "名詞 ＋ who ＋ 動詞 …",
+    "note": "who以下が、どの人のことかを説明します。whoが説明部分の主語なので、who she spokeのように主語を重ねません。文全体の動詞も別に探しましょう。"
+  },
+  "This method is more effective than the old one.": {
+    "label": "比較する形",
+    "pattern": "more + 形容詞 + than",
+    "note": "何と何を比べるかをthanで示します。lessは量の少なさ、moreは程度が上であることを表します。"
+  },
+  "This means that more people can use the service.": {
+    "label": "意味する内容をthat節で示す",
+    "pattern": "主語 + mean that + 文",
+    "note": "that以下がmeansの目的語として、何を意味するのかを説明します。Thereforeを使った文ではありません。"
+  },
+  "I disagree with the idea of closing the library.": {
+    "label": "賛否とその内容",
+    "pattern": "disagree with the idea of + 動名詞",
+    "note": "withの後ろに反対する意見、ofの後ろに動名詞を置きます。"
+  },
+  "In addition, parks give people a place to relax.": {
+    "label": "情報を追加する前置き",
+    "pattern": "In addition, 主語 + 動詞",
+    "note": "文頭の表現は情報を加える合図です。後ろの文に、追加する行動・理由・結果を述べます。"
+  },
+  "It is important for children to get enough sleep.": {
+    "label": "形式主語と不定詞",
+    "pattern": "It is + 形容詞 + for 人 + to 動詞",
+    "note": "itは仮の主語、to以下が行為の内容。forの後ろはその行為を行う人です。"
+  },
+  "While cars are convenient, they produce pollution.": {
+    "label": "譲歩・対比の節",
+    "pattern": "While + 文, 文",
+    "note": "前半で認めた面に対して、後半で別の面を示します。前半も主語と動詞を持つ節です。"
+  },
+  "It is important for us to check the source of news.": {
+    "label": "形式主語と不定詞",
+    "pattern": "It is + 形容詞 + for 人 + to 動詞",
+    "note": "itは仮の主語、to以下が行為の内容。forの後ろはその行為を行う人です。"
+  },
+  "I disagree with the idea that tests are unnecessary.": {
+    "label": "賛否とその内容",
+    "pattern": "disagree with the idea that + 文",
+    "note": "withの後ろに反対する意見を置き、that節でその内容を示します。"
+  },
+  "Some students prefer books, while others prefer videos.": {
+    "label": "譲歩・対比の節",
+    "pattern": "Some + 名詞 + 動詞, while others + 動詞",
+    "note": "someとothersで二つの集団を比べます。othersの後ろにも動詞を置きます。"
+  },
+  "The woman who spoke to us is a scientist.": {
+    "label": "主格の関係代名詞who",
+    "pattern": "名詞 ＋ who ＋ 動詞 …",
+    "note": "who以下が、どの人のことかを説明します。whoが説明部分の主語なので、who she spokeのように主語を重ねません。文全体の動詞も別に探しましょう。"
+  },
+  "The book that you recommended was useful.": {
+    "label": "目的格の関係代名詞と省略",
+    "pattern": "名詞 ＋（that / which）＋ 主語 ＋ 動詞",
+    "note": "you recommendedの後ろに、本にあたる目的語がない点に注目します。thatはその目的語の役割です。このように名詞を絞る説明の目的格は、省略することもできます。"
+  },
+  "Furthermore, better transport may create jobs.": {
+    "label": "情報を追加する前置き",
+    "pattern": "Furthermore, 主語 + 動詞",
+    "note": "文頭の表現は情報を加える合図です。後ろの文に、追加する行動・理由・結果を述べます。"
+  },
+  "As a result, the town attracted more visitors.": {
+    "label": "出来事の結果・判断",
+    "pattern": "As a result, 主語 + 動詞",
+    "note": "出来事から生じた結果をas a resultで示します。"
+  },
+  "It is often said that travel broadens the mind.": {
+    "label": "伝達の受け身・形式主語it",
+    "pattern": "It is said / believed that ＋ 文",
+    "note": "itは後ろのthat以下の内容を受ける仮の主語。is saidは「言われている」という受け身です。誰の発言かを特定せず、言われている内容を伝えます。"
+  },
+  "It is necessary for us to protect local nature.": {
+    "label": "形式主語と不定詞",
+    "pattern": "It is + 形容詞 + for 人 + to 動詞",
+    "note": "itは仮の主語、to以下が行為の内容。forの後ろはその行為を行う人です。"
+  },
+  "I believe that education can change a community.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "I believe that + 文",
+    "note": "that以下が思う・信じる内容です。thatはここでは省略せず書いています。"
+  },
+  "One reason is that everyone needs a fair chance.": {
+    "label": "理由の内容をthat節で示す",
+    "pattern": "理由を表す主語 + is that + 文",
+    "note": "isの後ろのthat節が理由の中身です。becauseを直接続ける型とは区別します。"
+  },
+  "It is necessary to protect personal data online.": {
+    "label": "形式主語と不定詞",
+    "pattern": "It is + 形容詞 + to 動詞",
+    "note": "itは仮の主語で、後ろのto以下が評価される行為の内容です。この文では行為を行う人をforで明示していません。"
+  },
+  "More and more people are concerned about privacy.": {
+    "label": "増える人数と状態",
+    "pattern": "more and more people + are concerned about + 名詞",
+    "note": "more and moreで人数の増加、are concerned aboutで気にかけている状態を伝えます。"
+  },
+  "Although the plan is expensive, it may save energy.": {
+    "label": "譲歩・対比の節",
+    "pattern": "Although + 文, 文",
+    "note": "前半で認めた面に対して、後半で別の面を示します。前半も主語と動詞を持つ節です。"
+  },
+  "I believe that small actions can make a difference.": {
+    "label": "意見を示す前置き・内容節",
+    "pattern": "I believe that + 文",
+    "note": "that以下が思う・信じる内容です。thatはここでは省略せず書いています。"
+  },
+  "If the city improves the buses, fewer people may drive.": {
+    "label": "条件の節",
+    "pattern": "If + 現在形の文, 主節",
+    "note": "if節が条件、後半が行動・結果です。未来に起こりうる条件では、if節の中を通常は現在形にします。"
+  },
+  "In conclusion, the benefits are greater than the costs.": {
+    "label": "結論・理由を受けた判断",
+    "pattern": "In conclusion, 主語 + 動詞",
+    "note": "前に述べた内容を受け、結論となる判断を続けます。"
+  },
+  "The scientist who spoke at the conference studies climate.": {
+    "label": "主格の関係代名詞who",
+    "pattern": "名詞 ＋ who ＋ 動詞 …",
+    "note": "who以下が、どの人のことかを説明します。whoが説明部分の主語なので、who she spokeのように主語を重ねません。文全体の動詞も別に探しましょう。"
+  },
+  "Although the device is expensive, it uses less electricity.": {
+    "label": "譲歩・対比の節",
+    "pattern": "Although + 文, 文",
+    "note": "前半で認めた面に対して、後半で別の面を示します。前半も主語と動詞を持つ節です。"
+  },
+  "The factory closed; as a result, many people lost their jobs.": {
+    "label": "出来事の結果・判断",
+    "pattern": "文; as a result, 文",
+    "note": "出来事から生じた結果をas a resultで示します。"
+  },
+  "In conclusion, we should use public transportation more often.": {
+    "label": "結論・理由を受けた判断",
+    "pattern": "In conclusion, 主語 + 動詞",
+    "note": "前に述べた内容を受け、結論となる判断を続けます。"
+  }
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "id": "exp-past-sequence",
+    "section": 2,
+    "title": "過去完了：過去の出来事より前の完了",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "過去完了：過去の出来事より前の完了",
+    "pattern": "had + 過去分詞 / when + 過去形",
+    "examples": [
+      [
+        "The meeting had ended when I reached the office.",
+        "私が事務所に着いたとき、会議はすでに終わっていました。"
+      ],
+      [
+        "She had saved the file when the computer crashed.",
+        "コンピューターが故障したとき、彼女はすでにファイルを保存していました。"
+      ]
+    ],
+    "tip": "先に終わった出来事と、後から起きた出来事を分けます。hadは主語によらず同じ形で、後ろは過去分詞です。",
+    "more": "whenの節を過去形、先に完了した主節を過去完了にしています。順序が文脈で明らかなら単純過去でも伝わる場合があり、二つの過去なら必ず過去完了という規則ではありません。"
+  },
+  {
+    "id": "exp-past-experience",
+    "section": 2,
+    "title": "過去完了：過去の時点までの経験",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "過去完了：過去の時点までの経験",
+    "pattern": "had never + 過去分詞 / before + 過去形",
+    "examples": [
+      [
+        "I had never voted before I turned eighteen.",
+        "私は18歳になるまで、それ以前に投票した経験がありませんでした。"
+      ],
+      [
+        "She had never managed a team before she joined us.",
+        "彼女は私たちの仲間になる前には、チームをまとめた経験がありませんでした。"
+      ]
+    ],
+    "tip": "過去の基準時点までに一度も経験がなかったことをhad neverで表します。今までの経験を表すhave neverとは基準時点が違います。",
+    "more": "beforeの後ろは主語と過去形の動詞がある節です。neverはhadと過去分詞の間に置きます。beforeだけで前後関係が伝わる場合もありますが、ここでは過去完了の経験用法を練習します。"
+  },
+  {
+    "id": "exp-present-perfect-progressive",
+    "section": 2,
+    "title": "現在完了進行形：続いている動作",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "現在完了進行形：続いている動作",
+    "pattern": "have/has been + 動詞-ing",
+    "examples": [
+      [
+        "We have been collecting donations for two weeks.",
+        "私たちは2週間、今までずっと寄付を集め続けています。"
+      ],
+      [
+        "She has been looking for a job since April.",
+        "彼女は4月から今までずっと仕事を探し続けています。"
+      ]
+    ],
+    "tip": "過去に始めて今まで続けている動作を、have/has beenと動詞のing形で表します。三人称単数の主語ではhasです。",
+    "more": "forは期間、sinceは開始した時点です。have been lookingとhave lookedのように両方使える場面もあります。ここでは継続中の活動に注目し、状態を表す動詞まで一律に進行形にはしません。"
+  },
+  {
+    "id": "exp-future-perfect",
+    "section": 2,
+    "title": "未来完了：期限までに終わっていること",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "未来完了：期限までに終わっていること",
+    "pattern": "will have + 過去分詞 / by + 期限",
+    "examples": [
+      [
+        "I will have completed the survey by Friday.",
+        "私は金曜日までには、その調査を終えているでしょう。"
+      ],
+      [
+        "We will have reduced our waste by next summer.",
+        "私たちは来年の夏までには、ごみの量を減らせているでしょう。"
+      ]
+    ],
+    "tip": "未来のある期限までには終わっていることを、will haveと過去分詞で表します。期限そのものに作業を始める、という意味ではありません。",
+    "more": "by Fridayは金曜日までに、という期限です。will finishでも文脈によって同じ予定を伝えられます。ここでは未来の時点から完了を見渡す形を練習します。"
+  },
+  {
+    "id": "exp-second-conditional",
+    "section": 2,
+    "title": "仮定法過去：現在の事実と違う仮定",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "仮定法過去：現在の事実と違う仮定",
+    "pattern": "If + 過去形, 主語 + would + 動詞原形",
+    "examples": [
+      [
+        "If I owned a car, I would drive to work.",
+        "もし車を持っていれば、私は車で通勤するでしょう。（実際は持っていません）"
+      ],
+      [
+        "If rent were lower, more students would live here.",
+        "もし家賃がもっと安ければ、もっと多くの学生がここに住むでしょう。（実際は高いです）"
+      ]
+    ],
+    "tip": "現在の事実とは違うことを想像するとき、条件節を過去形、結果をwouldと動詞原形で表します。この過去形は、過去の出来事を述べるためのものではありません。",
+    "more": "If rent were lowerのwereは仮定法の形です。口語でwasが使われることもあります。実現しうる未来のIf it rains ...とは、状況の捉え方が違います。"
+  },
+  {
+    "id": "exp-third-conditional",
+    "section": 2,
+    "title": "仮定法過去完了：過去の事実と違う仮定",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "仮定法過去完了：過去の事実と違う仮定",
+    "pattern": "If + had + 過去分詞, would have + 過去分詞",
+    "examples": [
+      [
+        "If I had left earlier, I would have caught the bus.",
+        "もしもっと早く出発していたら、私はそのバスに間に合っていたでしょう。（実際は間に合いませんでした）"
+      ],
+      [
+        "If we had checked the map, we would have found it.",
+        "もし地図を確認していたら、私たちはそれを見つけていたでしょう。（実際は見つかりませんでした）"
+      ]
+    ],
+    "tip": "すでに起きた過去とは別の条件と結果を想像します。条件節はhadと過去分詞、結果はwould haveと過去分詞です。",
+    "more": "実際の過去を変えることはできません。「早く出発していたら間に合っただろう」のように、起きなかった別の展開を述べます。現在の仮定とは動詞の形を区別しましょう。"
+  },
+  {
+    "id": "exp-wish-present",
+    "section": 2,
+    "title": "願望：現在と違っていればよいのに",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "願望：現在と違っていればよいのに",
+    "pattern": "I wish + 主語 + 過去形 / could + 動詞原形",
+    "examples": [
+      [
+        "I wish our town had better public transport.",
+        "私たちの町の公共交通がもっと充実していればよいのにと思います。"
+      ],
+      [
+        "I wish I could afford a larger apartment.",
+        "もっと広いアパートを借りるだけの余裕があればよいのにと思います。"
+      ]
+    ],
+    "tip": "現在の事実に反する願いには、wishの後ろに過去形やcouldを使います。現在の願望なので、過去形でも過去の出来事とは限りません。",
+    "more": "I wish I could afford ...は、今はその余裕がないという願いです。実現を期待している出来事をhopeで述べる場合とは分けて考えます。"
+  },
+  {
+    "id": "exp-wish-past",
+    "section": 2,
+    "title": "願望：過去を変えたい後悔",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "願望：過去を変えたい後悔",
+    "pattern": "I wish + 主語 + had + 過去分詞",
+    "examples": [
+      [
+        "I wish I had kept a copy of the receipt.",
+        "領収書のコピーを取っておけばよかったのにと思います。（実際は取りませんでした）"
+      ],
+      [
+        "I wish we had asked for advice sooner.",
+        "私たちはもっと早く助言を求めておけばよかったのにと思います。"
+      ]
+    ],
+    "tip": "過去にしなかったことを後悔するとき、wishの後ろをhadと過去分詞にします。現在への願いで使う単純な過去形と区別します。",
+    "more": "I wish we had asked ...では、実際にはその時に助言を求めませんでした。後悔する気持ちは現在、変えたい出来事は過去、という二つの時点を整理します。"
+  },
+  {
+    "id": "exp-must-perfect",
+    "section": 2,
+    "title": "過去の推量：きっと〜したに違いない",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "過去の推量：きっと〜したに違いない",
+    "pattern": "must have + 過去分詞",
+    "examples": [
+      [
+        "She must have forgotten about the appointment.",
+        "彼女はその約束を忘れてしまったに違いありません。"
+      ],
+      [
+        "Someone must have moved my bicycle.",
+        "誰かが私の自転車を移動させたに違いありません。"
+      ]
+    ],
+    "tip": "must haveと過去分詞は、過去について「きっと〜したに違いない」という強い推量です。過去の義務を表すhad toとは違います。",
+    "more": "推量は話し手の判断であり、出来事が証明されたという意味ではありません。must have receivedなら「受け取ったはずだ」と、完了した出来事を推測しています。"
+  },
+  {
+    "id": "exp-might-perfect",
+    "section": 2,
+    "title": "過去の推量：〜したかもしれない",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "過去の推量：〜したかもしれない",
+    "pattern": "might have + 過去分詞",
+    "examples": [
+      [
+        "I might have sent it to the wrong address.",
+        "私はそれを間違った住所に送ってしまったかもしれません。"
+      ],
+      [
+        "She might have misunderstood the instructions.",
+        "彼女はその指示を誤解したのかもしれません。"
+      ]
+    ],
+    "tip": "might haveと過去分詞で、過去に起きた可能性を述べます。断定せず「〜したかもしれない」と伝えます。",
+    "more": "may haveもこの意味で自然です。mayとmightの確率を固定の数値で区別しません。間違った住所へ送ったかもしれないという推測と、送るべきだったという後悔は別です。"
+  },
+  {
+    "id": "exp-should-perfect",
+    "section": 2,
+    "title": "過去の後悔：〜しておくべきだった",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "過去の後悔：〜しておくべきだった",
+    "pattern": "should have + 過去分詞",
+    "examples": [
+      [
+        "I should have booked the tickets in advance.",
+        "私は事前にそのチケットを予約しておくべきでした。（実際はしませんでした）"
+      ],
+      [
+        "We should have compared the prices first.",
+        "私たちはまず価格を比較しておくべきでした。（実際はしませんでした）"
+      ]
+    ],
+    "tip": "should haveと過去分詞で、過去にするべきだったのにしなかったことを振り返れます。今回の例文はこの後悔の意味です。",
+    "more": "should haveは文脈により「もう到着しているはずだ」のような予想にもなります。形だけで常に後悔と決めず、今回の訳と実際にした行動を照合しましょう。ought to haveという別表現もあります。"
+  },
+  {
+    "id": "exp-participle-active",
+    "section": 1,
+    "title": "現在分詞の後置修飾",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "現在分詞の後置修飾",
+    "pattern": "名詞 + 動詞-ingのまとまり",
+    "examples": [
+      [
+        "People living near the airport complained.",
+        "その空港の近くに住んでいる人々が苦情を言いました。"
+      ],
+      [
+        "The woman leading the tour speaks three languages.",
+        "そのツアーを案内している女性は3つの言語を話します。"
+      ]
+    ],
+    "tip": "現在分詞のまとまりを名詞の後ろに置き、「〜している人・物」と説明します。説明される名詞が、その動作を行う側です。",
+    "more": "People living near the airportはPeople who live near the airportとも言えます。livingはこの文全体の動詞ではなく、主節の動詞complainedと分けて見ます。"
+  },
+  {
+    "id": "exp-participle-passive",
+    "section": 1,
+    "title": "過去分詞の後置修飾",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "過去分詞の後置修飾",
+    "pattern": "名詞 + 過去分詞のまとまり",
+    "examples": [
+      [
+        "The products made in this factory are exported.",
+        "この工場で作られた製品は輸出されています。"
+      ],
+      [
+        "The proposal submitted yesterday needs revision.",
+        "昨日提出された提案は修正が必要です。"
+      ]
+    ],
+    "tip": "過去分詞のまとまりを名詞の後ろに置き、「〜された物」と説明します。その名詞は動作を受ける側です。",
+    "more": "The products made in this factoryではmade以下がproductsを説明し、are exportedが文全体の動詞です。過去分詞で修飾されていても、文全体が過去の話になるとは限りません。"
+  },
+  {
+    "id": "exp-participle-clause",
+    "section": 1,
+    "title": "分詞構文：主節と同じ主語の状況",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "分詞構文：主節と同じ主語の状況",
+    "pattern": "動詞-ing / 過去分詞 ..., 主語 + 動詞",
+    "examples": [
+      [
+        "Feeling tired, she decided to take a break.",
+        "疲れを感じていたので、彼女は休憩を取ることにしました。"
+      ],
+      [
+        "Walking home, I noticed a new recycling center.",
+        "歩いて帰宅する途中、私は新しいリサイクルセンターに気づきました。"
+      ]
+    ],
+    "tip": "分詞構文では、分詞のまとまりで状況・理由などを添えます。この3例では、分詞の動作や状態の主体は主節の主語と同じです。",
+    "more": "Walking home, I ...なら歩いているのはIです。Feeling tiredでは本人が疲れを感じ、Surprised by ...では本人が驚かされるため過去分詞です。無関係な主語を続けないようにします。接続詞を使う普通の節でも表せます。"
+  },
+  {
+    "id": "exp-whose",
+    "section": 1,
+    "title": "所有を表す関係代名詞",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "所有を表す関係代名詞",
+    "pattern": "先行詞 + whose + 名詞 + ...",
+    "examples": [
+      [
+        "I met a student whose research focuses on energy.",
+        "私は、研究がエネルギーに重点を置いている学生に会いました。"
+      ],
+      [
+        "We helped a farmer whose crops were damaged.",
+        "私たちは、作物が被害を受けた農家の人を助けました。"
+      ]
+    ],
+    "tip": "whoseの後ろに名詞を続け、人とその人に属する物・活動との関係を表します。whoの後ろに単に所有物を足す形とは違います。",
+    "more": "a farmer whose crops were damagedでは、作物の持ち主はfarmerですが、whose節の主語の中心は複数形cropsです。wereはfarmerではなくcropsに合わせています。"
+  },
+  {
+    "id": "exp-where-when",
+    "section": 1,
+    "title": "場所・時を説明する関係副詞",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "場所・時を説明する関係副詞",
+    "pattern": "場所 + where / 時 + when + 主語 + 動詞",
+    "examples": [
+      [
+        "This is the center where volunteers receive training.",
+        "ここは、ボランティアたちが研修を受けるセンターです。"
+      ],
+      [
+        "I remember the day when our campaign began.",
+        "私は、私たちの活動が始まった日を覚えています。"
+      ]
+    ],
+    "tip": "場所を説明するwhere、時を説明するwhenの後ろには、通常の主語と動詞の順で節を続けます。前の名詞と後ろの節のつながりを確認します。",
+    "more": "the center where volunteers receive trainingでは、センターで研修を受けます。場所の名詞だから必ずwhereではなく、後ろの節で目的語が欠けるならwhichなどになる場合があります。"
+  },
+  {
+    "id": "exp-nonrestrictive",
+    "section": 1,
+    "title": "非制限用法：コンマで補足する関係詞",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "非制限用法：コンマで補足する関係詞",
+    "pattern": "特定済みの名詞, which + ...",
+    "examples": [
+      [
+        "My bicycle, which I bought last year, needs repairs.",
+        "私の自転車は修理が必要です。ちなみに、それは去年買ったものです。"
+      ],
+      [
+        "Our library, which opened in May, is very popular.",
+        "私たちの図書館はとても人気です。ちなみに、5月に開館しました。"
+      ]
+    ],
+    "tip": "すでに特定されている物について、コンマで区切ったwhichの節で補足します。どの物かを絞り込むための関係詞節とは区別します。",
+    "more": "My bicycle, which I bought last year, needs repairs.の主節はMy bicycle needs repairs.です。途中に補足を挟んでいます。この非制限用法のwhichをthatに置き換えることはできません。"
+  },
+  {
+    "id": "exp-causative-base",
+    "section": 1,
+    "title": "使役：人＋動詞の原形",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "使役：人＋動詞の原形",
+    "pattern": "make / let + 人 + 動詞原形",
+    "examples": [
+      [
+        "The delay made us change our plans.",
+        "その遅れによって、私たちは予定を変更せざるを得ませんでした。"
+      ],
+      [
+        "Our manager let us work from home.",
+        "私たちの上司は、私たちが在宅勤務をすることを許可しました。"
+      ]
+    ],
+    "tip": "makeやletの後ろに人、その後ろに動詞の原形を置きます。makeは行動させる・余儀なくさせる、letは許可する意味で使っています。",
+    "more": "The delay made us change ...では予定を変えるのはusです。make us to changeにはしません。ただし受け身でbe made to doにする場合はtoが必要で、すべての形でtoを取るわけではありません。"
+  },
+  {
+    "id": "exp-causative-passive",
+    "section": 1,
+    "title": "手配：物を〜してもらう",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "手配：物を〜してもらう",
+    "pattern": "have + 物 + 過去分詞",
+    "examples": [
+      [
+        "I had my bicycle repaired yesterday.",
+        "私は昨日、自転車を修理してもらいました。"
+      ],
+      [
+        "We had the documents translated into English.",
+        "私たちは、その書類を英語に翻訳してもらいました。"
+      ]
+    ],
+    "tip": "haveの後ろに物、その後ろに過去分詞を置き、手配して作業をしてもらうことを表します。物は作業を受ける側です。",
+    "more": "I had my bicycle repaired.では、自分で修理したとは述べていません。get my bicycle repairedも自然です。同じ形が盗難などの被害を表す場合もありますが、今回の例は依頼・手配の意味です。"
+  },
+  {
+    "id": "exp-perfect-passive",
+    "section": 1,
+    "title": "現在完了の受け身",
+    "subtitle": "基本の形から組み合わせへ",
+    "term": "現在完了の受け身",
+    "pattern": "have/has been + 過去分詞",
+    "examples": [
+      [
+        "The deadline has been extended by two weeks.",
+        "締め切りは2週間延長され、現在もその状態です。"
+      ],
+      [
+        "All the applications have been checked.",
+        "すべての申請書は、すでに確認が済んでいます。"
+      ]
+    ],
+    "tip": "have/has beenと過去分詞を組み合わせ、何かがされた完了・現在の結果を伝えます。have/hasは主語に合わせます。",
+    "more": "The deadline has been extendedでは延長が済み、その結果が今に関わります。All the applications have been checkedでは主語が複数なのでhaveです。動作途中のis being checkedとは区別します。"
+  },
+  {
+    "id": "exp-progressive-passive",
+    "section": 1,
+    "title": "進行形の受け身",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "進行形の受け身",
+    "pattern": "am/is/are being + 過去分詞",
+    "examples": [
+      [
+        "The bridge is being inspected now.",
+        "その橋は今、点検されている最中です。"
+      ],
+      [
+        "New safety rules are being discussed.",
+        "新しい安全規則は今、話し合われている最中です。"
+      ]
+    ],
+    "tip": "be beingと過去分詞で、何かが今まさに作業されている途中だと伝えます。主語に合わせてis/areを使います。",
+    "more": "The bridge is being inspected.では点検の途中です。has been inspectedなら点検の完了が今に関わります。beingとbeenの綴り・役割の違いも確かめましょう。"
+  },
+  {
+    "id": "exp-remember",
+    "section": 1,
+    "title": "覚えていること／忘れずこれからすること",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "覚えていること／忘れずこれからすること",
+    "pattern": "remember doing / remember to do",
+    "examples": [
+      [
+        "Please remember to attach the file.",
+        "忘れずに、そのファイルを添付してください。（これからすることです）"
+      ],
+      [
+        "I remember attaching the file to my email.",
+        "私は、自分のメールにそのファイルを添付したことを覚えています。"
+      ]
+    ],
+    "tip": "remember to doは忘れずに行動すること、remember doingは行動したことの記憶です。行動と覚えている時点の順序が異なります。",
+    "more": "She remembered to renew ...は、実際に忘れず更新したという過去の話です。rememberedが過去形だから後ろも必ずing、とはなりません。いつ覚えていて、いつ行動したかを見ます。"
+  },
+  {
+    "id": "exp-stop",
+    "section": 1,
+    "title": "行動をやめる／別の目的のため立ち止まる",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "行動をやめる／別の目的のため立ち止まる",
+    "pattern": "stop doing / stop to do",
+    "examples": [
+      [
+        "We stopped using disposable cups.",
+        "私たちは、使い捨てカップを使うのをやめました。"
+      ],
+      [
+        "We stopped to check the emergency exits.",
+        "私たちは、非常口を確認するために立ち止まりました。"
+      ]
+    ],
+    "tip": "stop doingはその動作をやめること。stop to doは別の動作をするため、それまでの活動を止めることです。",
+    "more": "We stopped to check ...は確認するため立ち止まったのであって、確認をやめたのではありません。to以下は目的を添える不定詞です。stop to doは歩いている場面だけに限りません。"
+  },
+  {
+    "id": "exp-correlative-comparison",
+    "section": 2,
+    "title": "〜すればするほど、ますます…",
+    "subtitle": "準2級で学んだ形を別の場面で使う",
+    "term": "〜すればするほど、ますます…",
+    "pattern": "The + 比較級 ..., the + 比較級 ...",
+    "examples": [
+      [
+        "The more we recycle, the less waste we produce.",
+        "私たちがリサイクルすればするほど、出すごみは少なくなります。"
+      ],
+      [
+        "The longer we wait, the fewer seats are available.",
+        "私たちが長く待てば待つほど、利用できる席は少なくなります。"
+      ]
+    ],
+    "tip": "theと比較級のまとまりを二つ対応させ、「〜すればするほど、ますます…」と二つの変化の関連を示します。",
+    "more": "less wasteのwasteは量、fewer seats/mistakesは数えられる複数名詞です。carefullyの比較級はmore carefully。二つのtheを、単に名詞に付く定冠詞と同じ働きだとは考えないようにします。"
+  }
+]

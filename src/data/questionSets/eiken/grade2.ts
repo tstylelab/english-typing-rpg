@@ -4,6 +4,8 @@ import borrowedVocabulary from './grade2BorrowedVocabulary.json';
 import { grade2VocabularyRows } from './grade2Vocabulary';
 import { grade2PhraseRows } from './grade2Phrases';
 import { grade2SentenceRows, grade2Grammar } from './grade2Sentences';
+import grammarExpansion from './grade2GrammarExpansion.json';
+import grammarPointOverrides from '../../grade2GrammarPointOverrides.json';
 import { grade2SupplementWords, grade2SupplementPhrases } from './grade2Supplement';
 
 type Entry = { band: number; sourceId?: number; question: Question };
@@ -24,7 +26,13 @@ const sentences: Entry[] = lines(grade2SentenceRows).map(([band, sourceId, gramm
 }));
 const ordered = (entries: Entry[]) => [...entries].sort((a, b) => a.band - b.band || a.question.text.length - b.question.text.length);
 export const legacyGrade2Phrases = ordered(phrases).map(entry => entry.question);
-export const grade2Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered(sentences) };
+// Keep the original objects available for historical reviews and audit snapshots.
+export const legacyGrade2Sentences = ordered(sentences).map(entry => entry.question);
+const pointOverrides: Record<string, Question['grammarPoint']> = grammarPointOverrides;
+export const grade2Curriculum = { 1: ordered(vocabulary), 2: reviewUpperPhraseEntries(ordered(phrases)), 3: ordered([
+  ...sentences.map(entry => ({ ...entry, question: { ...entry.question, grammarPoint: pointOverrides[entry.question.text] ?? entry.question.grammarPoint } })),
+  ...grammarExpansion,
+]) };
 export const getGrade2CurriculumLimit = (level: 1 | 2 | 3, stageIndex: number) => {
   const band = stageIndex < 7 ? 1 : stageIndex < 14 ? 2 : 3;
   return grade2Curriculum[level].filter(entry => entry.band <= band).length;

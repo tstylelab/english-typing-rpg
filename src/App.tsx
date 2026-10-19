@@ -2387,7 +2387,7 @@ class SoundEngine {
   }
 
   playType() { this.playTone(800, 'square', 0.05, 0.05); }
-  playMiss() { this.playTone(150, 'sawtooth', 0.3, 0.1); }
+  playMiss() { this.playTone(150, 'sawtooth', 0.3, 0.08); }
   
   playAttack() { 
     if (!this.ctx) return;
@@ -4952,14 +4952,14 @@ export default function App() {
     });
   };
 
-  const keepTypingInputReady = (
+  const keepTypingInputReady = useCallback((
     input: React.RefObject<HTMLInputElement | null>,
     keyboardTarget: React.RefObject<HTMLDivElement | null>,
   ) => {
     if (input === inputRef) resetBattleImeState();
     if (input === versusInputRef) resetVersusImeState();
     (externalKeyboardMode || (input === inputRef && showBattleKeyboardGuide) ? keyboardTarget.current : input.current)?.focus({ preventScroll: true });
-  };
+  }, [externalKeyboardMode, showBattleKeyboardGuide, resetBattleImeState, resetVersusImeState]);
 
   useEffect(() => {
     if (gameState.screen !== 'versus-play' || versusShowHandoff) return;
@@ -5742,6 +5742,24 @@ export default function App() {
     }
     setQuestionMarkedForReview(scopeKey, questionKey, !(markedQuestionKeysByScope[scopeKey] ?? []).includes(questionKey));
   }, [markedQuestionKeysByScope, setQuestionMarkedForReview, isAutoPlaying, isAutoPlayPaused, autoPlaySettings.source, stopAutoPlay]);
+
+  useEffect(() => {
+    if (gameState.screen !== 'battle') return;
+    const addPreviousQuestionToReview = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter' || !event.shiftKey || event.ctrlKey || event.altKey || event.metaKey || event.isComposing) return;
+      if (event.target instanceof Element && event.target.closest('dialog[open], [role="dialog"]')) return;
+      if (isEditableEventTarget(event.target) && event.target !== inputRef.current && event.target !== battleKeyboardTargetRef.current) return;
+      event.preventDefault();
+      // Add only: repeats or a second press must never unmark a saved question.
+      if (event.repeat || !lastSolvedQuestion) return;
+      const scope = getReviewScopeKey(gameState.selectedDifficulty, gameState.selectedLevel);
+      const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion);
+      setQuestionMarkedForReview(scope, key, true);
+      keepTypingInputReady(inputRef, battleKeyboardTargetRef);
+    };
+    window.addEventListener('keydown', addPreviousQuestionToReview);
+    return () => window.removeEventListener('keydown', addPreviousQuestionToReview);
+  }, [gameState.screen, gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion, setQuestionMarkedForReview, keepTypingInputReady]);
 
   const deleteReviewHistory = (scopeKey: string, questionKey: string, text: string) => {
     setReviewHistoryKeysByScope(prev => ({ ...prev, [scopeKey]: (prev[scopeKey] ?? []).filter(key => key !== questionKey) }));
@@ -10691,12 +10709,15 @@ export default function App() {
                            toggleMarkedQuestion(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion);
                            keepTypingInputReady(inputRef, battleKeyboardTargetRef);
                          }}
-                         title={isPreviousQuestionMarked ? '復習リストから外す' : 'この問題をあとで復習する'}
+                         data-previous-review
+                         aria-keyshortcuts="Shift+Enter"
+                         title={`${isPreviousQuestionMarked ? '復習リストから外す' : '直前の問題をあとで復習する'}（Shift＋Enterで復習に追加）`}
                          aria-pressed={isPreviousQuestionMarked}
                          className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200 ${isPreviousQuestionMarked ? 'border-yellow-300 bg-yellow-500/20 text-yellow-100 shadow-[0_0_18px_rgba(250,204,21,0.18)] hover:bg-yellow-500/30' : 'border-yellow-400/40 bg-yellow-950/20 text-yellow-100 hover:border-yellow-300 hover:bg-yellow-500/15'}`}
                        >
                          <Bookmark size={13} fill={isPreviousQuestionMarked ? 'currentColor' : 'none'} />
                          <span>{isPreviousQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
+                         <kbd className="ml-1 text-[10px] opacity-75">Shift＋Enter</kbd>
                        </button>
                        {previousQuestionSynonyms.length > 0 && (
                          <>

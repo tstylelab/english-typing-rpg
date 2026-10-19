@@ -1,0 +1,260 @@
+{
+  "status": "implemented-local",
+  "retained": 94,
+  "added": 72,
+  "total": 166,
+  "removed": 0,
+  "changedPrompts": [
+    {
+      "text": "Can you tell me how to apply for the program?",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Can you tell me how to apply for the program?",
+        "translation": "そのプログラムへの応募方法を教えてくれますか。",
+        "previousMeaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "meaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "間接疑問",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Can you tell me how to apply for the program?",
+        "translation": "そのプログラムへの応募方法を教えてくれますか。",
+        "previousMeaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "meaning": "そのプログラムへの応募方法を教えてくれますか。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "応募の仕方を、疑問詞に不定詞を続ける形で尋ねます。",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      }
+    },
+    {
+      "text": "I have two reasons for this.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "I have two reasons for this.",
+        "translation": "これについて理由が二つあります。",
+        "previousMeaning": "これについて理由が二つあります。",
+        "meaning": "これについて私には二つの理由があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "自分が理由を持つ形で表す",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "I have two reasons for this.",
+        "translation": "これについて理由が二つあります。",
+        "previousMeaning": "これについて理由が二つあります。",
+        "meaning": "これについて私には二つの理由があります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "理由が二つあると述べ、何についての理由かを前置詞に名詞を続けて示します。",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      }
+    },
+    {
+      "text": "I have two reasons why I think so.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "I have two reasons why I think so.",
+        "translation": "そう考える理由が二つあります。",
+        "previousMeaning": "そう考える理由が二つあります。",
+        "meaning": "私がそう考える理由は二つあります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "理由の後に、自分がそう考えることを節で添える",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "I have two reasons why I think so.",
+        "translation": "そう考える理由が二つあります。",
+        "previousMeaning": "そう考える理由が二つあります。",
+        "meaning": "私がそう考える理由は二つあります。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "理由を表す名詞の後ろに、自分がそう考える理由を関係副詞の節で添えます。",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      }
+    },
+    {
+      "text": "The book that you recommended was useful.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "The book that you recommended was useful.",
+        "translation": "あなたが勧めた本は役に立ちました。",
+        "previousMeaning": "あなたが勧めた本は役に立ちました。",
+        "meaning": "あなたが勧めた本は役に立ちました。",
+        "alternatives": [
+          {
+            "text": "which",
+            "note": "物を説明する関係代名詞"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "目的語の関係代名詞を省略しない",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "The book that you recommended was useful.",
+        "translation": "あなたが勧めた本は役に立ちました。",
+        "previousMeaning": "あなたが勧めた本は役に立ちました。",
+        "meaning": "あなたが勧めた本は役に立ちました。",
+        "alternatives": [
+          {
+            "text": "The book which you recommended was useful.",
+            "note": "whichも自然な目的格の関係代名詞です。"
+          },
+          {
+            "text": "The book you recommended was useful.",
+            "note": "目的格の関係代名詞を省略する形も自然です。"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "目的格の関係代名詞を省略しない形を練習します。下の別表現も自然ですが、今回はそれ以外の関係代名詞を使います。",
+        "reason": "英文にある主語・語句・文型が和訳から伝わるようにし、自然な言い換えとの重なりも示す。"
+      }
+    },
+    {
+      "text": "The new bridge is as wide as the old one.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "The new bridge is as wide as the old one.",
+        "translation": "新しい橋は古い橋と同じ幅です。",
+        "previousMeaning": "新しい橋は古い橋と同じ幅です。",
+        "meaning": "新しい橋は古い橋と同じ幅です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "比較",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "The new bridge is as wide as the old one.",
+        "translation": "新しい橋は古い橋と同じ幅です。",
+        "previousMeaning": "新しい橋は古い橋と同じ幅です。",
+        "meaning": "新しい橋は古い橋と同じ幅です。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "形容詞による同等比較を練習します。古い橋は、同じ名詞の繰り返しを避ける代名詞で表します。",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      }
+    },
+    {
+      "text": "Although the plan is expensive, it may save energy.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Although the plan is expensive, it may save energy.",
+        "translation": "その計画には費用がかかりますが、節電につながるかもしれません。",
+        "previousMeaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "meaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Although the plan is expensive, it may save energy.",
+        "translation": "その計画には費用がかかりますが、節電につながるかもしれません。",
+        "previousMeaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "meaning": "その計画には費用がかかりますが、エネルギーの節約につながるかもしれません。",
+        "alternatives": [
+          {
+            "text": "Though the plan is expensive, it may save energy.",
+            "note": "thoughも自然な譲歩の接続詞です。"
+          },
+          {
+            "text": "While the plan is expensive, it may save energy.",
+            "note": "whileもここでは譲歩を示せます。"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "譲歩の節を先に置きます。下の別表現も自然ですが、今回はそれ以外の接続詞を練習します。",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      }
+    },
+    {
+      "text": "Although the device is expensive, it uses less electricity.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Although the device is expensive, it uses less electricity.",
+        "translation": "その機器は高価ですが、電力消費が少ないです。",
+        "previousMeaning": "その機器は高価ですが、電力消費が少ないです。",
+        "meaning": "その機器は高価ですが、電力消費が少ないです。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "対比する",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "Although the device is expensive, it uses less electricity.",
+        "translation": "その機器は高価ですが、電力消費が少ないです。",
+        "previousMeaning": "その機器は高価ですが、電力消費が少ないです。",
+        "meaning": "その機器は高価ですが、電力消費が少ないです。",
+        "alternatives": [
+          {
+            "text": "Though the device is expensive, it uses less electricity.",
+            "note": "thoughも自然な譲歩の接続詞です。"
+          },
+          {
+            "text": "While the device is expensive, it uses less electricity.",
+            "note": "whileもここでは譲歩を示せます。"
+          }
+        ],
+        "contrasts": [],
+        "formNote": "譲歩の節を先に置きます。下の別表現も自然ですが、今回はそれ以外の接続詞を練習します。",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      }
+    },
+    {
+      "text": "If the city improves the buses, fewer people may drive.",
+      "before": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "If the city improves the buses, fewer people may drive.",
+        "translation": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "previousMeaning": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "meaning": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      },
+      "after": {
+        "course": "Eiken2",
+        "level": 3,
+        "text": "If the city improves the buses, fewer people may drive.",
+        "translation": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "previousMeaning": "市がバスを改善すれば、車に乗る人が減るかもしれません。",
+        "meaning": "市がバスを改善すれば、車を運転する人が減るかもしれません。",
+        "alternatives": [],
+        "contrasts": [],
+        "formNote": "条件節を先に置き、運転する人の数が減る可能性を述べます。",
+        "reason": "和訳は維持し、学習する構文を日本語で補足。自由英訳の唯一解とは扱わない。"
+      }
+    }
+  ],
+  "grammarPointOverrides": 94,
+  "addedCards": 24,
+  "baselineCommit": "d1108fcf22b191117a3f025d05b0c6ec03f8922f"
+}

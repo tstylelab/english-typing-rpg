@@ -1,0 +1,383 @@
+{
+  "calculations": 68724,
+  "questionCount": 166,
+  "pools": [
+    57,
+    130,
+    166
+  ],
+  "unchangedQuestionLimits": true,
+  "bossError30pctCanWin": false,
+  "allStagesErrorPerCharacterCanWin": false,
+  "limitations": "Corrected wrong keystrokes per character, not percentage of wrong questions; isolated VM, no user storage. Practice modes unchanged.",
+  "stages": [
+    {
+      "input": "text-only",
+      "stage": 1,
+      "boss": 0,
+      "monsterHp": 460,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 2,
+      "boss": 0,
+      "monsterHp": 498,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 3,
+      "boss": 0,
+      "monsterHp": 537,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 4,
+      "boss": 0,
+      "monsterHp": 560,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 5,
+      "boss": 0,
+      "monsterHp": 583,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 6,
+      "boss": 0,
+      "monsterHp": 606,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 7,
+      "boss": 0,
+      "monsterHp": 628,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 8,
+      "boss": 0,
+      "monsterHp": 652,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 9,
+      "boss": 0,
+      "monsterHp": 675,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 10,
+      "boss": 0,
+      "monsterHp": 690,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 11,
+      "boss": 0,
+      "monsterHp": 705,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 12,
+      "boss": 0,
+      "monsterHp": 713,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 13,
+      "boss": 0,
+      "monsterHp": 721,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 14,
+      "boss": 0,
+      "monsterHp": 728,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 15,
+      "boss": 0,
+      "monsterHp": 736,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 16,
+      "boss": 0,
+      "monsterHp": 743,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 17,
+      "boss": 0,
+      "monsterHp": 752,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 18,
+      "boss": 0,
+      "monsterHp": 759,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 19,
+      "boss": 0,
+      "monsterHp": 767,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 20,
+      "boss": 1,
+      "monsterHp": 1214,
+      "maxQuestions": 8,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 21,
+      "boss": 2,
+      "monsterHp": 1380,
+      "maxQuestions": 9,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 22,
+      "boss": 3,
+      "monsterHp": 1544,
+      "maxQuestions": 10,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "text-only",
+      "stage": 23,
+      "boss": 4,
+      "monsterHp": 1695,
+      "maxQuestions": 11,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 1,
+      "boss": 0,
+      "monsterHp": 500,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 2,
+      "boss": 0,
+      "monsterHp": 542,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 3,
+      "boss": 0,
+      "monsterHp": 583,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 4,
+      "boss": 0,
+      "monsterHp": 608,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 5,
+      "boss": 0,
+      "monsterHp": 633,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 6,
+      "boss": 0,
+      "monsterHp": 658,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 7,
+      "boss": 0,
+      "monsterHp": 683,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 8,
+      "boss": 0,
+      "monsterHp": 708,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 9,
+      "boss": 0,
+      "monsterHp": 733,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 10,
+      "boss": 0,
+      "monsterHp": 750,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 11,
+      "boss": 0,
+      "monsterHp": 767,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 12,
+      "boss": 0,
+      "monsterHp": 775,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 13,
+      "boss": 0,
+      "monsterHp": 783,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 14,
+      "boss": 0,
+      "monsterHp": 792,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 15,
+      "boss": 0,
+      "monsterHp": 800,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 16,
+      "boss": 0,
+      "monsterHp": 808,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 17,
+      "boss": 0,
+      "monsterHp": 817,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 18,
+      "boss": 0,
+      "monsterHp": 825,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 19,
+      "boss": 0,
+      "monsterHp": 833,
+      "maxQuestions": 5,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 20,
+      "boss": 1,
+      "monsterHp": 1320,
+      "maxQuestions": 8,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 21,
+      "boss": 2,
+      "monsterHp": 1500,
+      "maxQuestions": 9,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 22,
+      "boss": 3,
+      "monsterHp": 1679,
+      "maxQuestions": 10,
+      "damageMultiplier": 1
+    },
+    {
+      "input": "voice-only",
+      "stage": 23,
+      "boss": 4,
+      "monsterHp": 1843,
+      "maxQuestions": 11,
+      "damageMultiplier": 1
+    }
+  ]
+}

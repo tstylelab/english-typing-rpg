@@ -1,0 +1,73 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+import {load} from './lib/load-typescript-data.mjs';
+import {trackTestBrowser} from './lib/test-browser-cleanup.mjs';
+const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'C:/Users/tsuyoshi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {QUESTIONS}=load('src/data/questions.ts');
+const {getQuestionMeaning}=load('src/data/questionMeaning.ts');
+const {getTranslationBattlePrompt}=load('src/data/translationBattlePrompts.ts');
+const qs=QUESTIONS.Eiken2[3],base=process.env.TEST_URL||'http://127.0.0.1:5196';
+assert.ok(['127.0.0.1','localhost'].includes(new URL(base).hostname));
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const cleanup=await trackTestBrowser(browser);
+try{
+ for(const [width,external] of [[1366,true],[390,false]]){
+  const ctx=await browser.newContext({viewport:{width:1366,height:950},reducedMotion:'reduce'}),page=await ctx.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  const selected=qs.filter(q=>['I have two reasons for this.','I might have sent it to the wrong address.'].includes(q.text));assert.equal(selected.length,2);
+  await page.addInitScript(({qs,selected,external})=>{
+   speechSynthesis.speak=()=>{};Math.random=()=>0;
+   if(localStorage.getItem('test-grade2-shortcut-seeded'))return;
+   localStorage.setItem('test-grade2-shortcut-seeded','true');
+   localStorage.setItem('etyping_external_keyboard_mode',String(external));localStorage.setItem('etyping_max_keystrokes','1');
+   localStorage.setItem('etyping_last_selected_course',JSON.stringify({difficulty:'Eiken2',level:3,resumeMode:'challenge',resumeInputMode:'text-only'}));
+   const statuses=Object.fromEntries(qs.map(q=>['Eiken2:3:'+q.text+':'+q.translation,{practiceLevel:1,listeningLevel:1,battleLevel:1,manualOverrideLevel:null,excluded:!selected.some(s=>s.text===q.text),updatedAt:0}]));
+   statuses['Eiken5:1:banana:バナナ']={practiceLevel:3,listeningLevel:3,battleLevel:3,manualOverrideLevel:3,excluded:false,updatedAt:0};
+   localStorage.setItem('etyping_manual_question_statuses',JSON.stringify(statuses));
+   localStorage.setItem('etyping_defeated_monsters',JSON.stringify(['Eiken2:3:challenge:text-only:c3_2','Eiken5:1:challenge:voice-only:c1_2']));
+   localStorage.setItem('etyping_marked_question_keys_by_scope',JSON.stringify({'Eiken5:1':['Eiken5:1:banana:バナナ']}));
+   const d=new Date(),today=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+   localStorage.setItem('etyping_daily_progress',JSON.stringify({date:today,questionCount:40}));
+  },{qs,selected,external});
+  await page.goto(base);await page.locator('.adventure-primary').click();await page.locator('.battle-input').waitFor();await page.locator('[data-monster-reveal]').waitFor({state:'detached'});await page.setViewportSize({width,height:950});
+  const review=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('etyping_marked_question_keys_by_scope')||'{}'));
+  const beforeReview=await review();
+  await page.keyboard.press('Shift+Enter');assert.deepEqual(await review(),beforeReview,'No previous question means no registration');
+  const meaning=(await page.locator('.battle-translation').innerText()).trim();
+  const first=selected.find(q=>getQuestionMeaning(q,'Eiken2')===meaning);assert.ok(first);
+  const before=await page.evaluate(()=>({statuses:JSON.parse(localStorage.getItem('etyping_manual_question_statuses')),defeats:JSON.parse(localStorage.getItem('etyping_defeated_monsters'))}));
+  await page.keyboard.type(first.text,{delay:15});await page.locator('[data-previous-review]').waitFor();
+  const previous=page.locator('[data-previous-review]');assert.equal(await previous.getAttribute('aria-keyshortcuts'),'Shift+Enter');
+  const nextMeaning=(await page.locator('.battle-translation').innerText()).trim();assert.notEqual(nextMeaning,meaning);
+  const second=selected.find(q=>getQuestionMeaning(q,'Eiken2')===nextMeaning);assert.ok(second);
+  const actualPrompt=getTranslationBattlePrompt(second,'Eiken2',3);assert.ok((await page.locator('.battle-translation-form').innerText()).includes(actualPrompt.formNote));
+  await page.keyboard.type(second.text.slice(0,3),{delay:15});
+  const typedBefore=await page.locator('.battle-input').inputValue();assert.equal(typedBefore,second.text.slice(0,3));
+  await page.keyboard.press('Control+Shift+Enter');assert.deepEqual(await review(),beforeReview,'Extra modifiers do not trigger');
+  await page.keyboard.press('Shift+Enter');await page.waitForFunction(()=>document.querySelector('[data-previous-review]')?.getAttribute('aria-pressed')==='true');
+  const firstKey='Eiken2:3:'+first.text+':'+first.translation,secondKey='Eiken2:3:'+second.text+':'+second.translation;
+  let saved=await review();assert.ok(saved['Eiken2:3'].includes(firstKey));assert.ok(!saved['Eiken2:3'].includes(secondKey));assert.deepEqual(saved['Eiken5:1'],beforeReview['Eiken5:1']);
+  await page.keyboard.press('Shift+Enter');
+  await page.evaluate(()=>window.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',shiftKey:true,repeat:true,bubbles:true})));
+  saved=await review();assert.equal(saved['Eiken2:3'].filter(k=>k===firstKey).length,1,'Repeat adds neither duplicates nor removal');
+  assert.equal(await page.locator('.battle-input').inputValue(),typedBefore,'Shortcut must not insert input');
+  assert.ok(await page.locator('.battle-input').evaluate(el=>document.activeElement===el||document.activeElement===el.parentElement),'Typing focus restored');
+  await page.keyboard.type(second.text.slice(3),{delay:15});
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('etyping_daily_progress')).questionCount===42);
+  const after=await page.evaluate(()=>({statuses:JSON.parse(localStorage.getItem('etyping_manual_question_statuses')),defeats:JSON.parse(localStorage.getItem('etyping_defeated_monsters'))}));
+  for(const k of Object.keys(before.statuses))if(![firstKey,secondKey].includes(k))assert.deepEqual(after.statuses[k],before.statuses[k]);assert.deepEqual(after.defeats,before.defeats);
+  assert.equal(await page.locator('.battle-screen').evaluate(el=>el.scrollWidth>el.clientWidth),false);
+  // Mouse keeps its previous toggle behavior for the currently shown last answer.
+  await page.keyboard.press('Shift+Enter');await page.waitForFunction(()=>document.querySelector('[data-previous-review]')?.getAttribute('aria-pressed')==='true');
+  await previous.click();await page.waitForFunction(()=>document.querySelector('[data-previous-review]')?.getAttribute('aria-pressed')==='false');
+  await page.keyboard.press('Shift+Enter');await page.waitForFunction(()=>document.querySelector('[data-previous-review]')?.getAttribute('aria-pressed')==='true');
+  assert.ok((await review())['Eiken2:3'].includes(secondKey));
+  await page.waitForFunction(({firstKey,secondKey})=>JSON.parse(localStorage.getItem('etyping_player_profiles')||'[]').some(p=>p.data.markedQuestionKeysByScope?.['Eiken2:3']?.includes(firstKey)&&p.data.markedQuestionKeysByScope?.['Eiken2:3']?.includes(secondKey)),{firstKey,secondKey});
+  await page.reload();await page.locator('.adventure-primary').waitFor();
+  assert.ok((await review())['Eiken2:3'].includes(firstKey));assert.ok((await review())['Eiken2:3'].includes(secondKey));
+  await page.goto(base+'/?guide=eiken2');assert.equal(await page.locator('.grammar-guide [data-grammar-card]').count(),55);
+  const card=page.locator('[data-grammar-card="exp-might-perfect"]');await card.locator('summary').first().click();assert.match(await card.innerText(),/may have/);
+  assert.deepEqual(errors,[]);await ctx.close();console.log('PASS',width,external?'physical keyboard':'text input','new prompts, previous-only shortcut, repeat/idempotence, modifiers, focus/input, click toggle, reload, other statuses/defeats, daily count and 55 guides.');
+ }
+}finally{await cleanup();}
+process.exit(0);

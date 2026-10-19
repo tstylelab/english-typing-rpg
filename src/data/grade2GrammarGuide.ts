@@ -1,6 +1,8 @@
 import type { GrammarCard } from './grade5GrammarGuide';
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import { grade2GrammarAssignments } from './grade2GrammarAssignments';
+import expansionCards from './grade2GrammarExpansionCards.json';
+import expansionAssignments from './grade2GrammarExpansionAssignments.json';
 
 export const grade2GrammarSections = [
   { title: '意見と理由を組み立てる', note: '何を考えているかを示し、理由・例・結論をつなぎます。つなぐ言葉の後ろの形にも注目しましょう。' },
@@ -148,8 +150,10 @@ export const grade2GrammarCards: GrammarCard[] = [
     compare:[['量が少ない','less energy than …'],['程度が上','more effective than …'],['同じ程度','as wide as …']] },
 ];
 
+grade2GrammarCards.push(...expansionCards as GrammarCard[]);
 const byId = new Map(grade2GrammarCards.map(card => [card.id, card]));
+const allAssignments: Record<string, string> = { ...grade2GrammarAssignments, ...expansionAssignments };
 export function getGrade2GrammarCard(difficulty: DifficultyKey, level: LevelKey, question: Pick<Question, 'text'>) {
   if (difficulty !== 'Eiken2' || level !== 3) return undefined;
-  return byId.get(grade2GrammarAssignments[question.text]);
+  return byId.get(allAssignments[question.text]);
 }

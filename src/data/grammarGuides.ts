@@ -17,7 +17,7 @@ export const grammarGuides = {
   EikenPre2: { grade: '準2級', cards: pre2GrammarCards, sections: pre2GrammarSections,
     intro: '完了形・受け身から、toとing、関係詞、仮定・発言の伝達へ。短い文で文法を組み立て、似た形の意味の違いを確かめましょう。' },
   Eiken2: { grade: '2級', cards: grade2GrammarCards, sections: grade2GrammarSections,
-    intro: '意見・理由・具体例をつなぐ表現から、長い文の骨組みへ。収録文の文法と、考えを伝える組み立てを確かめましょう。' },
+    intro: '意見・理由の組み立てから、完了形・仮定法・分詞・関係詞の応用へ。短い文で形と意味の違いを確かめましょう。' },
   EikenPre1Part1: { grade: '準1級①', cards: pre1GrammarCardsByCourse.EikenPre1Part1, sections: pre1GrammarSections,
     intro: '相手の話を確かめ、同意する範囲や判断の強さを伝えます。会話の前置きは、後ろに内容を続けた例でも確認しましょう。' },
   EikenPre1Part2: { grade: '準1級②', cards: pre1GrammarCardsByCourse.EikenPre1Part2, sections: pre1GrammarSections,
