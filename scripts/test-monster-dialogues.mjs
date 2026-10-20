@@ -8,6 +8,7 @@ import { loadBattleTuning } from './lib/load-battle-tuning.mjs';
 const data = JSON.parse(readFileSync('src/monsterDialogues.json', 'utf8'));
 const reviewed = JSON.parse(readFileSync('docs/monster-dialogue-drafts-2026-10-17/catalogue.json', 'utf8'));
 const edits = JSON.parse(readFileSync('docs/monster-dialogue-drafts-2026-10-17/transition-edits.json', 'utf8'));
+const english = JSON.parse(readFileSync('docs/monster-dialogue-drafts-2026-10-17/approved-english-2026-10-20.json', 'utf8'));
 const { advanceQuestionSpeech, applyMonsterDialogue, getMonsterDialogue } = load('src/monsterDialogues.ts');
 const source = readFileSync('src/App.tsx', 'utf8');
 const ast = ts.createSourceFile('App.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
@@ -24,7 +25,7 @@ assert.deepEqual(new Set(Object.keys(data)), reviewedKeys);
 for (const row of reviewed) {
   const key = `${row.course}:${row.id}`;
   const expected = { name: row.name, entrance: row.entrance, battle: row.battle, aside: row.aside,
-    pressure: row.pressure, defeat: row.defeat, ...edits[key] };
+    pressure: row.pressure, defeat: row.defeat, ...edits[key], ...english[key] };
   assert.deepEqual(data[key], expected, `Must use the approved content: ${key}`);
 }
 
