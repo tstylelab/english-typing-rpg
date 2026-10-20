@@ -7,9 +7,9 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const records = JSON.parse(fs.readFileSync(path.join(here, 'catalogue.json'), 'utf8'));
 const edits = JSON.parse(fs.readFileSync(path.join(here, 'transition-edits.json'), 'utf8'));
 const english = JSON.parse(fs.readFileSync(path.join(here, 'approved-english-2026-10-20.json'), 'utf8'));
-assert.equal(Object.keys(english).length, 258);
+assert.equal(Object.keys(english).length, 516);
 for (const [key, entry] of Object.entries(english)) {
-  assert.match(key, /^Eiken[45]:/);
+  assert.match(key, /^Eiken(?:[345]|Pre2):/);
   assert.deepEqual(Object.keys(entry).sort(), ['aside', 'battle', 'pressure']);
 }
 const output = {};

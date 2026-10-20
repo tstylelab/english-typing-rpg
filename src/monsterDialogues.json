@@ -2256,16 +2256,16 @@
     "name": "あくびトースター",
     "entrance": "ふぁああ……焼きあがりより、眠気が先だ！",
     "battle": [
-      "ふぁ〜。口を開けたら盾がなくなった。",
-      "焼きたてパンチ！ 中はまだ眠ってる！",
+      "Yawn... I'm up! So is the toast!",
+      "Watch the bread! My eyebrows are flying!",
       "パンを下げて防御。朝食の避難訓練だ。"
     ],
     "aside": [
       "ぼくの目覚まし、パンが飛んでくる方式なんだ。",
-      "Good morning. System still loading."
+      "My alarm clock comes with breakfast."
     ],
     "pressure": [
-      "焦げそう！ 目じゃなくてパンを離さないで！"
+      "The toast is burning! I'm just tired!"
     ],
     "defeat": "きみの正解で、目が覚めたよ！"
   },
@@ -2273,16 +2273,16 @@
     "name": "首かしげパプリカ",
     "entrance": "その答え、どんな意味かな？",
     "battle": [
-      "右へかわす……あれ、首は左だったかな？",
-      "赤い拳でいくね。辛くはない、痛いだけ！",
+      "Left? Right? I've nearly decided!",
+      "Wait! Is this my good side?",
       "ヘタを伏せて守る。帽子じゃないからね。"
     ],
     "aside": [
-      "首をかしげたまま写真を撮ったら、証明写真が疑問形。",
+      "My ID photo looks like a question.",
       "ピーマンに間違われた日は、赤くなって抗議するの。"
     ],
     "pressure": [
-      "もう少し！ 逆転の角度、まだ探してる！"
+      "A comeback? I'm still looking for the right angle!"
     ],
     "defeat": "なるほど！　ひとつ覚えたよ。"
   },
@@ -2290,16 +2290,16 @@
     "name": "しょんぼりサボテン",
     "entrance": "しょんぼりしてても、一問はできるかな。",
     "battle": [
-      "とげで受けるよ。握手はまた今度にしよう。",
-      "少しだけ反撃するね。花は怒ってないけど。",
+      "Careful. I'm not very good at hugs.",
+      "You have a point. So do I. Several.",
       "うつむいて避けた。普段の姿勢が役立った。"
     ],
     "aside": [
-      "励まされて抱きしめられたら、相手がしょんぼりした。",
+      "Water, please. Kind words don't reach the roots.",
       "水ください。気合いのシャワーは根に届かない。"
     ],
     "pressure": [
-      "とげ…まだ立つよ。植木鉢にも戻ってないし。"
+      "Still standing. That's something, isn't it?"
     ],
     "defeat": "できたね！　ぼくも元気が出た。"
   },
@@ -2307,16 +2307,16 @@
     "name": "星形クッキーのチビル",
     "entrance": "小さくても、がんばるよ！",
     "battle": [
-      "星の角で止める！ 五つあるから頼れる！",
-      "ちびっとパンチ！ 欠けたぶんは威力に入る？",
+      "Five points! Pick one to worry about!",
+      "Little cookie. Big star moment!",
       "焼き色の濃いほうで受けるぞ！"
     ],
     "aside": [
       "星占いに『食べられるかも』って。ぼくのだけ具体的！",
-      "I'm a star. Not a snack!"
+      "I'm a star. Please don't taste the talent."
     ],
     "pressure": [
-      "かけらになっても星だぞ！ 流れ星扱いは早い！"
+      "Just a crumb? Still a star!"
     ],
     "defeat": "きみの答え、星みたいだね！"
   },
@@ -2324,16 +2324,16 @@
     "name": "空色マントのツバメ",
     "entrance": "空の道へ、集中して飛ぼう。",
     "battle": [
-      "マントを翻す！ 顔に巻きつく前に攻める！",
-      "低空でかわす。かっこよさは高度に関係ない。",
+      "Cape clear! I can see you now.",
+      "A swift move. That's what swallows do.",
       "翼の間合いだ。そこから先は俺の空！"
     ],
     "aside": [
-      "マントを洗った日は、ただの速いツバメになる。",
+      "Cape in the wash. Just a fast bird today.",
       "追い風待ちを、作戦会議と呼んでいる。"
     ],
     "pressure": [
-      "翼はまだ開く。最後の風、借りるぞ！"
+      "One last wind. I'll make it mine."
     ],
     "defeat": "まっすぐ届いた答えだ。おみごと。"
   },
@@ -2341,16 +2341,16 @@
     "name": "くしゃくしゃ新聞じい",
     "entrance": "わしは新聞じゃが、しわの方が多いのう！",
     "battle": [
-      "号外じゃ！ わしが今から反撃する！",
-      "折り目で防ぐ。長年たたまれた底力よ。",
+      "Breaking news! I'm hitting back!",
+      "Old paper. Fresh news. Mind the walking stick!",
       "杖を構えい。昨日の記事でも当たれば痛いぞ。"
     ],
     "aside": [
-      "しわ取りにアイロンをかけたら、ニュースが熱くなった。",
+      "I got ironed. The news became hot news.",
       "『古い話だ』とは失礼じゃ。今日のわしも再生紙。"
     ],
     "pressure": [
-      "最終面まで来たか。まだ社説が残っとる！"
+      "Last page? There's still an opinion column!"
     ],
     "defeat": "よくできた！　しわを伸ばして拍手じゃ！"
   },
@@ -2358,16 +2358,16 @@
     "name": "香水びんのミニ妖精",
     "entrance": "やさしく、ひとつずつ答えてね。",
     "battle": [
-      "香りの幕よ。見えないからって通行自由じゃないわ。",
-      "びんの肩で受ける。繊細にも限度があるの。",
+      "Invisible perfume. Very real trouble.",
+      "Too close? That's a strong first impression.",
       "ひと吹きで反撃。距離感まで華やかにしてあげる。"
     ],
     "aside": [
       "『空気を読んで』と言われたから、いい香りに替えたわ。",
-      "Today's mood: suspiciously floral."
+      "I changed the mood. Now it's roses."
     ],
     "pressure": [
-      "残り一滴。ここからが、いちばん濃いわよ。"
+      "One drop left. A little goes a long way."
     ],
     "defeat": "きれいな集中、届きました。"
   },
@@ -2375,16 +2375,16 @@
     "name": "ころびんぼうスケート靴",
     "entrance": "すべる！　まわる！　止め方を忘れた！",
     "battle": [
-      "わわっ！ 今の転倒は下段回避！",
-      "車輪で切り返す！ ブレーキの場所はあとで調べる！",
+      "That wasn't a fall. A very low dodge!",
+      "I've got this! Who put the floor there?",
       "ひもを伸ばして止める！ おれまで止まった！"
     ],
     "aside": [
-      "靴なのに、毎朝『足元に気をつけて』と言われる。",
+      "Safety class? I rolled there three times.",
       "安全講習へ向かう途中で三回転した。実技免除かな。"
     ],
     "pressure": [
-      "まだ滑れる！ 主に予定から滑ってる！"
+      "Still rolling! The plan is somewhere behind me!"
     ],
     "defeat": "正解で止まれた！　ありがとう！"
   },
@@ -2392,16 +2392,16 @@
     "name": "もふもふカリフラワー",
     "entrance": "もふもふしながら、ゆっくりどうぞ。",
     "battle": [
-      "めぇ、花房のクッションで受けるね。",
-      "葉っぱのひづめで反撃。サラダの足腰だよ！",
+      "Baa... Soft florets. Strong little lamb.",
+      "Veggie or sheep? Either way, I'm ready!",
       "もこっと丸まる。どこが頭かわかるかな？"
     ],
     "aside": [
-      "毛刈りのおじさんが、今日は包丁を持ってきためぇ。",
+      "A haircut? Why did you bring a knife?",
       "ブロッコリーさんとは、冬服の色が違うの。"
     ],
     "pressure": [
-      "めぇえ、まだ茹で上がってないもん！"
+      "Not cooked yet! Still a little crunchy!"
     ],
     "defeat": "じょうずだったよ。ふんわり拍手！"
   },
@@ -2409,16 +2409,16 @@
     "name": "つまさき歩きの長ぐつ",
     "entrance": "しーっ！　つま先なら、気づかれないぞ。",
     "battle": [
-      "つま先でかわす。水たまりより君が手強いね。",
-      "長い筒で受けよう。ここ、すねが入る予定地。",
+      "Quiet steps. You're harder to dodge than puddles.",
+      "Just a little taller. Don't look inside.",
       "そっと踏み込む。音が小さくても攻撃は本気。"
     ],
     "aside": [
-      "抜き足差し足で登場したら、雨具売り場の泥棒と思われた。",
+      "Sneaking through the rain shop. They called security.",
       "身長の話になると、僕は中身の確認をお断りする。"
     ],
     "pressure": [
-      "まだ踵をつけない。最後まで背伸びでいこう。"
+      "Heels up. Pride up. Still trying."
     ],
     "defeat": "きみの正解は、堂々としてたね！"
   },
@@ -2426,16 +2426,16 @@
     "name": "真珠耳のウミウサギ",
     "entrance": "海の真珠みたいに、答えを集めよう。",
     "battle": [
-      "耳を伏せて避けますわ。宝石の保険は切れてますの。",
-      "貝のひだで防ぎます。柔らかな鎧ですわ。",
+      "Pearls safe. Ears down. Here we go.",
+      "Do be gentle. I will try too.",
       "白波のように返しましょう。触ると濡れますわよ。"
     ],
     "aside": [
       "耳飾りを買いに行ったら、わたくしの査定が始まりましたの。",
-      "Pearls before battle. Priorities matter."
+      "I wanted earrings. They wanted to buy my ears."
     ],
     "pressure": [
-      "輝きは消えません。少し、海へ帰りたいだけですわ。"
+      "Still shining. Just a little homesick."
     ],
     "defeat": "やさしい集中だね。ありがとう。"
   },
@@ -2443,16 +2443,16 @@
     "name": "おどおどマラカス",
     "entrance": "シャカ……びっくり！　自分の音だった！",
     "battle": [
-      "しゃかっ！ 震えてる音も攻撃に数えて！",
-      "帽子で防ぐ！ 頭の中身がさらに鳴る！",
+      "That's not fear. That's percussion!",
+      "Sh-sh-shake! I'm doing the rhythm and the worrying!",
       "一歩前へ……しゃか。勇気ってこんな音かな。"
     ],
     "aside": [
-      "緊張しない練習をしたら、楽器としての仕事がなくなった。",
+      "I stopped shaking. They canceled my music job.",
       "静かに！と言われると、もっとしゃかしゃかしちゃう。"
     ],
     "pressure": [
-      "しゃ、しゃか。まだ終わりの拍子じゃないよ！"
+      "Last beat? Please say there's an encore."
     ],
     "defeat": "きみの答えなら、安心して鳴らせる！"
   },
@@ -2460,16 +2460,16 @@
     "name": "キノコ傘のポンチョ",
     "entrance": "傘の下で、ひと休みして始めよう。",
     "battle": [
-      "傘を傾けてぽん！ 攻撃の雨もよけるよ。",
-      "ポンチョを広げる！ 袖の中に手が帰っちゃった！",
+      "Rain of attacks? I've brought my umbrella!",
+      "Pon! There's room for exactly one me.",
       "きのこの頭で受ける。食べごろとは別の話！"
     ],
     "aside": [
-      "天気予報が晴れだと、ぼくの予定だけ曇るんだ。",
+      "Sunny forecast. There go my weekend plans.",
       "雨宿りは一名様まで。ぼくがその一名様です。"
     ],
     "pressure": [
-      "ぽん、まだ立てる！ 水を吸うと重いけど！"
+      "Soaked and heavy. Not washed away yet!"
     ],
     "defeat": "雨の日でも、正解は晴れだね。"
   },
@@ -2477,16 +2477,16 @@
     "name": "スプーンしっぽのミーア",
     "entrance": "しっぽでスープをすくう？　くすぐったいよ！",
     "battle": [
-      "しっぽで受けまさあ。曲がるとスープがこぼれる。",
-      "ひょいっとすくって返す。いい攻撃、ひとさじ！",
+      "Tail ready. Please don't bend the spoon.",
+      "A spoonful of trouble, coming right up!",
       "立って見張る。足元は見張りの対象外だった！"
     ],
     "aside": [
       "毒見係を募集したら、全員スイーツ担当を希望しやした。",
-      "My tail is not cutlery for guests."
+      "Food tasting volunteers? Everyone chose dessert."
     ],
     "pressure": [
-      "へへ、残りひとさじでも、味は濃いですぜ。"
+      "One spoonful left. Plenty of flavor, though."
     ],
     "defeat": "きみの答えは、すくい取れなかった！"
   },
@@ -2494,16 +2494,16 @@
     "name": "オーロラ透けるカイコ",
     "entrance": "静かな光を、ひとつずつつなごう。",
     "battle": [
-      "糸を張るよ。見えにくいけど、通れないよ。",
-      "虹の皮で受ける。まぶしいのは緊張のせいかな。",
+      "Hard to see. Harder to get through.",
+      "One fine thread. I've worked hard on it.",
       "細い糸を重ねる。一本ずつ、君を止める。"
     ],
     "aside": [
-      "繭の色を決める会議で、七色全部が賛成した。",
+      "Seven colors voted yes. The cocoon will be colorful.",
       "派手な部屋着に見える？ これ、ぼくの全財産。"
     ],
     "pressure": [
-      "糸は切れてない。最後の一巻きまで紡ぐよ。"
+      "The thread holds. I'll finish this last turn."
     ],
     "defeat": "なめらかな答え、見事だね。"
   },
@@ -2511,16 +2511,16 @@
     "name": "食パン耳のコロギ",
     "entrance": "耳がこんがり！　音まで香ばしいぞ！",
     "battle": [
-      "耳を閉じて防御！ パンくずの被害は最小限！",
-      "弓で反撃、りりん！ 演奏代も込みだよ！",
+      "Ears closed! Save the bread crumbs!",
+      "Listen to this! The toast has rhythm!",
       "跳んでかわす！ 着地するとトーストの匂い！"
     ],
     "aside": [
-      "パン耳を残す子の家で演奏すると、緊張するんだ。",
+      "They left the crusts. I canceled the concert.",
       "鳴き声の録音が売れた。著作権は羽にある？"
     ],
     "pressure": [
-      "りりっ、まだ一曲！ アンコールじゃなくて粘り！"
+      "One more song! I'm not leaving the stage!"
     ],
     "defeat": "きみの正解、よく聞こえた！"
   },
@@ -2528,16 +2528,16 @@
     "name": "へそまがりホチキス",
     "entrance": "まっすぐ？　ぼくは横を向きたいんだ！",
     "battle": [
-      "まっすぐ来るなよ。曲がった角度で迎えるぜ。",
-      "ぱちん！ 綴じるなら君の攻め口だ！",
+      "Straight at me? I prefer doing things sideways.",
+      "Hold still. I'll keep your papers together. My way.",
       "背中をそらしてかわす。性格の柔軟体操！"
     ],
     "aside": [
-      "『角をそろえて』って、オレの性格まで整えるなよ。",
+      "Align the corners. Not my whole personality!",
       "反対意見をまとめたら、一冊だけ上下逆になった。"
     ],
     "pressure": [
-      "芯は残ってる！ 紙詰まりとは違うからな！"
+      "Still got staples! It's not a paper jam!"
     ],
     "defeat": "参った！　きみはまっすぐ答えたね！"
   },
@@ -2545,16 +2545,16 @@
     "name": "ゆらゆらゆりかご",
     "entrance": "あわてず、ゆらゆら始めようね。",
     "battle": [
-      "ゆら、横へ逃げるの。転ばないようにできてるの。",
-      "毛布で受けるね。角までかけてあげないけど。",
+      "Rock gently. I wasn't built to fall over.",
+      "A little push. No sudden waking, please.",
       "ゆらんと反撃。寝かしつける側も運動するの。"
     ],
     "aside": [
       "子守歌の途中で、歌ってるわたしが先に寝たの。",
-      "Sleep mode is a fighting style."
+      "I sang the lullaby. I fell asleep first."
     ],
     "pressure": [
-      "まだ揺れるの。止まったら、おやすみって言ってね。"
+      "Still rocking. Don't say good night just yet."
     ],
     "defeat": "上手だったよ。心も落ち着いたね。"
   },
@@ -2562,16 +2562,16 @@
     "name": "銀露のハスフクロウ",
     "entrance": "静かな蓮の心で、集中してごらん。",
     "battle": [
-      "銀の羽で受けましょう。露は散っても、羽は折れません。",
-      "月明かりを返します。まぶたを閉じる隙はありますか。",
+      "Silver wings. A calm answer to your attack.",
+      "The dew may fall. The wings stay strong.",
       "ほう、と一歩。音より先に、翼が届きます。"
     ],
     "aside": [
-      "朝露を集める仕事なので、寝坊は天気のせいにできません。",
+      "Collecting morning dew. Sleeping in isn't an option.",
       "『目が冴えてるね』と。昼に言われるのは少し困ります。"
     ],
     "pressure": [
-      "ほう。夜が明けても、まだ一羽ここにおります。"
+      "Dawn already? I haven't finished this fight."
     ],
     "defeat": "澄んだ答えを、ありがとう。"
   },
@@ -2579,19 +2579,19 @@
     "name": "こたつ番長ヌクヌク",
     "entrance": "番長だぞ！　ただし、こたつからは出ない！",
     "battle": [
-      "布団の鉄壁だ！ ぬくもりだけは漏らしてやる！",
-      "天板で受けるぜ。みかんは動かすなよ！",
+      "Blanket guard! Warmth is all I'm letting out!",
+      "My table. My turf. No cold feet allowed!",
       "足を入れたな？ そこからが、おれの縄張りだ！",
-      "布団返し！ 出ていく勇気まで包み込む！",
+      "I'm staying put. You come to me!",
       "番長の踏ん張りだ。床暖房に顔は渡せねえ！"
     ],
     "aside": [
-      "省エネ会議？ 参加者が全員こたつから出なかったぜ。",
+      "Mandarin break. This is official boss business.",
       "こたつの中に入れるロボット、あれは職場侵入だと思う。",
-      "Stay warm. Fight hard. Peel oranges."
+      "Energy-saving meeting. Nobody left the kotatsu."
     ],
     "pressure": [
-      "ぬくぬくが冷める！ まだコンセントは抜かせねえ！",
+      "Cooling down? Don't you touch that plug!",
       "最後のぬくもり、持ってけ！ 勝負はまだ越冬中だ！"
     ],
     "defeat": "まいった！　布団の中で拍手するぞ！"
@@ -2600,16 +2600,16 @@
     "name": "磁石騎士マグニオン",
     "entrance": "引き寄せるのは、きみの集中力だ。",
     "battle": [
-      "極性を反転。君の一撃、近寄らせない。",
-      "鉄の剣を引き寄せる！ 私の剣も来た！",
+      "North or south? Let me check first.",
+      "Poles reversed. Keep that hit away.",
       "盾を固定する。今だけ床も仲間だ。"
     ],
     "aside": [
-      "騎士団の集合写真で、全員が私にくっついた。",
+      "I'm popular? No. That's the magnet.",
       "人望ではない。磁力だ。そこは訂正してほしい。"
     ],
     "pressure": [
-      "磁場は乱れても、騎士の向きは変えない！"
+      "Field unstable. The knight still stands straight."
     ],
     "defeat": "見事！　答えの力を認めよう。"
   },
@@ -2617,16 +2617,16 @@
     "name": "くしゃみ粉袋パッフン",
     "entrance": "へ、へ、へ……くしゅん！　勝負の前に一回！",
     "battle": [
-      "ぱ、ぱ……ぱふっ！ 白い幕で見えなくする！",
-      "袋の口を締める！ 鼻は別にあるんだった！",
+      "Ah... ah... cover first! Achoo!",
+      "White cloud! I can't see either!",
       "ふくらんだ頬で受ける。粉圧が上がるー！"
     ],
     "aside": [
       "粉まみれの写真に『美白した？』ってコメントがついた。",
-      "Achoo! Now everyone is breaded."
+      "New photo filter? No. Just flour."
     ],
     "pressure": [
-      "袋の底力だよ！ 底が抜ける前に反撃する！"
+      "Bag nearly empty. I'm giving it my all!"
     ],
     "defeat": "きみの答えで、くしゃみも止まった！"
   },
@@ -2634,16 +2634,16 @@
     "name": "紫水晶のムーンモス",
     "entrance": "月明かりのように、落ち着いて答えて。",
     "battle": [
-      "紫の翼で受けるわ。月にひびは入れさせない。",
-      "羽ばたき一つ。水晶の冷たさ、感じてね。",
+      "Crystal wings. The moon stays whole tonight.",
+      "Quiet light. Don't mistake it for weakness.",
       "影へ逃げるわ。光っているから簡単ではないけれど。"
     ],
     "aside": [
       "夜のパーティーで照明係にされたの。招待客だったのに。",
-      "Moonlight is my dress code."
+      "Party guest. Somehow, I became the lighting."
     ],
     "pressure": [
-      "欠けた月も美しいでしょう。ここから細く鋭くなるわ。"
+      "A crescent moon is still a moon, dear."
     ],
     "defeat": "美しい答え、受け取りました。"
   },
@@ -2651,16 +2651,16 @@
     "name": "ほうきレーサーびゅん丸",
     "entrance": "びゅーん！　曲がる前に、曲がり角が終わった！",
     "battle": [
-      "びゅんと抜くぜ！ 掃除した跡を追ってこい！",
-      "ゴーグル下げて突撃！ 視界は床まで良好！",
+      "Whoosh! Follow the clean path!",
+      "Faster than the dust! That's the problem!",
       "急旋回だ！ ごみは外側へ飛ぶ仕組み！"
     ],
     "aside": [
-      "空飛ぶほうきの免許、車輪つき部門で落ちた。",
+      "I failed the driving test. The broom passed.",
       "速すぎて掃除が終わらない。ごみが追いつけないんだ。"
     ],
     "pressure": [
-      "びゅん丸、まだゴールしてない！ 柄を握るなー！"
+      "No finish line yet! Hands off the handle!"
     ],
     "defeat": "きみの正解には、追いつけなかった！"
   },
@@ -2668,16 +2668,16 @@
     "name": "貝殻の盾使いシェラン",
     "entrance": "海の盾を越えてみせよ。",
     "battle": [
-      "貝の盾で受けよう。中の静けさは譲れない。",
-      "波に合わせて突く。ゆっくりでも届くよ。",
+      "Shell shield up. You can count on me.",
+      "Calm inside. A serious fight outside.",
       "鎧を重ねる。海が磨いた守りなんだ。"
     ],
     "aside": [
-      "鎧を耳に当てないで。聞こえるの、僕の息だから。",
+      "Hear the sea? That's actually my breathing.",
       "引っ越しの見積もりで『家ごとですね』と確認された。"
     ],
     "pressure": [
-      "最後の一枚まで守るよ。薄くなっても、貝は貝さ。"
+      "One shell layer left. Still here for you."
     ],
     "defeat": "力強い集中だ。道をゆずろう。"
   },
@@ -2685,16 +2685,16 @@
     "name": "ぷくぷく目玉焼き",
     "entrance": "ぷくぷく、ゆっくりいこうよ。",
     "battle": [
-      "ぷくっと受ける！ 黄身のほっぺを押さないで！",
-      "白身を広げて止める！ お皿じゃ足りないよ！",
+      "Puff! Not the yolk cheeks, please!",
+      "Soft white. Brave little egg. Let's go!",
       "裏返しでかわす！ 目は表についてたー！"
     ],
     "aside": [
       "朝の占いが半熟だった。結果もまだ固まってない。",
-      "Sunny side up. Courage side down."
+      "My fortune isn't set. It's still runny."
     ],
     "pressure": [
-      "黄身まで届いちゃう！ もう一踏ん張り、ぷくっ！"
+      "Nearly at the yolk! Time to toughen up!"
     ],
     "defeat": "じょうずだね！　うれしくてふくらんだよ。"
   },
@@ -2702,16 +2702,16 @@
     "name": "流星のペリカンコメット",
     "entrance": "流星に負けない答えを見せて。",
     "battle": [
-      "くちばしの一閃！ 流星に追いついてみな。",
-      "銀の翼で切り返す。軌道は俺が決める！",
+      "One swift strike. Catch the comet!",
+      "Blink and you'll miss me!",
       "星の尾を残してかわす。残像は食べられないぜ。"
     ],
     "aside": [
-      "願い事は三回？ そんなにゆっくり飛べないんだが。",
+      "Three wishes? I can't fly that slowly.",
       "流星群に混ざったら、空港から注意された。"
     ],
     "pressure": [
-      "まだ落ちない！ 地上は着地点、敗北地点じゃない！"
+      "Still flying! The ground is for landing, not losing!"
     ],
     "defeat": "まっすぐ飛んだ答えだ。おみごと。"
   },
@@ -2719,16 +2719,16 @@
     "name": "歯車あごのギギガ",
     "entrance": "一つずつ、歯車をかみ合わせろ。",
     "battle": [
-      "ギギガッ！ あごの歯車、全部かみ合ってるぜ！",
-      "鋼の歯で止める！ 間に小石は入れるなよ！",
+      "Grr-click! Every gear is in place!",
+      "Open wide? Careful, the gears bite back!",
       "一段ギアを上げる！ 口だけで加速するぞ！"
     ],
     "aside": [
-      "歯医者と整備工場、どっちの予約を先に取るべきだ？",
+      "Dentist or mechanic? I probably need both.",
       "噛み合わない会議には、オレを一台置けばいい。"
     ],
     "pressure": [
-      "ギ…まだ回る！ 油を差す暇も惜しいぜ！"
+      "Still turning. No time for an oil break!"
     ],
     "defeat": "正確な答えだ。見事にかみ合った。"
   },
@@ -2736,16 +2736,16 @@
     "name": "輪っかだらけのイカ王子",
     "entrance": "輪っかをくぐって、答えへ進もう。",
     "battle": [
-      "輪っかで止めるのだ！ 結婚の約束ではない！",
-      "八本まとめて反撃！ 指輪も数えて十二回！",
+      "Royal rings! This is not a proposal!",
+      "All arms ready! I've lost count again.",
       "くるっと避けるのだ。飾りが少し絡まった！"
     ],
     "aside": [
       "王位継承の印鑑を押したら、足跡が八つついた。",
-      "I'm royalty. Slightly calamari."
+      "These rings are royal. No frying, please!"
     ],
     "pressure": [
-      "冠はまだ上なのだ！ 足はどれが下なのだ？"
+      "Crown up! Which foot goes down?"
     ],
     "defeat": "じょうず！　王子から拍手だよ。"
   },
@@ -2753,16 +2753,16 @@
     "name": "陶器の鎧ムクロ",
     "entrance": "焼き固めた集中で、いざ勝負。",
     "battle": [
-      "陶器の拳、受けてもらう。割れものは君の覚悟だ。",
-      "釉薬の盾。力を滑らせて受け流す。",
+      "Ceramic fists. Ready for a hard hit?",
+      "Handle with care. That goes for you too.",
       "焼き締めた足で踏み込む。土壇場は慣れている。"
     ],
     "aside": [
-      "輸送箱の矢印を守ったら、逆立ちで到着した。",
+      "The box said \"This way up.\" I arrived upside down.",
       "食器棚へ案内されても、自分は座らない。"
     ],
     "pressure": [
-      "ひびは勲章。だが接着剤の準備は頼む。"
+      "More cracks. Could someone get the glue ready?"
     ],
     "defeat": "きみの答えは、ひび割れなかった。"
   },
@@ -2770,16 +2770,16 @@
     "name": "菜の花の守護鳥ナノハ",
     "entrance": "小さな花のように、答えを咲かせよう。",
     "battle": [
-      "花びらを重ねて守るの。摘むのは反則だよ。",
-      "黄色い翼で返すね。春だからって油断しないで。",
+      "Petals together. No picking the guard, please.",
+      "A little spring breeze. A real move.",
       "種のように跳ねてかわすの。小さくても遠くへ！"
     ],
     "aside": [
-      "お花畑に隠れたら、写真の主役が全部わたしになったの。",
+      "I hid in the flowers. Every photo featured me.",
       "春の人事異動で、去年と同じ菜の花畑になったの。"
     ],
     "pressure": [
-      "まだ一輪残ってる。最後の春風を送るね。"
+      "One blossom left. Spring isn't over yet."
     ],
     "defeat": "明るい答えだね。ありがとう。"
   },
@@ -2787,16 +2787,16 @@
     "name": "竹馬あしのノッポン",
     "entrance": "足が長すぎて、あいさつが遠い！",
     "battle": [
-      "上から行くよ！ 下り方は考えてないけど！",
-      "長い足を交差して守る。ほどけるよね、これ？",
+      "From up here! Getting down is a later problem!",
+      "Tall legs. Small steps. Please don't blow!",
       "ひょいっとまたぐ！ 攻撃が足元を通勤してる！"
     ],
     "aside": [
-      "背の順に並んだら、校舎の外に指定席ができた。",
+      "School photo? They put me outside the building.",
       "足が地についてない、って褒め言葉じゃないの？"
     ],
     "pressure": [
-      "のっぽん、まだ立つ！ 風はちょっと遠慮して！"
+      "Still standing! Tell the wind to be nice!"
     ],
     "defeat": "きみの答えは、ちゃんと届いたぞ！"
   },
@@ -2804,16 +2804,16 @@
     "name": "つむじ風の剣客フウガ",
     "entrance": "風の流れを読み、答えを放て。",
     "battle": [
-      "風の居合。鞘の音より先に届くで候。",
-      "つむじを返して受け流す。髪形の話ではござらん。",
+      "A quick draw. The wind has arrived.",
+      "A change of air? Allow me.",
       "足元を巻いて斬る。砂は目に入れぬ、武士の配慮よ。"
     ],
     "aside": [
-      "拙者の履歴書、住所欄が『現在地付近』で候。",
+      "My address? Somewhere around here at the moment.",
       "会議の空気を変えてほしいと。窓まで飛ばしてしまった。"
     ],
     "pressure": [
-      "風前の拙者、か。まだ刀は抜けるで候！"
+      "A fading wind. Not a finished swordsman."
     ],
     "defeat": "見事。迷いのない一手だった。"
   },
@@ -2821,16 +2821,16 @@
     "name": "ぺったんおもちレスラー",
     "entrance": "ぺったんでも、横幅なら負けないぞ！",
     "battle": [
-      "ぺたんと受ける！ 低い重心、ほぼ床！",
-      "もち技、ひっくり返し！ 裏も同じ顔じゃねえぞ！",
+      "Flat stance! Can't get much closer to the floor!",
+      "Sticky grip! Good luck getting those hands back!",
       "赤帯で踏ん張る！ おかわりとは言わせねえ！"
     ],
     "aside": [
       "リングのロープにくっついた。これは場外じゃなくて常駐だ。",
-      "No pain, more grain."
+      "I'm not stuck. I'm holding the ropes."
     ],
     "pressure": [
-      "薄くなってからが勝負！ 今、面積は勝ってる！"
+      "Thinner body. Bigger reach. I call that progress!"
     ],
     "defeat": "きみの答えには、ぺたんと参った！"
   },
@@ -2838,16 +2838,16 @@
     "name": "時計塔の番人ベルフォード",
     "entrance": "時を急がず、正確に進め。",
     "battle": [
-      "定刻の反撃だ。君の都合は鐘に伝わらない。",
-      "塔の盾を据える。秒針ほども退かぬ。",
+      "Right on time. The bell doesn't wait.",
+      "Your turn. Keep it on schedule.",
       "剣を振るう。鐘の余韻までが間合いだ。"
     ],
     "aside": [
-      "門限を守ったら、私だけ門として残された。",
+      "Shorter working hours? They made the clock run faster.",
       "時短勤務を申請した。時計が速くなるだけだった。"
     ],
     "pressure": [
-      "最後の鐘を鳴らす。まだ閉門には早い！"
+      "Last bell. We are not closing just yet."
     ],
     "defeat": "よい集中だ。鐘を鳴らそう。"
   },
@@ -2855,16 +2855,16 @@
     "name": "ケチャップ銃のポテト兵",
     "entrance": "ケチャップ銃、準備よし！　あれ、向きが逆だ！",
     "battle": [
-      "赤い一射！ あわっ、容器を先に振るんだった！",
-      "紙帽子で守る！ 雨さえ降らなければ！",
+      "Red shot! Wait, did I shake the bottle?",
+      "Potato ready! The ketchup needs a minute!",
       "ポテトの匍匐前進！ ころがったほうが早い！"
     ],
     "aside": [
       "上官から『もっと味を出せ』って。塩分の話でした。",
-      "Tomato power! Potato panic!"
+      "\"More flavor,\" they said. So I brought salt."
     ],
     "pressure": [
-      "残りひと絞り！ ボトルを叩く時間をください！"
+      "Last squeeze! Please give the bottle a tap!"
     ],
     "defeat": "参った！　きみの答えは的に当たった！"
   },
@@ -2872,16 +2872,16 @@
     "name": "黒曜角のオブシオン",
     "entrance": "硬い角を越える集中を見せろ。",
     "battle": [
-      "黒き角で受ける。闇より硬いものを見せよう。",
-      "蹄を鳴らして進む。我が道に柵はない。",
+      "Black horns. Let their weight answer you.",
+      "Stand firm. Even the mountain is watching.",
       "角の一撃。曲線の終わりまで気を抜くな。"
     ],
     "aside": [
-      "角を研ぐ店で『そのままが自然です』と帰された。",
+      "My deep \"baa\" got booked as an alarm.",
       "我が重厚なメェに、目覚まし音の依頼が来た。"
     ],
     "pressure": [
-      "メェ…まだ折れぬ。夜の石にも意地はある。"
+      "Baa... Still unbroken. Mind the horns."
     ],
     "defeat": "おみごと。きみの強さを認める。"
   },
@@ -2889,16 +2889,16 @@
     "name": "にやにや貝がらじい",
     "entrance": "にやにや……答えを待つのも楽しいのう。",
     "battle": [
-      "貝を閉じるぞ。話の続きは防御の後じゃ。",
-      "ひひ、足元をすくうぞ。ヒトデも協力的でな。",
+      "Shell shut. We'll finish the story later.",
+      "Heh-heh. Don't mistake this grin for surrender.",
       "殻の縁で受ける。笑顔の縁は下げんぞ。"
     ],
     "aside": [
-      "口を開くたび『当たりの真珠？』と。わしの舌じゃよ。",
+      "A pearl? That's my tongue, young one.",
       "無口になれと言われて三日。殻が接着してしもうた。"
     ],
     "pressure": [
-      "ひひ、歯が抜けても笑えるわい。殻は抜かんでくれ。"
+      "Teeth may go. The grin stays."
     ],
     "defeat": "おみごと！　もっとにやけてしまうわい。"
   },
@@ -2906,16 +2906,16 @@
     "name": "夜光のタツノオトシゴ",
     "entrance": "深い海のように、静かに集中して。",
     "battle": [
-      "すうっと流れをかわす。ここは僕の夜の道。",
-      "尾を巻いて踏ん張る。足がないぶん、巻き方は多い。",
+      "A quiet turn. This is my nighttime path.",
+      "See that blue light? I'm coming through.",
       "光の輪で返そう。目を閉じるには少し遅いよ。"
     ],
     "aside": [
       "夜光塗料だと思われた。消灯係に触られるのは困るね。",
-      "Sea horse. Zero horsepower."
+      "A seahorse. Not ready for horse racing."
     ],
     "pressure": [
-      "光を絞るよ。暗くなったのは、負けたからじゃない。"
+      "Less light. Not less will to fight."
     ],
     "defeat": "きれいな答えでした。ありがとう。"
   },
@@ -2923,19 +2923,19 @@
     "name": "パズル城主ピースロック",
     "entrance": "最後のピースは、きみの集中だ。",
     "battle": [
-      "城壁の一枚も渡さぬ。そこは余の胸板でもある。",
-      "ピタリと防ぐ！ その隙間は飾りだ！",
+      "Every piece counts. Especially the one in my chest.",
+      "Keep it together! That's an order to the whole castle!",
       "門の拳を下ろす。開城と開戦を間違えるな！",
-      "組み替えて反撃する。君の攻め方、そこには合わぬ！",
+      "My move. It fits perfectly. Yours?",
       "塔を重ねて受ける。耐震の話は戦後にしよう。"
     ],
     "aside": [
-      "城の増築を頼んだら、一番端のピースを探しておった。",
+      "A thousand-piece portrait. I've never seen it finished.",
       "余の肖像画は千ピース。完成前に王位が変わりそうだ。",
-      "Missing piece? Check under the throne."
+      "An extra room? Find the edge pieces first."
     ],
     "pressure": [
-      "崩れるな！ 最後のピースを失くすのだけは嫌だ！",
+      "One piece left? Nobody sneeze!",
       "余が最後の一片だ！ ここをはめねば勝負は完成せぬ！"
     ],
     "defeat": "見事。きみの答えで道がつながった。"
@@ -2944,19 +2944,19 @@
     "name": "白帆王セイルガルド",
     "entrance": "白い帆を越えて、先へ進んでみせよ。",
     "battle": [
-      "白帆を張れ。君の嵐を正面から受ける。",
-      "舵を返して攻める。引き潮も余の味方だ。",
+      "Sails up. We'll face your storm head-on.",
+      "Hold steady. The wind isn't choosing for us.",
       "杖を据える。王の岸はここにある。",
-      "全帆展開！ 最後の航路を切り開く！",
+      "All hands on deck. Mine included.",
       "波を盾にせよ。海は臣下より気まぐれだがな。"
     ],
     "aside": [
-      "船長会議で『話が長い』と。まだ出航の挨拶なのだが。",
+      "Change with the wind? We are a sailing ship.",
       "風向きで方針を変えるなと？ 帆船には難題である。",
-      "All hands on deck. Even the royal ones."
+      "A long speech? That was only my hello."
     ],
     "pressure": [
-      "帆は裂けても進める。風まで失ったわけではない。",
+      "Torn sails. There's still wind to catch.",
       "港はまだ見えぬ。ならば王は立ち続けるのみ！"
     ],
     "defeat": "見事な旅だった。きみの航路を認める。"
@@ -2965,19 +2965,19 @@
     "name": "紅蓮の羽王フェニクス",
     "entrance": "紅い翼の前で、心を燃やしてみせよ。",
     "battle": [
-      "紅蓮の翼よ、君の一撃を焼きほどけ。",
-      "炎は上へ昇る。そこを通るなら覚悟するのじゃ。",
+      "Scarlet wings. I will not hold back.",
+      "Warm welcome? This one comes with a battle.",
       "羽を翻して返す。灰になる前に見届けよ。",
-      "尾羽の火輪！ 逃げ道ごと、鮮やかに照らそう。",
+      "One bright turn. Keep your eyes on me.",
       "焦げつくほどの防御だ。近づけば無事では済まぬ。"
     ],
     "aside": [
-      "不死鳥保険に申し込んだら、審査が永遠に続いておる。",
+      "Meet outside a chicken grill? How very brave.",
       "焼き鳥の看板の前で待ち合わせとは、ずいぶんな度胸よ。",
-      "Reborn, not rebooted."
+      "Born again. Still waiting for the insurance reply."
     ],
     "pressure": [
-      "炎は細くとも熱い。最後の火花を侮るな。",
+      "Small flames are hot too. Remember that.",
       "灰からでも立つが、今ここで倒れる気はないぞ！"
     ],
     "defeat": "輝く集中だった。空の道をゆずろう。"
@@ -2986,19 +2986,19 @@
     "name": "もちもち大王コネコネ",
     "entrance": "こねこね！　あれ、こねてたのは自分のほっぺ！？",
     "battle": [
-      "王の腹で受けるこね。拳が帰らぬかもしれんぞ！",
-      "こねこね大旋回！ 伸びる領土をご覧あれ！",
+      "Royal belly guard! Your fist might stay here!",
+      "Need a hand? I've got two tiny ones!",
       "王冠だけは守るぞ。顔がへこんでも目印になる！",
-      "もちもちの返し技！ 押したぶんだけ返してやる！",
+      "Soft body. A firm royal decision!",
       "紅いマントでくるむぞ。柏餅にはまだ早い！"
     ],
     "aside": [
-      "閣議の結論は満場一致。全員、くっついて手が下りなんだ。",
+      "Winter weight? I call it food reserves.",
       "正月太りではない。これは王国の備蓄である。",
-      "Your Majesty is extra chewy today."
+      "Everyone agreed. Their hands were stuck together."
     ],
     "pressure": [
-      "残りひともち！ 小分けにしても王は王ぞ！",
+      "One little mochi left. Still your king!",
       "こねっ！ 最後まで粘ってこその大王である！"
     ],
     "defeat": "まいった！　きみの集中は、もちより強い！"
@@ -3007,16 +3007,16 @@
     "name": "ころころビー玉ねこ",
     "entrance": "ころころ、答えを見つけにいこう！",
     "battle": [
-      "にゃるんとかわす！ 床の傾きが味方！",
-      "丸い肉球でぽん！ 滑って狙いが変わった！",
+      "Meow-roll! The floor's on my side today!",
+      "I've got no brakes. Just very shiny paws!",
       "透ける体で受けるにゃ。弱点まで透けるの困る！"
     ],
     "aside": [
       "毛糸玉より先に、ぼくが家具の下へ入っちゃう。",
-      "Cat.exe is rolling away."
+      "The yarn is still here. I'm under the sofa."
     ],
     "pressure": [
-      "ひびは嫌にゃ！ 最後は、まっすぐ転がる！"
+      "No cracks, please! I'll try rolling straight!"
     ],
     "defeat": "きみの正解、まあるく届いたよ。"
   },
@@ -3024,16 +3024,16 @@
     "name": "くるみ割りリス先生",
     "entrance": "くるみも問題も、じっくり割ってみよう。",
     "battle": [
-      "はい注目！ この角度で殻を割ります！",
-      "指示棒で受けます。廊下には立たせませんよ。",
+      "Eyes on the walnut! This angle matters.",
+      "Let's crack this problem. And the shell.",
       "反撃の実演です。ノートを取る余裕、ありますか。"
     ],
     "aside": [
-      "宿題はくるみ十個。提出されたのは全部、中身だけでした。",
+      "A tough nut to crack. Today's homework, literally.",
       "授業参観で、親御さんまで殻にこもってしまいました。"
     ],
     "pressure": [
-      "先生、まだ教え残しています！ ここは追試です！"
+      "Class isn't over! The teacher has more to say!"
     ],
     "defeat": "まいりました。くるみより、私の守りが先に割れましたね。"
   },
@@ -3041,16 +3041,16 @@
     "name": "毛玉だらけのコート",
     "entrance": "毛玉を取ったら、ぼくまで小さくなる！？",
     "battle": [
-      "毛玉で受ける。減ったら手入れになるな。",
-      "袖を振って返す！ 腕の出口はどこだ！",
+      "Wool armor. Getting hit counts as grooming, right?",
+      "Sleeves up! If I can find them.",
       "もさっと包むぞ。防寒と防御、字が似てるし。"
     ],
     "aside": [
-      "毛玉取りを予約したら、予約名が『全身』になっていた。",
+      "It's not a mess. It's winter fashion.",
       "ドレスコードは清潔感。入口で長い相談になった。"
     ],
     "pressure": [
-      "裏地はまだ無事だ！ 表は見ないでくれ！"
+      "The lining's fine! Let's not discuss the outside."
     ],
     "defeat": "きみの答えは、からまってなかったね！"
   },
@@ -3058,16 +3058,16 @@
     "name": "のんびりスープかめ",
     "entrance": "あたたかいうちに、ゆっくり始めよう。",
     "battle": [
-      "ことこと受けるよ。こぼさない速度でね。",
-      "甲羅の鍋を守る。今日は味方の昼食なんだ。",
+      "Slow and steady. Don't spill the soup.",
+      "A long simmer. Now it's my turn.",
       "首を伸ばして一押し。煮込むほど、強くなるよ。"
     ],
     "aside": [
       "到着が遅いって？ その間に味がしみたでしょう。",
-      "Fast food? Sorry, slow soup."
+      "Fast food? I've never met a fast soup."
     ],
     "pressure": [
-      "残り少なくても濃いよ。底から、もうひと踏ん張り。"
+      "Less soup. More flavor. One last spoonful."
     ],
     "defeat": "じょうずだね。心もぽかぽかだよ。"
   },
@@ -3075,16 +3075,16 @@
     "name": "青い花のつぼみラビィ",
     "entrance": "つぼみが開くように、少しずつ進もう。",
     "battle": [
-      "青い花びらで守るの。摘まないでね。",
-      "らびっと跳んで返す！ 足先は意外と速いの。",
+      "Blue petals ready. Please don't pick me.",
+      "I haven't bloomed yet. I'm still trying.",
       "つぼみに隠れる。閉じると前が見えないけど。"
     ],
     "aside": [
-      "開花予想が出るたび、知らない人に見守られるの。",
+      "A blooming forecast? Why is everyone watching me?",
       "わたしの寝ぐせ、園芸の先生には大好評なの。"
     ],
     "pressure": [
-      "まだ咲けるよ。ここでしおれる予定はないの。"
+      "Still a bud. Not planning to wilt today."
     ],
     "defeat": "答えの花が咲いたね。ありがとう。"
   },
@@ -3092,16 +3092,16 @@
     "name": "ひしゃく顔のミズクミ",
     "entrance": "顔で水をくむの？　鼻がくすぐったい！",
     "battle": [
-      "ひしゃくで受ける！ 思ったより深い一撃だ！",
-      "すくって返すぞ。勢いまで汲んじゃった！",
+      "Deep hit! Deeper than my face!",
+      "One scoop back at you! Mind the bucket shoes!",
       "柄をひねってよける。首じゃなくて持ち手だよ！"
     ],
     "aside": [
       "井戸端会議に行ったら、黙って水を任された。",
-      "Empty head, full schedule."
+      "Empty head. Deep thoughts. Don't ask."
     ],
     "pressure": [
-      "底が見えても負けじゃない！ 底力を汲むぞ！"
+      "Bottom showing? I'll dig a little deeper!"
     ],
     "defeat": "正解をすくいあげたね！　おみごと！"
   },
@@ -3109,16 +3109,16 @@
     "name": "たんぽぽ耳のアルパカ",
     "entrance": "ふわふわの耳で、答えを待ってるね。",
     "battle": [
-      "ふわ耳で受けるね。種は風に任せるの。",
-      "長い首でひょい。避けても眠気は残るのね。",
+      "Soft ears. Please leave the seeds alone.",
+      "A little breeze? That's a very big deal to my ears!",
       "蹄でとんっ！ お花見気分で来たわけじゃないの。"
     ],
     "aside": [
-      "くしゃみをしたら、耳が来年の春を予約した。",
+      "One sneeze. My ears booked next spring.",
       "美容院に『綿毛は残してください』って念押ししたの。"
     ],
     "pressure": [
-      "ふわぁ、耳は軽いのに、足が重くなってきたわ。"
+      "Light ears. Heavy feet. I'm still here."
     ],
     "defeat": "あたたかい集中だったよ。ありがとう。"
   },
@@ -3126,16 +3126,16 @@
     "name": "ぷんぷん掃除機",
     "entrance": "吸いたいのに、ホースが結ばれちゃった！",
     "battle": [
-      "ぶおー！ 攻撃もほこりも、まとめて吸う！",
-      "ホースで返す！ 絡まったのは作戦じゃねえ！",
+      "Roar! Your attack and the dust can queue together!",
+      "Clean floor! Don't you dare drop crumbs!",
       "車輪で踏ん張る！ 電源コードだけ引くなよ！"
     ],
     "aside": [
-      "掃除した直後にパンを食う会議が、オレは許せねえ。",
+      "I've had it with crumbs after cleaning!",
       "『ごみは各自で』って言ったやつがオレを連れてきた。"
     ],
     "pressure": [
-      "吸引力は落ちてねえ！ やる気のフィルターが詰まっただけ！"
+      "Suction's fine! It's the motivation filter!"
     ],
     "defeat": "きみの集中には、怒りも吸いこまれた！"
   },
@@ -3143,16 +3143,16 @@
     "name": "ふらふらラジオ体操ロボ",
     "entrance": "右！　左！　どっちの腕が右だっけ！？",
     "battle": [
-      "イチ、ニ、回避！ 右手がまだ前の号令デス！",
-      "胸のラジオで受けマス。雑音も反撃の一部！",
+      "One, two... This arm is still on one!",
+      "Stretch right! Your other right, robot!",
       "深く曲げて、パンチ。深すぎてネジが出マシタ。"
     ],
     "aside": [
       "健康のための体操で、修理代が増えてイマス。",
-      "Please stretch. Not the warranty."
+      "Exercise for health. Repairs for the robot."
     ],
     "pressure": [
-      "イチ、ニ、まだ動ク！ 最後に深呼吸は不要デス！"
+      "One, two, still moving! No deep breaths required."
     ],
     "defeat": "きみの答えは、しっかりそろってた！"
   },
@@ -3160,16 +3160,16 @@
     "name": "カステラ角のモコヤギ",
     "entrance": "角は甘いけど、集中はしっかりね。",
     "battle": [
-      "カステラ角で受ける！ 端っこは人気なんだから！",
-      "めぇると頭突き！ ふわふわでも勢いはあるよ。",
+      "Cake horns ready. The edges are the best part!",
+      "Sweet little goat. A surprisingly firm guard!",
       "もこ毛で丸まる。おやつ箱に入れないで！"
     ],
     "aside": [
-      "角を紙で包まれて、親戚の家へ送られかけた。",
+      "Wrapped as a gift. I was still wearing my horns.",
       "三時になると、なぜか皆がわたしを見るの。"
     ],
     "pressure": [
-      "めぇえ、まだ一切れ分は踏ん張れるよ！"
+      "One slice of strength left. Baa!"
     ],
     "defeat": "じょうず！　甘い気持ちになったよ。"
   },
@@ -3177,16 +3177,16 @@
     "name": "ガラス舟の水鳥",
     "entrance": "水面のように、静かな気持ちでどうぞ。",
     "battle": [
-      "すいと舵を切るわ。波紋までが私の足跡。",
-      "舟の縁で受ける。繊細な舷側にご用心。",
+      "A smooth turn. Watch the ripples follow.",
+      "Clear glass. Clear plan. Keep watching.",
       "翼で水を返すわ。しぶきはお土産にどうぞ。"
     ],
     "aside": [
       "『底の見える関係』が理想よ。私の場合は物理だけれど。",
-      "Glass boat. Solid attitude."
+      "Nothing to hide. You can see the bottom."
     ],
     "pressure": [
-      "水が入る前に決めるわ。最後まで、沈まぬ顔でね。"
+      "Still afloat. I'd like to keep it that way."
     ],
     "defeat": "澄んだ答えでした。ありがとう。"
   },
@@ -3194,16 +3194,16 @@
     "name": "ぽよよんゴムボール",
     "entrance": "ぽよよん！　顔が先に弾んじゃった！",
     "battle": [
-      "ぽよんと受ける！ 当てた分、戻るぜ！",
-      "床から反撃！ 天井の許可は取ってない！",
+      "Hit me and I'll bounce back!",
+      "Calm down? Dropping me makes things worse!",
       "丸い体で逃げる！ 角に追い込むの無理だぞ！"
     ],
     "aside": [
-      "落ち着きなさいって。落ちたら弾む仕様なんだよ。",
+      "I tried sitting still. The meeting bounced elsewhere.",
       "会議室の椅子に座ったら、全員の議題が変わった。"
     ],
     "pressure": [
-      "へこんでからが本番！ ぽよよんの準備だ！"
+      "A bigger dent. A bigger bounce coming!"
     ],
     "defeat": "きみの答えは、ぴたりと決まった！"
   },
@@ -3211,16 +3211,16 @@
     "name": "たこ糸巻きのタコスケ",
     "entrance": "糸を巻いたら、足まで巻いちゃった！",
     "battle": [
-      "糸で止めるたこ！ ぼくの足も止まった！",
-      "八本で巻き返す！ 文字どおり、巻き返す！",
+      "String trap ready! Oops. My legs too.",
+      "Eight arms! Surely one of them can move!",
       "結び目で受けるよ。ほどく暇がなかっただけ！"
     ],
     "aside": [
-      "たこ揚げのお誘い、漢字で送ってくれると助かる。",
+      "Kite festival? I'm not the kite!",
       "絡まない糸を買った。ぼくに巻くとは書いてなかった。"
     ],
     "pressure": [
-      "ほどけなくても戦える！ 一本くらい自由な足、あるよね？"
+      "Still tangled. Still in the fight."
     ],
     "defeat": "きみの答えなら、ほどけそうだよ！"
   },
@@ -3228,16 +3228,16 @@
     "name": "ホットケーキの切り株精",
     "entrance": "ひとつずつ、答えを重ねようね。",
     "battle": [
-      "年輪で受けるぞ。薄焼きに見えても重ねておる。",
-      "根っこの拳じゃ。蜜より少し重たいぞ。",
+      "Pancake rings. More layers than you'd think.",
+      "A sweet old stump. A solid old guard.",
       "バターを滑らせてかわす！ 自分も滑ったわい。"
     ],
     "aside": [
-      "樹齢を聞かれて、焼いた枚数で答えてしもうた。",
+      "Age? I count pancakes, not years.",
       "メープルの木から苦情が来た。香りの無断使用とな。"
     ],
     "pressure": [
-      "とろり、まだ倒れぬ。最後の一枚は厚いんじゃ！"
+      "Last pancake. I made this one thick."
     ],
     "defeat": "ふんわり上手にできたね！"
   },
@@ -3245,16 +3245,16 @@
     "name": "つやつや宝石てんとう虫",
     "entrance": "小さな輝きを、答えに集めて。",
     "battle": [
-      "きらっと背中で受ける！ 指紋は残さないでね！",
-      "小さい脚で反撃よ。宝石にも足はある！",
+      "Shiny back! Kindly leave no fingerprints!",
+      "Ruby wings ready. I'll make this look good!",
       "羽を開いてひょい。飾りじゃなかったでしょ。"
     ],
     "aside": [
-      "質屋の前で休んだら、番号札を渡されたの。",
+      "My polish bill is bigger than my rent.",
       "磨き代が家賃を越えた。きれいって大変！"
     ],
     "pressure": [
-      "輝きは落ちてない！ 元気だけ、少し曇ってる！"
+      "Still sparkling! Just a cloudy mood!"
     ],
     "defeat": "きれいに決まったね。おみごと。"
   },
@@ -3262,16 +3262,16 @@
     "name": "わらい上戸のごま団子",
     "entrance": "あはは！　笑いすぎて、転がっちゃう！",
     "battle": [
-      "わはは、弾んで受けるぞ！ ごまが飛ぶ！",
-      "丸い腹でどーん！ 笑う門にも攻撃来るんだな！",
+      "Ha-ha! Every hit shakes the sesame off!",
+      "Laughing and fighting! I can do both!",
       "くるっと回避！ あんこは中心を守っとる！"
     ],
     "aside": [
-      "ごますりを頼まれて、親戚を連れてきちまった。",
+      "They called me sweet. I laughed for an hour.",
       "どんな話でも笑うから、落語家に練習を断られた。"
     ],
     "pressure": [
-      "わは、わは…まだ笑える！ これは強がりの味だ！"
+      "Ha... ha... Still laughing. That's a good sign."
     ],
     "defeat": "じょうず！　うれしくて、また笑っちゃう！"
   },
@@ -3279,16 +3279,16 @@
     "name": "葉っぱ枕のナマケモノ",
     "entrance": "あせらなくていいよ。ひとつずつね。",
     "battle": [
-      "枕で受けるよ。防御と昼寝を兼ねたいんだ。",
-      "片腕で返す。もう片方は首を支える大事な仕事。",
+      "Pillow guard. Two jobs, one nap.",
+      "I'll hit back. Let me get comfortable first.",
       "ゆっくりよけるよ。先に宣言しとけば間に合うかな。"
     ],
     "aside": [
       "時短術の本を読んで、増えた時間で眠ったよ。",
-      "Work smarter. Nap longer."
+      "I saved ten minutes. Then slept for fifteen."
     ],
     "pressure": [
-      "起きてる、起きてる。まぶた以外は、まだ勝負してる。"
+      "I'm awake. Mostly below the eyebrows."
     ],
     "defeat": "いい集中だったね。ひと休みしよう。"
   },
@@ -3296,16 +3296,16 @@
     "name": "しおれんぼうネギ",
     "entrance": "しおれちゃったけど、答えは待てるよ……。",
     "battle": [
-      "葉をしならせて受ける。柔軟性だと思ってほしい。",
-      "根元で踏ん張るよ。気持ちは土に根ざしてる。",
+      "I bend. Let's call that being flexible.",
+      "Leaf guard ready. More or less upright.",
       "青いところで返す。白いところは休憩中。"
     ],
     "aside": [
-      "『元気を出して』と熱湯をかけられた。方向が違う。",
+      "Cheer up? Hot water was not what I meant.",
       "寝ぐせなのか、しおれなのか、朝の会議が長い。"
     ],
     "pressure": [
-      "しな…まだ立つ。斜めだけど、立ってはいる。"
+      "Still standing. At an angle, but standing."
     ],
     "defeat": "きみの正解で、ちょっとしゃんとした！"
   },
@@ -3313,16 +3313,16 @@
     "name": "水彩羽のハチドリ",
     "entrance": "軽やかに、答えをつなごう。",
     "battle": [
-      "ひゅるっとかわす！ にじむ前に次の場所！",
-      "水彩の翼で返すわ。濡れたら色が増えるだけ！",
+      "Quick turn! Before the colors run!",
+      "Small bird. Big palette. Coming through!",
       "筆先みたいなくちばしよ。狙いは細かいの。"
     ],
     "aside": [
-      "雨の日の証明写真、背景と一体になっちゃった。",
+      "Rainy-day photo. I became part of the background.",
       "小さな体に大容量の色。荷物検査が長いのよ。"
     ],
     "pressure": [
-      "まだ一色残ってる！ 最後まで塗り切るわ！"
+      "One color left. I'll use every drop!"
     ],
     "defeat": "美しい一筆のような答えだね。"
   },
@@ -3330,19 +3330,19 @@
     "name": "ドタバタ仕立て屋ミシン",
     "entrance": "縫うぞ！　あれ、足まで縫いこむところだった！",
     "battle": [
-      "だだだっ！ 針の進路に入るんじゃないよ！",
-      "布を重ねて受ける！ 追加料金は戦後だ！",
+      "Needle coming! Clear the way!",
+      "I've nearly finished! Wait, that's my own tongue!",
       "糸で引き寄せるよ。サイズ直しもついでにね！",
-      "足踏み加速！ おっと、裾まで巻き込んじまった！",
+      "One stitch at a time. Faster, though!",
       "針山の守りだ。座ると痛いから気をつけな！"
     ],
     "aside": [
-      "特急仕上げを受けすぎて、店の時計まで縫い止めたよ。",
+      "Rush order? Even the clock got sewn down.",
       "『ゆとりある働き方』を注文された。寸法が足りないねえ。",
-      "Measure twice. Panic once."
+      "More time off? Sorry, not enough fabric."
     ],
     "pressure": [
-      "糸があと少し！ ここで縫い終わりにはしないよ！",
+      "Last bit of thread. I'm not finished yet!",
       "最後の返し縫い！ ほどけない意地を見せてやる！"
     ],
     "defeat": "参った！　きみの集中は、ほつれない！"
@@ -3351,16 +3351,16 @@
     "name": "蒸気拳士スチームパウ",
     "entrance": "一問ずつ、正確な拳を放て。",
     "battle": [
-      "ぶふー！ 蒸気拳、圧を上げるぜ！",
-      "鉄のグローブで受ける！ 肉球は奥だ！",
+      "Pressure up! The pug is ready!",
+      "Steam fists forward! Let's make some noise!",
       "鼻息で間合いを取る！ 冷却じゃなくて威嚇だぞ！"
     ],
     "aside": [
-      "健康診断で『鼻息が工場』って書かれた。",
+      "The doctor called my breathing \"factory noise.\"",
       "犬かきは得意だ。水に入ると湯気で見えねえけど。"
     ],
     "pressure": [
-      "ぶふっ、まだ圧はある！ 圧力計は見ないでくれ！"
+      "Still got pressure! Don't read the gauge!"
     ],
     "defeat": "見事！　力強い答えだった。"
   },
@@ -3368,16 +3368,16 @@
     "name": "ぶどう房のぶつぶつ男爵",
     "entrance": "ぶつぶつ……粒が多いと、文句も増える！",
     "battle": [
-      "房の盾で受ける。実が減るのは税ではないぞ。",
-      "杖でお返しする。ぶつぶつは、その後だ。",
+      "A bunch of grapes. A very serious defense.",
+      "Less fruit doesn't mean less courage.",
       "粒を揺らしてかわす。足並みがそろわぬな。"
     ],
     "aside": [
-      "房全体の意見を聞いたら、収穫期が終わってしまった。",
+      "One body. Too many grapes with opinions.",
       "小生の独り言は、粒の数だけ多数決になる。"
     ],
     "pressure": [
-      "残り一粒でも男爵。肩書きは房落ちせぬぞ。"
+      "Last grape. Still a baron. Mind your manners."
     ],
     "defeat": "おみごと！　どの粒も納得したぞ。"
   },
@@ -3385,16 +3385,16 @@
     "name": "鏡面の白鳥ミラシエ",
     "entrance": "落ち着いて、自分の答えを見つめて。",
     "battle": [
-      "鏡の羽で返すわ。君の構え、よく見えるでしょう。",
-      "水面を滑ってかわす。波立つのは君のほうよ。",
+      "Mirror wings. Your stance is showing.",
+      "A smooth return. Just like your reflection.",
       "銀の首を引くわ。近道だと思った？"
     ],
     "aside": [
       "鏡を買いに行ったら、店員さんが私で髪を直したの。",
-      "Mirror, mirror, please stop copying me."
+      "I bought a mirror. It stared back."
     ],
     "pressure": [
-      "曇っても私よ。最後の一羽まで、姿勢は崩さない。"
+      "A little cloudy. My posture is still perfect."
     ],
     "defeat": "澄んだ心が映る答えでした。"
   },
@@ -3402,16 +3402,16 @@
     "name": "しゃっくり大砲ヒック",
     "entrance": "ひっく！　撃つ前に、ぼくが跳ねちゃう！",
     "battle": [
-      "ひっく！ 今のが発射合図じゃなかった！",
-      "砲身で受ける！ 鼻みたいにつまむなよ！",
+      "Hic! Not the signal. Just hiccups!",
+      "I wasn't aiming yet! Hic!",
       "車輪で回避、ひっく！ 反動で進路変更！"
     ],
     "aside": [
-      "水を飲めと言われた。大砲に水入れていいんだっけ？",
+      "Drink water? Has anyone checked the cannon manual?",
       "驚かせてもしゃっくりは止まらず、弾だけ増えた。"
     ],
     "pressure": [
-      "ひっく、まだ撃てる！ 止まらないのが今だけ長所！"
+      "Can't stop! For once, that's good news!"
     ],
     "defeat": "きみの正解で、しゃっくりが止まった！"
   },
@@ -3419,16 +3419,16 @@
     "name": "六角盾のハニガード",
     "entrance": "六角の盾を越える答えを見せよ。",
     "battle": [
-      "六角盾で守ります。蜂の巣の承認済みです。",
-      "槍先をそろえ、ブン！ 甘い守りではありません。",
+      "Six sides. One duty. Protect the honey.",
+      "Shield approved by the hive. Please step back.",
       "翼で角度を変えます。六つの角すべて警戒を。"
     ],
     "aside": [
       "残業代が蜜払いになりました。少々、家計がべたつきます。",
-      "Honey secured. Personal space denied."
+      "I'm paid in honey. My savings are sticky."
     ],
     "pressure": [
-      "蜜は守り抜きます！ 最後の一滴までブン張ります！"
+      "The last drop is still under my guard!"
     ],
     "defeat": "きみの集中、確かに受け止めた。"
   },
@@ -3436,16 +3436,16 @@
     "name": "はねるざぶとん武者",
     "entrance": "はねても、武者の心はぶれないぞ！",
     "battle": [
-      "ぽよんと受ける！ 衝撃は綿の中で迷子よ！",
-      "座を弾ませて突撃！ 正座より早いでござる！",
+      "Bounce guard! The hit got lost in the stuffing!",
+      "A soft warrior. A very firm answer!",
       "兜を伏せる！ 頭より先に座ぶとんが浮いた！"
     ],
     "aside": [
-      "武士の席を用意したら、拙者自身が席でござった。",
+      "I was offered a seat. It was me.",
       "失言で一枚没収された。拙者の半身を返してほしい。"
     ],
     "pressure": [
-      "綿が少なくとも武士！ 最後まで跳ねて見せよう！"
+      "Less stuffing. No less samurai spirit!"
     ],
     "defeat": "参った！　きみの答えはぶれなかった！"
   },
@@ -3453,16 +3453,16 @@
     "name": "星輪のくらげセレス",
     "entrance": "星の輪のように、集中をつなげて。",
     "battle": [
-      "星輪を回して守るの。近づくと、ちょっとびりっ。",
-      "ふよっと浮いてかわす。床の約束はしてないよ。",
+      "Star ring spinning. Mind the little sting.",
+      "A gentle float. A serious little orbit.",
       "触手の星を送るね。占いより当たるかも。"
     ],
     "aside": [
       "星座の会に入ったら、くらげ座は席がなかったの。",
-      "Space jelly. No toast required."
+      "Space jelly. Please put the toast away."
     ],
     "pressure": [
-      "ふよ…輪っかはまだ回る。星が全部落ちるまではね。"
+      "Still spinning. Not all my stars have fallen."
     ],
     "defeat": "静かな輝きのある答えだね。"
   },
@@ -3470,16 +3470,16 @@
     "name": "鉄ひげナマズガンテツ",
     "entrance": "鉄のひげより、強い集中を見せろ。",
     "battle": [
-      "鉄ひげで受ける。切れ味は床屋泣かせでい！",
-      "底を蹴って突くぞ。泥をかぶる覚悟はあるか！",
+      "Iron whiskers up! This is no soft shave!",
+      "That wasn't an earthquake. Just a sneeze.",
       "ひげの間合いだ。ここから先は現場でい。"
     ],
     "aside": [
-      "ひげ剃りの見積もりに、重機使用料が入ってやがった。",
+      "Heavy machinery on the barber bill. Sounds about right.",
       "地震と間違えるな。今のは、おれのくしゃみでい。"
     ],
     "pressure": [
-      "まだ錆びちゃいねえ！ 曲がったひげごと押し返す！"
+      "Bent whiskers. Not a rusty old heart!"
     ],
     "defeat": "おみごと。きみの答えは揺るがない。"
   },
@@ -3487,16 +3487,16 @@
     "name": "折りたたみ梯子ドラゴ",
     "entrance": "段をひとつずつ、確実に登れ。",
     "battle": [
-      "梯子の翼を開く！ 段数ぶんだけ距離を取れ！",
-      "カチッとロック！ この関節は抜かせない！",
+      "Ladder wings open. Mind every step!",
+      "Useful and fierce. I can be both.",
       "折りたたんで回避。省スペースな反撃だ！"
     ],
     "aside": [
-      "竜の宝物は高い棚に置いた。俺だけ届くからな。",
+      "Treasure on the top shelf. Only I can reach it.",
       "引っ越し業者に『一名兼脚立』と数えられた。"
     ],
     "pressure": [
-      "最上段まで残ってる！ まだ天井には届くぞ！"
+      "Top step intact. I can still reach the ceiling!"
     ],
     "defeat": "見事！　高いところまで届いたな。"
   },
@@ -3504,16 +3504,16 @@
     "name": "飴細工のユニコルン",
     "entrance": "やさしく、ていねいに進みましょう。",
     "battle": [
-      "飴の角を構えるわ。なめると怒るわよ。",
-      "砂糖の鎧で受ける！ 湿度は味方しないで！",
+      "Sugar horn ready. No tasting the unicorn!",
+      "Sweet is not the same as weak.",
       "花の蹄で一突き。甘やかしとは違うの。"
     ],
     "aside": [
       "『溶け込めた？』って聞かれた。夏の転校は怖いわね。",
-      "Sweet, not soft. Read the wrapper."
+      "I melt hearts. Please don't melt the unicorn."
     ],
     "pressure": [
-      "形は守るわ。最後まで、きれいなままで勝ちたいの。"
+      "Still in shape. I'd like to win that way."
     ],
     "defeat": "きれいな答えを、ありがとう。"
   },
@@ -3521,16 +3521,16 @@
     "name": "かみつきサンドイッチ",
     "entrance": "がぶっ！　あ、まずは答えを聞くんだった！",
     "battle": [
-      "がぶっと受ける！ 口に来るとはいい度胸！",
-      "レタスで足止めだ！ 新鮮な罠、召し上がれ！",
+      "You're attacking my mouth? Bold choice!",
+      "I'm lunch? Lunch bites back!",
       "パンを閉じて防御！ 具をはみ出させるな！"
     ],
     "aside": [
-      "昼食会に呼ばれた。出席なのか、提供なのか聞けなかった。",
+      "Invited to lunch. As a guest, I hope.",
       "食物連鎖の図、オレの所だけ矢印が複雑すぎる。"
     ],
     "pressure": [
-      "まだ具はある！ 最後の一口はオレが決める！"
+      "Still plenty of filling. I'll choose the last bite!"
     ],
     "defeat": "きみの正解は、かみごたえがあった！"
   },
@@ -3538,16 +3538,16 @@
     "name": "月蝕のフェンサール",
     "entrance": "影に惑わず、答えを突き通せ。",
     "battle": [
-      "月を隠して一突き。暗さにも礼儀は必要だよ。",
-      "黒い羽織で受けよう。照明係の出番はない。",
+      "Moon hidden. Manners still required.",
+      "One quiet thrust. Keep your eyes open.",
       "影を踏まずにかわす。足取りまで見てほしいね。"
     ],
     "aside": [
       "決闘の招待状に『曇天決行』と書き忘れた。",
-      "Midnight elegance. No flash photography."
+      "No flash, please. It ruins the entrance."
     ],
     "pressure": [
-      "月は欠けても戻る。僕の反撃も、まだ終わらない。"
+      "The moon comes back. So does my blade."
     ],
     "defeat": "見事な一手だ。道をゆずろう。"
   },
@@ -3555,16 +3555,16 @@
     "name": "つんつん鉛筆うに",
     "entrance": "つんつん！　近づくなら、答えを持ってきて！",
     "battle": [
-      "つんつんで止める！ どの向きも筆記面だ！",
-      "転がって反撃！ 紙がなくても線は引く！",
+      "Fresh pencils! Give me a little space!",
+      "Any side will do. They all write!",
       "芯を守って丸まる！ それ、元から丸いって言うな！"
     ],
     "aside": [
-      "答案用紙に寝転んだら、先生が採点を諦めた。",
+      "I rolled on the test. The teacher gave up grading.",
       "削りたてで満員電車に乗ったら、専用空間ができた。"
     ],
     "pressure": [
-      "芯は折れてない！ 機嫌はちょっと削られた！"
+      "Still sharp. Just a little less cheerful."
     ],
     "defeat": "きみの正解に、とがった心も丸くなった！"
   },
@@ -3572,16 +3572,16 @@
     "name": "霜花のフロスティア",
     "entrance": "冷たい花にも、やさしく答えてね。",
     "battle": [
-      "霜花を重ねます。触れるなら、温度にご注意を。",
-      "氷の裾を返しましょう。美しさだけではありません。",
+      "Frost petals ready. Please mind the temperature.",
+      "A cool answer. The room helps too.",
       "薄氷を渡ります。わたくしの足取りなら平気ですわ。"
     ],
     "aside": [
-      "握手会は手袋必須にしました。親切が凍ってはいけませんもの。",
+      "Gloves for the handshake. Kindness mustn't freeze.",
       "冷静ですねと。ええ、室温にも協力いただいています。"
     ],
     "pressure": [
-      "溶ける前に咲き切ります。最後の霜を見届けて。"
+      "One last frost flower. Please watch it bloom."
     ],
     "defeat": "澄んだ集中でした。ありがとう。"
   },
@@ -3589,16 +3589,16 @@
     "name": "大口のトンネルもぐら",
     "entrance": "口が大きすぎて、声が中で迷子だ！",
     "battle": [
-      "大口で止める！ トンネルの入口を甘く見るな！",
-      "土を掻いて反撃！ 出口はそっちだ、ほらよ！",
+      "Big mouth. A proper tunnel entrance!",
+      "Open wide? This IS wide!",
       "穴へかわす！ 自分の口へは入れなかった！"
     ],
     "aside": [
       "口が広すぎて、歯医者が入口に受付を作った。",
-      "Open wide? I invented wide."
+      "The dentist put a reception desk inside."
     ],
     "pressure": [
-      "まだ掘れる！ この口、弱音だけは通行止めだ！"
+      "Still digging! No complaints through this tunnel!"
     ],
     "defeat": "きみの答えは、まっすぐ届いたよ！"
   },
@@ -3606,16 +3606,16 @@
     "name": "青火のランプ騎士",
     "entrance": "青い火のように、集中を保て。",
     "battle": [
-      "灯を盾に。冷たい炎の間合いに入るな。",
-      "槍を返す。影のほうが先に倒れたようだな。",
+      "Blue flame guard. Keep your distance.",
+      "A quiet lamp. A steady guard.",
       "鎧を閉じる。風の一筋も通さない。"
     ],
     "aside": [
-      "省電力の灯へ替えろと。私の魂は型番がない。",
+      "Upgrade my soul? Where's the model number?",
       "夜勤手当がろうそく一本。明るい職場である。"
     ],
     "pressure": [
-      "芯は残っている。消灯は、まだ命じていない。"
+      "The wick remains. Lights-out has not been ordered."
     ],
     "defeat": "見事。きみの心も静かに燃えていた。"
   },
@@ -3623,16 +3623,16 @@
     "name": "ぎくしゃくドミノ兵",
     "entrance": "一歩！　二歩！　あれ、足が曲がらない！",
     "battle": [
-      "かたっ、一歩だけ回避！ 二歩目で倒れそうデス！",
-      "白い胸板で受けマス。黒点は照準ではありません。",
+      "One step! Two might be a problem!",
+      "Stay upright. It's a team effort. Unfortunately.",
       "隣には寄りません。一人倒れると事件になるので。"
     ],
     "aside": [
       "チームワーク研修で、全員一緒に倒れマシタ。",
-      "Domino effect? Please unsubscribe."
+      "Team-building day. We all fell together."
     ],
     "pressure": [
-      "まだ直立デス！ 風を送る応援はご遠慮クダサイ！"
+      "Still standing! Please don't cheer with a fan!"
     ],
     "defeat": "きみの答えは、なめらかだったね！"
   },
@@ -3640,16 +3640,16 @@
     "name": "珊瑚のタテガミ海馬",
     "entrance": "海の流れに合わせて、落ち着いて。",
     "battle": [
-      "珊瑚のたてがみで受ける。枝先まで私の守りだ。",
-      "潮を裂いて駆ける。海底にも、蹄の意地がある。",
+      "Coral mane ready. Every branch is guarded.",
+      "The tide turns. So can this battle.",
       "尾を返してかわす。捕まえるなら流れごと来たまえ。"
     ],
     "aside": [
-      "海の理髪店で枝を整えたら、魚の住民から苦情が来た。",
+      "A haircut. Then complaints from the local fish.",
       "走る前にたてがみの避難勧告。美しさにも手順はある。"
     ],
     "pressure": [
-      "折れた枝にも命は残る。最後の潮まで向き合おう。"
+      "A broken branch still has life. So do I."
     ],
     "defeat": "美しい答えでした。おみごと。"
   },
@@ -3657,16 +3657,16 @@
     "name": "転がり太鼓ドンドコ",
     "entrance": "どんどこ！　音より先に、ぼくが転がる！",
     "battle": [
-      "どんどこ受ける！ 叩いた分だけ盛り上がるぞ！",
-      "転がって一発！ バチがなくても音は出る！",
+      "Boom-boom! Every hit improves the party!",
+      "Here I roll! The sticks can't reach my belly!",
       "皮を張って待つ！ 緊張してるわけじゃねえよ！"
     ],
     "aside": [
-      "静かな住宅街の祭りに呼ばれた。おいらだけ筆談だった。",
+      "Quiet neighborhood. I was asked to write my speech.",
       "アンコールが止まらない。帰宅もリズムに乗っちまう。"
     ],
     "pressure": [
-      "どん…どこっ！ 最後まで拍子は崩さねえ！"
+      "Last beat! I won't lose the rhythm!"
     ],
     "defeat": "きみの正解に、拍手の音を鳴らすよ！"
   },
@@ -3674,19 +3674,19 @@
     "name": "銀河船長スターマリナー",
     "entrance": "星の航路を、答えで切り開け。",
     "battle": [
-      "銀河の舵を切れ。正面衝突は計画にない。",
-      "星図の盾を張る。位置情報まで渡しはせん。",
+      "Change course. A crash is not on the schedule.",
+      "Steady hands. There's a whole galaxy ahead.",
       "錨の一撃だ。宇宙でも、重いものは重い。",
-      "全速前進！ 船長が後ろにいては始まらん！",
+      "All crew ready. My next move is coming.",
       "隕石を受け流す舵だ。君の一撃にも通用するか！"
     ],
     "aside": [
-      "部下が『星をつかみます』と。航海灯を外すなと言った。",
+      "Captain's log: gravity has no manners.",
       "宇宙船の会議室には窓がない。話まで漂流するからな。",
-      "Captain's log: gravity is being rude."
+      "Reach for the stars. Leave the navigation lights alone."
     ],
     "pressure": [
-      "航路はまだ続く。燃料の警告は、私が見ている。",
+      "Fuel warning received. The voyage continues.",
       "船は渡さぬ。最後の一光年まで、私が舵を握る！"
     ],
     "defeat": "見事な旅だ。きみの舵は確かだった。"
@@ -3695,19 +3695,19 @@
     "name": "雷冠王ボルトレオン",
     "entrance": "雷の前でも、集中を保てるか。",
     "battle": [
-      "雷冠よ、轟け！ 一歩先の地を守れ！",
-      "黄金の牙で返す。王の静電気では済まぬぞ！",
+      "Thunder crown! Let the ground hear us!",
+      "One step forward. That's a royal order!",
       "たてがみを立てる。これは寝ぐせではなく威嚇だ！",
-      "稲妻の踏み込み！ 見てからでは追えぬ！",
+      "Paws firm. The storm will not do all the work.",
       "王冠を掲げる。落雷にも屈さぬ守りだ！"
     ],
     "aside": [
-      "雷の王と名乗った翌日から、停電の問い合わせが絶えぬ。",
+      "A metal throne? We'll discuss that choice later.",
       "王の椅子を金属製にした者、あとで一緒に座ろう。",
-      "Thunder first. Royal paperwork later."
+      "Power outage? I'm a king, not a repair service."
     ],
     "pressure": [
-      "雷鳴はまだ鳴る。余の息切れを隠すほどにな！",
+      "Still thundering! You can hardly hear me pant!",
       "最後の雷を授ける！ 王の意地は、まだ蓄電しておる！"
     ],
     "defeat": "堂々たる答えだ。王として認めよう。"
@@ -3716,19 +3716,19 @@
     "name": "羽衣女王ルミナベル",
     "entrance": "羽衣のように、しなやかに答えて。",
     "battle": [
-      "羽衣を重ねましょう。優しい布にも境界はあります。",
-      "光を一筋返します。目をそらさず、ご覧ください。",
+      "Silk is gentle. My rules are still clear.",
+      "A soft turn. A very clear answer.",
       "ふわりと避けますわ。裾を踏まれるのは困りますもの。",
-      "光の襞を開きます。そこから先は、わたくしの空。",
+      "Long sleeves. No loose ends in this battle.",
       "白い袖で受け止めます。お返しは丁寧に、強く。"
     ],
     "aside": [
-      "即位式の裾が長すぎて、式の終わりまで入場していましたわ。",
+      "Less paperwork. More flying paperwork. Not quite the plan.",
       "『身軽な行政』を目指しました。書類が空へ飛びましたの。",
-      "Grace under pressure. Also, very long sleeves."
+      "The ceremony ended. My dress is still arriving."
     ],
     "pressure": [
-      "羽が少なくなっても、女王の姿勢は軽くなりませんわ。",
+      "Fewer feathers. The same royal posture.",
       "最後の羽まで舞いましょう。幕は、自分で下ろしますわ。"
     ],
     "defeat": "美しく強い集中でした。おみごと。"
@@ -3737,19 +3737,19 @@
     "name": "ぐうたら総帥ソファラ",
     "entrance": "総帥だぞ。作戦は……あと五分寝てから！",
     "battle": [
-      "肘掛け防御。余の快適圏に踏み込むな。",
-      "座ったまま反撃だ。立つ決裁はまだ下りておらぬ。",
+      "Armrest guard. Stay out of my comfort zone!",
+      "Standing up? Let's not rush into anything.",
       "クッションを返す。柔らかい圧力というやつだ。",
-      "背もたれの一撃！ 起き上がるより倒れ込むほうが速い！",
+      "I'll make the decision. Someone else can do the walking.",
       "足を踏ん張れ、四本とも！ ここだけは家具の強みよ！"
     ],
     "aside": [
-      "会議は着席したまま。余だけ会議室にも置いて帰られた。",
+      "The chair got a day off. Where am I supposed to sit?",
       "働き方改革で、余の椅子に休日がついた。余はどうする。",
-      "Executive decision: remain seated."
+      "Meeting over. They left me with the furniture."
     ],
     "pressure": [
-      "むにゃ、へたるのはクッションだけでよい。余は粘る。",
+      "The cushion may sag. I'm still the boss.",
       "最後の座り心地を守れ！ 余の退席は敗北と同義だ！"
     ],
     "defeat": "まいった！　きみは最後まで起きてたね！"
@@ -3758,16 +3758,16 @@
     "name": "ねぐせブラシ仙人",
     "entrance": "髪をとかす道具なのに、ぼくが寝ぐせだらけ！",
     "battle": [
-      "毛先で受ける。寝ぐせは天然の防壁じゃ！",
-      "杖とブラシで挟むぞ。結び目はほどいてやる。",
+      "Bristles ready. Bed hair makes a fine wall.",
+      "I've trained for years. My hair had other plans.",
       "頭を振って一撃！ 今日は跳ね具合がよい！"
     ],
     "aside": [
-      "修行の成果かと？ いや、枕を替えただけじゃ。",
+      "A new technique? No, just a new pillow.",
       "整髪の道を説きながら、自分の後頭部が見えぬ。"
     ],
     "pressure": [
-      "毛が寝てもわしは寝ぬ！ 最後の一本まで立つぞ！"
+      "The hair may sleep. I won't."
     ],
     "defeat": "きみの答えは、きれいに整ってた！"
   },
@@ -3775,16 +3775,16 @@
     "name": "まゆ毛ふさふさアボカド",
     "entrance": "まゆ毛で日よけもできるんだぞ！",
     "battle": [
-      "まゆ毛で受ける！ 額の森を抜けてみろ！",
-      "種の拳で反撃！ 芯の強さは中身で見せる！",
+      "Try getting through these eyebrows!",
+      "Raised eyebrows? That's my normal face!",
       "ふっさと目隠し！ おれも前が見えねえ！"
     ],
     "aside": [
-      "本人確認で『まゆ毛を上げて』と。別人になりますが？",
+      "They asked me to raise my eyebrows. New identity, apparently.",
       "眉間にしわ？ 森が深くて、誰も見つけられねえ。"
     ],
     "pressure": [
-      "まだ熟しきってねえ！ まゆ毛は元気に青いぞ！"
+      "Not fully ripe! The eyebrows are still growing!"
     ],
     "defeat": "おみごと！　まゆ毛を上げて拍手だ！"
   },
@@ -3792,16 +3792,16 @@
     "name": "かくれんぼ靴下おばけ",
     "entrance": "見つかった！　今度は答えを探そうね。",
     "battle": [
-      "かかとへ隠れる！ そこ、見ない約束だよ！",
-      "つま先パンチ！ 穴から手が出ちゃった！",
+      "Hide in the heel! You promised not to look!",
+      "Boo... Was that too loud?",
       "くるっと丸まる。洗濯かごへの退避はなしで！"
     ],
     "aside": [
       "相方とかくれんぼして、三回の洗濯を越えた。",
-      "Boo. Quietly, please."
+      "Long time no see. Three washes, actually."
     ],
     "pressure": [
-      "見つかっても終わりじゃない！ 靴下は片方でも走る！"
+      "Found me? One sock can still run!"
     ],
     "defeat": "じょうずだったよ。また遊ぼう！"
   },
@@ -3809,16 +3809,16 @@
     "name": "星あかりのシマリス",
     "entrance": "小さな星のように、答えを灯して。",
     "battle": [
-      "星のしっぽで隠すね。光るから場所はばれちゃう。",
-      "きゅるっと木登り回避！ 木がないから空登り！",
+      "Star tail cover! So much for hiding.",
+      "Small paws. A little light goes a long way.",
       "どんぐりみたいに鋭く返すよ。小さくても硬いの。"
     ],
     "aside": [
-      "冬の備蓄に星を集めたら、巣がまぶしくて眠れない。",
+      "I stored stars for winter. Now I can't sleep.",
       "流れ星を追いかけて、帰りの交通費が足りなくなった。"
     ],
     "pressure": [
-      "きゅる、星はまだ一つ！ それだけでも夜は越せるよ！"
+      "One star left. Enough to get through the night."
     ],
     "defeat": "あたたかな光が届いたよ。"
   },
@@ -3826,16 +3826,16 @@
     "name": "雨粒キャンディのポロ",
     "entrance": "ぽろりと落ちても、また始めよう！",
     "battle": [
-      "ぽろっとかわす！ こぼれたんじゃなくて移動！",
-      "しずくパンチ！ 服を濡らすまでが攻撃だよ！",
+      "I didn't spill. I changed places!",
+      "Sweet little drop. Don't wash me away!",
       "丸くなって受ける。水たまりに戻さないで！"
     ],
     "aside": [
       "雨の日に迎えに来てもらったら、ぼくまで傘に弾かれた。",
-      "Sugar rain! Dental forecast: cloudy."
+      "They brought an umbrella. It kept me out too."
     ],
     "pressure": [
-      "小さくても、まだ一粒！ 勝負は流さないよ！"
+      "Still one drop. I'm seeing this fight through!"
     ],
     "defeat": "じょうず！　甘い正解だね。"
   },
@@ -3843,16 +3843,16 @@
     "name": "くるくるメジャーへび",
     "entrance": "長さをはかったら、ぼくが伸びちゃった！",
     "battle": [
-      "間合いは三十センチ、にょろ。測ってから噛む流儀で。",
-      "巻き尺ガード！ 伸びしろなら負けやせん！",
+      "Thirty centimeters. I measure before I bite.",
+      "Let's see how you measure up. Hold still.",
       "しゅるっと巻き戻す！ 指を挟むと痛いですぜ。"
     ],
     "aside": [
-      "腹回りを測る仕事で、自分が一周して寝ちまった。",
+      "Life's length? No. Hallway length? Leave it to me.",
       "人生の長さは測れやせんが、廊下なら任せてくだせえ。"
     ],
     "pressure": [
-      "にょろ、あと十センチでも届かせてみせまさあ！"
+      "Ten centimeters left. I'll make them reach!"
     ],
     "defeat": "きみの答えは、ぴったりだった！"
   },
@@ -3860,16 +3860,16 @@
     "name": "くす玉のポンポリ",
     "entrance": "ぱかっ！　中身は、ぼくの大きな顔でした！",
     "battle": [
-      "紙の花で守る！ 開くのは勝ったときだよ！",
-      "ぱかっと反撃！ あっ、先に祝っちゃった！",
+      "Paper flowers up! I open when I win!",
+      "Surprise ready! The celebration can wait!",
       "ひらひらテープで足止め！ 祝福って逃げにくいね！"
     ],
     "aside": [
       "『祝・片づけ完了』のくす玉を割ったら、片づけが増えた。",
-      "Surprise! Mostly paper."
+      "\"Cleaning finished!\" Pop! Now there's more cleaning."
     ],
     "pressure": [
-      "まだ割れない！ お祝いは、もうちょっと後にして！"
+      "Not popping yet! Save the cheers for later!"
     ],
     "defeat": "おめでとう！　正解のお祝いだ！"
   },
@@ -3877,16 +3877,16 @@
     "name": "小花のじょうろ姫",
     "entrance": "小さな花を育てるように、答えてね。",
     "battle": [
-      "小花の袖で受けますわ。摘むには許可が必要よ。",
-      "水の弧を返します。姫にも狙いはありますの。",
+      "Little flower guard. Picking requires permission.",
+      "Gentle water. A very determined princess.",
       "ひらりと避けましょう。鉢の間は歩き慣れてますわ。"
     ],
     "aside": [
-      "水をあげたら友達が増えました。主に庭の苔ですけれど。",
+      "I've made new friends. Mostly moss.",
       "王室の予算は、水増ししておりませんの。水やりですわ。"
     ],
     "pressure": [
-      "まだ一輪あります。最後の花まで、凛と咲きますわ。"
+      "One flower remains. I'll stand tall beside it."
     ],
     "defeat": "きれいな答えの花が咲きました。"
   },
@@ -3894,16 +3894,16 @@
     "name": "ごろごろ栗まんじゅう",
     "entrance": "ごろごろしてても、一問ならできるよ。",
     "battle": [
-      "ころんと受ける！ 栗が中で構えてる！",
-      "まるい腹で返す。あんこも全員、前へ寄れ！",
+      "Roll with it! The chestnut's ready inside!",
+      "Warm bun. A surprisingly tough nut inside.",
       "転がってよける！ 焼き印の向きは気にしない！"
     ],
     "aside": [
-      "縁側をごろごろしてたら、お茶と一緒に置かれた。",
+      "Seasonal favorite? I show up all year.",
       "栗の季節だけ人気者。ほかの季節も中身はいるよ。"
     ],
     "pressure": [
-      "まだ栗が残ってる！ 最後までほくほく戦う！"
+      "Still got chestnut! One warm round to go!"
     ],
     "defeat": "じょうず！　おなかも心も満足だね。"
   },
@@ -3911,16 +3911,16 @@
     "name": "おっとっとブックエンド",
     "entrance": "おっとっと！　本より先にぼくが倒れそう！",
     "battle": [
-      "おっと、受け止める！ 本棚の端の実力だ！",
-      "底板で踏ん張る。重い話は横からお願い！",
+      "Whoa! I've got the end of the shelf!",
+      "Stay upright, books. I'm trying to set an example!",
       "斜めにして返す！ 倒れかけとは言わないで！"
     ],
     "aside": [
       "自己啓発本を支えたら、ぼくのほうが自信をなくした。",
-      "Keep calm and hold the novels."
+      "Self-help books. Now I need one."
     ],
     "pressure": [
-      "おっとっと、まだ倒れない！ 結末まで支えるぞ！"
+      "Still holding! No falling before the ending!"
     ],
     "defeat": "きみの答えは、しっかり立ってたね！"
   },
@@ -3928,16 +3928,16 @@
     "name": "蝶結びのキツネリボナ",
     "entrance": "答えをひとつ、結んでみよう。",
     "battle": [
-      "リボンで惑わすコーン。ほどけそうで、ほどけないでしょ？",
-      "しっぽを返して避けるわ。見とれた分は自己責任よ。",
+      "Ribbon trick! Almost loose. Never quite.",
+      "Cute bow. A knot you haven't solved yet.",
       "結び目で止める！ あたしとの縁まで結ばないでね。"
     ],
     "aside": [
       "『裏がありそう』って。リボンに裏地くらいあるわよ。",
-      "What the fox?! そこ、飾りじゃないの！"
+      "A hidden side? Every ribbon has one."
     ],
     "pressure": [
-      "コーン、まだ解けないわ！ 最後まで、可愛く粘るの！"
+      "Still tied! I'll be cute right to the finish!"
     ],
     "defeat": "きれいな結び目みたいにできたね。"
   },
@@ -3945,16 +3945,16 @@
     "name": "タピオカほっぺのプック",
     "entrance": "ほっぺがいっぱいで、言葉が出ない！",
     "battle": [
-      "ほっぺで受ける！ 粒まで飛ばしたら反則！",
-      "ぷくっと返すよ。ストローを剣みたいに使う！",
+      "Cheeks up! Keep the pearls where they belong!",
+      "Full cheeks. Full effort. Here I go!",
       "左右の頬を入れ替え防御！ どっちも大切なんだ！"
     ],
     "aside": [
-      "証明写真で、小顔補正がぼくを諦めた。",
+      "Count the pearls? Not with my mouth full.",
       "タピオカの数を聞かれると、急に口が重くなる。"
     ],
     "pressure": [
-      "残りの粒で勝負する！ 飲み干されるのはまだ早い！"
+      "A few pearls left. No finishing the drink yet!"
     ],
     "defeat": "きみの答えは、ちゃんと聞こえたよ！"
   },
@@ -3962,16 +3962,16 @@
     "name": "朝露のガラスきりん",
     "entrance": "朝露のように、静かに集中して。",
     "battle": [
-      "長い首を引いてかわす。見えている距離だけではないの。",
-      "朝露の光で返すわ。まぶしい朝の一撃よ。",
+      "Long neck. A little farther than you thought.",
+      "Glass may show everything. Not my next move.",
       "ガラスの脚で踏ん張る。細くても逃げないわ。"
     ],
     "aside": [
-      "首飾りを買ったら、長さだけで予算がなくなったの。",
+      "A necklace? I've run out of money halfway up.",
       "朝の点呼で、頭だけ先に出席したことがあるわ。"
     ],
     "pressure": [
-      "露が乾いても立つ。透明な意地も見ていてね。"
+      "The dew has dried. I'm still standing."
     ],
     "defeat": "透きとおる答えでした。ありがとう。"
   },
@@ -3979,16 +3979,16 @@
     "name": "あわわ泡立て器",
     "entrance": "あわわ！　泡より先に、ぼくがあわててる！",
     "battle": [
-      "あわわ、防御！ 頭の中までかき混ざる！",
-      "回して反撃！ 泡立つほど本気なんだ！",
+      "Whisk up! My thoughts are getting mixed too!",
+      "I've finished the cream! Where did my calm go?",
       "柄を引いてかわす！ 台所の端で覚えた技さ！"
     ],
     "aside": [
       "落ち着いて考えた結果、クリームだけ完成した。",
-      "Whisk me luck. I need it."
+      "Wish me luck. The cream is calmer than I am."
     ],
     "pressure": [
-      "泡が消えても止まらない！ 最後に角を立てるぞ！"
+      "Flat foam? I'll keep going till it holds!"
     ],
     "defeat": "きみの集中で、落ち着いたよ！"
   },
@@ -3996,16 +3996,16 @@
     "name": "羽つきしおりの栞鳥",
     "entrance": "ページをたどるように、答えを探して。",
     "battle": [
-      "ページの端へかわす。次の行まで追ってきて。",
-      "しおりの尾で返すわ。ここが今日の山場ね。",
+      "To the page edge. Follow me to the next line.",
+      "A small paper wing. A whole world to visit.",
       "羽を畳んで守る。結末を先に見ないでね。"
     ],
     "aside": [
-      "冒険小説に泊まった翌日、料理本へ引っ越したの。",
+      "I've traveled from dragons to dinner. Different books.",
       "読みかけの山に住む鳥よ。絶滅する気がしないわ。"
     ],
     "pressure": [
-      "まだ閉じないで。最後の一行は、わたしが決めるの。"
+      "Don't close it. I haven't chosen my ending."
     ],
     "defeat": "いいところへ、たどり着いたね。"
   },
@@ -4013,16 +4013,16 @@
     "name": "照れ笑いチョコトリュフ",
     "entrance": "えへへ……ゆっくり始めようね。",
     "battle": [
-      "薄いチョコで受ける！ 褒められると溶けちゃうけど！",
-      "ころっと一押し。照れ隠しの体当たりだよ！",
+      "Thin chocolate guard! No compliments during battle, please!",
+      "Red cheeks. That's shyness, not a new flavor.",
       "削りチョコを散らす！ 飾りも守ってくれるんだ！"
     ],
     "aside": [
-      "赤いのは照れてるから。中まで熟してるわけじゃないよ。",
+      "That's very kind. I'm trying not to melt.",
       "義理チョコ？ ぼくの気持ちは意外と本気だよ。"
     ],
     "pressure": [
-      "えへ、まだ溶けきってない！ 形を保って踏ん張るよ！"
+      "Still some chocolate left. I'll hold my shape!"
     ],
     "defeat": "上手だったよ。うれしくて照れちゃう。"
   },
@@ -4030,16 +4030,16 @@
     "name": "歯みがきカバのピカリン",
     "entrance": "ピカピカにしたいけど、歯が大きすぎる！",
     "battle": [
-      "真っ白い歯で受ける！ ぶつける前に磨いたか？",
-      "しゃかしゃか反撃！ 磨き残しの隙を狙うぜ！",
+      "Teeth ready! Did you brush before this fight?",
+      "Big smile! Try getting past that!",
       "大口を閉じて守る！ 今回は歯科検診じゃねえ！"
     ],
     "aside": [
       "笑顔コンテストで、歯の面積だけ別料金になった。",
-      "Floss like a boss. Then charge."
+      "Smile contest. Extra charge for all these teeth."
     ],
     "pressure": [
-      "まだ噛みしめる！ 最後の奥歯まで本気だぜ！"
+      "Still biting down! Every last tooth is serious!"
     ],
     "defeat": "きみの答えも、ピカピカだった！"
   },
@@ -4047,16 +4047,16 @@
     "name": "月桃の香りの小鹿",
     "entrance": "やさしい気持ちで、答えを聞かせて。",
     "battle": [
-      "葉の香りで間合いを包むわ。近づきすぎないで。",
-      "蹄をそろえて返す。花だけ見ていると危ないわよ。",
+      "A little fragrance. Please don't come too close.",
+      "Soft leaves. A steady little step.",
       "月桃の陰へ逃げる。香りは少し残しておくね。"
     ],
     "aside": [
-      "道に迷っても、後ろから『いい匂い』で見つけてもらえるの。",
+      "Lost in the woods? Follow the lovely smell.",
       "香水売り場で試供品を渡されたわ。わたしも香りを返したの。"
     ],
     "pressure": [
-      "花が散っても根は残る。最後まで、しなやかに立つわ。"
+      "Flowers fall. Roots stay. So will I."
     ],
     "defeat": "おだやかな集中、ありがとう。"
   },
@@ -4064,16 +4064,16 @@
     "name": "からくりハンガー鳥",
     "entrance": "仕組みを見抜いて、答えをつなげ。",
     "battle": [
-      "かしゃ、翼を開キマス。服は掛けないでクダサイ。",
-      "針金の脚で受けマス。曲がっても修正可能デス。",
+      "Wings opening. No coats on the bird, please.",
+      "Lightly dressed? I carry clothes for a living.",
       "胸をひねって返しマス。回転機能の正しい活用デス。"
     ],
     "aside": [
-      "『鳥なのに軽装ですね』と。服を持つ側の専門デス。",
+      "Nap in the closet. Woke up after winter.",
       "クローゼットで昼寝したら、冬の間ずっと外へ出られませんデシタ。"
     ],
     "pressure": [
-      "骨組みだけでも飛びマス！ 元から骨組みデシタ！"
+      "Just a frame? That's how I started! Still flying!"
     ],
     "defeat": "見事。きみの集中は、かみ合っていた。"
   },
@@ -4081,19 +4081,19 @@
     "name": "まんぷく釜めし仙人",
     "entrance": "まんぷくじゃ！　勝負の前に、もう一口？",
     "battle": [
-      "釜の腹で受けるぞ。中の米は総員伏せじゃ！",
-      "しゃもじ返し！ おこげの意地を思い知れ！",
+      "Pot belly guard! All rice, take cover!",
+      "Warm rice. Hot spirit. Come closer, young one!",
       "ふたを閉じる。蒸らしの間も隙は見せんぞ！",
-      "釜ごと突進！ おかわりは拳で受けてもらおう！",
+      "Rise to the occasion. After a bowl of rice.",
       "米粒の結束を見よ！ 一粒も離れぬ守りじゃ！"
     ],
     "aside": [
-      "仙術の弟子が、まず炊飯器を買ってきおった。合理的じゃ。",
+      "I teach \"eat less.\" My rice keeps disappearing.",
       "『腹八分』を説くたび、わしの中身が二割減る。",
-      "Rice to the occasion, young one."
+      "My student bought a rice cooker. Sensible, really."
     ],
     "pressure": [
-      "残り一膳でも勝負じゃ！ 底のおこげは手ごわいぞ！",
+      "One bowl left. The crispy rice means business!",
       "空釜になるまで譲らぬ！ 最後の湯気を上げるぞ！"
     ],
     "defeat": "参った！　正解でさらにまんぷくじゃ！"
@@ -4102,16 +4102,16 @@
     "name": "黄銅の駆け手ブラスホーン",
     "entrance": "駆け抜ける集中を、見せてみろ。",
     "battle": [
-      "角笛よ、高らかに！ その構えを吹き払う！",
-      "黄銅の胸で受ける。響くほどの一撃だな。",
+      "Horns loud! Let your guard hear me coming!",
+      "Brass hooves forward. This isn't just a concert!",
       "蹄で拍を刻んで突く。旋律の終わりまで来い！"
     ],
     "aside": [
-      "騎馬隊に入ったら、私一頭で楽団扱いになった。",
+      "I don't blow my own trumpet. My horns do.",
       "音量を下げろと？ 全身が生楽器なのだ。"
     ],
     "pressure": [
-      "まだ鳴るぞ。最後の息を、勝負に使おう！"
+      "Still sounding! My last breath goes to the battle."
     ],
     "defeat": "見事！　きみの答えは速く正確だった。"
   },
@@ -4119,16 +4119,16 @@
     "name": "だだっこトランポリン",
     "entrance": "やだやだ！　ぼくが跳ねる番だもん！",
     "battle": [
-      "やだー！ 踏んだ力、そのまま返しちゃう！",
-      "ぴょんと体当たり！ もう一回は許可いらない！",
+      "No! Whatever you push, I'm pushing back!",
+      "One more bounce! The floor can wait!",
       "端っこのばねで受ける！ 真ん中ばっか来ないで！"
     ],
     "aside": [
       "帰る時間になったら、高く跳ぶほど話が長引いた。",
-      "No nap! More bounce!"
+      "Time to go home? I'll just bounce higher."
     ],
     "pressure": [
-      "まだ遊ぶ…じゃなくて戦う！ ばね、がんばって！"
+      "Still playing... fighting! I meant fighting!"
     ],
     "defeat": "まいった！　きみの正解には拍手する！"
   },
@@ -4136,16 +4136,16 @@
     "name": "極光のミンクアウラ",
     "entrance": "極光のように、しなやかに進もう。",
     "battle": [
-      "するりと避けるわ。触ったと思った？ 光よ。",
-      "尾の光を返す。目移りすると、危ないわね。",
+      "You caught me? You've caught the light, darling.",
+      "Slipped through your fingers, didn't I?",
       "毛並みを立てて受けるわ。乱れた分は請求するかも。"
     ],
     "aside": [
-      "光熱費の内訳に『あたし』と書かれたの。納得いかない。",
+      "The light bill listed me. I'd like a word.",
       "夜景と一緒に撮られたら、あたしのタグだけ観光地だったわ。"
     ],
     "pressure": [
-      "極光は消えかけが綺麗なの。でも、まだ終わらないわ。"
+      "Fading lights are lovely. This fight isn't over."
     ],
     "defeat": "きれいな流れの答えだったね。"
   },
@@ -4153,16 +4153,16 @@
     "name": "じたばたエビフライ",
     "entrance": "じたばた！　しっぽの方が大きくて転ぶ！",
     "battle": [
-      "じたばた回避！ 衣が先に逃げていく！",
-      "しっぽで一撃！ ここは持ち手じゃないぞ！",
+      "Arms flailing! My coating got away first!",
+      "I was fried, not trained to fly!",
       "ころもで受ける！ サクッて音、今は喜べない！"
     ],
     "aside": [
       "海に帰る相談をしたら、油と水の話になった。",
-      "I can fry. I cannot fly!"
+      "Back to the sea? Oil and water had a discussion."
     ],
     "pressure": [
-      "まだサクサク動ける！ タルタルは後にしてくれ！"
+      "Still moving! Tartar sauce can wait!"
     ],
     "defeat": "きみの正解で、ちゃんと立てたよ！"
   },
@@ -4170,16 +4170,16 @@
     "name": "黒帆の渡り鳥ナイトセイル",
     "entrance": "夜の航路を、集中で切り開こう。",
     "battle": [
-      "黒い帆で受け流す。夜風ほど甘くはないぞ。",
-      "風下へ抜ける。追うなら翼を休めるな。",
+      "Black sails turn. Not as gentle as the night wind.",
+      "Keep watching. My route isn't yours to decide.",
       "くちばしの一撃だ。静かな航海もここまでだ。"
     ],
     "aside": [
-      "渡航先の書類に住所が要る。風向きと書いて戻された。",
+      "Mailing address? \"Whichever way the wind blows.\" Rejected again.",
       "黒い服は便利だ。海賊か喪主か、毎度聞かれるがな。"
     ],
     "pressure": [
-      "まだ渡りの途中だ。落ちるなら、せめて前へ落ちる。"
+      "Still migrating. If I fall, I'll fall forward."
     ],
     "defeat": "確かな答えだ。先へ進め。"
   },
@@ -4187,16 +4187,16 @@
     "name": "トウモロコシ砲兵コーンガン",
     "entrance": "コーン砲、発射準備！　弾もぼくの粒なの！？",
     "battle": [
-      "コーン砲、発射！ 粒ぞろいの一撃だ！",
-      "皮を重ねて守れ！ 丸裸の穀物じゃねえぞ！",
+      "Corn cannon ready! Every kernel counts!",
+      "A full cob's worth! Try dodging all of that!",
       "足を固めて返す！ 芯のある砲兵を見せるぜ！"
     ],
     "aside": [
       "昇進したら、粒の数で部下を数えろと言われた。",
-      "Corn duty. Not comedy duty."
+      "Corny? I'm trying to be serious!"
     ],
     "pressure": [
-      "最後の一粒まで撃つ！ 芯だけでも突進できる！"
+      "Last kernel! The cob can still charge!"
     ],
     "defeat": "きみの答えに、すっかり脱帽だ！"
   },
@@ -4204,16 +4204,16 @@
     "name": "銀杏羽の霊鳥イチョウ",
     "entrance": "黄金の葉のように、答えを重ねて。",
     "battle": [
-      "はらりとかわす。落ち葉だと思えば見失うよ。",
-      "扇の翼で受けよう。秋風も折れぬ角度だ。",
+      "A falling leaf? You'd better look again.",
+      "Golden wings. Autumn hasn't left the field.",
       "黄金の羽を返す。美しいだけの秋ではない。"
     ],
     "aside": [
-      "紅葉の見頃と一緒に、私の出勤表が配られていた。",
+      "Those are feathers. Not the nuts. Please breathe.",
       "銀杏の話をすると、皆が鼻を押さえる。羽のほうだよ。"
     ],
     "pressure": [
-      "まだ枝を離れぬ。一枚の秋にも、重さはある。"
+      "One last leaf. Autumn still has weight."
     ],
     "defeat": "静かに輝く答えでした。"
   },
@@ -4221,16 +4221,16 @@
     "name": "カギ束のガチャリン",
     "entrance": "ガチャガチャ！　どれが正解のカギだっけ？",
     "battle": [
-      "がちゃっと止める！ 君の攻め口に合う鍵はこれか！",
-      "束ねて返すぞ！ どの鍵でも当たれば痛い！",
+      "Rattle! Which key fits that attack?",
+      "Hold on. I've nearly found the right one!",
       "輪っかで受ける。ここだけは開かねえ仕組みだ！"
     ],
     "aside": [
-      "鍵をなくしたって？ おれ自身が迷子ならどうしようもねえ。",
+      "Master key? I'm not a can opener.",
       "万能鍵を名乗ったら、缶詰まで持ってこられた。"
     ],
     "pressure": [
-      "最後の一本だって開ける！ まず逆転の扉からな！"
+      "Last key! Let's open the door to a comeback!"
     ],
     "defeat": "きみの答えで、道が開いた！"
   },
@@ -4238,16 +4238,16 @@
     "name": "ゼリー鎧のプルナイト",
     "entrance": "やわらかな鎧でも、心はぶれない。",
     "battle": [
-      "ぷるっ、鎧で受ける！ 揺れを数えないで！",
-      "槍を突き出す！ 先端まで震えが届いた！",
+      "Jelly guard! Please don't count the wobbles.",
+      "My armor shakes. My courage doesn't.",
       "弾力で返すよ。怖いときほど、よく揺れるんだ。"
     ],
     "aside": [
       "鎧の検査で、おやつの棚へ運ばれかけた。",
-      "Jelly armor. Steel resolve."
+      "Armor inspection. They nearly put me on the snack shelf."
     ],
     "pressure": [
-      "ぷるる、形を保て！ 僕の勇気は固まってる！"
+      "Hold that shape! My courage has already set!"
     ],
     "defeat": "見事！　きみの集中を認めよう。"
   },
@@ -4255,16 +4255,16 @@
     "name": "はっけよい湯のみ山",
     "entrance": "はっけよい！　お茶の時間も待ったなし！",
     "battle": [
-      "どすこい！ 腹の茶柱まで構えたぞ！",
-      "はっけよい、押し返す！ 熱々の取り口でいくぞ！",
+      "Ready! Even the tea leaves are standing tall!",
+      "Big cup. Bigger push. Brace yourself!",
       "藍の腹で受ける。土俵際でも茶はこぼさぬ！"
     ],
     "aside": [
-      "体重測定の前に茶を抜いたら、不正ではないかと揉めた。",
+      "I emptied my tea before weighing. Everyone had questions.",
       "湯のみ山、番付表の隣に取扱注意も貼られたでごわす。"
     ],
     "pressure": [
-      "茶は冷めても気は熱い！ 最後の一押しでごわす！"
+      "Cool tea. Hot spirit. One last push!"
     ],
     "defeat": "参った！　きみの答えが押し切った！"
   },
@@ -4272,16 +4272,16 @@
     "name": "燐光のヘビリュシオ",
     "entrance": "静かに、答えの道をたどって。",
     "battle": [
-      "しゅるりと巻くわ。光の輪をくぐれるかしら。",
-      "鱗を合わせて受ける。隙間の数まで数えないで。",
+      "A glowing loop. Can you get through?",
+      "Quiet scales. The light is still moving.",
       "尾を返して一打。柔らかい線ほど遠くへ届くの。"
     ],
     "aside": [
-      "夜道で光ってあげたら、誘導灯の当番になったわ。",
+      "I shed my skin. They replaced the light bulbs.",
       "わたしの脱皮、照明器具の交換日と間違われるの。"
     ],
     "pressure": [
-      "しゅる…まだ光は巡る。最後の一巻き、ほどかせないわ。"
+      "One last coil. The light is staying on."
     ],
     "defeat": "迷いのない答え、ありがとう。"
   },
@@ -4289,16 +4289,16 @@
     "name": "じゃがいも騎士ホックリ",
     "entrance": "小さくても、ひとつずつ進むよ！",
     "battle": [
-      "いもの盾で受ける！ 皮の厚さは勇気の厚さ！",
-      "木の剣でえいっ！ 芽が出る前に勝負だ！",
+      "Potato shield up! Thick skin, brave heart!",
+      "A little warmth. A very determined knight!",
       "土を蹴って返す！ 畑育ちの足腰だよ！"
     ],
     "aside": [
-      "騎士の試験で『芽を摘め』って。ぼくに言うと怖いよ。",
+      "Knight exam. Please leave my sprouts out of it.",
       "勇気を出すと、ちょっといい匂いがするんだ。"
     ],
     "pressure": [
-      "ほくっ、まだ煮崩れてない！ 芯の強さで耐えるよ！"
+      "Still firm in the middle! I can take this!"
     ],
     "defeat": "きみの集中、ほっくり温かいね！"
   },
@@ -4306,16 +4306,16 @@
     "name": "翼船のマストウィング",
     "entrance": "帆を張れ。集中の風を受けて進め。",
     "battle": [
-      "翼帆を反転。衝突回避と反撃を同時実行シマス。",
-      "船首の装甲で受けマス。乗客はワタシ一名デス。",
+      "Sail wings reversed. Dodging and returning fire.",
+      "Flight continuing. Please stand clear of the anchor feet.",
       "高度を変更。足元を狙うのは難しいデショウ。"
     ],
     "aside": [
       "飛行機か船かで、税関の窓口を三周しマシタ。",
-      "Cabin crew: me. Cargo: also me."
+      "Plane or ship? Customs sent me around three times."
     ],
     "pressure": [
-      "飛行継続。予備の勇気は、手荷物に収納してイマス。"
+      "Spare courage stored in the carry-on. Still flying."
     ],
     "defeat": "見事な答えだ。次の港へ進もう。"
   },
@@ -4323,16 +4323,16 @@
     "name": "パチパチそろばん兵",
     "entrance": "パチパチ！　数えてたら、目まで動いた！",
     "battle": [
-      "ぱちぱち防ぐ！ 君の一撃、帳簿につけとくよ！",
-      "珠を弾いて反撃！ 暗算より速い実技だ！",
+      "Click-click! That hit is going in the accounts!",
+      "One move left? Let's check the numbers!",
       "枠を固めて受ける。桁違いでも慌てない！"
     ],
     "aside": [
-      "昇給の計算は速いのに、決裁だけ来月になるんだ。",
+      "I can count my raise faster than they can pay it.",
       "電卓の友達ができた。話の途中でよく桁が増える。"
     ],
     "pressure": [
-      "残りわずか、端数じゃない！ まだ一発分の計算はある！"
+      "Not just loose change! I've budgeted one more hit!"
     ],
     "defeat": "きみの正解、しっかり数えたぞ！"
   },
@@ -4340,16 +4340,16 @@
     "name": "赤花のサラマンダリア",
     "entrance": "花のように、鮮やかに答えて。",
     "battle": [
-      "赤い花で威嚇！ 可愛いからって触らないで！",
-      "尾を返してぱっ！ 火花も花びらも飛ぶわよ！",
+      "Red petals up! Look, don't touch!",
+      "A pretty dragon. A very hot temper. Careful!",
       "低く伏せてかわす。花壇には慣れてるの！"
     ],
     "aside": [
       "水やり当番が、毎回消火器を持ってくるのよね。",
-      "Hot bloom, cool moves."
+      "I asked for water. They brought a fire truck."
     ],
     "pressure": [
-      "まだ咲けるわ！ 灰になる前に、君をびっくりさせる！"
+      "Still blooming! You'll be surprised before I turn to ash!"
     ],
     "defeat": "美しく決まったね。おみごと。"
   },
@@ -4357,16 +4357,16 @@
     "name": "コルク鼻の船酔い船長",
     "entrance": "船長なのに、船に酔うとは聞いてないぞ！",
     "battle": [
-      "うっぷ、船体…じゃなくて腹で受けるぞ。",
-      "舵を切って反撃！ 地面なら吐くほど強いんだ。",
+      "Ugh... That's my belly, not the ship.",
+      "Stop the waves! I'm trying to look brave!",
       "鼻のコルクは抜くな。栓の用途が少し複雑でな。"
     ],
     "aside": [
-      "陸酔いだと言ったら、では職場はどこかと聞かれた。",
+      "Captain's log. \"It rocked.\" Again.",
       "航海日誌の半分が『今日は揺れた』で埋まっとる。"
     ],
     "pressure": [
-      "うっぷ…まだ沈まん。顔色だけ先に海へ行った。"
+      "Still afloat. The green face is a separate issue."
     ],
     "defeat": "きみの正解で、少し落ち着いた！"
   },
@@ -4374,16 +4374,16 @@
     "name": "雪結晶のシロクジャク",
     "entrance": "雪の結晶のように、ていねいに進めて。",
     "battle": [
-      "結晶の羽で受けます。欠片まで鋭いですわよ。",
-      "白く舞ってかわしましょう。雪景色に目を慣らして。",
+      "Crystal wings. Even the little pieces are sharp.",
+      "A cold shoulder? I'm cold everywhere, dear.",
       "尾羽を開きます。冬の扇を抜けられますか。"
     ],
     "aside": [
-      "尾を広げた写真が、雪の予報図に使われましたの。",
+      "My portrait became the weather forecast. Snow, naturally.",
       "冷房の席を譲られました。わたくし、発生源ですけれど。"
     ],
     "pressure": [
-      "最後の雪片まで散らしません。まだ冬は続きますわ。"
+      "Last snowflake. Winter isn't leaving just yet."
     ],
     "defeat": "澄んだ答えを、ありがとう。"
   },
@@ -4391,16 +4391,16 @@
     "name": "トゲ缶詰のカンパンク",
     "entrance": "とがった心で、いざ勝負！",
     "battle": [
-      "カンッと受ける！ へこみは勲章の追加だ！",
-      "トゲの拳を返す！ 缶切りより危ねえぜ！",
+      "Clang! A dent is just another badge!",
+      "Spikes out! No quiet little storage box here!",
       "ふたを閉じて突っ込む！ 中身は企業秘密だ！"
     ],
     "aside": [
       "非常食にしてはうるさいって、倉庫から出された。",
-      "Best before? Better after battle."
+      "Best before? Better after a good fight!"
     ],
     "pressure": [
-      "賞味期限じゃねえ！ まだオレの出番は終わってねえ！"
+      "Not expired! My turn isn't over!"
     ],
     "defeat": "きみの答えは、まっすぐ刺さった！"
   },
@@ -4408,16 +4408,16 @@
     "name": "金糸の糸操り人形",
     "entrance": "糸をたどるように、答えをつないで。",
     "battle": [
-      "金糸を引いて避けるわ。上の人も忙しいの。",
-      "くるりと一撃。踊りの続きだと思った？",
+      "Gold strings pull. Someone upstairs is busy too.",
+      "One careful step. I'm choosing where it goes.",
       "糸を重ねて守る。細さだけで決めないでね。"
     ],
     "aside": [
       "操り人形会議で『自主性を』と言われた。まず糸を見てほしい。",
-      "My strings, my schedule. Mostly."
+      "Independence workshop? First, look at the strings."
     ],
     "pressure": [
-      "まだ一本つながってる。最後の一歩は、わたしが選ぶわ。"
+      "One string left. The last step is my choice."
     ],
     "defeat": "美しい動きの答えでした。"
   },
@@ -4425,19 +4425,19 @@
     "name": "空中庭園主フローリオン",
     "entrance": "心の庭に、答えの花を咲かせよ。",
     "battle": [
-      "蔓よ、守れ。君の踏み込みを庭の外へ返す。",
-      "根の拳を上げる。静かな庭にも力はある。",
+      "Vines up. The garden isn't giving way.",
+      "A steady step. Mind where the roots are.",
       "葉の鎧で受けよう。落ちた葉は次の土になる。",
-      "枝を伸ばして攻める。避けるなら、空の広さを使いたまえ。",
+      "I tend the garden. I can defend it too.",
       "庭園の壁を重ねる。生け垣は見た目よりしぶとい。"
     ],
     "aside": [
-      "空中庭園の草むしりは、命綱の点検から始まるのだ。",
+      "Weeding in the sky. Check the safety rope first.",
       "庭の会議は根回しが長い。文字どおり全員、根がある。",
-      "Grow with care. Prune with courage."
+      "We got to the root of the problem. Everyone had roots."
     ],
     "pressure": [
-      "枯れるにはまだ早い。ここから新しい芽を出そう。",
+      "Too early to wither. New shoots can start here.",
       "最後の一根まで立つ。ここを荒れ地にはさせぬ！"
     ],
     "defeat": "見事。きみの集中が実を結んだ。"
@@ -4446,19 +4446,19 @@
     "name": "七色竜プリズミア",
     "entrance": "七色の道を、答えでつないでみせよ。",
     "battle": [
-      "七色の翼で受ける！ 苦手な色なんてないわ！",
-      "虹の爪で返すよ。どの色から来るか見抜いて！",
+      "Seven colors ready! None of them are weak!",
+      "Prism wings open. Pick a color to follow!",
       "光を折ってかわす。あたしはそこにいた、過去形よ！",
-      "プリズムの咆哮！ 光にも迫力はあるのよ！",
+      "I've got another side to show you. It's colorful!",
       "七重の光壁。きれいって、通行許可じゃないから！"
     ],
     "aside": [
-      "色を一つに絞ってと言われたの。性格まで単色にする気？",
+      "I ordered camouflage. It stood out everywhere.",
       "迷彩服を頼んだら、どこでも目立つ服が届いたわ。",
-      "All colors. No boring battles."
+      "One color? Are you trying to edit my personality?"
     ],
     "pressure": [
-      "六色になっても強いの！ 最後の白まで使い切る！",
+      "Six colors left? I'll fight right down to white!",
       "最後の色で描くわ！ あたしの勝負は、まだ無色じゃない！"
     ],
     "defeat": "美しく強い集中だった。おみごと。"
@@ -4467,19 +4467,19 @@
     "name": "月鎧王ノクタリス",
     "entrance": "月の静けさの中で、集中を示せ。",
     "battle": [
-      "月鎧を閉ざす。君の刃は夜明けを待て。",
-      "黒き剣を返す。静寂にも重さはあるぞ。",
+      "Moon armor closed. Your blade can wait till dawn.",
+      "Night guard ready. I will not look away.",
       "盾を据える。我が影より先へは進ません。",
-      "月影の踏み込み。光が届かぬ場所から挑もう。",
+      "One last night to guard. Come forward.",
       "王の盾は退かぬ。傷もまた夜の模様となる。"
     ],
     "aside": [
-      "夜の王にも朝の会議がある。王国とは理不尽なものだ。",
+      "Polished armor. Complaints from the stealth team. Again.",
       "鎧を磨いたら月光が反射した。隠密部隊から苦情が来た。",
-      "Night shift. Eternal contract."
+      "King of the night. Still invited to morning meetings."
     ],
     "pressure": [
-      "月が欠けても鎧は残る。最後の夜を守り抜く。",
+      "The moon may fade. The armor still holds.",
       "夜明けまで立つ。たとえ王冠だけが、最後に残ろうとも！"
     ],
     "defeat": "見事。きみの道を王として認める。"
@@ -4488,19 +4488,19 @@
     "name": "巨大プリン王プルモンド",
     "entrance": "王なのに、歩くたびにぷるんぷるんじゃ！",
     "battle": [
-      "王の腹で受けるぷる！ 反動にもひれ伏すがよい！",
-      "スプーンの王笏だ！ 自分に向けると少し怖い！",
+      "Royal belly guard! Bow to the wobble!",
+      "Tiny spoon ready! The custard means business!",
       "カラメルの盾！ ほろ苦い防御を味わえ！",
-      "大王ぷるぷる震撃！ 皿まで揺らしてやろう！",
+      "Hold the crown! The caramel is not helping!",
       "赤いマントで防ぐ！ デザートの包装ではないぞ！"
     ],
     "aside": [
-      "王の体重は国家機密。冷蔵庫の棚だけが知っておる。",
+      "\"One more pudding!\" Are the people cheering or ordering?",
       "国民の声を聞いたら『もう一個食べたい』だった。余の話か？",
-      "Keep calm and fear the custard."
+      "Royal weight? The fridge shelf knows."
     ],
     "pressure": [
-      "ぷるる、まだ固まっておる！ 王の威厳は別腹だ！",
+      "Still set! I've got room for one more fight!",
       "底のカラメルまで王である！ 最後のひとすくい、勝負だ！"
     ],
     "defeat": "参った！　きみの集中は揺れなかった！"
@@ -4509,16 +4509,16 @@
     "name": "ぷちぷち梱包おばけ",
     "entrance": "ぷちっ！　あれ、ほっぺがへこんだ！",
     "battle": [
-      "ぷちっと受ける！ 今の音、残機じゃないよ！",
-      "空気の拳で返す！ 中身はないけど気合いはある！",
+      "Pop! That was a bubble, not my last life!",
+      "Air punch! Empty inside, but full of fight!",
       "折り重ねて守る！ 開封には早いよ！"
     ],
     "aside": [
       "取扱注意の札を貼ったら、誰も抱っこしてくれなくなった。",
-      "Bubble wrap. Emotional support armor."
+      "Handle with care. Hugs are still welcome."
     ],
     "pressure": [
-      "ぷち…まだ一粒！ 最後の空気まで使うんだ！"
+      "One bubble left. I'll make it count!"
     ],
     "defeat": "きみの正解、ぷちっと決まったね！"
   },
@@ -4526,16 +4526,16 @@
     "name": "みかん皮のベレー帽",
     "entrance": "帽子を直したら、始めようね。",
     "battle": [
-      "皮をくるんと返す！ 頭の香りも一緒にね！",
-      "葉っぱの袖で受ける。むくなら自分のみかんにして！",
+      "A stylish turn! Did you catch that orange scent?",
+      "Peel your own orange. This one's my hat!",
       "帽子を深くして回避！ 見えないのはあたしのほう！"
     ],
     "aside": [
-      "冬のおしゃれ会で、全員があたしの帽子をむいてたの。",
+      "Designer hat. Sold by the bag. Honestly!",
       "ベレー帽の値札に『一袋』って。個性派なのに！"
     ],
     "pressure": [
-      "皮一枚でも粘るわ！ 最後まで、甘く見ないでね！"
+      "Just one peel left. Still dressed to impress!"
     ],
     "defeat": "じょうず！　みかんの拍手だよ。"
   },
@@ -4543,16 +4543,16 @@
     "name": "ねこ舌ティーカップ",
     "entrance": "あちち！　ねこ舌なのに、お茶係！",
     "battle": [
-      "取っ手で受ける！ 本体はまだ熱いんだ！",
-      "あちっ、舌で返す！ 攻撃より紅茶が強敵だよ！",
+      "Handle first! The rest of me is still too hot!",
+      "Ow! The tea's putting up more of a fight than you!",
       "受け皿の足でよける！ 溢れる前に急ぐぞ！"
     ],
     "aside": [
       "カップなのに冷まして飲む。仕事と体質が合ってないんだ。",
-      "Hot tea. Cold regret."
+      "Born to serve tea. Forced to wait for it to cool."
     ],
     "pressure": [
-      "残り一口！ でも、もう少し冷めるまで戦おう！"
+      "One sip left. Let's fight while it cools."
     ],
     "defeat": "きみの答えは、ちょうどいい温度だね！"
   },
@@ -4560,16 +4560,16 @@
     "name": "すやすや綿ぼうし",
     "entrance": "すやすや……夢の中でも、一問だけ。",
     "battle": [
-      "すぅ…綿で受けるよ。夢の中でも守ってる。",
-      "まるっところがる。寝返りって言わないで。",
+      "Soft guard. I've practiced this in my sleep.",
+      "Rolling over. It's a move, not a nap.",
       "ぼんぼんでぽん。やさしそうでも、本気だよ。"
     ],
     "aside": [
-      "夢で走りすぎて、起きたら昼寝が必要だった。",
+      "I ran in my dream. Woke up needing a nap.",
       "帽子を脱いだら誰だかわからないって。ぼくもそう。"
     ],
     "pressure": [
-      "すぅ、まだ寝てない。薄目の分だけ戦ってるよ。"
+      "Eyes half open. That's still open, right?"
     ],
     "defeat": "いい答え……むにゃ、覚えたよ。"
   },
@@ -4577,16 +4577,16 @@
     "name": "フリルえらのウーパー",
     "entrance": "ゆっくり、言葉をほどいてね。",
     "battle": [
-      "フリルで受けるうぱ！ ここ、呼吸もしてるからね！",
-      "しっぽでぱしっ！ 飾りだけの体じゃないの！",
+      "Frills up! Please mind the breathing equipment!",
+      "Tail slap! There's more to me than cute frills!",
       "水を蹴ってかわす。水槽より広くて助かるわ！"
     ],
     "aside": [
       "フリルを増やしたいって相談したら、酸素を勧められた。",
-      "Cute gills. Serious skills."
+      "I asked for more frills. They offered more oxygen."
     ],
     "pressure": [
-      "うぱっ、まだ泳げる！ えらの角度は勝ち気なままよ！"
+      "Still swimming! My gills haven't given up either!"
     ],
     "defeat": "澄んだ答え、届いたよ。"
   },
@@ -4594,16 +4594,16 @@
     "name": "むずむず洗濯ブラシ",
     "entrance": "むずむず！　自分の毛がくすぐったい！",
     "battle": [
-      "毛先で受ける！ くすぐるなよ、手元が狂う！",
-      "ごしごし反撃！ 笑ってるけど本気だぞ！",
+      "Bristles ready! Hey, no tickling during battle!",
+      "Ha-ha! I'm laughing, but I mean business!",
       "長ぐつで踏ん張る！ 床の泡はおれのせい！"
     ],
     "aside": [
-      "汚れ落ちの試験で、笑い声だけ先に基準を越えた。",
+      "Cleaning test. The stains stayed. My laugh passed.",
       "『腹を割って話せ』って。まず腹をこするのをやめて！"
     ],
     "pressure": [
-      "へくく、まだ笑える！ まだ洗い流されてない！"
+      "Still laughing! You haven't washed me away yet!"
     ],
     "defeat": "正解で、笑いが止まらないぞ！"
   },
@@ -4611,16 +4611,16 @@
     "name": "光るつぼみのルーチェ",
     "entrance": "つぼみを開くように、一つずつ。",
     "battle": [
-      "花びらを閉じて受けます。中まで触れないで。",
-      "光をひと筋返すね。小さくても、よく届くの。",
+      "Petals closed. Some things are worth protecting.",
+      "A little light. It reaches farther than you'd think.",
       "葉の陰へかわす。光は少し残しておくわ。"
     ],
     "aside": [
-      "夜に本を読もうとしたら、近所の虫が読書会を始めたの。",
+      "I read by my own light. The moths joined in.",
       "開花の予定は非公開よ。自分でも、まだ知らないから。"
     ],
     "pressure": [
-      "まだ光るわ。咲く前に終わる気はないの。"
+      "Still glowing. I intend to bloom before this is over."
     ],
     "defeat": "きみの集中で、心が咲いたよ。"
   },
@@ -4628,16 +4628,16 @@
     "name": "おしゃれ巻き貝コロナ",
     "entrance": "おしゃれも勉強も、一歩ずつね。",
     "battle": [
-      "殻の肩で受けますわ。傷も柄にできるかしら。",
-      "ころりと向きを変えます。玄関は見せませんわよ。",
+      "A scratch? Perhaps I can call it a pattern.",
+      "A graceful turn. Kindly use the other entrance.",
       "触角で間合いを測るの。視線もおしゃれの一部ですわ。"
     ],
     "aside": [
       "衣装持ちと言われますが、毎日同じ家を着ていますの。",
-      "Shell couture. Very limited edition."
+      "One home. Worn daily. Never out of fashion."
     ],
     "pressure": [
-      "殻は脱ぎませんわ。最後まで、この一着で勝負です。"
+      "Still in my shell. I'm seeing this through in style."
     ],
     "defeat": "その答え、よく似合ってるよ。"
   },
@@ -4645,16 +4645,16 @@
     "name": "カラメルひげの執事",
     "entrance": "落ち着いた答えを、お待ちしております。",
     "battle": [
-      "ひげを整え、反撃いたします。礼儀は省略しません。",
-      "琥珀の袖で受けましょう。甘い対応はここまでです。",
+      "Mustache neat. Your counterattack is being prepared.",
+      "A sweet welcome. A rather firm goodbye.",
       "一歩退いてかわします。お客様にも距離は必要ですので。"
     ],
     "aside": [
-      "お茶に砂糖をと言われましたが、私のひげは備品ではございません。",
+      "Sugar for your tea? My mustache is not on the menu.",
       "ご主人様の『すぐ戻る』は、カラメルより長く糸を引きます。"
     ],
     "pressure": [
-      "少々ほろ苦くなりました。最後のお相手、務めさせていただきます。"
+      "A little bitter now. Still at your service."
     ],
     "defeat": "見事なお答えでございました。"
   },
@@ -4662,16 +4662,16 @@
     "name": "まっ赤なほっぺの赤かぶ",
     "entrance": "ほっぺは赤いけど、準備できたよ。",
     "battle": [
-      "ほっぺで受ける！ 赤いのは元からだよ！",
-      "葉っぱパンチ！ 照れてるからって逃げないぞ！",
+      "Red cheeks up! They were this color before you hit me!",
+      "Leaf punch! Shy doesn't mean I'm running away!",
       "根っこを踏ん張る！ 畑じゃなくても立てるんだ！"
     ],
     "aside": [
-      "嘘をつくと赤くなるって？ ぼく、その検査ずるいと思う。",
+      "Blushing means lying? That's hardly fair to a red turnip.",
       "赤い顔で健康診断に行ったら、入口から案内が速かった。"
     ],
     "pressure": [
-      "ぽっ、まだ頑張る！ もっと赤くは、なれないけど！"
+      "I'll keep trying. I can't get any redder anyway!"
     ],
     "defeat": "できたね！　もっと赤くなっちゃった。"
   },
@@ -4679,16 +4679,16 @@
     "name": "郵便切手のパタパタ蝶",
     "entrance": "小さな言葉を、遠くへ届けよう。",
     "battle": [
-      "ぱたっと避ける！ 配達先はそっちじゃないよ！",
-      "切手の翼で受ける。消印はまだ押さないでね！",
+      "Wrong address! Try catching me on the next street!",
+      "Stamp wings ready. No cancellation mark just yet!",
       "ひと羽で返すわ。速達扱いの一撃よ！"
     ],
     "aside": [
-      "宛名がないと飛べない気がするの。職業病かしら。",
+      "I carried the envelope. Nobody weighed the butterfly.",
       "封筒に貼られて飛んだら、荷物のほうが重かったわ。"
     ],
     "pressure": [
-      "まだ未配達よ！ 最後の一通まで飛び切るわ！"
+      "Delivery pending. I'll finish my route!"
     ],
     "defeat": "きみの答え、ちゃんと届いたよ。"
   },
@@ -4696,16 +4696,16 @@
     "name": "おどけるまつぼっくり",
     "entrance": "笑いすぎて、うろこが逆立ったぞ！",
     "battle": [
-      "かさで受ける！ ここは傘じゃなくて体だけど！",
-      "くるっと跳ねて返す！ ぼっくりする準備しといて！",
+      "Pinecone shield! Sorry, no rain cover included!",
+      "Here comes the punch line! And an actual punch!",
       "松葉の足でよける！ 針葉樹の身軽さだ！"
     ],
     "aside": [
-      "落とし物の窓口で『木からですか』って。だいたいそう。",
+      "Lost property? Yes, I fell from a tree.",
       "自己紹介で滑ったら、松ぼっくりなので転がっただけと言い張る。"
     ],
     "pressure": [
-      "まだ実は残ってる！ 最後のぼっくり、見せるぞ！"
+      "One last joke! I hope you're still paying attention!"
     ],
     "defeat": "おみごと！　まつぼっくり拍手！"
   },
@@ -4713,16 +4713,16 @@
     "name": "ラムネ玉のチリン",
     "entrance": "ころん、ちりん。ひとつ答えてみよう。",
     "battle": [
-      "ちりんと受ける！ 透明でも消えたわけじゃない！",
-      "ころりと反撃！ びんの中より動けるぞ！",
+      "Clear glass. Still here. You haven't lost me yet!",
+      "Rolling free! Finally, room to pick up speed!",
       "丸い光で目をくらます。どこが前か、当ててみて！"
     ],
     "aside": [
       "びんから出たら自由だった。帰る入口はどこだろう。",
-      "Pop the cap. Not my hopes."
+      "Out of the bottle! How do I get back in?"
     ],
     "pressure": [
-      "ちりん、まだ鳴る！ 最後の一転がりまで響かせる！"
+      "Hear that ring? I've got another roll in me!"
     ],
     "defeat": "きみの答え、いい音がしたよ。"
   },
@@ -4730,16 +4730,16 @@
     "name": "しましまエプロンばく",
     "entrance": "鼻がポケットに！　取り出すのを忘れた！",
     "battle": [
-      "しましまの腹で受けよう。料理前に運動だね。",
-      "長い鼻でひょいと返す。味見の手つきとは違うよ。",
+      "Apron guard. A little exercise before dinner.",
+      "Trunk ready. This isn't a taste test.",
       "一歩よけるよ。エプロンの端は踏まないでね。"
     ],
     "aside": [
-      "悪夢の食べ放題に行ったら、夢の中なので無料券が使えなかった。",
+      "I ate a dream about dinner. Twice as full now.",
       "夕食を食べた夢を食べると、二重に満腹になるんだ。"
     ],
     "pressure": [
-      "まだ立てるよ。お腹の余裕と体力は別腹だから。"
+      "Still standing. I've saved some room for a comeback."
     ],
     "defeat": "きみの答えは、すっと出てきたね！"
   },
@@ -4747,16 +4747,16 @@
     "name": "金魚ちょうちんのヒラリ",
     "entrance": "やわらかな灯りで、言葉を照らそう。",
     "battle": [
-      "ひらりとかわす！ 尾の灯りまで追えるかしら？",
-      "ちょうちんの骨で受ける。紙よりしなやかよ。",
+      "Follow the tail light! If you can keep up!",
+      "Lantern ribs ready. The paper gets all the credit.",
       "赤い尾でひと押し。屋台の列は譲るけどね。"
     ],
     "aside": [
-      "金魚すくいの横を通ると、仕事の方向がわからなくなるの。",
+      "Lost-child duty at the festival. That's what I get for glowing.",
       "夜祭りで迷子係になったわ。目立つって忙しいのね。"
     ],
     "pressure": [
-      "灯はまだ点いてる！ お祭りも勝負も、ここからよ！"
+      "Light still on! The festival isn't over yet!"
     ],
     "defeat": "明るい答えを、ありがとう。"
   },
@@ -4764,16 +4764,16 @@
     "name": "きょとん豆腐キューブ",
     "entrance": "えっと……四角くても、考えてるよ。",
     "battle": [
-      "ほぇ、角で受けるの？ 角あると強いのかな。",
-      "ぷるんと返すよ。やわらかくても、ぶつかるよ。",
+      "Corners ready. Are corners supposed to be strong?",
+      "Soft little bounce. I can still bump into you.",
       "小さい足で逃げる。お皿の端よりは広いね。"
     ],
     "aside": [
       "『頭を柔らかく』って。これ以上だと形がなくなるよ。",
-      "Tofu confused. Still committed."
+      "Think outside the box? But I'm the box shape."
     ],
     "pressure": [
-      "ぼく、まだ四角？ なら、もうちょっと頑張れる！"
+      "Still a cube? Then I can keep going."
     ],
     "defeat": "なるほど！　角までわかったよ。"
   },
@@ -4781,16 +4781,16 @@
     "name": "ぺらぺらレタスくん",
     "entrance": "ぺらぺらだけど、気持ちは分厚いぞ！",
     "battle": [
-      "ぺらっとかわす！ 薄さだって取り柄だよ！",
-      "葉を重ねて受ける！ 話と一緒に厚みも増すぞ！",
+      "Leaf dodge! Being thin has its advantages!",
+      "More layers! My stories aren't the only things piling up!",
       "緑の袖で一打！ 口ばっかりとは言わせない！"
     ],
     "aside": [
-      "口が軽いって？ 体の重さで判断されたくないな。",
+      "Meeting minutes. Mine came with extra chapters.",
       "会議の議事録より、ぼくのほうがページ数が多い。"
     ],
     "pressure": [
-      "葉が一枚でも喋れる！ いや、戦えるって言うつもりだった！"
+      "One leaf left! Plenty to say... I mean, fight with!"
     ],
     "defeat": "きみの答えには、折りたためない力がある！"
   },
@@ -4798,16 +4798,16 @@
     "name": "銀のしずくミズスマシ",
     "entrance": "水面を切るように、迷わず進め。",
     "battle": [
-      "すいっと旋回。水面の隙を通らせてもらう。",
-      "銀の脚で止める。細さと速さは両立する。",
+      "Quick turn. I'll take the gap between the ripples.",
+      "Silver legs. Speed and strength can work together.",
       "波紋を追って返す。君が動けば、私はわかる。"
     ],
     "aside": [
       "水の上で立ち話をしたら、波の情報が渋滞した。",
-      "Silver feet. No wet socks."
+      "Waterproof shoes? I've never needed shoes at all."
     ],
     "pressure": [
-      "沈む前に返す。最後の波紋まで、走り抜こう。"
+      "One last ripple. I'll reach it before I sink."
     ],
     "defeat": "切れのある答えだ。見事。"
   },
@@ -4815,16 +4815,16 @@
     "name": "ピンポン花のポンリリ",
     "entrance": "ぽんっ！　答えを受け止めるよ。",
     "battle": [
-      "ぽんっ！ 来た球…じゃないけど、打ち返す！",
-      "花びらラケットで受ける！ 芯に当てれば平気！",
+      "Return shot! That wasn't a ball, but never mind!",
+      "Petal racket ready! Aim for the center!",
       "左右に跳ぶよ！ 根っこがないって便利ね！"
     ],
     "aside": [
-      "ピンポンダッシュはしないよ。花壇で往復はするけど！",
+      "Applause makes me serve. The flower show was confusing.",
       "お花見の拍手を聞くと、ついサーブしちゃうの。"
     ],
     "pressure": [
-      "ぽん、まだゲームポイントじゃない！ 花は折れてないもん！"
+      "Not match point yet! These petals have more to give!"
     ],
     "defeat": "いい球だね！　正解の花が咲いた！"
   },
@@ -4832,19 +4832,19 @@
     "name": "ぽんぽこ綿入れ大将",
     "entrance": "大将だぞ！　ただし、布団が重くて動けん！",
     "battle": [
-      "ぽんぽこ腹で受ける！ 綿が減っても気合いは増す！",
-      "大将の一押しじゃ！ 柔らかいからと油断するでない！",
+      "Cotton guard! Less stuffing, more fighting spirit!",
+      "Soft coat. Hard-earned courage. Don't be fooled!",
       "綿の鎧を重ねるぞ。武士にも冬支度が必要じゃろう！",
-      "踏み込みの腹鼓！ 音だけで終わると思うたか！",
+      "Belly drum charge! The sound is only the beginning!",
       "寒風も攻撃も通さぬ！ この腹は砦じゃ！"
     ],
     "aside": [
-      "甲冑の軽量化を頼んだら、ただの半纏が届いたわい。",
+      "Lighter armor requested. They sent me a blanket.",
       "会議で腹を割って話せと。綿が出るので却下した。",
-      "Warm armor. Maximum tanuki."
+      "Winter armor. Soft on the outside. Stubborn underneath."
     ],
     "pressure": [
-      "ぽん、まだ太鼓は鳴る！ わしの退却合図ではないぞ！",
+      "Still drumming! That wasn't the signal to retreat!",
       "綿の最後の一房まで守る！ 大将は、へたれんぞ！"
     ],
     "defeat": "参った！　ふかふかの降参じゃ！"
@@ -4853,16 +4853,16 @@
     "name": "火山帽のマグマモグ",
     "entrance": "地底の熱にも負けぬ集中を見せよ。",
     "battle": [
-      "溶岩の拳で返す！ 土を掘るだけと思うなよ！",
-      "火山帽で受けるぞ。上は少し熱いからな！",
+      "Magma fist! I do more than dig holes!",
+      "Helmet guard! Careful, the top's a little warm!",
       "岩の爪で踏ん張る！ 地面はおれの専門だ！"
     ],
     "aside": [
-      "帽子を脱ぐ礼儀が難しい。噴火中は失礼させてもらう。",
+      "Hats off to you. Mine stays on during eruptions.",
       "地下勤務なのに、日焼けの相談をしているんだ。"
     ],
     "pressure": [
-      "もぐ…まだ火は残る！ 最後の岩まで押し返す！"
+      "Still some fire left! I'm digging in!"
     ],
     "defeat": "力強い答えだ。道を開こう。"
   },
@@ -4870,16 +4870,16 @@
     "name": "ドヤ顔チューブわさび",
     "entrance": "ドヤッ！　辛さより、顔が自慢だ！",
     "battle": [
-      "ツーンと一撃！ 少量でも存在感が違うだろ！",
-      "チューブを絞って回避！ 自分で出るのは難しい！",
+      "Tiny dose. Huge impression. That's wasabi for you!",
+      "Squeeze and dodge! Easier said than done!",
       "銀のキャップで受ける！ 中まで甘くねえぞ！"
     ],
     "aside": [
       "寿司の主役は誰かって会議、オレは呼ばれてないのに参加した。",
-      "Too hot? That's my signature."
+      "The sushi meeting needed a little more me."
     ],
     "pressure": [
-      "残りでも濃いぜ！ 最後に絞ったやつが一番強い！"
+      "Last squeeze! You won't forget this one!"
     ],
     "defeat": "くうっ！　きみの正解は、もっと効いた！"
   },
@@ -4887,16 +4887,16 @@
     "name": "風切りのキジフウセン",
     "entrance": "風を切る答えで、進んでこい。",
     "battle": [
-      "風切りの翼だ。君の構えごと、横を抜ける。",
-      "長い尾で返す。派手な羽にも仕事はある。",
+      "Cutting through! Your guard isn't part of my route.",
+      "Tail strike. Fancy feathers earn their keep too.",
       "風上へかわす。追い風待ちでは勝てないからな。"
     ],
     "aside": [
-      "風船と名前を間違えられ、紐を渡された。飛ぶ方向は俺が決める。",
+      "They handed me a balloon string. Wrong kind of flier.",
       "出勤が風次第？ いや、俺が風を切る側だ。"
     ],
     "pressure": [
-      "まだ羽は揃ってる。最後の風まで、使い切る！"
+      "Feathers in place. I'll use every bit of wind."
     ],
     "defeat": "まっすぐ届いた。よい集中だ。"
   },
@@ -4904,16 +4904,16 @@
     "name": "缶切り騎士カンカット",
     "entrance": "固い迷いも、切り開いてみせよ。",
     "battle": [
-      "刃を合わせて受ける。缶詰以外も侮らぬ。",
-      "回して斬る。少しずつでも、確実に進むぞ。",
+      "Blades ready. I take more than cans seriously.",
+      "Turn by turn. A clean cut takes patience.",
       "盾を据える。ふたは閉めたままで構わん。"
     ],
     "aside": [
       "騎士団の備蓄係にされた。剣の腕を見てほしかったのだが。",
-      "Open cans. Close arguments."
+      "Knight training completed. Assigned to the food cupboard."
     ],
     "pressure": [
-      "切り口は見えた！ 最後の一回転まで、手を緩めぬ！"
+      "The opening is there. One more turn!"
     ],
     "defeat": "鮮やかな答えだ。ふたを開こう。"
   },
@@ -4921,16 +4921,16 @@
     "name": "宝石かんざしの孔雀",
     "entrance": "言葉の宝石を、一つずつ磨いてね。",
     "battle": [
-      "かんざしの光で返します。見とれる時間はありませんわよ。",
-      "羽を重ねて受ける。一本たりとも雑には扱わせません。",
+      "Jewels ready. Admire them after the battle, please.",
+      "Feathers together. Every one deserves proper care.",
       "しゃなりと横へ。美しく避けるにも筋力が必要ですの。"
     ],
     "aside": [
-      "『持ち物は最小限で』と。では、わたくし本体は入りますか。",
+      "Travel light? Does my entire body count as luggage?",
       "宝石店の防犯ベルが、わたくしの入店で緊張しますの。"
     ],
     "pressure": [
-      "羽が乱れても視線は上に。最後まで、気品で立ちますわ。"
+      "Feathers ruffled. Chin still high."
     ],
     "defeat": "美しい集中、受け取りました。"
   },
@@ -4938,16 +4938,16 @@
     "name": "バネ鼻のジャックン",
     "entrance": "鼻がびよーん！　先に答えに着いちゃった！",
     "battle": [
-      "びよーん！ 鼻の間合い、予想より長いでしょ！",
-      "バネを縮めて受ける！ あとで全部返すよ！",
+      "Boing! My nose reaches farther than my plans!",
+      "Spring compressed! You'll get all that energy back!",
       "跳ねてかわす！ 鼻だけ置いていかないように！"
     ],
     "aside": [
-      "花粉の季節、鼻の伸び縮みで毎朝の距離感が変わる。",
+      "Long explanation. My nose reached the point first.",
       "説明が長いと、鼻のほうが先に結論へ着くんだ。"
     ],
     "pressure": [
-      "まだ縮める！ この後のびよんが、いちばん大きいぞ！"
+      "Still springy! Wait till you see the bounce!"
     ],
     "defeat": "正解！　鼻もまっすぐ戻ったよ！"
   },
@@ -4955,16 +4955,16 @@
     "name": "くしゃみ噴水フンスイオ",
     "entrance": "へっ……くしゅん！　噴水が逆流しちゃった！",
     "battle": [
-      "へっぷし！ 水の壁じゃ！ 眼鏡はないが前が見えん！",
-      "鉢の腹で受ける。中の水まで揺れるわい！",
+      "Achoo! Water wall! I can't see through it either!",
+      "Bowl guard! Even the water's feeling shaken!",
       "噴き上げて反撃じゃ！ 風向きだけは頼むぞ！"
     ],
     "aside": [
-      "『静かな広場』の看板の隣に置かれた。任命の間違いじゃ。",
+      "Quiet square. Loud fountain. Someone skipped the planning meeting.",
       "噴水の点検が来たら、鼻うがいを勧められた。"
     ],
     "pressure": [
-      "へっ…まだ水はある！ 最後のひとくしゃみ、いくぞ！"
+      "Water remaining! One last sneeze ought to do it!"
     ],
     "defeat": "きみの正解で、すっきりしたよ！"
   },
@@ -4972,16 +4972,16 @@
     "name": "群青の角獣インディガ",
     "entrance": "群青の角を越える答えを見せよ。",
     "battle": [
-      "群青の角で受ける。夜空ほど柔らかくはないぞ。",
-      "蹄の一拍で返そう。次の一歩まで見切れるか。",
+      "Indigo horn. Harder than the night sky looks.",
+      "One hoofbeat. Can you predict the next?",
       "首を引いてかわす。三日月の角を追うがよい。"
     ],
     "aside": [
-      "角の手入れを頼んだら、天文台を紹介された。",
+      "Horn care appointment. They referred me to an observatory.",
       "青ざめているのではない。これが通常の威厳だ。"
     ],
     "pressure": [
-      "夜は深まった。だからこそ、まだ私の時間だ。"
+      "Night is falling. My hour is far from over."
     ],
     "defeat": "見事な判断だ。きみを認める。"
   },
@@ -4989,16 +4989,16 @@
     "name": "ひょろひょろストロー剣士",
     "entrance": "細すぎて、風がこわい！　でも剣士だぞ！",
     "battle": [
-      "すっとかわす！ この細さ、当てにくいだろう！",
-      "曲がる関節で受ける！ 飲み口とは呼ぶなよ！",
+      "A narrow escape! Being this thin finally pays off!",
+      "Bendy joints! Don't confuse the swordsman with the straw!",
       "ストロー突き！ 中は空でも、覚悟は詰まってる！"
     ],
     "aside": [
       "健康診断で、先生がぼくをペン立てに戻しかけた。",
-      "No muscles. Lots of angles."
+      "Doctor's waiting room. Someone put me in the pen holder."
     ],
     "pressure": [
-      "折れ曲がってからが本領！ まだ飲み込まれはしない！"
+      "Bent, not beaten! I've still got a point to make!"
     ],
     "defeat": "参った！　きみの答えは折れなかった！"
   },
@@ -5006,16 +5006,16 @@
     "name": "こだまの水晶ヘラジカ",
     "entrance": "こだまのように、言葉を確かめよう。",
     "battle": [
-      "角の音で返す。ひと打ちに、森が応えるよ。",
-      "水晶の肩で受ける。響きは強さの証なんだ。",
+      "Antlers ringing. The forest has heard your move.",
+      "Crystal guard. A strong note, not a cry for help.",
       "一歩よけよう。残るこだまに惑わされないで。"
     ],
     "aside": [
-      "山で自己紹介したら、同姓同名が十頭いる気がした。",
+      "I voted once. The echoes made it unanimous.",
       "会議で賛成と言ったら、満場一致に数えられた。"
     ],
     "pressure": [
-      "欠けても鳴るよ。最後のひびき、君に届けよう。"
+      "Chipped crystal still rings. Listen to the last note."
     ],
     "defeat": "澄んだ答えが、響きました。"
   },
@@ -5023,16 +5023,16 @@
     "name": "おつまみ戦車ナッツン",
     "entrance": "おつまみ部隊、出発！　転がる方が速いぞ！",
     "battle": [
-      "殻の装甲で受ける！ 素手で割れると思うな！",
-      "ナッツ砲、ガリッと発射！ 塩は別売りだ！",
+      "Shell armor! Try cracking that with bare hands!",
+      "Nuts away! Salt sold separately!",
       "履帯で踏ん張れ！ おつまみにも地上戦はある！"
     ],
     "aside": [
-      "居酒屋の入口で歓迎された。敵か味方か、まだわからん。",
+      "Bar staff welcomed me. I'm not sure we're allies.",
       "空の皿を見せるな。戦友の不在を思い出す。"
     ],
     "pressure": [
-      "芯まで残ってる！ 最後の一粒も装填してやる！"
+      "Last nut loaded! This snack isn't finished!"
     ],
     "defeat": "ぱりっ！　きみの正解で降参だ！"
   },
@@ -5040,16 +5040,16 @@
     "name": "銀箔のケツァルルミオ",
     "entrance": "銀の羽で、言葉を運びましょう。",
     "battle": [
-      "銀の翼で受けるわ。薄さを弱さと取り違えないで。",
-      "長い尾で風を返す。後ろまでが、わたしの間合いよ。",
+      "Silver wings. Thin doesn't mean fragile.",
+      "Tail sweeping back. My reach doesn't end at my feet.",
       "ひらりと光へ逃げる。目が追うのはどちらかしら。"
     ],
     "aside": [
-      "料理に飾ってと頼まれたけれど、わたしは一羽分ありますよ。",
+      "Table decoration? I'm afraid I come in bird size.",
       "曇り空の日も輝くの。天気手当は、まだ出ないけれど。"
     ],
     "pressure": [
-      "銀は剥がれても飛べる。最後まで、翼はわたしのもの。"
+      "Some silver lost. These wings are still mine."
     ],
     "defeat": "輝く答え、ありがとうございました。"
   },
@@ -5057,16 +5057,16 @@
     "name": "しゃもじ拳法パタライス",
     "entrance": "しゃもじ拳法！　眉毛のご飯がじゃまだ！",
     "battle": [
-      "パタッと受け流す！ 飯粒ひとつ残さぬ守り！",
-      "しゃもじ掌底！ 炊きたての勢いを受けよ！",
+      "Rice paddle guard! Not one grain gets past!",
+      "Freshly cooked courage! Have another helping!",
       "米の足場で踏ん張る。粘りこそ修行の成果！"
     ],
     "aside": [
       "秘伝の巻物を開いたら、水加減しか書いてなかった。",
-      "Rice fist. Nice fist. どちらも拙者よ！"
+      "Secret scroll opened. Just the water-to-rice ratio."
     ],
     "pressure": [
-      "最後の一粒まで闘う！ しゃもじは倒して置かぬ！"
+      "Last grain! I'll stick with this fight!"
     ],
     "defeat": "強い答えだ！　おかわりしたくなった！"
   },
@@ -5074,16 +5074,16 @@
     "name": "紅玉甲虫ルベル",
     "entrance": "紅玉の鎧を越えてみせよ。",
     "battle": [
-      "紅い角で受ける。宝石の硬さを試すか。",
-      "甲殻を閉じて突進。光を見失うなよ。",
+      "Ruby horn. Test its strength if you must.",
+      "Armor closed. Keep track of the red flash.",
       "爪で地を押さえる。この一線は掘り返させない。"
     ],
     "aside": [
-      "標本箱への誘いは断る。まだ現役の勲章がほしい。",
+      "Display case? No. My fighting days aren't over.",
       "宝石鑑定士が、俺の勝敗より屈折率を気にしていた。"
     ],
     "pressure": [
-      "欠けた角も武器だ。最後の赤まで使い切る。"
+      "A chipped horn still cuts. Don't forget it."
     ],
     "defeat": "きみの集中は、宝石より固い。"
   },
@@ -5091,16 +5091,16 @@
     "name": "波紋の舞い手リプリア",
     "entrance": "流れるように、ひとつ答えてね。",
     "battle": [
-      "波紋の輪で受けるわ。外へ広がるほど、逃げにくいでしょ。",
-      "くるりと水を返す。客席まで濡れたらごめんなさいね。",
+      "Ripples spreading. The circle is getting wider.",
+      "A graceful turn. Apologies to the front row!",
       "流れる袖でかわす。つかんでも、水になるだけよ。"
     ],
     "aside": [
-      "舞台の床に『滑りやすい』の札。あたし、出演者なんだけど。",
+      "Wet-floor sign. Lovely. My stage has a warning label.",
       "衣装の洗濯？ 毎日、自分で一周しているわ。"
     ],
     "pressure": [
-      "まだ波は消えない。最後の一輪まで、踊り切るわ。"
+      "One ripple left. I'll dance it all the way out."
     ],
     "defeat": "なめらかな言葉、届きました。"
   },
@@ -5108,16 +5108,16 @@
     "name": "くねくね排水パイプ",
     "entrance": "くねっ！　出口がどっちか、忘れた！",
     "battle": [
-      "ぐにゃっとかわす！ 曲がり角は得意だぜ！",
-      "管の腹で受ける！ 詰まってるのは気合いだけ！",
+      "Another bend! Straight lines never suited me!",
+      "Pipe guard! Nothing but determination blocking this one!",
       "口から押し返すぞ！ 逆流注意の反撃だ！"
     ],
     "aside": [
       "話を流しすぎるなって。仕事のクセなんだよ。",
-      "Plumbing problem? I am the plumbing."
+      "Let it go? That's literally my job."
     ],
     "pressure": [
-      "まだ通ってる！ 勝ち筋まで詰まらせねえぞ！"
+      "Still flowing! I'm not letting this chance go down the drain!"
     ],
     "defeat": "きみの答えは、まっすぐ通ったぞ！"
   },
@@ -5125,16 +5125,16 @@
     "name": "ポップアートのラクガキ獣",
     "entrance": "なんだこの形！　ぼくも説明できない！",
     "battle": [
-      "バンッと色で受ける！ 痛い音まで描いちゃおう！",
-      "ギザギザの一撃！ まるい性格とは違うから！",
+      "Bang! I'll paint the sound effects myself!",
+      "Sharp angles! Smooth manners were never part of the design!",
       "枠の外へかわす！ 額縁で追い込むのは無理だよ！"
     ],
     "aside": [
       "消しゴム禁止の展示会で、ついに安心して眠れた。",
-      "Modern art? Modern bite!"
+      "No erasers allowed. Finally, an exhibition I can relax in."
     ],
     "pressure": [
-      "色が足りない？ なら、最後は線だけで暴れる！"
+      "Out of paint? I'll make a scene in pencil!"
     ],
     "defeat": "正解！　そこだけは、はっきりしてる！"
   },
@@ -5142,16 +5142,16 @@
     "name": "黒竹のサムライクロチク",
     "entrance": "黒竹の心で、静かに答えよ。",
     "battle": [
-      "黒竹の節で受ける。曲がれど、容易くは折れぬ。",
-      "抜き打ちの一閃。葉音の後では遅いぞ。",
+      "Bamboo guard. I bend without giving way.",
+      "One quiet draw. The leaves will tell you afterward.",
       "根を据えて返す。武士の足場はここにある。"
     ],
     "aside": [
-      "正座を続けたら、床から根が出てしまった。",
+      "Sat still for too long. The floor now has roots.",
       "竹を割った性格と呼ばれるが、本人は割れたくない。"
     ],
     "pressure": [
-      "節はまだ残る。ここから先は、意地の高さでござる。"
+      "Another joint remains. So does my resolve."
     ],
     "defeat": "ぶれぬ言葉だ。見事である。"
   },
@@ -5159,16 +5159,16 @@
     "name": "星くずを抱くラッコ",
     "entrance": "星をぎゅっと。答えも大切にね。",
     "battle": [
-      "星で受けるよ。割るのは貝だけにしたいな。",
-      "お腹からぽんっ！ ちっちゃい流星、届け！",
+      "Star shield! I'd rather stick to breaking shells.",
+      "Little shooting star! Sent straight from my belly!",
       "ころんとよける。抱っこしてる星は離さないよ。"
     ],
     "aside": [
       "貝を割ろうとして、星座の形をちょっと変えちゃった。",
-      "Shiny rock. Bigger problem."
+      "One shiny rock. My most important piece of luggage."
     ],
     "pressure": [
-      "きゅ、まだ浮くよ！ 星を置いては帰れないもん！"
+      "Still afloat! I'm not leaving my star behind!"
     ],
     "defeat": "できたね！　大事な星が増えたよ。"
   },
@@ -5176,19 +5176,19 @@
     "name": "砂帆の旅王デューン",
     "entrance": "砂の道でも、集中を失うな。",
     "battle": [
-      "砂の帆を張れ。君の攻勢を、風へ返す。",
-      "杖を据えて一打。砂上にも王の足跡は残る。",
+      "Sand sails raised. I'll turn your force toward the wind.",
+      "Staff planted. Even sand can hold a king's footprint.",
       "砂丘の陰へかわす。地図だけ見ても追えまい。",
-      "砂嵐の返し手！ 目を細めても見切れるか！",
+      "Sandstorm turn! A map won't help you follow this.",
       "帆を重ねて防ぐ。風に頼るだけの王ではないぞ。"
     ],
     "aside": [
-      "移動する王宮ゆえ、郵便物が三つの国を追ってきた。",
+      "Moving palace. Very poor Wi-Fi. Excellent view.",
       "旅費の精算で『砂漠横断一式』は認められなんだ。",
-      "No throne. Just dunes and deadlines."
+      "Royal route changed. The post is chasing me again."
     ],
     "pressure": [
-      "砂はまだ尽きぬ。余の歩みも、ここでは止めぬ。",
+      "Sand remaining. I haven't reached the end of my road.",
       "最後の砂粒まで進む！ 地平線が、余の退路ではない！"
     ],
     "defeat": "よく越えた。きみの道を祝おう。"
@@ -5197,19 +5197,19 @@
     "name": "七宝女王エナメリス",
     "entrance": "七つの彩りで、言葉を磨きましょう。",
     "battle": [
-      "七宝の盾を開きます。色の違いは、守りの違いですわ。",
-      "王笏でお返し。飾り物だけの女王ではなくてよ。",
+      "Enamel shield. Every color has a job to do.",
+      "A royal reply. This scepter isn't just for show.",
       "裾を返してかわします。宝石を踏ませるわけにはいきません。",
-      "色を重ねて一撃！ 目立つ戦いが、わたくしの礼儀です。",
+      "Colors combined! I do like making an entrance!",
       "七重の守りを崩せますか。組み合わせは、まだありますの。"
     ],
     "aside": [
-      "国費の会議で『もっと透明に』と。七宝は半透明では駄目かしら。",
+      "More transparency? Would a glass throne satisfy the committee?",
       "冠を選ぶだけで朝が終わるの。決断力とは別の問題よ。",
-      "Royal sparkle. Serious business."
+      "Morning lost to choosing a crown. A royal dilemma."
     ],
     "pressure": [
-      "一色欠けても気品は残る。最後まで、輝いてみせますわ。",
+      "One color missing. Plenty of grace remaining.",
       "最後の宝珠まで私の覚悟。曇らせはいたしませんわ！"
     ],
     "defeat": "美しい答えを、称えます。"
@@ -5218,19 +5218,19 @@
     "name": "雷槍将ライガル",
     "entrance": "雷より鋭い答えを見せよ。",
     "battle": [
-      "雷槍、前へ！ ためらう暇は放電しておけ！",
-      "鋼の肩で受ける。雷鳴ほどの覚悟で来い！",
+      "Thunder lance forward! Save the hesitation for later!",
+      "Steel shoulder ready. Bring more than a loud voice!",
       "一歩で間合いを詰める。光より先に腕を動かせ！",
-      "轟け、雷の横薙ぎ！ 退く場所まで照らしてやる！",
+      "A sweeping strike! I'll light up your escape route!",
       "槍を立てて受け止める。天も地も、盾にしてみせる！"
     ],
     "aside": [
-      "部下が静電気除去の札を貼った。俺の士気まで抜けたぞ。",
+      "Static removed. Somehow, so was the mood.",
       "軍議で結論を急いだら、照明だけ先に落ちた。",
-      "High voltage. Low patience."
+      "High voltage. Patience running low."
     ],
     "pressure": [
-      "まだ槍は握れる。最後の雷を、ここへ集める！",
+      "Still gripping the lance. Bring me the last of the thunder!",
       "最後の一閃だ！ 雷将の名、弱い光で終わらせはせん！"
     ],
     "defeat": "見事な一撃だ。道をゆずろう。"
@@ -5239,19 +5239,19 @@
     "name": "湯けむり大王オンセンマ",
     "entrance": "大王じゃ！　まずは、百まで浸かるぞ！",
     "battle": [
-      "湯の壁じゃ！ のぼせる前に抜けてみよ！",
-      "桶の腹で受ける。板一枚にも年季がある！",
+      "Hot-water wall! Watch your toes, young one!",
+      "Tub guard! These old boards have seen a few battles!",
       "湯けむり返し！ 目隠しも温泉の効能じゃ！",
-      "桶ごと一押し！ 裸の王様とは、少し違うぞ！",
+      "The whole tub moves! Who said kings had to stand up?",
       "湯をかき混ぜて防ぐ！ 温度差を突かせはせん！"
     ],
     "aside": [
-      "王の巡回は長湯になりがちでな。臣下が先に上がりよる。",
+      "Royal budget approved. My shoulder massage was under \"maintenance.\"",
       "打たせ湯の予算が、わしの肩こり対策だと発覚した。",
-      "Hot springs. Cold royal judgment."
+      "Royal rounds. The servants got out of the bath first."
     ],
     "pressure": [
-      "まだぬるま湯ではない！ 最後まで、熱くいくぞ！",
+      "Still hot! I'm not ready to throw in the towel!",
       "最後の一滴まで沸かす！ わしの退場は、まだ湯上がりではない！"
     ],
     "defeat": "参った！　きみの答えで、のぼせたわい！"
@@ -5260,16 +5260,16 @@
     "name": "ぐるぐるシュレッダー",
     "entrance": "ぐるぐる！　あれ、ぼくの舌も細くなった！",
     "battle": [
-      "ガガガッ！ その攻撃、機密文書として処理シマス！",
-      "紙の帯で受けマス。裁断にも再利用は可能デス！",
+      "Grrr! That attack has been marked confidential!",
+      "Paper shield. Recycling is part of the defense plan.",
       "車輪を回して退避！ コードの長さが限界デス！"
     ],
     "aside": [
       "『資料は減らそう』という資料が百枚届きマシタ。",
-      "Paperless meeting. Printed in triplicate."
+      "Less paperwork requested. Instructions arrived in three copies."
     ],
     "pressure": [
-      "詰まっても止まりません！ これは勇気の過剰投入デス！"
+      "Not jammed! Just more courage than the slot can handle!"
     ],
     "defeat": "細切れに負けた！　きみの英語はまとまってるね！"
   },
@@ -5277,16 +5277,16 @@
     "name": "照れ屋のザクロ",
     "entrance": "こ、こんにちは。種まで見ないでね。",
     "battle": [
-      "皮を閉じて守るね。内心まで見えちゃうから。",
-      "粒をはじいて反撃！ 恥ずかしくても狙うよ！",
+      "Peel closed. My feelings aren't ready for daylight.",
+      "Seed shot! Being shy won't spoil my aim!",
       "葉っぱの後ろへかわす。小さいけど盾になるかな。"
     ],
     "aside": [
-      "『本音を見せて』って。もう、かなり見えてるんだけど。",
+      "Funny stories, please. But in small portions.",
       "笑うと中身がこぼれるから、面白い話は小分けにしてね。"
     ],
     "pressure": [
-      "まだ一粒あるよ。勇気まで落としたわけじゃないもん。"
+      "One seed left. I haven't dropped my courage."
     ],
     "defeat": "照れちゃうほど、じょうずだったね。"
   },
@@ -5294,16 +5294,16 @@
     "name": "ふかふかコッペパン犬",
     "entrance": "ふかふかの長い胴で、お相手します。",
     "battle": [
-      "わふっ、背中で受ける！ ふかふかは伊達じゃない！",
-      "短い足で突進！ 焼きたての速さだよ！",
+      "Fluffy back guard! This bread was built to bounce!",
+      "Tiny paws forward! Fresh from the oven and ready to run!",
       "ころんとよける！ ジャムはまだ塗らないで！"
     ],
     "aside": [
       "おすわりしたら、給食のお皿が用意された。",
-      "Good boy. Not good bread."
+      "I sat. They brought a lunch tray."
     ],
     "pressure": [
-      "わふ、まだ走れる！ 最後まで、つぶれずに頑張る！"
+      "Still running! No squashing this good boy!"
     ],
     "defeat": "焼きたてみたいな正解だったね！"
   },
@@ -5311,16 +5311,16 @@
     "name": "おめかし安全ピン",
     "entrance": "身だしなみを整えて、いきましょう。",
     "battle": [
-      "先を閉じて受けますわ。安全にも強さはあります。",
-      "すらりと一突き。リボンばかり見ていると危険ですわ。",
+      "Point secured. Safety can be quite strong.",
+      "A neat little thrust. Do look beyond the ribbon.",
       "細い足でかわしましょう。留め具は外しませんの。"
     ],
     "aside": [
-      "『安全なら刺さらないよね』と。名前に頼りすぎですわ。",
+      "Party invitation. Somehow, I became the repair service.",
       "パーティーでは全員の裾直し。わたくしも招待客ですのよ。"
     ],
     "pressure": [
-      "まだ閉じられます。最後まで、きちんと形を保ちますわ。"
+      "Still holding everything together. Including myself."
     ],
     "defeat": "その答え、きれいに留まりました。"
   },
@@ -5328,16 +5328,16 @@
     "name": "リーフスカートのタヌキ",
     "entrance": "葉っぱのスカート、くるっと回るよ。",
     "battle": [
-      "葉っぱをふわっと盾にするぽん！ 風向きはお願い！",
-      "しっぽを振って踏み込む！ 踊りと攻撃、兼用よ！",
+      "Leaf shield! A little cooperation from the wind, please!",
+      "Tail swing! One step does two jobs!",
       "腰をひねってかわす。拍手の代わりに攻撃は忙しいわね！"
     ],
     "aside": [
-      "変身でドレスを出したら、洗濯表示まで葉っぱだったの。",
+      "New dress by magic. Even the care label was a leaf.",
       "リーフスカートで秋を迎えるのは、ちょっと勇気が要るぽん。"
     ],
     "pressure": [
-      "ぽん、まだ踊れる！ 葉が散っても足取りは軽いわ！"
+      "Leaves falling. Feet still dancing!"
     ],
     "defeat": "くるっときれいに答えたね！"
   },
@@ -5345,16 +5345,16 @@
     "name": "カタカタしゃべる入れ歯",
     "entrance": "カタカタカタ！　しゃべりすぎて止まらない！",
     "battle": [
-      "かたかた、噛み合わせて防御じゃ！ 隙間を狙うなよ！",
-      "上下で挟んで返す！ 息は合わんが歯は合うぞ！",
+      "Teeth together! We agree on this much!",
+      "Upper and lower attack! Finally, we're on the same page!",
       "ばねで跳ねて回避！ 持ち主の都合は関係ないわい！"
     ],
     "aside": [
-      "わしらだけで外出したら、落とし物センターが騒ぎになった。",
+      "We went out alone. The lost-property office panicked.",
       "会議で歯に衣着せぬ発言をした。文字どおり裸じゃからな。"
     ],
     "pressure": [
-      "まだ噛めるぞ！ 最後まで、話にも食らいつくわい！"
+      "Still biting! We've got plenty to get our teeth into!"
     ],
     "defeat": "カタッ！　くやしいけど、よくできました！"
   },
@@ -5362,16 +5362,16 @@
     "name": "水晶かがやくハナムグリ",
     "entrance": "水晶の羽が、きみの答えを待っています。",
     "battle": [
-      "水晶の背で受けるわ。光の向きを読めるかしら。",
-      "花の間から一押し。小さな体にも重みはあるの。",
+      "Crystal back. Can you follow the changing light?",
+      "A little push. Small doesn't mean weightless.",
       "羽を開いてかわす。きらめきだけ、そこへ置くわね。"
     ],
     "aside": [
       "花に潜るのが好きなの。宝石箱より、香りがいいでしょう。",
-      "Crystal clear intentions. Slightly muddy feet."
+      "Clear intentions. A little soil between my toes."
     ],
     "pressure": [
-      "翅はまだ開くわ。最後の光まで、飛んでみせる。"
+      "Wings still open. I'll fly with the last of the light."
     ],
     "defeat": "水晶より澄んだ答えでした。"
   },
@@ -5379,16 +5379,16 @@
     "name": "もたもたオーブンミット",
     "entrance": "もたもた……手は大きいけど、足が短いんだ。",
     "battle": [
-      "もた…っと受ける！ 熱いときだけ反射が速いんだ！",
-      "綿の拳で返すよ。左右を間違えたけど！",
+      "Mitt guard! I'm quicker when something's actually hot!",
+      "Soft punch! Wrong hand. Still counts, doesn't it?",
       "親指を立ててかわす！ 成功の合図には早かった！"
     ],
     "aside": [
-      "料理教室で、装備される側なのに出席を取られた。",
+      "All thumbs. And somehow still short of hands.",
       "急いでと言われるほど、指が全部親指になった気がする。"
     ],
     "pressure": [
-      "まだ綿は厚い！ 手際は薄いけど、ここは耐える！"
+      "Thick padding. Thin chance of getting anything done quickly."
     ],
     "defeat": "きみの方が、ずっと手際よかったね。"
   },
@@ -5396,16 +5396,16 @@
     "name": "スフレぼうしのパティシエ",
     "entrance": "ふわっと焼き上げるのが、ぼくの仕事です。",
     "battle": [
-      "スフレ帽で受ける！ へこんだら、僕も困る！",
-      "泡立て器を振って返す。仕上げは少し大胆に！",
+      "Souffle guard! Please don't spoil the rise!",
+      "Whisk ready. Time for a bold finishing touch!",
       "足を引いてかわす。熱い天板で鍛えた勘さ。"
     ],
     "aside": [
-      "膨らむ帽子を褒められた。頭の中は膨らんでないのに。",
+      "Table for one? They said my hat needed three seats.",
       "帽子だけで満席です、とレストランに断られた。"
     ],
     "pressure": [
-      "まだしぼまない！ 最後に、最高の一手を盛りつける！"
+      "Still rising! I've saved my best move for last!"
     ],
     "defeat": "その英語、ふわっと上手に仕上がったね。"
   },
@@ -5413,16 +5413,16 @@
     "name": "青羽のティーカップ鳥",
     "entrance": "カップの羽で、ぱたぱたお出迎え！",
     "battle": [
-      "カップの胸で受けるちゅん！ 割れない高さで来てね！",
-      "青い羽でぱたん！ 一杯ぶんの反撃よ！",
+      "Cup guard! Strong enough. Probably. Please be gentle!",
+      "Blue-wing reply! One cup of trouble, coming up!",
       "取っ手をひねってよける。そこを持つのは許可制！"
     ],
     "aside": [
       "カフェでくつろいだら、あたしの席に角砂糖が運ばれた。",
-      "Bird tea. Not bird's tea. Wait…"
+      "Bird in a cafe. Someone brought sugar to my seat."
     ],
     "pressure": [
-      "ちゅん、まだ飛ぶよ！ おかわりの元気、残してあるもん！"
+      "Still flying! I've got enough spirit for a refill!"
     ],
     "defeat": "とってもすてきな答えで、胸いっぱい！"
   },
@@ -5430,16 +5430,16 @@
     "name": "あわてる回転いす",
     "entrance": "あわわ、回る、回る！　どっちが前だっけ！",
     "battle": [
-      "くるっと回避！ どっちが前か、俺にも聞くな！",
-      "肘掛けで受ける！ 座るにはまだ早い！",
+      "Spin dodge! Don't ask me which way I'm facing!",
+      "Armrests up! This isn't a sitting opportunity!",
       "車輪で返すぞ！ 机の下では敵なしだったんだ！"
     ],
     "aside": [
-      "責任を取って席を立てと言われた。席そのものなんだが。",
+      "They told me to leave my seat. I AM the seat.",
       "議論が堂々巡りになると、俺のせいにされる。"
     ],
     "pressure": [
-      "まだ脚は五本！ 一本ずつでも立て直すぞ！"
+      "Five legs left! Surely we can agree on a direction!"
     ],
     "defeat": "回らずに、まっすぐ正解したね！"
   },
@@ -5447,16 +5447,16 @@
     "name": "鈴蘭ベルのコビト",
     "entrance": "小さなベルを、ちりんと鳴らすよ。",
     "battle": [
-      "りん、帽子で受けるね。音が出ても平気だよ。",
-      "小さい手でぽん。鈴みたいに響くかな。",
+      "Bell guard. The ringing doesn't mean I'm hurt.",
+      "A small push. I wonder how far it'll ring.",
       "花の陰へ逃げる。背が低いのも役に立つね。"
     ],
     "aside": [
-      "こっそり歩く練習をしたら、帽子が全部報告した。",
+      "Stealth practice. My hat reported every step.",
       "鈴の電池はどこ、と聞かれた。ぼくも探しちゃった。"
     ],
     "pressure": [
-      "りん、まだ鳴るよ。最後のひと声まで、起きてる。"
+      "One last ring. I'm staying awake for it."
     ],
     "defeat": "ちりん。きれいな正解でした。"
   },
@@ -5464,16 +5464,16 @@
     "name": "こっそりスイートピー",
     "entrance": "こっそり応援しているよ。",
     "battle": [
-      "こっそり、横から返すわ。花の向きは囮なの。",
-      "蔓で受けるね。細いからってほどかないで。",
+      "Quietly, from the side. The flower was a distraction.",
+      "Vine guard. Thin things can hold on tightly.",
       "薄い花びらへ隠れる。見つけても大声はやめてね。"
     ],
     "aside": [
       "秘密を花に話したら、春になって全員咲いちゃった。",
-      "Sweet pea. Secret plan."
+      "I told the flowers a secret. Spring made it public."
     ],
     "pressure": [
-      "まだひそかに粘るわ。負けましたの声は、まだ用意してない。"
+      "Still holding on. No surrender speech prepared."
     ],
     "defeat": "その正解、こっそり自慢していいと思う。"
   },
@@ -5481,16 +5481,16 @@
     "name": "ぱたぱたティッシュ箱",
     "entrance": "ぱたぱた！　髪なのか羽なのか、ぼくにも分からない！",
     "battle": [
-      "ぱたぱたの壁！ 一枚ずつでも、たくさんある！",
-      "箱の角で押し返す！ 紙だけのぼくじゃないぞ！",
+      "Tissue wall! One sheet at a time still adds up!",
+      "Box corner push! I'm more than just the tissues!",
       "足をばたつかせて回避！ 風で紙が先に逃げた！"
     ],
     "aside": [
-      "感動の映画を見る会に、ぼくだけ備品で招待された。",
+      "Movie night invitation. I was listed under supplies.",
       "花粉の季節だけ、家族の中心にいる気がする。"
     ],
     "pressure": [
-      "まだ最後の一枚！ 予備だと思わないでよ！"
+      "Last sheet! Please stop looking for a spare box!"
     ],
     "defeat": "降参！　拍手のかわりに、ぱたぱたするね！"
   },
@@ -5498,16 +5498,16 @@
     "name": "シュガーコートのハリネズミ",
     "entrance": "甘いとげだから、こわくないよ。",
     "battle": [
-      "しゃりっと背中で受ける！ 食べようとしないでね！",
-      "くるっと丸まる。砂糖の針も、ちょっとは痛いよ！",
+      "Sugar-spine shield! This isn't the tasting session!",
+      "Curling up! Even sweet little spikes can sting!",
       "小さい足で反撃！ 甘いだけの歩き方じゃない！"
     ],
     "aside": [
       "友達の誕生日に行ったら、ケーキの上が指定席だったの。",
-      "Sugar rush? I prefer sugar roll."
+      "Birthday party seat assigned. On top of the cake."
     ],
     "pressure": [
-      "まだ針があるもん！ 溶ける前に、もう一回頑張る！"
+      "Spikes remaining! One more try before I melt!"
     ],
     "defeat": "きみの正解、甘くてうれしかった！"
   },
@@ -5515,16 +5515,16 @@
     "name": "風車しっぽのこいぬ",
     "entrance": "しっぽの風車が、くるくるうれしい！",
     "battle": [
-      "わんっ、しっぽ回して突進！ 向かい風も楽しい！",
-      "紙の耳で受ける！ 水だけは別の作戦でお願い！",
+      "Tail turning! Even a headwind is fun!",
+      "Paper-ear guard! Can we leave water out of this?",
       "ぴょんとかわす！ しっぽが回りすぎて向きが変わった！"
     ],
     "aside": [
-      "嬉しいと発電できそうって。おやつを毎時お願いします！",
+      "Renewable energy. Powered by hourly treats.",
       "散歩で風向計になった。電柱の情報も欲しかったのに。"
     ],
     "pressure": [
-      "わん、まだ回る！ 最後の追い風、ぼくが作る！"
+      "Still spinning! I'll make my own tailwind!"
     ],
     "defeat": "わん！　きみの正解で、いい風が吹いた！"
   },
@@ -5532,16 +5532,16 @@
     "name": "夜露のブルーバタフライ",
     "entrance": "夜露の羽で、静かに舞います。",
     "battle": [
-      "夜露の羽で受けるわ。雫の重さも守りになるの。",
-      "そっと返す。静かな一撃ほど、よく届くでしょう。",
+      "Dew-wing guard. Even a drop can carry weight.",
+      "A quiet reply. I don't need to raise my voice.",
       "藍の影へかわす。夜と同じ色でよかったわ。"
     ],
     "aside": [
-      "昼間の予定は断りがちなの。照明だけで緊張してしまう。",
+      "Overtime at dawn. At least the dew is beautiful.",
       "露を集める朝だけ、残業の意味が少しきれいなの。"
     ],
     "pressure": [
-      "露が落ちても飛ぶわ。夜が終わるまで、向き合いたいの。"
+      "Dew fallen. I can still make it through the night."
     ],
     "defeat": "その答えは、夜に光るしずくのようでした。"
   },
@@ -5549,16 +5549,16 @@
     "name": "まんまる湯葉おばけ",
     "entrance": "ぷうう。ふくらんだまま戻れなくなっちゃった！",
     "battle": [
-      "ぺろんと受ける！ 重ねた皮には年季がある！",
-      "丸い腹でごろり！ 豆乳の底力だ！",
+      "Layers ready! I've had years to build these up!",
+      "Round-belly roll! There's strength in soy milk!",
       "薄皮をずらしてかわすぞ。剥がすのとは違うぞ！"
     ],
     "aside": [
-      "『中身のある話を』と言われた。全部、表面なんだがなあ。",
+      "More depth, they said. I'm entirely made of surfaces.",
       "年輪じゃないよ。湯葉の層で年齢を当てないで。"
     ],
     "pressure": [
-      "まだ一枚ある！ 最後まで、薄く長く粘るぞ！"
+      "One sheet left! Thin, but in it for the long haul!"
     ],
     "defeat": "ふう。きみの正解で、力が抜けたよ。"
   },
@@ -5566,16 +5566,16 @@
     "name": "ちょびひげたまごケース",
     "entrance": "ちょびひげだけは、立派に整えてきたぞ。",
     "battle": [
-      "ふたを閉じて守ります。中の皆様は伏せてください。",
-      "角の一押しをどうぞ。丁寧でも軽くはございません。",
+      "Lid closed. Gentlemen, kindly keep your heads down.",
+      "A polite little push. Polite needn't mean light.",
       "一歩退いてかわします。割れる仕事はお断りです。"
     ],
     "aside": [
       "六名様で出勤したのに、帰りは一名様になりました。世知辛い。",
-      "Handle with care. Especially my tenants."
+      "Tenants: six eggs. Please knock gently."
     ],
     "pressure": [
-      "最後の一室まで守ります。空き部屋扱いは、まだお早い。"
+      "Last room occupied. Kindly postpone the vacancy notice."
     ],
     "defeat": "ひげの威厳より、きみの英語が立派だった。"
   },
@@ -5583,19 +5583,19 @@
     "name": "はりきり洗濯板親方",
     "entrance": "ごしごし！　元気も汚れも、まとめて洗うぞ！",
     "battle": [
-      "ごしっと受ける！ その拳、いい汚れ落ちしそうだな！",
-      "板の胸で返すぞ！ こすれるほど強くなる！",
+      "Scrub guard! That fist could use a good wash!",
+      "Washboard chest! I'm used to a little friction!",
       "親方の踏ん張りだ！ 泡で滑るのは若い衆の仕事だ！",
-      "洗い流すような連打！ 君の守りの染みまで落とす！",
+      "A rapid scrub! Even your guard's getting a clean start!",
       "胸板の溝で止める！ 縦にも横にも年季が入ってる！"
     ],
     "aside": [
-      "全自動が来た日も、おれは腕立てをして待っていた。",
+      "Automatic washer arrived. I challenged it to push-ups.",
       "『昔ながら』の看板で仕事が増えた。腕は二本のままだぞ。",
-      "Old school. Full spin."
+      "Old methods. New muscles. Same stubborn boss."
     ],
     "pressure": [
-      "溝が浅くなっても負けねえ！ 最後まで、こすり抜く！",
+      "Grooves wearing down. My spirit isn't!",
       "最後の一揉みだ！ 干される前に、おれが決める！"
     ],
     "defeat": "まいった！　きみの正解、ぴっかぴかだ！"
@@ -5604,16 +5604,16 @@
     "name": "銀刃のシャチオルフィス",
     "entrance": "銀のひれで、静かに道を切り開く。",
     "battle": [
-      "銀の尾で切り返す。潮の流れより速く来い！",
-      "黒白の胸で受ける。この海は譲れない。",
+      "Silver turn. Come faster than the tide!",
+      "Black-and-white guard. This sea isn't yours to take.",
       "水を蹴って上へ抜ける。足元を見ている暇はないぞ。"
     ],
     "aside": [
-      "銀刃って呼ばれてから、魚市場で妙に頼られるようになった。",
+      "Silver blade. Now the fish market keeps calling.",
       "ショーの拍手と戦いの合図、たまに似ていて困る。"
     ],
     "pressure": [
-      "まだ潮は読める。最後の一泳ぎ、全身でいく！"
+      "I can still read the tide. One last full-body strike!"
     ],
     "defeat": "見事だ。きみの答えの方が鋭かった。"
   },
@@ -5621,16 +5621,16 @@
     "name": "逆さ吊りの靴べら",
     "entrance": "逆さの方が、調子が……あれ、頭に血が！",
     "battle": [
-      "逆さのまま返すぞ！ 上下だけが戦法じゃない！",
-      "長い背で受ける！ かかとの頑固さにも耐えてきた！",
+      "Upside-down reply! There's more than one way to stand out!",
+      "Long-back guard! I've handled more stubborn heels than that!",
       "くるっとかわす！ 床が上でも気にしない！"
     ],
     "aside": [
       "『地に足をつけろ』と言われた。足を入れる手伝いが仕事だよ。",
-      "Upside down. Right on time."
+      "Keep my feet on the ground? I help with other people's."
     ],
     "pressure": [
-      "まだぶら下がれる！ 最後にひっくり返すのは勝敗だ！"
+      "Still hanging on! The result's what I'm turning upside down!"
     ],
     "defeat": "きみの英語は、ちゃんと正しい向きだった！"
   },
@@ -5638,16 +5638,16 @@
     "name": "だだ漏れハチミツ壺",
     "entrance": "だだだ……止まらない！　甘さが全部出ちゃう！",
     "battle": [
-      "とろとろで足止め！ 勝手に出てるけど作戦だ！",
-      "壺の肩で受ける！ ひびの追加はご遠慮を！",
+      "Honey trap! Unplanned, but I'm taking the credit!",
+      "Jar guard! No extra cracks, thank you!",
       "蜜の拳で返す！ お返しも手にくっつくよ！"
     ],
     "aside": [
-      "売上は甘いのに、在庫管理だけずっと苦いんだ。",
+      "Sweet sales. Sticky bookkeeping.",
       "蜂の会計士が来た。床の蜜まで棚卸しされた。"
     ],
     "pressure": [
-      "まだ垂れる！ 最後の一滴は、ぼくが使うんだ！"
+      "Still dripping! That last drop is mine to use!"
     ],
     "defeat": "ぼくは漏れたけど、きみの答えは完ぺき！"
   },
@@ -5655,16 +5655,16 @@
     "name": "雷糸のクモエレクトラ",
     "entrance": "雷の糸で、きみの集中を試そう。",
     "battle": [
-      "雷糸で受けるわ。触った場所から、教えてくれるの。",
-      "ぱちりと返す。獲物は待つけれど、反撃は待たないわ。",
+      "Thread guard. Every touch sends me a message.",
+      "Quick spark. I wait for prey, not for permission.",
       "八本の脚でかわす。手数の計算は得意かしら。"
     ],
     "aside": [
-      "無線に変えろと？ 糸の会社にそれを言うのね。",
+      "Go wireless? You do realize I run a web business?",
       "ネットの接続障害、だいたい私の昼寝が原因よ。"
     ],
     "pressure": [
-      "糸は細くても切れてない。最後の電圧まで、つないでおくわ。"
+      "Thin thread. Connection still active."
     ],
     "defeat": "集中が切れなかった。見事だ。"
   },
@@ -5672,16 +5672,16 @@
     "name": "紙吹雪のピエロパッサ",
     "entrance": "ぱっさー！　自分が紙吹雪みたいな格好だ！",
     "battle": [
-      "ぱさっと紙の壁！ 視界も気分も散らかそう！",
-      "とんがりの拳で返す！ 折り目はちゃんとつけてある！",
+      "Paper wall! Let's make a mess of your view!",
+      "Pointed-paper punch! Those folds were made with care!",
       "ひらひらっとかわす。重力にはちょっと待ってもらう！"
     ],
     "aside": [
       "掃除係と共演NGになった。ぼくはずっと祝ってるだけなのに。",
-      "Confetti now. Consequences later."
+      "Confetti first. Cleanup committee can catch up later."
     ],
     "pressure": [
-      "紙くずじゃない！ 最後の一枚まで、ぼくの出番だ！"
+      "Not scrap paper! I've still got an act to finish!"
     ],
     "defeat": "ぱっさー！　きみの正解に大拍手！"
   },
@@ -5689,16 +5689,16 @@
     "name": "雪ぼたんのミズキリス",
     "entrance": "雪のぼたんを、静かに咲かせるよ。",
     "battle": [
-      "白い尾で受けるね。雪みたいでも、冷たいだけじゃないの。",
-      "きゅっと踏み込んで返す！ 小さな足も本気よ。",
+      "Snow-tail guard. There's warmth behind all this white.",
+      "A tiny step. A serious little challenge.",
       "雪の陰へかわす。足跡までは消せないけれど。"
     ],
     "aside": [
-      "どんぐりを雪に隠したの。春の自分が見つけるはずよ。",
+      "Acorns hidden in snow. Spring me can handle the search.",
       "雪景色の集合写真、名前だけ大きく書かれたわ。"
     ],
     "pressure": [
-      "まだ尾は広がる。最後の雪が溶けるまでは頑張るわ。"
+      "Tail still wide. I'll stay till the last snow melts."
     ],
     "defeat": "きみの言葉で、雪の花がほころんだよ。"
   },
@@ -5706,16 +5706,16 @@
     "name": "ゴツゴツ岩塩のソルタン",
     "entrance": "岩塩の壁を越えてみろ。",
     "battle": [
-      "岩塩の拳！ しょっぱい顔で受けてみろ！",
-      "ゴツっと固めて防ぐ！ 粒が違うんだ、粒が！",
+      "Rock-salt fist! Take that with more than a pinch!",
+      "Big-grain guard! Size does make a difference here!",
       "地を踏んで返す。溶かすなら川ごと持ってこい！"
     ],
     "aside": [
-      "健康診断で塩分を控えろと言われた。自己否定が激しい。",
+      "Salt of the earth. Quite a lot of it, actually.",
       "人事評価が『塩対応』だった。常に通常営業だ。"
     ],
     "pressure": [
-      "一粒残れば戦う！ 大粒の意地を、まだ砕くな！"
+      "One grain left! Still too big to brush aside!"
     ],
     "defeat": "きみの正解、硬い壁も越えたな。"
   },
@@ -5723,16 +5723,16 @@
     "name": "ふわっと羽毛ふくろう",
     "entrance": "ふわっと座って、きみを待っていたよ。",
     "battle": [
-      "ほぅ、羽毛で受けるよ。枕にするのは後にしてね。",
-      "小さな翼で返す。ふわふわだけじゃ届かないもん。",
+      "Feather guard. Pillow service opens after the battle.",
+      "Little wings. I'll put my back into it.",
       "首を回してよける。目はちゃんと開けてるつもり。"
     ],
     "aside": [
       "夜ふかしを叱られた。ぼくのお昼は、いつなんだろう。",
-      "Soft feathers. Hard bedtime."
+      "Bedtime again? My schedule seems to confuse everyone."
     ],
     "pressure": [
-      "ほぅ、まだ起きてる。最後の一羽根まで頑張るよ。"
+      "Still awake. Please don't make the room any cozier."
     ],
     "defeat": "ふわっと、やさしい正解だったね。"
   },
@@ -5740,16 +5740,16 @@
     "name": "わさわさ触手の園芸ばち",
     "entrance": "わさわさ！　伸びすぎて自分が見えない！",
     "battle": [
-      "わさわさで防御！ 一本くらいは狙いどおりに動け！",
-      "蔓を返して反撃！ あっ、そっちは自分の鉢！",
+      "Vines ready! Could at least one follow the plan?",
+      "Vine counterattack! That's my pot! Wrong direction!",
       "根を踏ん張る！ 引っ越しは今じゃない！"
     ],
     "aside": [
-      "園芸の説明に『手間いらず』って。手の本数は数えてないな。",
+      "Low-maintenance plant. Nobody counted the arms.",
       "自分で水やりをしたら、自分に見つめられて緊張した。"
     ],
     "pressure": [
-      "まだ芽はある！ 最後は全員、同じ方向へ頼む！"
+      "New shoots left! Everyone, same direction this time!"
     ],
     "defeat": "きみの答えは、すっきりしていてうらやましい！"
   },
@@ -5757,16 +5757,16 @@
     "name": "赤曜の甲竜ルビドン",
     "entrance": "赤曜の甲殻は、簡単には割れない。",
     "battle": [
-      "赤い甲を重ねる。ひと打ちで抜けると思うな。",
-      "角の突進だ。止めるなら、地面ごと止めろ！",
+      "Ruby plates locked. One hit won't be enough.",
+      "Horn charge! Stop the ground if you want me stopped!",
       "低い爪で踏ん張る。宝石の土台は揺らがない。"
     ],
     "aside": [
-      "鎧を脱げと？ 皮膚への注文は受けていない。",
+      "Remove my armor? That's rather personal. It's my skin.",
       "赤信号で立ち止まったら、仲間が俺の後ろで渋滞した。"
     ],
     "pressure": [
-      "傷は刻め。そこから先へは、まだ通さん！"
+      "Mark the armor. You won't get beyond it yet."
     ],
     "defeat": "きみの答えに、強さを感じた。"
   },
@@ -5774,16 +5774,16 @@
     "name": "こりこりキクラゲ兵",
     "entrance": "こりこり！　耳みたいだけど、全身きくらげだ！",
     "battle": [
-      "こりっと受ける！ 噛みごたえと守りは同じだ！",
-      "木の槍で返すぞ！ 森の端っこで鍛えた技だ！",
+      "Crunchy guard! Tough to chew, tougher to beat!",
+      "Wooden spear ready! Trained at the edge of the forest!",
       "ひだを畳んで回避！ どこが前かは秘密だ！"
     ],
     "aside": [
-      "耳にいい話かと思ったら、炒め物の相談だった。",
+      "Wood ear meets jellyfish. Neither booked the right room.",
       "キクラゲとクラゲの合同研修、集合場所が決まらねえ。"
     ],
     "pressure": [
-      "まだこりこりだ！ 水で戻せばもっと粘れるぞ！"
+      "Still crunchy! I've got another round in me!"
     ],
     "defeat": "こりゃまいった！　きみの答え、歯ごたえがあった！"
   },
@@ -5791,16 +5791,16 @@
     "name": "透明傘のレインジェル",
     "entrance": "透きとおる傘で、静かに舞います。",
     "battle": [
-      "透明の傘で受けるわ。見える壁も、壁なのよ。",
-      "くるりとしずくを返す。晴れた顔しても濡れるわよ。",
+      "Clear umbrella. A wall you can see through still stops things.",
+      "A turn of the handle. Smiling won't keep you dry.",
       "ふわっと浮いてかわす。足元の水たまりもお友達なの。"
     ],
     "aside": [
       "天使と思われてお願いされた。降水確率までは変えられないの。",
-      "Rain check? I'm already here."
+      "Take a rain check? I've already brought the weather."
     ],
     "pressure": [
-      "まだ傘は開いてる。最後の雨まで、閉じないわ。"
+      "Umbrella open. I'll stay for the last of the rain."
     ],
     "defeat": "きみの正解も、透きとおっていました。"
   },
@@ -5808,16 +5808,16 @@
     "name": "ふみふみペダルタートル",
     "entrance": "ふみふみ！　足だけで進むの、忙しいなあ！",
     "battle": [
-      "ふみふみ加速！ 速さより継続力で勝負する！",
-      "歯車の甲羅で受ける！ 回り道なら慣れてるよ！",
+      "Pedals moving! I'll beat you by keeping at it!",
+      "Gear-shell guard! I've taken plenty of long routes!",
       "ペダルを逆に返す！ あっ、戻っちゃった！"
     ],
     "aside": [
       "電動にしようか迷って、充電中もペダルを踏んでた。",
-      "Slow legs. Relentless engine."
+      "Electric upgrade considered. Pedaled while the battery charged."
     ],
     "pressure": [
-      "脚が重くても、もう一回転！ ここは降りないよ！"
+      "Heavy legs. One more turn. I'm not getting off."
     ],
     "defeat": "きみの答え、いい調子で前に進んだね！"
   },
@@ -5825,16 +5825,16 @@
     "name": "黒漆のツルクロツル",
     "entrance": "漆の羽は、静けさをまといます。",
     "battle": [
-      "漆の翼で受ける。乾ききった守りを見せよう。",
-      "長い脚で間を取る。近道は許さぬよ。",
+      "Lacquer wings. This defense has had time to set.",
+      "Long-legged step. No shortcuts through my guard.",
       "黒いくちばしを返す。影より細い一筋だ。"
     ],
     "aside": [
-      "触れないでの札を持たされた。私も美術館を見たかったのだが。",
+      "Museum visit. I was given a \"Do not touch\" sign.",
       "千年の寿命より、毎日の艶出しのほうが気になる。"
     ],
     "pressure": [
-      "艶は落ちても姿勢は落とさぬ。最後まで、背を伸ばそう。"
+      "Less shine. No less dignity."
     ],
     "defeat": "静かで、美しい正解でした。"
   },
@@ -5842,16 +5842,16 @@
     "name": "ゆらめく絹リボン蛇",
     "entrance": "絹のように、なめらかにいきましょう。",
     "battle": [
-      "にょるっとかわす。結び目はそこじゃないわよ。",
-      "絹の胴で受け流す。強引に引くと、締まるだけ。",
+      "Silk turn. The knot isn't where you think.",
+      "Pull harder. You'll only make the knot tighter.",
       "尾を巻いてひと打ち。可愛い包装とは別の技よ。"
     ],
     "aside": [
       "プレゼントに巻かれたら、箱のほうがあたしを警戒したの。",
-      "Silk moves. Sharp choices."
+      "Gift wrapping. The box looked more nervous than the guest."
     ],
     "pressure": [
-      "ほつれても切れないわ。最後のひと巻きまで、にょるっとね。"
+      "A few loose threads. Still not coming apart."
     ],
     "defeat": "きみの答えも、なめらかでした。"
   },
@@ -5859,16 +5859,16 @@
     "name": "ぷんすか湯たんぽ伯爵",
     "entrance": "ぷんすか！　あったかいだけでは、伯爵は務まらん！",
     "battle": [
-      "ぷんすか、腹で受ける！ 内側まで熱くする気か！",
-      "赤い胸を返すぞ。温情にも圧力はある！",
+      "Warm-belly guard! Are you trying to make me boil?",
+      "A heated reply. Nobles have pressure too, you know!",
       "栓を締めて防ぐ！ 漏れるのは不満だけでよい！"
     ],
     "aside": [
-      "『冷静に』と助言された。小生の存在意義を考えたまえ。",
+      "Keep my cool? Have you considered my profession?",
       "冬だけ招待が増える。友情の季節性には抗議したい。"
     ],
     "pressure": [
-      "まだ温かい！ 最後まで、冷遇には屈せぬぞ！"
+      "Still warm! I refuse to be left out in the cold!"
     ],
     "defeat": "ふう……きみの正解で、少し落ち着いたぞ。"
   },
@@ -5876,16 +5876,16 @@
     "name": "ねじ込みキリモグラ",
     "entrance": "ねじ込みながら、道をつくる。",
     "battle": [
-      "ギュルッと踏み込む！ 岩でも守りでも、穴は開ける！",
-      "鋼の爪で受ける。軸がぶれたら仕事にならねえ！",
+      "Drill forward! Rock or guard, I'll find a way through!",
+      "Steel-claw guard! A good job needs a steady hand!",
       "ねじって抜けるぞ。直進だけが近道じゃねえ！"
     ],
     "aside": [
-      "頭を使えと言われて、また穴が増えちまった。",
+      "Aim higher, they said. I'm starting with ground level.",
       "昇進の面接で『上を目指せ』って。まず地上を目指す。"
     ],
     "pressure": [
-      "まだ回る！ 最後の一回しまで、空回りじゃねえぞ！"
+      "Still turning! This isn't going to be wasted effort!"
     ],
     "defeat": "きみの答えは、まっすぐ届いた。"
   },
@@ -5893,16 +5893,16 @@
     "name": "星鋼のバリスタン",
     "entrance": "星鋼の狙いは、ぶれない。",
     "battle": [
-      "星鋼の弩、展開。君の間合いの外から応じよう。",
-      "脚を固定する。反動まで含めて、私の守りだ。",
+      "Star-steel bow deployed. I'll answer from beyond your reach.",
+      "Legs locked. The recoil is already in the plan.",
       "弦を引き、返す。放つ前の静けさに用心せよ。"
     ],
     "aside": [
       "狙いを定める研修で、全員が私の後ろへ移動した。",
-      "Aim high. Mind the ceiling."
+      "Aim high. Preferably somewhere without a ceiling."
     ],
     "pressure": [
-      "予備弾はある。最後の一射まで、照準を逸らさない。"
+      "Spare shot ready. The target hasn't changed."
     ],
     "defeat": "きみの集中も、ぶれなかったな。"
   },
@@ -5910,16 +5910,16 @@
     "name": "梅花の羽冠ハナスズメ",
     "entrance": "梅の花冠で、お迎えします。",
     "battle": [
-      "梅の羽で受けるちゅん。小さな花も散らせないの。",
-      "枝を蹴って返すわ。春待ちでも足は休めない。",
+      "Plum-wing guard. Even the smallest flower matters.",
+      "A step from the branch. Spring can wait. I won't.",
       "ちょんと横へかわす。香りだけは置いていくね。"
     ],
     "aside": [
-      "花見のお弁当を守るつもりが、おにぎりの数を減らしてしまった。",
+      "Picnic guard duty. Somehow, a rice ball went missing.",
       "梅は咲いたか、と毎朝聞かれる。わたしの予定より人気なのね。"
     ],
     "pressure": [
-      "ちゅん、まだ春は来る。最後の一枝まで、頑張るわ。"
+      "Spring will come. I'll hold on till the last blossom."
     ],
     "defeat": "きみの正解に、花を添えたいな。"
   },
@@ -5927,19 +5927,19 @@
     "name": "磁石城主マグナベル",
     "entrance": "磁石の城に、きみの言葉を招こう。",
     "battle": [
-      "城門の磁力よ、集え！ 君の剣まで味方になるぞ！",
-      "塔の拳で返す。城が動かぬという前提を捨てよ！",
+      "Castle magnets, gather! Your sword may change sides!",
+      "Tower fist! Stop assuming castles stay in one place!",
       "極を返して防ぐ。押せば近づくとは限らぬ！",
-      "青き城壁、押し返せ！ 一歩も中へは通さぬ！",
+      "Blue walls, push back! Admission has not been granted!",
       "赤き塔よ、引き寄せよ！ 接近戦も余の間合いだ！"
     ],
     "aside": [
-      "国民を引きつける政策？ それは余の体質で済んでおる。",
+      "Helmet inspection. Everyone was already attached to the wall.",
       "騎士団の鉄兜が全て城壁へ貼りついた。点呼は楽であった。",
-      "Attractive leadership. Literally."
+      "Attracting talent. The iron helmets came first."
     ],
     "pressure": [
-      "磁力はまだある。余の威厳だけ先に剥がすでない！",
+      "Still magnetic. You won't pull my dignity off that easily.",
       "最後の塔まで立て！ 城主の芯は、まだ磁石より硬いぞ！"
     ],
     "defeat": "きみの正解に、門を開く。"
@@ -5948,19 +5948,19 @@
     "name": "白磁竜ハクローネ",
     "entrance": "白磁の竜は、澄んだ言葉を待つ。",
     "battle": [
-      "白磁の鱗で受ける。窯で鍛えた守りじゃ。",
-      "青い紋をひるがえし、返す。絵柄を追うと遅れるぞ。",
+      "Porcelain scales. This guard was forged in the kiln.",
+      "Blue patterns turning. Don't let the decoration distract you.",
       "長い尾で空を押さえる。細い隙も通さぬわい。",
-      "焼き締めの突進！ 白いからと柔いと思うな！",
+      "Kiln-fired charge! White doesn't mean weak!",
       "磁器の輪を重ねる。わしの体は、どこも守りじゃ。"
     ],
     "aside": [
-      "家宝に指定されたので外出したら、博物館が追ってきた。",
+      "The expert called it damage. I called it experience.",
       "鑑定士は傷を嫌う。わしは戦った跡として好いておるがの。",
-      "Fine china. Fierce dragon."
+      "Family treasure. The museum keeps asking where I'm going."
     ],
     "pressure": [
-      "ひびても竜じゃ。最後の一鱗まで、澄んだ音で応えよう。",
+      "Cracked, but still a dragon. Hear the final note.",
       "砕けるには早いわい。千年の白を、ここで曇らせはせぬ！"
     ],
     "defeat": "きみの答えは、静かに胸へ届いた。"
@@ -5969,19 +5969,19 @@
     "name": "夜桜女王サクラミラ",
     "entrance": "夜桜の下で、言葉の花を咲かせなさい。",
     "battle": [
-      "夜桜の帳を下ろします。君の一撃も、花の向こうへ。",
-      "黒い枝を返しましょう。花ばかり見ていては危険ですわ。",
+      "Night-blossom veil. Your strike can wait on the other side.",
+      "Dark-branch reply. Do look beyond the flowers.",
       "はらりと影へ。月のない場所にも、道はあります。",
-      "桜吹雪の一閃。美しい景色にも、距離をお取りなさい。",
+      "A blossom storm. Beauty still requires a safe distance.",
       "夜の冠で受けます。月明かりだけはお通ししましょう。"
     ],
     "aside": [
-      "夜会の招待状を増やしたら、花より椅子が足りなくなりましたの。",
+      "Short blooming season. Exceptionally long committee meetings.",
       "散るのが早いと言われますが、会議だけは長く咲く国ですわ。",
-      "Midnight petals. No early exits."
+      "More invitations. Not enough chairs. A growing problem."
     ],
     "pressure": [
-      "花びらが減っても、幹は立つ。女王はまだここにおります。",
+      "Petals lost. The queen remains.",
       "最後の一花まで舞います。幕を下ろす役は、わたくしですわ。"
     ],
     "defeat": "見事。きみの言葉は、夜にも鮮やかでした。"
@@ -5990,19 +5990,19 @@
     "name": "花火総長ドカンザ",
     "entrance": "ドカン！　声だけは、一番でっかい総長だ！",
     "battle": [
-      "どかんと一発！ 開幕の挨拶はこれでいいな！",
-      "赤い腹で受ける！ 火薬の扱いは丁寧に頼むぜ！",
+      "Boom! That should cover the opening remarks!",
+      "Red-belly guard! Handle the explosives with respect!",
       "導火線返し！ じわじわ来るほど派手になるぞ！",
-      "連発の大輪だ！ 見上げるだけで終わると思うな！",
+      "Another burst! You're part of the show now!",
       "総長の踏ん張り！ 打ち上がる前には土台が要るんだ！"
     ],
     "aside": [
-      "予算を打ち上げたら、本当に空へ消えた。経理が泣いたぜ。",
+      "Budget went up in smoke. Accounting wasn't impressed.",
       "雨天中止のお知らせを花火で出したら、誰も帰らなかった。",
-      "Big boom. Small instruction manual."
+      "Big finale planned. Small print still unread."
     ],
     "pressure": [
-      "まだ湿気ちゃいねえ！ 最後の玉は取ってある！",
+      "Not damp yet! I've saved the biggest one!",
       "どかーんと締めるぞ！ ただし負けたとは、まだ言ってねえ！"
     ],
     "defeat": "ドカーンと参った！　きみの正解、景気がいいな！"
@@ -6011,16 +6011,16 @@
     "name": "とぼけた鼻のトランペット",
     "entrance": "ぷおー……あれ、鼻から音が出ちゃった！",
     "battle": [
-      "ぷあーっと返す！ 今の音、返事じゃなくて攻撃！",
-      "鼻のベルで受けるぞ！ そこへ息を吹くなよ！",
+      "Pwaa! That wasn't a reply. That was the attack!",
+      "Bell-nose guard! Please don't blow into the opponent!",
       "足でかわす！ 指づかいは合ってるのに向きが違う！"
     ],
     "aside": [
-      "『鼻が高いね』と褒められた。音も高くしてみた。",
+      "Itchy nose. The solo became experimental.",
       "演奏中に鼻がむずむずした。曲が勝手に現代音楽になった。"
     ],
     "pressure": [
-      "まだ息はある！ 最後の一音、外しても全力だ！"
+      "Breath left! One last note, right or wrong!"
     ],
     "defeat": "ぷへっ！　きみの正解には、音で拍手だ！"
   },
@@ -6028,16 +6028,16 @@
     "name": "てくてくサンドタイマー",
     "entrance": "てくてく、砂の時間と歩いてきたよ。",
     "battle": [
-      "砂を下へ集めて守るよ。重心なら低いんだ。",
-      "てくてく近づいて返す！ 待ってたら届くよ！",
+      "Sand below. A low center of gravity helps.",
+      "Walking your way. Patience is part of the attack.",
       "くるんとかわす。時間まで戻った気がする！"
     ],
     "aside": [
       "遅刻したからひっくり返した。でも約束は戻らなかった。",
-      "Take your time. Mine is leaking."
+      "Turned myself over. The missed appointment stayed missed."
     ],
     "pressure": [
-      "最後の一粒でも歩ける！ まだ止まる時間じゃない！"
+      "One grain left. I'm not calling time yet!"
     ],
     "defeat": "急がなくても、いい正解だったね。"
   },
@@ -6045,16 +6045,16 @@
     "name": "シナモン耳のこぐま",
     "entrance": "シナモンの耳で、きみの言葉を聞くよ。",
     "battle": [
-      "くるくる耳で受けるくま！ 引っ張るとほどけそう！",
-      "ちいさいおててでぱんち！ おやつの前に頑張る！",
+      "Roll-ear guard! Pull gently. I'd like to stay in one piece!",
+      "Little-paw punch! I'll earn my snack first!",
       "ころんとよけるよ。焼き目のほうは向けないの。"
     ],
     "aside": [
-      "耳の匂いをかぎすぎて、いつも横を向いて歩いちゃう。",
+      "Smells like a bakery. Hugs like a bear.",
       "抱っこされたら『パン屋の匂い』って。くま屋だよ。"
     ],
     "pressure": [
-      "くまっ、まだ丸まらない！ 耳より強いぼくを見て！"
+      "Still standing! There's more to me than the ears!"
     ],
     "defeat": "ふんわり、うれしい正解だったね。"
   },
@@ -6062,16 +6062,16 @@
     "name": "うずまきレコードどり",
     "entrance": "うずまきの羽を、くるりと広げよう。",
     "battle": [
-      "レコードを返して受ける。傷がつくと根に持つぞ。",
-      "翼の一回転！ 同じ技を繰り返すとは限らない！",
+      "Record guard. Scratches will not be forgotten.",
+      "One wing spin. Don't expect the same old tune!",
       "針先をよけて踏み込む。音飛びほどの速さだ！"
     ],
     "aside": [
-      "自己紹介をしたら、サビだけ何度も要求された。",
+      "Old records. Young bird. Stop mixing those up.",
       "古い曲が好きなだけだ。年齢まで古く数えるなよ。"
     ],
     "pressure": [
-      "まだ回せる！ 最後の溝まで、俺の音を刻む！"
+      "Still spinning! This groove has another song in it!"
     ],
     "defeat": "きみの答え、いいリズムだったな。"
   },
@@ -6079,16 +6079,16 @@
     "name": "雨あがりのステンド蛙",
     "entrance": "雨あがりの色を、きみに見せるよ。",
     "battle": [
-      "色ガラスで受けるけろ。割るには、少し硬いわよ。",
-      "水を蹴って返すね。雨上がりでも足は濡れてるの。",
+      "Glass-panel guard. Pretty doesn't mean easy to break.",
+      "A little splash back. The rain stopped, not my feet.",
       "光へ跳んでかわす。虹のほうを見ちゃった？"
     ],
     "aside": [
       "教会の窓と間違えられたわ。わたし、閉店しないのだけれど。",
-      "Rain gone. Frog on."
+      "Mistaken for a window. Opening hours were requested."
     ],
     "pressure": [
-      "けろり、まだ跳べるわ。最後の雨粒が乾くまではね。"
+      "Still hopping. The last raindrop hasn't dried yet."
     ],
     "defeat": "きみの答えも、透きとおっていたね。"
   },
@@ -6096,16 +6096,16 @@
     "name": "からまるリボンそば",
     "entrance": "ほどこうとしたら、もっと結んじゃった！",
     "battle": [
-      "するるっと受け流す！ ただ絡まって見えるだけだ！",
-      "結び目を返すぞ！ どの端が腕か、今決める！",
+      "Smooth dodge! The knot is an artistic choice!",
+      "Knot strike! First, let me identify my arms!",
       "麺を広げて足止め！ つゆなしでも滑るからな！"
     ],
     "aside": [
-      "縁を結ぶ仕事を引き受けたら、自分の退路まで結んじまった。",
+      "Tied up at work. Also tied up trying to leave.",
       "そばにいてって言われた。食品としての意味じゃないよね？"
     ],
     "pressure": [
-      "まだ一本つながってる！ 最後まで、伸びずに粘るぞ！"
+      "One noodle connected. I'm not falling apart yet!"
     ],
     "defeat": "きみの答えは、すっきりほどけたね！"
   },
@@ -6113,16 +6113,16 @@
     "name": "ふくらむパン生地精",
     "entrance": "ふくらんで、ふくらんで、準備できたよ。",
     "battle": [
-      "ぷくうっと受ける！ 押した分、あとで膨らむよ！",
-      "こねこねの拳！ やわらかいからって油断はなし！",
+      "Dough guard! Push now. I'll rise to the challenge!",
+      "Soft-fist punch! Don't get too comfortable!",
       "ころんと回避！ 打ち粉は砂ぼこりじゃないよ！"
     ],
     "aside": [
       "大きくなれって言われて頑張ったら、冷蔵庫に入れられた。",
-      "Rise and shine. Mostly rise."
+      "Growing as requested. Then they put me in the fridge."
     ],
     "pressure": [
-      "まだ膨らめる！ 最後の空気まで、ぼくの力だ！"
+      "Still rising! There's more air where that came from!"
     ],
     "defeat": "正解で、もっとふわふわになっちゃった！"
   },
@@ -6130,16 +6130,16 @@
     "name": "べっこう羽のキンバチ",
     "entrance": "べっこうの羽は、光を大切にします。",
     "battle": [
-      "べっこうの羽でぶんっ！ 透明だからって隙間じゃないわ！",
-      "小さな針で返す。甘い蜜とは別のお仕事よ。",
+      "Amber-wing sweep! Transparent doesn't mean there's a gap!",
+      "Little sting. A different department from honey collection.",
       "六本の足でかわす！ 足並みは意外と揃ってるの！"
     ],
     "aside": [
-      "花から花へ転職したら、経歴欄が花束になった。",
+      "Flower-to-flower career moves. My resume became a bouquet.",
       "働き蜂って呼ぶなら、休む蜂の担当も決めてほしいわ。"
     ],
     "pressure": [
-      "ぶん、まだ飛べる！ 最後のひと花まで行くわよ！"
+      "Still buzzing! One more flower to visit!"
     ],
     "defeat": "きみの答えも、大切に覚えておくね。"
   },
@@ -6147,16 +6147,16 @@
     "name": "うっかり懐中電灯",
     "entrance": "うっかり！　足元ばかり照らしちゃった！",
     "battle": [
-      "あれっ、まぶしい！ 向こうを照らして防御だ！",
-      "光の拳で返す！ いや、拳は別についてた！",
+      "Whoa, bright! Was I pointing the right way?",
+      "Light punch! Wait, my actual fist is over here!",
       "横によけるぞ！ 足元を照らし忘れた！"
     ],
     "aside": [
-      "電池を買いに出たら、自分の明かりで店を通り過ぎた。",
+      "Looking for someone. Turns out they were looking for me.",
       "探し物を照らしてたら、探されてたのがおれだった。"
     ],
     "pressure": [
-      "まだ点く！ 最後は、逆向きでも照らし切る！"
+      "Still on! Now, which end faces the battle?"
     ],
     "defeat": "きみの正解で、頭の中が明るくなった！"
   },
@@ -6164,16 +6164,16 @@
     "name": "白い花えりのマーモット",
     "entrance": "白い花えりを、きれいにして待ってたよ。",
     "battle": [
-      "白いえりで受けるわ。寝具ではないのよ。",
-      "短い足でひと押し。冬眠前には鍛えたいの。",
+      "Flower-collar guard. Bedding is the other department.",
+      "A little push. Training before hibernation, apparently.",
       "お腹をひいてかわす。あと少し、ひけるはず。"
     ],
     "aside": [
-      "冬眠前の準備で忙しいの。主に、よく寝ておくこと。",
+      "Three alarm clocks. All hibernating beautifully.",
       "目覚ましを三つ買ったわ。全部、冬眠の仲間になったの。"
     ],
     "pressure": [
-      "ふぅ、まだ起きてるわ。勝負のあとに、たっぷり眠るの。"
+      "Still awake. I'm saving the long sleep for afterward."
     ],
     "defeat": "やさしい答えに、ほっとしたよ。"
   },
@@ -6181,16 +6181,16 @@
     "name": "塩むすびのコロマル",
     "entrance": "ころまるっと、おむすびでお相手するよ。",
     "battle": [
-      "三角の頭で受ける！ 角のぶんだけ丈夫だよ！",
-      "海苔の腕でぱんっ！ 手は洗ってきたからね！",
+      "Triangle guard! Three corners must count for something!",
+      "Nori-arm punch! Hands washed. Courage ready.",
       "ころんと逃げる！ 三角だから途中で止まっちゃう！"
     ],
     "aside": [
       "具がないって言われた。ぼくの勇気は見えないんだね。",
-      "No filling. Full fighting spirit."
+      "No filling? My courage just doesn't show on the menu."
     ],
     "pressure": [
-      "最後の一粒まで頑張る！ まだ崩れる気はないよ！"
+      "Every last grain! I'm keeping myself together!"
     ],
     "defeat": "ぎゅっとまとまった、いい正解だね！"
   },
@@ -6198,16 +6198,16 @@
     "name": "ブロッコリー頭の助手",
     "entrance": "ブロッコリー頭で、考えがもこもこ出てくるぞ！",
     "battle": [
-      "房の頭で受ける！ そこ、知識が詰まってるから！",
-      "白衣を返して反撃！ 実証は体で行うよ！",
+      "Broccoli-head guard! Mind the knowledge stored in there!",
+      "Lab-coat turn! Time to test the hypothesis!",
       "細い脚でかわす。仮説では、この角度が安全！"
     ],
     "aside": [
-      "脳の形に似てるだけで、会議の書記が僕に回ってくる。",
+      "Looks like a brain. Somehow, that means taking the minutes.",
       "助手なのに、先生の弁当で見かけた顔が多すぎる。"
     ],
     "pressure": [
-      "仮説を変える！ まだ勝てる、という結論は変えない！"
+      "New hypothesis. Same conclusion: I can still win!"
     ],
     "defeat": "正解！　ぼくの頭より、すっきりしてるね！"
   },
@@ -6215,16 +6215,16 @@
     "name": "木漏れ日とまり木鳥",
     "entrance": "木漏れ日の羽で、静かに待っていました。",
     "battle": [
-      "枝の羽で受けよう。揺れるが、折れはしない。",
-      "くちばしを返す。日向だけが私の居場所ではない。",
+      "Branch-wing guard. It sways. It doesn't break.",
+      "A quiet peck. I don't spend all day sunbathing.",
       "葉影へかわす。光の模様を読んでみたまえ。"
     ],
     "aside": [
-      "鳥の休憩所にされた。私も鳥なのだが、止まり心地はいいらしい。",
+      "Bird resting area. I appear to be the furniture.",
       "昼寝の写真が『森の一部』として売られていた。"
     ],
     "pressure": [
-      "まだ枝は生きている。最後の葉音まで、ここに立つ。"
+      "Branch alive. Bird present. Carry on."
     ],
     "defeat": "いい言葉を、ありがとう。"
   },
@@ -6232,16 +6232,16 @@
     "name": "じゃばら首のジョイントン",
     "entrance": "じゃばらを伸ばしたら、首だけ遠くに行った！",
     "battle": [
-      "びよよっと首で回避！ 頭が先に隣へ行った！",
-      "節を畳んで受ける！ 小さくなるのも技だよ！",
+      "Neck dodge! My head got there before the rest!",
+      "Joints folded! Compact is a perfectly good battle style!",
       "長い首で返す！ 手より頭が働くタイプ！"
     ],
     "aside": [
       "背伸びしたら天井に着いた。身の丈に合った部屋がない。",
-      "Flexible neck. Inflexible schedule."
+      "Flexible neck. The schedule refuses to follow its example."
     ],
     "pressure": [
-      "まだ一節ある！ 最後まで、頭は上げておくよ！"
+      "One joint left! I'll keep my head up!"
     ],
     "defeat": "縮めてごあいさつ！　きみの勝ちだ！"
   },
@@ -6249,16 +6249,16 @@
     "name": "リボンひげのニョロネコ",
     "entrance": "にょろにゃあ。リボンのひげで、ごあいさつ。",
     "battle": [
-      "にょろニャっとかわす！ 猫背の規模が違うだろ！",
-      "胴を巻いて返す！ 抱っことはちょっと違うぜ！",
+      "Cat dodge! That's a whole new level of bad posture!",
+      "Body coil! This isn't the cuddling service!",
       "ひげのリボンで止める！ ほどくと機嫌が変わるぞ！"
     ],
     "aside": [
       "猫の狭い所好きと、蛇の長さが合わさって、引っ越しが終わらない。",
-      "Meow? Hiss? Let's call it jazz."
+      "Meow or hiss? Call it jazz and leave me alone."
     ],
     "pressure": [
-      "まだ尾が残ってるニャ！ 勝負まで長く引っぱるぜ！"
+      "Tail still here! I can drag this out all night!"
     ],
     "defeat": "にゃあ。なめらかな正解だったね。"
   },
@@ -6266,16 +6266,16 @@
     "name": "まぶた重たい玉ねぎ袋",
     "entrance": "まぶたが重いけど、きみの答えは見たいな。",
     "battle": [
-      "袋の腹で受けるぞ。中の玉ねぎも目を覚ませ。",
-      "網を伸ばして返す。透けてても守りはあるんだ。",
+      "Sack guard. Onions, kindly wake up and help.",
+      "Mesh stretched. Seeing through it isn't getting through it.",
       "重たい足で一歩よける。まぶたのほうは後にしよう。"
     ],
     "aside": [
-      "眠い顔なのに、周りが先に泣き始める。話、そんなに退屈か？",
+      "Everyone's crying already. I haven't started the story.",
       "徹夜明けではない。玉ねぎの層くらい、寝たはずなんだ。"
     ],
     "pressure": [
-      "うと…まだ倒れん。涙の理由は勝負の後に聞こう。"
+      "Still upright. We'll discuss the tears after the fight."
     ],
     "defeat": "いい正解……夢でも覚えておくよ。"
   },
@@ -6283,16 +6283,16 @@
     "name": "真珠層のホタルガイ",
     "entrance": "真珠の色を、そっと開きます。",
     "battle": [
-      "真珠の殻で受けるわ。薄い光ほど、奥は深いの。",
-      "ゆらりと足を返す。海底の歩き方、見慣れないでしょう。",
+      "Pearl-shell guard. There's depth behind that thin light.",
+      "A quiet turn. The seabed taught me this step.",
       "殻の陰へかわす。輝きは少し残ってしまうけれど。"
     ],
     "aside": [
-      "夜光貝の集まりで、照明係だけ持ち回りにならないの。",
+      "Pearl-like skin? Actually, that's my house.",
       "真珠のような肌って。肌ではなく、家なのよ。"
     ],
     "pressure": [
-      "まだ殻は閉じられる。最後の光まで、守ってみせるわ。"
+      "Shell still closing. I'll keep the last light safe."
     ],
     "defeat": "その答え、真珠のようにきれいでした。"
   },
@@ -6300,16 +6300,16 @@
     "name": "ふしぎな角のおりがみ牛",
     "entrance": "ふしぎな角でも、進む道はまっすぐだ。",
     "battle": [
-      "折った角で受けるモー！ 見た目より複雑だぞ！",
-      "紙の蹄で突進！ 地響きは気持ちで補う！",
+      "Folded-horn guard! More complicated than it looks!",
+      "Paper-hoof charge! Imagine the ground shaking!",
       "谷折りでかわす！ 山折りだったら頭が下がらねえ！"
     ],
     "aside": [
       "手順書に『簡単』とあった。おれの出生に三時間かかった。",
-      "Paper bull. Real stubbornness."
+      "\"Easy project.\" My birth took three hours."
     ],
     "pressure": [
-      "モー、まだ折れねえ！ 折り目は増えても負けじゃない！"
+      "More folds. Same stubborn bull. Not beaten yet!"
     ],
     "defeat": "きみの答えも、まっすぐ届いた。"
   },
@@ -6317,16 +6317,16 @@
     "name": "やわらかパフの化粧犬",
     "entrance": "ぽふっと、やわらかくお相手するよ。",
     "battle": [
-      "ふわパフで受ける。粉が舞っても慌てないで。",
-      "細い脚で返すよ。仕上げの一歩は丁寧にね。",
+      "Powder-puff guard. Please remain calm about the cloud.",
+      "A neat little step. The finish matters.",
       "くるっとかわす。左右の眉を揃える動体視力さ。"
     ],
     "aside": [
       "散歩の前にメイクをしたら、散歩の時間が終わった。",
-      "Beauty sleep? Already fully booked."
+      "Makeup done. Lovely. We've run out of walking time."
     ],
     "pressure": [
-      "まだ落ちないよ。化粧も、僕の意地もね。"
+      "Still holding. My makeup and my pride."
     ],
     "defeat": "ぽふっ。すてきな正解だったね。"
   },
@@ -6334,19 +6334,19 @@
     "name": "宴会部長おたま太郎",
     "entrance": "宴会部長おたま太郎！　まずは、ぼくがひと芸だ！",
     "battle": [
-      "わっは、椀の腹で受けるぞ！ 乾杯は拳でいこう！",
-      "柄を振って一打！ 取り分けとは勢いが違うぞ！",
+      "Ladle-belly guard! We'll toast with fists today!",
+      "Handle swing! That's more than your usual serving!",
       "丸い面で押し返す！ 宴の段取り同様、強引にいく！",
-      "大きくすくって返す！ 君の勢いごと、取り分けよう！",
+      "One great scoop! I'll serve your attack right back!",
       "部長の腹芸だ！ 腹はないが、この丸みでどうにかする！"
     ],
     "aside": [
-      "自由参加の宴会です、と言ったら、僕だけ来た。自由って厳しい。",
+      "Three days on party tricks. Three minutes on the agenda.",
       "余興の準備に三日。会議の準備に三分。時間配分が逆だって？",
-      "Team building. Soup optional."
+      "Optional party. Apparently, I was the only option."
     ],
     "pressure": [
-      "まだ締めの挨拶じゃない！ 僕の杯は空いてないぞ！",
+      "Not the closing speech! My cup isn't empty yet!",
       "最後の一杯まで勝負！ 二次会より先に、逆転だ！"
     ],
     "defeat": "こりゃ一本取られた！　正解の宴会を始めよう！"
@@ -6355,16 +6355,16 @@
     "name": "電光の二刀流ジンライ",
     "entrance": "二刀の先に、きみの言葉を待つ。",
     "battle": [
-      "二刀を交差。逃げ道まで、光で断つ。",
-      "一閃を返す。瞬きの後に悔やむなよ。",
+      "Crossed blades. Even the escape route gets cut.",
+      "One flash. Regret can wait until after you blink.",
       "青い刃で受ける。片腕が空いていると思うな。"
     ],
     "aside": [
-      "二刀流だからと、署名欄まで二本同時を求められた。",
+      "Fast work praised. Deadline shortened. Lesson learned.",
       "速い仕事を褒められた翌日から、納期だけ短くなった。"
     ],
     "pressure": [
-      "まだ二本ある。最後の一呼吸に、全てを乗せる！"
+      "Two blades remain. One breath will be enough."
     ],
     "defeat": "見事。きみの集中は、刃より鋭かった。"
   },
@@ -6372,16 +6372,16 @@
     "name": "ぎょろ目トングのガブリ",
     "entrance": "ガブリ！　あれ、口が開きっぱなしだ！",
     "battle": [
-      "がぶりと挟む！ 焼けてなくても捕まえるぞ！",
-      "両あごで受ける！ 手を出すなら距離を測れ！",
+      "Grab first! You don't have to be cooked to be caught!",
+      "Both jaws ready! Mind where you put those hands!",
       "ばねで跳んで返す！ 離した反動が大事なんだ！"
     ],
     "aside": [
-      "焼肉会の招待状、参加者の欄と道具の欄に名前があった。",
+      "Barbecue invitation. Guest list and equipment list. Both.",
       "テーブルマナーを学んだら、オレの置き場所が増えた。"
     ],
     "pressure": [
-      "まだ閉じる！ 最後の一つまみまで放さねえ！"
+      "Still gripping! I'm not letting go of this last chance!"
     ],
     "defeat": "ガブ……と閉じる前に、きみの勝ちだ！"
   },
@@ -6389,16 +6389,16 @@
     "name": "月輪のスカラベオルナ",
     "entrance": "月の輪を、静かに回します。",
     "battle": [
-      "月輪の甲で受ける。円の守りに端はない。",
-      "前脚を返す。月光より細い隙を狙おう。",
+      "Moon-ring guard. A circle has no loose end.",
+      "One foreleg turn. A gap thinner than moonlight is enough.",
       "輪を傾けてかわす。正面だけを追うな。"
     ],
     "aside": [
-      "月の使いに任じられたが、交通費の支給日は未定だ。",
+      "Lunar messenger appointed. Travel expenses still under review.",
       "満月の日だけ写真映えすると。私の勤務態度は毎日同じだ。"
     ],
     "pressure": [
-      "欠けても巡る。最後の夜まで、私は止まらない。"
+      "Even a crescent keeps moving. So will I."
     ],
     "defeat": "きみの正解に、月の輪を贈りたい。"
   },
@@ -6406,16 +6406,16 @@
     "name": "はりぼて大将ハッタリオ",
     "entrance": "はっはっは！　大きいのは見た目だけ、内緒だぞ！",
     "battle": [
-      "どーんと受ける！ 空洞に響くのも迫力だろ！",
-      "でっかい顔で反撃！ 刃より先に睨みを届ける！",
+      "Booming guard! Hollow things make an impressive noise!",
+      "Big-face attack! The glare arrives before the blade!",
       "風をよんでかわす！ 強風だけは、読まなくても来る！"
     ],
     "aside": [
       "鎧の見積もりが安すぎる？ 大きさだけなら将軍級だ！",
-      "Big face. Bigger confidence. Small contents."
+      "General-sized confidence. Contents sold separately."
     ],
     "pressure": [
-      "中身はなくても気迫はある！ まだ倒すな、この看板！"
+      "Empty inside! Absolutely packed with attitude!"
     ],
     "defeat": "ハッタリでは勝てなかった！　きみは本物だ！"
   },
@@ -6423,16 +6423,16 @@
     "name": "満開の花傘ハナガサ",
     "entrance": "満開の花傘で、お迎えします。",
     "battle": [
-      "ぱあっと花を広げる！ 見上げてる間に返すわよ！",
-      "茎の足で踏ん張る。花だって根性はあるの！",
+      "Full bloom! Don't spend the whole battle looking up!",
+      "Stem feet planted. Flowers have staying power too!",
       "ひと回りしてよけるわ。傘の下も通行止めよ！"
     ],
     "aside": [
-      "雨傘にするなら別料金。あたしは咲くほうの担当！",
+      "Rain cover costs extra. I'm in the blooming business.",
       "顔が見えないって？ 満開の笑顔を見せてるつもりなのよ。"
     ],
     "pressure": [
-      "花びら一枚でも踊れる！ 最後まで、景気よくいくわ！"
+      "One petal left! Enough for one more lively dance!"
     ],
     "defeat": "その答えに、花がほころびました。"
   },
@@ -6440,16 +6440,16 @@
     "name": "カップ麺のびのび将軍",
     "entrance": "のびのび将軍だ！　麺だけは、のび続けるぞ！",
     "battle": [
-      "麺の鎧で受ける！ 絡める守りは得意だ！",
-      "箸のように長く返す！ まだ三分は待たせぬぞ！",
+      "Noodle armor! Getting tangled is part of the defense!",
+      "A long reply! You won't need to wait three minutes!",
       "湯気にまぎれてかわす！ 蓋を取るには早い！"
     ],
     "aside": [
       "出陣の時間を三分間違えたら、兵の腰がなくなった。",
-      "Ready in three. Regret in five."
+      "Three-minute plan. Five-minute meeting. Disaster."
     ],
     "pressure": [
-      "まだコシは残る！ ここで伸び切るわけにはいかぬ！"
+      "Still firm! I'm not letting this drag on!"
     ],
     "defeat": "のびる前に参った！　きみの正解は、歯切れがいい！"
   },
@@ -6457,16 +6457,16 @@
     "name": "青ガラスの海竜ヴィトラ",
     "entrance": "青ガラスの波を、そっと進みます。",
     "battle": [
-      "青い鱗で受けよう。透けても、通れるわけではない。",
-      "水を裂いて返す。ガラスの刃を見切れるか。",
+      "Blue-glass guard. Transparent isn't the same as passable.",
+      "A clean cut through water. Can you follow the glass edge?",
       "長い尾で潮を変える。追う流れは、そこではない。"
     ],
     "aside": [
-      "水族館に行ったら、水槽の業者さんだと挨拶された。",
+      "Aquarium visit. They asked for my tank installation quote.",
       "暑い日の写真だけ、急に依頼が増える。見た目の涼しさか。"
     ],
     "pressure": [
-      "海の青はまだ残る。最後のひびにも、光を通そう。"
+      "Blue still clear. Even the last crack will carry light."
     ],
     "defeat": "きみの言葉は、透明な海へ届きました。"
   },
@@ -6474,16 +6474,16 @@
     "name": "ボヨボヨ消臭ビーズ",
     "entrance": "ぼよぼよ。考えたら、体が揺れちゃった。",
     "battle": [
-      "ぼよっと受ける！ 匂いだけじゃなく衝撃も取るわ！",
-      "粒の拳で返す！ 地味な仕事ほど、力はあるの！",
+      "Bead guard! Odors aren't the only things I absorb!",
+      "Small-bead punch! Quiet jobs can take real strength!",
       "つるんとかわす。器の外は思ったより広いわね。"
     ],
     "aside": [
       "存在感を消してって。匂いと一緒に扱わないでくれる？",
-      "Fresh air. Mild chaos."
+      "Disappear into the background? Please don't treat me like an odor."
     ],
     "pressure": [
-      "まだ粒はある！ 最後まで、すっきり負けずに戦うわ！"
+      "Beads remaining! I'm not clearing out just yet!"
     ],
     "defeat": "ぼよん。いい答えで、すっきりしたね！"
   },
@@ -6491,16 +6491,16 @@
     "name": "金属羽のルリハヤブサ",
     "entrance": "金属の羽で、集中を研ぎすませる。",
     "battle": [
-      "金属の翼で切る。速さに重さも加えてやる。",
-      "羽を合わせて受ける。軽い鳥だと決めつけるな。",
+      "Metal-wing cut. Speed comes with weight this time.",
+      "Feathers locked. Don't assume every bird is lightweight.",
       "空へ切り返す。上を向いた時には、もう遅い。"
     ],
     "aside": [
-      "巣を作ったら、重さで枝のほうが引っ越した。",
+      "Built a nest. The branch moved out.",
       "空港の検査で羽を外せと言われた。徒歩で帰れというのか。"
     ],
     "pressure": [
-      "刃こぼれしても飛ぶ。最後の一翼まで、速さは捨てぬ！"
+      "Chipped blades. Full speed. Watch the last wing."
     ],
     "defeat": "きみの答えは、すばやく届いた。"
   },
@@ -6508,16 +6508,16 @@
     "name": "チャック口のジッパー獣",
     "entrance": "チャックを開けて、お相手しよう。",
     "battle": [
-      "ジジッと閉じて受ける！ 口から先は通行止め！",
-      "あごを開いて反撃！ 本音より先に牙が出る！",
+      "Zip shut! No traffic beyond the teeth!",
+      "Jaw open! The teeth speak before I do!",
       "背を曲げてよける！ 噛み合う歯は全部武器だ！"
     ],
     "aside": [
-      "秘密は守れるぜ。口の鍵をなくした日は特に。",
+      "Keep it zipped? For once, excellent advice.",
       "口が固い会議に呼ばれた。潤滑油だけ持参した。"
     ],
     "pressure": [
-      "まだ締まる！ 最後の一歯まで、噛み合ってやる！"
+      "Still zipping! Every tooth is staying in this fight!"
     ],
     "defeat": "閉じる暇もなく、きみの正解が届いた。"
   },
@@ -6525,16 +6525,16 @@
     "name": "カレーじゅうたんの香辛精",
     "entrance": "香辛料のじゅうたんで、ひと休みしませんか。",
     "battle": [
-      "ひらっとかわしまさあ！ 鼻を追っても遅いですぜ！",
-      "重ねた布で受ける。香りまで染みた守りでさあ。",
+      "Carpet dodge! The nose is just a distraction!",
+      "Layered-cloth guard. The spice is built in.",
       "くるんと返す！ 辛口の一撃、お待ちどう！"
     ],
     "aside": [
       "空飛ぶじゅうたんに憧れた。離陸前に近所が腹を空かせた。",
-      "Mild manners. Extra hot carpet."
+      "Flying carpet prepared. The neighbors prepared their plates."
     ],
     "pressure": [
-      "香りはまだ濃い！ 最後のひと振りまで、熱くいきまさあ！"
+      "Still fragrant! I've got one more spicy turn left!"
     ],
     "defeat": "きみの正解は、じっくり味わいました。"
   },
@@ -6542,16 +6542,16 @@
     "name": "星彩のフラミンゴ",
     "entrance": "星彩の羽を、静かに広げます。",
     "battle": [
-      "星の羽で受けるわ。薄い夜にも厚みはあるの。",
-      "片脚でひらり。一本でも軸はぶれないわ。",
+      "Star-feather guard. Even a thin night has depth.",
+      "One-leg turn. Balance doesn't require a pair.",
       "長い首で返す。優雅な線にも終点はあるのよ。"
     ],
     "aside": [
-      "片脚立ちの健康法を勧められた。私の日常に名前がついたのね。",
+      "One-leg fitness trend. My ordinary Tuesday has a name now.",
       "ドレスの裾直しより、脚の寸法説明のほうが長いわ。"
     ],
     "pressure": [
-      "まだ姿勢は保てる。最後まで、星の高さで向き合うわ。"
+      "Posture held. I'll meet your gaze at star height."
     ],
     "defeat": "きみの言葉も、鮮やかでした。"
   },
@@ -6559,16 +6559,16 @@
     "name": "せきとめ門のセキタン",
     "entrance": "せきとめ門は、確かな答えを待つ。",
     "battle": [
-      "格子を下ろす。君の勢いは、ここで止める。",
-      "石の拳を返す。門にも攻め手はあるのだ。",
+      "Gate lowered. Your momentum stops here.",
+      "Stone-fist reply. Gates are not limited to defense.",
       "両脚を据える。通す道は、私が決める。"
     ],
     "aside": [
-      "心を開けと言われた。開けると全員、通り抜けてしまう。",
+      "Open up, they said. Everyone walked straight through.",
       "会議の結論は『風通しをよく』。格子は元から空いている。"
     ],
     "pressure": [
-      "最後の石まで守る。閉じた意地は、簡単には開かぬぞ！"
+      "Last stone standing. You'll have to earn this entrance."
     ],
     "defeat": "よし。きみの言葉に、門を開こう。"
   },
@@ -6576,16 +6576,16 @@
     "name": "笑い面のドラム缶",
     "entrance": "がははは！　笑ったら、へこみが増えちゃった！",
     "battle": [
-      "がははと受ける！ 響きがいいほど、丈夫ってことさ！",
-      "丸い体でごろん！ 笑ってるうちにぶつかるぞ！",
+      "Ha-ha! Good echo! That means I'm holding up!",
+      "Barrel roll! Laugh now. Dodge next!",
       "底で踏ん張る！ 空っぽでも、軽く扱うなよ！"
     ],
     "aside": [
-      "中身のある人になれって。入れたら笑い声が変わるんだ。",
+      "Music audition. They drummed on me before reading my resume.",
       "楽器の面接で、履歴書より先に腹を叩かれた。"
     ],
     "pressure": [
-      "がは、まだ鳴る！ 最後は大きく響いて返すぞ！"
+      "Still ringing! Let me have the last laugh!"
     ],
     "defeat": "がはは！　参った、参った！　きみの勝ちだ！"
   },
@@ -6593,16 +6593,16 @@
     "name": "青虹の水母レインクラ",
     "entrance": "青い虹の腕で、ゆっくり舞います。",
     "battle": [
-      "青い傘で受けるわ。雨宿りするには、ちょっと電気があるけど。",
-      "ふわりと流れて返す。ゆっくり見えても届くの。",
+      "Jellyfish guard. A little shelter. A little sting.",
+      "A drifting reply. Slow can still reach you.",
       "虹色の尾をひくわ。追うなら、潮に置いていかれないで。"
     ],
     "aside": [
       "七色の予定表を作ったの。予定が全部、潮まかせだったわ。",
-      "No bones. Plenty of nerve."
+      "Rainbow planner. Every appointment depends on the tide."
     ],
     "pressure": [
-      "まだ浮かぶわ。最後のひと色まで、流されずにいたいの。"
+      "Still afloat. The last color hasn't faded."
     ],
     "defeat": "きみの答えは、虹のようにやさしかった。"
   },
@@ -6610,16 +6610,16 @@
     "name": "レモン搾りの剣士シトロン",
     "entrance": "レモンの剣で、きりっと勝負だ。",
     "battle": [
-      "レモンの刃で返す。切れ味には、酸味も添えよう。",
-      "皮の鎧で受ける。苦みを知ると、守りは強いよ。",
+      "Lemon-blade reply. A sharp edge with a sharp taste.",
+      "Peel armor. Bitterness has taught me a few things.",
       "きゅっと絞ってかわす。細くなるのも剣術さ。"
     ],
     "aside": [
       "爽やかな男と言われるけど、傷口には向かない性格だね。",
-      "When life gives you lemons, duel politely."
+      "When life gives you lemons, request a fencing partner."
     ],
     "pressure": [
-      "まだ果汁は残る！ 最後の一滴で、勝負を絞り出そう！"
+      "Juice remaining! I'll squeeze out one last chance!"
     ],
     "defeat": "しぼり出した答え、見事だったな！"
   },
@@ -6627,16 +6627,16 @@
     "name": "月光甲冑のアーマディロ",
     "entrance": "月光の甲冑で、お相手する。",
     "battle": [
-      "月光の甲で受ける。光を追う前に、重さを知れ。",
-      "低い姿勢で突く。この足場は渡さない。",
+      "Moon-armor guard. Learn its weight before chasing the light.",
+      "Low strike. This ground is not changing hands.",
       "丸まって守る。逃げではない、全身の盾だ。"
     ],
     "aside": [
-      "鎧の手入れを手伝うと言われた。裏側だけで夕方になった。",
+      "Armor polishing offered. They reached the underside by sunset.",
       "行動が硬い？ 甲冑のせいだけにはできないな。"
     ],
     "pressure": [
-      "まだ丸まれる。最後の一枚が、勝負の一枚だ！"
+      "One plate left. That's the one that matters now."
     ],
     "defeat": "きみの正解は、硬い甲冑にも届いた。"
   },
@@ -6644,16 +6644,16 @@
     "name": "ぶくぶく泡笛の海坊主",
     "entrance": "ぶくぶく。ほっぺの笛で、応援するよ。",
     "battle": [
-      "ぶくぶくの壁だ！ 抜けた気でも、まだ泡の中だぞ！",
-      "笛の一吹きで返す！ 音よりしぶきが先かもしれん！",
+      "Bubble wall! Getting through one doesn't mean you're out!",
+      "Whistle reply! The splash might arrive before the sound!",
       "大耳で受け流す。波の話は全部聞いてるぞ！"
     ],
     "aside": [
       "静かに暮らしたくて海底へ来た。泡の音が近すぎた。",
-      "Bubble trouble. Free refills."
+      "Quiet life under the sea. The bubbles moved in too."
     ],
     "pressure": [
-      "ぶく…まだ一泡ある！ 最後に吹かせてもらうぞ！"
+      "One bubble left! I'll make myself heard!"
     ],
     "defeat": "ぶくっ！　正解のお祝いを鳴らそう！"
   },
@@ -6661,16 +6661,16 @@
     "name": "天青石の鹿ラピセラ",
     "entrance": "天青石の角で、静かに道を照らします。",
     "battle": [
-      "青い角を構える。柔らかな空色でも、石の強さはある。",
-      "細い蹄で返す。一歩の静けさまで、見切れるかな。",
+      "Blue antlers ready. Sky color. Stone strength.",
+      "A quiet hoofstep. Can you read even that?",
       "光の陰へかわす。透明な場所も、隠れ家になる。"
     ],
     "aside": [
-      "空の写真に写ったら、色見本として切り抜かれていた。",
+      "Sky photograph. I ended up as the color sample.",
       "天気の話で安心されるけど、僕も雨の日はわからないよ。"
     ],
     "pressure": [
-      "青はまだ澄んでいる。最後まで、曇らぬ目で向き合うよ。"
+      "Blue still clear. My eyes will stay that way too."
     ],
     "defeat": "きみの答えは、澄んだ光でした。"
   },
@@ -6678,19 +6678,19 @@
     "name": "雲海王スカイアーク",
     "entrance": "雲海の王として、きみの言葉を待とう。",
     "battle": [
-      "雲の翼を開く。我が空を、ひと打ちで渡れると思うな。",
-      "王の爪を返そう。地を持たぬ者にも、重さはある。",
+      "Cloud wings open. My sky takes more than one strike to cross.",
+      "Royal talons. No land beneath me, but plenty of weight.",
       "雲影へ抜ける。君の視線より、高く広く。",
-      "白き翼の一旋。吹き上がる風まで、我が力だ。",
+      "One white-wing turn. The rising wind answers to me.",
       "雲壁を重ねる。見えるからと、道とは限らぬ。"
     ],
     "aside": [
-      "王国の境界を引いたが、翌朝には雲ごと隣国へ移っていた。",
+      "National border drawn. The clouds relocated it overnight.",
       "『地に足のついた政策を』と。まず、地を持ってこさせよう。",
-      "Sky is not the limit. It is my office."
+      "The sky isn't the limit. It's where I hold meetings."
     ],
     "pressure": [
-      "雲が薄くても空は残る。我は、まだこの上に立つ。",
+      "Clouds thinning. The sky remains. So do I.",
       "最後の一雲まで翔ける！ 王の影を、ここで地へ落としはせぬ！"
     ],
     "defeat": "見事。雲の道を、きみに開こう。"
@@ -6699,19 +6699,19 @@
     "name": "赤銅将ヘリオバル",
     "entrance": "赤銅の将として、正面から受けよう。",
     "battle": [
-      "赤銅の槍、前へ！ その守り、正面から受けよう！",
-      "盾を据える。熱を帯びた一撃も、ここで止める！",
+      "Copper spear forward! I'll meet that guard head-on!",
+      "Shield planted. Even a heated strike stops here!",
       "脚を返し、突く。大きな鎧にも、速い一歩はある！",
-      "槍の横薙ぎ！ 退くなら今だ、とは言わぬぞ！",
+      "A sweeping spear! Don't expect a polite warning!",
       "赤い盾で受け切る。傷を重ねたぶん、覚悟は厚い！"
     ],
     "aside": [
-      "鎧を磨く兵が、出陣より先に疲れてしまった。某の反省だ。",
+      "Sunny camp chosen. By noon, everyone had moved away from me.",
       "日当たりのよい陣地を選んだ。昼には全員、某から離れた。",
-      "Bronze armor. Unbending orders."
+      "Armor polished. Soldiers exhausted. I owe them a rest."
     ],
     "pressure": [
-      "まだ銅は鳴る。最後の一打まで、武将の名で応えよう！",
+      "Copper still rings. I'll answer with the final blow.",
       "某は倒れぬ！ 最後の火照りまで、勝負に注ぐ！"
     ],
     "defeat": "見事な正解だ。きみの前進を認める。"
@@ -6720,19 +6720,19 @@
     "name": "千花女帝フルリーナ",
     "entrance": "千の花を、きみの言葉で開いてごらんなさい。",
     "battle": [
-      "千花の袖で受けましょう。柔らかなものほど、重ねるのです。",
-      "花の王笏を返します。甘い香りにも、芯はありますわ。",
+      "Flower-sleeve guard. Soft layers can make a firm answer.",
+      "A floral reply. Sweet scents can have strong roots.",
       "裾をひいてかわす。踏んでよい花は、一輪もありませんの。",
-      "花嵐を呼びましょう。眺めるだけの季節は、ここまでです。",
+      "Flower storm! The sightseeing part of this battle is over.",
       "幾重の花弁で守ります。最後の奥まで、届きますか。"
     ],
     "aside": [
-      "花を贈られるたび、どこへ飾るかで自分の体を見回しますの。",
+      "Flowers as a gift? I shall consult my wardrobe.",
       "千の花に役職をつけたら、名刺だけで庭が埋まりましたわ。",
-      "A thousand flowers. One firm answer."
+      "A thousand flowers. The business cards filled the garden."
     ],
     "pressure": [
-      "一輪残れば十分です。女帝の心まで散りはしません。",
+      "One flower is enough. My courage won't wither.",
       "最後の一輪まで咲き切ります。幕を閉じるのは、勝負のあとですわ。"
     ],
     "defeat": "見事。きみの言葉に、花の道を贈ります。"
@@ -6741,19 +6741,19 @@
     "name": "なべぶた大魔王ポコポン",
     "entrance": "ポコポン！　ふたの王冠を、ちゃんとかぶれないぞ！",
     "battle": [
-      "ポコポンと受ける！ 魔王の丸い守りを見よ！",
-      "スプーン王笏の一撃！ 味見とは桁が違うぞ！",
+      "Pot-lid guard! Behold the king of round defenses!",
+      "Spoon-scepter strike! This is no tasting portion!",
       "つまみを握って踏ん張る！ そこは弱点でなく王冠だ！",
-      "大魔王ふた返し！ 鍋底から返す勢いでいくぞ！",
+      "Great lid flip! Even the kitchen wasn't ready for this!",
       "蒸気を閉じ込める守り！ 圧力は味方にもなるのだ！"
     ],
     "aside": [
-      "鍋の中身より吾輩が目立つと、料理番から苦情が来た。",
+      "Demon hunters arrived. Asked whether I came with a matching pot.",
       "魔王討伐の冒険者が、サイズの合う鍋も探しておった。",
-      "Fear the lid. Respect the soup."
+      "Fear the lid. Compliments to the soup can wait."
     ],
     "pressure": [
-      "まだ凹んでおらぬ！ いや、少し凹んだが心の話ではない！",
+      "Not dented! Well, the metal is. The pride isn't!",
       "最後のポコポンを響かせよう！ 吾輩の蓋は、まだ閉じぬぞ！"
     ],
     "defeat": "ポコポーンと参った！　きみの正解で、ふたが浮いたぞ！"

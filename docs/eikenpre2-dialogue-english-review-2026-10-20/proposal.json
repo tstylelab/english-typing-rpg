@@ -1,0 +1,2255 @@
+{
+  "EikenPre2:m1_1": {
+    "name": "ぷちぷち梱包おばけ",
+    "entrance": "ぷちっ！　あれ、ほっぺがへこんだ！",
+    "battle": [
+      "Pop! That was a bubble, not my last life!",
+      "Air punch! Empty inside, but full of fight!",
+      "折り重ねて守る！ 開封には早いよ！"
+    ],
+    "aside": [
+      "取扱注意の札を貼ったら、誰も抱っこしてくれなくなった。",
+      "Handle with care. Hugs are still welcome."
+    ],
+    "pressure": [
+      "One bubble left. I'll make it count!"
+    ],
+    "defeat": "きみの正解、ぷちっと決まったね！"
+  },
+  "EikenPre2:m1_2": {
+    "name": "みかん皮のベレー帽",
+    "entrance": "帽子を直したら、始めようね。",
+    "battle": [
+      "A stylish turn! Did you catch that orange scent?",
+      "Peel your own orange. This one's my hat!",
+      "帽子を深くして回避！ 見えないのはあたしのほう！"
+    ],
+    "aside": [
+      "Designer hat. Sold by the bag. Honestly!",
+      "ベレー帽の値札に『一袋』って。個性派なのに！"
+    ],
+    "pressure": [
+      "Just one peel left. Still dressed to impress!"
+    ],
+    "defeat": "じょうず！　みかんの拍手だよ。"
+  },
+  "EikenPre2:m1_3": {
+    "name": "ねこ舌ティーカップ",
+    "entrance": "あちち！　ねこ舌なのに、お茶係！",
+    "battle": [
+      "Handle first! The rest of me is still too hot!",
+      "Ow! The tea's putting up more of a fight than you!",
+      "受け皿の足でよける！ 溢れる前に急ぐぞ！"
+    ],
+    "aside": [
+      "カップなのに冷まして飲む。仕事と体質が合ってないんだ。",
+      "Born to serve tea. Forced to wait for it to cool."
+    ],
+    "pressure": [
+      "One sip left. Let's fight while it cools."
+    ],
+    "defeat": "きみの答えは、ちょうどいい温度だね！"
+  },
+  "EikenPre2:m1_4": {
+    "name": "すやすや綿ぼうし",
+    "entrance": "すやすや……夢の中でも、一問だけ。",
+    "battle": [
+      "Soft guard. I've practiced this in my sleep.",
+      "Rolling over. It's a move, not a nap.",
+      "ぼんぼんでぽん。やさしそうでも、本気だよ。"
+    ],
+    "aside": [
+      "I ran in my dream. Woke up needing a nap.",
+      "帽子を脱いだら誰だかわからないって。ぼくもそう。"
+    ],
+    "pressure": [
+      "Eyes half open. That's still open, right?"
+    ],
+    "defeat": "いい答え……むにゃ、覚えたよ。"
+  },
+  "EikenPre2:m1_5": {
+    "name": "フリルえらのウーパー",
+    "entrance": "ゆっくり、言葉をほどいてね。",
+    "battle": [
+      "Frills up! Please mind the breathing equipment!",
+      "Tail slap! There's more to me than cute frills!",
+      "水を蹴ってかわす。水槽より広くて助かるわ！"
+    ],
+    "aside": [
+      "フリルを増やしたいって相談したら、酸素を勧められた。",
+      "I asked for more frills. They offered more oxygen."
+    ],
+    "pressure": [
+      "Still swimming! My gills haven't given up either!"
+    ],
+    "defeat": "澄んだ答え、届いたよ。"
+  },
+  "EikenPre2:m1_6": {
+    "name": "むずむず洗濯ブラシ",
+    "entrance": "むずむず！　自分の毛がくすぐったい！",
+    "battle": [
+      "Bristles ready! Hey, no tickling during battle!",
+      "Ha-ha! I'm laughing, but I mean business!",
+      "長ぐつで踏ん張る！ 床の泡はおれのせい！"
+    ],
+    "aside": [
+      "Cleaning test. The stains stayed. My laugh passed.",
+      "『腹を割って話せ』って。まず腹をこするのをやめて！"
+    ],
+    "pressure": [
+      "Still laughing! You haven't washed me away yet!"
+    ],
+    "defeat": "正解で、笑いが止まらないぞ！"
+  },
+  "EikenPre2:m1_7": {
+    "name": "光るつぼみのルーチェ",
+    "entrance": "つぼみを開くように、一つずつ。",
+    "battle": [
+      "Petals closed. Some things are worth protecting.",
+      "A little light. It reaches farther than you'd think.",
+      "葉の陰へかわす。光は少し残しておくわ。"
+    ],
+    "aside": [
+      "I read by my own light. The moths joined in.",
+      "開花の予定は非公開よ。自分でも、まだ知らないから。"
+    ],
+    "pressure": [
+      "Still glowing. I intend to bloom before this is over."
+    ],
+    "defeat": "きみの集中で、心が咲いたよ。"
+  },
+  "EikenPre2:m1_extra_1": {
+    "name": "おしゃれ巻き貝コロナ",
+    "entrance": "おしゃれも勉強も、一歩ずつね。",
+    "battle": [
+      "A scratch? Perhaps I can call it a pattern.",
+      "A graceful turn. Kindly use the other entrance.",
+      "触角で間合いを測るの。視線もおしゃれの一部ですわ。"
+    ],
+    "aside": [
+      "衣装持ちと言われますが、毎日同じ家を着ていますの。",
+      "One home. Worn daily. Never out of fashion."
+    ],
+    "pressure": [
+      "Still in my shell. I'm seeing this through in style."
+    ],
+    "defeat": "その答え、よく似合ってるよ。"
+  },
+  "EikenPre2:m1_extra_2": {
+    "name": "カラメルひげの執事",
+    "entrance": "落ち着いた答えを、お待ちしております。",
+    "battle": [
+      "Mustache neat. Your counterattack is being prepared.",
+      "A sweet welcome. A rather firm goodbye.",
+      "一歩退いてかわします。お客様にも距離は必要ですので。"
+    ],
+    "aside": [
+      "Sugar for your tea? My mustache is not on the menu.",
+      "ご主人様の『すぐ戻る』は、カラメルより長く糸を引きます。"
+    ],
+    "pressure": [
+      "A little bitter now. Still at your service."
+    ],
+    "defeat": "見事なお答えでございました。"
+  },
+  "EikenPre2:m1_extra_3": {
+    "name": "まっ赤なほっぺの赤かぶ",
+    "entrance": "ほっぺは赤いけど、準備できたよ。",
+    "battle": [
+      "Red cheeks up! They were this color before you hit me!",
+      "Leaf punch! Shy doesn't mean I'm running away!",
+      "根っこを踏ん張る！ 畑じゃなくても立てるんだ！"
+    ],
+    "aside": [
+      "Blushing means lying? That's hardly fair to a red turnip.",
+      "赤い顔で健康診断に行ったら、入口から案内が速かった。"
+    ],
+    "pressure": [
+      "I'll keep trying. I can't get any redder anyway!"
+    ],
+    "defeat": "できたね！　もっと赤くなっちゃった。"
+  },
+  "EikenPre2:m1_extra_4": {
+    "name": "郵便切手のパタパタ蝶",
+    "entrance": "小さな言葉を、遠くへ届けよう。",
+    "battle": [
+      "Wrong address! Try catching me on the next street!",
+      "Stamp wings ready. No cancellation mark just yet!",
+      "ひと羽で返すわ。速達扱いの一撃よ！"
+    ],
+    "aside": [
+      "I carried the envelope. Nobody weighed the butterfly.",
+      "封筒に貼られて飛んだら、荷物のほうが重かったわ。"
+    ],
+    "pressure": [
+      "Delivery pending. I'll finish my route!"
+    ],
+    "defeat": "きみの答え、ちゃんと届いたよ。"
+  },
+  "EikenPre2:m1_8": {
+    "name": "おどけるまつぼっくり",
+    "entrance": "笑いすぎて、うろこが逆立ったぞ！",
+    "battle": [
+      "Pinecone shield! Sorry, no rain cover included!",
+      "Here comes the punch line! And an actual punch!",
+      "松葉の足でよける！ 針葉樹の身軽さだ！"
+    ],
+    "aside": [
+      "Lost property? Yes, I fell from a tree.",
+      "自己紹介で滑ったら、松ぼっくりなので転がっただけと言い張る。"
+    ],
+    "pressure": [
+      "One last joke! I hope you're still paying attention!"
+    ],
+    "defeat": "おみごと！　まつぼっくり拍手！"
+  },
+  "EikenPre2:m1_extra_5": {
+    "name": "ラムネ玉のチリン",
+    "entrance": "ころん、ちりん。ひとつ答えてみよう。",
+    "battle": [
+      "Clear glass. Still here. You haven't lost me yet!",
+      "Rolling free! Finally, room to pick up speed!",
+      "丸い光で目をくらます。どこが前か、当ててみて！"
+    ],
+    "aside": [
+      "びんから出たら自由だった。帰る入口はどこだろう。",
+      "Out of the bottle! How do I get back in?"
+    ],
+    "pressure": [
+      "Hear that ring? I've got another roll in me!"
+    ],
+    "defeat": "きみの答え、いい音がしたよ。"
+  },
+  "EikenPre2:m1_extra_6": {
+    "name": "しましまエプロンばく",
+    "entrance": "鼻がポケットに！　取り出すのを忘れた！",
+    "battle": [
+      "Apron guard. A little exercise before dinner.",
+      "Trunk ready. This isn't a taste test.",
+      "一歩よけるよ。エプロンの端は踏まないでね。"
+    ],
+    "aside": [
+      "I ate a dream about dinner. Twice as full now.",
+      "夕食を食べた夢を食べると、二重に満腹になるんだ。"
+    ],
+    "pressure": [
+      "Still standing. I've saved some room for a comeback."
+    ],
+    "defeat": "きみの答えは、すっと出てきたね！"
+  },
+  "EikenPre2:m1_extra_7": {
+    "name": "金魚ちょうちんのヒラリ",
+    "entrance": "やわらかな灯りで、言葉を照らそう。",
+    "battle": [
+      "Follow the tail light! If you can keep up!",
+      "Lantern ribs ready. The paper gets all the credit.",
+      "赤い尾でひと押し。屋台の列は譲るけどね。"
+    ],
+    "aside": [
+      "Lost-child duty at the festival. That's what I get for glowing.",
+      "夜祭りで迷子係になったわ。目立つって忙しいのね。"
+    ],
+    "pressure": [
+      "Light still on! The festival isn't over yet!"
+    ],
+    "defeat": "明るい答えを、ありがとう。"
+  },
+  "EikenPre2:m1_extra_8": {
+    "name": "きょとん豆腐キューブ",
+    "entrance": "えっと……四角くても、考えてるよ。",
+    "battle": [
+      "Corners ready. Are corners supposed to be strong?",
+      "Soft little bounce. I can still bump into you.",
+      "小さい足で逃げる。お皿の端よりは広いね。"
+    ],
+    "aside": [
+      "『頭を柔らかく』って。これ以上だと形がなくなるよ。",
+      "Think outside the box? But I'm the box shape."
+    ],
+    "pressure": [
+      "Still a cube? Then I can keep going."
+    ],
+    "defeat": "なるほど！　角までわかったよ。"
+  },
+  "EikenPre2:m1_extra_9": {
+    "name": "ぺらぺらレタスくん",
+    "entrance": "ぺらぺらだけど、気持ちは分厚いぞ！",
+    "battle": [
+      "Leaf dodge! Being thin has its advantages!",
+      "More layers! My stories aren't the only things piling up!",
+      "緑の袖で一打！ 口ばっかりとは言わせない！"
+    ],
+    "aside": [
+      "Meeting minutes. Mine came with extra chapters.",
+      "会議の議事録より、ぼくのほうがページ数が多い。"
+    ],
+    "pressure": [
+      "One leaf left! Plenty to say... I mean, fight with!"
+    ],
+    "defeat": "きみの答えには、折りたためない力がある！"
+  },
+  "EikenPre2:m1_extra_10": {
+    "name": "銀のしずくミズスマシ",
+    "entrance": "水面を切るように、迷わず進め。",
+    "battle": [
+      "Quick turn. I'll take the gap between the ripples.",
+      "Silver legs. Speed and strength can work together.",
+      "波紋を追って返す。君が動けば、私はわかる。"
+    ],
+    "aside": [
+      "水の上で立ち話をしたら、波の情報が渋滞した。",
+      "Waterproof shoes? I've never needed shoes at all."
+    ],
+    "pressure": [
+      "One last ripple. I'll reach it before I sink."
+    ],
+    "defeat": "切れのある答えだ。見事。"
+  },
+  "EikenPre2:m1_9": {
+    "name": "ピンポン花のポンリリ",
+    "entrance": "ぽんっ！　答えを受け止めるよ。",
+    "battle": [
+      "Return shot! That wasn't a ball, but never mind!",
+      "Petal racket ready! Aim for the center!",
+      "左右に跳ぶよ！ 根っこがないって便利ね！"
+    ],
+    "aside": [
+      "Applause makes me serve. The flower show was confusing.",
+      "お花見の拍手を聞くと、ついサーブしちゃうの。"
+    ],
+    "pressure": [
+      "Not match point yet! These petals have more to give!"
+    ],
+    "defeat": "いい球だね！　正解の花が咲いた！"
+  },
+  "EikenPre2:m1_10": {
+    "name": "ぽんぽこ綿入れ大将",
+    "entrance": "大将だぞ！　ただし、布団が重くて動けん！",
+    "battle": [
+      "Cotton guard! Less stuffing, more fighting spirit!",
+      "Soft coat. Hard-earned courage. Don't be fooled!",
+      "綿の鎧を重ねるぞ。武士にも冬支度が必要じゃろう！",
+      "Belly drum charge! The sound is only the beginning!",
+      "寒風も攻撃も通さぬ！ この腹は砦じゃ！"
+    ],
+    "aside": [
+      "Lighter armor requested. They sent me a blanket.",
+      "会議で腹を割って話せと。綿が出るので却下した。",
+      "Winter armor. Soft on the outside. Stubborn underneath."
+    ],
+    "pressure": [
+      "Still drumming! That wasn't the signal to retreat!",
+      "綿の最後の一房まで守る！ 大将は、へたれんぞ！"
+    ],
+    "defeat": "参った！　ふかふかの降参じゃ！"
+  },
+  "EikenPre2:c1_1": {
+    "name": "火山帽のマグマモグ",
+    "entrance": "地底の熱にも負けぬ集中を見せよ。",
+    "battle": [
+      "Magma fist! I do more than dig holes!",
+      "Helmet guard! Careful, the top's a little warm!",
+      "岩の爪で踏ん張る！ 地面はおれの専門だ！"
+    ],
+    "aside": [
+      "Hats off to you. Mine stays on during eruptions.",
+      "地下勤務なのに、日焼けの相談をしているんだ。"
+    ],
+    "pressure": [
+      "Still some fire left! I'm digging in!"
+    ],
+    "defeat": "力強い答えだ。道を開こう。"
+  },
+  "EikenPre2:c1_2": {
+    "name": "ドヤ顔チューブわさび",
+    "entrance": "ドヤッ！　辛さより、顔が自慢だ！",
+    "battle": [
+      "Tiny dose. Huge impression. That's wasabi for you!",
+      "Squeeze and dodge! Easier said than done!",
+      "銀のキャップで受ける！ 中まで甘くねえぞ！"
+    ],
+    "aside": [
+      "寿司の主役は誰かって会議、オレは呼ばれてないのに参加した。",
+      "The sushi meeting needed a little more me."
+    ],
+    "pressure": [
+      "Last squeeze! You won't forget this one!"
+    ],
+    "defeat": "くうっ！　きみの正解は、もっと効いた！"
+  },
+  "EikenPre2:c1_3": {
+    "name": "風切りのキジフウセン",
+    "entrance": "風を切る答えで、進んでこい。",
+    "battle": [
+      "Cutting through! Your guard isn't part of my route.",
+      "Tail strike. Fancy feathers earn their keep too.",
+      "風上へかわす。追い風待ちでは勝てないからな。"
+    ],
+    "aside": [
+      "They handed me a balloon string. Wrong kind of flier.",
+      "出勤が風次第？ いや、俺が風を切る側だ。"
+    ],
+    "pressure": [
+      "Feathers in place. I'll use every bit of wind."
+    ],
+    "defeat": "まっすぐ届いた。よい集中だ。"
+  },
+  "EikenPre2:c1_4": {
+    "name": "缶切り騎士カンカット",
+    "entrance": "固い迷いも、切り開いてみせよ。",
+    "battle": [
+      "Blades ready. I take more than cans seriously.",
+      "Turn by turn. A clean cut takes patience.",
+      "盾を据える。ふたは閉めたままで構わん。"
+    ],
+    "aside": [
+      "騎士団の備蓄係にされた。剣の腕を見てほしかったのだが。",
+      "Knight training completed. Assigned to the food cupboard."
+    ],
+    "pressure": [
+      "The opening is there. One more turn!"
+    ],
+    "defeat": "鮮やかな答えだ。ふたを開こう。"
+  },
+  "EikenPre2:c1_5": {
+    "name": "宝石かんざしの孔雀",
+    "entrance": "言葉の宝石を、一つずつ磨いてね。",
+    "battle": [
+      "Jewels ready. Admire them after the battle, please.",
+      "Feathers together. Every one deserves proper care.",
+      "しゃなりと横へ。美しく避けるにも筋力が必要ですの。"
+    ],
+    "aside": [
+      "Travel light? Does my entire body count as luggage?",
+      "宝石店の防犯ベルが、わたくしの入店で緊張しますの。"
+    ],
+    "pressure": [
+      "Feathers ruffled. Chin still high."
+    ],
+    "defeat": "美しい集中、受け取りました。"
+  },
+  "EikenPre2:c1_6": {
+    "name": "バネ鼻のジャックン",
+    "entrance": "鼻がびよーん！　先に答えに着いちゃった！",
+    "battle": [
+      "Boing! My nose reaches farther than my plans!",
+      "Spring compressed! You'll get all that energy back!",
+      "跳ねてかわす！ 鼻だけ置いていかないように！"
+    ],
+    "aside": [
+      "Long explanation. My nose reached the point first.",
+      "説明が長いと、鼻のほうが先に結論へ着くんだ。"
+    ],
+    "pressure": [
+      "Still springy! Wait till you see the bounce!"
+    ],
+    "defeat": "正解！　鼻もまっすぐ戻ったよ！"
+  },
+  "EikenPre2:c1_8": {
+    "name": "くしゃみ噴水フンスイオ",
+    "entrance": "へっ……くしゅん！　噴水が逆流しちゃった！",
+    "battle": [
+      "Achoo! Water wall! I can't see through it either!",
+      "Bowl guard! Even the water's feeling shaken!",
+      "噴き上げて反撃じゃ！ 風向きだけは頼むぞ！"
+    ],
+    "aside": [
+      "Quiet square. Loud fountain. Someone skipped the planning meeting.",
+      "噴水の点検が来たら、鼻うがいを勧められた。"
+    ],
+    "pressure": [
+      "Water remaining! One last sneeze ought to do it!"
+    ],
+    "defeat": "きみの正解で、すっきりしたよ！"
+  },
+  "EikenPre2:c1_extra_1": {
+    "name": "群青の角獣インディガ",
+    "entrance": "群青の角を越える答えを見せよ。",
+    "battle": [
+      "Indigo horn. Harder than the night sky looks.",
+      "One hoofbeat. Can you predict the next?",
+      "首を引いてかわす。三日月の角を追うがよい。"
+    ],
+    "aside": [
+      "Horn care appointment. They referred me to an observatory.",
+      "青ざめているのではない。これが通常の威厳だ。"
+    ],
+    "pressure": [
+      "Night is falling. My hour is far from over."
+    ],
+    "defeat": "見事な判断だ。きみを認める。"
+  },
+  "EikenPre2:c1_extra_2": {
+    "name": "ひょろひょろストロー剣士",
+    "entrance": "細すぎて、風がこわい！　でも剣士だぞ！",
+    "battle": [
+      "A narrow escape! Being this thin finally pays off!",
+      "Bendy joints! Don't confuse the swordsman with the straw!",
+      "ストロー突き！ 中は空でも、覚悟は詰まってる！"
+    ],
+    "aside": [
+      "健康診断で、先生がぼくをペン立てに戻しかけた。",
+      "Doctor's waiting room. Someone put me in the pen holder."
+    ],
+    "pressure": [
+      "Bent, not beaten! I've still got a point to make!"
+    ],
+    "defeat": "参った！　きみの答えは折れなかった！"
+  },
+  "EikenPre2:c1_extra_3": {
+    "name": "こだまの水晶ヘラジカ",
+    "entrance": "こだまのように、言葉を確かめよう。",
+    "battle": [
+      "Antlers ringing. The forest has heard your move.",
+      "Crystal guard. A strong note, not a cry for help.",
+      "一歩よけよう。残るこだまに惑わされないで。"
+    ],
+    "aside": [
+      "I voted once. The echoes made it unanimous.",
+      "会議で賛成と言ったら、満場一致に数えられた。"
+    ],
+    "pressure": [
+      "Chipped crystal still rings. Listen to the last note."
+    ],
+    "defeat": "澄んだ答えが、響きました。"
+  },
+  "EikenPre2:c1_extra_4": {
+    "name": "おつまみ戦車ナッツン",
+    "entrance": "おつまみ部隊、出発！　転がる方が速いぞ！",
+    "battle": [
+      "Shell armor! Try cracking that with bare hands!",
+      "Nuts away! Salt sold separately!",
+      "履帯で踏ん張れ！ おつまみにも地上戦はある！"
+    ],
+    "aside": [
+      "Bar staff welcomed me. I'm not sure we're allies.",
+      "空の皿を見せるな。戦友の不在を思い出す。"
+    ],
+    "pressure": [
+      "Last nut loaded! This snack isn't finished!"
+    ],
+    "defeat": "ぱりっ！　きみの正解で降参だ！"
+  },
+  "EikenPre2:c1_9": {
+    "name": "銀箔のケツァルルミオ",
+    "entrance": "銀の羽で、言葉を運びましょう。",
+    "battle": [
+      "Silver wings. Thin doesn't mean fragile.",
+      "Tail sweeping back. My reach doesn't end at my feet.",
+      "ひらりと光へ逃げる。目が追うのはどちらかしら。"
+    ],
+    "aside": [
+      "Table decoration? I'm afraid I come in bird size.",
+      "曇り空の日も輝くの。天気手当は、まだ出ないけれど。"
+    ],
+    "pressure": [
+      "Some silver lost. These wings are still mine."
+    ],
+    "defeat": "輝く答え、ありがとうございました。"
+  },
+  "EikenPre2:c1_extra_5": {
+    "name": "しゃもじ拳法パタライス",
+    "entrance": "しゃもじ拳法！　眉毛のご飯がじゃまだ！",
+    "battle": [
+      "Rice paddle guard! Not one grain gets past!",
+      "Freshly cooked courage! Have another helping!",
+      "米の足場で踏ん張る。粘りこそ修行の成果！"
+    ],
+    "aside": [
+      "秘伝の巻物を開いたら、水加減しか書いてなかった。",
+      "Secret scroll opened. Just the water-to-rice ratio."
+    ],
+    "pressure": [
+      "Last grain! I'll stick with this fight!"
+    ],
+    "defeat": "強い答えだ！　おかわりしたくなった！"
+  },
+  "EikenPre2:c1_extra_6": {
+    "name": "紅玉甲虫ルベル",
+    "entrance": "紅玉の鎧を越えてみせよ。",
+    "battle": [
+      "Ruby horn. Test its strength if you must.",
+      "Armor closed. Keep track of the red flash.",
+      "爪で地を押さえる。この一線は掘り返させない。"
+    ],
+    "aside": [
+      "Display case? No. My fighting days aren't over.",
+      "宝石鑑定士が、俺の勝敗より屈折率を気にしていた。"
+    ],
+    "pressure": [
+      "A chipped horn still cuts. Don't forget it."
+    ],
+    "defeat": "きみの集中は、宝石より固い。"
+  },
+  "EikenPre2:c1_extra_7": {
+    "name": "波紋の舞い手リプリア",
+    "entrance": "流れるように、ひとつ答えてね。",
+    "battle": [
+      "Ripples spreading. The circle is getting wider.",
+      "A graceful turn. Apologies to the front row!",
+      "流れる袖でかわす。つかんでも、水になるだけよ。"
+    ],
+    "aside": [
+      "Wet-floor sign. Lovely. My stage has a warning label.",
+      "衣装の洗濯？ 毎日、自分で一周しているわ。"
+    ],
+    "pressure": [
+      "One ripple left. I'll dance it all the way out."
+    ],
+    "defeat": "なめらかな言葉、届きました。"
+  },
+  "EikenPre2:c1_extra_8": {
+    "name": "くねくね排水パイプ",
+    "entrance": "くねっ！　出口がどっちか、忘れた！",
+    "battle": [
+      "Another bend! Straight lines never suited me!",
+      "Pipe guard! Nothing but determination blocking this one!",
+      "口から押し返すぞ！ 逆流注意の反撃だ！"
+    ],
+    "aside": [
+      "話を流しすぎるなって。仕事のクセなんだよ。",
+      "Let it go? That's literally my job."
+    ],
+    "pressure": [
+      "Still flowing! I'm not letting this chance go down the drain!"
+    ],
+    "defeat": "きみの答えは、まっすぐ通ったぞ！"
+  },
+  "EikenPre2:c1_extra_9": {
+    "name": "ポップアートのラクガキ獣",
+    "entrance": "なんだこの形！　ぼくも説明できない！",
+    "battle": [
+      "Bang! I'll paint the sound effects myself!",
+      "Sharp angles! Smooth manners were never part of the design!",
+      "枠の外へかわす！ 額縁で追い込むのは無理だよ！"
+    ],
+    "aside": [
+      "消しゴム禁止の展示会で、ついに安心して眠れた。",
+      "No erasers allowed. Finally, an exhibition I can relax in."
+    ],
+    "pressure": [
+      "Out of paint? I'll make a scene in pencil!"
+    ],
+    "defeat": "正解！　そこだけは、はっきりしてる！"
+  },
+  "EikenPre2:c1_extra_10": {
+    "name": "黒竹のサムライクロチク",
+    "entrance": "黒竹の心で、静かに答えよ。",
+    "battle": [
+      "Bamboo guard. I bend without giving way.",
+      "One quiet draw. The leaves will tell you afterward.",
+      "根を据えて返す。武士の足場はここにある。"
+    ],
+    "aside": [
+      "Sat still for too long. The floor now has roots.",
+      "竹を割った性格と呼ばれるが、本人は割れたくない。"
+    ],
+    "pressure": [
+      "Another joint remains. So does my resolve."
+    ],
+    "defeat": "ぶれぬ言葉だ。見事である。"
+  },
+  "EikenPre2:c1_10": {
+    "name": "星くずを抱くラッコ",
+    "entrance": "星をぎゅっと。答えも大切にね。",
+    "battle": [
+      "Star shield! I'd rather stick to breaking shells.",
+      "Little shooting star! Sent straight from my belly!",
+      "ころんとよける。抱っこしてる星は離さないよ。"
+    ],
+    "aside": [
+      "貝を割ろうとして、星座の形をちょっと変えちゃった。",
+      "One shiny rock. My most important piece of luggage."
+    ],
+    "pressure": [
+      "Still afloat! I'm not leaving my star behind!"
+    ],
+    "defeat": "できたね！　大事な星が増えたよ。"
+  },
+  "EikenPre2:c1_7": {
+    "name": "砂帆の旅王デューン",
+    "entrance": "砂の道でも、集中を失うな。",
+    "battle": [
+      "Sand sails raised. I'll turn your force toward the wind.",
+      "Staff planted. Even sand can hold a king's footprint.",
+      "砂丘の陰へかわす。地図だけ見ても追えまい。",
+      "Sandstorm turn! A map won't help you follow this.",
+      "帆を重ねて防ぐ。風に頼るだけの王ではないぞ。"
+    ],
+    "aside": [
+      "Moving palace. Very poor Wi-Fi. Excellent view.",
+      "旅費の精算で『砂漠横断一式』は認められなんだ。",
+      "Royal route changed. The post is chasing me again."
+    ],
+    "pressure": [
+      "Sand remaining. I haven't reached the end of my road.",
+      "最後の砂粒まで進む！ 地平線が、余の退路ではない！"
+    ],
+    "defeat": "よく越えた。きみの道を祝おう。"
+  },
+  "EikenPre2:c1_11": {
+    "name": "七宝女王エナメリス",
+    "entrance": "七つの彩りで、言葉を磨きましょう。",
+    "battle": [
+      "Enamel shield. Every color has a job to do.",
+      "A royal reply. This scepter isn't just for show.",
+      "裾を返してかわします。宝石を踏ませるわけにはいきません。",
+      "Colors combined! I do like making an entrance!",
+      "七重の守りを崩せますか。組み合わせは、まだありますの。"
+    ],
+    "aside": [
+      "More transparency? Would a glass throne satisfy the committee?",
+      "冠を選ぶだけで朝が終わるの。決断力とは別の問題よ。",
+      "Morning lost to choosing a crown. A royal dilemma."
+    ],
+    "pressure": [
+      "One color missing. Plenty of grace remaining.",
+      "最後の宝珠まで私の覚悟。曇らせはいたしませんわ！"
+    ],
+    "defeat": "美しい答えを、称えます。"
+  },
+  "EikenPre2:c1_12": {
+    "name": "雷槍将ライガル",
+    "entrance": "雷より鋭い答えを見せよ。",
+    "battle": [
+      "Thunder lance forward! Save the hesitation for later!",
+      "Steel shoulder ready. Bring more than a loud voice!",
+      "一歩で間合いを詰める。光より先に腕を動かせ！",
+      "A sweeping strike! I'll light up your escape route!",
+      "槍を立てて受け止める。天も地も、盾にしてみせる！"
+    ],
+    "aside": [
+      "Static removed. Somehow, so was the mood.",
+      "軍議で結論を急いだら、照明だけ先に落ちた。",
+      "High voltage. Patience running low."
+    ],
+    "pressure": [
+      "Still gripping the lance. Bring me the last of the thunder!",
+      "最後の一閃だ！ 雷将の名、弱い光で終わらせはせん！"
+    ],
+    "defeat": "見事な一撃だ。道をゆずろう。"
+  },
+  "EikenPre2:c1_13": {
+    "name": "湯けむり大王オンセンマ",
+    "entrance": "大王じゃ！　まずは、百まで浸かるぞ！",
+    "battle": [
+      "Hot-water wall! Watch your toes, young one!",
+      "Tub guard! These old boards have seen a few battles!",
+      "湯けむり返し！ 目隠しも温泉の効能じゃ！",
+      "The whole tub moves! Who said kings had to stand up?",
+      "湯をかき混ぜて防ぐ！ 温度差を突かせはせん！"
+    ],
+    "aside": [
+      "Royal budget approved. My shoulder massage was under \"maintenance.\"",
+      "打たせ湯の予算が、わしの肩こり対策だと発覚した。",
+      "Royal rounds. The servants got out of the bath first."
+    ],
+    "pressure": [
+      "Still hot! I'm not ready to throw in the towel!",
+      "最後の一滴まで沸かす！ わしの退場は、まだ湯上がりではない！"
+    ],
+    "defeat": "参った！　きみの答えで、のぼせたわい！"
+  },
+  "EikenPre2:m2_1": {
+    "name": "ぐるぐるシュレッダー",
+    "entrance": "ぐるぐる！　あれ、ぼくの舌も細くなった！",
+    "battle": [
+      "Grrr! That attack has been marked confidential!",
+      "Paper shield. Recycling is part of the defense plan.",
+      "車輪を回して退避！ コードの長さが限界デス！"
+    ],
+    "aside": [
+      "『資料は減らそう』という資料が百枚届きマシタ。",
+      "Less paperwork requested. Instructions arrived in three copies."
+    ],
+    "pressure": [
+      "Not jammed! Just more courage than the slot can handle!"
+    ],
+    "defeat": "細切れに負けた！　きみの英語はまとまってるね！"
+  },
+  "EikenPre2:m2_2": {
+    "name": "照れ屋のザクロ",
+    "entrance": "こ、こんにちは。種まで見ないでね。",
+    "battle": [
+      "Peel closed. My feelings aren't ready for daylight.",
+      "Seed shot! Being shy won't spoil my aim!",
+      "葉っぱの後ろへかわす。小さいけど盾になるかな。"
+    ],
+    "aside": [
+      "Funny stories, please. But in small portions.",
+      "笑うと中身がこぼれるから、面白い話は小分けにしてね。"
+    ],
+    "pressure": [
+      "One seed left. I haven't dropped my courage."
+    ],
+    "defeat": "照れちゃうほど、じょうずだったね。"
+  },
+  "EikenPre2:m2_3": {
+    "name": "ふかふかコッペパン犬",
+    "entrance": "ふかふかの長い胴で、お相手します。",
+    "battle": [
+      "Fluffy back guard! This bread was built to bounce!",
+      "Tiny paws forward! Fresh from the oven and ready to run!",
+      "ころんとよける！ ジャムはまだ塗らないで！"
+    ],
+    "aside": [
+      "おすわりしたら、給食のお皿が用意された。",
+      "I sat. They brought a lunch tray."
+    ],
+    "pressure": [
+      "Still running! No squashing this good boy!"
+    ],
+    "defeat": "焼きたてみたいな正解だったね！"
+  },
+  "EikenPre2:m2_4": {
+    "name": "おめかし安全ピン",
+    "entrance": "身だしなみを整えて、いきましょう。",
+    "battle": [
+      "Point secured. Safety can be quite strong.",
+      "A neat little thrust. Do look beyond the ribbon.",
+      "細い足でかわしましょう。留め具は外しませんの。"
+    ],
+    "aside": [
+      "Party invitation. Somehow, I became the repair service.",
+      "パーティーでは全員の裾直し。わたくしも招待客ですのよ。"
+    ],
+    "pressure": [
+      "Still holding everything together. Including myself."
+    ],
+    "defeat": "その答え、きれいに留まりました。"
+  },
+  "EikenPre2:m2_5": {
+    "name": "リーフスカートのタヌキ",
+    "entrance": "葉っぱのスカート、くるっと回るよ。",
+    "battle": [
+      "Leaf shield! A little cooperation from the wind, please!",
+      "Tail swing! One step does two jobs!",
+      "腰をひねってかわす。拍手の代わりに攻撃は忙しいわね！"
+    ],
+    "aside": [
+      "New dress by magic. Even the care label was a leaf.",
+      "リーフスカートで秋を迎えるのは、ちょっと勇気が要るぽん。"
+    ],
+    "pressure": [
+      "Leaves falling. Feet still dancing!"
+    ],
+    "defeat": "くるっときれいに答えたね！"
+  },
+  "EikenPre2:m2_6": {
+    "name": "カタカタしゃべる入れ歯",
+    "entrance": "カタカタカタ！　しゃべりすぎて止まらない！",
+    "battle": [
+      "Teeth together! We agree on this much!",
+      "Upper and lower attack! Finally, we're on the same page!",
+      "ばねで跳ねて回避！ 持ち主の都合は関係ないわい！"
+    ],
+    "aside": [
+      "We went out alone. The lost-property office panicked.",
+      "会議で歯に衣着せぬ発言をした。文字どおり裸じゃからな。"
+    ],
+    "pressure": [
+      "Still biting! We've got plenty to get our teeth into!"
+    ],
+    "defeat": "カタッ！　くやしいけど、よくできました！"
+  },
+  "EikenPre2:m2_7": {
+    "name": "水晶かがやくハナムグリ",
+    "entrance": "水晶の羽が、きみの答えを待っています。",
+    "battle": [
+      "Crystal back. Can you follow the changing light?",
+      "A little push. Small doesn't mean weightless.",
+      "羽を開いてかわす。きらめきだけ、そこへ置くわね。"
+    ],
+    "aside": [
+      "花に潜るのが好きなの。宝石箱より、香りがいいでしょう。",
+      "Clear intentions. A little soil between my toes."
+    ],
+    "pressure": [
+      "Wings still open. I'll fly with the last of the light."
+    ],
+    "defeat": "水晶より澄んだ答えでした。"
+  },
+  "EikenPre2:m2_extra_1": {
+    "name": "もたもたオーブンミット",
+    "entrance": "もたもた……手は大きいけど、足が短いんだ。",
+    "battle": [
+      "Mitt guard! I'm quicker when something's actually hot!",
+      "Soft punch! Wrong hand. Still counts, doesn't it?",
+      "親指を立ててかわす！ 成功の合図には早かった！"
+    ],
+    "aside": [
+      "All thumbs. And somehow still short of hands.",
+      "急いでと言われるほど、指が全部親指になった気がする。"
+    ],
+    "pressure": [
+      "Thick padding. Thin chance of getting anything done quickly."
+    ],
+    "defeat": "きみの方が、ずっと手際よかったね。"
+  },
+  "EikenPre2:m2_extra_2": {
+    "name": "スフレぼうしのパティシエ",
+    "entrance": "ふわっと焼き上げるのが、ぼくの仕事です。",
+    "battle": [
+      "Souffle guard! Please don't spoil the rise!",
+      "Whisk ready. Time for a bold finishing touch!",
+      "足を引いてかわす。熱い天板で鍛えた勘さ。"
+    ],
+    "aside": [
+      "Table for one? They said my hat needed three seats.",
+      "帽子だけで満席です、とレストランに断られた。"
+    ],
+    "pressure": [
+      "Still rising! I've saved my best move for last!"
+    ],
+    "defeat": "その英語、ふわっと上手に仕上がったね。"
+  },
+  "EikenPre2:m2_extra_3": {
+    "name": "青羽のティーカップ鳥",
+    "entrance": "カップの羽で、ぱたぱたお出迎え！",
+    "battle": [
+      "Cup guard! Strong enough. Probably. Please be gentle!",
+      "Blue-wing reply! One cup of trouble, coming up!",
+      "取っ手をひねってよける。そこを持つのは許可制！"
+    ],
+    "aside": [
+      "カフェでくつろいだら、あたしの席に角砂糖が運ばれた。",
+      "Bird in a cafe. Someone brought sugar to my seat."
+    ],
+    "pressure": [
+      "Still flying! I've got enough spirit for a refill!"
+    ],
+    "defeat": "とってもすてきな答えで、胸いっぱい！"
+  },
+  "EikenPre2:m2_extra_4": {
+    "name": "あわてる回転いす",
+    "entrance": "あわわ、回る、回る！　どっちが前だっけ！",
+    "battle": [
+      "Spin dodge! Don't ask me which way I'm facing!",
+      "Armrests up! This isn't a sitting opportunity!",
+      "車輪で返すぞ！ 机の下では敵なしだったんだ！"
+    ],
+    "aside": [
+      "They told me to leave my seat. I AM the seat.",
+      "議論が堂々巡りになると、俺のせいにされる。"
+    ],
+    "pressure": [
+      "Five legs left! Surely we can agree on a direction!"
+    ],
+    "defeat": "回らずに、まっすぐ正解したね！"
+  },
+  "EikenPre2:m2_8": {
+    "name": "鈴蘭ベルのコビト",
+    "entrance": "小さなベルを、ちりんと鳴らすよ。",
+    "battle": [
+      "Bell guard. The ringing doesn't mean I'm hurt.",
+      "A small push. I wonder how far it'll ring.",
+      "花の陰へ逃げる。背が低いのも役に立つね。"
+    ],
+    "aside": [
+      "Stealth practice. My hat reported every step.",
+      "鈴の電池はどこ、と聞かれた。ぼくも探しちゃった。"
+    ],
+    "pressure": [
+      "One last ring. I'm staying awake for it."
+    ],
+    "defeat": "ちりん。きれいな正解でした。"
+  },
+  "EikenPre2:m2_extra_5": {
+    "name": "こっそりスイートピー",
+    "entrance": "こっそり応援しているよ。",
+    "battle": [
+      "Quietly, from the side. The flower was a distraction.",
+      "Vine guard. Thin things can hold on tightly.",
+      "薄い花びらへ隠れる。見つけても大声はやめてね。"
+    ],
+    "aside": [
+      "秘密を花に話したら、春になって全員咲いちゃった。",
+      "I told the flowers a secret. Spring made it public."
+    ],
+    "pressure": [
+      "Still holding on. No surrender speech prepared."
+    ],
+    "defeat": "その正解、こっそり自慢していいと思う。"
+  },
+  "EikenPre2:m2_extra_6": {
+    "name": "ぱたぱたティッシュ箱",
+    "entrance": "ぱたぱた！　髪なのか羽なのか、ぼくにも分からない！",
+    "battle": [
+      "Tissue wall! One sheet at a time still adds up!",
+      "Box corner push! I'm more than just the tissues!",
+      "足をばたつかせて回避！ 風で紙が先に逃げた！"
+    ],
+    "aside": [
+      "Movie night invitation. I was listed under supplies.",
+      "花粉の季節だけ、家族の中心にいる気がする。"
+    ],
+    "pressure": [
+      "Last sheet! Please stop looking for a spare box!"
+    ],
+    "defeat": "降参！　拍手のかわりに、ぱたぱたするね！"
+  },
+  "EikenPre2:m2_extra_7": {
+    "name": "シュガーコートのハリネズミ",
+    "entrance": "甘いとげだから、こわくないよ。",
+    "battle": [
+      "Sugar-spine shield! This isn't the tasting session!",
+      "Curling up! Even sweet little spikes can sting!",
+      "小さい足で反撃！ 甘いだけの歩き方じゃない！"
+    ],
+    "aside": [
+      "友達の誕生日に行ったら、ケーキの上が指定席だったの。",
+      "Birthday party seat assigned. On top of the cake."
+    ],
+    "pressure": [
+      "Spikes remaining! One more try before I melt!"
+    ],
+    "defeat": "きみの正解、甘くてうれしかった！"
+  },
+  "EikenPre2:m2_extra_8": {
+    "name": "風車しっぽのこいぬ",
+    "entrance": "しっぽの風車が、くるくるうれしい！",
+    "battle": [
+      "Tail turning! Even a headwind is fun!",
+      "Paper-ear guard! Can we leave water out of this?",
+      "ぴょんとかわす！ しっぽが回りすぎて向きが変わった！"
+    ],
+    "aside": [
+      "Renewable energy. Powered by hourly treats.",
+      "散歩で風向計になった。電柱の情報も欲しかったのに。"
+    ],
+    "pressure": [
+      "Still spinning! I'll make my own tailwind!"
+    ],
+    "defeat": "わん！　きみの正解で、いい風が吹いた！"
+  },
+  "EikenPre2:m2_extra_9": {
+    "name": "夜露のブルーバタフライ",
+    "entrance": "夜露の羽で、静かに舞います。",
+    "battle": [
+      "Dew-wing guard. Even a drop can carry weight.",
+      "A quiet reply. I don't need to raise my voice.",
+      "藍の影へかわす。夜と同じ色でよかったわ。"
+    ],
+    "aside": [
+      "Overtime at dawn. At least the dew is beautiful.",
+      "露を集める朝だけ、残業の意味が少しきれいなの。"
+    ],
+    "pressure": [
+      "Dew fallen. I can still make it through the night."
+    ],
+    "defeat": "その答えは、夜に光るしずくのようでした。"
+  },
+  "EikenPre2:m2_extra_10": {
+    "name": "まんまる湯葉おばけ",
+    "entrance": "ぷうう。ふくらんだまま戻れなくなっちゃった！",
+    "battle": [
+      "Layers ready! I've had years to build these up!",
+      "Round-belly roll! There's strength in soy milk!",
+      "薄皮をずらしてかわすぞ。剥がすのとは違うぞ！"
+    ],
+    "aside": [
+      "More depth, they said. I'm entirely made of surfaces.",
+      "年輪じゃないよ。湯葉の層で年齢を当てないで。"
+    ],
+    "pressure": [
+      "One sheet left! Thin, but in it for the long haul!"
+    ],
+    "defeat": "ふう。きみの正解で、力が抜けたよ。"
+  },
+  "EikenPre2:m2_9": {
+    "name": "ちょびひげたまごケース",
+    "entrance": "ちょびひげだけは、立派に整えてきたぞ。",
+    "battle": [
+      "Lid closed. Gentlemen, kindly keep your heads down.",
+      "A polite little push. Polite needn't mean light.",
+      "一歩退いてかわします。割れる仕事はお断りです。"
+    ],
+    "aside": [
+      "六名様で出勤したのに、帰りは一名様になりました。世知辛い。",
+      "Tenants: six eggs. Please knock gently."
+    ],
+    "pressure": [
+      "Last room occupied. Kindly postpone the vacancy notice."
+    ],
+    "defeat": "ひげの威厳より、きみの英語が立派だった。"
+  },
+  "EikenPre2:m2_10": {
+    "name": "はりきり洗濯板親方",
+    "entrance": "ごしごし！　元気も汚れも、まとめて洗うぞ！",
+    "battle": [
+      "Scrub guard! That fist could use a good wash!",
+      "Washboard chest! I'm used to a little friction!",
+      "親方の踏ん張りだ！ 泡で滑るのは若い衆の仕事だ！",
+      "A rapid scrub! Even your guard's getting a clean start!",
+      "胸板の溝で止める！ 縦にも横にも年季が入ってる！"
+    ],
+    "aside": [
+      "Automatic washer arrived. I challenged it to push-ups.",
+      "『昔ながら』の看板で仕事が増えた。腕は二本のままだぞ。",
+      "Old methods. New muscles. Same stubborn boss."
+    ],
+    "pressure": [
+      "Grooves wearing down. My spirit isn't!",
+      "最後の一揉みだ！ 干される前に、おれが決める！"
+    ],
+    "defeat": "まいった！　きみの正解、ぴっかぴかだ！"
+  },
+  "EikenPre2:c2_1": {
+    "name": "銀刃のシャチオルフィス",
+    "entrance": "銀のひれで、静かに道を切り開く。",
+    "battle": [
+      "Silver turn. Come faster than the tide!",
+      "Black-and-white guard. This sea isn't yours to take.",
+      "水を蹴って上へ抜ける。足元を見ている暇はないぞ。"
+    ],
+    "aside": [
+      "Silver blade. Now the fish market keeps calling.",
+      "ショーの拍手と戦いの合図、たまに似ていて困る。"
+    ],
+    "pressure": [
+      "I can still read the tide. One last full-body strike!"
+    ],
+    "defeat": "見事だ。きみの答えの方が鋭かった。"
+  },
+  "EikenPre2:c2_2": {
+    "name": "逆さ吊りの靴べら",
+    "entrance": "逆さの方が、調子が……あれ、頭に血が！",
+    "battle": [
+      "Upside-down reply! There's more than one way to stand out!",
+      "Long-back guard! I've handled more stubborn heels than that!",
+      "くるっとかわす！ 床が上でも気にしない！"
+    ],
+    "aside": [
+      "『地に足をつけろ』と言われた。足を入れる手伝いが仕事だよ。",
+      "Keep my feet on the ground? I help with other people's."
+    ],
+    "pressure": [
+      "Still hanging on! The result's what I'm turning upside down!"
+    ],
+    "defeat": "きみの英語は、ちゃんと正しい向きだった！"
+  },
+  "EikenPre2:c2_3": {
+    "name": "だだ漏れハチミツ壺",
+    "entrance": "だだだ……止まらない！　甘さが全部出ちゃう！",
+    "battle": [
+      "Honey trap! Unplanned, but I'm taking the credit!",
+      "Jar guard! No extra cracks, thank you!",
+      "蜜の拳で返す！ お返しも手にくっつくよ！"
+    ],
+    "aside": [
+      "Sweet sales. Sticky bookkeeping.",
+      "蜂の会計士が来た。床の蜜まで棚卸しされた。"
+    ],
+    "pressure": [
+      "Still dripping! That last drop is mine to use!"
+    ],
+    "defeat": "ぼくは漏れたけど、きみの答えは完ぺき！"
+  },
+  "EikenPre2:c2_4": {
+    "name": "雷糸のクモエレクトラ",
+    "entrance": "雷の糸で、きみの集中を試そう。",
+    "battle": [
+      "Thread guard. Every touch sends me a message.",
+      "Quick spark. I wait for prey, not for permission.",
+      "八本の脚でかわす。手数の計算は得意かしら。"
+    ],
+    "aside": [
+      "Go wireless? You do realize I run a web business?",
+      "ネットの接続障害、だいたい私の昼寝が原因よ。"
+    ],
+    "pressure": [
+      "Thin thread. Connection still active."
+    ],
+    "defeat": "集中が切れなかった。見事だ。"
+  },
+  "EikenPre2:c2_5": {
+    "name": "紙吹雪のピエロパッサ",
+    "entrance": "ぱっさー！　自分が紙吹雪みたいな格好だ！",
+    "battle": [
+      "Paper wall! Let's make a mess of your view!",
+      "Pointed-paper punch! Those folds were made with care!",
+      "ひらひらっとかわす。重力にはちょっと待ってもらう！"
+    ],
+    "aside": [
+      "掃除係と共演NGになった。ぼくはずっと祝ってるだけなのに。",
+      "Confetti first. Cleanup committee can catch up later."
+    ],
+    "pressure": [
+      "Not scrap paper! I've still got an act to finish!"
+    ],
+    "defeat": "ぱっさー！　きみの正解に大拍手！"
+  },
+  "EikenPre2:c2_6": {
+    "name": "雪ぼたんのミズキリス",
+    "entrance": "雪のぼたんを、静かに咲かせるよ。",
+    "battle": [
+      "Snow-tail guard. There's warmth behind all this white.",
+      "A tiny step. A serious little challenge.",
+      "雪の陰へかわす。足跡までは消せないけれど。"
+    ],
+    "aside": [
+      "Acorns hidden in snow. Spring me can handle the search.",
+      "雪景色の集合写真、名前だけ大きく書かれたわ。"
+    ],
+    "pressure": [
+      "Tail still wide. I'll stay till the last snow melts."
+    ],
+    "defeat": "きみの言葉で、雪の花がほころんだよ。"
+  },
+  "EikenPre2:c2_8": {
+    "name": "ゴツゴツ岩塩のソルタン",
+    "entrance": "岩塩の壁を越えてみろ。",
+    "battle": [
+      "Rock-salt fist! Take that with more than a pinch!",
+      "Big-grain guard! Size does make a difference here!",
+      "地を踏んで返す。溶かすなら川ごと持ってこい！"
+    ],
+    "aside": [
+      "Salt of the earth. Quite a lot of it, actually.",
+      "人事評価が『塩対応』だった。常に通常営業だ。"
+    ],
+    "pressure": [
+      "One grain left! Still too big to brush aside!"
+    ],
+    "defeat": "きみの正解、硬い壁も越えたな。"
+  },
+  "EikenPre2:c2_extra_1": {
+    "name": "ふわっと羽毛ふくろう",
+    "entrance": "ふわっと座って、きみを待っていたよ。",
+    "battle": [
+      "Feather guard. Pillow service opens after the battle.",
+      "Little wings. I'll put my back into it.",
+      "首を回してよける。目はちゃんと開けてるつもり。"
+    ],
+    "aside": [
+      "夜ふかしを叱られた。ぼくのお昼は、いつなんだろう。",
+      "Bedtime again? My schedule seems to confuse everyone."
+    ],
+    "pressure": [
+      "Still awake. Please don't make the room any cozier."
+    ],
+    "defeat": "ふわっと、やさしい正解だったね。"
+  },
+  "EikenPre2:c2_extra_2": {
+    "name": "わさわさ触手の園芸ばち",
+    "entrance": "わさわさ！　伸びすぎて自分が見えない！",
+    "battle": [
+      "Vines ready! Could at least one follow the plan?",
+      "Vine counterattack! That's my pot! Wrong direction!",
+      "根を踏ん張る！ 引っ越しは今じゃない！"
+    ],
+    "aside": [
+      "Low-maintenance plant. Nobody counted the arms.",
+      "自分で水やりをしたら、自分に見つめられて緊張した。"
+    ],
+    "pressure": [
+      "New shoots left! Everyone, same direction this time!"
+    ],
+    "defeat": "きみの答えは、すっきりしていてうらやましい！"
+  },
+  "EikenPre2:c2_extra_3": {
+    "name": "赤曜の甲竜ルビドン",
+    "entrance": "赤曜の甲殻は、簡単には割れない。",
+    "battle": [
+      "Ruby plates locked. One hit won't be enough.",
+      "Horn charge! Stop the ground if you want me stopped!",
+      "低い爪で踏ん張る。宝石の土台は揺らがない。"
+    ],
+    "aside": [
+      "Remove my armor? That's rather personal. It's my skin.",
+      "赤信号で立ち止まったら、仲間が俺の後ろで渋滞した。"
+    ],
+    "pressure": [
+      "Mark the armor. You won't get beyond it yet."
+    ],
+    "defeat": "きみの答えに、強さを感じた。"
+  },
+  "EikenPre2:c2_extra_4": {
+    "name": "こりこりキクラゲ兵",
+    "entrance": "こりこり！　耳みたいだけど、全身きくらげだ！",
+    "battle": [
+      "Crunchy guard! Tough to chew, tougher to beat!",
+      "Wooden spear ready! Trained at the edge of the forest!",
+      "ひだを畳んで回避！ どこが前かは秘密だ！"
+    ],
+    "aside": [
+      "Wood ear meets jellyfish. Neither booked the right room.",
+      "キクラゲとクラゲの合同研修、集合場所が決まらねえ。"
+    ],
+    "pressure": [
+      "Still crunchy! I've got another round in me!"
+    ],
+    "defeat": "こりゃまいった！　きみの答え、歯ごたえがあった！"
+  },
+  "EikenPre2:c2_9": {
+    "name": "透明傘のレインジェル",
+    "entrance": "透きとおる傘で、静かに舞います。",
+    "battle": [
+      "Clear umbrella. A wall you can see through still stops things.",
+      "A turn of the handle. Smiling won't keep you dry.",
+      "ふわっと浮いてかわす。足元の水たまりもお友達なの。"
+    ],
+    "aside": [
+      "天使と思われてお願いされた。降水確率までは変えられないの。",
+      "Take a rain check? I've already brought the weather."
+    ],
+    "pressure": [
+      "Umbrella open. I'll stay for the last of the rain."
+    ],
+    "defeat": "きみの正解も、透きとおっていました。"
+  },
+  "EikenPre2:c2_extra_5": {
+    "name": "ふみふみペダルタートル",
+    "entrance": "ふみふみ！　足だけで進むの、忙しいなあ！",
+    "battle": [
+      "Pedals moving! I'll beat you by keeping at it!",
+      "Gear-shell guard! I've taken plenty of long routes!",
+      "ペダルを逆に返す！ あっ、戻っちゃった！"
+    ],
+    "aside": [
+      "電動にしようか迷って、充電中もペダルを踏んでた。",
+      "Electric upgrade considered. Pedaled while the battery charged."
+    ],
+    "pressure": [
+      "Heavy legs. One more turn. I'm not getting off."
+    ],
+    "defeat": "きみの答え、いい調子で前に進んだね！"
+  },
+  "EikenPre2:c2_extra_6": {
+    "name": "黒漆のツルクロツル",
+    "entrance": "漆の羽は、静けさをまといます。",
+    "battle": [
+      "Lacquer wings. This defense has had time to set.",
+      "Long-legged step. No shortcuts through my guard.",
+      "黒いくちばしを返す。影より細い一筋だ。"
+    ],
+    "aside": [
+      "Museum visit. I was given a \"Do not touch\" sign.",
+      "千年の寿命より、毎日の艶出しのほうが気になる。"
+    ],
+    "pressure": [
+      "Less shine. No less dignity."
+    ],
+    "defeat": "静かで、美しい正解でした。"
+  },
+  "EikenPre2:c2_extra_7": {
+    "name": "ゆらめく絹リボン蛇",
+    "entrance": "絹のように、なめらかにいきましょう。",
+    "battle": [
+      "Silk turn. The knot isn't where you think.",
+      "Pull harder. You'll only make the knot tighter.",
+      "尾を巻いてひと打ち。可愛い包装とは別の技よ。"
+    ],
+    "aside": [
+      "プレゼントに巻かれたら、箱のほうがあたしを警戒したの。",
+      "Gift wrapping. The box looked more nervous than the guest."
+    ],
+    "pressure": [
+      "A few loose threads. Still not coming apart."
+    ],
+    "defeat": "きみの答えも、なめらかでした。"
+  },
+  "EikenPre2:c2_extra_8": {
+    "name": "ぷんすか湯たんぽ伯爵",
+    "entrance": "ぷんすか！　あったかいだけでは、伯爵は務まらん！",
+    "battle": [
+      "Warm-belly guard! Are you trying to make me boil?",
+      "A heated reply. Nobles have pressure too, you know!",
+      "栓を締めて防ぐ！ 漏れるのは不満だけでよい！"
+    ],
+    "aside": [
+      "Keep my cool? Have you considered my profession?",
+      "冬だけ招待が増える。友情の季節性には抗議したい。"
+    ],
+    "pressure": [
+      "Still warm! I refuse to be left out in the cold!"
+    ],
+    "defeat": "ふう……きみの正解で、少し落ち着いたぞ。"
+  },
+  "EikenPre2:c2_extra_9": {
+    "name": "ねじ込みキリモグラ",
+    "entrance": "ねじ込みながら、道をつくる。",
+    "battle": [
+      "Drill forward! Rock or guard, I'll find a way through!",
+      "Steel-claw guard! A good job needs a steady hand!",
+      "ねじって抜けるぞ。直進だけが近道じゃねえ！"
+    ],
+    "aside": [
+      "Aim higher, they said. I'm starting with ground level.",
+      "昇進の面接で『上を目指せ』って。まず地上を目指す。"
+    ],
+    "pressure": [
+      "Still turning! This isn't going to be wasted effort!"
+    ],
+    "defeat": "きみの答えは、まっすぐ届いた。"
+  },
+  "EikenPre2:c2_extra_10": {
+    "name": "星鋼のバリスタン",
+    "entrance": "星鋼の狙いは、ぶれない。",
+    "battle": [
+      "Star-steel bow deployed. I'll answer from beyond your reach.",
+      "Legs locked. The recoil is already in the plan.",
+      "弦を引き、返す。放つ前の静けさに用心せよ。"
+    ],
+    "aside": [
+      "狙いを定める研修で、全員が私の後ろへ移動した。",
+      "Aim high. Preferably somewhere without a ceiling."
+    ],
+    "pressure": [
+      "Spare shot ready. The target hasn't changed."
+    ],
+    "defeat": "きみの集中も、ぶれなかったな。"
+  },
+  "EikenPre2:c2_10": {
+    "name": "梅花の羽冠ハナスズメ",
+    "entrance": "梅の花冠で、お迎えします。",
+    "battle": [
+      "Plum-wing guard. Even the smallest flower matters.",
+      "A step from the branch. Spring can wait. I won't.",
+      "ちょんと横へかわす。香りだけは置いていくね。"
+    ],
+    "aside": [
+      "Picnic guard duty. Somehow, a rice ball went missing.",
+      "梅は咲いたか、と毎朝聞かれる。わたしの予定より人気なのね。"
+    ],
+    "pressure": [
+      "Spring will come. I'll hold on till the last blossom."
+    ],
+    "defeat": "きみの正解に、花を添えたいな。"
+  },
+  "EikenPre2:c2_7": {
+    "name": "磁石城主マグナベル",
+    "entrance": "磁石の城に、きみの言葉を招こう。",
+    "battle": [
+      "Castle magnets, gather! Your sword may change sides!",
+      "Tower fist! Stop assuming castles stay in one place!",
+      "極を返して防ぐ。押せば近づくとは限らぬ！",
+      "Blue walls, push back! Admission has not been granted!",
+      "赤き塔よ、引き寄せよ！ 接近戦も余の間合いだ！"
+    ],
+    "aside": [
+      "Helmet inspection. Everyone was already attached to the wall.",
+      "騎士団の鉄兜が全て城壁へ貼りついた。点呼は楽であった。",
+      "Attracting talent. The iron helmets came first."
+    ],
+    "pressure": [
+      "Still magnetic. You won't pull my dignity off that easily.",
+      "最後の塔まで立て！ 城主の芯は、まだ磁石より硬いぞ！"
+    ],
+    "defeat": "きみの正解に、門を開く。"
+  },
+  "EikenPre2:c2_11": {
+    "name": "白磁竜ハクローネ",
+    "entrance": "白磁の竜は、澄んだ言葉を待つ。",
+    "battle": [
+      "Porcelain scales. This guard was forged in the kiln.",
+      "Blue patterns turning. Don't let the decoration distract you.",
+      "長い尾で空を押さえる。細い隙も通さぬわい。",
+      "Kiln-fired charge! White doesn't mean weak!",
+      "磁器の輪を重ねる。わしの体は、どこも守りじゃ。"
+    ],
+    "aside": [
+      "The expert called it damage. I called it experience.",
+      "鑑定士は傷を嫌う。わしは戦った跡として好いておるがの。",
+      "Family treasure. The museum keeps asking where I'm going."
+    ],
+    "pressure": [
+      "Cracked, but still a dragon. Hear the final note.",
+      "砕けるには早いわい。千年の白を、ここで曇らせはせぬ！"
+    ],
+    "defeat": "きみの答えは、静かに胸へ届いた。"
+  },
+  "EikenPre2:c2_12": {
+    "name": "夜桜女王サクラミラ",
+    "entrance": "夜桜の下で、言葉の花を咲かせなさい。",
+    "battle": [
+      "Night-blossom veil. Your strike can wait on the other side.",
+      "Dark-branch reply. Do look beyond the flowers.",
+      "はらりと影へ。月のない場所にも、道はあります。",
+      "A blossom storm. Beauty still requires a safe distance.",
+      "夜の冠で受けます。月明かりだけはお通ししましょう。"
+    ],
+    "aside": [
+      "Short blooming season. Exceptionally long committee meetings.",
+      "散るのが早いと言われますが、会議だけは長く咲く国ですわ。",
+      "More invitations. Not enough chairs. A growing problem."
+    ],
+    "pressure": [
+      "Petals lost. The queen remains.",
+      "最後の一花まで舞います。幕を下ろす役は、わたくしですわ。"
+    ],
+    "defeat": "見事。きみの言葉は、夜にも鮮やかでした。"
+  },
+  "EikenPre2:c2_13": {
+    "name": "花火総長ドカンザ",
+    "entrance": "ドカン！　声だけは、一番でっかい総長だ！",
+    "battle": [
+      "Boom! That should cover the opening remarks!",
+      "Red-belly guard! Handle the explosives with respect!",
+      "導火線返し！ じわじわ来るほど派手になるぞ！",
+      "Another burst! You're part of the show now!",
+      "総長の踏ん張り！ 打ち上がる前には土台が要るんだ！"
+    ],
+    "aside": [
+      "Budget went up in smoke. Accounting wasn't impressed.",
+      "雨天中止のお知らせを花火で出したら、誰も帰らなかった。",
+      "Big finale planned. Small print still unread."
+    ],
+    "pressure": [
+      "Not damp yet! I've saved the biggest one!",
+      "どかーんと締めるぞ！ ただし負けたとは、まだ言ってねえ！"
+    ],
+    "defeat": "ドカーンと参った！　きみの正解、景気がいいな！"
+  },
+  "EikenPre2:m3_1": {
+    "name": "とぼけた鼻のトランペット",
+    "entrance": "ぷおー……あれ、鼻から音が出ちゃった！",
+    "battle": [
+      "Pwaa! That wasn't a reply. That was the attack!",
+      "Bell-nose guard! Please don't blow into the opponent!",
+      "足でかわす！ 指づかいは合ってるのに向きが違う！"
+    ],
+    "aside": [
+      "Itchy nose. The solo became experimental.",
+      "演奏中に鼻がむずむずした。曲が勝手に現代音楽になった。"
+    ],
+    "pressure": [
+      "Breath left! One last note, right or wrong!"
+    ],
+    "defeat": "ぷへっ！　きみの正解には、音で拍手だ！"
+  },
+  "EikenPre2:m3_2": {
+    "name": "てくてくサンドタイマー",
+    "entrance": "てくてく、砂の時間と歩いてきたよ。",
+    "battle": [
+      "Sand below. A low center of gravity helps.",
+      "Walking your way. Patience is part of the attack.",
+      "くるんとかわす。時間まで戻った気がする！"
+    ],
+    "aside": [
+      "遅刻したからひっくり返した。でも約束は戻らなかった。",
+      "Turned myself over. The missed appointment stayed missed."
+    ],
+    "pressure": [
+      "One grain left. I'm not calling time yet!"
+    ],
+    "defeat": "急がなくても、いい正解だったね。"
+  },
+  "EikenPre2:m3_3": {
+    "name": "シナモン耳のこぐま",
+    "entrance": "シナモンの耳で、きみの言葉を聞くよ。",
+    "battle": [
+      "Roll-ear guard! Pull gently. I'd like to stay in one piece!",
+      "Little-paw punch! I'll earn my snack first!",
+      "ころんとよけるよ。焼き目のほうは向けないの。"
+    ],
+    "aside": [
+      "Smells like a bakery. Hugs like a bear.",
+      "抱っこされたら『パン屋の匂い』って。くま屋だよ。"
+    ],
+    "pressure": [
+      "Still standing! There's more to me than the ears!"
+    ],
+    "defeat": "ふんわり、うれしい正解だったね。"
+  },
+  "EikenPre2:m3_4": {
+    "name": "うずまきレコードどり",
+    "entrance": "うずまきの羽を、くるりと広げよう。",
+    "battle": [
+      "Record guard. Scratches will not be forgotten.",
+      "One wing spin. Don't expect the same old tune!",
+      "針先をよけて踏み込む。音飛びほどの速さだ！"
+    ],
+    "aside": [
+      "Old records. Young bird. Stop mixing those up.",
+      "古い曲が好きなだけだ。年齢まで古く数えるなよ。"
+    ],
+    "pressure": [
+      "Still spinning! This groove has another song in it!"
+    ],
+    "defeat": "きみの答え、いいリズムだったな。"
+  },
+  "EikenPre2:m3_5": {
+    "name": "雨あがりのステンド蛙",
+    "entrance": "雨あがりの色を、きみに見せるよ。",
+    "battle": [
+      "Glass-panel guard. Pretty doesn't mean easy to break.",
+      "A little splash back. The rain stopped, not my feet.",
+      "光へ跳んでかわす。虹のほうを見ちゃった？"
+    ],
+    "aside": [
+      "教会の窓と間違えられたわ。わたし、閉店しないのだけれど。",
+      "Mistaken for a window. Opening hours were requested."
+    ],
+    "pressure": [
+      "Still hopping. The last raindrop hasn't dried yet."
+    ],
+    "defeat": "きみの答えも、透きとおっていたね。"
+  },
+  "EikenPre2:m3_6": {
+    "name": "からまるリボンそば",
+    "entrance": "ほどこうとしたら、もっと結んじゃった！",
+    "battle": [
+      "Smooth dodge! The knot is an artistic choice!",
+      "Knot strike! First, let me identify my arms!",
+      "麺を広げて足止め！ つゆなしでも滑るからな！"
+    ],
+    "aside": [
+      "Tied up at work. Also tied up trying to leave.",
+      "そばにいてって言われた。食品としての意味じゃないよね？"
+    ],
+    "pressure": [
+      "One noodle connected. I'm not falling apart yet!"
+    ],
+    "defeat": "きみの答えは、すっきりほどけたね！"
+  },
+  "EikenPre2:m3_7": {
+    "name": "ふくらむパン生地精",
+    "entrance": "ふくらんで、ふくらんで、準備できたよ。",
+    "battle": [
+      "Dough guard! Push now. I'll rise to the challenge!",
+      "Soft-fist punch! Don't get too comfortable!",
+      "ころんと回避！ 打ち粉は砂ぼこりじゃないよ！"
+    ],
+    "aside": [
+      "大きくなれって言われて頑張ったら、冷蔵庫に入れられた。",
+      "Growing as requested. Then they put me in the fridge."
+    ],
+    "pressure": [
+      "Still rising! There's more air where that came from!"
+    ],
+    "defeat": "正解で、もっとふわふわになっちゃった！"
+  },
+  "EikenPre2:m3_extra_1": {
+    "name": "べっこう羽のキンバチ",
+    "entrance": "べっこうの羽は、光を大切にします。",
+    "battle": [
+      "Amber-wing sweep! Transparent doesn't mean there's a gap!",
+      "Little sting. A different department from honey collection.",
+      "六本の足でかわす！ 足並みは意外と揃ってるの！"
+    ],
+    "aside": [
+      "Flower-to-flower career moves. My resume became a bouquet.",
+      "働き蜂って呼ぶなら、休む蜂の担当も決めてほしいわ。"
+    ],
+    "pressure": [
+      "Still buzzing! One more flower to visit!"
+    ],
+    "defeat": "きみの答えも、大切に覚えておくね。"
+  },
+  "EikenPre2:m3_extra_2": {
+    "name": "うっかり懐中電灯",
+    "entrance": "うっかり！　足元ばかり照らしちゃった！",
+    "battle": [
+      "Whoa, bright! Was I pointing the right way?",
+      "Light punch! Wait, my actual fist is over here!",
+      "横によけるぞ！ 足元を照らし忘れた！"
+    ],
+    "aside": [
+      "Looking for someone. Turns out they were looking for me.",
+      "探し物を照らしてたら、探されてたのがおれだった。"
+    ],
+    "pressure": [
+      "Still on! Now, which end faces the battle?"
+    ],
+    "defeat": "きみの正解で、頭の中が明るくなった！"
+  },
+  "EikenPre2:m3_extra_3": {
+    "name": "白い花えりのマーモット",
+    "entrance": "白い花えりを、きれいにして待ってたよ。",
+    "battle": [
+      "Flower-collar guard. Bedding is the other department.",
+      "A little push. Training before hibernation, apparently.",
+      "お腹をひいてかわす。あと少し、ひけるはず。"
+    ],
+    "aside": [
+      "Three alarm clocks. All hibernating beautifully.",
+      "目覚ましを三つ買ったわ。全部、冬眠の仲間になったの。"
+    ],
+    "pressure": [
+      "Still awake. I'm saving the long sleep for afterward."
+    ],
+    "defeat": "やさしい答えに、ほっとしたよ。"
+  },
+  "EikenPre2:m3_extra_4": {
+    "name": "塩むすびのコロマル",
+    "entrance": "ころまるっと、おむすびでお相手するよ。",
+    "battle": [
+      "Triangle guard! Three corners must count for something!",
+      "Nori-arm punch! Hands washed. Courage ready.",
+      "ころんと逃げる！ 三角だから途中で止まっちゃう！"
+    ],
+    "aside": [
+      "具がないって言われた。ぼくの勇気は見えないんだね。",
+      "No filling? My courage just doesn't show on the menu."
+    ],
+    "pressure": [
+      "Every last grain! I'm keeping myself together!"
+    ],
+    "defeat": "ぎゅっとまとまった、いい正解だね！"
+  },
+  "EikenPre2:m3_8": {
+    "name": "ブロッコリー頭の助手",
+    "entrance": "ブロッコリー頭で、考えがもこもこ出てくるぞ！",
+    "battle": [
+      "Broccoli-head guard! Mind the knowledge stored in there!",
+      "Lab-coat turn! Time to test the hypothesis!",
+      "細い脚でかわす。仮説では、この角度が安全！"
+    ],
+    "aside": [
+      "Looks like a brain. Somehow, that means taking the minutes.",
+      "助手なのに、先生の弁当で見かけた顔が多すぎる。"
+    ],
+    "pressure": [
+      "New hypothesis. Same conclusion: I can still win!"
+    ],
+    "defeat": "正解！　ぼくの頭より、すっきりしてるね！"
+  },
+  "EikenPre2:m3_extra_5": {
+    "name": "木漏れ日とまり木鳥",
+    "entrance": "木漏れ日の羽で、静かに待っていました。",
+    "battle": [
+      "Branch-wing guard. It sways. It doesn't break.",
+      "A quiet peck. I don't spend all day sunbathing.",
+      "葉影へかわす。光の模様を読んでみたまえ。"
+    ],
+    "aside": [
+      "Bird resting area. I appear to be the furniture.",
+      "昼寝の写真が『森の一部』として売られていた。"
+    ],
+    "pressure": [
+      "Branch alive. Bird present. Carry on."
+    ],
+    "defeat": "いい言葉を、ありがとう。"
+  },
+  "EikenPre2:m3_extra_6": {
+    "name": "じゃばら首のジョイントン",
+    "entrance": "じゃばらを伸ばしたら、首だけ遠くに行った！",
+    "battle": [
+      "Neck dodge! My head got there before the rest!",
+      "Joints folded! Compact is a perfectly good battle style!",
+      "長い首で返す！ 手より頭が働くタイプ！"
+    ],
+    "aside": [
+      "背伸びしたら天井に着いた。身の丈に合った部屋がない。",
+      "Flexible neck. The schedule refuses to follow its example."
+    ],
+    "pressure": [
+      "One joint left! I'll keep my head up!"
+    ],
+    "defeat": "縮めてごあいさつ！　きみの勝ちだ！"
+  },
+  "EikenPre2:m3_extra_7": {
+    "name": "リボンひげのニョロネコ",
+    "entrance": "にょろにゃあ。リボンのひげで、ごあいさつ。",
+    "battle": [
+      "Cat dodge! That's a whole new level of bad posture!",
+      "Body coil! This isn't the cuddling service!",
+      "ひげのリボンで止める！ ほどくと機嫌が変わるぞ！"
+    ],
+    "aside": [
+      "猫の狭い所好きと、蛇の長さが合わさって、引っ越しが終わらない。",
+      "Meow or hiss? Call it jazz and leave me alone."
+    ],
+    "pressure": [
+      "Tail still here! I can drag this out all night!"
+    ],
+    "defeat": "にゃあ。なめらかな正解だったね。"
+  },
+  "EikenPre2:m3_extra_8": {
+    "name": "まぶた重たい玉ねぎ袋",
+    "entrance": "まぶたが重いけど、きみの答えは見たいな。",
+    "battle": [
+      "Sack guard. Onions, kindly wake up and help.",
+      "Mesh stretched. Seeing through it isn't getting through it.",
+      "重たい足で一歩よける。まぶたのほうは後にしよう。"
+    ],
+    "aside": [
+      "Everyone's crying already. I haven't started the story.",
+      "徹夜明けではない。玉ねぎの層くらい、寝たはずなんだ。"
+    ],
+    "pressure": [
+      "Still upright. We'll discuss the tears after the fight."
+    ],
+    "defeat": "いい正解……夢でも覚えておくよ。"
+  },
+  "EikenPre2:m3_extra_9": {
+    "name": "真珠層のホタルガイ",
+    "entrance": "真珠の色を、そっと開きます。",
+    "battle": [
+      "Pearl-shell guard. There's depth behind that thin light.",
+      "A quiet turn. The seabed taught me this step.",
+      "殻の陰へかわす。輝きは少し残ってしまうけれど。"
+    ],
+    "aside": [
+      "Pearl-like skin? Actually, that's my house.",
+      "真珠のような肌って。肌ではなく、家なのよ。"
+    ],
+    "pressure": [
+      "Shell still closing. I'll keep the last light safe."
+    ],
+    "defeat": "その答え、真珠のようにきれいでした。"
+  },
+  "EikenPre2:m3_extra_10": {
+    "name": "ふしぎな角のおりがみ牛",
+    "entrance": "ふしぎな角でも、進む道はまっすぐだ。",
+    "battle": [
+      "Folded-horn guard! More complicated than it looks!",
+      "Paper-hoof charge! Imagine the ground shaking!",
+      "谷折りでかわす！ 山折りだったら頭が下がらねえ！"
+    ],
+    "aside": [
+      "手順書に『簡単』とあった。おれの出生に三時間かかった。",
+      "\"Easy project.\" My birth took three hours."
+    ],
+    "pressure": [
+      "More folds. Same stubborn bull. Not beaten yet!"
+    ],
+    "defeat": "きみの答えも、まっすぐ届いた。"
+  },
+  "EikenPre2:m3_9": {
+    "name": "やわらかパフの化粧犬",
+    "entrance": "ぽふっと、やわらかくお相手するよ。",
+    "battle": [
+      "Powder-puff guard. Please remain calm about the cloud.",
+      "A neat little step. The finish matters.",
+      "くるっとかわす。左右の眉を揃える動体視力さ。"
+    ],
+    "aside": [
+      "散歩の前にメイクをしたら、散歩の時間が終わった。",
+      "Makeup done. Lovely. We've run out of walking time."
+    ],
+    "pressure": [
+      "Still holding. My makeup and my pride."
+    ],
+    "defeat": "ぽふっ。すてきな正解だったね。"
+  },
+  "EikenPre2:m3_10": {
+    "name": "宴会部長おたま太郎",
+    "entrance": "宴会部長おたま太郎！　まずは、ぼくがひと芸だ！",
+    "battle": [
+      "Ladle-belly guard! We'll toast with fists today!",
+      "Handle swing! That's more than your usual serving!",
+      "丸い面で押し返す！ 宴の段取り同様、強引にいく！",
+      "One great scoop! I'll serve your attack right back!",
+      "部長の腹芸だ！ 腹はないが、この丸みでどうにかする！"
+    ],
+    "aside": [
+      "Three days on party tricks. Three minutes on the agenda.",
+      "余興の準備に三日。会議の準備に三分。時間配分が逆だって？",
+      "Optional party. Apparently, I was the only option."
+    ],
+    "pressure": [
+      "Not the closing speech! My cup isn't empty yet!",
+      "最後の一杯まで勝負！ 二次会より先に、逆転だ！"
+    ],
+    "defeat": "こりゃ一本取られた！　正解の宴会を始めよう！"
+  },
+  "EikenPre2:c3_1": {
+    "name": "電光の二刀流ジンライ",
+    "entrance": "二刀の先に、きみの言葉を待つ。",
+    "battle": [
+      "Crossed blades. Even the escape route gets cut.",
+      "One flash. Regret can wait until after you blink.",
+      "青い刃で受ける。片腕が空いていると思うな。"
+    ],
+    "aside": [
+      "Fast work praised. Deadline shortened. Lesson learned.",
+      "速い仕事を褒められた翌日から、納期だけ短くなった。"
+    ],
+    "pressure": [
+      "Two blades remain. One breath will be enough."
+    ],
+    "defeat": "見事。きみの集中は、刃より鋭かった。"
+  },
+  "EikenPre2:c3_2": {
+    "name": "ぎょろ目トングのガブリ",
+    "entrance": "ガブリ！　あれ、口が開きっぱなしだ！",
+    "battle": [
+      "Grab first! You don't have to be cooked to be caught!",
+      "Both jaws ready! Mind where you put those hands!",
+      "ばねで跳んで返す！ 離した反動が大事なんだ！"
+    ],
+    "aside": [
+      "Barbecue invitation. Guest list and equipment list. Both.",
+      "テーブルマナーを学んだら、オレの置き場所が増えた。"
+    ],
+    "pressure": [
+      "Still gripping! I'm not letting go of this last chance!"
+    ],
+    "defeat": "ガブ……と閉じる前に、きみの勝ちだ！"
+  },
+  "EikenPre2:c3_3": {
+    "name": "月輪のスカラベオルナ",
+    "entrance": "月の輪を、静かに回します。",
+    "battle": [
+      "Moon-ring guard. A circle has no loose end.",
+      "One foreleg turn. A gap thinner than moonlight is enough.",
+      "輪を傾けてかわす。正面だけを追うな。"
+    ],
+    "aside": [
+      "Lunar messenger appointed. Travel expenses still under review.",
+      "満月の日だけ写真映えすると。私の勤務態度は毎日同じだ。"
+    ],
+    "pressure": [
+      "Even a crescent keeps moving. So will I."
+    ],
+    "defeat": "きみの正解に、月の輪を贈りたい。"
+  },
+  "EikenPre2:c3_4": {
+    "name": "はりぼて大将ハッタリオ",
+    "entrance": "はっはっは！　大きいのは見た目だけ、内緒だぞ！",
+    "battle": [
+      "Booming guard! Hollow things make an impressive noise!",
+      "Big-face attack! The glare arrives before the blade!",
+      "風をよんでかわす！ 強風だけは、読まなくても来る！"
+    ],
+    "aside": [
+      "鎧の見積もりが安すぎる？ 大きさだけなら将軍級だ！",
+      "General-sized confidence. Contents sold separately."
+    ],
+    "pressure": [
+      "Empty inside! Absolutely packed with attitude!"
+    ],
+    "defeat": "ハッタリでは勝てなかった！　きみは本物だ！"
+  },
+  "EikenPre2:c3_5": {
+    "name": "満開の花傘ハナガサ",
+    "entrance": "満開の花傘で、お迎えします。",
+    "battle": [
+      "Full bloom! Don't spend the whole battle looking up!",
+      "Stem feet planted. Flowers have staying power too!",
+      "ひと回りしてよけるわ。傘の下も通行止めよ！"
+    ],
+    "aside": [
+      "Rain cover costs extra. I'm in the blooming business.",
+      "顔が見えないって？ 満開の笑顔を見せてるつもりなのよ。"
+    ],
+    "pressure": [
+      "One petal left! Enough for one more lively dance!"
+    ],
+    "defeat": "その答えに、花がほころびました。"
+  },
+  "EikenPre2:c3_6": {
+    "name": "カップ麺のびのび将軍",
+    "entrance": "のびのび将軍だ！　麺だけは、のび続けるぞ！",
+    "battle": [
+      "Noodle armor! Getting tangled is part of the defense!",
+      "A long reply! You won't need to wait three minutes!",
+      "湯気にまぎれてかわす！ 蓋を取るには早い！"
+    ],
+    "aside": [
+      "出陣の時間を三分間違えたら、兵の腰がなくなった。",
+      "Three-minute plan. Five-minute meeting. Disaster."
+    ],
+    "pressure": [
+      "Still firm! I'm not letting this drag on!"
+    ],
+    "defeat": "のびる前に参った！　きみの正解は、歯切れがいい！"
+  },
+  "EikenPre2:c3_8": {
+    "name": "青ガラスの海竜ヴィトラ",
+    "entrance": "青ガラスの波を、そっと進みます。",
+    "battle": [
+      "Blue-glass guard. Transparent isn't the same as passable.",
+      "A clean cut through water. Can you follow the glass edge?",
+      "長い尾で潮を変える。追う流れは、そこではない。"
+    ],
+    "aside": [
+      "Aquarium visit. They asked for my tank installation quote.",
+      "暑い日の写真だけ、急に依頼が増える。見た目の涼しさか。"
+    ],
+    "pressure": [
+      "Blue still clear. Even the last crack will carry light."
+    ],
+    "defeat": "きみの言葉は、透明な海へ届きました。"
+  },
+  "EikenPre2:c3_extra_1": {
+    "name": "ボヨボヨ消臭ビーズ",
+    "entrance": "ぼよぼよ。考えたら、体が揺れちゃった。",
+    "battle": [
+      "Bead guard! Odors aren't the only things I absorb!",
+      "Small-bead punch! Quiet jobs can take real strength!",
+      "つるんとかわす。器の外は思ったより広いわね。"
+    ],
+    "aside": [
+      "存在感を消してって。匂いと一緒に扱わないでくれる？",
+      "Disappear into the background? Please don't treat me like an odor."
+    ],
+    "pressure": [
+      "Beads remaining! I'm not clearing out just yet!"
+    ],
+    "defeat": "ぼよん。いい答えで、すっきりしたね！"
+  },
+  "EikenPre2:c3_extra_2": {
+    "name": "金属羽のルリハヤブサ",
+    "entrance": "金属の羽で、集中を研ぎすませる。",
+    "battle": [
+      "Metal-wing cut. Speed comes with weight this time.",
+      "Feathers locked. Don't assume every bird is lightweight.",
+      "空へ切り返す。上を向いた時には、もう遅い。"
+    ],
+    "aside": [
+      "Built a nest. The branch moved out.",
+      "空港の検査で羽を外せと言われた。徒歩で帰れというのか。"
+    ],
+    "pressure": [
+      "Chipped blades. Full speed. Watch the last wing."
+    ],
+    "defeat": "きみの答えは、すばやく届いた。"
+  },
+  "EikenPre2:c3_extra_3": {
+    "name": "チャック口のジッパー獣",
+    "entrance": "チャックを開けて、お相手しよう。",
+    "battle": [
+      "Zip shut! No traffic beyond the teeth!",
+      "Jaw open! The teeth speak before I do!",
+      "背を曲げてよける！ 噛み合う歯は全部武器だ！"
+    ],
+    "aside": [
+      "Keep it zipped? For once, excellent advice.",
+      "口が固い会議に呼ばれた。潤滑油だけ持参した。"
+    ],
+    "pressure": [
+      "Still zipping! Every tooth is staying in this fight!"
+    ],
+    "defeat": "閉じる暇もなく、きみの正解が届いた。"
+  },
+  "EikenPre2:c3_extra_4": {
+    "name": "カレーじゅうたんの香辛精",
+    "entrance": "香辛料のじゅうたんで、ひと休みしませんか。",
+    "battle": [
+      "Carpet dodge! The nose is just a distraction!",
+      "Layered-cloth guard. The spice is built in.",
+      "くるんと返す！ 辛口の一撃、お待ちどう！"
+    ],
+    "aside": [
+      "空飛ぶじゅうたんに憧れた。離陸前に近所が腹を空かせた。",
+      "Flying carpet prepared. The neighbors prepared their plates."
+    ],
+    "pressure": [
+      "Still fragrant! I've got one more spicy turn left!"
+    ],
+    "defeat": "きみの正解は、じっくり味わいました。"
+  },
+  "EikenPre2:c3_9": {
+    "name": "星彩のフラミンゴ",
+    "entrance": "星彩の羽を、静かに広げます。",
+    "battle": [
+      "Star-feather guard. Even a thin night has depth.",
+      "One-leg turn. Balance doesn't require a pair.",
+      "長い首で返す。優雅な線にも終点はあるのよ。"
+    ],
+    "aside": [
+      "One-leg fitness trend. My ordinary Tuesday has a name now.",
+      "ドレスの裾直しより、脚の寸法説明のほうが長いわ。"
+    ],
+    "pressure": [
+      "Posture held. I'll meet your gaze at star height."
+    ],
+    "defeat": "きみの言葉も、鮮やかでした。"
+  },
+  "EikenPre2:c3_extra_5": {
+    "name": "せきとめ門のセキタン",
+    "entrance": "せきとめ門は、確かな答えを待つ。",
+    "battle": [
+      "Gate lowered. Your momentum stops here.",
+      "Stone-fist reply. Gates are not limited to defense.",
+      "両脚を据える。通す道は、私が決める。"
+    ],
+    "aside": [
+      "Open up, they said. Everyone walked straight through.",
+      "会議の結論は『風通しをよく』。格子は元から空いている。"
+    ],
+    "pressure": [
+      "Last stone standing. You'll have to earn this entrance."
+    ],
+    "defeat": "よし。きみの言葉に、門を開こう。"
+  },
+  "EikenPre2:c3_extra_6": {
+    "name": "笑い面のドラム缶",
+    "entrance": "がははは！　笑ったら、へこみが増えちゃった！",
+    "battle": [
+      "Ha-ha! Good echo! That means I'm holding up!",
+      "Barrel roll! Laugh now. Dodge next!",
+      "底で踏ん張る！ 空っぽでも、軽く扱うなよ！"
+    ],
+    "aside": [
+      "Music audition. They drummed on me before reading my resume.",
+      "楽器の面接で、履歴書より先に腹を叩かれた。"
+    ],
+    "pressure": [
+      "Still ringing! Let me have the last laugh!"
+    ],
+    "defeat": "がはは！　参った、参った！　きみの勝ちだ！"
+  },
+  "EikenPre2:c3_extra_7": {
+    "name": "青虹の水母レインクラ",
+    "entrance": "青い虹の腕で、ゆっくり舞います。",
+    "battle": [
+      "Jellyfish guard. A little shelter. A little sting.",
+      "A drifting reply. Slow can still reach you.",
+      "虹色の尾をひくわ。追うなら、潮に置いていかれないで。"
+    ],
+    "aside": [
+      "七色の予定表を作ったの。予定が全部、潮まかせだったわ。",
+      "Rainbow planner. Every appointment depends on the tide."
+    ],
+    "pressure": [
+      "Still afloat. The last color hasn't faded."
+    ],
+    "defeat": "きみの答えは、虹のようにやさしかった。"
+  },
+  "EikenPre2:c3_extra_8": {
+    "name": "レモン搾りの剣士シトロン",
+    "entrance": "レモンの剣で、きりっと勝負だ。",
+    "battle": [
+      "Lemon-blade reply. A sharp edge with a sharp taste.",
+      "Peel armor. Bitterness has taught me a few things.",
+      "きゅっと絞ってかわす。細くなるのも剣術さ。"
+    ],
+    "aside": [
+      "爽やかな男と言われるけど、傷口には向かない性格だね。",
+      "When life gives you lemons, request a fencing partner."
+    ],
+    "pressure": [
+      "Juice remaining! I'll squeeze out one last chance!"
+    ],
+    "defeat": "しぼり出した答え、見事だったな！"
+  },
+  "EikenPre2:c3_extra_9": {
+    "name": "月光甲冑のアーマディロ",
+    "entrance": "月光の甲冑で、お相手する。",
+    "battle": [
+      "Moon-armor guard. Learn its weight before chasing the light.",
+      "Low strike. This ground is not changing hands.",
+      "丸まって守る。逃げではない、全身の盾だ。"
+    ],
+    "aside": [
+      "Armor polishing offered. They reached the underside by sunset.",
+      "行動が硬い？ 甲冑のせいだけにはできないな。"
+    ],
+    "pressure": [
+      "One plate left. That's the one that matters now."
+    ],
+    "defeat": "きみの正解は、硬い甲冑にも届いた。"
+  },
+  "EikenPre2:c3_extra_10": {
+    "name": "ぶくぶく泡笛の海坊主",
+    "entrance": "ぶくぶく。ほっぺの笛で、応援するよ。",
+    "battle": [
+      "Bubble wall! Getting through one doesn't mean you're out!",
+      "Whistle reply! The splash might arrive before the sound!",
+      "大耳で受け流す。波の話は全部聞いてるぞ！"
+    ],
+    "aside": [
+      "静かに暮らしたくて海底へ来た。泡の音が近すぎた。",
+      "Quiet life under the sea. The bubbles moved in too."
+    ],
+    "pressure": [
+      "One bubble left! I'll make myself heard!"
+    ],
+    "defeat": "ぶくっ！　正解のお祝いを鳴らそう！"
+  },
+  "EikenPre2:c3_10": {
+    "name": "天青石の鹿ラピセラ",
+    "entrance": "天青石の角で、静かに道を照らします。",
+    "battle": [
+      "Blue antlers ready. Sky color. Stone strength.",
+      "A quiet hoofstep. Can you read even that?",
+      "光の陰へかわす。透明な場所も、隠れ家になる。"
+    ],
+    "aside": [
+      "Sky photograph. I ended up as the color sample.",
+      "天気の話で安心されるけど、僕も雨の日はわからないよ。"
+    ],
+    "pressure": [
+      "Blue still clear. My eyes will stay that way too."
+    ],
+    "defeat": "きみの答えは、澄んだ光でした。"
+  },
+  "EikenPre2:c3_7": {
+    "name": "雲海王スカイアーク",
+    "entrance": "雲海の王として、きみの言葉を待とう。",
+    "battle": [
+      "Cloud wings open. My sky takes more than one strike to cross.",
+      "Royal talons. No land beneath me, but plenty of weight.",
+      "雲影へ抜ける。君の視線より、高く広く。",
+      "One white-wing turn. The rising wind answers to me.",
+      "雲壁を重ねる。見えるからと、道とは限らぬ。"
+    ],
+    "aside": [
+      "National border drawn. The clouds relocated it overnight.",
+      "『地に足のついた政策を』と。まず、地を持ってこさせよう。",
+      "The sky isn't the limit. It's where I hold meetings."
+    ],
+    "pressure": [
+      "Clouds thinning. The sky remains. So do I.",
+      "最後の一雲まで翔ける！ 王の影を、ここで地へ落としはせぬ！"
+    ],
+    "defeat": "見事。雲の道を、きみに開こう。"
+  },
+  "EikenPre2:c3_11": {
+    "name": "赤銅将ヘリオバル",
+    "entrance": "赤銅の将として、正面から受けよう。",
+    "battle": [
+      "Copper spear forward! I'll meet that guard head-on!",
+      "Shield planted. Even a heated strike stops here!",
+      "脚を返し、突く。大きな鎧にも、速い一歩はある！",
+      "A sweeping spear! Don't expect a polite warning!",
+      "赤い盾で受け切る。傷を重ねたぶん、覚悟は厚い！"
+    ],
+    "aside": [
+      "Sunny camp chosen. By noon, everyone had moved away from me.",
+      "日当たりのよい陣地を選んだ。昼には全員、某から離れた。",
+      "Armor polished. Soldiers exhausted. I owe them a rest."
+    ],
+    "pressure": [
+      "Copper still rings. I'll answer with the final blow.",
+      "某は倒れぬ！ 最後の火照りまで、勝負に注ぐ！"
+    ],
+    "defeat": "見事な正解だ。きみの前進を認める。"
+  },
+  "EikenPre2:c3_12": {
+    "name": "千花女帝フルリーナ",
+    "entrance": "千の花を、きみの言葉で開いてごらんなさい。",
+    "battle": [
+      "Flower-sleeve guard. Soft layers can make a firm answer.",
+      "A floral reply. Sweet scents can have strong roots.",
+      "裾をひいてかわす。踏んでよい花は、一輪もありませんの。",
+      "Flower storm! The sightseeing part of this battle is over.",
+      "幾重の花弁で守ります。最後の奥まで、届きますか。"
+    ],
+    "aside": [
+      "Flowers as a gift? I shall consult my wardrobe.",
+      "千の花に役職をつけたら、名刺だけで庭が埋まりましたわ。",
+      "A thousand flowers. The business cards filled the garden."
+    ],
+    "pressure": [
+      "One flower is enough. My courage won't wither.",
+      "最後の一輪まで咲き切ります。幕を閉じるのは、勝負のあとですわ。"
+    ],
+    "defeat": "見事。きみの言葉に、花の道を贈ります。"
+  },
+  "EikenPre2:c3_13": {
+    "name": "なべぶた大魔王ポコポン",
+    "entrance": "ポコポン！　ふたの王冠を、ちゃんとかぶれないぞ！",
+    "battle": [
+      "Pot-lid guard! Behold the king of round defenses!",
+      "Spoon-scepter strike! This is no tasting portion!",
+      "つまみを握って踏ん張る！ そこは弱点でなく王冠だ！",
+      "Great lid flip! Even the kitchen wasn't ready for this!",
+      "蒸気を閉じ込める守り！ 圧力は味方にもなるのだ！"
+    ],
+    "aside": [
+      "Demon hunters arrived. Asked whether I came with a matching pot.",
+      "魔王討伐の冒険者が、サイズの合う鍋も探しておった。",
+      "Fear the lid. Compliments to the soup can wait."
+    ],
+    "pressure": [
+      "Not dented! Well, the metal is. The pride isn't!",
+      "最後のポコポンを響かせよう！ 吾輩の蓋は、まだ閉じぬぞ！"
+    ],
+    "defeat": "ポコポーンと参った！　きみの正解で、ふたが浮いたぞ！"
+  }
+}

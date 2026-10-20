@@ -6,9 +6,10 @@ import {trackTestBrowser} from './lib/test-browser-cleanup.mjs';
 const {chromium}=createRequire(import.meta.url)(process.env.PLAYWRIGHT_MODULE||'C:/Users/tsuyoshi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const {QUESTIONS}=load('src/data/questions.ts');
 const dialogues=JSON.parse(fs.readFileSync('src/monsterDialogues.json','utf8'));
-const out='node_modules/.tmp/bilingual-dialogues-20261020';fs.mkdirSync(out,{recursive:true});
+const base=process.env.TYPING_RPG_TEST_URL||'http://127.0.0.1:5196/';
+const out=process.env.TYPING_RPG_TEST_OUT||'node_modules/.tmp/bilingual-dialogues-intermediate-20261020';fs.mkdirSync(out,{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const close=await trackTestBrowser(browser);
-const cases=[['Eiken5',1,1366,false],['Eiken4',1,390,false],['Eiken5',2,820,false],['Eiken4',2,320,false],['Eiken5',3,390,false],['Eiken4',3,1366,false],['Eiken5',1,1366,true],['Eiken4',1,820,true]],report=[];
+const cases=[['Eiken5',1,1366,false],['Eiken4',1,390,false],['Eiken3',1,1366,false],['EikenPre2',1,390,false],['Eiken3',2,820,false],['EikenPre2',2,320,false],['Eiken3',3,390,false],['EikenPre2',3,1366,false],['Eiken3',1,1366,true],['EikenPre2',1,820,true]].filter(([course,level])=>(!process.env.TYPING_RPG_TEST_COURSE||course===process.env.TYPING_RPG_TEST_COURSE)&&(!process.env.TYPING_RPG_TEST_LEVEL||level===Number(process.env.TYPING_RPG_TEST_LEVEL))),report=[];
 try{for(const [course,level,width,guide]of cases){
  const qs=QUESTIONS[course][level],q=qs.find(q=>/^[\x20-\x7e]+$/.test(q.text));assert.ok(q);
  const ctx=await browser.newContext({viewport:{width,height:950},reducedMotion:'reduce'}),page=await ctx.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -24,7 +25,7 @@ try{for(const [course,level,width,guide]of cases){
   localStorage.setItem('etyping_marked_question_keys_by_scope',JSON.stringify({'Eiken3:1':['Eiken3:1:fixture:保持']}));
   const d=new Date(),date=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');localStorage.setItem('etyping_daily_progress',JSON.stringify({date,questionCount:40}));
  },{course,level,qs,q,guide});
- await page.goto('http://127.0.0.1:5196/?silentCheck=1');await page.locator('.adventure-primary').click();await page.locator('.battle-input').waitFor();await page.locator('[data-monster-reveal]').waitFor({state:'detached'});
+ await page.goto(base+'?silentCheck=1');await page.locator('.adventure-primary').click();await page.locator('.battle-input').waitFor();await page.locator('[data-monster-reveal]').waitFor({state:'detached'});
  const name=(await page.locator('.battle-hp-name').innerText()).trim();const row=Object.entries(dialogues).find(([key,d])=>key.startsWith(course+':')&&d.name===name);assert.ok(row,name);const [identity,d]=row;
  const speech=page.locator('.battle-dialogue [data-dialogue-question]');assert.equal((await speech.innerText()).trim(),d.entrance);
  const before=await page.evaluate(()=>({defeats:JSON.parse(localStorage.getItem('etyping_defeated_monsters')),marked:JSON.parse(localStorage.getItem('etyping_marked_question_keys_by_scope')),statuses:JSON.parse(localStorage.getItem('etyping_manual_question_statuses'))}));
@@ -39,7 +40,10 @@ try{for(const [course,level,width,guide]of cases){
  for(let i=0;i<12&&!(await page.locator('[data-result-question]').count());i++){
   await page.locator('.battle-input').waitFor();const n=await speech.getAttribute('data-dialogue-question');const line=(await speech.innerText()).trim();seen.add(line);assert.ok([d.entrance,...d.battle,...d.aside,...d.pressure,d.defeat].includes(line));
   await page.locator('.battle-input').focus();await page.keyboard.type(q.text,{delay:8});answers++;
-  await page.waitForFunction(n=>{const el=document.querySelector('[data-dialogue-question]');return !!document.querySelector('[data-result-question]')||(!!el&&el.getAttribute('data-dialogue-question')!==n);},n);
+  try{await page.waitForFunction(n=>{const el=document.querySelector('[data-dialogue-question]');return !!document.querySelector('[data-result-question]')||(!!el&&el.getAttribute('data-dialogue-question')!==n);},n);}catch(error){
+   await page.screenshot({path:`${out}/failure-${course}-${level}.png`});
+   console.log('Input diagnostic',JSON.stringify({course,level,guide,iteration:i,target:q.text,number:n,state:await page.evaluate(()=>({input:document.querySelector('.battle-input')?.value,question:document.querySelector('[data-dialogue-question]')?.getAttribute('data-dialogue-question'),active:document.activeElement?.outerHTML,body:document.body.innerText.slice(-3500)}))}));throw error;
+  }
  }
  await page.locator('[data-result-question]').first().waitFor();
  const after=await page.evaluate(()=>({defeats:JSON.parse(localStorage.getItem('etyping_defeated_monsters')),marked:JSON.parse(localStorage.getItem('etyping_marked_question_keys_by_scope')),statuses:JSON.parse(localStorage.getItem('etyping_manual_question_statuses')),daily:JSON.parse(localStorage.getItem('etyping_daily_progress'))}));
