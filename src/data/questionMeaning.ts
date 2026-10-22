@@ -6,6 +6,7 @@ import grade4Corrections from './grade4MeaningCorrections.json';
 import intermediateCorrections from './intermediateMeaningCorrections.json';
 import additionalCorrections from './additionalMeaningCorrections.json';
 import grade2VocabularyCorrections from './grade2VocabularyMeaningCorrections.json';
+import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';
 import type { DifficultyKey } from './questions';
 import { getGrade4PhraseMeaning } from './grade4PhrasePrompts';
 import { getGrade3VocabularyMeaning } from './grade3VocabularyPrompts';
@@ -29,7 +30,8 @@ const courseMeanings = new Map([...intermediateCorrections, ...additionalCorrect
 const grade2VocabularyMeanings = new Map(grade2VocabularyCorrections.map(entry => [identity(entry), entry.meaning]));
 
 export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: DifficultyKey): string => (
-  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)
+  getLevel1VocabularyDisplay(question, difficulty)?.meaning
+  ?? (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)
   ?? getReviewedTranslationMeaning(question, difficulty)
   ?? getGrade3VocabularyMeaning(question, difficulty)
   ?? getGrade4VocabularyMeaning(question, difficulty)

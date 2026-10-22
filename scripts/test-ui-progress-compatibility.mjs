@@ -182,6 +182,8 @@ approvedMaterialFiles.add('src/learningProgress.ts');
 const oldMeaning = execFileSync('git',['show',`${baseline}:src/data/questionMeaning.ts`],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n');
 const newMeaning = readFileSync(path.join(root,'src/data/questionMeaning.ts'),'utf8').replace(/\r\n/g,'\n');
 const originalMeaning = newMeaning
+  .replace("import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';\n",'')
+  .replace('  getLevel1VocabularyDisplay(question, difficulty)?.meaning\n  ?? ','  ')
   .replace("import grade2VocabularyCorrections from './grade2VocabularyMeaningCorrections.json';\n",'')
   .replace('// Broaden the Grade 2 headword gloss without changing its legacy saved identity\n// or the same question\'s meaning in another course.\nconst grade2VocabularyMeanings = new Map(grade2VocabularyCorrections.map(entry => [identity(entry), entry.meaning]));\n','')
   .replace("  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)\n  ?? getReviewedTranslationMeaning(question, difficulty)","  getReviewedTranslationMeaning(question, difficulty)");
@@ -195,6 +197,15 @@ for(const entry of vocabularyCorrections) {
 }
 approvedMaterialFiles.add('src/data/questionMeaning.ts');
 approvedMaterialFiles.add('src/data/grade2VocabularyMeaningCorrections.json');
+// The all-grade review adds only an exact-identity display lookup. The dedicated
+// vocabulary audit checks every question, changed display and course/level scope.
+const examplesBefore = execFileSync('git',['show','0508daf:src/data/questionExamples.ts'],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n');
+const examplesNow = readFileSync(path.join(root,'src/data/questionExamples.ts'),'utf8').replace(/\r\n/g,'\n');
+assert.equal(examplesNow
+  .replace("import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';\n",'')
+  .replace('translation?: string; ','')
+  .replace('  const reviewedExample = level === 1 ? getLevel1VocabularyDisplay(question, difficulty)?.displayExampleEn : undefined;\n  if (reviewedExample) return reviewedExample;\n',''),examplesBefore,'Only the scoped Level 1 display example lookup may be added');
+for(const file of ['src/data/level1VocabularyDisplay.ts','src/data/level1VocabularyDisplayCorrections.json','src/data/questionExamples.ts'])approvedMaterialFiles.add(file);
 assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only audited curricula and listening preparation may differ');
 console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies audited against ${baseline}; preparation level 3 retained, battle mastery unchanged, 2-player fixture, reload/profile-switch/export round trips and defeated IDs preserved.`);
 

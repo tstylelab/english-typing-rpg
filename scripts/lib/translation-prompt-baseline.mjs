@@ -4,6 +4,8 @@ import ts from 'typescript';
 import {load} from './load-typescript-data.mjs';
 // Original display adapter, with only this review's precedence removed.
 const source=fs.readFileSync('src/data/questionMeaning.ts','utf8')
+ .replace(/^import .*getLevel1VocabularyDisplay.*\r?\n/m,'')
+ .replace(/  getLevel1VocabularyDisplay\(question, difficulty\)\?\.meaning\r?\n  \?\? /,'  ')
  // Later Grade 2 headword glosses are independent of the historical review.
  .replace(/^import grade2VocabularyCorrections.*\r?\n/m,'')
  .replace(/\/\/ Broaden the Grade 2 headword gloss[^\n]*\r?\n\/\/ or the same question[^\n]*\r?\nconst grade2VocabularyMeanings[^\n]*\r?\n/,'')

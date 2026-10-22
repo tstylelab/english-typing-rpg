@@ -1,6 +1,7 @@
 import type { DifficultyKey } from './questions';
+import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';
 type LevelKey = 1 | 2 | 3;
-type QuestionLike = { text: string; exampleEn?: string };
+type QuestionLike = { text: string; translation?: string; exampleEn?: string };
 
 const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 const withArticle = (text: string) => `${/^[aeiou]/i.test(text) ? 'an' : 'a'} ${text}`;
@@ -1253,6 +1254,8 @@ export const getQuestionExample = (
   level: LevelKey,
   question: QuestionLike
 ): string | null => {
+  const reviewedExample = level === 1 ? getLevel1VocabularyDisplay(question, difficulty)?.displayExampleEn : undefined;
+  if (reviewedExample) return reviewedExample;
   if (question.exampleEn?.trim()) return question.exampleEn;
 
   if (level === 3) return null;
