@@ -9,7 +9,7 @@ const dialogues=JSON.parse(fs.readFileSync('src/monsterDialogues.json','utf8'));
 const base=process.env.TYPING_RPG_TEST_URL||'http://127.0.0.1:5196/';
 const out=process.env.TYPING_RPG_TEST_OUT||'node_modules/.tmp/bilingual-dialogues-intermediate-20261020';fs.mkdirSync(out,{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--mute-audio']});const close=await trackTestBrowser(browser);
-const cases=[['Eiken5',1,1366,false],['Eiken4',1,390,false],['Eiken3',1,1366,false],['EikenPre2',1,390,false],['Eiken3',2,820,false],['EikenPre2',2,320,false],['Eiken3',3,390,false],['EikenPre2',3,1366,false],['Eiken3',1,1366,true],['EikenPre2',1,820,true]].filter(([course,level])=>(!process.env.TYPING_RPG_TEST_COURSE||course===process.env.TYPING_RPG_TEST_COURSE)&&(!process.env.TYPING_RPG_TEST_LEVEL||level===Number(process.env.TYPING_RPG_TEST_LEVEL))),report=[];
+const cases=[['Eiken5',1,1366,false],['Eiken4',1,390,false],['Eiken3',1,1366,false],['EikenPre2',1,390,false],['Eiken3',2,820,false],['EikenPre2',2,320,false],['Eiken3',3,390,false],['EikenPre2',3,1366,false],['Eiken3',1,1366,true],['EikenPre2',1,820,true],['Eiken2',1,820,false],['Eiken2',2,390,false],['Eiken2',3,320,false],['Eiken2',1,1366,true]].filter(([course,level])=>(!process.env.TYPING_RPG_TEST_COURSE||course===process.env.TYPING_RPG_TEST_COURSE)&&(!process.env.TYPING_RPG_TEST_LEVEL||level===Number(process.env.TYPING_RPG_TEST_LEVEL))),report=[];
 try{for(const [course,level,width,guide]of cases){
  const qs=QUESTIONS[course][level],q=qs.find(q=>/^[\x20-\x7e]+$/.test(q.text));assert.ok(q);
  const ctx=await browser.newContext({viewport:{width,height:950},reducedMotion:'reduce'}),page=await ctx.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
