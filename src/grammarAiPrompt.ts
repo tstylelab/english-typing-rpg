@@ -3,6 +3,7 @@ import type { GrammarCard } from './data/grade5GrammarGuide';
 export const GRAMMAR_AI_DESTINATIONS = {
   ChatGPT: 'https://chatgpt.com/',
   Gemini: 'https://gemini.google.com/app',
+  'Google AIモード': 'https://www.google.com/ai',
 } as const;
 
 // Generate only on explicit request. No player, history, storage or network access.

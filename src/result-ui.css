@@ -6,6 +6,7 @@
 .result-celebration .result-outcome {font-size:28px;letter-spacing:.06em}
 .result-celebration .result-monster-name {font-size:23px;line-height:1.5}
 .result-celebration .monster-reveal-target {flex-shrink:0}
+.result-opponent-avatar {display:flex;flex-shrink:0;align-items:center;justify-content:center;width:80px;height:80px}
 .result-learning-gains {padding:8px 18px;border-left:1px solid #a68b5266}
 .result-gains-title {color:#d3ebec;font-size:14px;font-weight:700}
 .result-gains-highlight {color:#f5dfa6;font-size:17px;line-height:1.6}
@@ -67,6 +68,8 @@
   .result-screen .result-celebration .result-monster-heading {display:block;flex:1;min-width:0}
   .result-celebration .result-monster-header>svg {display:none}
   .result-celebration .monster-reveal-target {width:76px}
+  .result-opponent-avatar {width:64px;height:64px}
+  .result-opponent-avatar>img,.result-opponent-avatar>svg {max-width:100%;max-height:100%}
   .result-celebration .result-outcome {font-size:22px}
   .result-celebration .result-monster-name {font-size:18px}
   .result-celebration [data-result-course] {font-size:12px}

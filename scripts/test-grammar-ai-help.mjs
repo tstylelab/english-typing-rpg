@@ -19,7 +19,7 @@ for (const {cards,grade} of Object.values(grammarGuides)) {
     assert.ok(buildGrammarQuestion(grade,card,'Example from result.').includes('ゲームで出た文：Example from result.'));
   }
 }
-assert.deepEqual(Object.values(GRAMMAR_AI_DESTINATIONS),['https://chatgpt.com/','https://gemini.google.com/app']);
+assert.deepEqual(Object.values(GRAMMAR_AI_DESTINATIONS),['https://chatgpt.com/','https://gemini.google.com/app','https://www.google.com/ai']);
 // Future guides use their supplied grade, without silently inheriting a younger audience.
 for (const grade of ['3級','準2級','2級','準1級','1級']) {
   const text=buildGrammarQuestion(grade,grammarGuides.Eiken4.cards[0]);

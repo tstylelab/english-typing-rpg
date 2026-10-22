@@ -7,6 +7,7 @@ type Props = { recorder: AiStudyRecorder; courseLabels: Record<string, string>; 
 const AI_DESTINATIONS = {
   ChatGPT: 'https://chatgpt.com/',
   Gemini: 'https://gemini.google.com/app',
+  'Google AIモード': 'https://www.google.com/ai',
 } as const;
 type AiDestination = keyof typeof AI_DESTINATIONS;
 
