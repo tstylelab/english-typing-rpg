@@ -5,6 +5,7 @@ import grade5Corrections from './grade5MeaningCorrections.json';
 import grade4Corrections from './grade4MeaningCorrections.json';
 import intermediateCorrections from './intermediateMeaningCorrections.json';
 import additionalCorrections from './additionalMeaningCorrections.json';
+import grade2VocabularyCorrections from './grade2VocabularyMeaningCorrections.json';
 import type { DifficultyKey } from './questions';
 import { getGrade4PhraseMeaning } from './grade4PhrasePrompts';
 import { getGrade3VocabularyMeaning } from './grade3VocabularyPrompts';
@@ -23,9 +24,13 @@ const meanings = new Map([...corrections, ...sentenceCorrections, ...grade5Corre
 const courseMeanings = new Map([...intermediateCorrections, ...additionalCorrections].map(entry => [
   `${entry.course}:${identity(entry)}`, entry.meaning,
 ]));
+// Broaden the Grade 2 headword gloss without changing its legacy saved identity
+// or the same question's meaning in another course.
+const grade2VocabularyMeanings = new Map(grade2VocabularyCorrections.map(entry => [identity(entry), entry.meaning]));
 
 export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: DifficultyKey): string => (
-  getReviewedTranslationMeaning(question, difficulty)
+  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)
+  ?? getReviewedTranslationMeaning(question, difficulty)
   ?? getGrade3VocabularyMeaning(question, difficulty)
   ?? getGrade4VocabularyMeaning(question, difficulty)
   ?? getGrade4PhraseMeaning(question, difficulty)

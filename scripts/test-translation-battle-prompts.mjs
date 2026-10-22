@@ -15,11 +15,19 @@ const id=q=>JSON.stringify([q.text,q.translation,q.exampleEn??'']);
 const key=(c,l,q)=>c+':'+l+':'+id(q);
 const byKey=new Map(entries.map(e=>[key(e.course,e.level,e),e]));
 assert.equal(byKey.size,entries.length,'No overwritten identities');
+const vocabularyEntries=JSON.parse(fs.readFileSync('src/data/grade2VocabularyMeaningCorrections.json','utf8'));
+const vocabularyMeanings=new Map(vocabularyEntries.map(e=>[key(e.course,e.level,e),e.meaning]));
+assert.equal(vocabularyMeanings.size,99,'Unique reviewed vocabulary meanings');
+for(const e of vocabularyEntries){
+ assert.equal(e.course,'Eiken2'); assert.equal(e.level,1);
+ assert.equal(QUESTIONS.Eiken2[1].filter(q=>id(q)===id(e)).length,1,'Keep legacy vocabulary identity');
+ assert.ok(e.meaning.length<=26,'Keep vocabulary reading load short');
+}
 let checked=0,changed=0;
 for(const [course,levels]of Object.entries(QUESTIONS))for(const[level,qs]of Object.entries(levels))for(const q of qs){
  const serialized=JSON.stringify(q),e=byKey.get(key(course,level,q));
  const m=getQuestionMeaning(q,course);
- assert.equal(m,e?.meaning??getPriorMeaning(q,course),key(course,level,q));
+ assert.equal(m,vocabularyMeanings.get(key(course,level,q))??e?.meaning??getPriorMeaning(q,course),key(course,level,q));
  assert.equal(getQuestionMeaning(JSON.parse(serialized),course),m,'Imported question resolves identically');
  assert.equal(JSON.stringify(q),serialized,'Keep saved progress identity intact');
  assert.equal(getGrade3VocabularyAnswerCue(q,course,Number(level)),undefined);

@@ -177,6 +177,24 @@ for(const listeningLevel of [1,2,3])for(const battleLevel of [1,2,3])for(const o
   assert.deepEqual(json(progress.getNextAutomaticLearningState(status,'battle',outcome)),json(oldProgressContext.exports.getNextAutomaticLearningState(status,'battle',outcome)));
 }
 approvedMaterialFiles.add('src/learningProgress.ts');
+// Audit the Grade 2 display-only extension while keeping all legacy lookup
+// behavior and saved identity fields identical to the released implementation.
+const oldMeaning = execFileSync('git',['show',`${baseline}:src/data/questionMeaning.ts`],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n');
+const newMeaning = readFileSync(path.join(root,'src/data/questionMeaning.ts'),'utf8').replace(/\r\n/g,'\n');
+const originalMeaning = newMeaning
+  .replace("import grade2VocabularyCorrections from './grade2VocabularyMeaningCorrections.json';\n",'')
+  .replace('// Broaden the Grade 2 headword gloss without changing its legacy saved identity\n// or the same question\'s meaning in another course.\nconst grade2VocabularyMeanings = new Map(grade2VocabularyCorrections.map(entry => [identity(entry), entry.meaning]));\n','')
+  .replace("  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)\n  ?? getReviewedTranslationMeaning(question, difficulty)","  getReviewedTranslationMeaning(question, difficulty)");
+assert.equal(originalMeaning,oldMeaning,'Only the scoped Grade 2 display lookup may be added');
+const vocabularyCorrections = JSON.parse(readFileSync(path.join(root,'src/data/grade2VocabularyMeaningCorrections.json'),'utf8'));
+assert.equal(vocabularyCorrections.length,99);
+assert.equal(new Set(vocabularyCorrections.map(q=>JSON.stringify([q.text,q.translation,q.exampleEn]))).size,99);
+for(const entry of vocabularyCorrections) {
+  assert.equal(entry.course,'Eiken2'); assert.equal(entry.level,1);
+  assert.ok(entry.translation && entry.exampleEn && entry.meaning.length<=26);
+}
+approvedMaterialFiles.add('src/data/questionMeaning.ts');
+approvedMaterialFiles.add('src/data/grade2VocabularyMeaningCorrections.json');
 assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only audited curricula and listening preparation may differ');
 console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies audited against ${baseline}; preparation level 3 retained, battle mastery unchanged, 2-player fixture, reload/profile-switch/export round trips and defeated IDs preserved.`);
 
