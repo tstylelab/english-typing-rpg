@@ -32,11 +32,22 @@ const protectedNames = ['STORAGE_KEYS', 'normalizePlayerProfiles', 'normalizePla
   'normalizeDefeatedMonsterIds', 'persistPlayerProfiles', 'readLegacyWorkingSetFromLocalStorage', 'writeProfileDataToWorkingSet',
   'captureCurrentProfileData', 'activatePlayerProfile'];
 const printer = ts.createPrinter({ removeComments: true });
-// Replay positions are the only additive storage change. Strip that field alone
-// for the legacy AST comparison; all original keys and statements remain exact.
+// Audit the two deliberate compatibility extensions: replay positions, and
+// preserving listening preparation level 3 (overall mastery still caps it at 2).
 function legacyPrint(node, ast) {
   const transformed = ts.transform(node, [context => {
     const visit = n => {
+      if (ts.isPropertyAssignment(n) && n.name.getText(ast) === 'listeningLevel'
+        && ts.isConditionalExpression(n.initializer)
+        && n.initializer.condition.getText(ast) === 'LEARNING_LEVELS.includes(value?.listeningLevel as LearningLevel)') {
+        assert.equal(n.initializer.whenTrue.getText(ast), 'value.listeningLevel as LearningLevel');
+        const oldValue = ts.factory.createAsExpression(ts.factory.createCallExpression(
+          ts.factory.createPropertyAccessExpression(ts.factory.createIdentifier('Math'), 'min'), undefined,
+          [ts.factory.createNumericLiteral(2), n.initializer.whenTrue]), ts.factory.createTypeReferenceNode('LearningLevel'));
+        ts.setTextRange(oldValue, n.initializer.whenTrue);
+        return ts.factory.updatePropertyAssignment(n, n.name, ts.factory.updateConditionalExpression(n.initializer,
+          n.initializer.condition, n.initializer.questionToken, oldValue, n.initializer.colonToken, n.initializer.whenFalse));
+      }
       if ((ts.isPropertyAssignment(n) || ts.isShorthandPropertyAssignment(n)) && n.name.getText(ast) === 'battleResumePositions') return undefined;
       if (ts.isExpressionStatement(n) && ts.isCallExpression(n.expression)
         && n.expression.expression.getText(ast) === 'localStorage.setItem'
@@ -115,6 +126,14 @@ assert.equal(d.bestScores[defeats[1]],12345); assert.equal(d.maxKeystrokes,456);
 assert.equal(d.manualQuestionStatuses[qKey].excluded,true); assert.equal(d.manualQuestionStatuses[qKey].learningLevel,3);
 assert.equal(d.weakQuestionStats.banana.missCount,3); assert.equal(d.reviewQueue[0].remainingQuestions,2);
 assert.equal(d.manualQuestionStatuses[retiredKey].battleLevel,3);
+assert.equal(d.manualQuestionStatuses[retiredKey].listeningLevel,3, 'Preparation level 3 survives normalization');
+const preparedKey = api.getQuestionStatusKey('Eiken5',1,{text:'apple',translation:'りんご'});
+const prepared = json(api.normalizePlayerProfiles([{id:'prepared',name:'練習済み',data:{manualQuestionStatuses:{
+  [preparedKey]:{listeningLevel:3,battleLevel:1,practiceLevel:1,manualOverrideLevel:null,excluded:false,updatedAt:123},
+}}}]))[0].data.manualQuestionStatuses[preparedKey];
+assert.equal(prepared.listeningLevel,3);
+assert.equal(prepared.battleLevel,1);
+assert.equal(prepared.learningLevel,2,'Listening alone never grants overall mastery');
 assert.equal(d.reviewQueue[1].question.text,retiredPre2.text);
 assert.ok(d.weakQuestions.some(q=>q.text===retiredPre2.text),'Retired curriculum records must not be deleted');
 assert.equal(d.dailyActivityHistory['2026-10-14'].answered,30); assert.equal(d.dailyProgress.questionCount,218);
@@ -145,8 +164,21 @@ for(const file of ['src/data/questions.ts','src/data/questionSets/eiken/grade5.t
 for(const file of ['src/data/grade4FoundationAssignments.json','src/data/grade4GrammarAssignments.ts','src/data/grade4GrammarGuide.ts','src/data/questionSets/eiken/grade4.ts','src/data/questionSets/eiken/grade4Foundations.json','src/data/questionSets/eiken/grade2.ts','src/data/questionSets/eiken/grade2GrammarExpansion.json','src/data/grade2GrammarGuide.ts','src/data/grade2GrammarPointOverrides.json','src/data/grade2GrammarExpansionCards.json','src/data/grade2GrammarExpansionAssignments.json'])approvedMaterialFiles.add(file);
 for(const file of ['src/data/questionSets/eiken/pre1.ts','src/data/questionSets/eiken/pre1GrammarFoundations.json','src/data/pre1GrammarPointOverrides.json','src/data/pre1GrammarFoundationCards.json','src/data/pre1GrammarFoundationAssignments.json','src/data/pre1GrammarGuide.ts'])approvedMaterialFiles.add(file);
 for(const file of ['src/data/questionSets/eiken/grade1.ts','src/data/questionSets/eiken/grade1GrammarExpansion.json','src/data/grade1GrammarPointOverrides.json','src/data/grade1GrammarExpansionCards.json','src/data/grade1GrammarExpansionAssignments.json','src/data/grade1GrammarGuide.ts'])approvedMaterialFiles.add(file);
-assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only separately audited curricula may differ; monster catalog and learning rules remain unchanged');
-console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies retain ${baseline} legacy behavior; 2-player fixture, old saves, reload/profile-switch/export round trips and defeated IDs unchanged; separately audited curricula allowed.`);
+const oldProgress = execFileSync('git',['show',`${baseline}:src/learningProgress.ts`],{cwd:root,encoding:'utf8'});
+const newProgress = readFileSync(path.join(root,'src/learningProgress.ts'),'utf8');
+const withoutListening = source => source.replace(/\r\n/g,'\n').replace(/if \(source === 'listening'\) \{[\s\S]*?\n  \}/, 'LISTENING_PREPARATION_BRANCH');
+assert.equal(withoutListening(newProgress),withoutListening(oldProgress),'Only the listening transition may change');
+const oldProgressContext={exports:{}};
+vm.runInNewContext(ts.transpile(oldProgress,{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}),oldProgressContext);
+const progress=require('./learningProgress.ts');
+for(const listeningLevel of [1,2,3])for(const battleLevel of [1,2,3])for(const outcome of ['success','neutral','struggle']) {
+  const status={listeningLevel,battleLevel};
+  assert.equal(progress.getAutomaticLearningLevel(status),oldProgressContext.exports.getAutomaticLearningLevel(status));
+  assert.deepEqual(json(progress.getNextAutomaticLearningState(status,'battle',outcome)),json(oldProgressContext.exports.getNextAutomaticLearningState(status,'battle',outcome)));
+}
+approvedMaterialFiles.add('src/learningProgress.ts');
+assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only audited curricula and listening preparation may differ');
+console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies audited against ${baseline}; preparation level 3 retained, battle mastery unchanged, 2-player fixture, reload/profile-switch/export round trips and defeated IDs preserved.`);
 
 const companions = require('./homeCompanions.ts');
 const profiles = require('./monsterProfiles.json');

@@ -133,8 +133,12 @@ export const getNextAutomaticLearningState = (
   if (outcome === 'neutral') return state;
 
   if (source === 'listening') {
-    if (outcome !== 'success' || currentLevel >= 2) return state;
-    return { ...state, listeningLevel: 2 };
+    // This is preparation progress only; getAutomaticLearningLevel still caps
+    // listening at 2 so only battle recall can grant automatic mastery.
+    const listeningLevel = (outcome === 'success'
+      ? Math.min(3, state.listeningLevel + 1)
+      : Math.max(1, state.listeningLevel - 1)) as LearningProgressLevel;
+    return listeningLevel === state.listeningLevel ? state : { ...state, listeningLevel };
   }
 
   const nextLevel = outcome === 'success'

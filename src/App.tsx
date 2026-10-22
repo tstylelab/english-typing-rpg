@@ -2846,7 +2846,7 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
             ? value.learningLevel as LearningLevel
             : 1,
         listeningLevel: LEARNING_LEVELS.includes(value?.listeningLevel as LearningLevel)
-          ? Math.min(2, value.listeningLevel as LearningLevel) as LearningLevel
+          ? value.listeningLevel as LearningLevel
           : 1,
         battleLevel: LEARNING_LEVELS.includes(value?.battleLevel as LearningLevel)
           ? value.battleLevel as LearningLevel
@@ -3017,6 +3017,11 @@ const normalizeAutoPlaySettings = (value: unknown): AutoPlaySettings => {
 
 const getEffectiveLearningLevel = (status: ManualQuestionStatus): LearningLevel => (
   status.manualOverrideLevel ?? getAutomaticLearningLevel(status)
+);
+
+// Preparation can reach 3 without changing the overall battle-mastery label.
+const getListeningSelectionLevel = (status: ManualQuestionStatus): LearningLevel => (
+  status.manualOverrideLevel ?? Math.max(status.listeningLevel, status.battleLevel) as LearningLevel
 );
 
 const LEARNING_LEVEL_LABELS: Record<LearningLevel, string> = {
@@ -4980,8 +4985,8 @@ export default function App() {
     return null;
   };
 
-  const getWeightedLearningLevel = (status: ManualQuestionStatus) => {
-    const effectiveLevel = getEffectiveLearningLevel(status);
+  const getWeightedLearningLevel = (status: ManualQuestionStatus, listening = false) => {
+    const effectiveLevel = listening ? getListeningSelectionLevel(status) : getEffectiveLearningLevel(status);
     if (effectiveLevel === 1) return 6;
     if (effectiveLevel === 2) return 3;
     return 1;
@@ -5044,7 +5049,7 @@ export default function App() {
     mode: Mode,
     inputMode: InputMode,
     assisted = false,
-  ): LearningStatusChange | null => {
+  ): { change: LearningStatusChange | null; status: ManualQuestionStatus } | null => {
     const track = getAutoLearningTrack(mode, inputMode);
     if (!track) return null;
     const rawOutcome: AutomaticLearningOutcome = EIKEN_DIFFICULTIES.includes(difficulty) && (track === 'battle' || level !== 1)
@@ -5067,7 +5072,7 @@ export default function App() {
     updateManualQuestionStatus(difficulty, level, question, () => nextStatus);
     const from = getEffectiveLearningLevel(current);
     const to = getEffectiveLearningLevel(nextStatus);
-    return from === to ? null : { from, to, source: track };
+    return { change: from === to ? null : { from, to, source: track }, status: nextStatus };
   };
 
   const persistManualQuestionStatuses = useCallback((nextStatuses: Record<string, ManualQuestionStatus>) => {
@@ -6738,6 +6743,7 @@ export default function App() {
     stageIndex: number,
     mode: Mode,
     list = getEligibleBattleQuestions(diff, level, stageIndex, mode),
+    inputMode: InputMode = gameState.inputMode,
   ): Question => {
     if (list.length === 0) return { text: "No Data", translation: "出題できる問題がありません" };
     const poolFallback = getRandomQuestion(diff, level, currentQ);
@@ -6749,7 +6755,7 @@ export default function App() {
     const source = candidates.length > 0 ? candidates : list;
     const weightedList = source.flatMap(question => {
       const status = getManualQuestionStatus(diff, level, question);
-      return Array.from({ length: getWeightedLearningLevel(status) }, () => question);
+      return Array.from({ length: getWeightedLearningLevel(status, mode === 'challenge' && inputMode === 'voice-text') }, () => question);
     });
 
     return weightedList[Math.floor(Math.random() * weightedList.length)] ?? source[0] ?? poolFallback;
@@ -6846,12 +6852,14 @@ export default function App() {
     mode: Mode,
     inputMode: InputMode,
     justUpdatedLevel?: LearningLevel,
+    justUpdatedStatus?: ManualQuestionStatus,
   ): Question => {
     const playableQuestions = getScopedPlayableQuestions(diff, level);
     const initialEligible = getEligibleBattleQuestions(diff, level, stageIndex, mode, playableQuestions, inputMode);
+    const listening = mode === 'challenge' && inputMode === 'voice-text';
     const recentScope = JSON.stringify([activePlayerId, diff, level]);
     const longText = EIKEN_DIFFICULTIES.includes(diff) && level !== 1;
-    const eligibleQuestions = longText
+    const eligibleQuestions = longText || listening
       ? spaceLongTextQuestions(initialEligible, recentLongTextQuestionsRef.current[recentScope] ?? [], q => getQuestionStatusKey(diff, level, q), 3)
       : initialEligible;
     const scopeKey = JSON.stringify([activePlayerId, diff, level, mode, inputMode]);
@@ -6860,22 +6868,25 @@ export default function App() {
     const getKey = (question: Question) => getQuestionStatusKey(diff, level, question);
     const currentKey = currentQ ? getKey(currentQ) : undefined;
     activeReviewEntryRef.current = null;
-    const getLevel = (question: Question) => justUpdatedLevel !== undefined && getKey(question) === currentKey
-      ? justUpdatedLevel
-      : getEffectiveLearningLevel(getManualQuestionStatus(diff, level, question));
+    const getLevel = (question: Question) => {
+      const isCurrent = getKey(question) === currentKey;
+      const status = isCurrent && justUpdatedStatus ? justUpdatedStatus : getManualQuestionStatus(diff, level, question);
+      if (listening) return getListeningSelectionLevel(status);
+      return isCurrent && justUpdatedLevel !== undefined ? justUpdatedLevel : getEffectiveLearningLevel(status);
+    };
     const chooseDefault = () => {
       const reviewEntry = canServeReviewQuestion() ? getDueReviewQuestion(diff, level, currentQ, eligibleQuestions) : null;
       activeReviewEntryRef.current = reviewEntry;
-      return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions);
+      return reviewEntry?.question ?? getPlayableRandomQuestion(diff, level, currentQ, stageIndex, mode, eligibleQuestions, inputMode);
     };
     const track = longText ? getAutoLearningTrack(mode, inputMode) : null;
     if (longText && track) return selectLongTextLearningQuestion({
       state, playableQuestions: initialEligible, eligibleQuestions, getKey, getLevel, chooseDefault,
-      targetLevel: track === 'listening' ? 2 : 3,
+      targetLevel: 3,
       // Other questions' countdowns are decremented in the same React update.
-      isReady: question => (getManualQuestionStatus(diff, level, question).longTextSpacingRemaining ?? 0) <= (currentQ ? 1 : 0),
+      isReady: question => listening || (getManualQuestionStatus(diff, level, question).longTextSpacingRemaining ?? 0) <= (currentQ ? 1 : 0),
     });
-    return selectLearningBalancedQuestion({ state, playableQuestions, eligibleQuestions, getKey, getLevel, currentKey, chooseDefault });
+    return selectLearningBalancedQuestion({ state, playableQuestions: listening ? initialEligible : playableQuestions, eligibleQuestions, getKey, getLevel, currentKey, chooseDefault });
   };
 
   const handleSkip = () => {
@@ -6896,10 +6907,13 @@ export default function App() {
       ? getLongTextRecallOutcome(gameState.currentQuestion.text, Math.max(0, gameState.missCount - (gameState.formattingMissCount ?? 0)))
       : getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
     const completedSuccessfully = !assisted && !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
-    if (isLongText) {
+    if (isLongText || (gameState.mode === 'challenge' && gameState.inputMode === 'voice-text')) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
       const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
       recentLongTextQuestionsRef.current[scope] = [...(recentLongTextQuestionsRef.current[scope] ?? []).slice(-5), key];
+    }
+    if (isLongText) {
+      const key = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, gameState.currentQuestion);
       if (!skipped) setManualQuestionStatuses(prev => {
         const prefix = `${gameState.selectedDifficulty}:${gameState.selectedLevel}:`;
         const next = { ...prev };
@@ -6929,7 +6943,7 @@ export default function App() {
 
     recordRecentQuestionSource(wasCurrentQuestionReview);
 
-    const learningChange = !skipped
+    const learningUpdate = !skipped
       ? updateAutoLearningStatus(
         gameState.selectedDifficulty,
         gameState.selectedLevel,
@@ -6941,6 +6955,7 @@ export default function App() {
         assisted,
       )
       : null;
+    const learningChange = learningUpdate?.change ?? null;
 
     const newMissedQs = [...gameState.currentBattleMissedQuestions];
     if (gameState.missCount > 0 && !newMissedQs.some(q => q.text === gameState.currentQuestion.text)) { newMissedQs.push(gameState.currentQuestion); }
@@ -7051,6 +7066,7 @@ export default function App() {
         gameState.mode,
         gameState.inputMode,
         learningChange?.to,
+        learningUpdate?.status,
       );
     }
     
