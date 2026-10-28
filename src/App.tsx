@@ -30,7 +30,7 @@ import { getGrade2CurriculumLimit } from './data/questionSets/eiken/grade2';
 import { getPre2BaseHp, getPre2BossHpMultiplier, getPre2QuestionLimit, getPre2MissMultiplier } from './data/pre2Balance';
 import { getGrade2BaseHp, getGrade2BossHpMultiplier, getGrade2QuestionLimit, getGrade2MissMultiplier } from './data/grade2Balance';
 import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, getGrade3MissMultiplier } from './data/grade3Balance';
-import { getQuestionSynonyms } from './data/questionSynonyms';
+import { getQuestionSynonymLabels, getQuestionSynonymHeading } from './data/questionSynonyms';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import { getLongTextRecallOutcome, getNextLongTextStudyState, isFormattingOnlyMistake } from './learningProgress';
@@ -4027,7 +4027,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
           </div>
           {showEnglish && (example || synonyms.length > 0) && <div className="library-study-notes">
             {example && <p><b>例文</b><span>{example}</span></p>}
-            {synonyms.length > 0 && <p><b>類義・関連</b><span>{synonyms.join(' / ')}</span></p>}
+            {synonyms.length > 0 && <p><b>{difficulty === 'Eiken2' && level === 1 ? getQuestionSynonymHeading(difficulty, level, question) : '類義・関連'}</b><span>{synonyms.join(' / ')}</span></p>}
           </div>}
           <div className="library-meaning">
             {recallMode === 'english' && <button type="button" className="library-answer-toggle" aria-expanded={answerVisible} aria-controls={meaningId} onClick={() => setAnswerVisible(visible => !visible)}>{answerVisible ? '和訳を隠す' : '和訳を見る'}</button>}
@@ -7839,7 +7839,7 @@ export default function App() {
       }) => {
         nextEntries.push({
           ...entry,
-          nowPlaying: { ...entry.nowPlaying, synonyms: getQuestionSynonyms(difficulty, level, question) },
+          nowPlaying: { ...entry.nowPlaying, synonyms: getQuestionSynonymLabels(difficulty, level, question) },
           questionIndex,
           gapAfterSeconds: autoPlaySettings.itemGapSeconds,
         });
@@ -8235,7 +8235,7 @@ export default function App() {
       translation: getQuestionMeaning(previewItem.question, previewItem.difficulty),
       basicMeaning: previewItem.question.basicMeaning,
       example: getQuestionExample(previewItem.difficulty, previewItem.level, previewItem.question),
-      synonyms: getQuestionSynonyms(previewItem.difficulty, previewItem.level, previewItem.question),
+      synonyms: getQuestionSynonymLabels(previewItem.difficulty, previewItem.level, previewItem.question),
       activePart: null,
     } : null);
     const learningLevelSelectionOptions: Array<{ level: LearningLevel; label: string; questions: Question[]; className: string }> = wordListToolsOpen ? [
@@ -8415,7 +8415,7 @@ export default function App() {
     const questionRows = renderedQuestions.map((q, idx) => {
       const questionKey = getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q);
       const synonyms = isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
-        ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, q)
+        ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, q)
         : [];
       return (
         <QuestionListRow
@@ -10388,7 +10388,7 @@ export default function App() {
       ? getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : null;
     const previousQuestionSynonyms = lastSolvedQuestion && !(isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel === 3)
-      ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
+      ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : [];
     const showPreviousStudyCard = !!lastSolvedQuestion;
     const showGuide = gameState.mode === 'guide'; 
@@ -10738,7 +10738,7 @@ export default function App() {
                        {previousQuestionSynonyms.length > 0 && (
                          <>
                            <span className="hidden text-slate-500 md:inline">|</span>
-                           <span className="text-[10px] font-bold tracking-[0.16em] text-cyan-300">類義/関連</span>
+                           <span className="text-[10px] font-bold tracking-[0.16em] text-cyan-300">{getQuestionSynonymHeading(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)}</span>
                            <span className="text-sm font-semibold text-cyan-50 md:text-base">{previousQuestionSynonyms.join(' / ')}</span>
                          </>
                        )}
@@ -10931,6 +10931,8 @@ export default function App() {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const resultQuestionSynonyms = gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 1
+                      ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, log.question) : [];
                     const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
                     const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;
                     const resultClass = log.skipped ? 'text-slate-400' : log.missCount === 0 || learningOk ? 'text-emerald-300' : 'text-yellow-300';
@@ -10939,6 +10941,7 @@ export default function App() {
                       <button type="button" onClick={() => speakWithSettings(log.question.text)} aria-label={`${log.question.text} を音声で再生`} title="音声を再生" className="result-entry-audio flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-800 text-slate-300 transition-colors hover:bg-blue-600 hover:text-white"><Volume2 size={16} /></button>
                       <div className="result-entry-content">
                         <div className="result-entry-heading"><span className="result-question-english">{log.question.text}</span><span className="result-question-meaning">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span></div>
+                        {resultQuestionSynonyms.length > 0 && <p data-result-synonyms className="whitespace-normal break-words text-xs leading-relaxed text-cyan-200"><span className="mr-2 font-bold">{getQuestionSynonymHeading(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}</span>{resultQuestionSynonyms.join(' / ')}</p>}
                         {example && <p className="result-entry-example text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}
                         {grammarPoint && <details className="result-grammar-note"><summary>文法ポイント：{grammarPoint.label}</summary><p>{grammarPoint.note}<span className="block text-amber-200/90">型: {grammarPoint.pattern}</span></p></details>}
                         {grammarCard && <div className="result-entry-grammar"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
@@ -11243,7 +11246,7 @@ export default function App() {
                  {gameState.battleLog.map((log, idx) => {
                      const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                      const resultQuestionSynonyms = isEikenDifficulty(gameState.selectedDifficulty) && gameState.selectedLevel !== 3
-                       ? getQuestionSynonyms(gameState.selectedDifficulty, gameState.selectedLevel, log.question)
+                       ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, log.question)
                        : [];
                      return (
                        <div key={idx} className="rounded bg-slate-800 p-2 text-xs border border-slate-700">
@@ -11256,8 +11259,8 @@ export default function App() {
                                    <span className="block font-mono text-blue-200 font-bold break-all">{log.question.text}</span>
                                    <span className="block text-slate-300">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span>
                                    {resultQuestionSynonyms.length > 0 && (
-                                     <span className="mt-0.5 block truncate text-[10px] font-semibold text-cyan-300/90">
-                                       類義/関連: <span className="text-cyan-100/90">{resultQuestionSynonyms.join(' / ')}</span>
+                                     <span className={`mt-0.5 block text-[10px] font-semibold text-cyan-300/90 ${gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 1 ? 'whitespace-normal break-words' : 'truncate'}`}>
+                                       {getQuestionSynonymHeading(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}: <span className="text-cyan-100/90">{resultQuestionSynonyms.join(' / ')}</span>
                                      </span>
                                    )}
                                </div>

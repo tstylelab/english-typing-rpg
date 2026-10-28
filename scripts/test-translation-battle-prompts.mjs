@@ -19,7 +19,7 @@ const vocabularyEntries=JSON.parse(fs.readFileSync('src/data/grade2VocabularyMea
 const vocabularyMeanings=new Map(vocabularyEntries.map(e=>[key(e.course,e.level,e),e.meaning]));
 const level1Entries=JSON.parse(fs.readFileSync('src/data/level1VocabularyDisplayCorrections.json','utf8'));
 const level1Meanings=new Map(level1Entries.filter(e=>e.meaning).map(e=>[key(e.course,e.level,e),e.meaning]));
-assert.equal(vocabularyMeanings.size,99,'Unique reviewed vocabulary meanings');
+assert.equal(vocabularyMeanings.size,102,'Unique reviewed vocabulary meanings');
 for(const e of vocabularyEntries){
  assert.equal(e.course,'Eiken2'); assert.equal(e.level,1);
  assert.equal(QUESTIONS.Eiken2[1].filter(q=>id(q)===id(e)).length,1,'Keep legacy vocabulary identity');

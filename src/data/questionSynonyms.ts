@@ -1,8 +1,18 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
 import supplementalSynonyms from './supplementalQuestionSynonyms.json';
 import { grade4PhraseSynonyms } from './grade4PhrasePrompts';
+import { getTranslationBattlePrompt } from './translationBattlePrompts';
+import { getGrade2VocabularySynonymReview } from './grade2VocabularySynonymReview';
 
-type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms'>;
+type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms' | 'exampleEn'>;
+
+const getReviewedVocabularyExpressions = (difficulty: DifficultyKey, level: LevelKey, question: QuestionLike) => {
+  if (difficulty !== 'Eiken2' || level !== 1) return undefined;
+  const reviewed = getGrade2VocabularySynonymReview(difficulty, level, question);
+  if (reviewed !== undefined) return reviewed;
+  const expressions = getTranslationBattlePrompt(question, difficulty, level)?.alternatives;
+  return expressions?.length ? expressions : undefined;
+};
 
 // Match the course and original sense, not just the spelling. Keep progress keys
 // and source questions unchanged; these are optional display-only learning aids.
@@ -31,6 +41,7 @@ const getSynonymCacheKey = (
   level,
   question.text,
   question.translation,
+  question.exampleEn ?? '',
   question.synonyms?.join('\u0001') ?? '',
 ].join('\u0000');
 
@@ -2436,6 +2447,13 @@ export const getQuestionSynonyms = (
 
   let result = EMPTY_SYNONYMS;
 
+  const reviewed = getReviewedVocabularyExpressions(difficulty, level, question);
+  if (reviewed !== undefined) {
+    result = reviewed.map(expression => expression.text);
+    questionSynonymCache.set(cacheKey, result);
+    return result;
+  }
+
   const phraseCorrection = difficulty === 'Eiken4' && level === 2
     ? grade4PhraseSynonyms[question.text] : undefined;
   if (phraseCorrection !== undefined) {
@@ -2498,4 +2516,22 @@ export const getQuestionSynonyms = (
 
   questionSynonymCache.set(cacheKey, result);
   return result;
+};
+
+// UI labels include a short sense note; raw synonyms remain plain English.
+export const getQuestionSynonymLabels = (
+  difficulty: DifficultyKey, level: LevelKey, question: QuestionLike,
+): string[] => {
+  const reviewed = getReviewedVocabularyExpressions(difficulty, level, question);
+  return reviewed !== undefined
+    ? reviewed.map(({ text, note }) => `${text}（${note}）`)
+    : getQuestionSynonyms(difficulty, level, question).slice(0, difficulty === 'Eiken2' && level === 1 ? 2 : 3);
+};
+
+export const getQuestionSynonymHeading = (
+  difficulty: DifficultyKey, level: LevelKey, question: QuestionLike,
+): string => {
+  if (difficulty !== 'Eiken2' || level !== 1) return '類義/関連';
+  return getTranslationBattlePrompt(question, difficulty, level)?.alternatives.length
+    ? '類義語' : '参考の関連語';
 };

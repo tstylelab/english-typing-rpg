@@ -189,8 +189,8 @@ const originalMeaning = newMeaning
   .replace("  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)\n  ?? getReviewedTranslationMeaning(question, difficulty)","  getReviewedTranslationMeaning(question, difficulty)");
 assert.equal(originalMeaning,oldMeaning,'Only the scoped Grade 2 display lookup may be added');
 const vocabularyCorrections = JSON.parse(readFileSync(path.join(root,'src/data/grade2VocabularyMeaningCorrections.json'),'utf8'));
-assert.equal(vocabularyCorrections.length,99);
-assert.equal(new Set(vocabularyCorrections.map(q=>JSON.stringify([q.text,q.translation,q.exampleEn]))).size,99);
+assert.equal(vocabularyCorrections.length,102);
+assert.equal(new Set(vocabularyCorrections.map(q=>JSON.stringify([q.text,q.translation,q.exampleEn]))).size,102);
 for(const entry of vocabularyCorrections) {
   assert.equal(entry.course,'Eiken2'); assert.equal(entry.level,1);
   assert.ok(entry.translation && entry.exampleEn && entry.meaning.length<=26);
@@ -206,7 +206,11 @@ assert.equal(examplesNow
   .replace('translation?: string; ','')
   .replace('  const reviewedExample = level === 1 ? getLevel1VocabularyDisplay(question, difficulty)?.displayExampleEn : undefined;\n  if (reviewedExample) return reviewedExample;\n',''),examplesBefore,'Only the scoped Level 1 display example lookup may be added');
 for(const file of ['src/data/level1VocabularyDisplay.ts','src/data/level1VocabularyDisplayCorrections.json','src/data/questionExamples.ts'])approvedMaterialFiles.add(file);
-assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only audited curricula and listening preparation may differ');
+// The dedicated audit checks all 7,650 identities, out-of-scope displays and the
+// unchanged grading/learning functions before allowing this display-only review.
+execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-display.mjs'], { cwd: root, stdio: 'pipe' });
+for (const file of ['src/data/questionSynonyms.ts','src/data/translationBattlePrompts.ts','src/data/grade2VocabularySynonymReview.ts','src/data/grade2VocabularySynonymReview.json'])approvedMaterialFiles.add(file);
+assert.deepEqual(dataDiff.filter(file=>!approvedMaterialFiles.has(file)),[],'Only audited curricula and display metadata may differ');
 console.log(`PASS: ${protectedNames.length} persistence functions and ${selected.size} dependencies audited against ${baseline}; preparation level 3 retained, battle mastery unchanged, 2-player fixture, reload/profile-switch/export round trips and defeated IDs preserved.`);
 
 const companions = require('./homeCompanions.ts');
