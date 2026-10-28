@@ -50,7 +50,7 @@ import { AiStudyRecorder, aiReviewStorageKey, type StudyContext } from './aiStud
 import AiStudyReviewPanel from './AiStudyReviewPanel';
 import QuestionAiHelp from './QuestionAiHelp';
 import { useBackdropDismiss } from './useBackdropDismiss';
-import { speakAutoPlayEntry } from './autoPlaySpeech';
+import { getAutoPlaySpeechFailureMessage, speakAutoPlayEntry } from './autoPlaySpeech';
 import BackupReminder from './BackupReminder';
 import FocusedBattleActions, { FocusedBattleModeActions } from './FocusedBattleActions';
 import { FOCUSED_BATTLE_LABELS, selectFocusedQuestions, type FocusedBattle, type FocusedBattleKind } from './focusedBattle';
@@ -7753,11 +7753,11 @@ export default function App() {
         },
         onretry: () => {
           if (autoPlayRunIdRef.current !== entryRunId) return;
-          setAutoPlayStatusText('音声が中断されたため、同じ項目を再試行しています');
+          setAutoPlayStatusText('同じ項目の音声を再試行しています');
         },
-        onfailure: () => {
+        onfailure: reason => {
           if (autoPlayRunIdRef.current !== entryRunId) return;
-          stopAutoPlay('音声を再開できませんでした。画面を表示した状態で「連続再生を開始」を押してください');
+          stopAutoPlay(getAutoPlaySpeechFailureMessage(reason), true, true);
         },
       });
     };
