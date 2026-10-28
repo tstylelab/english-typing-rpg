@@ -10,6 +10,7 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
 const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.ts');
 const { getQuestionSynonymLabels, getQuestionSynonymHeading } = load('src/data/questionSynonyms.ts');
+const { getGrade2VocabularyUsageNote } = load('src/data/grade2VocabularyUsageNotes.ts');
 const url = process.env.VOCABULARY_TEST_URL || 'http://127.0.0.1:5196';
 assert.ok(['localhost', '127.0.0.1'].includes(new URL(url).hostname)
   || (process.env.VOCABULARY_PUBLIC_SMOKE === 'true' && new URL(url).origin === 'https://en-typing.tsg-gt.com'));
@@ -17,13 +18,22 @@ const out = process.env.VOCABULARY_TEST_OUTPUT;
 if (out) fs.mkdirSync(out, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--mute-audio'] });
 const cleanup = await trackTestBrowser(browser), report = [];
-const cases = [
+const usageNotesOnly = process.env.VOCABULARY_TEST_USAGE_NOTES === 'true';
+const cases = (usageNotesOnly ? [
+  ['label', 820, 1180], ['digest', 1280, 800], ['identity', 390, 844],
+  ['navy', 820, 1180], ['organ', 820, 1180], ['initial', 820, 1180],
+  ['range', 820, 1180], ['source', 320, 844], ['drug', 820, 1180],
+  ['appeal', 1280, 800], ['classic', 820, 1180], ['foundation', 820, 1180],
+  ['production', 390, 844], ['senior', 820, 1180], ['original', 820, 1180],
+  ['container', 390, 844], ['fix', 390, 844, 'Eiken3'],
+  ['digest', 820, 1180, 'Eiken2', 'voice-text'],
+] : [
   ['correctly', 820, 1180], ['interfere', 820, 1180], ['process', 1280, 800],
   ['roommate', 390, 844], ['examine', 820, 1180], ['privacy', 320, 844],
   ['panel', 820, 1180], ['procedure', 390, 844], ['determine', 1280, 800],
   ['current', 820, 1180], ['respond', 820, 1180], ['container', 390, 844],
   ['fix', 390, 844, 'Eiken3'], ['correctly', 820, 1180, 'Eiken2', 'voice-text'],
-].filter(([text]) => !process.env.VOCABULARY_TEST_WORD || text === process.env.VOCABULARY_TEST_WORD);
+]).filter(([text]) => !process.env.VOCABULARY_TEST_WORD || text === process.env.VOCABULARY_TEST_WORD);
 try {
   for (const [text, width, height, course = 'Eiken2', inputMode = 'text-only'] of cases) {
     const qs = QUESTIONS[course][1], q = qs.find(q => q.text === text);
@@ -60,6 +70,8 @@ try {
     await page.goto(url); await page.locator('.adventure-primary').click();
     const input = page.locator('.battle-input'); await input.waitFor({ state: 'attached' });
     await page.locator('[data-monster-reveal]').waitFor({ state: 'detached' });
+    const usageNote = getGrade2VocabularyUsageNote(course, 1, q);
+    assert.equal(await page.locator('[data-vocabulary-usage-note]').count(), 0, 'No answer-revealing note before the first answer');
     assert.equal((await page.locator('.battle-translation').innerText()).trim(), getQuestionMeaning(q, course));
     const expressions = inputMode === 'text-only' ? getTranslationBattlePrompt(q, course, 1)?.alternatives ?? [] : [];
     const hints = page.locator('.battle-vocabulary-synonyms');
@@ -82,6 +94,10 @@ try {
     await input.fill(q.text[0]); await page.evaluate(() => { window.vocabularyTestNow += 10000; });
     await page.keyboard.type(q.text.slice(1));
     const card = page.locator('[data-previous-review]').locator('..'); await card.waitFor();
+    const feedback = card.locator('[data-vocabulary-usage-note]');
+    assert.equal(await feedback.count(), usageNote ? 1 : 0);
+    if (usageNote) assert.ok((await feedback.innerText()).includes(usageNote), 'Complete bridge after answering');
+    assert.equal(await page.locator('.battle-question-panel [data-vocabulary-usage-note]').count(), 0, 'Supplement stays out of the current prompt');
     assert.ok((await card.innerText()).includes(q.text));
     const labels = getQuestionSynonymLabels(course, 1, q);
     for (const label of labels) assert.ok((await card.innerText()).includes(label), text + ': full sense note');
@@ -100,7 +116,7 @@ try {
     if (inputMode === 'voice-text') assert.equal(after.statuses[legacyKey].battleLevel, 1, 'Listening does not grant battle mastery');
     if (out) await page.screenshot({ path: path.join(out, `${course}-${text}-${inputMode}-${width}.png`), fullPage: true });
     let resultChecked = false;
-    if (['correctly', 'process', 'determine', 'container'].includes(text) && inputMode === 'text-only') {
+    if (['correctly', 'process', 'determine', 'container', 'label', 'digest', 'identity'].includes(text) && inputMode === 'text-only') {
       for (let i = 0; i < 35 && await input.count(); i++) {
         await page.evaluate(() => { window.vocabularyTestNow += 1000; });
         await page.getByRole('button', { name: 'この問題をスキップ', exact: true }).click();
@@ -110,6 +126,8 @@ try {
       await details.waitFor();
       for (const label of labels) assert.ok((await details.innerText()).includes(label));
       assert.ok((await details.innerText()).includes(getQuestionMeaning(q, course)));
+      assert.equal(await details.locator('[data-vocabulary-usage-note]').count(), usageNote ? 1 : 0);
+      if (usageNote) assert.ok((await details.innerText()).includes(usageNote));
       const note = details.locator('[data-result-synonyms]').first();
       if (labels.length) assert.equal(await note.evaluate(element => getComputedStyle(element).textOverflow), 'clip', 'Do not truncate sense notes in results');
       if (out) await page.screenshot({ path: path.join(out, `result-${text}-${width}.png`), fullPage: true });
@@ -131,8 +149,21 @@ try {
     { text: q.text, meaning: getQuestionMeaning(q, course) });
     assert.ok((await row.innerText()).includes(getQuestionMeaning(q, course)));
     for (const label of labels) assert.ok((await row.innerText()).includes(label));
+    assert.equal(await row.locator('[data-vocabulary-usage-note]').count(), usageNote ? 1 : 0);
+    if (usageNote) {
+      assert.ok((await row.innerText()).includes(usageNote));
+      // Neither recall direction may expose an answer through the new note.
+      for (const [mode, button] of [['english', '和訳を見る'], ['meaning', '英語を見る']]) {
+        await page.locator('.library-recall-mode select').selectOption(mode);
+        const recallRow = page.locator('.library-row').filter({ has: page.getByRole('heading', { name: q.text, exact: true, includeHidden: true }) }).first();
+        await recallRow.waitFor();
+        assert.equal(await recallRow.locator('[data-vocabulary-usage-note]').count(), 0);
+        await recallRow.getByRole('button', { name: button, exact: true }).click();
+        assert.ok((await recallRow.locator('[data-vocabulary-usage-note]').innerText()).includes(usageNote));
+      }
+    }
     assert.deepEqual(errors, []);
-    report.push({ course, text, width, height, inputMode, resultChecked, alternateRejected, savedIdentityRetained: true, otherRecordsRetained: true });
+    report.push({ course, text, width, height, inputMode, resultChecked, alternateRejected, usageNoteChecked: !!usageNote, savedIdentityRetained: true, otherRecordsRetained: true });
     console.log('PASS UI', course, text, width, inputMode);
     await context.close();
   }

@@ -31,6 +31,7 @@ import { getPre2BaseHp, getPre2BossHpMultiplier, getPre2QuestionLimit, getPre2Mi
 import { getGrade2BaseHp, getGrade2BossHpMultiplier, getGrade2QuestionLimit, getGrade2MissMultiplier } from './data/grade2Balance';
 import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, getGrade3MissMultiplier } from './data/grade3Balance';
 import { getQuestionSynonymLabels, getQuestionSynonymHeading } from './data/questionSynonyms';
+import { getGrade2VocabularyUsageNote } from './data/grade2VocabularyUsageNotes';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import { getLongTextRecallOutcome, getNextLongTextStudyState, isFormattingOnlyMistake } from './learningProgress';
@@ -4005,6 +4006,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
   const showEnglish = recallMode !== 'meaning' || answerVisible;
   const showMeaning = recallMode !== 'english' || answerVisible;
   const meaning = getQuestionMeaning(question, difficulty);
+  const usageNote = getGrade2VocabularyUsageNote(difficulty, level, question);
   const rowLabel = showEnglish ? question.text : meaning;
   const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
   const automaticLevel = getAutomaticLearningLevel(manualStatus);
@@ -4025,9 +4027,10 @@ const QuestionListRow = React.memo(function QuestionListRow({
               {question.promptEn && <p className="library-dialogue">相手：{question.promptEn} {recallMode !== 'english' || answerVisible ? question.promptJa : ''}</p>}
             </div>
           </div>
-          {showEnglish && (example || synonyms.length > 0) && <div className="library-study-notes">
+          {showEnglish && (example || synonyms.length > 0 || (showMeaning && usageNote)) && <div className="library-study-notes">
             {example && <p><b>例文</b><span>{example}</span></p>}
             {synonyms.length > 0 && <p><b>{difficulty === 'Eiken2' && level === 1 ? getQuestionSynonymHeading(difficulty, level, question) : '類義・関連'}</b><span>{synonyms.join(' / ')}</span></p>}
+            {showMeaning && usageNote && <p data-vocabulary-usage-note><b>ことばの補足</b><span>{usageNote}</span></p>}
           </div>}
           <div className="library-meaning">
             {recallMode === 'english' && <button type="button" className="library-answer-toggle" aria-expanded={answerVisible} aria-controls={meaningId} onClick={() => setAnswerVisible(visible => !visible)}>{answerVisible ? '和訳を隠す' : '和訳を見る'}</button>}
@@ -10391,6 +10394,9 @@ export default function App() {
       ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : [];
     const showPreviousStudyCard = !!lastSolvedQuestion;
+    const previousQuestionUsageNote = lastSolvedQuestion
+      ? getGrade2VocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
+      : undefined;
     const showGuide = gameState.mode === 'guide'; 
     const questionsLeft = gameState.maxQuestions - gameState.questionCount + 1;
     const remainingWeakCount = getScopedWeakQuestions(gameState.selectedDifficulty, gameState.selectedLevel).length;
@@ -10749,6 +10755,7 @@ export default function App() {
                            <span className="text-base text-slate-200 md:text-lg">{previousQuestionExample}</span>
                          </>
                        )}
+                       {previousQuestionUsageNote && <p data-vocabulary-usage-note className="basis-full min-w-0 break-words text-xs leading-relaxed text-slate-200 md:text-sm"><span className="mr-2 font-bold text-cyan-300">ことばの補足</span>{previousQuestionUsageNote}</p>}
                        {isConversationBattle && lastSolvedQuestion.speakingTip && (
                          <>
                            <span className="hidden text-slate-500 md:inline">|</span>
@@ -10931,6 +10938,7 @@ export default function App() {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const usageNote = getGrade2VocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const resultQuestionSynonyms = gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 1
                       ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, log.question) : [];
                     const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
@@ -10942,6 +10950,7 @@ export default function App() {
                       <div className="result-entry-content">
                         <div className="result-entry-heading"><span className="result-question-english">{log.question.text}</span><span className="result-question-meaning">{getQuestionMeaning(log.question, gameState.selectedDifficulty)}</span></div>
                         {resultQuestionSynonyms.length > 0 && <p data-result-synonyms className="whitespace-normal break-words text-xs leading-relaxed text-cyan-200"><span className="mr-2 font-bold">{getQuestionSynonymHeading(gameState.selectedDifficulty, gameState.selectedLevel, log.question)}</span>{resultQuestionSynonyms.join(' / ')}</p>}
+                        {usageNote && <p data-vocabulary-usage-note className="whitespace-normal break-words text-xs leading-relaxed text-slate-200"><span className="mr-2 font-bold text-cyan-300">ことばの補足</span>{usageNote}</p>}
                         {example && <p className="result-entry-example text-sm leading-relaxed text-slate-400"><span className="mr-2 font-black text-emerald-300">例文</span>{example}</p>}
                         {grammarPoint && <details className="result-grammar-note"><summary>文法ポイント：{grammarPoint.label}</summary><p>{grammarPoint.note}<span className="block text-amber-200/90">型: {grammarPoint.pattern}</span></p></details>}
                         {grammarCard && <div className="result-entry-grammar"><GrammarGuide course={getGrammarGuideCourse(gameState.selectedDifficulty)} playerId={activePlayerId} cardId={grammarCard.id} questionText={log.question.text} label={`文のしくみ：${grammarCard.title}`} fromResult /></div>}
