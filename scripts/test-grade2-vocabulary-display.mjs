@@ -25,8 +25,8 @@ const target = row => row.course === 'Eiken2' && row.level === 1;
 assert.equal(rows.length, 7650);
 assert.equal(hash(QUESTIONS), '8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1',
   'All question text, legacy translations, examples, fields and ordering stay unchanged');
-assert.equal(hash(rows.filter(row => !target(row))), '5da20687b64d6c699ee58e25f2971d1f543e1c3d1646873a688cdbc834568b08',
-  'Every other course/level keeps its meanings, synonyms and translation prompts');
+assert.equal(hash(rows.filter(row => !target(row))), '2c72551c681f89fd3898f9498eb38038980a22275b4e186642f72c2c63e3e5d2',
+  'Other courses/levels match the snapshot after the approved Grade 5 review');
 const grade2 = rows.filter(target);
 assert.equal(grade2.length, 549);
 assert.equal(hash(grade2.filter(row => !Object.hasOwn(meanings, row.question.text)).map(row => [row.question, row.meaning])),
@@ -72,7 +72,10 @@ for (const [text, note] of [['determine', '事実を突き止める意味'], ['c
   assert.ok(getQuestionSynonymLabels('Eiken2', 1, word(text).question)[0].includes(note));
 }
 assert.ok(word('determine').meaning.includes('決定する'), 'Retain useful major meanings');
-for (const row of rows.filter(row => !target(row))) assert.deepEqual(json(getQuestionSynonymLabels(row.course, row.level, row.question)), json(row.synonyms));
+// Grade 5 now also has approved sense notes; plain labels remain unchanged elsewhere.
+for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1))) {
+  assert.deepEqual(json(getQuestionSynonymLabels(row.course, row.level, row.question)), json(row.synonyms));
+}
 
 // The user deferred alternate-answer grading: protect the actual typing, damage,
 // question-selection and learning-update functions from this display-only change.

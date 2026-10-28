@@ -31,7 +31,7 @@ import { getPre2BaseHp, getPre2BossHpMultiplier, getPre2QuestionLimit, getPre2Mi
 import { getGrade2BaseHp, getGrade2BossHpMultiplier, getGrade2QuestionLimit, getGrade2MissMultiplier } from './data/grade2Balance';
 import { getGrade3BaseHp, getGrade3BossHpMultiplier, getGrade3QuestionLimit, getGrade3MissMultiplier } from './data/grade3Balance';
 import { getQuestionSynonymLabels, getQuestionSynonymHeading } from './data/questionSynonyms';
-import { getGrade2VocabularyUsageNote } from './data/grade2VocabularyUsageNotes';
+import { getVocabularyUsageNote } from './data/vocabularyUsageNotes';
 import { type BeginnerBattleQuestion, BEGINNER_BATTLE_FIRST_SET_SIZE, BEGINNER_BATTLE_PHASES, BEGINNER_BATTLE_PHASE_SIZE, BEGINNER_BATTLE_QUESTIONS } from './data/beginnerBattle';
 import { getAutomaticLearningLevel, getBattleLearningOutcome, getNextAutomaticLearningState, type AutomaticLearningOutcome, type LearningProgressLevel } from './learningProgress';
 import { getLongTextRecallOutcome, getNextLongTextStudyState, isFormattingOnlyMistake } from './learningProgress';
@@ -4006,7 +4006,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
   const showEnglish = recallMode !== 'meaning' || answerVisible;
   const showMeaning = recallMode !== 'english' || answerVisible;
   const meaning = getQuestionMeaning(question, difficulty);
-  const usageNote = getGrade2VocabularyUsageNote(difficulty, level, question);
+  const usageNote = getVocabularyUsageNote(difficulty, level, question);
   const rowLabel = showEnglish ? question.text : meaning;
   const learningLabel = manualStatus.learningLevel === 1 ? '学習中' : manualStatus.learningLevel === 2 ? 'もう少し' : '覚えた';
   const automaticLevel = getAutomaticLearningLevel(manualStatus);
@@ -10395,7 +10395,7 @@ export default function App() {
       : [];
     const showPreviousStudyCard = !!lastSolvedQuestion;
     const previousQuestionUsageNote = lastSolvedQuestion
-      ? getGrade2VocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
+      ? getVocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, lastSolvedQuestion)
       : undefined;
     const showGuide = gameState.mode === 'guide'; 
     const questionsLeft = gameState.maxQuestions - gameState.questionCount + 1;
@@ -10938,7 +10938,7 @@ export default function App() {
                     const example = getQuestionExample(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                    const usageNote = getGrade2VocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
+                    const usageNote = getVocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const resultQuestionSynonyms = gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 1
                       ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, log.question) : [];
                     const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';

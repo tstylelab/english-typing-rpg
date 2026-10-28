@@ -246,7 +246,8 @@
     "text": "cool",
     "translation": "涼しい",
     "exampleEn": "",
-    "displayExampleEn": "It is cool today."
+    "displayExampleEn": "It is cool today.",
+    "meaning": "涼しい／かっこいい"
   },
   {
     "course": "Eiken5",
@@ -262,7 +263,7 @@
     "text": "cold",
     "translation": "寒い",
     "exampleEn": "",
-    "meaning": "寒い・冷たい"
+    "meaning": "寒い・冷たい／風邪"
   },
   {
     "course": "Eiken5",
@@ -326,7 +327,8 @@
     "text": "snack",
     "translation": "おやつ",
     "exampleEn": "",
-    "displayExampleEn": "I have a snack after school."
+    "displayExampleEn": "I have a snack after school.",
+    "meaning": "おやつ・軽食"
   },
   {
     "course": "Eiken5",
@@ -738,7 +740,8 @@
     "text": "home",
     "translation": "家へ",
     "exampleEn": "",
-    "displayExampleEn": "I go home after school."
+    "displayExampleEn": "I go home after school.",
+    "meaning": "家・自宅／家へ・家に"
   },
   {
     "course": "Eiken5",
@@ -4959,5 +4962,278 @@
     "translation": "新しい時代や事業を開始する",
     "exampleEn": "The agreement inaugurated a new era of cooperation.",
     "meaning": "開始する／就任させる"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "restaurant",
+    "translation": "レストラン",
+    "exampleEn": "",
+    "displayExampleEn": "We eat lunch at this restaurant."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "hamburger",
+    "translation": "ハンバーガー",
+    "exampleEn": "",
+    "displayExampleEn": "I like hamburgers."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "juice",
+    "translation": "ジュース",
+    "exampleEn": "",
+    "meaning": "ジュース（果物や野菜の汁）"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "violin",
+    "translation": "バイオリン",
+    "exampleEn": "",
+    "displayExampleEn": "My sister plays the violin."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "sport",
+    "translation": "スポーツ",
+    "exampleEn": "",
+    "displayExampleEn": "I like sports."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "baseball",
+    "translation": "野球",
+    "exampleEn": "",
+    "displayExampleEn": "I play baseball with my friends."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "basketball",
+    "translation": "バスケットボール",
+    "exampleEn": "",
+    "displayExampleEn": "We play basketball after school."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "volleyball",
+    "translation": "バレーボール",
+    "exampleEn": "",
+    "displayExampleEn": "We play volleyball at school."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "team",
+    "translation": "チーム",
+    "exampleEn": "",
+    "displayExampleEn": "Our team is strong."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "player",
+    "translation": "選手",
+    "exampleEn": "",
+    "displayExampleEn": "He is a soccer player."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "start",
+    "translation": "始める",
+    "exampleEn": "",
+    "meaning": "始める・始まる"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "dress",
+    "translation": "ドレス",
+    "exampleEn": "",
+    "meaning": "ドレス・ワンピース"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "basket",
+    "translation": "バスケット",
+    "exampleEn": "",
+    "meaning": "かご・バスケット"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "bathroom",
+    "translation": "浴室、バスルーム",
+    "exampleEn": "",
+    "displayExampleEn": "The bathroom is next to my room."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "school",
+    "translation": "学校",
+    "exampleEn": "",
+    "displayExampleEn": "I go to school every day."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "apartment",
+    "translation": "アパート",
+    "exampleEn": "",
+    "meaning": "アパート・マンションの一戸"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "train",
+    "translation": "電車",
+    "exampleEn": "",
+    "meaning": "列車・電車"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "color",
+    "translation": "色",
+    "exampleEn": "",
+    "displayExampleEn": "What color is your bag?"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "holiday",
+    "translation": "休日",
+    "exampleEn": "",
+    "meaning": "休日・祝日・休暇"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "egg",
+    "translation": "卵",
+    "exampleEn": "",
+    "displayExampleEn": "We have eggs for lunch."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "salt",
+    "translation": "塩",
+    "exampleEn": "",
+    "displayExampleEn": "I put salt on my eggs."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "pepper",
+    "translation": "こしょう",
+    "exampleEn": "",
+    "displayExampleEn": "I put pepper on my eggs."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "girl",
+    "translation": "女の子",
+    "exampleEn": "",
+    "displayExampleEn": "The girl is my friend."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "man",
+    "translation": "男性",
+    "exampleEn": "",
+    "displayExampleEn": "That man is my teacher."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "address",
+    "translation": "住所",
+    "exampleEn": "",
+    "displayExampleEn": "Please write your address here."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "fat",
+    "translation": "太った",
+    "exampleEn": "",
+    "displayExampleEn": "This cat is fat."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "bad",
+    "translation": "悪い",
+    "exampleEn": "",
+    "displayExampleEn": "The weather is bad today."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "exciting",
+    "translation": "興奮させる",
+    "exampleEn": "",
+    "displayExampleEn": "This game is exciting."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "soft",
+    "translation": "柔らかい",
+    "exampleEn": "",
+    "displayExampleEn": "This bread is soft."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "sorry",
+    "translation": "ごめんなさい",
+    "exampleEn": "",
+    "meaning": "ごめんなさい／残念に思う"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "a lot of",
+    "translation": "たくさんの（広く使える表現）",
+    "exampleEn": "",
+    "meaning": "たくさんの"
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "always",
+    "translation": "いつも",
+    "exampleEn": "",
+    "displayExampleEn": "We always study English."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "usually",
+    "translation": "普段",
+    "exampleEn": "",
+    "meaning": "ふだんは・たいてい",
+    "displayExampleEn": "We usually study English."
+  },
+  {
+    "course": "Eiken5",
+    "level": 1,
+    "text": "also",
+    "translation": "〜もまた",
+    "exampleEn": "",
+    "displayExampleEn": "I also like cats."
   }
 ]
