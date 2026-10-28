@@ -1104,7 +1104,8 @@
     "text": "bath",
     "translation": "風呂",
     "exampleEn": "",
-    "displayExampleEn": "I take a bath after dinner."
+    "displayExampleEn": "I take a bath after dinner.",
+    "meaning": "入浴・風呂"
   },
   {
     "course": "Eiken4",
@@ -1170,7 +1171,8 @@
     "text": "homestay",
     "translation": "ホームステイ",
     "exampleEn": "",
-    "displayExampleEn": "I enjoyed my homestay in Canada."
+    "displayExampleEn": "I enjoyed my homestay in Canada.",
+    "meaning": "家庭に滞在すること・ホームステイ"
   },
   {
     "course": "Eiken4",
@@ -1194,7 +1196,8 @@
     "text": "sir",
     "translation": "男性への敬称、〜さん",
     "exampleEn": "",
-    "displayExampleEn": "Yes, sir. I can help you."
+    "displayExampleEn": "Yes, sir. I can help you.",
+    "meaning": "男性への丁寧な呼びかけ"
   },
   {
     "course": "Eiken4",
@@ -1556,7 +1559,8 @@
     "text": "end",
     "translation": "終わり",
     "exampleEn": "",
-    "displayExampleEn": "The movie will end at nine."
+    "displayExampleEn": "The movie will end at nine.",
+    "meaning": "終わり／終わる・終える"
   },
   {
     "course": "Eiken4",
@@ -2671,7 +2675,8 @@
     "text": "full",
     "translation": "いっぱいの",
     "exampleEn": "",
-    "displayExampleEn": "The box is full of books."
+    "displayExampleEn": "The box is full of books.",
+    "meaning": "いっぱいの／満腹の"
   },
   {
     "course": "Eiken4",
@@ -4433,7 +4438,7 @@
     "text": "complex",
     "translation": "複雑な",
     "exampleEn": "The problem is more complex than it looks.",
-    "meaning": "複雑な／複合施設／コンプレックス"
+    "meaning": "複雑な／複合施設／心理的なコンプレックス"
   },
   {
     "course": "Eiken1Part1",
@@ -4473,7 +4478,7 @@
     "text": "veteran",
     "translation": "長年の経験を持つ人",
     "exampleEn": "The veteran journalist led the team.",
-    "meaning": "経験豊富な人／退役軍人"
+    "meaning": "経験豊富な／経験者・退役軍人"
   },
   {
     "course": "Eiken1Part1",
@@ -5235,5 +5240,638 @@
     "translation": "〜もまた",
     "exampleEn": "",
     "displayExampleEn": "I also like cats."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "test",
+    "translation": "テスト",
+    "exampleEn": "",
+    "displayExampleEn": "I have an English test tomorrow."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "apartment",
+    "translation": "アパート",
+    "exampleEn": "",
+    "meaning": "アパート・マンションの一戸"
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "Africa",
+    "translation": "アフリカ",
+    "exampleEn": "",
+    "meaning": "アフリカ大陸"
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "e-mail",
+    "translation": "電子メール",
+    "exampleEn": "",
+    "displayExampleEn": "I sent an e-mail to my friend."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "culture",
+    "translation": "文化",
+    "exampleEn": "",
+    "displayExampleEn": "I learned about Japanese culture."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "drama",
+    "translation": "ドラマ",
+    "exampleEn": "",
+    "meaning": "演劇・劇／ドラマ"
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "haircut",
+    "translation": "散髪",
+    "exampleEn": "",
+    "displayExampleEn": "I got a haircut yesterday."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "key",
+    "translation": "鍵",
+    "exampleEn": "",
+    "displayExampleEn": "This is the key to my room."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "pet",
+    "translation": "ペット",
+    "exampleEn": "",
+    "displayExampleEn": "My brother has a pet dog."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "store",
+    "translation": "店",
+    "exampleEn": "",
+    "displayExampleEn": "There is a store near my house."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "cheese",
+    "translation": "チーズ",
+    "exampleEn": "",
+    "displayExampleEn": "I like cheese."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "soup",
+    "translation": "スープ",
+    "exampleEn": "",
+    "displayExampleEn": "I had soup for lunch."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "menu",
+    "translation": "メニュー",
+    "exampleEn": "",
+    "displayExampleEn": "Please look at the menu."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "paper",
+    "translation": "紙",
+    "exampleEn": "",
+    "displayExampleEn": "I need some paper."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "question",
+    "translation": "質問",
+    "exampleEn": "",
+    "displayExampleEn": "I have a question."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "hall",
+    "translation": "ホール",
+    "exampleEn": "",
+    "displayExampleEn": "Our school has a large hall."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "corner",
+    "translation": "角",
+    "exampleEn": "",
+    "displayExampleEn": "Turn left at the corner."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "candy",
+    "translation": "キャンディー",
+    "exampleEn": "",
+    "displayExampleEn": "Would you like some candy?"
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "lake",
+    "translation": "湖",
+    "exampleEn": "",
+    "displayExampleEn": "We went to the lake last Sunday."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "band",
+    "translation": "バンド",
+    "exampleEn": "",
+    "displayExampleEn": "My brother plays in a band."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "yen",
+    "translation": "円",
+    "exampleEn": "",
+    "displayExampleEn": "This pen is one hundred yen."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "match",
+    "translation": "試合",
+    "exampleEn": "",
+    "displayExampleEn": "We watched a soccer match yesterday."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "problem",
+    "translation": "問題",
+    "exampleEn": "",
+    "displayExampleEn": "We have a problem."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "message",
+    "translation": "伝言",
+    "exampleEn": "",
+    "displayExampleEn": "I got a message from my friend."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "stamp",
+    "translation": "切手",
+    "exampleEn": "",
+    "displayExampleEn": "I need a stamp for this letter."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "life",
+    "translation": "生活",
+    "exampleEn": "",
+    "displayExampleEn": "Life is important."
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "size",
+    "translation": "大きさ",
+    "exampleEn": "",
+    "meaning": "大きさ・サイズ",
+    "displayExampleEn": "What size do you need?"
+  },
+  {
+    "course": "Eiken4",
+    "level": 1,
+    "text": "seat",
+    "translation": "席",
+    "exampleEn": "",
+    "displayExampleEn": "This seat is for you."
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "burn",
+    "translation": "燃える・焦がす",
+    "exampleEn": "Do not burn the toast.",
+    "meaning": "燃える・燃やす／焦がす"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "taste",
+    "translation": "味・味がする",
+    "exampleEn": "This soup tastes good.",
+    "meaning": "味／〜の味がする"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "smell",
+    "translation": "におい・においがする",
+    "exampleEn": "The flowers smell sweet.",
+    "meaning": "におい／〜のにおいがする"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "set",
+    "translation": "置く・設定する",
+    "exampleEn": "Set the alarm for seven.",
+    "meaning": "設定する／置く"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "act",
+    "translation": "行動する・演じる",
+    "exampleEn": "She acts in school plays.",
+    "meaning": "演じる／行動する"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "age",
+    "translation": "年齢・時代",
+    "exampleEn": "Children of any age can join.",
+    "meaning": "年齢／時代"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "leave",
+    "translation": "出発する・残す",
+    "exampleEn": "Leave the door open.",
+    "meaning": "そのままにしておく／去る・出発する"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "instrument",
+    "translation": "楽器・器具",
+    "exampleEn": "Can you play a musical instrument?",
+    "meaning": "楽器／器具・道具"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "human",
+    "translation": "人間の・人間",
+    "exampleEn": "The human body needs water.",
+    "meaning": "人間の／人間"
+  },
+  {
+    "course": "Eiken3",
+    "level": 1,
+    "text": "director",
+    "translation": "監督・責任者",
+    "exampleEn": "The director made a new movie.",
+    "meaning": "映画監督／組織の責任者"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "hug",
+    "translation": "抱きしめる",
+    "exampleEn": "She gave her son a hug.",
+    "meaning": "抱きしめる／抱擁"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "purse",
+    "translation": "財布・小型のハンドバッグ",
+    "exampleEn": "She put the coins in her purse.",
+    "meaning": "財布（主に英）／ハンドバッグ（主に米）"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "gain",
+    "translation": "努力して得る・増す",
+    "exampleEn": "You can gain experience here.",
+    "meaning": "得る・増す"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "harm",
+    "translation": "害・傷つけること",
+    "exampleEn": "Pollution can harm animals.",
+    "meaning": "害／害を与える・傷つける"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "allow",
+    "translation": "許可する",
+    "exampleEn": "They allow dogs here.",
+    "meaning": "許可する・許す"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "review",
+    "translation": "見直し・復習・批評",
+    "exampleEn": "Let's review yesterday's lesson.",
+    "meaning": "見直し・復習・批評／見直す・復習する"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "respect",
+    "translation": "尊敬・尊重すること",
+    "exampleEn": "We should respect other people's ideas.",
+    "meaning": "尊敬・尊重／尊敬する・尊重する"
+  },
+  {
+    "course": "EikenPre2",
+    "level": 1,
+    "text": "influence",
+    "translation": "影響・影響を与えること",
+    "exampleEn": "Her teacher had a great influence on her.",
+    "meaning": "影響／影響を与える"
+  },
+  {
+    "course": "Eiken2",
+    "level": 1,
+    "text": "rely",
+    "translation": "(人や助けに)頼る",
+    "exampleEn": "Many villages rely on well water.",
+    "meaning": "頼る・当てにする"
+  },
+  {
+    "course": "Eiken2",
+    "level": 1,
+    "text": "behave",
+    "translation": "行儀よく振る舞う",
+    "exampleEn": "The children behaved well.",
+    "meaning": "振る舞う／行儀よくする"
+  },
+  {
+    "course": "Eiken2",
+    "level": 1,
+    "text": "obtain",
+    "translation": "(努力して)得る",
+    "exampleEn": "You must obtain permission first.",
+    "meaning": "得る・手に入れる"
+  },
+  {
+    "course": "Eiken2",
+    "level": 1,
+    "text": "criminal",
+    "translation": "犯罪を犯した人",
+    "exampleEn": "The criminal was arrested near the station.",
+    "meaning": "犯罪者／犯罪の"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "obtain",
+    "translation": "(努力して)得る",
+    "exampleEn": "You must obtain permission first.",
+    "meaning": "得る・手に入れる"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "access",
+    "translation": "利用する / 接続する",
+    "exampleEn": "Students can access the library database from home.",
+    "meaning": "利用する・アクセスする／利用・入る手段"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "minimum",
+    "translation": "最小の",
+    "exampleEn": "A minimum fee will be charged.",
+    "meaning": "最小の・最低の／最小限"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "ban",
+    "translation": "禁止 / 禁止すること",
+    "exampleEn": "The city introduced a ban on smoking in parks.",
+    "meaning": "禁止・禁止令／禁止する"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "suspect",
+    "translation": "疑う / 容疑者",
+    "exampleEn": "The police suspect that the fire was caused on purpose.",
+    "meaning": "〜ではないかと思う・疑う／容疑者"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "council",
+    "translation": "評議会 / 協議会",
+    "exampleEn": "The city council discussed the new budget plan.",
+    "meaning": "議会・評議会・協議会"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "withdraw",
+    "translation": "引っ込める / 引き出す / 撤退する",
+    "exampleEn": "She decided to withdraw her application before the deadline.",
+    "meaning": "引っ込める・取り下げる／引き出す／撤退する"
+  },
+  {
+    "course": "EikenPre1Part1",
+    "level": 1,
+    "text": "bribe",
+    "translation": "賄賂",
+    "exampleEn": "The exchange of bribes became an issue in the case.",
+    "meaning": "賄賂／賄賂を贈る"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "sympathize",
+    "translation": "同情する / 共感する",
+    "exampleEn": "Many people sympathized with the victims.",
+    "meaning": "同情する・共感する"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "enlist",
+    "translation": "参加する / 協力を得る",
+    "exampleEn": "We enlisted local volunteers to help with the event.",
+    "meaning": "入隊・参加する／（人の）協力を得る"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "reconcile",
+    "translation": "和解させる / 調和させる",
+    "exampleEn": "They were able to reconcile after a long conversation.",
+    "meaning": "和解する・させる／調和させる"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "integrate",
+    "translation": "(別々のものを)統合する",
+    "exampleEn": "The program helps newcomers integrate into society.",
+    "meaning": "統合する／溶け込む"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "genius",
+    "translation": "天才",
+    "exampleEn": "Many people consider him a musical genius.",
+    "meaning": "天才／天才的な才能"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "adjust",
+    "translation": "(状態に合わせて)調整する",
+    "exampleEn": "You can adjust the chair height.",
+    "meaning": "調整する／適応する"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "appeal",
+    "translation": "(強く)訴える / (人を)ひきつける",
+    "exampleEn": "The idea appeals to young voters.",
+    "meaning": "訴える・心を引く／魅力"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "demand",
+    "translation": "需要 / 要求",
+    "exampleEn": "There is strong demand for clean energy.",
+    "meaning": "需要・要求／要求する"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "focus",
+    "translation": "焦点 / 注目点",
+    "exampleEn": "The main focus is safety.",
+    "meaning": "焦点・注目点／集中する"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "forecast",
+    "translation": "予測 / 予報",
+    "exampleEn": "Rain is in the forecast for tomorrow.",
+    "meaning": "予測・予報／予測する・予報する"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "immediate",
+    "translation": "(時間を置かず)即時の",
+    "exampleEn": "The patient needs immediate care.",
+    "meaning": "即時の／直接の"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "increase",
+    "translation": "増加する",
+    "exampleEn": "The company increased wages this year.",
+    "meaning": "増加する・増やす"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "narrow",
+    "translation": "狭い / 限定的な",
+    "exampleEn": "We crossed a narrow bridge.",
+    "meaning": "狭い・限定的な／狭める"
+  },
+  {
+    "course": "EikenPre1Part2",
+    "level": 1,
+    "text": "rely",
+    "translation": "(人や助けに)頼る",
+    "exampleEn": "Many villages rely on well water.",
+    "meaning": "頼る・当てにする"
+  },
+  {
+    "course": "Eiken1Part1",
+    "level": 1,
+    "text": "forgery",
+    "translation": "文書などの偽造",
+    "exampleEn": "The signature was a forgery.",
+    "meaning": "偽造／偽造品"
+  },
+  {
+    "course": "Eiken1Part1",
+    "level": 1,
+    "text": "governor",
+    "translation": "州の知事",
+    "exampleEn": "The governor signed the bill.",
+    "meaning": "州・県などの知事"
+  },
+  {
+    "course": "Eiken1Part1",
+    "level": 1,
+    "text": "pesticide",
+    "translation": "害虫を殺す農薬",
+    "exampleEn": "The farm uses less pesticide now.",
+    "meaning": "農薬・有害生物を防除する薬剤"
+  },
+  {
+    "course": "Eiken1Part2",
+    "level": 1,
+    "text": "velocity",
+    "translation": "物体が動く速度",
+    "exampleEn": "The scientist calculated the object's velocity.",
+    "meaning": "（物理では向きも含む）速度"
+  },
+  {
+    "course": "Eiken1Part2",
+    "level": 1,
+    "text": "referendum",
+    "translation": "国民投票",
+    "exampleEn": "Voters approved the change in a referendum.",
+    "meaning": "国民投票・住民投票"
+  },
+  {
+    "course": "Eiken1Part2",
+    "level": 1,
+    "text": "instability",
+    "translation": "政治や経済の不安定さ",
+    "exampleEn": "Instability discouraged investment.",
+    "meaning": "不安定さ"
+  },
+  {
+    "course": "Eiken1Part2",
+    "level": 1,
+    "text": "liquidate",
+    "translation": "会社などの資産を清算する",
+    "exampleEn": "The firm liquidated its remaining assets.",
+    "meaning": "（資産を）換金する／（会社を）清算する"
   }
 ]

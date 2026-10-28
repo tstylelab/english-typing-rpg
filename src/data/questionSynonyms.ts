@@ -4,10 +4,13 @@ import { grade4PhraseSynonyms } from './grade4PhrasePrompts';
 import { getTranslationBattlePrompt } from './translationBattlePrompts';
 import { getGrade2VocabularySynonymReview } from './grade2VocabularySynonymReview';
 import { getGrade5VocabularyReview } from './grade5VocabularyReview';
+import { getLevel1VocabularyReview } from './level1VocabularyReview';
 
 type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms' | 'exampleEn'>;
 
 const getReviewedVocabularyExpressions = (difficulty: DifficultyKey, level: LevelKey, question: QuestionLike) => {
+  const reviewedExpressions = getLevel1VocabularyReview(difficulty, level, question)?.expressions;
+  if (reviewedExpressions != null) return reviewedExpressions;
   if (difficulty === 'Eiken5' && level === 1) {
     return getGrade5VocabularyReview(difficulty, level, question)?.expressions ?? undefined;
   }

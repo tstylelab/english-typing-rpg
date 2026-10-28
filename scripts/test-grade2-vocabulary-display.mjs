@@ -8,12 +8,14 @@ const { QUESTIONS } = load('src/data/questions.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
 const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.ts');
 const { getQuestionSynonyms, getQuestionSynonymLabels, getQuestionSynonymHeading } = load('src/data/questionSynonyms.ts');
+const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts');
 const { getGrade2VocabularySynonymReview } = load('src/data/grade2VocabularySynonymReview.ts');
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const json = value => JSON.parse(JSON.stringify(value));
 const meanings = {
   examine: '詳しく調べる・検査する／診察する', procedure: '決まった手順・手続き',
   panel: '討論・審査などを行う一団／板・操作盤', privacy: '私生活の秘密・干渉されない権利',
+  rely: '頼る・当てにする', behave: '振る舞う／行儀よくする', obtain: '得る・手に入れる', criminal: '犯罪者／犯罪の',
 };
 const rows = [];
 for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, questions] of Object.entries(levels)) {
@@ -25,12 +27,12 @@ const target = row => row.course === 'Eiken2' && row.level === 1;
 assert.equal(rows.length, 7650);
 assert.equal(hash(QUESTIONS), '8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1',
   'All question text, legacy translations, examples, fields and ordering stay unchanged');
-assert.equal(hash(rows.filter(row => !target(row))), '2c72551c681f89fd3898f9498eb38038980a22275b4e186642f72c2c63e3e5d2',
-  'Other courses/levels match the snapshot after the approved Grade 5 review');
+assert.equal(hash(rows.filter(row => !target(row))), '9038f98ca1a50a06e15a274469848984f48c00b1adfc378cf69629f23345583a',
+  'Other courses/levels match the approved Grade 4–1 review snapshot');
 const grade2 = rows.filter(target);
 assert.equal(grade2.length, 549);
 assert.equal(hash(grade2.filter(row => !Object.hasOwn(meanings, row.question.text)).map(row => [row.question, row.meaning])),
-  '2e8f7f69d4a78057f9f580fe28f48224f1917f99f65848e588398ab1fdaf9c5a', 'Only four approved Japanese glosses change');
+  '80fc5e8d3151d33ca12f244113ef08ba2e85d67d0725d9fbb9f8b91421f70c9d', 'Only the eight approved Japanese glosses change');
 const hints = grade2.filter(row => row.prompt?.alternatives.length);
 assert.equal(hints.length, 89, 'Do not add before-answer hints to every word');
 assert.equal(hash(hints.map(row => row.question.text).sort()), '2ae4e7c83b27f52ae1a5e992566dd194e399630131a6f62491e4ff176391c67c');
@@ -72,8 +74,8 @@ for (const [text, note] of [['determine', '事実を突き止める意味'], ['c
   assert.ok(getQuestionSynonymLabels('Eiken2', 1, word(text).question)[0].includes(note));
 }
 assert.ok(word('determine').meaning.includes('決定する'), 'Retain useful major meanings');
-// Grade 5 now also has approved sense notes; plain labels remain unchanged elsewhere.
-for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1))) {
+// User-approved Level 1 sense notes are scoped; plain labels remain elsewhere.
+for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1) && !getLevel1VocabularyReview(row.course, row.level, row.question)?.expressions)) {
   assert.deepEqual(json(getQuestionSynonymLabels(row.course, row.level, row.question)), json(row.synonyms));
 }
 
@@ -98,4 +100,4 @@ function visit(node) {
 }
 visit(ast);
 assert.equal(checked.size, 4);
-console.log('PASS: 7,650 legacy questions; 549 Grade 2 words; 4 gloss changes; 42 scoped reviews; all 89 before/after hints match; grading, learning and other courses unchanged.');
+console.log('PASS: 7,650 legacy questions; 549 Grade 2 words; 8 scoped gloss changes; 42 prior scoped reviews; all 89 before/after hints match; grading, learning and other courses unchanged.');

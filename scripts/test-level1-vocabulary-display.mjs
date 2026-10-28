@@ -7,11 +7,11 @@ import { execFileSync } from 'node:child_process';
 import ts from 'typescript';
 import { load } from './lib/load-typescript-data.mjs';
 
-// Approved display data, including the Grade 5 review; compare original saved identities.
+// Approved display data through the Grade 4–1 review; compare original saved identities.
 const baseline = '0508dafec03b083a6581614441a1fdebd19abebd';
 const sha = value => createHash('sha256').update(value).digest('hex');
 const material = fs.readFileSync('src/data/level1VocabularyDisplayCorrections.json', 'utf8').replace(/\r\n/g, '\n');
-assert.equal(sha(material), 'ca4c8384c1e531f7ad0a4ec0ddbbefb6cd1f69b393ca14c30e7aacdd93b84ca2', 'Keep the user-reviewed meanings and examples');
+assert.equal(sha(material), 'c14869e968c4ae27401f89fa3023bd114ad7bf79fd1f120cfa038241e4023b9c', 'Keep the user-reviewed meanings and examples');
 const entries = JSON.parse(material);
 const { QUESTIONS } = load('src/data/questions.ts');
 assert.equal(sha(JSON.stringify(QUESTIONS)), '8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1', 'Every original question, saved translation, example and order stays unchanged');
@@ -31,12 +31,11 @@ const priorExample = originalModule('src/data/questionExamples.ts').getQuestionE
 const identity = q => JSON.stringify([q.text, q.translation, q.exampleEn ?? '']);
 const key = (course, level, q) => `${course}:${level}:${identity(q)}`;
 const byKey = new Map(entries.map(e => [key(e.course, e.level, e), e]));
-assert.equal(byKey.size, 649);
-assert.equal(entries.filter(e => e.meaning).length, 361);
-assert.equal(entries.filter(e => e.displayExampleEn).length, 333);
+assert.equal(byKey.size, 728);
+assert.equal(entries.filter(e => e.meaning).length, 421);
+assert.equal(entries.filter(e => e.displayExampleEn).length, 358);
 for (const entry of entries) {
   assert.equal(entry.level, 1);
-  assert.notEqual(entry.course, 'Eiken2', 'Keep the already released Grade 2 review');
   assert.equal(QUESTIONS[entry.course][1].filter(q => identity(q) === identity(entry)).length, 1, 'Unique original identity');
   for (const meaning of [entry.meaning].filter(Boolean)) {
     assert.equal((meaning.match(/（/g) ?? []).length, (meaning.match(/）/g) ?? []).length);
@@ -69,8 +68,8 @@ for (const [course, levels] of Object.entries(QUESTIONS)) {
   }
 }
 assert.equal(checked, 7650);
-assert.equal(changedMeanings, 361);
-assert.equal(changedExamples, 333);
+assert.equal(changedMeanings, 421);
+assert.equal(changedExamples, 358);
 // Regression examples for missing core meanings, overly narrow labels and bad
 // fallback sentences. The word is still the original grading/saved text.
 for (const [course, text, meaning] of [
