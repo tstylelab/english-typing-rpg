@@ -125,6 +125,10 @@ try {
     assert.ok(reloaded.statuses[legacyKey]);
     await page.getByPlaceholder('英語・日本語で検索', { exact: true }).fill(q.text);
     const row = page.getByRole('article', { name: q.text, exact: true }); await row.waitFor();
+    await row.scrollIntoViewIfNeeded();
+    await page.waitForFunction(({ text, meaning }) => [...document.querySelectorAll('.library-row')]
+      .some(element => element.getAttribute('aria-label') === text && element.innerText.includes(meaning)),
+    { text: q.text, meaning: getQuestionMeaning(q, course) });
     assert.ok((await row.innerText()).includes(getQuestionMeaning(q, course)));
     for (const label of labels) assert.ok((await row.innerText()).includes(label));
     assert.deepEqual(errors, []);
