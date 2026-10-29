@@ -12,6 +12,7 @@ const plain = value => JSON.parse(JSON.stringify(value));
 const { QUESTIONS } = load('src/data/questions.ts');
 const current = load('src/data/questionSynonyms.ts');
 const { getGrade2PhraseSynonymReview: review } = load('src/data/grade2PhraseSynonymReview.ts');
+const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
 const entries = JSON.parse(fs.readFileSync('src/data/grade2PhraseSynonymReview.json', 'utf8'));
 const approved = {
   'in person': ['personally（本人が直接）', 'face to face（対面で）'],
@@ -39,7 +40,7 @@ for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, que
       assert.deepEqual(labels, approved[q.text]);
       assert.deepEqual(plain(current.getQuestionSynonyms(course, n, q)), review(course, n, q).map(e => e.text));
       changed++;
-    } else {
+    } else if (!getLevel2PhraseReview(course, n, q)) {
       assert.deepEqual(labels, plain(prior.getQuestionSynonymLabels(course, n, q)), 'No display leakage: ' + course + ':' + level + ':' + q.text);
       assert.deepEqual(plain(current.getQuestionSynonyms(course, n, q)), plain(prior.getQuestionSynonyms(course, n, q)));
     }

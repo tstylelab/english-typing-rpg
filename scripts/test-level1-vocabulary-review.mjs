@@ -1,5 +1,9 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { execFileSync } from 'node:child_process';
+import ts from 'typescript';
 import { createHash } from 'node:crypto';
 import { load } from './lib/load-typescript-data.mjs';
 
@@ -12,6 +16,11 @@ const { getQuestionSynonyms, getQuestionSynonymLabels, getQuestionSynonymHeading
 const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.ts');
 const { getVocabularyUsageNote } = load('src/data/vocabularyUsageNotes.ts');
 const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts');
+const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
+const priorModule = { exports: {} };
+vm.runInNewContext(ts.transpileModule(execFileSync('git', ['show', '5f1af4e7830924ef44d9ff2ae09f1a0c309537d8:src/data/questionSynonyms.ts'], { encoding: 'utf8' }), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+}).outputText, { module: priorModule, exports: priorModule.exports, require: name => load(path.posix.join('src/data', name)) });
 const entries = JSON.parse(fs.readFileSync('src/data/level1VocabularyReview.json', 'utf8'));
 assert.equal(hash(QUESTIONS), '8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1',
   'All saved questions, translations, examples and ordering remain unchanged');
@@ -52,6 +61,9 @@ for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, que
       assert.equal(current.note, change.note);
       followupChecked++;
       rendered.push({ ...current, meaning: change.previousMeaning, note: null });
+    } else if (getLevel2PhraseReview(course, n, question)) {
+      rendered.push({ ...current, synonyms: plain(priorModule.exports.getQuestionSynonyms(course, n, question)),
+        labels: plain(priorModule.exports.getQuestionSynonymLabels(course, n, question)), note: null });
     } else if (course === 'Eiken2' && n === 2 && Object.hasOwn(priorPhraseSynonyms, question.text)) {
       rendered.push({ ...current, synonyms: priorPhraseSynonyms[question.text], labels: priorPhraseSynonyms[question.text] });
     } else rendered.push(current);

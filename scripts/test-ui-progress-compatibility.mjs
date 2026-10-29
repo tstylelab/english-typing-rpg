@@ -210,6 +210,8 @@ for(const file of ['src/data/level1VocabularyDisplay.ts','src/data/level1Vocabul
 // unchanged grading/learning functions before allowing this display-only review.
 execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-display.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-grade2-phrase-synonyms.mjs'], { cwd: root, stdio: 'pipe' });
+execFileSync(process.execPath, ['scripts/test-level2-phrase-review.mjs'], { cwd: root, stdio: 'pipe' });
+for (const file of ['src/data/level2PhraseReview.ts', 'src/data/level2PhraseReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/grade2PhraseSynonymReview.ts', 'src/data/grade2PhraseSynonymReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/questionSynonyms.ts','src/data/translationBattlePrompts.ts','src/data/grade2VocabularySynonymReview.ts','src/data/grade2VocabularySynonymReview.json'])approvedMaterialFiles.add(file);
 execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-usage-notes.mjs'], { cwd: root, stdio: 'pipe' });

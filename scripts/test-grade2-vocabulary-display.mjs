@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import ts from 'typescript';
+import path from 'node:path';
+import vm from 'node:vm';
+import { execFileSync } from 'node:child_process';
 import { load } from './lib/load-typescript-data.mjs';
 
 const { QUESTIONS } = load('src/data/questions.ts');
@@ -9,6 +12,7 @@ const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
 const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.ts');
 const { getQuestionSynonyms, getQuestionSynonymLabels, getQuestionSynonymHeading } = load('src/data/questionSynonyms.ts');
 const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts');
+const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
 const { getGrade2VocabularySynonymReview } = load('src/data/grade2VocabularySynonymReview.ts');
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const json = value => JSON.parse(JSON.stringify(value));
@@ -33,9 +37,15 @@ const priorPhraseSynonyms = {
   'in person': ['face to face'], 'on schedule': ['on time'], 'in detail': ['thoroughly'],
   'pass away': ['die'], 'manage to': [], 'be capable of': ['be able to'],
 };
+const priorModule = { exports: {} };
+vm.runInNewContext(ts.transpileModule(execFileSync('git', ['show', '5f1af4e7830924ef44d9ff2ae09f1a0c309537d8:src/data/questionSynonyms.ts'], { encoding: 'utf8' }), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+}).outputText, { module: priorModule, exports: priorModule.exports, require: name => load(path.posix.join('src/data', name)) });
 const originalOtherRows = rows.filter(row => !target(row)).map(row => (
   row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text)
-    ? { ...row, synonyms: priorPhraseSynonyms[row.question.text] } : row
+    ? { ...row, synonyms: priorPhraseSynonyms[row.question.text] }
+    : getLevel2PhraseReview(row.course, row.level, row.question)
+      ? { ...row, synonyms: priorModule.exports.getQuestionSynonyms(row.course, row.level, row.question) } : row
 ));
 assert.equal(hash(originalOtherRows), '9038f98ca1a50a06e15a274469848984f48c00b1adfc378cf69629f23345583a',
   'Other courses/levels match the approved Grade 4–1 review snapshot');
@@ -88,6 +98,7 @@ assert.ok(word('determine').meaning.includes('決定する'), 'Retain useful maj
 // User-approved Level 1 sense notes are scoped; plain labels remain elsewhere.
 for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1)
   && !(row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text))
+  && !getLevel2PhraseReview(row.course, row.level, row.question)
   && !getLevel1VocabularyReview(row.course, row.level, row.question)?.expressions)) {
   assert.deepEqual(json(getQuestionSynonymLabels(row.course, row.level, row.question)), json(row.synonyms));
 }

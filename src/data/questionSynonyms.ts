@@ -4,12 +4,15 @@ import { grade4PhraseSynonyms } from './grade4PhrasePrompts';
 import { getTranslationBattlePrompt } from './translationBattlePrompts';
 import { getGrade2VocabularySynonymReview } from './grade2VocabularySynonymReview';
 import { getGrade2PhraseSynonymReview } from './grade2PhraseSynonymReview';
+import { getLevel2PhraseReview } from './level2PhraseReview';
 import { getGrade5VocabularyReview } from './grade5VocabularyReview';
 import { getLevel1VocabularyReview } from './level1VocabularyReview';
 
 type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms' | 'exampleEn'>;
 
 const getReviewedVocabularyExpressions = (difficulty: DifficultyKey, level: LevelKey, question: QuestionLike) => {
+  const reviewedLevel2 = getLevel2PhraseReview(difficulty, level, question);
+  if (reviewedLevel2 !== undefined) return reviewedLevel2.expressions;
   const reviewedPhrases = getGrade2PhraseSynonymReview(difficulty, level, question);
   if (reviewedPhrases !== undefined) return reviewedPhrases;
   const reviewedExpressions = getLevel1VocabularyReview(difficulty, level, question)?.expressions;
