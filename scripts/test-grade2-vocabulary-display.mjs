@@ -15,7 +15,8 @@ const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts')
 const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
 const { getGrade5Level3DisplayReview } = load('src/data/grade5Level3DisplayReview.ts');
 const { getLevel3DisplayReview } = load('src/data/level3DisplayReview.ts');
-const originalGrade4Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.course === 'Eiken4' && e.level === 3);
+const originalLevel3Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.level === 3);
+const originalLevel3Prompt = (course, question) => originalLevel3Prompts.find(e => e.course === course && e.text === question.text && e.translation === question.translation && (e.exampleEn ?? '') === (question.exampleEn ?? ''));
 const originalGrade5Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.course === 'Eiken5' && e.level === 3);
 const { getGrade2VocabularySynonymReview } = load('src/data/grade2VocabularySynonymReview.ts');
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -47,8 +48,8 @@ vm.runInNewContext(ts.transpileModule(execFileSync('git', ['show', '5f1af4e78309
 }).outputText, { module: priorModule, exports: priorModule.exports, require: name => load(path.posix.join('src/data', name)) });
 const originalOtherRows = rows.filter(row => !target(row)).map(row => (
   getLevel3DisplayReview(row.course, row.level, row.question)?.prompt
-    ? { ...row, meaning: originalGrade4Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation).meaning,
-      prompt: originalGrade4Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation) }
+    ? { ...row, meaning: originalLevel3Prompt(row.course, row.question).meaning,
+      prompt: originalLevel3Prompt(row.course, row.question) }
     : getGrade5Level3DisplayReview(row.course, row.level, row.question)
     ? { ...row, meaning: originalGrade5Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation).meaning,
       prompt: originalGrade5Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation) }

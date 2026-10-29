@@ -785,7 +785,7 @@ const {QUESTIONS}=load('src/data/questions.ts'),{getTranslationBattlePrompt:prom
 const {getLevel3DisplayReview:review,getLevel3ReviewedGrammarPoint:grammarReview}=load('src/data/level3DisplayReview.ts');
 const prior=priorModule('src/data/translationBattlePrompts.ts'),priorGrammar=priorModule('src/data/questionGrammarPoints.ts');
 const expected=new Map(approved.map(e=>[e.course+':'+e.text,e]));
-const entries=JSON.parse(fs.readFileSync('src/data/level3DisplayReview.json','utf8'));
+const entries=JSON.parse(fs.readFileSync('src/data/level3DisplayReview.json','utf8')).filter(e=>e.course==='Eiken4');
 assert.equal(entries.length,21);assert.equal(expected.size,21);
 assert.equal(createHash('sha256').update(JSON.stringify(QUESTIONS)).digest('hex'),'8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1');
 let checked=0,changed=0,promptsChanged=0,pointsChanged=0;
@@ -804,9 +804,10 @@ assert.equal(meaning(q,course),e.next.meaning);
 assert.deepEqual(plain(point),e.next.grammar);
 assert.ok(review(course,n,q));changed++;
 }else{
-assert.deepEqual(plain(current),plain(oldPrompt),'Other prompt '+course+':'+n+':'+q.text);
-assert.deepEqual(plain(point),plain(oldGrammar),'Other note '+course+':'+n+':'+q.text);
-assert.equal(review(course,n,q),undefined);
+const additional=review(course,n,q);
+assert.deepEqual(plain(current),additional?.prompt?{...plain(oldPrompt),...plain(additional.prompt)}:plain(oldPrompt),'Other prompt except separately audited upper reviews '+course+':'+n+':'+q.text);
+assert.deepEqual(plain(point),additional?.grammar?plain(additional.grammar):plain(oldGrammar),'Other note except separately audited upper reviews '+course+':'+n+':'+q.text);
+if(!additional)assert.equal(review(course,n,q),undefined);
 }
 assert.deepEqual(plain(prompt(JSON.parse(before),course,n)),plain(current));assert.deepEqual(plain(grammar(course,n,{text:q.text})),plain(point),'Historical text-only grammar lookup');
 assert.equal(JSON.stringify(q),before);checked++;

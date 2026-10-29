@@ -19,7 +19,7 @@ const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts')
 const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
 const { getGrade5Level3DisplayReview } = load('src/data/grade5Level3DisplayReview.ts');
 const { getLevel3DisplayReview } = load('src/data/level3DisplayReview.ts');
-const originalGrade4Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.course === 'Eiken4' && e.level === 3);
+const originalLevel3Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.level === 3);
 const originalGrade5Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.course === 'Eiken5' && e.level === 3);
 const priorModule = { exports: {} };
 vm.runInNewContext(ts.transpileModule(execFileSync('git', ['show', '5f1af4e7830924ef44d9ff2ae09f1a0c309537d8:src/data/questionSynonyms.ts'], { encoding: 'utf8' }), {
@@ -66,7 +66,7 @@ for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, que
       followupChecked++;
       rendered.push({ ...current, meaning: change.previousMeaning, note: null });
     } else if (getLevel3DisplayReview(course, n, question)?.prompt) {
-      const original = originalGrade4Prompts.find(e => e.text === question.text && e.translation === question.translation);
+      const original = originalLevel3Prompts.find(e => e.course === course && e.text === question.text && e.translation === question.translation && (e.exampleEn ?? '') === (question.exampleEn ?? ''));
       rendered.push({ ...current, meaning: original.meaning, prompt: original });
     } else if (getGrade5Level3DisplayReview(course, n, question)) {
       const original = originalGrade5Prompts.find(e => e.text === question.text && e.translation === question.translation);

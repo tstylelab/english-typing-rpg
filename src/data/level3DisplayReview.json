@@ -221,5 +221,953 @@
     },
     "translation": "私は温かい飲み物が欲しいです。",
     "exampleEn": ""
+  },
+  {
+    "course": "Eiken3",
+    "text": "Me, neither.",
+    "translation": "私もそうではありません",
+    "exampleEn": "",
+    "prompt": {
+      "alternatives": [
+        {
+          "text": "neither do I",
+          "note": "don't / doesn't への同意"
+        }
+      ]
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "I do not know where to go.",
+    "translation": "私はどこへ行けばよいかわかりません",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "疑問詞＋to で「どこへ行けばよいか」を表します。"
+    },
+    "grammar": {
+      "label": "どこへ行けばよいか",
+      "note": "where to go で「どこへ行けばよいか」を表します。",
+      "pattern": "where to + 動詞の原形"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "Walking is good for our health.",
+    "translation": "歩くことは私たちの健康によいです",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "動名詞を主語にします。"
+    },
+    "grammar": {
+      "label": "動名詞の主語",
+      "note": "Walking は「歩くこと」という主語です。is good for our health で「私たちの健康によい」と説明します。",
+      "pattern": "動詞ing + is good for + 名詞"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "What is wrong with your computer?",
+    "translation": "あなたのパソコンはどこが悪いのですか",
+    "exampleEn": "",
+    "grammar": {
+      "label": "不調を尋ねる",
+      "note": "What is wrong with ...? で、人や物のどこに問題があるかを尋ねます。",
+      "pattern": "What is wrong with + 人・物?"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "This is the camera that I bought.",
+    "translation": "これは私が買ったカメラです",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "関係代名詞 that を使って、どのカメラかを説明します。"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "I like stories that make me laugh.",
+    "translation": "私は笑わせてくれる話が好きです",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主語になる関係代名詞 that で、話を説明します。"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "The boy who is running is my brother.",
+    "translation": "走っている少年は私の弟です",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "関係代名詞 who を使って、どの少年かを説明します。"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "This is a book which teaches cooking.",
+    "translation": "これは料理を教える本です",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "関係代名詞 which を使って、どんな本かを説明します。"
+    }
+  },
+  {
+    "course": "Eiken3",
+    "text": "I prefer reading to watching TV.",
+    "translation": "私はテレビを見るより読書の方が好きです",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "prefer A to B の形で、どちらが好きかを比べます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "I used to walk to school.",
+    "translation": "私は以前、歩いて学校に通っていました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "過去の習慣を used to＋動詞の原形で表します。"
+    },
+    "grammar": {
+      "label": "過去の習慣",
+      "pattern": "used to + 動詞の原形",
+      "note": "used to walk は「以前は歩いて通っていた」。be used to＋ing（〜することに慣れている）とは別の形です。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Why was the meeting put off?",
+    "translation": "なぜ会議は延期されたのですか。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "過去の受け身の疑問文",
+      "pattern": "Why + was/were + 主語 + 過去分詞?",
+      "note": "was the meeting put off で「会議が延期された」と受け身で尋ねます。why はその理由を尋ねます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Taking the bus saves us money.",
+    "translation": "バスを利用することは私たちのお金の節約になります。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "動名詞の主語",
+      "pattern": "動詞ingのまとまり + 動詞",
+      "note": "Taking the bus が「バスを利用すること」という主語です。一つの活動なので、動詞は saves です。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "The book is worth reading twice.",
+    "translation": "その本は二度読む価値があります。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "読む価値がある",
+      "pattern": "be worth + 動詞ing",
+      "note": "worth reading で「読む価値がある」。twice は読む回数を表します。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "I was surprised to hear the news.",
+    "translation": "その知らせを聞いて驚きました。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "感情の理由を表す不定詞",
+      "pattern": "be surprised + to + 動詞の原形",
+      "note": "to hear the news が、驚いた理由を説明しています。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "There is no reason to cancel the trip.",
+    "translation": "その旅行を中止する理由はありません。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "不定詞で名詞を説明",
+      "pattern": "名詞 + to + 動詞の原形",
+      "note": "to cancel the trip が reason を説明し、「旅行を中止する理由」を表します。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "I prefer reading to watching television.",
+    "translation": "私はテレビを見るより読書が好きです。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "好みの比較",
+      "pattern": "prefer A to B",
+      "note": "prefer A to B は「BよりAが好き」。ここでは、二つの動作をどちらも ing 形で表しています。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "These products are made from recycled paper.",
+    "translation": "これらの製品は再生紙で作られています。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身",
+      "pattern": "be動詞 + 過去分詞",
+      "note": "are made from で「〜から作られている」と、製品を主語にして述べます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "The concert was canceled because of the storm.",
+    "translation": "嵐のためにコンサートは中止されました。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "過去の受け身",
+      "pattern": "was/were + 過去分詞",
+      "note": "was canceled で「中止された」。because of の後ろに理由となる名詞を置きます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "It is said that the town is very old.",
+    "translation": "その町はとても古いと言われています。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "伝聞の受け身",
+      "pattern": "It is said that + 文",
+      "note": "It is said that ... で「〜と言われている」と、伝えられている内容を続けます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "He is not only kind but also brave.",
+    "translation": "彼は親切なだけでなく勇敢でもあります。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "二つの性質を強調",
+      "pattern": "not only A but also B",
+      "note": "not only A but also B で「AだけでなくBも」。kind と brave という二つの形容詞を並べます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "She plays the guitar as well as the piano.",
+    "translation": "彼女はピアノだけでなくギターも弾きます。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "〜だけでなく〜も",
+      "pattern": "A as well as B",
+      "note": "as well as で二つの楽器を結び、「ピアノだけでなくギターも」と伝えます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "I listened to music while I was cooking.",
+    "translation": "料理をしている間、音楽を聞いていました。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "同時の動作",
+      "pattern": "文 + while + 主語 + 動詞",
+      "note": "while I was cooking で、料理をしていた間に音楽を聞いていたと伝えます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "The more you practice, the better you get.",
+    "translation": "練習すればするほど上達します。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "変化が連動する比較",
+      "pattern": "the + 比較級 ..., the + 比較級 ...",
+      "note": "the more ... と the better ... を組み合わせ、「練習すればするほど、上達する」と表します。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Learning English allows us to talk with people abroad.",
+    "translation": "英語を学ぶことで、私たちは海外の人たちと話せるようになります。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "学ぶことで可能になることを、allow＋人＋to の形で表します。"
+    },
+    "grammar": {
+      "label": "可能にする allow",
+      "pattern": "allow + 人 + to + 動詞の原形",
+      "note": "ここでは「行動を求める」ではなく、「人が〜できるようにする」という allow の使い方です。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "They do not allow us to use phones here.",
+    "translation": "ここでは私たちが電話を使うことは許されません。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "許可の否定",
+      "pattern": "do not allow + 人 + to + 動詞の原形",
+      "note": "do not allow us to ... で、私たちが〜することを許可しない、と表します。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "I hear that a new library will open.",
+    "translation": "新しい図書館が開くそうです。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "聞いた情報を伝える",
+      "pattern": "I hear that + 文",
+      "note": "I hear that ... は「〜だそうです」と、聞いた情報を伝える形です。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "What would you do in this situation?",
+    "translation": "この状況ならあなたはどうしますか。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "仮定した場面での質問",
+      "pattern": "What would you do ...?",
+      "note": "仮定した場面で、相手なら何をするかを would で尋ねます。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "So can I.",
+    "translation": "私もできます。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "相手の「私は泳げます」に、「私も」と答えます。so で始める形で。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Neither do I.",
+    "translation": "私もそうではありません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "相手の「私はその映画が好きではありません」に、「私も」と答えます。neither で始める形で。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Neither can I.",
+    "translation": "私もできません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "相手の「私は泳げません」に、「私も」と答えます。neither で始める形で。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "The woman who lives next door is a nurse.",
+    "translation": "隣に住んでいる女性は看護師です。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "関係代名詞 who を使い、どの女性かを説明します。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "This is the camera that I bought yesterday.",
+    "translation": "これが昨日買ったカメラです。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "目的語になる関係代名詞 that を省略せずに使います。"
+    }
+  },
+  {
+    "course": "EikenPre2",
+    "text": "Tell me whether or not you can come.",
+    "translation": "来られるかどうか教えてください。",
+    "exampleEn": "",
+    "prompt": {
+      "alternatives": [
+        {
+          "text": "if",
+          "note": "〜かどうか。or not は文末に置く"
+        }
+      ],
+      "formNote": "whether or not を先に置き、来られるかどうかを尋ねます。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "She should have backed up the data.",
+    "translation": "彼女はそのデータをバックアップしておくべきでした。（実際はしませんでした）",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "They might have taken a different route.",
+    "translation": "彼らは別の経路を通ったのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "might have＋過去分詞で、過去の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "We should have compared the prices first.",
+    "translation": "私たちはまず価格を比較しておくべきでした。（実際はしませんでした）",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "I might have sent it to the wrong address.",
+    "translation": "私はそれを間違った住所に送ってしまったかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "might have＋過去分詞で、過去の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "I should have booked the tickets in advance.",
+    "translation": "私は事前にそのチケットを予約しておくべきでした。（実際はしませんでした）",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "She might have misunderstood the instructions.",
+    "translation": "彼女はその指示を誤解したのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "might have＋過去分詞で、過去の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "I had my bicycle repaired yesterday.",
+    "translation": "私は昨日、自転車を修理してもらいました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "have＋物＋過去分詞で、人に依頼・手配して〜してもらう形を練習します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "She had her eyesight tested last week.",
+    "translation": "彼女は先週、視力を検査してもらいました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "have＋物＋過去分詞で、人に依頼・手配して〜してもらう形を練習します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "The book that you recommended was useful.",
+    "translation": "あなたが勧めた本は役に立ちました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "目的語になる関係代名詞 that を省略せずに使います。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "We had the documents translated into English.",
+    "translation": "私たちは、その書類を英語に翻訳してもらいました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "have＋物＋過去分詞で、人に依頼・手配して〜してもらう形を練習します。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "Although the plan is expensive, it may save energy.",
+    "translation": "その計画には費用がかかりますが、節電につながるかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "Although で譲歩の節を始め、後ろに主節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken2",
+    "text": "Although the device is expensive, it uses less electricity.",
+    "translation": "その機器は高価ですが、電力消費が少ないです。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "Although で譲歩の節を始め、後ろに主節を続けます。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "The file may have been deleted by mistake.",
+    "translation": "そのファイルは誤って削除されたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have been＋過去分詞で、過去に〜された可能性を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "The figures may have been entered incorrectly.",
+    "translation": "その数値は、間違って入力されたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have been＋過去分詞で、過去に〜された可能性を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "The meeting may have been postponed again.",
+    "translation": "その会議は、また延期されたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have been＋過去分詞で、過去に〜された可能性を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "But for your advice, I would have signed it.",
+    "translation": "あなたの助言がなかったら、私はそれに署名してしまっていたでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "But for＋名詞で「〜がなかったら」を先に置き、would have＋過去分詞で過去の結果を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "But for the grant, the study would have ended.",
+    "translation": "その助成金がなかったら、その研究は終わってしまっていたでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "But for＋名詞で「〜がなかったら」を先に置き、would have＋過去分詞で過去の結果を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part1",
+    "text": "But for the warning, we would have used that road.",
+    "translation": "その警告がなかったら、私たちはその道を使っていたでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "But for＋名詞で「〜がなかったら」を先に置き、would have＋過去分詞で過去の結果を表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "We can proceed provided that everyone agrees.",
+    "translation": "全員が同意するという条件なら、私たちは先に進めます。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、条件を示します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "You may attend provided that you register first.",
+    "translation": "先に登録するという条件なら、参加して構いません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、条件を示します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "They will help provided that we share the costs.",
+    "translation": "私たちが費用を分担するという条件なら、彼らは協力してくれます。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、条件を示します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "She asked whether we had received the payment.",
+    "translation": "彼女は、私たちがその支払いを受け取っていたかどうか尋ねました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "whether の間接疑問を使い、尋ねた時点より前のことを過去完了で伝えます。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "He asked whether the deadline had been extended.",
+    "translation": "彼は、締め切りが延長されていたかどうか尋ねました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "whether の間接疑問を使い、尋ねた時点より前のことを過去完了で伝えます。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "They asked whether we had checked the figures.",
+    "translation": "彼らは、私たちが数値を確認していたかどうか尋ねました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "whether の間接疑問を使い、尋ねた時点より前のことを過去完了で伝えます。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "We should have consulted local residents first.",
+    "translation": "私たちはまず地元の住民に相談しておくべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "She should have checked the source before sharing it.",
+    "translation": "彼女はそれを共有する前に、情報源を確認しておくべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "EikenPre1Part2",
+    "text": "They should have warned us about the risks.",
+    "translation": "彼らは、その危険について私たちに警告しておくべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have＋過去分詞で、過去にしておくべきだったことを表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The device that monitors air quality is easy to use.",
+    "translation": "空気の質を測るその装置は使いやすい。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主格の関係代名詞 that を使い、主語の名詞を説明します。"
+    },
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that monitors air quality が device を説明します。文全体は The device is easy to use. という骨組みです。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The law that protects workers will take effect next year.",
+    "translation": "労働者を守る法律は来年施行される。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主格の関係代名詞 that を使い、主語の名詞を説明します。"
+    },
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that protects workers が law を説明します。文全体の骨組みは The law will take effect next year. です。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "While the trial failed, it revealed an important problem.",
+    "translation": "試験は失敗したが、重要な問題を明らかにした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "While で譲歩の節を始め、後ろに主節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "Although the evidence is limited, the risk cannot be ignored.",
+    "translation": "証拠は限られるが、危険を無視はできない。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "Although で譲歩の節を始め、後ろに主節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The researchers may have overlooked an important variable.",
+    "translation": "研究者たちは、重要な変数を見落としていたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have＋過去分詞で、過去の行為の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The agency may have underestimated the cost of maintenance.",
+    "translation": "その機関は、維持費を過小評価していたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have＋過去分詞で、過去の行為の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The witnesses may have confused the order of events.",
+    "translation": "目撃者たちは、出来事の順序を取り違えていたのかもしれません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "may have＋過去分詞で、過去の行為の可能性を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The risks should have been disclosed before the trial began.",
+    "translation": "その危険性は、試験が始まる前に開示されるべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have been＋過去分詞で、過去にされるべきだった対応を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "Local residents should have been consulted before construction.",
+    "translation": "地元の住民は、建設前に意見を聞かれるべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have been＋過去分詞で、過去にされるべきだった対応を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The conflicting results should have been examined more closely.",
+    "translation": "食い違う結果は、もっと詳しく検討されるべきでした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "should have been＋過去分詞で、過去にされるべきだった対応を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The evidence that the team collected contradicted the claim.",
+    "translation": "そのチームが集めた証拠は、その主張と矛盾していました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "目的格の関係代名詞 that を省略せず、名詞を説明する節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The restrictions that the council imposed remain controversial.",
+    "translation": "議会が課した制限は、今も議論を呼んでいます。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "目的格の関係代名詞 that を省略せず、名詞を説明する節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The resources that the project requires are not yet available.",
+    "translation": "その事業が必要とする資源は、まだ利用できません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "目的格の関係代名詞 that を省略せず、名詞を説明する節を続けます。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "Limited as the funds were, the team completed the survey.",
+    "translation": "資金は限られていましたが、そのチームは調査を完了しました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "形容詞を先頭に置く「形容詞＋as＋主語＋be動詞」の譲歩の型を練習します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "Useful as the model is, it cannot predict every outcome.",
+    "translation": "そのモデルは有用ですが、すべての結果を予測することはできません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "形容詞を先頭に置く「形容詞＋as＋主語＋be動詞」の譲歩の型を練習します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "Severe as the damage was, essential services were restored.",
+    "translation": "被害は深刻でしたが、不可欠なサービスは復旧しました。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "形容詞を先頭に置く「形容詞＋as＋主語＋be動詞」の譲歩の型を練習します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The study which examined rural hospitals revealed a shortage.",
+    "translation": "地方病院を調べた研究が人手不足を明らかにした。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主格の関係代名詞 which を使い、主語の study を説明します。"
+    },
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "which examined rural hospitals が study を説明します。文全体の中心となる動詞は revealed です。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The scheme can succeed provided that oversight remains independent.",
+    "translation": "監督の独立性が保たれるという条件なら、その制度は成功できます。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、満たす必要のある条件を示します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "We will share the data provided that privacy is protected.",
+    "translation": "プライバシーが守られるという条件なら、私たちはデータを共有します。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、満たす必要のある条件を示します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The trial may proceed provided that every participant consents.",
+    "translation": "すべての参加者が同意するという条件なら、試験を進めても構いません。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "主節の後ろに provided that の節を置き、満たす必要のある条件を示します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "Were the scheme to fail, public confidence would suffer.",
+    "translation": "仮にその制度が失敗すれば、人々の信頼は損なわれるでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "if を使わず、were を主語の前に置き、to＋動詞の原形を続けて将来を仮定します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "Were funding to cease, several research teams would disband.",
+    "translation": "仮に資金提供が途絶えれば、いくつかの研究チームは解散するでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "if を使わず、were を主語の前に置き、to＋動詞の原形を続けて将来を仮定します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "Were the treaty to lapse, the region would face greater uncertainty.",
+    "translation": "仮に条約が失効すれば、その地域はさらに不確実な状況に直面するでしょう。",
+    "exampleEn": "",
+    "prompt": {
+      "formNote": "if を使わず、were を主語の前に置き、to＋動詞の原形を続けて将来を仮定します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The results were published before the election.",
+    "translation": "結果は選挙前に公表された。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "were published は過去の受け身です。before the election は、選挙より前という時を示す名詞句です。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The accused person was released after new evidence emerged.",
+    "translation": "新たな証拠が出て、被告人は釈放された。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "主節は was released という受け身です。after の後ろは、新たな証拠が現れたことを表す能動の文です。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "Thousands were displaced when the conflict intensified.",
+    "translation": "紛争が激化し、何千人も住まいを追われた。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "were displaced は住まいを追われたという受け身です。when の節で、そのとき紛争が激化したことを添えます。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The suspect was exonerated after the records were reexamined.",
+    "translation": "記録を再調査した後、容疑者の無実が証明された。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "主節は was exonerated、after の節は were reexamined という受け身です。再調査の後で無実が証明された順序を表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The final decision was postponed until further evidence arrived.",
+    "translation": "最終決定は追加の証拠が届くまで延期された。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "受け身＋時を表す節・前置詞句",
+      "pattern": "受け身の文 ＋ after / before / when / until ＋ 時の情報",
+      "note": "was postponed は過去の受け身です。until の節で、延期が追加の証拠の到着まで続いたことを表します。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The senator who proposed the bill defended its aims.",
+    "translation": "法案を提出した上院議員は、その目的を擁護した。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "who proposed the bill が senator を説明します。文全体の主語は senator、中心となる動詞は defended です。"
+    }
+  },
+  {
+    "course": "Eiken1Part1",
+    "text": "The researcher who developed the test received an award.",
+    "translation": "その検査を開発した研究者が賞を受けた。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "who developed the test が researcher を説明します。文全体では、その研究者が賞を受けたと述べています。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The journalist who exposed the scandal received threats.",
+    "translation": "不祥事を暴いた記者は脅迫を受けた。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "who exposed the scandal が journalist を説明します。文全体では、その記者が脅迫を受けたと述べています。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The evidence that supported the claim was later discredited.",
+    "translation": "その主張を裏付けた証拠は、後に信用を失った。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "that supported the claim が evidence を説明します。主節は、その証拠の信用が失われたことを表す受け身です。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The officials who approved the contract faced investigation.",
+    "translation": "契約を承認した職員たちは調査を受けた。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "主格の関係代名詞",
+      "pattern": "名詞 ＋ who / which / that ＋ 動詞 … ＋ 主節の動詞",
+      "note": "who approved the contract が officials を説明します。主節では、その職員たちが調査を受けたと述べています。"
+    }
+  },
+  {
+    "course": "Eiken1Part2",
+    "text": "The findings were challenged by several independent experts.",
+    "translation": "その結果には複数の独立した専門家が異議を唱えた。",
+    "exampleEn": "",
+    "grammar": {
+      "label": "過去の受け身",
+      "pattern": "主語 ＋ was / were ＋ 過去分詞（＋ by …）",
+      "note": "were challenged は「異議を唱えられた」という過去の受け身です。by 以下は、異議を唱えた専門家たちを示します。"
+    }
   }
 ]
