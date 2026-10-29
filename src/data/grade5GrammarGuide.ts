@@ -172,7 +172,7 @@ grade5GrammarCards.push(
   { id:'wh-does',section:1,title:'彼・彼女について「どこ・何・どうやって？」',term:'疑問詞＋doesの疑問文',pattern:'疑問詞＋does＋主語＋動詞のもとの形？',
     examples:[['Where does he live?','彼はどこに住んでいますか？'],['What does she want?','彼女は何がほしいですか？']],
     tip:'He lives here.を尋ねるなら、doesを使い、livesをliveに戻します。whereなどの疑問詞は質問の先頭に置きます。',
-    more:'How does your brother go to school?も、主語が一人なのでdoesを使います。What does he do after school?ではdoesが疑問文を作る役、doが「する」という動作の役です。主語そのものを尋ねるWho lives here?とは型が違います。' },
+    more:'How does your brother go to school? の your brother は、he と同じように does を使います。What does he do after school?ではdoesが疑問文を作る役、doが「する」という動作の役です。主語そのものを尋ねるWho lives here?とは型が違います。' },
 );
 const byId = new Map(grade5GrammarCards.map(card => [card.id, card]));
 // Explicit reviewed links, not keyword guesses: a permission question must not

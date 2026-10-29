@@ -13,6 +13,8 @@ const { getTranslationBattlePrompt } = load('src/data/translationBattlePrompts.t
 const { getQuestionSynonyms, getQuestionSynonymLabels, getQuestionSynonymHeading } = load('src/data/questionSynonyms.ts');
 const { getLevel1VocabularyReview } = load('src/data/level1VocabularyReview.ts');
 const { getLevel2PhraseReview } = load('src/data/level2PhraseReview.ts');
+const { getGrade5Level3DisplayReview } = load('src/data/grade5Level3DisplayReview.ts');
+const originalGrade5Prompts = JSON.parse(fs.readFileSync('src/data/translationBattlePrompts.json', 'utf8')).filter(e => e.course === 'Eiken5' && e.level === 3);
 const { getGrade2VocabularySynonymReview } = load('src/data/grade2VocabularySynonymReview.ts');
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const json = value => JSON.parse(JSON.stringify(value));
@@ -42,7 +44,10 @@ vm.runInNewContext(ts.transpileModule(execFileSync('git', ['show', '5f1af4e78309
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
 }).outputText, { module: priorModule, exports: priorModule.exports, require: name => load(path.posix.join('src/data', name)) });
 const originalOtherRows = rows.filter(row => !target(row)).map(row => (
-  row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text)
+  getGrade5Level3DisplayReview(row.course, row.level, row.question)
+    ? { ...row, meaning: originalGrade5Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation).meaning,
+      prompt: originalGrade5Prompts.find(e => e.text === row.question.text && e.translation === row.question.translation) }
+    : row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text)
     ? { ...row, synonyms: priorPhraseSynonyms[row.question.text] }
     : getLevel2PhraseReview(row.course, row.level, row.question)
       ? { ...row, synonyms: priorModule.exports.getQuestionSynonyms(row.course, row.level, row.question) } : row
