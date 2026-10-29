@@ -212,6 +212,8 @@ execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-display.mjs'], {
 execFileSync(process.execPath, ['scripts/test-grade2-phrase-synonyms.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-level2-phrase-review.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-grade5-level3-display-review.mjs'], { cwd: root, stdio: 'pipe' });
+execFileSync(process.execPath, ['scripts/test-level3-display-review.mjs'], { cwd: root, stdio: 'pipe' });
+for (const file of ['src/data/level3DisplayReview.ts', 'src/data/level3DisplayReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/grade5Level3DisplayReview.ts', 'src/data/grade5Level3DisplayReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/level2PhraseReview.ts', 'src/data/level2PhraseReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/grade2PhraseSynonymReview.ts', 'src/data/grade2PhraseSynonymReview.json']) approvedMaterialFiles.add(file);

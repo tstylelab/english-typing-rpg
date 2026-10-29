@@ -1,4 +1,5 @@
 import type { DifficultyKey, LevelKey, Question } from './questions';
+import { getLevel3ReviewedGrammarPoint } from './level3DisplayReview';
 import { grade4Foundations } from './questionSets/eiken/grade4';
 import grade3 from './questionSets/eiken/grade3';
 import pre2, { legacyPre2Sentences } from './questionSets/eiken/pre2';
@@ -221,6 +222,8 @@ export const getQuestionGrammarPoint = (
   level: LevelKey,
   question: Pick<Question, 'text' | 'grammarPoint'>,
 ): QuestionGrammarPoint | null => {
+  const reviewed = getLevel3ReviewedGrammarPoint(difficulty, level, question.text);
+  if (reviewed) return reviewed;
   if (difficulty === 'Eiken3' && level === 3) return grade3Points.get(question.text) ?? null;
   if (difficulty === 'EikenPre2' && level === 3) return pre2Points.get(question.text) ?? null;
   if (difficulty === 'Eiken2' && level === 3) return grade2Points.get(question.text) ?? null;

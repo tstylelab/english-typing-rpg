@@ -22,6 +22,7 @@ const {getTranslationBattlePrompt:prompt}=load('src/data/translationBattlePrompt
 const {getQuestionMeaning:meaning}=load('src/data/questionMeaning.ts');
 const {getGrade5Level3DisplayReview:review}=load('src/data/grade5Level3DisplayReview.ts');
 const previous=priorModule('src/data/translationBattlePrompts.ts');
+const {getLevel3DisplayReview}=load('src/data/level3DisplayReview.ts');
 const expected=new Map();
 expected.set('The library is quiet.',{alternatives:[{text:'silent',note:'物音がしないほど静かな'}]});
 for(const text of ["Let's go home.","Let's play baseball.","Let's eat lunch.","Let's study together.","Let's play in the park.","Let's go to the zoo."]){
@@ -48,7 +49,10 @@ for(const[course,levels]of Object.entries(QUESTIONS))for(const[level,questions]o
   const n=Number(level),before=JSON.stringify(q),old=previous.getTranslationBattlePrompt(q,course,n),change=course==='Eiken5'&&n===3?expected.get(q.text):undefined;
   const current=prompt(q,course,n);
   if(change){assert.ok(old);assert.deepEqual(plain(current),{...plain(old),...change},q.text);changed++;}
-  else assert.deepEqual(plain(current??null),plain(old??null),'Other prompts unchanged: '+course+':'+level+':'+q.text);
+  else {
+    const additional=getLevel3DisplayReview(course,n,q)?.prompt;
+    assert.deepEqual(plain(current??null),additional?{...plain(old),...additional}:plain(old??null),'Other prompts unchanged except separately audited reviews: '+course+':'+level+':'+q.text);
+  }
   assert.deepEqual(plain(prompt(JSON.parse(before),course,n)??null),plain(current??null),'Saved/imported copies resolve');
   if(course==='Eiken5'&&n===3&&old)assert.equal(meaning(q,course),change?.meaning??old.meaning);
   assert.equal(JSON.stringify(q),before);checked++;
@@ -56,7 +60,11 @@ for(const[course,levels]of Object.entries(QUESTIONS))for(const[level,questions]o
 assert.equal(checked,7650);assert.equal(changed,17);
 // Historical questions can still be reached through saved reviews.
 const originalPrompts=JSON.parse(priorFile('src/data/translationBattlePrompts.json'));
-for(const e of originalPrompts)if(!(e.course==='Eiken5'&&e.level===3&&expected.has(e.text)))assert.deepEqual(plain(prompt(e,e.course,e.level)),plain(previous.getTranslationBattlePrompt(e,e.course,e.level)));
+for(const e of originalPrompts)if(!(e.course==='Eiken5'&&e.level===3&&expected.has(e.text))){
+  const additional=getLevel3DisplayReview(e.course,e.level,e)?.prompt;
+  const old=plain(previous.getTranslationBattlePrompt(e,e.course,e.level));
+  assert.deepEqual(plain(prompt(e,e.course,e.level)),additional?{...old,...additional}:old);
+}
 const oldCards=plain(priorModule('src/data/grade5GrammarGuide.ts').grade5GrammarCards);
 const newCards=plain(load('src/data/grade5GrammarGuide.ts').grade5GrammarCards);
 assert.equal(oldCards.length,34);assert.deepEqual(newCards.map(c=>c.id),oldCards.map(c=>c.id));

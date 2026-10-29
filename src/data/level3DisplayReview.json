@@ -1,0 +1,225 @@
+[
+  {
+    "course": "Eiken4",
+    "text": "There is nobody in the room.",
+    "prompt": {
+      "formNote": "nobody を使い、短縮しない形で表します。"
+    },
+    "translation": "部屋には誰もいません。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "There was no one at the bus stop.",
+    "prompt": {
+      "formNote": "no one を使い、短縮しない形で表します。"
+    },
+    "translation": "バス停にはだれもいませんでした。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Everyone in my class likes music.",
+    "prompt": {
+      "formNote": "everyone を主語にします。動詞には s を付けます。"
+    },
+    "translation": "私のクラスのみんなは音楽が好きです。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Do you know anyone in London?",
+    "prompt": {
+      "formNote": "anyone を使って尋ねます。"
+    },
+    "translation": "あなたはロンドンに知り合いがいますか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Nobody in my family likes coffee.",
+    "prompt": {
+      "formNote": "nobody を主語にします。否定の not は重ねません。"
+    },
+    "translation": "私の家族にはコーヒーが好きな人はいません。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Does anyone know the answer?",
+    "prompt": {
+      "formNote": "anyone を使います。does を使うので、動詞はもとの形にします。"
+    },
+    "translation": "だれか答えを知っていますか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Can I have some more water?",
+    "prompt": {
+      "meaning": "水をもう少しいただけますか。",
+      "formNote": "Can I have ...? を使って、飲み物をお願いします。"
+    },
+    "translation": "水をもう少しいただけますか。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "May I use your dictionary?",
+    "prompt": {
+      "formNote": "May I ...? を使って、丁寧に許可を求めます。"
+    },
+    "translation": "あなたの辞書を使ってもよいですか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Could I borrow your umbrella today?",
+    "prompt": {
+      "formNote": "Could I ...? を使って、丁寧に許可を求めます。"
+    },
+    "translation": "今日あなたの傘を借りてもよいですか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "May I ask you a question?",
+    "prompt": {
+      "formNote": "May I ...? を使って、丁寧に許可を求めます。"
+    },
+    "translation": "あなたに質問してもよいですか。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Could you show me your textbook?",
+    "prompt": {
+      "formNote": "Could you ...? を使って、丁寧に頼みます。"
+    },
+    "translation": "私にあなたの教科書を見せてくれますか。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Could you open the door?",
+    "prompt": {
+      "formNote": "Could you ...? を使って、丁寧に頼みます。"
+    },
+    "translation": "ドアを開けてくれますか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Can you lend me some money?",
+    "prompt": {
+      "formNote": "Can you ...? を使って、頼みます。"
+    },
+    "translation": "私に少しお金を貸してくれますか？",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Let's go and see a movie.",
+    "prompt": {
+      "alternatives": [
+        {
+          "text": "Shall we ...?",
+          "note": "一緒に〜しましょうか"
+        },
+        {
+          "text": "watch a movie",
+          "note": "映画を見る"
+        }
+      ]
+    },
+    "translation": "映画を見に行きましょう（Let'sを使う）。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Let's have lunch.",
+    "prompt": {
+      "alternatives": [
+        {
+          "text": "Shall we ...?",
+          "note": "一緒に〜しましょうか"
+        },
+        {
+          "text": "eat lunch",
+          "note": "昼食を食べる"
+        }
+      ]
+    },
+    "translation": "昼食にしましょう（Let'sを使う）。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "Shall we go out for dinner tomorrow?",
+    "prompt": {
+      "alternatives": [
+        {
+          "text": "Let's ...",
+          "note": "一緒に〜しよう"
+        }
+      ]
+    },
+    "translation": "明日、夕食を食べに行きませんか。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "What happened to you?",
+    "grammar": {
+      "label": "主語を尋ねる疑問文",
+      "note": "what が「何が」に当たり、主語になります。did を足さず、happened を続けます。",
+      "pattern": "What + happened + to + 人?"
+    },
+    "translation": "あなた、どうしたのですか。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "What's wrong?",
+    "grammar": {
+      "label": "調子を尋ねる表現",
+      "note": "「どうしたの？」「何か問題があるの？」と尋ねます。What's は What is の短い形です。",
+      "pattern": "What is wrong? → What's wrong?"
+    },
+    "translation": "どうしましたか（What'sを使う）。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "I'd like to see a movie.",
+    "grammar": {
+      "label": "丁寧な希望",
+      "note": "would like to＋動詞で「〜したい」と丁寧に希望を伝えます。I'd は I would の短い形です。",
+      "pattern": "I would like to + 動詞の原形"
+    },
+    "translation": "映画を見たいです（I'd likeを使う）。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "I want something cold to drink.",
+    "grammar": {
+      "label": "不定詞：ものの説明",
+      "note": "to drink が something cold を説明し、「何か冷たい飲み物」を表します。",
+      "pattern": "something + 形容詞 + to + 動詞の原形"
+    },
+    "translation": "私は何か冷たい飲み物が欲しいです。",
+    "exampleEn": ""
+  },
+  {
+    "course": "Eiken4",
+    "text": "I need something warm to drink.",
+    "grammar": {
+      "label": "不定詞：ものの説明",
+      "note": "to drink が something warm を説明し、「何か温かい飲み物」を表します。",
+      "pattern": "something + 形容詞 + to + 動詞の原形"
+    },
+    "translation": "私は温かい飲み物が欲しいです。",
+    "exampleEn": ""
+  }
+]
