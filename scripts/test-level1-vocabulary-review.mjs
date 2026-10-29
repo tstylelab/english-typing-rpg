@@ -20,6 +20,12 @@ assert.equal(entries.filter(e => e.expressions).length, 445);
 assert.equal(entries.filter(e => e.usageNote).length, 14);
 assert.equal(new Set(entries.map(e => JSON.stringify([e.course, e.text, e.translation, e.exampleEn]))).size, entries.length);
 const rendered = [];
+const followup = {
+  jewelry: { meaning: '宝飾品（指輪・ネックレスなど）', note: null, previousMeaning: '身につける装身具' },
+  tip: { meaning: '助言・こつ／先端／チップ（謝礼）', note: null, previousMeaning: '助言・こつ／先端／チップ（心付け）' },
+  monitor: { meaning: '監視する・経過を観察する／モニター・画面', note: null, previousMeaning: '監視する／モニター・画面' },
+};
+let followupChecked = 0;
 for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, questions] of Object.entries(levels)) {
   for (const [index, question] of questions.entries()) {
     const before = JSON.stringify(question), clone = JSON.parse(before), n = Number(level);
@@ -32,14 +38,23 @@ for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, que
     const current = display(question);
     assert.deepEqual(display(clone), current, 'Imported legacy copies resolve the same display');
     assert.equal(JSON.stringify(question), before, 'Display lookup does not mutate the saved question');
-    rendered.push(current);
+    // Check the three approved follow-up changes explicitly, then restore only
+    // those fields for comparison with the independently frozen full snapshot.
+    const change = course === 'Eiken2' && n === 1 ? followup[question.text] : undefined;
+    if (change) {
+      assert.equal(current.meaning, change.meaning);
+      assert.equal(current.note, change.note);
+      followupChecked++;
+      rendered.push({ ...current, meaning: change.previousMeaning, note: null });
+    } else rendered.push(current);
   }
 }
 assert.equal(rendered.length, 7650);
+assert.equal(followupChecked, 3);
 // Calculated before implementation from the frozen released display plus the
 // user-approved 498 proposals, including all unchanged questions and levels.
 assert.equal(hash(rendered), '87927cbda28a641331602ed51a3e5cf7fad14c18d0071309c0c471e60e019b87',
-  'Exactly the approved meanings, examples, related labels, prompts and notes');
+  'Exactly the approved display outside the three explicitly checked follow-up fields');
 for (const e of entries) {
   const matches = QUESTIONS[e.course][1].filter(q => q.text === e.text && q.translation === e.translation && (q.exampleEn ?? '') === e.exampleEn);
   assert.equal(matches.length, 1, 'Unique original course and sense');
@@ -48,4 +63,4 @@ for (const e of entries) {
   assert.equal(getLevel1VocabularyReview(e.course, 1, { ...e, translation: e.translation + ' edited' }), undefined);
   assert.equal(getLevel1VocabularyReview(e.course, 1, { ...e, exampleEn: e.exampleEn + ' edited' }), undefined);
 }
-console.log('PASS: all 7,650 original/imported questions match the independently frozen approved display; 498 approved questions, 445 related-label changes, 14 notes; original identities and all other levels retained.');
+console.log('PASS: all 7,650 original/imported questions retain their identities; jewelry/tip/monitor follow-up checked explicitly; all remaining display fields match the independently frozen approved snapshot.');

@@ -189,8 +189,8 @@ const originalMeaning = newMeaning
   .replace("  (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)\n  ?? getReviewedTranslationMeaning(question, difficulty)","  getReviewedTranslationMeaning(question, difficulty)");
 assert.equal(originalMeaning,oldMeaning,'Only the scoped Grade 2 display lookup may be added');
 const vocabularyCorrections = JSON.parse(readFileSync(path.join(root,'src/data/grade2VocabularyMeaningCorrections.json'),'utf8'));
-assert.equal(vocabularyCorrections.length,102);
-assert.equal(new Set(vocabularyCorrections.map(q=>JSON.stringify([q.text,q.translation,q.exampleEn]))).size,102);
+assert.equal(vocabularyCorrections.length,103);
+assert.equal(new Set(vocabularyCorrections.map(q=>JSON.stringify([q.text,q.translation,q.exampleEn]))).size,103);
 for(const entry of vocabularyCorrections) {
   assert.equal(entry.course,'Eiken2'); assert.equal(entry.level,1);
   assert.ok(entry.translation && entry.exampleEn && entry.meaning.length<=26);

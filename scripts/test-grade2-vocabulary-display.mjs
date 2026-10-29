@@ -16,6 +16,7 @@ const meanings = {
   examine: '詳しく調べる・検査する／診察する', procedure: '決まった手順・手続き',
   panel: '討論・審査などを行う一団／板・操作盤', privacy: '私生活の秘密・干渉されない権利',
   rely: '頼る・当てにする', behave: '振る舞う／行儀よくする', obtain: '得る・手に入れる', criminal: '犯罪者／犯罪の',
+  jewelry: '宝飾品（指輪・ネックレスなど）', tip: '助言・こつ／先端／チップ（謝礼）', monitor: '監視する・経過を観察する／モニター・画面',
 };
 const rows = [];
 for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, questions] of Object.entries(levels)) {
@@ -32,7 +33,7 @@ assert.equal(hash(rows.filter(row => !target(row))), '9038f98ca1a50a06e15a274469
 const grade2 = rows.filter(target);
 assert.equal(grade2.length, 549);
 assert.equal(hash(grade2.filter(row => !Object.hasOwn(meanings, row.question.text)).map(row => [row.question, row.meaning])),
-  '80fc5e8d3151d33ca12f244113ef08ba2e85d67d0725d9fbb9f8b91421f70c9d', 'Only the eight approved Japanese glosses change');
+  '1abb3ff3f2e65baeedb4f5e901e42f1d08c2561f8755fb6136cbdf2bc490a0a6', 'Only the eleven approved Japanese glosses change; expected hash captured before the three-word follow-up');
 const hints = grade2.filter(row => row.prompt?.alternatives.length);
 assert.equal(hints.length, 89, 'Do not add before-answer hints to every word');
 assert.equal(hash(hints.map(row => row.question.text).sort()), '2ae4e7c83b27f52ae1a5e992566dd194e399630131a6f62491e4ff176391c67c');
@@ -65,6 +66,7 @@ for (const review of reviews) {
 }
 const word = text => grade2.find(row => row.question.text === text);
 for (const [text, meaning] of Object.entries(meanings)) assert.equal(word(text).meaning, meaning);
+assert.equal(word('link').meaning, 'つながり・リンク', 'The pending link change is excluded from this release');
 assert.deepEqual(json(word('correctly').synonyms), ['accurately']);
 assert.deepEqual(json(word('interfere').synonyms), ['get in the way']);
 assert.ok(getQuestionSynonymLabels('Eiken2', 1, word('process').question)[0].includes('決まった手順の意味'));
@@ -100,4 +102,4 @@ function visit(node) {
 }
 visit(ast);
 assert.equal(checked.size, 4);
-console.log('PASS: 7,650 legacy questions; 549 Grade 2 words; 8 scoped gloss changes; 42 prior scoped reviews; all 89 before/after hints match; grading, learning and other courses unchanged.');
+console.log('PASS: 7,650 legacy questions; 549 Grade 2 words; 11 scoped gloss changes; 42 prior scoped reviews; all 89 before/after hints match; grading, learning and other courses unchanged.');
