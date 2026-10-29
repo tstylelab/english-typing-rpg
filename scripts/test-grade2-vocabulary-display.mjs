@@ -28,7 +28,16 @@ const target = row => row.course === 'Eiken2' && row.level === 1;
 assert.equal(rows.length, 7650);
 assert.equal(hash(QUESTIONS), '8af479f03894bf6c225aabdc2e38bc56fadaa5d0259402a83fdf6f0f11482ca1',
   'All question text, legacy translations, examples, fields and ordering stay unchanged');
-assert.equal(hash(rows.filter(row => !target(row))), '9038f98ca1a50a06e15a274469848984f48c00b1adfc378cf69629f23345583a',
+// Six separately tested Level 2 reviews preserve the frozen display elsewhere.
+const priorPhraseSynonyms = {
+  'in person': ['face to face'], 'on schedule': ['on time'], 'in detail': ['thoroughly'],
+  'pass away': ['die'], 'manage to': [], 'be capable of': ['be able to'],
+};
+const originalOtherRows = rows.filter(row => !target(row)).map(row => (
+  row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text)
+    ? { ...row, synonyms: priorPhraseSynonyms[row.question.text] } : row
+));
+assert.equal(hash(originalOtherRows), '9038f98ca1a50a06e15a274469848984f48c00b1adfc378cf69629f23345583a',
   'Other courses/levels match the approved Grade 4–1 review snapshot');
 const grade2 = rows.filter(target);
 assert.equal(grade2.length, 549);
@@ -77,7 +86,9 @@ for (const [text, note] of [['determine', '事実を突き止める意味'], ['c
 }
 assert.ok(word('determine').meaning.includes('決定する'), 'Retain useful major meanings');
 // User-approved Level 1 sense notes are scoped; plain labels remain elsewhere.
-for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1) && !getLevel1VocabularyReview(row.course, row.level, row.question)?.expressions)) {
+for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' && row.level === 1)
+  && !(row.course === 'Eiken2' && row.level === 2 && Object.hasOwn(priorPhraseSynonyms, row.question.text))
+  && !getLevel1VocabularyReview(row.course, row.level, row.question)?.expressions)) {
   assert.deepEqual(json(getQuestionSynonymLabels(row.course, row.level, row.question)), json(row.synonyms));
 }
 

@@ -20,6 +20,12 @@ assert.equal(entries.filter(e => e.expressions).length, 445);
 assert.equal(entries.filter(e => e.usageNote).length, 14);
 assert.equal(new Set(entries.map(e => JSON.stringify([e.course, e.text, e.translation, e.exampleEn]))).size, entries.length);
 const rendered = [];
+// The approved phrase review changes only these raw/label pairs, verified by
+// test-grade2-phrase-synonyms. Retain the original frozen snapshot for all else.
+const priorPhraseSynonyms = {
+  'in person': ['face to face'], 'on schedule': ['on time'], 'in detail': ['thoroughly'],
+  'pass away': ['die'], 'manage to': [], 'be capable of': ['be able to'],
+};
 const followup = {
   jewelry: { meaning: '宝飾品（指輪・ネックレスなど）', note: null, previousMeaning: '身につける装身具' },
   tip: { meaning: '助言・こつ／先端／チップ（謝礼）', note: null, previousMeaning: '助言・こつ／先端／チップ（心付け）' },
@@ -46,6 +52,8 @@ for (const [course, levels] of Object.entries(QUESTIONS)) for (const [level, que
       assert.equal(current.note, change.note);
       followupChecked++;
       rendered.push({ ...current, meaning: change.previousMeaning, note: null });
+    } else if (course === 'Eiken2' && n === 2 && Object.hasOwn(priorPhraseSynonyms, question.text)) {
+      rendered.push({ ...current, synonyms: priorPhraseSynonyms[question.text], labels: priorPhraseSynonyms[question.text] });
     } else rendered.push(current);
   }
 }
