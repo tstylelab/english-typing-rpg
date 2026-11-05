@@ -2,7 +2,7 @@ import { getLearningAnswerLabel } from './learningContent';
 
 export type QuestionAiContext = {
   course: string;
-  level: 1 | 2 | 3;
+  level: 1 | 2 | 3 | 4 | 5;
   isConversation?: boolean;
   text: string;
   meaning: string;

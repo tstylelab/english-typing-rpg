@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import ts from 'typescript';
-import { load } from './lib/load-typescript-data.mjs';
+import { load } from './lib/load-legacy-curriculum-audit.mjs';
 
 const baseline = '657ff1942a4c96ec62f1ad6a38a1e27dd6ea69f4';
 const plain = value => JSON.parse(JSON.stringify(value));

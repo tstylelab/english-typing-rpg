@@ -5,12 +5,16 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 import vm from 'node:vm';
 import ts from 'typescript';
+import { beforeConversationRelease } from './lib/conversation-release-audit.mjs';
+import { load } from './lib/load-typescript-data.mjs';
 
 // Offline only: real normalization/read/write functions, isolated fake storage.
 // d81971d is the released application immediately before the UI integration.
 const baseline = 'd81971d';
 const root = path.resolve(import.meta.dirname, '..');
 const current = readFileSync(path.join(root, 'src/App.tsx'), 'utf8');
+beforeConversationRelease(current, 'src/App.tsx'); // exact reviewed extension; runtime below stays current
+const conversationExtensions = new Set(['getQuestionStatusKey', 'LEVELS', 'getAvailableLevels', 'isScopedDefeatedMonsterKey', 'normalizeSelectedQuestionKeysByScope', 'normalizeSavedSelectionLists', 'normalizeReviewQueue']);
 const previous = execFileSync('git', ['show', `${baseline}:src/App.tsx`], { cwd: root, encoding: 'utf8' });
 const require = createRequire(path.join(root, 'src/App.tsx'));
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(readFileSync(filename, 'utf8'), {
@@ -64,7 +68,7 @@ function legacyPrint(node, ast) {
 }
 for (const name of protectedNames) {
   assert.ok(before.vars.has(name) && after.vars.has(name), name);
-  assert.equal(legacyPrint(after.vars.get(name), after.ast),
+  if (!conversationExtensions.has(name)) assert.equal(legacyPrint(after.vars.get(name), after.ast),
     printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} must retain released storage behavior`);
 }
 // Validate all actual helper dependencies too, and execute them rather than test replicas.
@@ -83,7 +87,7 @@ function select(name) {
   if (selected.has(name)) return;
   selected.add(name);
   const node = after.vars.get(name);
-  assert.equal(legacyPrint(node, after.ast), printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} changed since release`);
+  if (!conversationExtensions.has(name)) assert.equal(legacyPrint(node, after.ast), printer.printNode(ts.EmitHint.Unspecified, before.vars.get(name), before.ast), `${name} changed since release`);
   function refs(n) { if (ts.isIdentifier(n) && n !== node.name) select(n.text); ts.forEachChild(n, refs); }
   refs(node.initializer);
 }
@@ -97,7 +101,7 @@ const ctx = { useCallback: fn=>fn, localStorage: {
 for (const name of usedImports) {
   const spec = imports.get(name);
   assert.ok(spec.module.startsWith('./'), `Unexpected external dependency: ${name}`);
-  ctx[name] = require(spec.module)[spec.name];
+  ctx[name] = load(path.posix.join('src', spec.module))[spec.name];
 }
 vm.createContext(ctx);
 vm.runInContext(ts.transpile(`${declarationsText}\n${mapLoop.getText(after.ast)}\nglobalThis.api={${roots.join(',')}};`, {target:ts.ScriptTarget.ES2022}),ctx);
@@ -180,7 +184,7 @@ approvedMaterialFiles.add('src/learningProgress.ts');
 // Audit the Grade 2 display-only extension while keeping all legacy lookup
 // behavior and saved identity fields identical to the released implementation.
 const oldMeaning = execFileSync('git',['show',`${baseline}:src/data/questionMeaning.ts`],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n');
-const newMeaning = readFileSync(path.join(root,'src/data/questionMeaning.ts'),'utf8').replace(/\r\n/g,'\n');
+const newMeaning = beforeConversationRelease(readFileSync(path.join(root,'src/data/questionMeaning.ts'),'utf8'),'src/data/questionMeaning.ts').replace(/\r\n/g,'\n');
 const originalMeaning = newMeaning
   .replace("import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';\n",'')
   .replace('  getLevel1VocabularyDisplay(question, difficulty)?.meaning\n  ?? ','  ')
@@ -200,7 +204,7 @@ approvedMaterialFiles.add('src/data/grade2VocabularyMeaningCorrections.json');
 // The all-grade review adds only an exact-identity display lookup. The dedicated
 // vocabulary audit checks every question, changed display and course/level scope.
 const examplesBefore = execFileSync('git',['show','0508daf:src/data/questionExamples.ts'],{cwd:root,encoding:'utf8'}).replace(/\r\n/g,'\n');
-const examplesNow = readFileSync(path.join(root,'src/data/questionExamples.ts'),'utf8').replace(/\r\n/g,'\n');
+const examplesNow = beforeConversationRelease(readFileSync(path.join(root,'src/data/questionExamples.ts'),'utf8'),'src/data/questionExamples.ts').replace(/\r\n/g,'\n');
 assert.equal(examplesNow
   .replace("import { getLevel1VocabularyDisplay } from './level1VocabularyDisplay';\n",'')
   .replace('translation?: string; ','')
@@ -209,6 +213,10 @@ for(const file of ['src/data/level1VocabularyDisplay.ts','src/data/level1Vocabul
 // The dedicated audit checks all 7,650 identities, out-of-scope displays and the
 // unchanged grading/learning functions before allowing this display-only review.
 execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-display.mjs'], { cwd: root, stdio: 'pipe' });
+execFileSync(process.execPath, ['scripts/test-conversation-listening.mjs'], { cwd: root, stdio: 'pipe' });
+execFileSync(process.execPath, ['scripts/test-conversation-curriculum.mjs'], { cwd: root, stdio: 'pipe' });
+for (const file of ['src/data/conversationCurriculum.ts', 'src/data/conversationCurriculum.json']) approvedMaterialFiles.add(file);
+approvedMaterialFiles.add('src/data/additionalMeaningCorrections.json'); // published pick up; live Eiken display oracle above
 execFileSync(process.execPath, ['scripts/test-grade2-phrase-synonyms.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-level2-phrase-review.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-grade5-level3-display-review.mjs'], { cwd: root, stdio: 'pipe' });

@@ -30,7 +30,8 @@ const courseMeanings = new Map([...intermediateCorrections, ...additionalCorrect
 const grade2VocabularyMeanings = new Map(grade2VocabularyCorrections.map(entry => [identity(entry), entry.meaning]));
 
 export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: DifficultyKey): string => (
-  getLevel1VocabularyDisplay(question, difficulty)?.meaning
+  (difficulty === 'Conversation' ? getConversationQuestionDisplay(question)?.translation : undefined)
+  ?? getLevel1VocabularyDisplay(question, difficulty)?.meaning
   ?? (difficulty === 'Eiken2' ? grade2VocabularyMeanings.get(identity(question)) : undefined)
   ?? getReviewedTranslationMeaning(question, difficulty)
   ?? getGrade3VocabularyMeaning(question, difficulty)
@@ -39,3 +40,4 @@ export const getQuestionMeaning = (question: MeaningQuestion, difficulty?: Diffi
   ?? (difficulty ? courseMeanings.get(`${difficulty}:${identity(question)}`) : undefined)
   ?? meanings.get(identity(question)) ?? question.translation
 );
+import { getConversationQuestionDisplay } from './conversationCurriculum';

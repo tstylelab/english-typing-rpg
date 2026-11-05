@@ -9,7 +9,7 @@ export function battleResumeScope(course: string, level: number, mode: string, i
 export function normalizeBattleResumePositions(value: unknown): BattleResumePositions {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
   return Object.fromEntries(Object.entries(value).filter(([key, id]) =>
-    /^(Eiken5|Eiken4|Eiken3|EikenPre2|Eiken2|EikenPre1Part1|EikenPre1Part2|Eiken1Part1|Eiken1Part2|Conversation):[123]:(guide:voice-text|challenge:(voice-text|voice-only|text-only))$/.test(key)
+    /^(?:(?:Eiken5|Eiken4|Eiken3|EikenPre2|Eiken2|EikenPre1Part1|EikenPre1Part2|Eiken1Part1|Eiken1Part2):[123]|Conversation:[1-5]):(guide:voice-text|challenge:(voice-text|voice-only|text-only))$/.test(key)
     && typeof id === 'string' && /^[a-zA-Z0-9_-]{1,80}$/.test(id)
   ));
 }

@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
+import {beforeConversationListeningFix} from './lib/conversation-listening-compatibility.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import ts from 'typescript';
-import {load} from './lib/load-typescript-data.mjs';
+import {load} from './lib/load-legacy-curriculum-audit.mjs';
 
 const baseline='ab633b069d215f964d331751e77e02031c97c5e2';
 const plain=value=>JSON.parse(JSON.stringify(value));
@@ -72,5 +73,5 @@ for(let i=0;i<oldCards.length;i++){
   const old=oldCards[i],current=newCards[i];
   assert.deepEqual(current,old.id==='wh-does'?{...old,more:old.more.replace('How does your brother go to school?も、主語が一人なのでdoesを使います。','How does your brother go to school? の your brother は、he と同じように does を使います。')}:old);
 }
-for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/translationBattlePrompts.json','src/data/grade5GrammarAssignments.ts','src/data/questionSets/eiken/grade5.json','src/data/questionSets/eiken/grade5Foundations.json','src/monsterProfiles.json'])assert.equal(normalize(fs.readFileSync(file,'utf8')),normalize(priorFile(file)),file+' unchanged');
+for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/translationBattlePrompts.json','src/data/grade5GrammarAssignments.ts','src/data/questionSets/eiken/grade5.json','src/data/questionSets/eiken/grade5Foundations.json','src/monsterProfiles.json'])assert.equal(normalize(beforeConversationListeningFix(fs.readFileSync(file,'utf8'),file)),normalize(priorFile(file)),file+' unchanged apart from audited conversation listening fix');
 console.log('PASS: exactly 17 Grade 5 Level 3 display reviews and one guide sentence; all 7,650 identities, other prompts, archived questions, 34 guide IDs, grading and progress retained.');

@@ -1,12 +1,13 @@
 
 import assert from 'node:assert/strict';
+import {beforeConversationListeningFix} from './lib/conversation-listening-compatibility.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import ts from 'typescript';
-import {load} from './lib/load-typescript-data.mjs';
+import {load} from './lib/load-legacy-curriculum-audit.mjs';
 
 const baseline='5f1af4e7830924ef44d9ff2ae09f1a0c309537d8';
 const approved=[
@@ -727,7 +728,7 @@ const {QUESTIONS}=load('src/data/questions.ts');
 const current=load('src/data/questionSynonyms.ts');
 const {getVocabularyUsageNote}=load('src/data/vocabularyUsageNotes.ts');
 const {getLevel2PhraseReview}=load('src/data/level2PhraseReview.ts');
-const entries=JSON.parse(fs.readFileSync('src/data/level2PhraseReview.json','utf8'));
+const entries=JSON.parse(beforeConversationListeningFix(fs.readFileSync('src/data/level2PhraseReview.json','utf8'),'src/data/level2PhraseReview.json'));
 const oldModule=file=>{
  const source=execFileSync('git',['show',baseline+':'+file],{encoding:'utf8',maxBuffer:8_000_000});
  const module={exports:{}};
@@ -778,6 +779,6 @@ for(const e of entries){
 }
 for(const file of ['src/data/translationBattlePrompts.json','src/data/questionMeaning.ts','src/App.tsx','src/learningProgress.ts']){
  const before=execFileSync('git',['show',baseline+':'+file],{encoding:'utf8',maxBuffer:8_000_000}).replace(/\r\n/g,'\n');
- assert.equal(fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n'),before,'No changes to prompts, meaning lookup, UI, grading or progress');
+ assert.equal(beforeConversationListeningFix(fs.readFileSync(file,'utf8'),file).replace(/\r\n/g,'\n'),before,'Only the independently tested conversation listening fix may change the UI; prompts, meaning lookup, grading and progress retained');
 }
 console.log('PASS: exactly 49 approved Level 2 reviews; 7,650 original/imported questions; all other displays, before-answer hints, UI, grading and progress retained.');

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
-import { load } from './lib/load-typescript-data.mjs';
+import { load } from './lib/load-legacy-curriculum-audit.mjs';
 
 const { QUESTIONS } = load('src/data/questions.ts');
 const { getGrade2VocabularyUsageNote: note } = load('src/data/grade2VocabularyUsageNotes.ts');

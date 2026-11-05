@@ -10,6 +10,7 @@ import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Swords, Users, Shuffle, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
 import { QUESTIONS } from './data/questions';
+import { CONVERSATION_LEVEL_INFO, getConversationProgressKey, getConversationQuestionLevel, hydrateConversationQuestion, normalizeConversationScopedKeys } from './data/conversationCurriculum';
 import { alignTypingCase } from './typingInput';
 import { phraseCoreChanges, migratePhraseCoreKey, migrateScopedPhraseCore, getUnscopedPhraseCores } from './data/phraseCoreMigration';
 import { spaceLongTextQuestions } from './learningQuestionBalance';
@@ -59,7 +60,9 @@ import { acknowledgeBackupReminder } from './dailyBackupReminder';
 // --- Types & Interfaces ---
 
 type Difficulty = 'Eiken5' | 'Eiken4' | 'Eiken3' | 'EikenPre2' | 'Eiken2' | 'EikenPre1Part1' | 'EikenPre1Part2' | 'Eiken1Part1' | 'Eiken1Part2' | 'Conversation';
-type Level = 1 | 2 | 3;
+type CoreLevel = 1 | 2 | 3;
+type Level = CoreLevel | 4 | 5;
+const coreLevel = (level: Level): CoreLevel => level > 3 ? 3 : level as CoreLevel;
 type Mode = 'guide' | 'challenge' | 'weakness'; 
 type InputMode = 'voice-text' | 'text-only' | 'voice-only';
 type BattleKeyboardGuideMode = 'off' | 'highlight' | 'table';
@@ -155,6 +158,7 @@ interface Question {
   promptEn?: string;
   promptJa?: string;
   speakingTip?: string;
+  sceneJa?: string;
 }
 
 interface BattleLogItem {
@@ -367,7 +371,7 @@ interface RankData { threshold: number; title: string; color: string; }
 const GUIDE_TARGET_COUNT = 20;
 const LISTENING_TRAINING_TARGET_COUNT = 20;
 const VERSUS_BASE_QUESTION_COUNT = 20;
-const VERSUS_QUESTION_COUNTS: Record<Level, number> = { 1: 20, 2: 12, 3: 7 };
+const VERSUS_QUESTION_COUNTS: Record<Level, number> = { 1: 20, 2: 12, 3: 7, 4: 7, 5: 7 };
 const VERSUS_RANKING_LIMIT = 10;
 const DEFAULT_VERSUS_COURSE_SELECTION: VersusCourseSelection = { difficulty: 'Eiken5', level: 1 };
 const VERSUS_SCORE_MULTIPLIER_OPTIONS = Array.from({ length: 15 }, (_, index) => {
@@ -546,9 +550,9 @@ const getBossStage = (
 // Keep the previous limits as the HP-scaling baseline, not as active Level 2 limits.
 const getLegacyBattleQuestionLimit = (difficulty: Difficulty, level: Level, mode: Mode, bossStage: BossStage) => {
   if (mode === 'weakness') return DEFAULT_BATTLE_QUESTION_LIMIT;
-  if (difficulty === 'Eiken3') return getGrade3QuestionLimit(level, bossStage);
-  if (difficulty === 'EikenPre2') return getPre2QuestionLimit(level, bossStage);
-  if (difficulty === 'Eiken2') return getGrade2QuestionLimit(level, bossStage);
+  if (difficulty === 'Eiken3') return getGrade3QuestionLimit(coreLevel(level), bossStage);
+  if (difficulty === 'EikenPre2') return getPre2QuestionLimit(coreLevel(level), bossStage);
+  if (difficulty === 'Eiken2') return getGrade2QuestionLimit(coreLevel(level), bossStage);
   if (difficulty === 'Eiken5' && level === 2) {
     if (bossStage === 1) return 12;
     if (bossStage === 2) return 16;
@@ -587,9 +591,9 @@ const getBattleHp = (
   bossStage: BossStage
 ) => {
   const difficultyHpMultiplier = DIFFICULTY_HP_MULTIPLIERS[difficulty] ?? 1;
-  if (difficulty === 'Eiken3') return Math.round(baseHp * getGrade3BossHpMultiplier(level, bossStage));
-  if (difficulty === 'EikenPre2') return Math.round(baseHp * getPre2BossHpMultiplier(level, bossStage));
-  if (difficulty === 'Eiken2') return Math.round(baseHp * getGrade2BossHpMultiplier(level, bossStage));
+  if (difficulty === 'Eiken3') return Math.round(baseHp * getGrade3BossHpMultiplier(coreLevel(level), bossStage));
+  if (difficulty === 'EikenPre2') return Math.round(baseHp * getPre2BossHpMultiplier(coreLevel(level), bossStage));
+  if (difficulty === 'Eiken2') return Math.round(baseHp * getGrade2BossHpMultiplier(coreLevel(level), bossStage));
   const isEiken5Level2 = difficulty === 'Eiken5' && level === 2;
   const isEiken5Level3 = difficulty === 'Eiken5' && level === 3;
   const bossHpMultiplier = bossStage === 1
@@ -613,7 +617,7 @@ const PRE1_LONG_TEXT_BATTLE_HP_CURVES: Record<2 | 3, number[]> = {
   3: [1800, 1930, 2070, 2200, 2330, 2470, 2600, 2730, 2870, 3000, 3130, 3270, 3400, 3530, 3670, 3800, 3930, 4070, 4200],
 };
 
-const EIKEN4_BATTLE_HP_CURVES: Record<Level, number[]> = {
+const EIKEN4_BATTLE_HP_CURVES: Record<CoreLevel, number[]> = {
   1: [350, 420, 490, 560, 630, 690, 750, 810, 870, 930, 990, 1050, 1100, 1150, 1200, 1250, 1290, 1320, 1340],
   2: [1000, 1070, 1140, 1220, 1290, 1360, 1430, 1510, 1580, 1650, 1720, 1790, 1870, 1940, 2010, 2080, 2160, 2230, 2300],
   3: [1600, 1720, 1840, 1970, 2090, 2210, 2330, 2460, 2580, 2700, 2820, 2940, 3070, 3190, 3310, 3430, 3560, 3680, 3800],
@@ -643,19 +647,19 @@ const getCourseBaseHp = (
     return INTERMEDIATE_LEVEL1_BATTLE_HP_CURVES[difficulty][stepIndex] ?? defaultBaseHp;
   }
   if (difficulty === 'Eiken4' && isEndlessChallengeInputMode(mode, inputMode)) {
-    return EIKEN4_BATTLE_HP_CURVES[level][stepIndex] ?? defaultBaseHp;
+    return EIKEN4_BATTLE_HP_CURVES[coreLevel(level)][stepIndex] ?? defaultBaseHp;
   }
   if ((difficulty === 'EikenPre1Part1' || difficulty === 'EikenPre1Part2' || difficulty === 'Eiken1Part1' || difficulty === 'Eiken1Part2') && isEndlessChallengeInputMode(mode, inputMode)) {
     const hp = (level === 1
       ? (difficulty === 'Eiken1Part1' || difficulty === 'Eiken1Part2' ? GRADE1_LEVEL1_BATTLE_HP_CURVE : PRE1_LEVEL1_BATTLE_HP_CURVE)
-      : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level])[stepIndex];
+      : PRE1_LONG_TEXT_BATTLE_HP_CURVES[level === 2 ? 2 : 3])[stepIndex];
     // Undo the shared difficulty multiplier here so gameplay and previews agree.
     // Final/hidden bosses (indices 19+) retain their existing base HP.
     if (hp !== undefined) return hp / DIFFICULTY_HP_MULTIPLIERS[difficulty];
   }
-  if (difficulty === 'Eiken3') return getGrade3BaseHp(level, mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
-  if (difficulty === 'EikenPre2') return getPre2BaseHp(level, mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
-  if (difficulty === 'Eiken2') return getGrade2BaseHp(level, mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
+  if (difficulty === 'Eiken3') return getGrade3BaseHp(coreLevel(level), mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
+  if (difficulty === 'EikenPre2') return getPre2BaseHp(coreLevel(level), mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
+  if (difficulty === 'Eiken2') return getGrade2BaseHp(coreLevel(level), mode === 'guide' || inputMode === 'voice-text', stepIndex, defaultBaseHp);
   if (difficulty !== 'Eiken5' || (level !== 2 && level !== 3)) return defaultBaseHp;
 
   const curve = level === 2
@@ -856,6 +860,7 @@ const isScopedDefeatedMonsterKey = (value: string) => {
   const isCurrentDifficulty = DIFFICULTIES.includes(difficulty as Difficulty);
   if (!isCurrentDifficulty && difficulty !== LEGACY_PRE1_DIFFICULTY) return false;
   if (!LEVELS.includes(Number(level) as Level)) return false;
+  if (Number(level) > 3 && difficulty !== 'Conversation') return false;
   if (!['guide', 'challenge', 'weakness'].includes(mode)) return false;
   if (!['voice-text', 'text-only', 'voice-only'].includes(inputMode)) return false;
   return monsterId.length > 0;
@@ -1976,7 +1981,7 @@ const GRADE1_DIFFICULTIES: Difficulty[] = ['Eiken1Part1', 'Eiken1Part2'];
 const EIKEN_DIFFICULTIES: Difficulty[] = ['Eiken5', 'Eiken4', 'Eiken3', 'EikenPre2', 'Eiken2', ...PRE1_DIFFICULTIES, ...GRADE1_DIFFICULTIES];
 const DIFFICULTIES: Difficulty[] = [...EIKEN_DIFFICULTIES, 'Conversation'];
 const LEGACY_PRE1_DIFFICULTY = 'EikenPre1';
-const LEVELS: Level[] = [1, 2, 3];
+const LEVELS: Level[] = [1, 2, 3, 4, 5];
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   Eiken5: '英検5級',
   Eiken4: '英検4級',
@@ -2003,8 +2008,7 @@ const DIFFICULTY_SCORE_TAB_ACTIVE_CLASSES: Record<Difficulty, string> = {
 };
 const isEikenDifficulty = (difficulty: Difficulty) => EIKEN_DIFFICULTIES.includes(difficulty);
 const getAvailableLevels = (difficulty: Difficulty): Level[] => {
-  void difficulty;
-  return LEVELS;
+  return LEVELS.filter(level => (QUESTIONS[difficulty]?.[level]?.length ?? 0) > 0);
 };
 const getSafeLevelForDifficulty = (difficulty: Difficulty, level: Level): Level => (
   getAvailableLevels(difficulty).includes(level) ? level : getAvailableLevels(difficulty)[0]
@@ -2717,7 +2721,7 @@ const getStoredCourseSelection = (): StoredCourseSelection => {
     : DIFFICULTIES.includes(savedDifficulty as Difficulty)
       ? savedDifficulty as Difficulty
       : 'Eiken5';
-  const requestedLevel: Level = saved.level === 1 || saved.level === 2 || saved.level === 3
+  const requestedLevel: Level = saved.level === 1 || saved.level === 2 || saved.level === 3 || saved.level === 4 || saved.level === 5
     ? saved.level
     : 1;
   const resumeMode: Extract<Mode, 'guide' | 'challenge'> = saved.resumeMode === 'guide'
@@ -2888,7 +2892,8 @@ const normalizeManualQuestionStatuses = (statuses: Record<string, ManualQuestion
 );
 
 const getQuestionStatusKey = (difficulty: Difficulty, level: Level, question: Question) => (
-  `${difficulty}:${level}:${question.text}:${question.translation}`
+  (difficulty === 'Conversation' ? getConversationProgressKey(question) : undefined)
+  ?? `${difficulty}:${level}:${question.text}:${question.translation}`
 );
 
 const LEGACY_PRE1_QUESTION_KEY_MAP = new Map<string, string>();
@@ -2929,7 +2934,7 @@ const normalizeSelectedQuestionKeysByScope = (value: unknown) => {
     }
   }
 
-  return normalized;
+  return normalizeConversationScopedKeys(normalized);
 };
 
 const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => {
@@ -2939,7 +2944,8 @@ const normalizeSavedSelectionLists = (value: unknown): SavedSelectionList[] => {
       const typedItem = item as Partial<SavedSelectionList> & Record<string, unknown>;
       const difficulty = typedItem.difficulty as string | undefined;
       const level = typedItem.level;
-      if (![1, 2, 3].includes(level as number)) return [];
+      if (![1, 2, 3, 4, 5].includes(level as number)) return [];
+      if (level as number > 3 && difficulty !== 'Conversation') return [];
 
       const id = typeof typedItem.id === 'string' && typedItem.id.length > 0 ? typedItem.id : `${difficulty}:${level}:${Date.now()}`;
       const name = typeof typedItem.name === 'string' && typedItem.name.trim().length > 0 ? typedItem.name.trim() : '保存リスト';
@@ -3075,10 +3081,11 @@ const normalizeReviewQueue = (entries: ReviewQueueEntry[] | unknown) => {
 
       if (!resolvedScope) return null;
 
+      const conversationLevel = resolvedScope.difficulty === 'Conversation' ? getConversationQuestionLevel(entry.question) : undefined;
       return {
         difficulty: resolvedScope.difficulty,
-        level: resolvedScope.level,
-        question: migrateScopedPhraseCore(resolvedScope.difficulty, resolvedScope.level, entry.question),
+        level: conversationLevel ?? resolvedScope.level,
+        question: resolvedScope.difficulty === 'Conversation' ? hydrateConversationQuestion(entry.question) : migrateScopedPhraseCore(resolvedScope.difficulty, resolvedScope.level, entry.question),
         remainingQuestions: Number.isFinite(entry.remainingQuestions) ? Math.max(0, entry.remainingQuestions) : 0,
         missCount: Number.isFinite(entry.missCount) ? Math.max(1, entry.missCount) : 1,
       };
@@ -3542,7 +3549,7 @@ const MonsterAvatar = ({ type, color, emotion = 'normal', size = 150, visualStyl
   );
 };
 
-const BASE_MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
+const BASE_MONSTERS: Record<CoreLevel, { guide: Monster[], challenge: Monster[] }> = {
   1: {
     guide: [
       { id: 'm1_1', name: '朝ねぼうベルクロック', type: 'object', color: '#60A5FA', baseHp: 150, dialogueStart: "リンリン！ あと5分だけ止めておくよ！", dialogueDefeat: "起きる時間をちゃんと鳴らします...", theme: "Timekeeper" },
@@ -3634,7 +3641,7 @@ const BASE_MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> =
 
 type MonsterLane = 'guide' | 'challenge';
 
-const TWENTY_STAGE_HP_CURVES: Record<Level, Record<MonsterLane, number[]>> = {
+const TWENTY_STAGE_HP_CURVES: Record<CoreLevel, Record<MonsterLane, number[]>> = {
   1: {
     guide: [150, 170, 185, 200, 210, 220, 230, 240, 250, 260, 270, 285, 300, 315, 330, 345, 360, 370, 380, 370],
     challenge: [420, 580, 740, 900, 1040, 1200, 1260, 1267, 1273, 1280, 1287, 1293, 1300, 1307, 1313, 1320, 1327, 1333, 1340],
@@ -3652,7 +3659,7 @@ const TWENTY_STAGE_HP_CURVES: Record<Level, Record<MonsterLane, number[]>> = {
 const EXTRA_MONSTER_TYPES: MonsterType[] = ['slime', 'wing', 'object', 'beast', 'ghost', 'robot', 'slime', 'wing', 'object', 'beast'];
 const EXTRA_MONSTER_COLORS = ['#38BDF8', '#A78BFA', '#FBBF24', '#34D399', '#F472B6', '#94A3B8', '#22C55E', '#F97316', '#818CF8', '#F43F5E'];
 
-const EXTRA_MONSTER_NAMES: Record<Level, Record<MonsterLane, string[]>> = {
+const EXTRA_MONSTER_NAMES: Record<CoreLevel, Record<MonsterLane, string[]>> = {
   1: {
     guide: ['朝チャイムスライム', 'プリントつむじバード', 'えんぴつ番人ゴーレム', '給食列ならびオーク', '音読こだまゴースト', '時間割ロボ', 'ノート整理スライム', '小テストフクロウ', 'しおり守りミミック', '集中ほのおビースト'],
     challenge: ['黒インクスライム改', '火花の番犬', '風読みウィング', '仮面の影法師', '鉄壁ガード改', '石文ルーン像', '紅牙の追跡者', '奈落の灯火', '獄炎の照準手', '魔門の門番'],
@@ -3668,7 +3675,7 @@ const EXTRA_MONSTER_NAMES: Record<Level, Record<MonsterLane, string[]>> = {
 };
 
 const makeExtraMonster = (
-  level: Level,
+  level: CoreLevel,
   lane: MonsterLane,
   extraIndex: number,
   baseHp: number
@@ -3684,7 +3691,7 @@ const makeExtraMonster = (
 });
 
 const buildTwentyStageList = (
-  level: Level,
+  level: CoreLevel,
   lane: MonsterLane,
   monsters: Monster[]
 ): Monster[] => {
@@ -3710,6 +3717,11 @@ const buildTwentyStageList = (
   return [...baseTwenty, ...hiddenBosses];
 };
 
+const buildConversationStageList = (level: 4 | 5, lane: MonsterLane) => buildTwentyStageList(3, lane, BASE_MONSTERS[3][lane]).map(monster => ({
+  ...monster,
+  id: monster.id.replace(/^([mc])3_/, `$1${level}_`),
+  theme: `${monster.theme}Conversation${level}`,
+}));
 const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
   1: {
     guide: buildTwentyStageList(1, 'guide', BASE_MONSTERS[1].guide),
@@ -3723,6 +3735,8 @@ const MONSTERS: Record<Level, { guide: Monster[], challenge: Monster[] }> = {
     guide: buildTwentyStageList(3, 'guide', BASE_MONSTERS[3].guide),
     challenge: buildTwentyStageList(3, 'challenge', BASE_MONSTERS[3].challenge),
   },
+  4: { guide: buildConversationStageList(4, 'guide'), challenge: buildConversationStageList(4, 'challenge') },
+  5: { guide: buildConversationStageList(5, 'guide'), challenge: buildConversationStageList(5, 'challenge') },
 };
 
 // --- Components ---
@@ -3890,7 +3904,7 @@ const getStoredVersusSetup = (): StoredVersusSetup => {
       : DIFFICULTIES.includes(savedDifficulty as Difficulty)
         ? savedDifficulty as Difficulty
         : DEFAULT_VERSUS_COURSE_SELECTION.difficulty;
-    const requestedLevel = candidate?.level === 1 || candidate?.level === 2 || candidate?.level === 3
+    const requestedLevel = candidate?.level === 1 || candidate?.level === 2 || candidate?.level === 3 || candidate?.level === 4 || candidate?.level === 5
       ? candidate.level
       : DEFAULT_VERSUS_COURSE_SELECTION.level;
     return { difficulty, level: getSafeLevelForDifficulty(difficulty, requestedLevel) };
@@ -4025,6 +4039,7 @@ const QuestionListRow = React.memo(function QuestionListRow({
             <div id={englishId} hidden={!showEnglish}>
               <h2>{question.text}</h2>
               {question.promptEn && <p className="library-dialogue">相手：{question.promptEn} {recallMode !== 'english' || answerVisible ? question.promptJa : ''}</p>}
+              {question.sceneJa && <p className="library-dialogue">場面：{question.sceneJa}</p>}
             </div>
           </div>
           {showEnglish && (example || synonyms.length > 0 || (showMeaning && usageNote)) && <div className="library-study-notes">
@@ -5001,7 +5016,7 @@ export default function App() {
         candidate.text === question.text && candidate.translation === question.translation
       ))
       && !isQuestionExcluded(difficulty, level, question)
-    ))
+    )).map(question => difficulty === 'Conversation' ? hydrateConversationQuestion(question) : question)
   );
 
   const getScopedLearningSummary = (difficulty: Difficulty, level: Level) => {
@@ -5226,7 +5241,9 @@ export default function App() {
   }, [clearBeginnerBattleSpeechTimeout, speechRatePercent, speechVoiceMode, speechVoices]);
 
   const speakBattleQuestion = useCallback((question: Question, difficulty: Difficulty, mode: Mode) => {
-    if (difficulty !== 'Conversation' || !question.promptEn) {
+    // Listening must play the same English that input is graded against.
+    // Only guided practice models both sides of the conversation.
+    if (difficulty !== 'Conversation' || !question.promptEn || mode !== 'guide') {
       speakWithSettings(question.text);
       return;
     }
@@ -6718,11 +6735,11 @@ export default function App() {
   ): Question[] => {
     const curriculumLimit = (
       diff === 'Eiken2' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
-        ? getGrade2CurriculumLimit(level, stageIndex)
+        ? getGrade2CurriculumLimit(coreLevel(level), stageIndex)
         : diff === 'EikenPre2' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
-        ? getPre2CurriculumLimit(level, stageIndex)
+        ? getPre2CurriculumLimit(coreLevel(level), stageIndex)
         : diff === 'Eiken3' && (mode === 'guide' || (mode === 'challenge' && inputMode === 'voice-text'))
-        ? getGrade3CurriculumLimit(level, stageIndex)
+        ? getGrade3CurriculumLimit(coreLevel(level), stageIndex)
         : diff === 'Eiken5' && mode === 'guide' && level === 2
         ? (stageIndex < 7 ? 40 : stageIndex < 14 ? 100 : Infinity)
         : diff === 'Eiken5' && mode === 'guide' && level === 3
@@ -6908,7 +6925,7 @@ export default function App() {
     const isLongText = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1;
     const learningOutcome = isLongText
       ? getLongTextRecallOutcome(gameState.currentQuestion.text, Math.max(0, gameState.missCount - (gameState.formattingMissCount ?? 0)))
-      : getBattleLearningOutcome(gameState.selectedLevel, gameState.missCount, addedChars);
+      : getBattleLearningOutcome(coreLevel(gameState.selectedLevel), gameState.missCount, addedChars);
     const completedSuccessfully = !assisted && !skipped && (isLongText ? learningOutcome === 'success' : gameState.missCount === 0);
     if (isLongText || (gameState.mode === 'challenge' && gameState.inputMode === 'voice-text')) {
       const scope = JSON.stringify([activePlayerId, gameState.selectedDifficulty, gameState.selectedLevel]);
@@ -7120,11 +7137,11 @@ export default function App() {
     const missDamageMultiplier = isLengthAdjustedBattle
       ? getLongTextBattleMissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
       : gameState.selectedDifficulty === 'EikenPre2'
-      ? getPre2MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+      ? getPre2MissMultiplier(coreLevel(gameState.selectedLevel), gameState.missCount, charCount)
       : gameState.selectedDifficulty === 'Eiken2'
-      ? getGrade2MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+      ? getGrade2MissMultiplier(coreLevel(gameState.selectedLevel), gameState.missCount, charCount)
       : gameState.selectedDifficulty === 'Eiken3'
-        ? getGrade3MissMultiplier(gameState.selectedLevel, gameState.missCount, charCount)
+        ? getGrade3MissMultiplier(coreLevel(gameState.selectedLevel), gameState.missCount, charCount)
       : isEiken5LongTextLevel
       ? Math.max(gameState.selectedLevel === 3 ? 0.8 : 0.75, 1 - (gameState.missCount / Math.max(charCount, 1)))
       : !isEikenLongTextGuide
@@ -8163,7 +8180,8 @@ export default function App() {
     const selectedQuestionKeySet = new Set(selectedQuestionKeys);
     const selectedQuestionsInView = playableQuestions.filter(q => selectedQuestionKeySet.has(getQuestionStatusKey(gameState.selectedDifficulty, gameState.selectedLevel, q)));
     const savedSelectionListsInScope = savedSelectionLists
-      .filter(list => list.difficulty === gameState.selectedDifficulty && list.level === gameState.selectedLevel)
+      .filter(list => list.difficulty === gameState.selectedDifficulty && (list.level === gameState.selectedLevel || (list.difficulty === 'Conversation' && list.questionKeys.some(key => questions.some(q => getQuestionStatusKey('Conversation', gameState.selectedLevel, q) === key)))))
+      .map(list => list.difficulty === 'Conversation' ? { ...list, questionKeys: list.questionKeys.filter(key => questions.some(q => getQuestionStatusKey('Conversation', gameState.selectedLevel, q) === key)) } : list)
       .sort((a, b) => b.updatedAt - a.updatedAt);
     const weakCountInView = weakQuestionsInView.length;
     const manualReviewQuestions = wordListToolsOpen
@@ -10187,11 +10205,13 @@ export default function App() {
     const selectedCompletedLevels = completedLevelsByDifficulty.get(gameState.selectedDifficulty)!;
     const selectedQuestionCount = QUESTIONS[gameState.selectedDifficulty]?.[gameState.selectedLevel]?.length ?? 0;
     const selectedLearningSummary = getScopedLearningSummary(gameState.selectedDifficulty, gameState.selectedLevel);
-    const levelDescriptions: Record<Level, string> = isConversationCourse
+    const levelDescriptions: Record<number, string> = isConversationCourse
       ? {
-          1: 'Quick Responses / あいさつ・反応',
-          2: 'Ask & Answer / 質問・自己表現',
-          3: 'Real Scenes / 場面別ミニ会話',
+          1: CONVERSATION_LEVEL_INFO[1].title,
+          2: CONVERSATION_LEVEL_INFO[2].title,
+          3: CONVERSATION_LEVEL_INFO[3].title,
+          4: CONVERSATION_LEVEL_INFO[4].title,
+          5: CONVERSATION_LEVEL_INFO[5].title,
         }
       : GRADE1_DIFFICULTIES.includes(gameState.selectedDifficulty) ? {
           1: '社会・科学の重要語彙',
@@ -10218,6 +10238,8 @@ export default function App() {
       1: <Sword size={26} />,
       2: <Shield size={26} />,
       3: <BookOpen size={26} />,
+      4: <Brain size={26} />,
+      5: <Star size={26} />,
     };
 
     const courseMascot = getCourseMonsters(gameState.selectedDifficulty, gameState.selectedLevel).challenge[0];
@@ -10247,7 +10269,7 @@ export default function App() {
                     </button>;
                   })}
                 </div>
-                {isConversationCourse && <p className="journey-hint">英検4級を終えたころから。あいさつ・反応から場面別の会話へ。</p>}
+                {isConversationCourse && <p className="journey-hint">英検5級程度の基本表現から。全5Level・各100問で、短いひと言から会話をつなぐ表現へ。</p>}
               </section>
               <section aria-labelledby="journey-level-title">
                 <div className="journey-section-label"><h2 id="journey-level-title">Levelを選ぶ</h2></div>
@@ -10320,9 +10342,9 @@ export default function App() {
     const normalStatus = getModeProgress(monstersObj.challenge, 'challenge', 'voice-only', NORMAL_TARGET_COUNT);
     const hardStatus = getModeProgress(monstersObj.challenge, 'challenge', 'text-only', HARD_TARGET_COUNT);
     const modeChoices = [
-      { key: 'basic', zone: 'training', title: isConversationCourse ? '会話の型練習' : '基礎練習', english: isConversationCourse ? 'Conversation Basics' : 'Basic Training', description: isConversationCourse ? '相手のひと言と返答を見て入力。会話の型に慣れよう。' : '英語を見ながら入力。つづりと意味に慣れよう。', clue: '英語を表示', icon: <Shield size={22} />, status: guideStatus, finalName: guideFinalMonsterName, mode: 'guide', inputMode: 'voice-text' },
-      { key: 'listening-practice', zone: 'training', title: isConversationCourse ? '聞いて返す練習' : 'リスニング練習', english: isConversationCourse ? 'Reply Training' : 'Listening Training', description: isConversationCourse ? '相手の発言を聞いて、返答を入力。和訳も見られます。' : '音声を聞いて入力。和訳も見ながら練習できます。', clue: '音声 ＋ 和訳', icon: <Volume2 size={22} />, status: easyStatus, finalName: listeningFinalMonsterName, mode: 'challenge', inputMode: 'voice-text' },
-      { key: 'listening-battle', zone: 'battle', title: isConversationCourse ? '即答バトル' : '音声バトル', english: isConversationCourse ? 'Quick Reply Battle' : 'Listening Battle', description: isConversationCourse ? '相手の音声だけを聞いて、英語で返答しよう。' : '聞き取った英語を入力。耳を頼りに挑戦しよう。', clue: '音声だけ', icon: <Volume2 size={22} />, status: normalStatus, finalName: normalFinalMonsterName, mode: 'challenge', inputMode: 'voice-only' },
+      { key: 'basic', zone: 'training', title: isConversationCourse ? '会話の型練習' : '基礎練習', english: isConversationCourse ? 'Conversation Basics' : 'Basic Training', description: isConversationCourse ? '相手や場面と英文を見て入力。会話の型に慣れよう。' : '英語を見ながら入力。つづりと意味に慣れよう。', clue: '英語を表示', icon: <Shield size={22} />, status: guideStatus, finalName: guideFinalMonsterName, mode: 'guide', inputMode: 'voice-text' },
+      { key: 'listening-practice', zone: 'training', title: 'リスニング練習', english: 'Listening Training', description: isConversationCourse ? '流れた英語を入力。相手・場面と和訳も見られます。' : '音声を聞いて入力。和訳も見ながら練習できます。', clue: '音声 ＋ 和訳', icon: <Volume2 size={22} />, status: easyStatus, finalName: listeningFinalMonsterName, mode: 'challenge', inputMode: 'voice-text' },
+      { key: 'listening-battle', zone: 'battle', title: '音声バトル', english: 'Listening Battle', description: isConversationCourse ? '会話の英語を聞いて、そのまま入力しよう。' : '聞き取った英語を入力。耳を頼りに挑戦しよう。', clue: '音声だけ', icon: <Volume2 size={22} />, status: normalStatus, finalName: normalFinalMonsterName, mode: 'challenge', inputMode: 'voice-only' },
       { key: 'translation-battle', zone: 'battle', title: isConversationCourse ? '場面バトル' : '和訳バトル', english: isConversationCourse ? 'Scene Battle' : 'Translation Battle', description: isConversationCourse ? '場面と返したい意味から、英文を組み立てよう。' : '和訳から英語を思い出して入力。使える力を試そう。', clue: isConversationCourse ? '場面 ＋ 和訳' : '和訳だけ', icon: <Keyboard size={22} />, status: hardStatus, finalName: hardFinalMonsterName, mode: 'challenge', inputMode: 'text-only' },
     ] as const;
     return (
@@ -10579,7 +10601,12 @@ export default function App() {
                    {isConversationBattle ? (
                      <div className="mx-auto max-w-3xl space-y-2">
                        {gameState.inputMode === 'voice-only' ? (
-                         <p className="text-base font-black text-cyan-200 md:text-lg">相手のひと言を聞いて、英語で返そう</p>
+                         <p className="text-base font-black text-cyan-200 md:text-lg">会話の英語を聞いて、そのまま入力しよう</p>
+                       ) : gameState.currentQuestion.sceneJa ? (
+                         <div className="rounded-xl border border-violet-400/30 bg-violet-950/25 px-4 py-3 text-left">
+                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-violet-300">Scene / 場面</p>
+                           <p className="mt-1 text-base font-bold text-white">{gameState.currentQuestion.sceneJa}</p>
+                         </div>
                        ) : (
                          <div className="rounded-xl border border-violet-400/30 bg-violet-950/25 px-4 py-3 text-left">
                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-violet-300">Partner / 相手</p>
@@ -10589,7 +10616,7 @@ export default function App() {
                        )}
                        {showJapanese && (
                          <div className="text-left">
-                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">You / あなたの返答</p>
+                           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">{gameState.currentQuestion.sceneJa ? 'You / あなたのひと言' : 'You / あなたの返答'}</p>
                            <p className="mt-1 text-base font-bold text-blue-200 md:text-lg">{getQuestionMeaning(gameState.currentQuestion, gameState.selectedDifficulty)}</p>
                            {showGuide && gameState.currentQuestion.speakingTip && <p className="mt-1 text-xs font-bold text-amber-200">💡 {gameState.currentQuestion.speakingTip}</p>}
                          </div>
@@ -10703,6 +10730,7 @@ export default function App() {
                          {isConversationBattle && lastSolvedQuestion.promptEn && (
                            <span className="text-xs font-bold text-violet-200 md:text-sm">相手: {lastSolvedQuestion.promptEn}</span>
                          )}
+                         {isConversationBattle && lastSolvedQuestion.sceneJa && <span className="text-xs font-bold text-violet-200 md:text-sm">場面: {lastSolvedQuestion.sceneJa}</span>}
                          <span className="text-base font-bold text-emerald-100 md:text-lg">{getQuestionMeaning(lastSolvedQuestion, gameState.selectedDifficulty)}</span>
                          {lastSolvedQuestion.basicMeaning && (
                            <span className="text-xs font-medium text-slate-400 md:text-sm">Basic: {lastSolvedQuestion.basicMeaning}</span>

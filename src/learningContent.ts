@@ -1,10 +1,10 @@
 // Shared display names only. Question identities and saved progress do not use these labels.
-export function getLearningContentLabel(level: 1 | 2 | 3, isConversation = false): string {
+export function getLearningContentLabel(level: 1 | 2 | 3 | 4 | 5, isConversation = false): string {
   if (isConversation) return '会話表現';
-  return { 1: '単語', 2: '熟語・表現', 3: '文章問題' }[level];
+  return level === 1 ? '単語' : level === 2 ? '熟語・表現' : '文章問題';
 }
 
-export function getLearningAnswerLabel(level: 1 | 2 | 3, isConversation = false): string {
+export function getLearningAnswerLabel(level: 1 | 2 | 3 | 4 | 5, isConversation = false): string {
   return level === 3 && !isConversation ? '英文' : getLearningContentLabel(level, isConversation);
 }
 

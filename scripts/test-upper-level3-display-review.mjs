@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
+import {beforeConversationListeningFix} from './lib/conversation-listening-compatibility.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import ts from 'typescript';
-import {load} from './lib/load-typescript-data.mjs';
+import {load} from './lib/load-legacy-curriculum-audit.mjs';
 
 const baseline='134969442a8e92c0e79d9396132b50e1c914ff15';
 const approved=[
@@ -3135,6 +3136,6 @@ for(const e of JSON.parse(priorFile('src/data/translationBattlePrompts.json'))){
   const changes=e.level===3&&additional?.promptChanged?review(e.course,e.level,e)?.prompt:undefined;
   assert.deepEqual(plain(prompt(e,e.course,e.level)),changes?{...old,...changes}:old,'Archived/saved prompt');
 }
-for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/questionGrammarPoints.ts','src/data/translationBattlePrompts.ts','src/data/translationBattlePrompts.json','src/data/grade5Level3DisplayReview.json','src/data/grade4GrammarGuide.ts','src/data/grade5GrammarGuide.ts','src/monsterProfiles.json'])assert.equal(normalize(fs.readFileSync(file,'utf8')),normalize(priorFile(file)),file+' retained');
+for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/questionGrammarPoints.ts','src/data/translationBattlePrompts.ts','src/data/translationBattlePrompts.json','src/data/grade5Level3DisplayReview.json','src/data/grade4GrammarGuide.ts','src/data/grade5GrammarGuide.ts','src/monsterProfiles.json'])assert.equal(normalize(beforeConversationListeningFix(fs.readFileSync(file,'utf8'),file)),normalize(priorFile(file)),file+' retained apart from audited conversation listening fix');
 for(const file of fs.readdirSync('src/data').filter(f=>/Grammar(Guide|Assignments|Curriculum|Point)/.test(f)&&/\.(json|ts)$/.test(f)))assert.equal(normalize(fs.readFileSync('src/data/'+file,'utf8')),normalize(priorFile('src/data/'+file)),'Guide/assignment identity retained: '+file);
 console.log('PASS: exactly 94 approved upper Level 3 reviews (66 prompts, 35 notes, 7 overlaps); all 7,650 original/imported identities, 21 released Grade 4 reviews, other displays, saved lookups, guide IDs, gameplay and learning records retained.');

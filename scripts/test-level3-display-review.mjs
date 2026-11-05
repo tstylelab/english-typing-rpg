@@ -1,5 +1,6 @@
 
-import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';import vm from 'node:vm';import{execFileSync}from'node:child_process';import{createHash}from'node:crypto';import ts from 'typescript';import{load}from'./lib/load-typescript-data.mjs';
+import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';import vm from 'node:vm';import{execFileSync}from'node:child_process';import{createHash}from'node:crypto';import ts from 'typescript';import{load}from'./lib/load-legacy-curriculum-audit.mjs';
+import {beforeConversationListeningFix} from './lib/conversation-listening-compatibility.mjs';
 const baseline='cd873b6903a8d1ed57e001a5e665a35a543dfe8a';
 const approved=[
   {
@@ -823,5 +824,5 @@ for(const level of[1,2])assert.equal(grammarReview(e.course,level,e.text),undefi
 }
 const archived=JSON.parse(priorFile('src/data/translationBattlePrompts.json'));
 for(const q of archived){const change=review(q.course,q.level,q)?.prompt;assert.deepEqual(plain(prompt(q,q.course,q.level)),{...plain(prior.getTranslationBattlePrompt(q,q.course,q.level)),...change});}
-for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/translationBattlePrompts.json','src/data/grade4GrammarGuide.ts','src/data/grade4GrammarAssignments.ts','src/data/grade5GrammarGuide.ts','src/data/questionSets/eiken/grade4.json','src/data/questionSets/eiken/grade4Foundations.json','src/monsterProfiles.json'])assert.equal(fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n'),priorFile(file).replace(/\r\n/g,'\n'),file+' retained');
+for(const file of ['src/App.tsx','src/learningProgress.ts','src/data/questions.ts','src/data/questionMeaning.ts','src/data/translationBattlePrompts.json','src/data/grade4GrammarGuide.ts','src/data/grade4GrammarAssignments.ts','src/data/grade5GrammarGuide.ts','src/data/questionSets/eiken/grade4.json','src/data/questionSets/eiken/grade4Foundations.json','src/monsterProfiles.json'])assert.equal(beforeConversationListeningFix(fs.readFileSync(file,'utf8'),file).replace(/\r\n/g,'\n'),priorFile(file).replace(/\r\n/g,'\n'),file+' retained apart from audited conversation listening fix');
 console.log('PASS: 21 approved Grade 4 Level 3 reviews (16 prompts, 5 result notes); all 7,650 identities, other displays, archived lookups, guide IDs, scoring and progress retained.');

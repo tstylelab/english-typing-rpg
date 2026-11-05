@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 import ts from 'typescript';
 import { createHash } from 'node:crypto';
-import { load } from './lib/load-typescript-data.mjs';
+import { load } from './lib/load-legacy-curriculum-audit.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const plain = value => JSON.parse(JSON.stringify(value));

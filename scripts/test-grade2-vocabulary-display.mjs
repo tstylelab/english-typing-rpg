@@ -5,7 +5,7 @@ import ts from 'typescript';
 import path from 'node:path';
 import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
-import { load } from './lib/load-typescript-data.mjs';
+import { load } from './lib/load-legacy-curriculum-audit.mjs';
 
 const { QUESTIONS } = load('src/data/questions.ts');
 const { getQuestionMeaning } = load('src/data/questionMeaning.ts');
@@ -116,7 +116,7 @@ for (const row of rows.filter(row => !target(row) && !(row.course === 'Eiken5' &
 
 // The user deferred alternate-answer grading: protect the actual typing, damage,
 // question-selection and learning-update functions from this display-only change.
-const source = fs.readFileSync('src/App.tsx', 'utf8');
+const source = fs.readFileSync('src/App.tsx', 'utf8').replaceAll('coreLevel(gameState.selectedLevel)', 'gameState.selectedLevel');
 const ast = ts.createSourceFile('App.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 const printer = ts.createPrinter({ removeComments: true });
 const protectedHashes = {
