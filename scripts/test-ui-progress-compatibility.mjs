@@ -214,7 +214,9 @@ for(const file of ['src/data/level1VocabularyDisplay.ts','src/data/level1Vocabul
 // unchanged grading/learning functions before allowing this display-only review.
 execFileSync(process.execPath, ['scripts/test-grade2-vocabulary-display.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-conversation-listening.mjs'], { cwd: root, stdio: 'pipe' });
+execFileSync(process.execPath, ['scripts/test-grade2-phrase-consistency.mjs'], { cwd: root, stdio: 'pipe' });
 execFileSync(process.execPath, ['scripts/test-conversation-curriculum.mjs'], { cwd: root, stdio: 'pipe' });
+for (const file of ['src/data/grade2PhraseConsistencyReview.ts','src/data/grade2PhraseConsistencyReview.json']) approvedMaterialFiles.add(file);
 for (const file of ['src/data/conversationCurriculum.ts', 'src/data/conversationCurriculum.json']) approvedMaterialFiles.add(file);
 approvedMaterialFiles.add('src/data/additionalMeaningCorrections.json'); // published pick up; live Eiken display oracle above
 execFileSync(process.execPath, ['scripts/test-grade2-phrase-synonyms.mjs'], { cwd: root, stdio: 'pipe' });

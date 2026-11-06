@@ -1,9 +1,12 @@
 {
-  "src/App.tsx": "07319a9c7bd7ebd38050121520fb5c9b90a64dde54c44046dfce4b5c00f18484",
+  "src/App.tsx": "990f051df66fd07bab2876abc92daad9cce88dce122039f06f27ac53c6c1d022",
   "src/data/questions.ts": "db5f0a618aa993b9374343776dd29fa7b0bb88fcee551ca346eb4db6273202ae",
   "src/data/questionMeaning.ts": "4f7c114f9b2c963eb36a9bfc096f36c7cc59fa24cfafeac0d5f6be65b62f16ad",
   "src/data/questionExamples.ts": "216f5243e13028daad9bb4ba67ec5dbd244efddb1ef5e1d22ea09ce443dd3f46",
   "src/learningContent.ts": "ff5c96b77edfa4fee518a346075ec69c205138fd75b78d8bce6a66de78110b7d",
   "src/data/additionalMeaningCorrections.json": "7cacfd25ad67f6b510a8e18e972a91dce359e8f722ae8631e29b9cd07b07307f",
-  "src/data/level2PhraseReview.json": "9b0f419df7c84e8d359a1e7fabaa0f7f6a7f4b97375b0ed541690ad68784e4f4"
+  "src/data/level2PhraseReview.json": "9b0f419df7c84e8d359a1e7fabaa0f7f6a7f4b97375b0ed541690ad68784e4f4",
+  "src/data/questionSynonyms.ts": "dc6452ff4920328e365a4d47310884ea629779f95766abe1de42e1eedbc68351",
+  "src/data/translationBattlePrompts.ts": "e5b4757f79cecee9f1fbea5cb607e552689706f04fa8549e0954f986ecccc76c",
+  "src/data/vocabularyUsageNotes.ts": "1425162a9952615a357a3163c802939a0b59478b66a4ae9bf8467ce5f9d0d4a2"
 }

@@ -22,7 +22,7 @@ export function load(relative) {
   const module = { exports: {} }; cache.set(file, module);
   const name = path.relative(root, file).replaceAll('\\', '/');
   const current = fs.readFileSync(file, 'utf8');
-  const source = ['src/data/questions.ts', 'src/data/questionMeaning.ts', 'src/data/questionExamples.ts'].includes(name) ? beforeConversationRelease(current, name) : current;
+  const source = ['src/data/questions.ts', 'src/data/questionMeaning.ts', 'src/data/questionExamples.ts', 'src/data/questionSynonyms.ts', 'src/data/translationBattlePrompts.ts', 'src/data/vocabularyUsageNotes.ts'].includes(name) ? beforeConversationRelease(current, name) : current;
   const js = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true } }).outputText;
   vm.runInNewContext(js, { module, exports: module.exports, require: name => load(path.resolve(path.dirname(file), name)) }, { filename: file });
   return module.exports;

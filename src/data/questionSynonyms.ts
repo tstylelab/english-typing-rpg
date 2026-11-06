@@ -7,10 +7,13 @@ import { getGrade2PhraseSynonymReview } from './grade2PhraseSynonymReview';
 import { getLevel2PhraseReview } from './level2PhraseReview';
 import { getGrade5VocabularyReview } from './grade5VocabularyReview';
 import { getLevel1VocabularyReview } from './level1VocabularyReview';
+import { getGrade2PhraseConsistencyReview } from './grade2PhraseConsistencyReview';
 
 type QuestionLike = Pick<Question, 'text' | 'translation' | 'synonyms' | 'exampleEn'>;
 
 const getReviewedVocabularyExpressions = (difficulty: DifficultyKey, level: LevelKey, question: QuestionLike) => {
+  const consistentPhrase = getGrade2PhraseConsistencyReview(difficulty, level, question);
+  if (consistentPhrase) return consistentPhrase.expressions;
   const reviewedLevel2 = getLevel2PhraseReview(difficulty, level, question);
   if (reviewedLevel2 !== undefined) return reviewedLevel2.expressions;
   const reviewedPhrases = getGrade2PhraseSynonymReview(difficulty, level, question);
@@ -2544,6 +2547,7 @@ export const getQuestionSynonymLabels = (
 export const getQuestionSynonymHeading = (
   difficulty: DifficultyKey, level: LevelKey, question: QuestionLike,
 ): string => {
+  if (difficulty === 'Eiken2' && level === 2) return '類義・関連';
   if (difficulty !== 'Eiken2' || level !== 1) return '類義/関連';
   return getTranslationBattlePrompt(question, difficulty, level)?.alternatives.length
     ? '類義語' : '参考の関連語';

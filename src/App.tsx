@@ -10635,7 +10635,7 @@ export default function App() {
                  </div>
                  {vocabularySynonyms.length > 0 && (
                    <div className="battle-vocabulary-synonyms mb-2 px-1 text-center text-sm leading-relaxed text-slate-300">
-                     <p><span className="font-bold text-cyan-200">{gameState.selectedLevel === 3 ? '別表現：' : '類義語：'}</span>{vocabularySynonyms.map((synonym, index) => (
+                     <p><span className="font-bold text-cyan-200">{gameState.selectedLevel === 3 ? '別表現：' : gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 2 ? '類義・関連：' : '類義語：'}</span>{vocabularySynonyms.map((synonym, index) => (
                        <React.Fragment key={synonym.text}>
                          {index > 0 && <span className="mx-1 text-slate-500">／</span>}
                          <span className="inline-block max-w-full align-top"><span className="font-mono font-bold text-cyan-100">{synonym.text}</span><span className="text-xs">（{synonym.note}）</span></span>
@@ -10967,7 +10967,7 @@ export default function App() {
                     const grammarPoint = getQuestionGrammarPoint(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const grammarCard = getGrammarCard(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
                     const usageNote = getVocabularyUsageNote(gameState.selectedDifficulty, gameState.selectedLevel, log.question);
-                    const resultQuestionSynonyms = gameState.selectedDifficulty === 'Eiken2' && gameState.selectedLevel === 1
+                    const resultQuestionSynonyms = gameState.selectedDifficulty === 'Eiken2' && (gameState.selectedLevel === 1 || gameState.selectedLevel === 2)
                       ? getQuestionSynonymLabels(gameState.selectedDifficulty, gameState.selectedLevel, log.question) : [];
                     const learningOk = EIKEN_DIFFICULTIES.includes(gameState.selectedDifficulty) && gameState.selectedLevel !== 1 && getAutoLearningTrack(gameState.mode, gameState.inputMode) !== null && !log.skipped && !log.audioHintUsed && log.recallOutcome === 'success';
                     const resultLabel = log.skipped ? 'スキップ' : log.audioHintUsed ? `音声ヒント${log.missCount ? `・ミス ${log.missCount}` : ''}` : log.missCount === 0 ? '正確' : learningOk ? `学習OK・修正 ${log.missCount}回` : `ミス ${log.missCount}`;

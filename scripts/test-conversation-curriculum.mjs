@@ -34,6 +34,8 @@ const selectors = [
 ].map(([file,name,args]) => ({ live: load(file)[name], old: released(file)[name], args, name }));
 for (const [name, levels] of Object.entries(QUESTIONS)) if (name !== 'Conversation') {
   for (const level of [1,2,3]) for (const q of levels[level]) for (const selector of selectors) {
+    if (name === 'Eiken2' && level === 2 && selector.name !== 'getQuestionExample'
+      && load('src/data/grade2PhraseConsistencyReview.ts').getGrade2PhraseConsistencyReview(name,level,q)) continue; // independently audited in test-grade2-phrase-consistency
     const args = selector.args(name,level,q);
     assert.equal(JSON.stringify(selector.live(...args)), JSON.stringify(selector.old(...args)), `${name}:${level}:${q.text}:${selector.name}: published Eiken display unchanged`);
   }
