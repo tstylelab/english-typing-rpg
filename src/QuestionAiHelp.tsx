@@ -8,7 +8,7 @@ import { useBackdropDismiss } from './useBackdropDismiss';
 type Destination = keyof typeof GRAMMAR_AI_DESTINATIONS;
 const actionClass = 'min-h-10 rounded-lg border border-violet-400/40 bg-violet-950/30 px-3 py-2 text-sm font-bold text-violet-100 hover:bg-violet-900/50 focus-visible:outline-2 focus-visible:outline-violet-300 disabled:opacity-50';
 
-export default function QuestionAiHelp(props: QuestionAiContext) {
+export default function QuestionAiHelp({ onDialogClose, ...props }: QuestionAiContext & { onDialogClose?: () => void }) {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
   return <>
@@ -18,6 +18,7 @@ export default function QuestionAiHelp(props: QuestionAiContext) {
     {open && createPortal(<QuestionDialog {...props} onClose={() => {
       setOpen(false);
       trigger.current?.focus({ preventScroll: true });
+      onDialogClose?.();
     }} />, document.body)}
   </>;
 }

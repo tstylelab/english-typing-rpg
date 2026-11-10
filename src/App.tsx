@@ -10769,6 +10769,7 @@ export default function App() {
                          <span>{isPreviousQuestionMarked ? '復習に追加済み' : 'あとで復習'}</span>
                          <kbd className="ml-1 text-[10px] opacity-75">Shift＋Enter</kbd>
                        </button>
+                       <QuestionAiHelp key={previousQuestionKey} isConversation={isConversationBattle} course={DIFFICULTY_LABELS[gameState.selectedDifficulty]} level={gameState.selectedLevel} text={lastSolvedQuestion.text} meaning={getQuestionMeaning(lastSolvedQuestion, gameState.selectedDifficulty)} example={previousQuestionExample || undefined} exampleJa={lastSolvedQuestion.exampleJa} onDialogClose={() => keepTypingInputReady(inputRef, battleKeyboardTargetRef)} />
                        {previousQuestionSynonyms.length > 0 && (
                          <>
                            <span className="hidden text-slate-500 md:inline">|</span>
