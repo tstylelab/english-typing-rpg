@@ -36,8 +36,8 @@ const protectedNames = ['STORAGE_KEYS', 'normalizePlayerProfiles', 'normalizePla
   'normalizeDefeatedMonsterIds', 'persistPlayerProfiles', 'readLegacyWorkingSetFromLocalStorage', 'writeProfileDataToWorkingSet',
   'captureCurrentProfileData', 'activatePlayerProfile'];
 const printer = ts.createPrinter({ removeComments: true });
-// Audit the two deliberate compatibility extensions: replay positions, and
-// preserving listening preparation level 3 (overall mastery still caps it at 2).
+// Audit additive replay positions/clear counts and listening preparation level 3.
+// Removing only these fields must leave every released persistence function intact.
 function legacyPrint(node, ast) {
   const transformed = ts.transform(node, [context => {
     const visit = n => {
@@ -52,12 +52,12 @@ function legacyPrint(node, ast) {
         return ts.factory.updatePropertyAssignment(n, n.name, ts.factory.updateConditionalExpression(n.initializer,
           n.initializer.condition, n.initializer.questionToken, oldValue, n.initializer.colonToken, n.initializer.whenFalse));
       }
-      if ((ts.isPropertyAssignment(n) || ts.isShorthandPropertyAssignment(n)) && n.name.getText(ast) === 'battleResumePositions') return undefined;
+      if ((ts.isPropertyAssignment(n) || ts.isShorthandPropertyAssignment(n)) && ['battleResumePositions', 'finalBossClearCounts'].includes(n.name.getText(ast))) return undefined;
       if (ts.isExpressionStatement(n) && ts.isCallExpression(n.expression)
         && n.expression.expression.getText(ast) === 'localStorage.setItem'
-        && n.expression.arguments[0]?.getText(ast) === 'STORAGE_KEYS.battleResumePositions') return undefined;
+        && ['STORAGE_KEYS.battleResumePositions', 'STORAGE_KEYS.finalBossClearCounts'].includes(n.expression.arguments[0]?.getText(ast))) return undefined;
       if (ts.isArrayLiteralExpression(n)) return ts.factory.updateArrayLiteralExpression(n,
-        ts.factory.createNodeArray(n.elements.filter(e => !(ts.isIdentifier(e) && e.text === 'battleResumePositions')).map(e => ts.visitNode(e, visit)), n.elements.hasTrailingComma));
+        ts.factory.createNodeArray(n.elements.filter(e => !(ts.isIdentifier(e) && ['battleResumePositions', 'finalBossClearCounts'].includes(e.text))).map(e => ts.visitNode(e, visit)), n.elements.hasTrailingComma));
       return ts.visitEachChild(n, visit, context);
     };
     return root => ts.visitNode(root, visit);
@@ -123,6 +123,7 @@ const fixture = [{id:'existing-child',name:'既存プレイヤー',updatedAt:172
 }}, {id:'second',name:'家族',updatedAt:1,data:{defeatedMonsterIds:[defeats[0]]}}];
 const normalized = json(api.normalizePlayerProfiles(fixture));
 assert.deepEqual(normalized[0].data.battleResumePositions, {}, 'Legacy saves need no destructive migration');
+assert.deepEqual(normalized[0].data.finalBossClearCounts, {}, 'Historical repeat counts must not be invented from defeated flags');
 assert.deepEqual(normalized[0].data.defeatedMonsterIds, defeats);
 assert.equal(normalized.length,2); assert.equal(normalized[0].id,fixture[0].id);
 const d=normalized[0].data;
@@ -159,6 +160,16 @@ for (const profile of [replayProfiles[0], replayProfiles[1], replayProfiles[0]])
   assert.deepEqual(json(api.readLegacyWorkingSetFromLocalStorage()),profile.data, 'Replay position survives reload and player switching');
 }
 assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(replayProfiles)))),replayProfiles, 'Export/import retains cursor and progress');
+const clearCounts = { 'Eiken2:2:challenge:text-only': 5, 'Eiken2:2:challenge:voice-only': 2, 'Conversation:5:challenge:text-only': 10 };
+const countedProfiles = json(api.normalizePlayerProfiles([{ ...replayProfiles[0], data: { ...replayProfiles[0].data, finalBossClearCounts: clearCounts } }, replayProfiles[1]]));
+assert.deepEqual(countedProfiles[0].data.finalBossClearCounts, clearCounts);
+assert.deepEqual({ ...countedProfiles[0].data, finalBossClearCounts: {} }, replayProfiles[0].data, 'Only repeat counters are added');
+assert.deepEqual(countedProfiles[1], replayProfiles[1], 'Other player retains all progress');
+for (const profile of [countedProfiles[0], countedProfiles[1], countedProfiles[0]]) {
+  api.writeProfileDataToWorkingSet(profile.data);
+  assert.deepEqual(json(api.readLegacyWorkingSetFromLocalStorage()), profile.data, 'Repeat counts and every old field survive reload/player switching');
+}
+assert.deepEqual(json(api.normalizePlayerProfiles(JSON.parse(JSON.stringify(countedProfiles)))), countedProfiles, 'Export/import preserves repeat counts alongside legacy progress');
 // Reviewed display overlays can change without changing question identities or saves.
 // test-translation-battle-prompts / test-sequential-prompt-reviews validate that overlay.
 const approvedMaterialFiles=new Set(['src/data/translationBattlePrompts.json','src/data/questionSets/eiken/pre2.ts','src/data/questionSets/eiken/pre2GrammarCurriculum.json','src/data/questionGrammarPoints.ts','src/data/pre2GrammarAssignments.ts','src/data/pre2GrammarCurriculumAssignments.json','src/data/pre2GrammarCurriculumCards.ts','src/data/pre2GrammarGuide.ts','src/data/grammarGuides.ts']);

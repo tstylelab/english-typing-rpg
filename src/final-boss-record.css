@@ -1,0 +1,15 @@
+.final-boss-record {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 10px;
+  margin: 7px 0 0;
+  color: #f4deb0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.final-boss-record-count, .final-boss-record-milestone { display: inline-flex; align-items: center; gap: 4px; }
+.final-boss-record strong { font-size: 14px; font-variant-numeric: tabular-nums; }
+.final-boss-record-milestone { color: #ffe498; font-weight: 800; }
+.final-boss-record small { color: #becbd7; font-size: 11px; }
+.final-boss-record-result { margin: 10px 0; padding: 8px 12px; border: 1px solid #d9b66570; border-radius: 8px; background: #332c24; }

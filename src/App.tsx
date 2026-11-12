@@ -6,6 +6,8 @@ import './versus-setup.css';
 import './game-settings.css';
 import { isBalancedLongTextBattle, getBalancedLongTextTuning, getBalancedLongTextSpeedMultiplier, getBalancedLongTextDamage } from './longTextBattleBalance';
 import { battleResumeScope, normalizeBattleResumePositions, resolveBattleResumeStep, nextBattleResumeId, type BattleResumePositions } from './battleResume';
+import { canRecordFinalBossVictory, finalBossClearScope, isCountedBattle, normalizeBattleClearCounts, type BattleClearCounts } from './battleClearRecords';
+import FinalBossRecord from './FinalBossRecord';
 import { getTranslationBattlePrompt } from './data/translationBattlePrompts';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Volume2, Sword, Swords, Users, Shuffle, Shield, Trophy, Home, SkipForward, Zap, ArrowRight, RotateCcw, BookOpen, Lock, Flame, Skull, ClipboardList, Crown, Target, Medal, Keyboard, AlertCircle, Brain, CheckCircle2, FastForward, LayoutGrid, LogOut, Square, Bookmark, Sun, Star } from 'lucide-react';
@@ -272,6 +274,7 @@ type ProgressExportPayload = {
 };
 
 type PlayerProfileData = {
+  finalBossClearCounts?: BattleClearCounts;
   battleResumePositions?: BattleResumePositions;
   defeatedMonsterIds?: string[];
   bestScores?: Record<string, number>;
@@ -317,6 +320,7 @@ type ResolvedSpeechConfig = {
 };
 
 interface GameState {
+  finalBossClearCount?: number;
   screen: 'title' | 'settings' | 'help' | 'monster-book' | 'question-list' | 'score-view' | 'rank-list' | 'level-select' | 'mode-select' | 'battle' | 'result' | 'versus-setup' | 'versus-play' | 'versus-results' | 'typing-practice' | 'beginner-battle';
   selectedDifficulty: Difficulty;
   selectedLevel: Level;
@@ -2638,6 +2642,7 @@ class SoundEngine {
 const soundEngine = new SoundEngine();
 
 const STORAGE_KEYS = {
+  finalBossClearCounts: 'etyping_final_boss_clear_counts',
   battleResumePositions: 'etyping_battle_resume_positions',
   defeatedMonsters: 'etyping_defeated_monsters',
   bestScores: 'etyping_best_scores',
@@ -3194,6 +3199,7 @@ const normalizePlayerProfileData = (value: unknown): PlayerProfileData => {
   return {
     defeatedMonsterIds: normalizeDefeatedMonsterIds(typedValue.defeatedMonsterIds ?? []),
     battleResumePositions: normalizeBattleResumePositions(typedValue.battleResumePositions),
+    finalBossClearCounts: normalizeBattleClearCounts(typedValue.finalBossClearCounts),
     bestScores: normalizeBestScores(typedValue.bestScores ?? {}),
     maxKeystrokes: normalizeMaxKeystrokes(typedValue.maxKeystrokes),
     weakQuestions: normalizeQuestionArray(typedValue.weakQuestions ?? []),
@@ -4162,6 +4168,8 @@ export default function App() {
   }, [reviewHistoryUndo]);
   const [savedSelectionLists, setSavedSelectionLists] = useState<SavedSelectionList[]>([]);
   const [battleResumePositions, setBattleResumePositions] = useState<BattleResumePositions>({});
+  const [finalBossClearCounts, setFinalBossClearCounts] = useState<BattleClearCounts>({});
+  const finalBossVictoryRecordedRef = useRef(false);
   const [selectionListName, setSelectionListName] = useState('');
   const [playerProfiles, setPlayerProfiles] = useState<PlayerProfile[]>([]);
   const [activePlayerId, setActivePlayerId] = useState('');
@@ -4387,6 +4395,7 @@ export default function App() {
     return normalizePlayerProfileData({
       defeatedMonsterIds: safeLoadJson<string[]>(STORAGE_KEYS.defeatedMonsters, []),
       battleResumePositions: normalizeBattleResumePositions(safeLoadJson(STORAGE_KEYS.battleResumePositions, {})),
+      finalBossClearCounts: normalizeBattleClearCounts(safeLoadJson(STORAGE_KEYS.finalBossClearCounts, {})),
       bestScores: safeLoadJson<Record<string, number>>(STORAGE_KEYS.bestScores, {}),
       maxKeystrokes: savedMaxKRaw ? parseInt(savedMaxKRaw, 10) : 0,
       weakQuestions: savedWeak,
@@ -4411,6 +4420,7 @@ export default function App() {
     const normalizedData = normalizePlayerProfileData(data);
     localStorage.setItem(STORAGE_KEYS.defeatedMonsters, JSON.stringify(normalizedData.defeatedMonsterIds ?? []));
     localStorage.setItem(STORAGE_KEYS.battleResumePositions, JSON.stringify(normalizedData.battleResumePositions ?? {}));
+    localStorage.setItem(STORAGE_KEYS.finalBossClearCounts, JSON.stringify(normalizedData.finalBossClearCounts ?? {}));
     localStorage.setItem(STORAGE_KEYS.bestScores, JSON.stringify(normalizedData.bestScores ?? {}));
     localStorage.setItem(STORAGE_KEYS.maxKeystrokes, String(normalizedData.maxKeystrokes ?? 0));
     localStorage.setItem(STORAGE_KEYS.weakQuestions, JSON.stringify(normalizedData.weakQuestions ?? []));
@@ -4463,6 +4473,7 @@ export default function App() {
     setReviewHistoryKeysByScope(normalizedData.reviewHistoryKeysByScope ?? {});
     setSavedSelectionLists(normalizedData.savedSelectionLists ?? []);
     setBattleResumePositions(normalizedData.battleResumePositions ?? {});
+    setFinalBossClearCounts(normalizedData.finalBossClearCounts ?? {});
   }, []);
 
   const getCurrentActivePlayer = useCallback(() => (
@@ -4472,6 +4483,7 @@ export default function App() {
   const captureCurrentProfileData = useCallback((): PlayerProfileData => normalizePlayerProfileData({
     defeatedMonsterIds: gameState.defeatedMonsterIds,
     battleResumePositions,
+    finalBossClearCounts,
     bestScores,
     maxKeystrokes,
     weakQuestions,
@@ -4492,6 +4504,7 @@ export default function App() {
   }), [
     gameState.defeatedMonsterIds,
     battleResumePositions,
+    finalBossClearCounts,
     bestScores,
     maxKeystrokes,
     weakQuestions,
@@ -4617,6 +4630,7 @@ export default function App() {
     setReviewHistoryKeysByScope(savedReviewHistoryKeysByScope);
     setSavedSelectionLists(savedSelectionLists);
     setBattleResumePositions(normalizeBattleResumePositions(safeLoadJson(STORAGE_KEYS.battleResumePositions, {})));
+    setFinalBossClearCounts(normalizeBattleClearCounts(safeLoadJson(STORAGE_KEYS.finalBossClearCounts, {})));
     reviewQueueRef.current = normalizedReviewQueue;
     localStorage.setItem(STORAGE_KEYS.reviewQueue, JSON.stringify(normalizedReviewQueue));
     setDailyProgress(normalizedDailyProgress);
@@ -4695,6 +4709,18 @@ export default function App() {
     localStorage.setItem(STORAGE_KEYS.battleResumePositions, JSON.stringify(positions));
     // The profile effect saves this alongside the updated victory/learning state.
     // Saving a captured profile here would still contain the previous render's wins.
+  };
+
+  // Called only by the lethal-damage branch, never by rendering a result screen.
+  const recordFinalBossVictory = (): number | undefined => {
+    if (finalBossVictoryRecordedRef.current || !canRecordFinalBossVictory(gameState, sessionWeakQuestionsRef.current !== null)) return;
+    finalBossVictoryRecordedRef.current = true;
+    const scope = finalBossClearScope(gameState.selectedDifficulty, gameState.selectedLevel, gameState.inputMode);
+    const count = Math.min(Number.MAX_SAFE_INTEGER, (finalBossClearCounts[scope] ?? 0) + 1);
+    const counts = { ...finalBossClearCounts, [scope]: count };
+    localStorage.setItem(STORAGE_KEYS.finalBossClearCounts, JSON.stringify(counts));
+    setFinalBossClearCounts(counts);
+    return count;
   };
 
   const isQuestionExcluded = (difficulty: Difficulty, level: Level, question: Question) => (
@@ -6231,6 +6257,8 @@ export default function App() {
   }, [useBattleKeyboardTarget, gameState.currentQuestion, gameState.mode, gameState.inputMode, gameState.screen, gameState.monsterHp, gameState.selectedDifficulty, resetBattleImeState, speakBattleQuestion]);
 
   const saveDefeatedMonster = (monsterId: string) => {
+    const finalBossClearCount = recordFinalBossVictory();
+    if (finalBossClearCount !== undefined) setGameState(prev => ({ ...prev, finalBossClearCount }));
     setGameState(prev => {
       const uniqueKey = getUniqueKey(prev.selectedDifficulty, prev.selectedLevel, prev.mode, prev.inputMode, monsterId);
       if (matchesDefeatedMonster(prev.defeatedMonsterIds, prev.selectedDifficulty, prev.selectedLevel, prev.mode, prev.inputMode, monsterId)) {
@@ -6363,9 +6391,11 @@ export default function App() {
       STORAGE_KEYS.savedSelectionLists,
       STORAGE_KEYS.beginnerBattleProgress,
       STORAGE_KEYS.battleResumePositions,
+      STORAGE_KEYS.finalBossClearCounts,
     ].forEach(key => localStorage.removeItem(key));
     setBestScores({});
     setBattleResumePositions({});
+    setFinalBossClearCounts({});
     setMaxKeystrokes(0);
     setWeakQuestions([]);
     setWeakQuestionStats({});
@@ -6560,6 +6590,7 @@ export default function App() {
     const maxQuestions = battleTuning.maxQuestions;
     const useBossBattleMusic = startingMonster?.type === 'boss' || bossStage > 0;
     if (!startingMonster) return;
+    finalBossVictoryRecordedRef.current = false;
     soundEngine.stopBattleAmbience();
     soundEngine.stopBattleMusic();
     soundEngine.startBattleMusic(
@@ -6596,6 +6627,7 @@ export default function App() {
       monsterHp: startingMonsterHp, maxMonsterHp: startingMonsterHp, score: currentScore, combo: 0,
       currentQuestion: question, userInput: "", startTime: null, history: [], questionCount: 1, maxQuestions,
       battleResult: null, totalMonstersInStage: totalMonsters, isNewRecord: false, missCount: 0, formattingMissCount: 0,
+      finalBossClearCount: undefined,
       totalKeystrokes: currentKeystrokes, hintLength: 0, currentBattleMissedQuestions: [],
       battleLog: [],
       battleStartScore: currentScore,
@@ -10369,6 +10401,7 @@ export default function App() {
                     <span className="journey-mode-clue">{choice.clue}</span>
                     <p>{choice.description}</p>
                     <div className="journey-mode-progress"><Target size={16} /> 撃破 {choice.status.clearedCount} / {choice.status.targetCount}体<span>{choice.status.isComplete ? '再挑戦を続ける' : 'ここから開始'} <ArrowRight size={16} /></span></div>
+                    {isCountedBattle(choice.mode, choice.inputMode) && <FinalBossRecord count={finalBossClearCounts[finalBossClearScope(gameState.selectedDifficulty, gameState.selectedLevel, choice.inputMode)] ?? 0} />}
                   </div>
                 </button>
                 <div className="journey-mode-monster">{choice.status.monster && <MonsterPreview name={choice.status.monster.name}><MonsterAvatar monsterId={choice.status.monster.id} difficulty={gameState.selectedDifficulty} type={choice.status.monster.type} color={choice.status.monster.color} size={124} visualStyle={getMonsterVisualStyle(choice.status.monster)} /></MonsterPreview>}</div>
@@ -10912,6 +10945,7 @@ export default function App() {
             </div>
           </div>
           {gameState.focusedBattle && <p data-focused-battle-result className="text-xs text-cyan-200">{FOCUSED_BATTLE_LABELS[gameState.focusedBattle.kind]} · 今回の絞り込みは終了。次は通常の出題に戻ります。</p>}
+          {isWin && gameState.finalBossClearCount !== undefined && <FinalBossRecord count={gameState.finalBossClearCount} result />}
           <div className="result-layout">
             <aside className="result-actions" aria-label="次の学習と学習記録">
               <section className="result-next-actions" aria-label="次の学習">

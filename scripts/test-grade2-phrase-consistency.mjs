@@ -74,7 +74,12 @@ assert.ok(get('at any cost').related[0].note.includes('関連表現'));
 const protectedNames=['STORAGE_KEYS','normalizePlayerProfiles','normalizePlayerProfileData','getQuestionStatusKey','normalizeReviewQueue','normalizeSelectedQuestionKeysByScope','normalizeSavedSelectionLists','getBattleTuning','handleCorrectAnswer','handleBattleInputValue'];
 const printer=ts.createPrinter({removeComments:true});
 function declarations(source){const ast=ts.createSourceFile('App.tsx',source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX), result=new Map();function visit(node){if(ts.isVariableDeclaration(node)&&ts.isIdentifier(node.name)&&protectedNames.includes(node.name.text))result.set(node.name.text,printer.printNode(ts.EmitHint.Unspecified,node,ast));ts.forEachChild(node,visit);}visit(ast);return result;}
-const now=declarations(fs.readFileSync('src/App.tsx','utf8'));
+// The independently tested replay counter is additive; all pre-existing fields,
+// grading and tuning must still match the released display review exactly.
+const current=fs.readFileSync('src/App.tsx','utf8').replace(/\r\n/g,'\n')
+  .replace("  finalBossClearCounts: 'etyping_final_boss_clear_counts',\n",'')
+  .replace('    finalBossClearCounts: normalizeBattleClearCounts(typedValue.finalBossClearCounts),\n','');
+const now=declarations(current);
 const old=declarations(execFileSync('git',['show','19449cc:src/App.tsx'],{encoding:'utf8',maxBuffer:8000000}));
 assert.equal(now.size,protectedNames.length);assert.deepEqual(now,old,'Saved data, battle balance and grading code unchanged');
 console.log('PASS: all 203 Grade 2 phrases; all 114 hint/feedback links consistent; 24 missing feedbacks restored; all 7,934 identities and out-of-scope displays retained; 10 actual storage/grading functions unchanged.');
