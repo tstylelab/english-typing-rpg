@@ -54,6 +54,7 @@ import AiStudyReviewPanel from './AiStudyReviewPanel';
 import QuestionAiHelp from './QuestionAiHelp';
 import { useBackdropDismiss } from './useBackdropDismiss';
 import { getAutoPlaySpeechFailureMessage, speakAutoPlayEntry } from './autoPlaySpeech';
+import { usePlaybackShortcuts } from './usePlaybackShortcuts';
 import BackupReminder from './BackupReminder';
 import FocusedBattleActions, { FocusedBattleModeActions } from './FocusedBattleActions';
 import { FOCUSED_BATTLE_LABELS, selectFocusedQuestions, type FocusedBattle, type FocusedBattleKind } from './focusedBattle';
@@ -5783,6 +5784,26 @@ export default function App() {
     }));
   }, []);
 
+  const removeCurrentAutoPlayReview = useCallback(() => {
+    if (!isAutoPlaying || !autoPlayNowPlaying) return;
+    const { questionKey, scopeKey } = autoPlayNowPlaying;
+    if (!(markedQuestionKeysByScope[scopeKey] ?? []).includes(questionKey)) return;
+    if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
+    setQuestionMarkedForReview(scopeKey, questionKey, false);
+  }, [isAutoPlaying, autoPlayNowPlaying, markedQuestionKeysByScope, setQuestionMarkedForReview]);
+
+  const pauseAutoPlay = useCallback(() => {
+    stopAutoPlay('停止中です。続きから再生すると、この問題の読み上げの先頭から再開します。', true, true);
+  }, [stopAutoPlay]);
+  const resumeAutoPlay = useCallback(() => { autoPlayResumeRef.current?.(); }, []);
+  const navigateAutoPlay = useCallback((direction: -1 | 1) => { autoPlayNavigateRef.current?.(direction); }, []);
+
+  usePlaybackShortcuts({
+    enabled: gameState.screen === 'question-list' && (playbackPage || wordListToolsOpen) && !playbackSettingsOpen && !showHelp && !showResetConfirm,
+    playing: isAutoPlaying, paused: isAutoPlayPaused,
+    onNavigate: navigateAutoPlay, onPause: pauseAutoPlay, onResume: resumeAutoPlay, onRemoveReview: removeCurrentAutoPlayReview,
+  });
+
   const toggleMarkedQuestion = useCallback((difficulty: Difficulty, level: Level, question: Question) => {
     const scopeKey = getReviewScopeKey(difficulty, level);
     const questionKey = getQuestionStatusKey(difficulty, level, question);
@@ -8689,15 +8710,21 @@ export default function App() {
                       onClick={handleStartAutoPlay}
                       size="sm"
                       className="playback-start"
+                      data-playback-toggle
+                      title="停止後の続きから再生：Space"
+                      aria-keyshortcuts={isAutoPlayPaused ? 'Space' : undefined}
                       disabled={isAutoPlaying || autoPlayPlayableQuestionCount === 0}
                     >
                       <span aria-hidden="true">▶</span><span>{isAutoPlaying ? '連続再生中' : isAutoPlayPaused ? '続きから再生' : 'この設定で再生する'}</span>
                     </GameButton>
                     <GameButton
-                      onClick={() => stopAutoPlay('停止中です。続きから再生すると、この問題の読み上げの先頭から再開します。', true, true)}
+                      onClick={pauseAutoPlay}
                       size="sm"
                       variant="outline"
                       className="playback-stop"
+                      data-playback-toggle
+                      title="停止：Space または Esc"
+                      aria-keyshortcuts="Space Escape"
                       disabled={!isAutoPlaying}
                     >
                       <Square size={16} className="mr-1" /> 停止
@@ -8726,18 +8753,20 @@ export default function App() {
                     <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="問題単位で移動">
                       <button
                         type="button"
-                        onClick={() => autoPlayNavigateRef.current?.(-1)}
+                        onClick={() => navigateAutoPlay(-1)}
                         disabled={!isAutoPlaying}
-                        title="ひとつ前の問題を最初から再生（最初の問題では聞き直し）"
+                        title="←キー：ひとつ前の問題を最初から再生（最初の問題では聞き直し）"
+                        aria-keyshortcuts="ArrowLeft"
                         className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         ← 前の問題
                       </button>
                       <button
                         type="button"
-                        onClick={() => autoPlayNavigateRef.current?.(1)}
+                        onClick={() => navigateAutoPlay(1)}
                         disabled={!isAutoPlaying}
-                        title="今の問題をスキップして次の問題を再生"
+                        title="→キー：今の問題をスキップして次の問題を再生"
+                        aria-keyshortcuts="ArrowRight"
                         className="min-h-10 rounded-md border border-slate-600 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         次の問題 →
@@ -8746,12 +8775,9 @@ export default function App() {
                         <button
                           type="button"
                           disabled={!isAutoPlaying}
-                          onClick={() => {
-                            const { questionKey, scopeKey } = autoPlayNowPlaying;
-                            if (!autoPlayRemoveCurrentRef.current?.(questionKey)) return;
-                            setQuestionMarkedForReview(scopeKey, questionKey, false);
-                          }}
-                          title="この問題を「あとで復習」から外して次へ進みます。今回のリピートでも再生しません。"
+                          onClick={removeCurrentAutoPlayReview}
+                          title="Shift＋Enter：この問題を「あとで復習」から外して次へ進みます。今回のリピートでも再生しません。"
+                          aria-keyshortcuts="Shift+Enter"
                           className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:cursor-not-allowed disabled:opacity-40"
                         >
                           <Bookmark size={14} aria-hidden="true" />復習から外して次へ
@@ -8764,6 +8790,11 @@ export default function App() {
                           setQuestionMarkedForReview(scopeKey, questionKey, true);
                         }} className="inline-flex min-h-10 items-center gap-1 rounded-md border border-yellow-400/50 px-3 py-2 text-sm font-semibold text-yellow-100 hover:bg-yellow-500/15 disabled:opacity-40"><Bookmark size={14} aria-hidden="true" />あとで復習に戻して次へ</button>
                       )}
+                    </div>
+                    <div className="playback-shortcuts" aria-label="連続再生のキーボード操作">
+                      <span><kbd>←</kbd> 前へ</span><span><kbd>→</kbd> 次へ</span>
+                      <span><kbd>Space</kbd> 停止・再開</span><span><kbd>Shift＋Enter</kbd> 復習から外して次へ</span>
+                      <small>再生中に操作できます。設定・入力中は無効です。</small>
                     </div>
                     {displayedAutoPlayQuestion ? (
                       <div className="playback-reading mt-3 space-y-2">
